@@ -2,43 +2,6 @@
 
 # Examples
 
-Droid is a unity package that enables prototyping reinforcement learning environments within the [Unity](https://unity3d.com/) engine and communication to the [Neo](https://github.com/sintefneodroid/neo) counterpart of the [Neodroid](https://github.com/sintefneodroid) platform.
-
-<table>
-  <tr>
-    <td>
-      <a href='https://travis-ci.org/sintefneodroid/droid'>
-        <img src='https://travis-ci.org/sintefneodroid/droid.svg?branch=master' alt='Build Status' />
-      </a>
-    </td>
-    <td>
-      <a href='https://coveralls.io/github/sintefneodroid/droid?branch=master'>
-        <img src='https://coveralls.io/repos/github/sintefneodroid/droid/badge.svg?branch=master' alt='Coverage Status' />
-      </a>
-    </td>
-    <td>
-      <a href='https://github.com/sintefneodroid/droid/issues'>
-        <img src='https://img.shields.io/github/issues/sintefneodroid/droid.svg?style=flat' alt='GitHub Issues' />
-      </a>
-    </td>
-    <td>
-      <a href='https://github.com/sintefneodroid/droid/network'>
-        <img src='https://img.shields.io/github/forks/sintefneodroid/droid.svg?style=flat' alt='GitHub Forks' />
-      </a>
-    </td>
-      <td>
-      <a href='https://github.com/sintefneodroid/droid/stargazers'>
-        <img src='https://img.shields.io/github/stars/sintefneodroid/droid.svg?style=flat' alt='GitHub Stars' />
-      </a>
-    </td>
-      <td>
-      <a href='https://github.com/sintefneodroid/droid/blob/master/LICENSE.md'>
-        <img src='https://img.shields.io/github/license/sintefneodroid/droid.svg?style=flat' alt='GitHub License' />
-      </a>
-    </td>
-  </tr>
-</table>
-
 <p align="center" width="100%">
   <a href="https://unity3d.com/">
     <img alt="unity" src=".github/images/unity.svg" height="40" align="left">
@@ -46,37 +9,13 @@ Droid is a unity package that enables prototyping reinforcement learning environ
   <a href="https://docs.microsoft.com/en-us/dotnet/csharp/index">
     <img alt="csharp" src=".github/images/csharp.svg" height="40" align="center">
   </a>
-  <a href="https://github.com/zeromq/netmq">
-    <img alt="pytorch" src=".github/images/netmq.svg" height="40" align="right">
-  </a>
-</p>
-<p align="center" width="100%">
-  <a href="https://github.com/google/flatbuffers">
-    <img alt="flatbuffers" src=".github/images/flatbuffers.svg" height="40" align="center">
-  </a>
-</p>
-
-This project has similarities with Unity's own project [Unity Machine Learning Agents](https://github.com/Unity-Technologies/ml-agents). Most of the efforts done in this project were made prior to their announcement, [Introducing: Unity Machine Learning Agents](https://blogs.unity3d.com/2017/09/19/introducing-unity-machine-learning-agents/), when the authors was in need of a capable tool. Newcomers wanting a more supported experience may wish to use the [Unity Machine Learning Agents](https://github.com/Unity-Technologies/ml-agents) project instead.
-
-The entire Neodroid platform serves as a tool for academic research specific to the authors interests, hence explaining the existence and future direction of this project.
-
-## Notable Features
-
-- In-editor simulations for ease of debugging
-- Connect multiple external agents (i.e. multiple client computers)
-- Blazing fast serialisation <!-- (see [benchmark](.github/BENCHMARK.MD)) -->
-- Modular unity style component construction of scenes (enables rapid prototyping of complex
-environments and ease of integration with existing projects)
-- Support reverse curriculum generation inherently
-(Ability to reinitialise any previous seen state or configure new ones)
+<p>
 
 ## Usage
 
-- Download the newest Droid.unitypackage from [releases](https://github.com/sintefneodroid/droid/releases) and import into your Unity project.
-
-***Or***
-
-- Acquire the [Droid (Temporarily down)](http://u3d.as/14cC) package from the built-in asset store of the Unity Editor.
+1. ```git clone https://github.com/sintefneodroid/droid```
+2. ```git submodule init && git submodule update && cd Assets/droid && git-lfs pull```
+3. Open the repo folder as an Unity project
 
 ## Demo
 <!--![droid](.github/images/neodroid.png)
@@ -122,15 +61,8 @@ environments and ease of integration with existing projects)
     └── README.md             # The top-level README
 ---
 
-## Quick Development Setup
-1. ```git clone https://github.com/sintefneodroid/droid```
-2. ```git-lfs pull```
-3. Remember to checkout lfs files as well
-4. Open the ```Examples``` folder as a Unity project
 
-### Important Notice for **Windows** Users!
-Run ```fix_windows_symlink.bat``` with administrative privileges, to make Windows recognise the Neodroid symlink in the Unity project of this repository. If on any other platform you should be fine.
-
-# Other Components Of The Neodroid Platform
+# Components Of The Neodroid Platform
 - [agent](https://github.com/sintefneodroid/agent)
 - [neo](https://github.com/sintefneodroid/neo)
+- [droid](https://github.com/sintefneodroid/droid)
