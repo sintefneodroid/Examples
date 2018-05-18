@@ -27,20 +27,20 @@ namespace UnityEditor.Recorder
         {
             base.OnEnable();
 
-            if (target == null)
+            if (this.target == null)
                 return;
 
-            var pf = new PropertyFinder<MediaRecorderSettings>(serializedObject);
-            m_OutputFormat = pf.Find(w => w.m_OutputFormat);
+            var pf = new PropertyFinder<MediaRecorderSettings>(this.serializedObject);
+            this.m_OutputFormat = pf.Find(w => w.m_OutputFormat);
 #if UNITY_2018_1_OR_NEWER
-            m_EncodingBitRateMode = pf.Find(w => w.m_VideoBitRateMode);
+            this.m_EncodingBitRateMode = pf.Find(w => w.m_VideoBitRateMode);
 #endif
         }
 
 #if UNITY_2018_1_OR_NEWER
         protected override void OnEncodingGui()
         {
-            AddProperty(m_EncodingBitRateMode, () => EditorGUILayout.PropertyField(m_EncodingBitRateMode, new GUIContent("Bitrate Mode")));
+            this.AddProperty(this.m_EncodingBitRateMode, () => EditorGUILayout.PropertyField(this.m_EncodingBitRateMode, new GUIContent("Bitrate Mode")));
         }
 #else
         protected override void OnEncodingGroupGui()
@@ -51,7 +51,7 @@ namespace UnityEditor.Recorder
 
         protected override void OnOutputGui()
         {
-            AddProperty(m_OutputFormat, () => EditorGUILayout.PropertyField(m_OutputFormat, new GUIContent("Output format")));
+            this.AddProperty(this.m_OutputFormat, () => EditorGUILayout.PropertyField(this.m_OutputFormat, new GUIContent("Output format")));
 
             base.OnOutputGui();
         }
@@ -65,7 +65,7 @@ namespace UnityEditor.Recorder
 
             if (property.name == "m_AllowTransparency")
             {
-                return (target as MediaRecorderSettings).m_OutputFormat == MediaRecorderOutputFormat.MP4 ? EFieldDisplayState.Disabled : EFieldDisplayState.Enabled;
+                return (this.target as MediaRecorderSettings).m_OutputFormat == MediaRecorderOutputFormat.MP4 ? EFieldDisplayState.Disabled : EFieldDisplayState.Enabled;
             }
 
             return base.GetFieldDisplayState(property);

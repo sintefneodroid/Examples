@@ -14,10 +14,10 @@ namespace UnityEditor.Recorder
 
         protected virtual void AddProperty(SerializedProperty prop, Action action)
         {
-            var state = isFieldAvailableForHost == null ? EFieldDisplayState.Disabled : isFieldAvailableForHost(prop);
+            var state = this.isFieldAvailableForHost == null ? EFieldDisplayState.Disabled : this.isFieldAvailableForHost(prop);
 
             if (state == EFieldDisplayState.Enabled)
-                state = IsFieldAvailable(prop);
+                state = this.IsFieldAvailable(prop);
             if (state != EFieldDisplayState.Hidden)
             {
                 using (new EditorGUI.DisabledScope(state == EFieldDisplayState.Disabled))
@@ -32,12 +32,12 @@ namespace UnityEditor.Recorder
 
         public virtual void OnValidateSettingsGUI()
         {
-            m_SettingsErrors.Clear();
-            if (!(target as Unity_Technologies.Recorder.Framework.Core.Engine.RecorderInputSetting).ValidityCheck(m_SettingsErrors))
+            this.m_SettingsErrors.Clear();
+            if (!(this.target as Unity_Technologies.Recorder.Framework.Core.Engine.RecorderInputSetting).ValidityCheck(this.m_SettingsErrors))
             {
-                for (int i = 0; i < m_SettingsErrors.Count; i++)
+                for (int i = 0; i < this.m_SettingsErrors.Count; i++)
                 {
-                    EditorGUILayout.HelpBox(m_SettingsErrors[i], MessageType.Warning);
+                    EditorGUILayout.HelpBox(this.m_SettingsErrors[i], MessageType.Warning);
                 }
             }
         }

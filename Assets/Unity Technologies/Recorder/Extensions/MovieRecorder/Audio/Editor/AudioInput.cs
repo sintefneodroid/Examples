@@ -69,37 +69,36 @@ namespace UnityEditor.Recorder.Input
 
             public BufferManager(ushort bufferCount, uint sampleFrameCount, ushort channelCount)
             {
-                m_Buffers = new NativeArray<float>[bufferCount];
-                for (int i = 0; i < m_Buffers.Length; ++i)
-                    m_Buffers[i] = new NativeArray<float>((int)sampleFrameCount * (int)channelCount, Allocator.Temp);
+                this.m_Buffers = new NativeArray<float>[bufferCount];
+                for (int i = 0; i < this.m_Buffers.Length; ++i) this.m_Buffers[i] = new NativeArray<float>((int)sampleFrameCount * (int)channelCount, Allocator.Temp);
             }
 
             public NativeArray<float> GetBuffer(int index)
             {
-                return m_Buffers[index];
+                return this.m_Buffers[index];
             }
 
             public void Dispose()
             {
-                foreach (var a in m_Buffers)
+                foreach (var a in this.m_Buffers)
                     a.Dispose();
             }
         }
 
-        public ushort channelCount { get { return m_ChannelCount; } }
+        public ushort channelCount { get { return this.m_ChannelCount; } }
         private ushort m_ChannelCount;
         public int sampleRate { get { return AudioSettings.outputSampleRate; } }
-        public NativeArray<float> mainBuffer { get { return m_BufferManager.GetBuffer(0); } }
+        public NativeArray<float> mainBuffer { get { return this.m_BufferManager.GetBuffer(0); } }
         public NativeArray<float> GetMixerGroupBuffer(int n)
-        { return m_BufferManager.GetBuffer(n + 1); }
+        { return this.m_BufferManager.GetBuffer(n + 1); }
         private BufferManager m_BufferManager;
 
         public AudioInputSettings audioSettings
-        { get { return (AudioInputSettings)settings; } }
+        { get { return (AudioInputSettings)this.settings; } }
 
         public override void BeginRecording(Unity_Technologies.Recorder.Framework.Core.Engine.RecordingSession session)
         {
-            m_ChannelCount = new Func<ushort>(() => {
+            this.m_ChannelCount = new Func<ushort>(() => {
                     switch (AudioSettings.speakerMode)
                     {
                     case AudioSpeakerMode.Mono:        return 1;
@@ -117,19 +116,20 @@ namespace UnityEditor.Recorder.Input
                 Debug.Log(string.Format(
                               "AudioInput.BeginRecording for capture frame rate {0}", Time.captureFramerate));
 
-            if (audioSettings.m_PreserveAudio)
+            if (this.audioSettings.m_PreserveAudio)
                 AudioRenderer.Start();
         }
 
         public override void NewFrameReady(Unity_Technologies.Recorder.Framework.Core.Engine.RecordingSession session)
         {
-            if (!audioSettings.m_PreserveAudio)
+            if (!this.audioSettings.m_PreserveAudio)
                 return;
 
             var sampleFrameCount = (uint)AudioRenderer.GetSampleCountForCaptureFrame();
             if (Unity_Technologies.Recorder.Framework.Core.Engine.Verbose.enabled)
                 Debug.Log(string.Format("AudioInput.NewFrameReady {0} audio sample frames @ {1} ch",
-                                        sampleFrameCount, m_ChannelCount));
+                                        sampleFrameCount,
+                        this.m_ChannelCount));
 
             ushort bufferCount =
 #if RECORD_AUDIO_MIXERS
@@ -139,8 +139,8 @@ namespace UnityEditor.Recorder.Input
 #endif
             ;
 
-            m_BufferManager = new BufferManager(bufferCount, sampleFrameCount, m_ChannelCount);
-            var mainBuffer = m_BufferManager.GetBuffer(0);
+            this.m_BufferManager = new BufferManager(bufferCount, sampleFrameCount, this.m_ChannelCount);
+            var mainBuffer = this.m_BufferManager.GetBuffer(0);
 
 #if RECORD_AUDIO_MIXERS
             for (int n = 1; n < bufferCount; n++)
@@ -159,16 +159,16 @@ namespace UnityEditor.Recorder.Input
 
         public override void FrameDone(Unity_Technologies.Recorder.Framework.Core.Engine.RecordingSession session)
         {
-            if (!audioSettings.m_PreserveAudio)
+            if (!this.audioSettings.m_PreserveAudio)
                 return;
 
-            m_BufferManager.Dispose();
-            m_BufferManager = null;
+            this.m_BufferManager.Dispose();
+            this.m_BufferManager = null;
         }
 
         public override void EndRecording(Unity_Technologies.Recorder.Framework.Core.Engine.RecordingSession session)
         {
-            if (audioSettings.m_PreserveAudio)
+            if (this.audioSettings.m_PreserveAudio)
                 AudioRenderer.Stop();
         }
     }

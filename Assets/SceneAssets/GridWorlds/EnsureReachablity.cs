@@ -15,7 +15,7 @@ using UnityEngine; namespace SceneAssets.GridWorlds {
       throw new System.NotImplementedException ();
     }
 
-    void OnAnimatorIK (Int32 layerIndex) {
+    void OnAnimatorIK (int layerIndex) {
       throw new System.NotImplementedException ();
     }
 
@@ -23,11 +23,11 @@ using UnityEngine; namespace SceneAssets.GridWorlds {
       throw new System.NotImplementedException ();
     }
 
-    void OnApplicationFocus (Boolean hasFocus) {
+    void OnApplicationFocus (bool hasFocus) {
       throw new System.NotImplementedException ();
     }
 
-    void OnApplicationPause (Boolean pauseStatus) {
+    void OnApplicationPause (bool pauseStatus) {
       throw new System.NotImplementedException ();
     }
 
@@ -35,7 +35,7 @@ using UnityEngine; namespace SceneAssets.GridWorlds {
       throw new System.NotImplementedException ();
     }
 
-    void OnAudioFilterRead (Single[] data, Int32 channels) {
+    void OnAudioFilterRead (float[] data, int channels) {
       throw new System.NotImplementedException ();
     }
 
@@ -115,7 +115,7 @@ using UnityEngine; namespace SceneAssets.GridWorlds {
       throw new System.NotImplementedException ();
     }
 
-    void OnJointBreak (Single breakForce) {
+    void OnJointBreak (float breakForce) {
       throw new System.NotImplementedException ();
     }
 

@@ -19,80 +19,79 @@ namespace UnityEditor.Recorder.Input
 
         protected void OnEnable()
         {
-            if (target == null)
+            if (this.target == null)
                 return;
 
-            var pf = new PropertyFinder<Unity_Technologies.Recorder.Framework.Inputs.RenderTextureSampler.Engine.RenderTextureSamplerSettings>(serializedObject);
-            m_Source = pf.Find(w => w.source);
-            m_RenderSize = pf.Find(w => w.m_RenderSize);
-            m_AspectRatio = pf.Find(w => w.m_AspectRatio);
-            m_SuperSampling = pf.Find(w => w.m_SuperSampling);
-            m_FinalSize = pf.Find(w => w.m_OutputSize);
-            m_CameraTag = pf.Find(w => w.m_CameraTag);
-            m_FlipFinalOutput = pf.Find( w => w.m_FlipFinalOutput );
-            m_ResSelector = new ResolutionSelector();
+            var pf = new PropertyFinder<Unity_Technologies.Recorder.Framework.Inputs.RenderTextureSampler.Engine.RenderTextureSamplerSettings>(this.serializedObject);
+            this.m_Source = pf.Find(w => w.source);
+            this.m_RenderSize = pf.Find(w => w.m_RenderSize);
+            this.m_AspectRatio = pf.Find(w => w.m_AspectRatio);
+            this.m_SuperSampling = pf.Find(w => w.m_SuperSampling);
+            this.m_FinalSize = pf.Find(w => w.m_OutputSize);
+            this.m_CameraTag = pf.Find(w => w.m_CameraTag);
+            this.m_FlipFinalOutput = pf.Find( w => w.m_FlipFinalOutput );
+            this.m_ResSelector = new ResolutionSelector();
         }
 
 
         public override void OnInspectorGUI()
         {
-            AddProperty(m_Source, () =>
+            this.AddProperty(
+                    this.m_Source, () =>
             {
                 using (var check = new EditorGUI.ChangeCheckScope())
                 {
-                    if (m_MaskedSourceNames == null)
-                        m_MaskedSourceNames = EnumHelper.MaskOutEnumNames<Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource>((int)m_SupportedSources);
-                    var index = EnumHelper.GetMaskedIndexFromEnumValue<Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource>(m_Source.intValue, (int)m_SupportedSources);
-                    index = EditorGUILayout.Popup("Object(s) of interest", index, m_MaskedSourceNames);
+                    if (this.m_MaskedSourceNames == null) this.m_MaskedSourceNames = EnumHelper.MaskOutEnumNames<Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource>((int)m_SupportedSources);
+                    var index = EnumHelper.GetMaskedIndexFromEnumValue<Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource>(this.m_Source.intValue, (int)m_SupportedSources);
+                    index = EditorGUILayout.Popup("Object(s) of interest", index, this.m_MaskedSourceNames);
 
-                    if (check.changed)
-                        m_Source.intValue = EnumHelper.GetEnumValueFromMaskedIndex<Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource>(index, (int)m_SupportedSources);
+                    if (check.changed) this.m_Source.intValue = EnumHelper.GetEnumValueFromMaskedIndex<Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource>(index, (int)m_SupportedSources);
                 }
             });
             
-            var inputType = (Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource)m_Source.intValue;
+            var inputType = (Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource)this.m_Source.intValue;
 
-            if ((Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource)m_Source.intValue == Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource.TaggedCamera)
+            if ((Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource)this.m_Source.intValue == Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource.TaggedCamera)
             {
                 ++EditorGUI.indentLevel;
-                AddProperty(m_CameraTag, () => EditorGUILayout.PropertyField(m_CameraTag, new GUIContent("Tag")));
+                this.AddProperty(this.m_CameraTag, () => EditorGUILayout.PropertyField(this.m_CameraTag, new GUIContent("Tag")));
                 --EditorGUI.indentLevel;
             }
 
-            AddProperty(m_AspectRatio, () => EditorGUILayout.PropertyField(m_AspectRatio, new GUIContent("Aspect Ratio")));
-            AddProperty(m_SuperSampling, () => EditorGUILayout.PropertyField(m_SuperSampling, new GUIContent("Super sampling")));
+            this.AddProperty(this.m_AspectRatio, () => EditorGUILayout.PropertyField(this.m_AspectRatio, new GUIContent("Aspect Ratio")));
+            this.AddProperty(this.m_SuperSampling, () => EditorGUILayout.PropertyField(this.m_SuperSampling, new GUIContent("Super sampling")));
 
-            var renderSize = m_RenderSize;
-            AddProperty(m_RenderSize, () =>
+            var renderSize = this.m_RenderSize;
+            this.AddProperty(
+                    this.m_RenderSize, () =>
             {
                 
                 if (inputType != Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource.RenderTexture)
                 {
-                    EditorGUILayout.PropertyField(m_RenderSize, new GUIContent("Rendering resolution"));
-                    if (m_FinalSize.intValue > renderSize.intValue)
-                        m_FinalSize.intValue = renderSize.intValue;
+                    EditorGUILayout.PropertyField(this.m_RenderSize, new GUIContent("Rendering resolution"));
+                    if (this.m_FinalSize.intValue > renderSize.intValue) this.m_FinalSize.intValue = renderSize.intValue;
                 }
             });
 
-            AddProperty(m_FinalSize, () =>
+            this.AddProperty(
+                    this.m_FinalSize, () =>
             {
-                m_ResSelector.OnInspectorGUI( (target as Unity_Technologies.Recorder.Framework.Core.Engine.ImageInputSettings).maxSupportedSize, m_FinalSize );
-                if (m_FinalSize.intValue == (int)Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension.Window)
-                    m_FinalSize.intValue = (int)Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension.x720p_HD;
-                if (m_FinalSize.intValue > renderSize.intValue)
-                    renderSize.intValue = m_FinalSize.intValue;
+                this.m_ResSelector.OnInspectorGUI( (this.target as Unity_Technologies.Recorder.Framework.Core.Engine.ImageInputSettings).maxSupportedSize, this.m_FinalSize );
+                if (this.m_FinalSize.intValue == (int)Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension.Window) this.m_FinalSize.intValue = (int)Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension.x720p_HD;
+                if (this.m_FinalSize.intValue > renderSize.intValue)
+                    renderSize.intValue = this.m_FinalSize.intValue;
             });
 
-            EditorGUILayout.PropertyField(m_FlipFinalOutput, new GUIContent("Flip image vertically"));
+            EditorGUILayout.PropertyField(this.m_FlipFinalOutput, new GUIContent("Flip image vertically"));
             if (Unity_Technologies.Recorder.Framework.Core.Engine.Verbose.enabled)
             {
                 using (new EditorGUI.DisabledScope(true))
                 {
-                    EditorGUILayout.TextField("Color Space", (target as Unity_Technologies.Recorder.Framework.Inputs.RenderTextureSampler.Engine.RenderTextureSamplerSettings).m_ColorSpace.ToString());
+                    EditorGUILayout.TextField("Color Space", (this.target as Unity_Technologies.Recorder.Framework.Inputs.RenderTextureSampler.Engine.RenderTextureSamplerSettings).m_ColorSpace.ToString());
                 }
             }
 
-            serializedObject.ApplyModifiedProperties();
+            this.serializedObject.ApplyModifiedProperties();
         }
     }
 

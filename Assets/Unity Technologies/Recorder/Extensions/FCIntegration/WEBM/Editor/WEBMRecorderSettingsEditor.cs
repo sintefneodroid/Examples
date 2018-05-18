@@ -17,27 +17,27 @@ namespace UTJ.FrameCapturer.Recorders
         {
             base.OnEnable();
 
-            if (target == null)
+            if (this.target == null)
                 return;
 
-            var pf = new PropertyFinder<Unity_Technologies.Recorder.Extensions.FCIntegration.WEBM.WEBMRecorderSettings>(serializedObject);
+            var pf = new PropertyFinder<Unity_Technologies.Recorder.Extensions.FCIntegration.WEBM.WEBMRecorderSettings>(this.serializedObject);
             var encoding = pf.Find(w => w.m_WebmEncoderSettings);
-            var settings = target as Unity_Technologies.Recorder.Extensions.FCIntegration.WEBM.WEBMRecorderSettings;
-            m_VideoBitRateMode = encoding.FindPropertyRelative(() => settings.m_WebmEncoderSettings.videoBitrateMode);
-            m_VideoBitRate = encoding.FindPropertyRelative(() => settings.m_WebmEncoderSettings.videoTargetBitrate);            
-            m_VideoMaxTasks = encoding.FindPropertyRelative(() => settings.m_WebmEncoderSettings.videoMaxTasks);   
-            m_VideoEncoder = encoding.FindPropertyRelative(() => settings.m_WebmEncoderSettings.videoEncoder);   
-            m_AutoSelectBR = pf.Find(w => w.m_AutoSelectBR);
+            var settings = this.target as Unity_Technologies.Recorder.Extensions.FCIntegration.WEBM.WEBMRecorderSettings;
+            this.m_VideoBitRateMode = encoding.FindPropertyRelative(() => settings.m_WebmEncoderSettings.videoBitrateMode);
+            this.m_VideoBitRate = encoding.FindPropertyRelative(() => settings.m_WebmEncoderSettings.videoTargetBitrate);
+            this.m_VideoMaxTasks = encoding.FindPropertyRelative(() => settings.m_WebmEncoderSettings.videoMaxTasks);
+            this.m_VideoEncoder = encoding.FindPropertyRelative(() => settings.m_WebmEncoderSettings.videoEncoder);
+            this.m_AutoSelectBR = pf.Find(w => w.m_AutoSelectBR);
         }
 
         protected override void OnEncodingGui()
         {
-            EditorGUILayout.PropertyField( m_VideoEncoder, new GUIContent("Encoder"), true);            
-            EditorGUILayout.PropertyField( m_VideoBitRateMode, new GUIContent("Bitrate mode"), true);   
-            EditorGUILayout.PropertyField( m_AutoSelectBR, new GUIContent("Autoselect bitrate"), true);
-                using (new EditorGUI.DisabledScope(m_AutoSelectBR.boolValue))                        
-            EditorGUILayout.PropertyField( m_VideoBitRate, new GUIContent("Bitrate (bps)"), true);            
-            EditorGUILayout.PropertyField( m_VideoMaxTasks, new GUIContent("Max tasks"), true);    
+            EditorGUILayout.PropertyField(this.m_VideoEncoder, new GUIContent("Encoder"), true);            
+            EditorGUILayout.PropertyField(this.m_VideoBitRateMode, new GUIContent("Bitrate mode"), true);   
+            EditorGUILayout.PropertyField(this.m_AutoSelectBR, new GUIContent("Autoselect bitrate"), true);
+                using (new EditorGUI.DisabledScope(this.m_AutoSelectBR.boolValue))                        
+            EditorGUILayout.PropertyField(this.m_VideoBitRate, new GUIContent("Bitrate (bps)"), true);            
+            EditorGUILayout.PropertyField(this.m_VideoMaxTasks, new GUIContent("Max tasks"), true);    
         }
 
         protected override EFieldDisplayState GetFieldDisplayState( SerializedProperty property)

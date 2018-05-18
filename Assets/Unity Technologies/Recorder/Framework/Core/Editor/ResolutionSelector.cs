@@ -13,22 +13,22 @@ namespace UnityEditor.Recorder
 
         public void OnInspectorGUI(Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension max, SerializedProperty size )
         {
-            if (m_MaskedNames == null || max != m_MaxRes)
+            if (this.m_MaskedNames == null || max != this.m_MaxRes)
             {
-                m_MaskedNames = EnumHelper.ClipOutEnumNames<Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension>((int)Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension.Window, (int)max);
-                m_MaxRes = max;
+                this.m_MaskedNames = EnumHelper.ClipOutEnumNames<Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension>((int)Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension.Window, (int)max);
+                this.m_MaxRes = max;
             }
 
             using (var check = new EditorGUI.ChangeCheckScope())
             {
-                var index = EnumHelper.GetClippedIndexFromEnumValue<Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension>(size.intValue, (int)Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension.Window, (int)m_MaxRes);
-                index = EditorGUILayout.Popup("Output Resolution", index, m_MaskedNames);
+                var index = EnumHelper.GetClippedIndexFromEnumValue<Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension>(size.intValue, (int)Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension.Window, (int)this.m_MaxRes);
+                index = EditorGUILayout.Popup("Output Resolution", index, this.m_MaskedNames);
 
                 if (check.changed)
-                    size.intValue = EnumHelper.GetEnumValueFromClippedIndex<Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension>(index, (int)Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension.Window, (int)m_MaxRes);
+                    size.intValue = EnumHelper.GetEnumValueFromClippedIndex<Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension>(index, (int)Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension.Window, (int)this.m_MaxRes);
 
-                if (size.intValue > (int)m_MaxRes)
-                    size.intValue = (int)m_MaxRes;
+                if (size.intValue > (int)this.m_MaxRes)
+                    size.intValue = (int)this.m_MaxRes;
             }
         }
     }

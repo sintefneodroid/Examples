@@ -18,9 +18,9 @@ namespace UnityEditor.Experimental.Recorder
         {
             var ars = ctx.settings as AnimationRecorderSettings;
 
-            for (int i = 0; i < m_Inputs.Count; ++i)
+            for (int i = 0; i < this.m_Inputs.Count; ++i)
             {
-                var set = (settings.inputsSettings[i] as AnimationInputSettings);
+                var set = (this.settings.inputsSettings[i] as AnimationInputSettings);
                 if (set.enabled)
                 {                  
                     var dir = "Assets/" + ars.outputPath;
@@ -29,12 +29,12 @@ namespace UnityEditor.Experimental.Recorder
                     {
                         dir = dir.Substring(0,idx);
                     }
-                    dir = ReplaceTokens(dir, ars, set);
+                    dir = this.ReplaceTokens(dir, ars, set);
                     Directory.CreateDirectory(dir);
                     
-                    var aInput = m_Inputs[i] as AnimationInput;
+                    var aInput = this.m_Inputs[i] as AnimationInput;
                     AnimationClip clip = new AnimationClip();
-                    var clipName = ReplaceTokens(("Assets/" + ars.outputPath),ars, set)+".anim";
+                    var clipName = this.ReplaceTokens(("Assets/" + ars.outputPath),ars, set)+".anim";
                     clipName = AssetDatabase.GenerateUniqueAssetPath(clipName);
                     AssetDatabase.CreateAsset(clip, clipName);
                     aInput.m_gameObjectRecorder.SaveToClip(clip);
@@ -48,7 +48,7 @@ namespace UnityEditor.Experimental.Recorder
 
         private string ReplaceTokens(string input, AnimationRecorderSettings ars, AnimationInputSettings  ais)
         {
-            var idx = m_Inputs.Select(x => x.settings).ToList().IndexOf(ais);
+            var idx = this.m_Inputs.Select(x => x.settings).ToList().IndexOf(ais);
             return input.Replace(AnimationRecorderSettings.goToken, ais.gameObject.name)
                        .Replace(AnimationRecorderSettings.inputToken,(idx+1).ToString("00"))
                        .Replace(AnimationRecorderSettings.takeToken, ars.take.ToString("000"));

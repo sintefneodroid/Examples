@@ -11,7 +11,7 @@ namespace UnityEditor.Experimental.FrameRecorder.Input
     {
         public override void OnInspectorGUI()
         {
-            var animImputSetting = target as AnimationInputSettings;;
+            var animImputSetting = this.target as AnimationInputSettings;;
                    
             EditorGUI.BeginChangeCheck();
             animImputSetting.gameObject = EditorGUILayout.ObjectField("Game Object",animImputSetting.gameObject, typeof(GameObject), true) as GameObject;
@@ -21,18 +21,18 @@ namespace UnityEditor.Experimental.FrameRecorder.Input
 
                 if (animImputSetting.gameObject != null)
                 {
-                    animImputSetting.bindingTypeName.Add(animImputSetting.gameObject.GetComponent<UnityEngine.Component>().GetType().AssemblyQualifiedName);
+                    animImputSetting.bindingTypeName.Add(animImputSetting.gameObject.GetComponent<Component>().GetType().AssemblyQualifiedName);
                 }
             }
 
             if (animImputSetting.gameObject != null)
             {
-                var compos = animImputSetting.gameObject.GetComponents<UnityEngine.Component>()
+                var compos = animImputSetting.gameObject.GetComponents<Component>()
                     .Where(x => x != null)
                     .Select(x => x.GetType());
                 if (animImputSetting.recursive)
                 {
-                    compos = compos.Union(animImputSetting.gameObject.GetComponentsInChildren<UnityEngine.Component>()
+                    compos = compos.Union(animImputSetting.gameObject.GetComponentsInChildren<Component>()
                         .Where(x => x != null)
                         .Select(x => x.GetType()));
                 }

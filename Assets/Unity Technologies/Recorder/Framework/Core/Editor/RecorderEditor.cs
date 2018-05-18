@@ -24,23 +24,23 @@ namespace UnityEditor.Recorder
 
             public Unity_Technologies.Recorder.Framework.Core.Engine.RecorderInputSetting settingsObj
             {
-                get { return m_SettingsObj; }
+                get { return this.m_SettingsObj; }
                 set
                 {
-                    m_SettingsObj = value;
-                    if (editor != null)
-                        Unity_Technologies.Recorder.Framework.Core.Engine.UnityHelpers.Destroy(editor);
+                    this.m_SettingsObj = value;
+                    if (this.editor != null)
+                        Unity_Technologies.Recorder.Framework.Core.Engine.UnityHelpers.Destroy(this.editor);
 
-                    editor = Editor.CreateEditor(m_SettingsObj) as InputEditor;
-                    if (editor is InputEditor)
-                        (editor as InputEditor).isFieldAvailableForHost = m_Validator;
+                    this.editor = CreateEditor(this.m_SettingsObj) as InputEditor;
+                    if (this.editor is InputEditor)
+                        (this.editor as InputEditor).isFieldAvailableForHost = this.m_Validator;
                 }
             }
 
             public InputEditorState(InputEditor.IsFieldAvailableDelegate validator, Unity_Technologies.Recorder.Framework.Core.Engine.RecorderInputSetting settings)
             {
-                m_Validator = validator;
-                settingsObj = settings;
+                this.m_Validator = validator;
+                this.settingsObj = settings;
             }
         }
 
@@ -66,46 +66,45 @@ namespace UnityEditor.Recorder
 
         protected virtual void OnEnable()
         {
-            if (target != null)
+            if (this.target != null)
             {
-                m_InputEditors = new List<InputEditorState>();
-                m_FrameRateLabels = EnumHelper.MaskOutEnumNames<Unity_Technologies.Recorder.Framework.Core.Engine.EFrameRate>(0xFFFF, (x) => Unity_Technologies.Recorder.Framework.Core.Engine.FrameRateHelper.ToLable((Unity_Technologies.Recorder.Framework.Core.Engine.EFrameRate)x));
+                this.m_InputEditors = new List<InputEditorState>();
+                this.m_FrameRateLabels = EnumHelper.MaskOutEnumNames<Unity_Technologies.Recorder.Framework.Core.Engine.EFrameRate>(0xFFFF, (x) => Unity_Technologies.Recorder.Framework.Core.Engine.FrameRateHelper.ToLable((Unity_Technologies.Recorder.Framework.Core.Engine.EFrameRate)x));
 
-                var pf = new PropertyFinder<Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings>(serializedObject);
-                m_FrameRateMode = pf.Find(x => x.m_FrameRateMode);
-                m_FrameRate = pf.Find(x => x.m_FrameRate);
-                m_DurationMode = pf.Find(x => x.m_DurationMode);
-                m_StartFrame = pf.Find(x => x.m_StartFrame);
-                m_EndFrame = pf.Find(x => x.m_EndFrame);
-                m_StartTime = pf.Find(x => x.m_StartTime);
-                m_EndTime = pf.Find(x => x.m_EndTime);
-                m_SynchFrameRate = pf.Find(x => x.m_SynchFrameRate);
-                m_CaptureEveryNthFrame = pf.Find(x => x.m_CaptureEveryNthFrame);
-                m_FrameRateExact = pf.Find(x => x.m_FrameRateExact);
-                m_DestinationPath = pf.Find(w => w.m_DestinationPath);
-                m_BaseFileName = pf.Find(w => w.m_BaseFileName);
+                var pf = new PropertyFinder<Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings>(this.serializedObject);
+                this.m_FrameRateMode = pf.Find(x => x.m_FrameRateMode);
+                this.m_FrameRate = pf.Find(x => x.m_FrameRate);
+                this.m_DurationMode = pf.Find(x => x.m_DurationMode);
+                this.m_StartFrame = pf.Find(x => x.m_StartFrame);
+                this.m_EndFrame = pf.Find(x => x.m_EndFrame);
+                this.m_StartTime = pf.Find(x => x.m_StartTime);
+                this.m_EndTime = pf.Find(x => x.m_EndTime);
+                this.m_SynchFrameRate = pf.Find(x => x.m_SynchFrameRate);
+                this.m_CaptureEveryNthFrame = pf.Find(x => x.m_CaptureEveryNthFrame);
+                this.m_FrameRateExact = pf.Find(x => x.m_FrameRateExact);
+                this.m_DestinationPath = pf.Find(w => w.m_DestinationPath);
+                this.m_BaseFileName = pf.Find(w => w.m_BaseFileName);
 
-                m_RTInputSelector = new RTInputSelector(target as Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings);
+                this.m_RTInputSelector = new RTInputSelector(this.target as Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings);
 
-                BuildInputEditors();
+                this.BuildInputEditors();
             }
         }
 
         void BuildInputEditors()
         {
-            var rs = target as Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings;
-            if (!rs.inputsSettings.hasBrokenBindings && rs.inputsSettings.Count == m_InputEditors.Count)
+            var rs = this.target as Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings;
+            if (!rs.inputsSettings.hasBrokenBindings && rs.inputsSettings.Count == this.m_InputEditors.Count)
                 return;
 
             if (rs.inputsSettings.hasBrokenBindings)
                 rs.BindSceneInputSettings();
 
-            foreach (var editor in m_InputEditors)
+            foreach (var editor in this.m_InputEditors)
                 Unity_Technologies.Recorder.Framework.Core.Engine.UnityHelpers.Destroy(editor.editor);
-            m_InputEditors.Clear();
+            this.m_InputEditors.Clear();
 
-            foreach (var input in rs.inputsSettings)
-                m_InputEditors.Add(new InputEditorState(GetFieldDisplayState, input) { visible = true });
+            foreach (var input in rs.inputsSettings) this.m_InputEditors.Add(new InputEditorState(this.GetFieldDisplayState, input) { visible = true });
         }
 
         protected virtual void OnDisable() {}
@@ -114,8 +113,8 @@ namespace UnityEditor.Recorder
 
         public bool ValidityCheck(List<string> errors)
         {
-            return (target as Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings).ValidityCheck(errors)
-                && (target as Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings).isPlatformSupported;
+            return (this.target as Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings).ValidityCheck(errors)
+                && (this.target as Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings).isPlatformSupported;
         }
 
         public bool showBounds { get; set; }
@@ -128,63 +127,63 @@ namespace UnityEditor.Recorder
 
         protected virtual void OnGroupGui()
         {
-            OnInputGroupGui();
-            OnOutputGroupGui();
-            OnEncodingGroupGui();
-            OnFrameRateGroupGui();
-            OnBoundsGroupGui();
-            OnExtraGroupsGui();
+            this.OnInputGroupGui();
+            this.OnOutputGroupGui();
+            this.OnEncodingGroupGui();
+            this.OnFrameRateGroupGui();
+            this.OnBoundsGroupGui();
+            this.OnExtraGroupsGui();
         }
 
         public override void OnInspectorGUI()
         {
-            if (target == null)
+            if (this.target == null)
                 return;
 
-            BuildInputEditors();
+            this.BuildInputEditors();
 
             EditorGUI.BeginChangeCheck();
-            serializedObject.Update();
+            this.serializedObject.Update();
 
-            OnGroupGui();
+            this.OnGroupGui();
 
-            serializedObject.ApplyModifiedProperties();
+            this.serializedObject.ApplyModifiedProperties();
 
             EditorGUI.EndChangeCheck();
 
-            (target as Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings).SelfAdjustSettings();
+            (this.target as Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings).SelfAdjustSettings();
 
-            OnValidateSettingsGUI();
+            this.OnValidateSettingsGUI();
         }
 
         public virtual void OnValidateSettingsGUI()
         {
-            m_SettingsErrors.Clear();
-            if (!(target as Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings).ValidityCheck(m_SettingsErrors))
+            this.m_SettingsErrors.Clear();
+            if (!(this.target as Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings).ValidityCheck(this.m_SettingsErrors))
             {
-                for (int i = 0; i < m_SettingsErrors.Count; i++)
+                for (int i = 0; i < this.m_SettingsErrors.Count; i++)
                 {
-                    EditorGUILayout.HelpBox(m_SettingsErrors[i], MessageType.Warning);
+                    EditorGUILayout.HelpBox(this.m_SettingsErrors[i], MessageType.Warning);
                 }
             }
         }
 
         protected void AddInputSettings(Unity_Technologies.Recorder.Framework.Core.Engine.RecorderInputSetting inputSettings)
         {
-            var inputs = (target as Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings).inputsSettings;
+            var inputs = (this.target as Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings).inputsSettings;
             inputs.Add(inputSettings);
-            m_InputEditors.Add(new InputEditorState(GetFieldDisplayState, inputSettings) { visible = true });
+            this.m_InputEditors.Add(new InputEditorState(this.GetFieldDisplayState, inputSettings) { visible = true });
         }
 
         public void ChangeInputSettings(int atIndex, Unity_Technologies.Recorder.Framework.Core.Engine.RecorderInputSetting newSettings)
         {
             if (newSettings != null)
             {
-                var inputs = (target as Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings).inputsSettings;
+                var inputs = (this.target as Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings).inputsSettings;
                 inputs.ReplaceAt(atIndex, newSettings);
-                m_InputEditors[atIndex].settingsObj = newSettings;
+                this.m_InputEditors[atIndex].settingsObj = newSettings;
             }
-            else if (m_InputEditors.Count == 0)
+            else if (this.m_InputEditors.Count == 0)
             {
                 throw new Exception("Source removal not implemented");
             }
@@ -192,7 +191,7 @@ namespace UnityEditor.Recorder
 
         protected virtual void OnInputGui()
         {
-            var inputs = (target as Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings).inputsSettings;
+            var inputs = (this.target as Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings).inputsSettings;
 
             bool multiInputs = inputs.Count > 1;
             for (int i = 0; i < inputs.Count; i++)
@@ -200,11 +199,10 @@ namespace UnityEditor.Recorder
                 if (multiInputs)
                 {
                     EditorGUI.indentLevel++;
-                    m_InputEditors[i].visible = EditorGUILayout.Foldout(m_InputEditors[i].visible, m_InputEditors[i].settingsObj.m_DisplayName ?? "Input " + (i + 1));
+                    this.m_InputEditors[i].visible = EditorGUILayout.Foldout(this.m_InputEditors[i].visible, this.m_InputEditors[i].settingsObj.m_DisplayName ?? "Input " + (i + 1));
                 }
 
-                if (m_InputEditors[i].visible)
-                    OnInputGui(i);
+                if (this.m_InputEditors[i].visible) this.OnInputGui(i);
 
                 if (multiInputs)
                     EditorGUI.indentLevel--;
@@ -213,20 +211,19 @@ namespace UnityEditor.Recorder
 
         protected virtual void OnInputGui(int inputIndex)
         {
-            var inputs = (target as Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings).inputsSettings;
+            var inputs = (this.target as Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings).inputsSettings;
             var input = inputs[inputIndex];
-            if (m_RTInputSelector.OnInputGui(inputIndex, ref input))
-                ChangeInputSettings(inputIndex, input);
+            if (this.m_RTInputSelector.OnInputGui(inputIndex, ref input)) this.ChangeInputSettings(inputIndex, input);
 
-            m_InputEditors[inputIndex].editor.OnInspectorGUI();
-            m_InputEditors[inputIndex].editor.OnValidateSettingsGUI();
+            this.m_InputEditors[inputIndex].editor.OnInspectorGUI();
+            this.m_InputEditors[inputIndex].editor.OnValidateSettingsGUI();
         }
 
         protected virtual void OnOutputGui()
         {
-            AddProperty(m_DestinationPath, () => { EditorGUILayout.PropertyField(m_DestinationPath, new GUIContent("Output path")); });
-            AddProperty(m_BaseFileName, () => { EditorGUILayout.PropertyField(m_BaseFileName, new GUIContent("File name")); });
-            AddProperty(m_CaptureEveryNthFrame, () => EditorGUILayout.PropertyField(m_CaptureEveryNthFrame, new GUIContent("Every n'th frame")));
+            this.AddProperty(this.m_DestinationPath, () => { EditorGUILayout.PropertyField(this.m_DestinationPath, new GUIContent("Output path")); });
+            this.AddProperty(this.m_BaseFileName, () => { EditorGUILayout.PropertyField(this.m_BaseFileName, new GUIContent("File name")); });
+            this.AddProperty(this.m_CaptureEveryNthFrame, () => EditorGUILayout.PropertyField(this.m_CaptureEveryNthFrame, new GUIContent("Every n'th frame")));
         }
 
         protected virtual void OnEncodingGui()
@@ -236,49 +233,50 @@ namespace UnityEditor.Recorder
 
         protected virtual void OnFrameRateGui()
         {
+            this.AddProperty(this.m_FrameRateMode, () => EditorGUILayout.PropertyField(this.m_FrameRateMode, new GUIContent("Constraint Type")));
 
-            AddProperty(m_FrameRateMode, () => EditorGUILayout.PropertyField(m_FrameRateMode, new GUIContent("Constraint Type")));
-
-            AddProperty(m_FrameRateExact, () =>
+            this.AddProperty(
+                    this.m_FrameRateExact, () =>
             {
                 using (var check = new EditorGUI.ChangeCheckScope())
                 {
-                    var label = m_FrameRateMode.intValue == (int)Unity_Technologies.Recorder.Framework.Core.Engine.FrameRateMode.Constant ? "Target fps" : "Max fps";
-                    var index = EnumHelper.GetMaskedIndexFromEnumValue<Unity_Technologies.Recorder.Framework.Core.Engine.EFrameRate>(m_FrameRateExact.intValue, 0xFFFF);
-                    index = EditorGUILayout.Popup(label, index, m_FrameRateLabels);
+                    var label = this.m_FrameRateMode.intValue == (int)Unity_Technologies.Recorder.Framework.Core.Engine.FrameRateMode.Constant ? "Target fps" : "Max fps";
+                    var index = EnumHelper.GetMaskedIndexFromEnumValue<Unity_Technologies.Recorder.Framework.Core.Engine.EFrameRate>(this.m_FrameRateExact.intValue, 0xFFFF);
+                    index = EditorGUILayout.Popup(label, index, this.m_FrameRateLabels);
 
                     if (check.changed)
                     {
-                        m_FrameRateExact.intValue = EnumHelper.GetEnumValueFromMaskedIndex<Unity_Technologies.Recorder.Framework.Core.Engine.EFrameRate>(index, 0xFFFF);
-                        if (m_FrameRateExact.intValue != (int)Unity_Technologies.Recorder.Framework.Core.Engine.EFrameRate.FR_CUSTOM)
-                            m_FrameRate.floatValue = Unity_Technologies.Recorder.Framework.Core.Engine.FrameRateHelper.ToFloat((Unity_Technologies.Recorder.Framework.Core.Engine.EFrameRate)m_FrameRateExact.intValue, m_FrameRate.floatValue);
+                        this.m_FrameRateExact.intValue = EnumHelper.GetEnumValueFromMaskedIndex<Unity_Technologies.Recorder.Framework.Core.Engine.EFrameRate>(index, 0xFFFF);
+                        if (this.m_FrameRateExact.intValue != (int)Unity_Technologies.Recorder.Framework.Core.Engine.EFrameRate.FR_CUSTOM) this.m_FrameRate.floatValue = Unity_Technologies.Recorder.Framework.Core.Engine.FrameRateHelper.ToFloat((Unity_Technologies.Recorder.Framework.Core.Engine.EFrameRate)this.m_FrameRateExact.intValue, this.m_FrameRate.floatValue);
                     }
                 }
             });
 
-            AddProperty(m_FrameRate, () =>
+            this.AddProperty(
+                    this.m_FrameRate, () =>
             {
-                if (m_FrameRateExact.intValue == (int)Unity_Technologies.Recorder.Framework.Core.Engine.EFrameRate.FR_CUSTOM)
+                if (this.m_FrameRateExact.intValue == (int)Unity_Technologies.Recorder.Framework.Core.Engine.EFrameRate.FR_CUSTOM)
                 {
                     ++EditorGUI.indentLevel;
-                    EditorGUILayout.PropertyField(m_FrameRate, new GUIContent("Value"));
+                    EditorGUILayout.PropertyField(this.m_FrameRate, new GUIContent("Value"));
                     --EditorGUI.indentLevel;
                 }
             });
 
-            AddProperty(m_FrameRateMode, () =>
+            this.AddProperty(
+                    this.m_FrameRateMode, () =>
             {
-                if (m_FrameRateMode.intValue == (int)Unity_Technologies.Recorder.Framework.Core.Engine.FrameRateMode.Constant)
-                    EditorGUILayout.PropertyField(m_SynchFrameRate, new GUIContent("Sync. framerate"));
+                if (this.m_FrameRateMode.intValue == (int)Unity_Technologies.Recorder.Framework.Core.Engine.FrameRateMode.Constant)
+                    EditorGUILayout.PropertyField(this.m_SynchFrameRate, new GUIContent("Sync. framerate"));
             });
         }
 
         protected virtual void OnBoundsGui()
         {
-            EditorGUILayout.PropertyField(m_DurationMode, new GUIContent("Mode"));
+            EditorGUILayout.PropertyField(this.m_DurationMode, new GUIContent("Mode"));
 
             ++EditorGUI.indentLevel;
-            switch ((Unity_Technologies.Recorder.Framework.Core.Engine.DurationMode)m_DurationMode.intValue)
+            switch ((Unity_Technologies.Recorder.Framework.Core.Engine.DurationMode)this.m_DurationMode.intValue)
             {
                 case Unity_Technologies.Recorder.Framework.Core.Engine.DurationMode.Manual:
                 {
@@ -286,23 +284,24 @@ namespace UnityEditor.Recorder
                 }
                 case Unity_Technologies.Recorder.Framework.Core.Engine.DurationMode.SingleFrame:
                 {
-                    AddProperty(m_StartFrame, () =>
+                    this.AddProperty(
+                            this.m_StartFrame, () =>
                     {
-                        EditorGUILayout.PropertyField(m_StartFrame, new GUIContent("Frame #"));
-                        m_EndFrame.intValue = m_StartFrame.intValue;
+                        EditorGUILayout.PropertyField(this.m_StartFrame, new GUIContent("Frame #"));
+                        this.m_EndFrame.intValue = this.m_StartFrame.intValue;
                     });
                     break;
                 }
                 case Unity_Technologies.Recorder.Framework.Core.Engine.DurationMode.FrameInterval:
                 {
-                    AddProperty(m_StartFrame, () => EditorGUILayout.PropertyField(m_StartFrame, new GUIContent("First frame")));
-                    AddProperty(m_EndFrame, () => EditorGUILayout.PropertyField(m_EndFrame, new GUIContent("Last frame")));
+                    this.AddProperty(this.m_StartFrame, () => EditorGUILayout.PropertyField(this.m_StartFrame, new GUIContent("First frame")));
+                    this.AddProperty(this.m_EndFrame, () => EditorGUILayout.PropertyField(this.m_EndFrame, new GUIContent("Last frame")));
                     break;
                 }
                 case Unity_Technologies.Recorder.Framework.Core.Engine.DurationMode.TimeInterval:
                 {
-                    AddProperty(m_StartTime, () => EditorGUILayout.PropertyField(m_StartTime, new GUIContent("Start (sec)")));
-                    AddProperty(m_EndFrame, () => EditorGUILayout.PropertyField(m_EndTime, new GUIContent("End (sec)")));
+                    this.AddProperty(this.m_StartTime, () => EditorGUILayout.PropertyField(this.m_StartTime, new GUIContent("Start (sec)")));
+                    this.AddProperty(this.m_EndFrame, () => EditorGUILayout.PropertyField(this.m_EndTime, new GUIContent("End (sec)")));
                     break;
                 }
             }
@@ -311,57 +310,57 @@ namespace UnityEditor.Recorder
 
         protected virtual void OnInputGroupGui()
         {
-            m_FoldoutInput = EditorGUILayout.Foldout(m_FoldoutInput, "Input(s)");
-            if (m_FoldoutInput)
+            this.m_FoldoutInput = EditorGUILayout.Foldout(this.m_FoldoutInput, "Input(s)");
+            if (this.m_FoldoutInput)
             {
                 ++EditorGUI.indentLevel;
-                OnInputGui();
+                this.OnInputGui();
                 --EditorGUI.indentLevel;
             }
         }
 
         protected virtual void OnOutputGroupGui()
         {
-            m_FoldoutOutput = EditorGUILayout.Foldout(m_FoldoutOutput, "Output(s)");
-            if (m_FoldoutOutput)
+            this.m_FoldoutOutput = EditorGUILayout.Foldout(this.m_FoldoutOutput, "Output(s)");
+            if (this.m_FoldoutOutput)
             {
                 ++EditorGUI.indentLevel;
-                OnOutputGui();
+                this.OnOutputGui();
                 --EditorGUI.indentLevel;
             }
         }
 
         protected virtual void OnEncodingGroupGui()
         {
-            m_FoldoutEncoder = EditorGUILayout.Foldout(m_FoldoutEncoder, "Encoding");
-            if (m_FoldoutEncoder)
+            this.m_FoldoutEncoder = EditorGUILayout.Foldout(this.m_FoldoutEncoder, "Encoding");
+            if (this.m_FoldoutEncoder)
             {
                 ++EditorGUI.indentLevel;
-                OnEncodingGui();
+                this.OnEncodingGui();
                 --EditorGUI.indentLevel;
             }
         }
 
         protected virtual void OnFrameRateGroupGui()
         {
-            m_FoldoutTime = EditorGUILayout.Foldout(m_FoldoutTime, "Frame rate");
-            if (m_FoldoutTime)
+            this.m_FoldoutTime = EditorGUILayout.Foldout(this.m_FoldoutTime, "Frame rate");
+            if (this.m_FoldoutTime)
             {
                 ++EditorGUI.indentLevel;
-                OnFrameRateGui();
+                this.OnFrameRateGui();
                 --EditorGUI.indentLevel;
             }
         }
 
         protected virtual void OnBoundsGroupGui()
         {
-            if (showBounds)
+            if (this.showBounds)
             {
-                m_FoldoutBounds = EditorGUILayout.Foldout(m_FoldoutBounds, "Bounds / Limits");
-                if (m_FoldoutBounds)
+                this.m_FoldoutBounds = EditorGUILayout.Foldout(this.m_FoldoutBounds, "Bounds / Limits");
+                if (this.m_FoldoutBounds)
                 {
                     ++EditorGUI.indentLevel;
-                    OnBoundsGui();
+                    this.OnBoundsGui();
                     --EditorGUI.indentLevel;
                 }
             }
@@ -379,7 +378,7 @@ namespace UnityEditor.Recorder
 
         protected void AddProperty(SerializedProperty prop, Action action)
         {
-            var state = GetFieldDisplayState(prop);
+            var state = this.GetFieldDisplayState(prop);
             if (state != EFieldDisplayState.Hidden)
             {
                 using (new EditorGUI.DisabledScope(state == EFieldDisplayState.Disabled))

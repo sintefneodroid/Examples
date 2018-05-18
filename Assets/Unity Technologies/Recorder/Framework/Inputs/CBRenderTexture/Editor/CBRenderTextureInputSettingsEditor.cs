@@ -19,77 +19,77 @@ namespace UnityEditor.Recorder.Input
 
         protected void OnEnable()
         {
-            if (target == null)
+            if (this.target == null)
                 return;
 
 
-            var pf = new PropertyFinder<Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine.CBRenderTextureInputSettings>(serializedObject);
-            m_Source = pf.Find(w => w.source);
-            m_CameraTag = pf.Find(w => w.m_CameraTag);
+            var pf = new PropertyFinder<Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine.CBRenderTextureInputSettings>(this.serializedObject);
+            this.m_Source = pf.Find(w => w.source);
+            this.m_CameraTag = pf.Find(w => w.m_CameraTag);
 
-            m_RenderSize = pf.Find(w => w.m_OutputSize);
-            m_RenderAspect = pf.Find(w => w.m_AspectRatio);
-            m_FlipFinalOutput = pf.Find( w => w.m_FlipFinalOutput );
-            m_Transparency = pf.Find(w => w.m_AllowTransparency);
-            m_CaptureUI = pf.Find(w => w.m_CaptureUI);
+            this.m_RenderSize = pf.Find(w => w.m_OutputSize);
+            this.m_RenderAspect = pf.Find(w => w.m_AspectRatio);
+            this.m_FlipFinalOutput = pf.Find( w => w.m_FlipFinalOutput );
+            this.m_Transparency = pf.Find(w => w.m_AllowTransparency);
+            this.m_CaptureUI = pf.Find(w => w.m_CaptureUI);
 
-            m_ResSelector = new ResolutionSelector();
+            this.m_ResSelector = new ResolutionSelector();
         }
 
         public override void OnInspectorGUI()
         {
-            AddProperty(m_Source, () =>
+            this.AddProperty(
+                    this.m_Source, () =>
             {
                 using (var check = new EditorGUI.ChangeCheckScope())
                 {
-                    if (m_MaskedSourceNames == null)
-                        m_MaskedSourceNames = EnumHelper.MaskOutEnumNames<Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource>((int)m_SupportedSources);
-                    var index = EnumHelper.GetMaskedIndexFromEnumValue<Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource>(m_Source.intValue, (int)m_SupportedSources);
-                    index = EditorGUILayout.Popup("Source", index, m_MaskedSourceNames);
+                    if (this.m_MaskedSourceNames == null) this.m_MaskedSourceNames = EnumHelper.MaskOutEnumNames<Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource>((int)m_SupportedSources);
+                    var index = EnumHelper.GetMaskedIndexFromEnumValue<Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource>(this.m_Source.intValue, (int)m_SupportedSources);
+                    index = EditorGUILayout.Popup("Source", index, this.m_MaskedSourceNames);
 
-                    if (check.changed)
-                        m_Source.intValue = EnumHelper.GetEnumValueFromMaskedIndex<Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource>(index, (int)m_SupportedSources);
+                    if (check.changed) this.m_Source.intValue = EnumHelper.GetEnumValueFromMaskedIndex<Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource>(index, (int)m_SupportedSources);
                 }
             });
 
-            var inputType = (Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource)m_Source.intValue;
-            if ((Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource)m_Source.intValue == Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource.TaggedCamera )
+            var inputType = (Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource)this.m_Source.intValue;
+            if ((Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource)this.m_Source.intValue == Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource.TaggedCamera )
             {
                 ++EditorGUI.indentLevel;
-                AddProperty(m_CameraTag, () => EditorGUILayout.PropertyField(m_CameraTag, new GUIContent("Tag")));
+                this.AddProperty(this.m_CameraTag, () => EditorGUILayout.PropertyField(this.m_CameraTag, new GUIContent("Tag")));
                 --EditorGUI.indentLevel;
             }
 
 
             if (inputType != Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource.RenderTexture)
             {
-                AddProperty(m_RenderSize, () =>
+                this.AddProperty(
+                        this.m_RenderSize, () =>
                 {
-                    m_ResSelector.OnInspectorGUI((target as Unity_Technologies.Recorder.Framework.Core.Engine.ImageInputSettings).maxSupportedSize, m_RenderSize);
+                    this.m_ResSelector.OnInspectorGUI((this.target as Unity_Technologies.Recorder.Framework.Core.Engine.ImageInputSettings).maxSupportedSize, this.m_RenderSize);
                 });
 
-                if (m_RenderSize.intValue > (int)Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension.Window)
+                if (this.m_RenderSize.intValue > (int)Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension.Window)
                 {
-                    AddProperty(m_RenderAspect, () => EditorGUILayout.PropertyField(m_RenderAspect, new GUIContent("Aspect Ratio")));
+                    this.AddProperty(this.m_RenderAspect, () => EditorGUILayout.PropertyField(this.m_RenderAspect, new GUIContent("Aspect Ratio")));
                 }
 
                 if(inputType == Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource.ActiveCameras)
                 {
-                    AddProperty(m_CaptureUI, () => EditorGUILayout.PropertyField(m_CaptureUI, new GUIContent("Capture UI")));
+                    this.AddProperty(this.m_CaptureUI, () => EditorGUILayout.PropertyField(this.m_CaptureUI, new GUIContent("Capture UI")));
                 }
             }
 
-            AddProperty(m_Transparency, () => EditorGUILayout.PropertyField(m_Transparency, new GUIContent("Capture alpha")));
+            this.AddProperty(this.m_Transparency, () => EditorGUILayout.PropertyField(this.m_Transparency, new GUIContent("Capture alpha")));
 
             //if (Verbose.enabled)
             {
                 //using (new EditorGUI.DisabledScope(true))
                 {
-                    EditorGUILayout.PropertyField(m_FlipFinalOutput, new GUIContent("Flip image vertically"));
+                    EditorGUILayout.PropertyField(this.m_FlipFinalOutput, new GUIContent("Flip image vertically"));
                 }
             }
 
-            serializedObject.ApplyModifiedProperties();
+            this.serializedObject.ApplyModifiedProperties();
         }
     }
 }

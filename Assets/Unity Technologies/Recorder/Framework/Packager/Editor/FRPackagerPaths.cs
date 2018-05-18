@@ -14,7 +14,7 @@ namespace UnityEditor.Recorder
 
         public static string GetRecorderVersionFilePath()
         {
-            var dummy = ScriptableObject.CreateInstance<Unity_Technologies.Recorder.Framework.Core.Engine.RecorderVersion>();
+            var dummy = CreateInstance<Unity_Technologies.Recorder.Framework.Core.Engine.RecorderVersion>();
             var path = Application.dataPath + AssetDatabase.GetAssetPath(MonoScript.FromScriptableObject(dummy)).Substring("Assets".Length);
             Unity_Technologies.Recorder.Framework.Core.Engine.UnityHelpers.Destroy(dummy);
             return path;
@@ -22,7 +22,7 @@ namespace UnityEditor.Recorder
 
         public static string GetFrameRecorderPath()
         {
-            var dummy = ScriptableObject.CreateInstance<FRPackagerPaths>();
+            var dummy = CreateInstance<FRPackagerPaths>();
             var path = Application.dataPath + AssetDatabase.GetAssetPath(MonoScript.FromScriptableObject(dummy)).Substring("Assets".Length);
             Unity_Technologies.Recorder.Framework.Core.Engine.UnityHelpers.Destroy(dummy);
 

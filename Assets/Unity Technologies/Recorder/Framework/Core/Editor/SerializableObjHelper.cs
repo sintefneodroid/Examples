@@ -62,7 +62,7 @@ namespace UnityEditor.Recorder
         SerializedObject m_Obj;
         public StructPropertyFinder(SerializedObject obj)
         {
-            m_Obj = obj;
+            this.m_Obj = obj;
         }
 
         public delegate TResult FuncX<TResult>(TType x);
@@ -77,7 +77,7 @@ namespace UnityEditor.Recorder
 
             var name = body.Member.Name;
 
-            return m_Obj.FindProperty(name);
+            return this.m_Obj.FindProperty(name);
         }
 
     }
@@ -87,7 +87,7 @@ namespace UnityEditor.Recorder
         SerializedObject m_Obj;
         public PropertyFinder(SerializedObject obj)
         {
-            m_Obj = obj;
+            this.m_Obj = obj;
         }
 
         public delegate TResult FuncX<TResult>(TType x);
@@ -102,7 +102,7 @@ namespace UnityEditor.Recorder
 
             var name = body.Member.Name;
 
-            return m_Obj.FindProperty(name);
+            return this.m_Obj.FindProperty(name);
         }
 
     }

@@ -19,17 +19,18 @@ namespace UnityEditor.Recorder
 
         public RTInputSelector( Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings recSettings  )
         {
-            m_Groups = new SortedDictionary<int, InputGroup>();
+            this.m_Groups = new SortedDictionary<int, InputGroup>();
             this.recSettings = recSettings;
 
-            AddGroups( recSettings.GetInputGroups() );
+            this.AddGroups( recSettings.GetInputGroups() );
         }
 
         void AddGroups(List<Unity_Technologies.Recorder.Framework.Core.Engine.InputGroupFilter> groups)
         {
             for(int i = 0; i < groups.Count; i++)
             {
-                m_Groups.Add(m_Groups.Count,
+                this.m_Groups.Add(
+                        this.m_Groups.Count,
                     new InputGroup()
                     {
                         title = groups[i].title,
@@ -41,25 +42,25 @@ namespace UnityEditor.Recorder
 
         public bool OnInputGui( int groupIndex, ref Unity_Technologies.Recorder.Framework.Core.Engine.RecorderInputSetting input)
         {
-            if (!m_Groups.ContainsKey(groupIndex))
+            if (!this.m_Groups.ContainsKey(groupIndex))
                 return false;
-            if (m_Groups[groupIndex].types.Length < 2)
+            if (this.m_Groups[groupIndex].types.Length < 2)
                 return false;
 
             int index = 0;
-            for (int i = 0; i < m_Groups[groupIndex].types.Length; i++)
+            for (int i = 0; i < this.m_Groups[groupIndex].types.Length; i++)
             {
-                if (m_Groups[groupIndex].types[i] == input.GetType())
+                if (this.m_Groups[groupIndex].types[i] == input.GetType())
                 {
                     index = i;
                     break;
                 }
             }
-            var newIndex = EditorGUILayout.Popup("Collection method", index, m_Groups[groupIndex].captions);
+            var newIndex = EditorGUILayout.Popup("Collection method", index, this.m_Groups[groupIndex].captions);
 
             if (index != newIndex)
             {
-                input = recSettings.NewInputSettingsObj( m_Groups[groupIndex].types[newIndex], m_Groups[groupIndex].title );
+                input = this.recSettings.NewInputSettingsObj(this.m_Groups[groupIndex].types[newIndex], this.m_Groups[groupIndex].title );
                 return true;
             }
 

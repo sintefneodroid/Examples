@@ -19,7 +19,7 @@ namespace UnityEditor.Experimental.Recorder
         {
             return new List<Unity_Technologies.Recorder.Framework.Core.Engine.RecorderInputSetting>()
             {
-                NewInputSettingsObj<AnimationInputSettings>("Animation") 
+                    this.NewInputSettingsObj<AnimationInputSettings>("Animation") 
             };
         }
         
@@ -52,18 +52,18 @@ namespace UnityEditor.Experimental.Recorder
         {
             var ok = base.ValidityCheck(errors);
 
-            if (inputsSettings == null)
+            if (this.inputsSettings == null)
             {
                 ok = false;
                 errors.Add("Invalid state!");
             }
-            if (!inputsSettings.Cast<AnimationInputSettings>().Any(x => x != null && x.enabled && x.gameObject != null ))
+            if (!this.inputsSettings.Cast<AnimationInputSettings>().Any(x => x != null && x.enabled && x.gameObject != null ))
             {
                 ok = false;
                 errors.Add("No input object set/enabled.");
             }
 
-            if ( string.IsNullOrEmpty(outputPath))
+            if ( string.IsNullOrEmpty(this.outputPath))
             {
                 ok = false;
                 errors.Add("Invalid output path.");

@@ -16,11 +16,11 @@ namespace UnityEditor.Recorder.Input
 
         protected void OnEnable()
         {
-            if (target == null)
+            if (this.target == null)
                 return;
 
-            var pf = new PropertyFinder<AudioInputSettings>(serializedObject);
-            m_PreserveAudio = pf.Find(w => w.m_PreserveAudio);
+            var pf = new PropertyFinder<AudioInputSettings>(this.serializedObject);
+	        this.m_PreserveAudio = pf.Find(w => w.m_PreserveAudio);
 
 #if RECORD_AUDIO_MIXERS
 	    m_AudioMixerGroups = serializedObject.FindProperty<AudioInputSettings>(x => x.m_AudioMixerGroups);
@@ -50,7 +50,7 @@ namespace UnityEditor.Recorder.Input
 
         public override void OnInspectorGUI()
         {
-            EditorGUILayout.PropertyField(m_PreserveAudio, new GUIContent("Capture audio"));
+            EditorGUILayout.PropertyField(this.m_PreserveAudio, new GUIContent("Capture audio"));
 
 #if RECORD_AUDIO_MIXERS
             if (m_AudioMixerGroups != null)
@@ -59,8 +59,8 @@ namespace UnityEditor.Recorder.Input
                 m_AudioMixerGroupsList.DoLayoutList();
             }
 #endif
- 
-            serializedObject.ApplyModifiedProperties();
+
+	        this.serializedObject.ApplyModifiedProperties();
         }
     }
 }

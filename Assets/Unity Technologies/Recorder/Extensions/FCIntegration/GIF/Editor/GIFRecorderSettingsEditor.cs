@@ -9,7 +9,7 @@ namespace UTJ.FrameCapturer.Recorders
     {
         protected override void OnEncodingGroupGui()
         {
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("m_GifEncoderSettings"), new GUIContent("Encoding"), true);
+            EditorGUILayout.PropertyField(this.serializedObject.FindProperty("m_GifEncoderSettings"), new GUIContent("Encoding"), true);
         }
 
         protected override EFieldDisplayState GetFieldDisplayState(SerializedProperty property)

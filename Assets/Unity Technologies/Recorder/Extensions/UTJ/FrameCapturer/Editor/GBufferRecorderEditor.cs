@@ -11,10 +11,10 @@ namespace UTJ.FrameCapturer
         {
             //DrawDefaultInspector();
 
-            var recorder = target as Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.GBufferRecorder;
-            var so = serializedObject;
+            var recorder = this.target as Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.GBufferRecorder;
+            var so = this.serializedObject;
 
-            CommonConfig();
+            this.CommonConfig();
 
             EditorGUILayout.Space();
             EditorGUILayout.LabelField("Capture Components");
@@ -56,12 +56,12 @@ namespace UTJ.FrameCapturer
 
             EditorGUILayout.Space();
 
-            ResolutionControl();
-            FramerateControl();
+            this.ResolutionControl();
+            this.FramerateControl();
 
             EditorGUILayout.Space();
 
-            RecordingControl();
+            this.RecordingControl();
 
             so.ApplyModifiedProperties();
         }

@@ -9,13 +9,13 @@ namespace UTJ.FrameCapturer
     {
         public override void OnInspectorGUI()
         {
-            var so = serializedObject;
+            var so = this.serializedObject;
 
-            CommonConfig();
+            this.CommonConfig();
             EditorGUILayout.Space();
-            FramerateControl();
+            this.FramerateControl();
             EditorGUILayout.Space();
-            RecordingControl();
+            this.RecordingControl();
 
             so.ApplyModifiedProperties();
         }

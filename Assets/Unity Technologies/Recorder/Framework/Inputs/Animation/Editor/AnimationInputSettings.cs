@@ -21,8 +21,8 @@ namespace UnityEditor.Experimental.Recorder.Input
         {
             get
             {
-                var ret = new List<Type>(bindingTypeName.Count);
-                foreach (var t in bindingTypeName)
+                var ret = new List<Type>(this.bindingTypeName.Count);
+                foreach (var t in this.bindingTypeName)
                 {
                     ret.Add( Type.GetType(t));
                 }

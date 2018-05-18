@@ -14,28 +14,30 @@ namespace UnityEditor.Recorder.Input
 
         protected void OnEnable()
         {
-            if (target == null)
+            if (this.target == null)
                 return;
 
-            var pf = new PropertyFinder<Unity_Technologies.Recorder.Framework.Inputs.ScreenCapture.Engine.ScreenCaptureInputSettings>(serializedObject);
-            m_RenderSize = pf.Find(w => w.m_OutputSize);
-            m_RenderAspect = pf.Find(w => w.m_AspectRatio);
+            var pf = new PropertyFinder<Unity_Technologies.Recorder.Framework.Inputs.ScreenCapture.Engine.ScreenCaptureInputSettings>(this.serializedObject);
+            this.m_RenderSize = pf.Find(w => w.m_OutputSize);
+            this.m_RenderAspect = pf.Find(w => w.m_AspectRatio);
 
-            m_ResSelector = new ResolutionSelector();
+            this.m_ResSelector = new ResolutionSelector();
         }
 
         public override void OnInspectorGUI()
         {
-            AddProperty(m_RenderSize, () =>
+            this.AddProperty(
+                    this.m_RenderSize, () =>
             {
-                m_ResSelector.OnInspectorGUI((target as Unity_Technologies.Recorder.Framework.Core.Engine.ImageInputSettings).maxSupportedSize, m_RenderSize);
+                this.m_ResSelector.OnInspectorGUI((this.target as Unity_Technologies.Recorder.Framework.Core.Engine.ImageInputSettings).maxSupportedSize, this.m_RenderSize);
             });
 
-            if (m_RenderSize.intValue > (int)Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension.Window)
+            if (this.m_RenderSize.intValue > (int)Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension.Window)
             {
-                AddProperty(m_RenderAspect, () => EditorGUILayout.PropertyField(m_RenderAspect, new GUIContent("Aspect Ratio")));
+                this.AddProperty(this.m_RenderAspect, () => EditorGUILayout.PropertyField(this.m_RenderAspect, new GUIContent("Aspect Ratio")));
             }
-            serializedObject.ApplyModifiedProperties();
+
+            this.serializedObject.ApplyModifiedProperties();
         }
     }
 }

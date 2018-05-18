@@ -30,7 +30,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine {
       EditorApplication.delayCall += () => PerformAction(enabled);
     }
 
-    [MenuItem(MENU_NAME, false, Int32.MaxValue)]
+    [MenuItem(MENU_NAME, false, int.MaxValue)]
     static void ToggleAction() { PerformAction(!enabled); }
 
     public static void PerformAction(bool newState) {

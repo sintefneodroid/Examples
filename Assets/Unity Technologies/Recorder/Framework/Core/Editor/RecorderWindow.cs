@@ -35,16 +35,16 @@ namespace UnityEditor.Recorder
 
         public void OnEnable()
         {
-            m_recorderSelector = null;
+            this.m_recorderSelector = null;
         }
 
         DateTime m_LastRepaint = DateTime.MinValue;
 
         protected void Update()
         {
-            if (m_State == EState.Recording && (DateTime.Now - m_LastRepaint).TotalMilliseconds > 50)
+            if (this.m_State == EState.Recording && (DateTime.Now - this.m_LastRepaint).TotalMilliseconds > 50)
             {
-                Repaint();
+                this.Repaint();
             }
         }
 
@@ -54,61 +54,60 @@ namespace UnityEditor.Recorder
         {
             try
             {
-                m_ScrollPos = EditorGUILayout.BeginScrollView(m_ScrollPos);
+                this.m_ScrollPos = EditorGUILayout.BeginScrollView(this.m_ScrollPos);
                 try
                 {
-                    m_LastRepaint = DateTime.Now;
+                    this.m_LastRepaint = DateTime.Now;
 
                     // Bug? work arround: on Stop play, Enable is not called.
-                    if (m_Editor != null && m_Editor.target == null)
+                    if (this.m_Editor != null && this.m_Editor.target == null)
                     {
-                        Unity_Technologies.Recorder.Framework.Core.Engine.UnityHelpers.Destroy(m_Editor);
-                        m_Editor = null;
-                        m_recorderSelector = null;
+                        Unity_Technologies.Recorder.Framework.Core.Engine.UnityHelpers.Destroy(this.m_Editor);
+                        this.m_Editor = null;
+                        this.m_recorderSelector = null;
                     }
 
-                    if (m_recorderSelector == null)
+                    if (this.m_recorderSelector == null)
                     {
-                        if (m_WindowSettingsAsset == null)
+                        if (this.m_WindowSettingsAsset == null)
                         {
                             var candidates = AssetDatabase.FindAssets("t:RecorderWindowSettings");
                             if (candidates.Length > 0)
                             {
                                 var path = AssetDatabase.GUIDToAssetPath(candidates[0]);
-                                m_WindowSettingsAsset = AssetDatabase.LoadAssetAtPath<RecorderWindowSettings>(path);
-                                if (m_WindowSettingsAsset == null)
+                                this.m_WindowSettingsAsset = AssetDatabase.LoadAssetAtPath<RecorderWindowSettings>(path);
+                                if (this.m_WindowSettingsAsset == null)
                                 {
                                     AssetDatabase.DeleteAsset(path);
                                 }
                             }
-                            if(m_WindowSettingsAsset == null)
+                            if(this.m_WindowSettingsAsset == null)
                             {
-                                m_WindowSettingsAsset = ScriptableObject.CreateInstance<RecorderWindowSettings>();
-                                AssetDatabase.CreateAsset(m_WindowSettingsAsset, FRPackagerPaths.GetRecorderRootPath() +  "/RecorderWindowSettings.asset");
+                                this.m_WindowSettingsAsset = CreateInstance<RecorderWindowSettings>();
+                                AssetDatabase.CreateAsset(this.m_WindowSettingsAsset, FRPackagerPaths.GetRecorderRootPath() +  "/RecorderWindowSettings.asset");
                                 AssetDatabase.Refresh();
                             }
                         }
 
-                        m_recorderSelector = new RecorderSelector(OnRecorderSelected, false);
-                        m_recorderSelector.Init(m_WindowSettingsAsset.m_Settings, m_Category);
+                        this.m_recorderSelector = new RecorderSelector(this.OnRecorderSelected, false);
+                        this.m_recorderSelector.Init(this.m_WindowSettingsAsset.m_Settings, this.m_Category);
                     }
 
-                    if (m_State == EState.WaitingForPlayModeToStartRecording && EditorApplication.isPlaying)
-                        DelayedStartRecording();
+                    if (this.m_State == EState.WaitingForPlayModeToStartRecording && EditorApplication.isPlaying) this.DelayedStartRecording();
 
-                    using (new EditorGUI.DisabledScope(EditorApplication.isPlaying))
-                        m_recorderSelector.OnGui();
+                    using (new EditorGUI.DisabledScope(EditorApplication.isPlaying)) this.m_recorderSelector.OnGui();
 
-                    if (m_Editor != null)
+                    if (this.m_Editor != null)
                     {
-                        m_Editor.showBounds = true;
+                        this.m_Editor.showBounds = true;
                         using (new EditorGUI.DisabledScope(EditorApplication.isPlaying))
                         {
                             EditorGUILayout.Separator();
-                            m_Editor.OnInspectorGUI();
+                            this.m_Editor.OnInspectorGUI();
                             EditorGUILayout.Separator();
                         }
-                        RecordButtonOnGui();
+
+                        this.RecordButtonOnGui();
                         GUILayout.Space(50);
                     }
                 }
@@ -122,12 +121,12 @@ namespace UnityEditor.Recorder
             }
             catch (Exception ex)
             {
-                if (m_State == EState.Recording)
+                if (this.m_State == EState.Recording)
                 {
                     try
                     {
                         Debug.LogError("Aborting recording due to an exception!\n" + ex.ToString());
-                        StopRecording();
+                        this.StopRecording();
                     }
                     catch (Exception) {}
                 }
@@ -137,7 +136,7 @@ namespace UnityEditor.Recorder
 
                     if (GUILayout.Button("Reset settings to default"))
                     {
-                        ResetSettings();
+                        this.ResetSettings();
                     }                    
                 }
             }
@@ -145,64 +144,61 @@ namespace UnityEditor.Recorder
 
         void ResetSettings()
         {
-            Unity_Technologies.Recorder.Framework.Core.Engine.UnityHelpers.Destroy(m_Editor);
-            m_Editor = null;
-            m_recorderSelector = null;
-            var path = AssetDatabase.GetAssetPath(m_WindowSettingsAsset);
-            Unity_Technologies.Recorder.Framework.Core.Engine.UnityHelpers.Destroy(m_WindowSettingsAsset, true);
+            Unity_Technologies.Recorder.Framework.Core.Engine.UnityHelpers.Destroy(this.m_Editor);
+            this.m_Editor = null;
+            this.m_recorderSelector = null;
+            var path = AssetDatabase.GetAssetPath(this.m_WindowSettingsAsset);
+            Unity_Technologies.Recorder.Framework.Core.Engine.UnityHelpers.Destroy(this.m_WindowSettingsAsset, true);
             AssetDatabase.DeleteAsset(path);
             AssetDatabase.Refresh(ImportAssetOptions.Default);
-            m_WindowSettingsAsset = null;
+            this.m_WindowSettingsAsset = null;
         }
 
         public void OnDestroy()
         {
-            StopRecording();
-            Unity_Technologies.Recorder.Framework.Core.Engine.UnityHelpers.Destroy(m_Editor);
-            m_Editor = null;
+            this.StopRecording();
+            Unity_Technologies.Recorder.Framework.Core.Engine.UnityHelpers.Destroy(this.m_Editor);
+            this.m_Editor = null;
         }
 
         void RecordButtonOnGui()
         {
-            if (m_Editor == null || m_Editor.target == null)
+            if (this.m_Editor == null || this.m_Editor.target == null)
                 return;
 
-            switch (m_State)
+            switch (this.m_State)
             {
                 case EState.Idle:
                 {
                     var errors = new List<string>();
-                    using (new EditorGUI.DisabledScope(!m_Editor.ValidityCheck(errors)))
+                    using (new EditorGUI.DisabledScope(!this.m_Editor.ValidityCheck(errors)))
                     {
-                        if (GUILayout.Button("Start Recording"))
-                            StartRecording();
+                        if (GUILayout.Button("Start Recording")) this.StartRecording();
                     }
                     break;
                 }
                 case EState.WaitingForPlayModeToStartRecording:
                 {
-                    using (new EditorGUI.DisabledScope(Time.frameCount - m_FrameCount < 5))
+                    using (new EditorGUI.DisabledScope(Time.frameCount - this.m_FrameCount < 5))
                     {
-                        if (GUILayout.Button("Stop Recording"))
-                            StopRecording();
+                        if (GUILayout.Button("Stop Recording")) this.StopRecording();
                     }
                     break;
                 }
 
                 case EState.Recording:
                 {
-                    var recorderGO = Unity_Technologies.Recorder.Framework.Core.Engine.SceneHook.FindRecorder((Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings)m_Editor.target);
+                    var recorderGO = Unity_Technologies.Recorder.Framework.Core.Engine.SceneHook.FindRecorder((Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings)this.m_Editor.target);
                     if (recorderGO == null)
                     {
                         GUILayout.Button("Start Recording"); // just to keep the ui system happy.
-                        m_State = EState.Idle;
-                        m_FrameCount = 0;
+                        this.m_State = EState.Idle;
+                        this.m_FrameCount = 0;
                     }
                     else
                     {
-                        if (GUILayout.Button("Stop Recording"))
-                            StopRecording();
-                        UpdateRecordingProgress(recorderGO);
+                        if (GUILayout.Button("Stop Recording")) this.StopRecording();
+                        this.UpdateRecordingProgress(recorderGO);
                     }
                     break;
                 }
@@ -255,25 +251,25 @@ namespace UnityEditor.Recorder
 
         void StartRecording()
         {
-            m_State = EState.WaitingForPlayModeToStartRecording;
+            this.m_State = EState.WaitingForPlayModeToStartRecording;
             Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine.GameViewSize.DisableMaxOnPlay();
             EditorApplication.isPlaying = true;
-            m_FrameCount = Time.frameCount;
+            this.m_FrameCount = Time.frameCount;
             return;
         }
 
         void DelayedStartRecording()
         {
-            StartRecording(true);
+            this.StartRecording(true);
         }
 
         void StartRecording(bool autoExitPlayMode)
         {
-            var settings = (Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings)m_Editor.target;
+            var settings = (Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings)this.m_Editor.target;
             var go = Unity_Technologies.Recorder.Framework.Core.Engine.SceneHook.HookupRecorder();
             var session = new Unity_Technologies.Recorder.Framework.Core.Engine.RecordingSession()
             {
-                m_Recorder = Unity_Technologies.Recorder.Framework.Core.Engine.RecordersInventory.GenerateNewRecorder(m_recorderSelector.selectedRecorder, settings),
+                m_Recorder = Unity_Technologies.Recorder.Framework.Core.Engine.RecordersInventory.GenerateNewRecorder(this.m_recorderSelector.selectedRecorder, settings),
                 m_RecorderGO = go,
             };
 
@@ -282,18 +278,18 @@ namespace UnityEditor.Recorder
             component.autoExitPlayMode = autoExitPlayMode;
 
             if (session.SessionCreated() && session.BeginRecording())
-                m_State = EState.Recording;
+                this.m_State = EState.Recording;
             else
             {
-                StopRecording();
+                this.StopRecording();
             }
         }
 
         void StopRecording()
         {
-            if (m_Editor != null)
+            if (this.m_Editor != null)
             {
-                var settings = (Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings)m_Editor.target;
+                var settings = (Unity_Technologies.Recorder.Framework.Core.Engine.RecorderSettings)this.m_Editor.target;
                 if (settings != null)
                 {
                     var recorderGO = Unity_Technologies.Recorder.Framework.Core.Engine.SceneHook.FindRecorder(settings);
@@ -303,41 +299,41 @@ namespace UnityEditor.Recorder
                     }
                 }
             }
-            m_FrameCount = 0;
-            m_State = EState.Idle;
+
+            this.m_FrameCount = 0;
+            this.m_State = EState.Idle;
         }
 
         public void OnRecorderSelected()
         {
-            if (m_Editor != null)
+            if (this.m_Editor != null)
             {
-                Unity_Technologies.Recorder.Framework.Core.Engine.UnityHelpers.Destroy(m_Editor);
-                m_Editor = null;
+                Unity_Technologies.Recorder.Framework.Core.Engine.UnityHelpers.Destroy(this.m_Editor);
+                this.m_Editor = null;
             }
 
-            if (m_recorderSelector.selectedRecorder == null)
+            if (this.m_recorderSelector.selectedRecorder == null)
                 return;
 
-            m_Category = m_recorderSelector.category;
+            this.m_Category = this.m_recorderSelector.category;
 
-            if (m_WindowSettingsAsset.m_Settings != null 
-                && Unity_Technologies.Recorder.Framework.Core.Engine.RecordersInventory.GetRecorderInfo(m_recorderSelector.selectedRecorder).settingsClass != m_WindowSettingsAsset.m_Settings.GetType())
+            if (this.m_WindowSettingsAsset.m_Settings != null 
+                && Unity_Technologies.Recorder.Framework.Core.Engine.RecordersInventory.GetRecorderInfo(this.m_recorderSelector.selectedRecorder).settingsClass != this.m_WindowSettingsAsset.m_Settings.GetType())
             {
-                CleanupSettingsAsset();
+                this.CleanupSettingsAsset();
             }
 
-            if( m_WindowSettingsAsset.m_Settings == null )
-                m_WindowSettingsAsset.m_Settings = Unity_Technologies.Recorder.Framework.Core.Engine.RecordersInventory.GenerateRecorderInitialSettings(m_WindowSettingsAsset, m_recorderSelector.selectedRecorder );
-            m_Editor = Editor.CreateEditor( m_WindowSettingsAsset.m_Settings ) as RecorderEditor;
+            if(this.m_WindowSettingsAsset.m_Settings == null ) this.m_WindowSettingsAsset.m_Settings = Unity_Technologies.Recorder.Framework.Core.Engine.RecordersInventory.GenerateRecorderInitialSettings(this.m_WindowSettingsAsset, this.m_recorderSelector.selectedRecorder );
+            this.m_Editor = Editor.CreateEditor(this.m_WindowSettingsAsset.m_Settings ) as RecorderEditor;
             AssetDatabase.Refresh();
 
         }
 
         void CleanupSettingsAsset()
         {
-            Unity_Technologies.Recorder.Framework.Core.Engine.UnityHelpers.Destroy(m_WindowSettingsAsset, true);
-            m_WindowSettingsAsset = ScriptableObject.CreateInstance<RecorderWindowSettings>();
-            AssetDatabase.CreateAsset(m_WindowSettingsAsset, FRPackagerPaths.GetRecorderRootPath() +  "/RecorderWindowSettings.asset");
+            Unity_Technologies.Recorder.Framework.Core.Engine.UnityHelpers.Destroy(this.m_WindowSettingsAsset, true);
+            this.m_WindowSettingsAsset = CreateInstance<RecorderWindowSettings>();
+            AssetDatabase.CreateAsset(this.m_WindowSettingsAsset, FRPackagerPaths.GetRecorderRootPath() +  "/RecorderWindowSettings.asset");
             AssetDatabase.Refresh();
         }
 

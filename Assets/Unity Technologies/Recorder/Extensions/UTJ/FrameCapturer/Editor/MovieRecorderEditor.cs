@@ -9,8 +9,8 @@ namespace UTJ.FrameCapturer
     {
         public virtual void VideoConfig()
         {
-            var recorder = target as Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.MovieRecorder;
-            var so = serializedObject;
+            var recorder = this.target as Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.MovieRecorder;
+            var so = this.serializedObject;
 
             EditorGUILayout.PropertyField(so.FindProperty("m_captureTarget"));
             if(recorder.captureTarget == Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.MovieRecorder.CaptureTarget.RenderTexture)
@@ -20,7 +20,7 @@ namespace UTJ.FrameCapturer
                 EditorGUI.indentLevel--;
             }
 
-            ResolutionControl();
+            this.ResolutionControl();
             EditorGUILayout.PropertyField(so.FindProperty("m_captureEveryNthFrame"));
         }
 
@@ -33,20 +33,20 @@ namespace UTJ.FrameCapturer
         {
             //DrawDefaultInspector();
 
-            var recorder = target as Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.MovieRecorder;
-            var so = serializedObject;
+            var recorder = this.target as Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.MovieRecorder;
+            var so = this.serializedObject;
 
-            CommonConfig();
+            this.CommonConfig();
 
             EditorGUILayout.Space();
 
             if (recorder.supportVideo && !recorder.supportAudio)
             {
-                VideoConfig();
+                this.VideoConfig();
             }
             else if (!recorder.supportVideo && recorder.supportAudio)
             {
-                AudioConfig();
+                this.AudioConfig();
             }
             else if (recorder.supportVideo && recorder.supportAudio)
             {
@@ -54,7 +54,7 @@ namespace UTJ.FrameCapturer
                 if (recorder.captureVideo)
                 {
                     EditorGUI.indentLevel++;
-                    VideoConfig();
+                    this.VideoConfig();
                     EditorGUI.indentLevel--;
                 }
                 EditorGUILayout.Space();
@@ -63,15 +63,15 @@ namespace UTJ.FrameCapturer
                 if (recorder.captureAudio)
                 {
                     EditorGUI.indentLevel++;
-                    AudioConfig();
+                    this.AudioConfig();
                     EditorGUI.indentLevel--;
                 }
             }
 
             EditorGUILayout.Space();
-            FramerateControl();
+            this.FramerateControl();
             EditorGUILayout.Space();
-            RecordingControl();
+            this.RecordingControl();
 
             so.ApplyModifiedProperties();
         }

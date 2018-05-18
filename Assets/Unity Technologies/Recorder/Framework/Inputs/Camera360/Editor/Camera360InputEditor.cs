@@ -21,71 +21,75 @@ namespace UnityEditor.Recorder.Input
 
         protected void OnEnable()
         {
-            if (target == null)
+            if (this.target == null)
                 return;
 
-            var pf = new PropertyFinder<Unity_Technologies.Recorder.Framework.Inputs.Camera360.Engine.Camera360InputSettings>(serializedObject);
-            m_Source = pf.Find(w => w.source);
-            m_CameraTag = pf.Find(w => w.m_CameraTag);
+            var pf = new PropertyFinder<Unity_Technologies.Recorder.Framework.Inputs.Camera360.Engine.Camera360InputSettings>(this.serializedObject);
+            this.m_Source = pf.Find(w => w.source);
+            this.m_CameraTag = pf.Find(w => w.m_CameraTag);
 
-            m_StereoSeparation = pf.Find(w => w.m_StereoSeparation);
-            m_FlipFinalOutput = pf.Find( w => w.m_FlipFinalOutput );
-            m_CubeMapSz = pf.Find( w => w.m_MapSize );
-            m_OutputWidth = pf.Find(w => w.m_OutputWidth);
-            m_OutputHeight = pf.Find(w => w.m_OutputHeight);
-            m_RenderStereo = pf.Find(w => w.m_RenderStereo);
+            this.m_StereoSeparation = pf.Find(w => w.m_StereoSeparation);
+            this.m_FlipFinalOutput = pf.Find( w => w.m_FlipFinalOutput );
+            this.m_CubeMapSz = pf.Find( w => w.m_MapSize );
+            this.m_OutputWidth = pf.Find(w => w.m_OutputWidth);
+            this.m_OutputHeight = pf.Find(w => w.m_OutputHeight);
+            this.m_RenderStereo = pf.Find(w => w.m_RenderStereo);
         }
 
         public override void OnInspectorGUI()
         {
-            AddProperty(m_Source, () =>
+            this.AddProperty(
+                    this.m_Source, () =>
             {
                 using (var check = new EditorGUI.ChangeCheckScope())
                 {
-                    if (m_MaskedSourceNames == null)
-                        m_MaskedSourceNames = EnumHelper.MaskOutEnumNames<Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource>((int)m_SupportedSources);
-                    var index = EnumHelper.GetMaskedIndexFromEnumValue<Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource>(m_Source.intValue, (int)m_SupportedSources);
-                    index = EditorGUILayout.Popup("Source", index, m_MaskedSourceNames);
+                    if (this.m_MaskedSourceNames == null) this.m_MaskedSourceNames = EnumHelper.MaskOutEnumNames<Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource>((int)m_SupportedSources);
+                    var index = EnumHelper.GetMaskedIndexFromEnumValue<Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource>(this.m_Source.intValue, (int)m_SupportedSources);
+                    index = EditorGUILayout.Popup("Source", index, this.m_MaskedSourceNames);
 
-                    if (check.changed)
-                        m_Source.intValue = EnumHelper.GetEnumValueFromMaskedIndex<Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource>(index, (int)m_SupportedSources);
+                    if (check.changed) this.m_Source.intValue = EnumHelper.GetEnumValueFromMaskedIndex<Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource>(index, (int)m_SupportedSources);
                 }
             });
 
-            var inputType = (Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource)m_Source.intValue;
-            if ((Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource)m_Source.intValue == Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource.TaggedCamera )
+            var inputType = (Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource)this.m_Source.intValue;
+            if ((Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource)this.m_Source.intValue == Unity_Technologies.Recorder.Framework.Core.Engine.EImageSource.TaggedCamera )
             {
                 ++EditorGUI.indentLevel;
-                AddProperty(m_CameraTag, () => EditorGUILayout.PropertyField(m_CameraTag, new GUIContent("Tag")));
+                this.AddProperty(this.m_CameraTag, () => EditorGUILayout.PropertyField(this.m_CameraTag, new GUIContent("Tag")));
                 --EditorGUI.indentLevel;
             }
 
-            AddProperty(m_OutputWidth, () =>
+            this.AddProperty(
+                    this.m_OutputWidth, () =>
             {
-                AddProperty(m_OutputWidth, () => EditorGUILayout.PropertyField(m_OutputWidth, new GUIContent("Output width")));
+                this.AddProperty(this.m_OutputWidth, () => EditorGUILayout.PropertyField(this.m_OutputWidth, new GUIContent("Output width")));
             });
 
-            AddProperty(m_OutputHeight, () =>
+            this.AddProperty(
+                    this.m_OutputHeight, () =>
             {
-                AddProperty(m_OutputWidth, () => EditorGUILayout.PropertyField(m_OutputHeight, new GUIContent("Output height")));
+                this.AddProperty(this.m_OutputWidth, () => EditorGUILayout.PropertyField(this.m_OutputHeight, new GUIContent("Output height")));
             });
 
-            AddProperty(m_CubeMapSz, () =>
+            this.AddProperty(
+                    this.m_CubeMapSz, () =>
             {
-                AddProperty(m_CubeMapSz, () => EditorGUILayout.PropertyField(m_CubeMapSz, new GUIContent("Cube map width")));
+                this.AddProperty(this.m_CubeMapSz, () => EditorGUILayout.PropertyField(this.m_CubeMapSz, new GUIContent("Cube map width")));
             });
 
-            AddProperty(m_RenderStereo, () =>
+            this.AddProperty(
+                    this.m_RenderStereo, () =>
             {
-                AddProperty(m_RenderStereo, () => EditorGUILayout.PropertyField(m_RenderStereo, new GUIContent("Render in Stereo")));
+                this.AddProperty(this.m_RenderStereo, () => EditorGUILayout.PropertyField(this.m_RenderStereo, new GUIContent("Render in Stereo")));
             });
 
-            AddProperty(m_StereoSeparation, () =>
+            this.AddProperty(
+                    this.m_StereoSeparation, () =>
             {
                 ++EditorGUI.indentLevel;
-                using (new EditorGUI.DisabledScope(!m_RenderStereo.boolValue))
+                using (new EditorGUI.DisabledScope(!this.m_RenderStereo.boolValue))
                 {
-                    AddProperty(m_StereoSeparation, () => EditorGUILayout.PropertyField(m_StereoSeparation, new GUIContent("Stereo Separation")));
+                    this.AddProperty(this.m_StereoSeparation, () => EditorGUILayout.PropertyField(this.m_StereoSeparation, new GUIContent("Stereo Separation")));
                 }
                 --EditorGUI.indentLevel;
             });
@@ -94,11 +98,11 @@ namespace UnityEditor.Recorder.Input
             {
                 using (new EditorGUI.DisabledScope(true))
                 {
-                    EditorGUILayout.PropertyField(m_FlipFinalOutput, new GUIContent("Flip output"));
+                    EditorGUILayout.PropertyField(this.m_FlipFinalOutput, new GUIContent("Flip output"));
                 }
             }
 
-            serializedObject.ApplyModifiedProperties();
+            this.serializedObject.ApplyModifiedProperties();
         }
     }
 }

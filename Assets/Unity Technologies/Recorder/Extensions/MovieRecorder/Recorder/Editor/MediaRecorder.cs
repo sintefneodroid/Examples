@@ -86,25 +86,25 @@ namespace UnityEditor.Recorder
 
             try
             {
-                m_Settings.m_DestinationPath.CreateDirectory();
+                this.m_Settings.m_DestinationPath.CreateDirectory();
             }
             catch (Exception)
             {
-                Debug.LogError(string.Format( "Movie recorder output directory \"{0}\" could not be created.", m_Settings.m_DestinationPath.GetFullPath()));
+                Debug.LogError(string.Format( "Movie recorder output directory \"{0}\" could not be created.", this.m_Settings.m_DestinationPath.GetFullPath()));
                 return false;
             }
 
             int width;
             int height;
-            if (m_Inputs[0] is Unity_Technologies.Recorder.Framework.Inputs.ScreenCapture.Engine.ScreenCaptureInput)
+            if (this.m_Inputs[0] is Unity_Technologies.Recorder.Framework.Inputs.ScreenCapture.Engine.ScreenCaptureInput)
             {
-                var input = (Unity_Technologies.Recorder.Framework.Inputs.ScreenCapture.Engine.ScreenCaptureInput)m_Inputs[0];
+                var input = (Unity_Technologies.Recorder.Framework.Inputs.ScreenCapture.Engine.ScreenCaptureInput)this.m_Inputs[0];
                 width = input.outputWidth;
                 height = input.outputHeight;
             }
             else
             {
-                var input = (Unity_Technologies.Recorder.Framework.Core.Engine.BaseRenderTextureInput)m_Inputs[0];
+                var input = (Unity_Technologies.Recorder.Framework.Core.Engine.BaseRenderTextureInput)this.m_Inputs[0];
                 if (input == null)
                 {
                     if (Unity_Technologies.Recorder.Framework.Core.Engine.Verbose.enabled)
@@ -123,15 +123,15 @@ namespace UnityEditor.Recorder
                 return false;
             }
 
-            if (width > 4096 || height > 2160 && m_Settings.m_OutputFormat == MediaRecorderOutputFormat.MP4)
+            if (width > 4096 || height > 2160 && this.m_Settings.m_OutputFormat == MediaRecorderOutputFormat.MP4)
             {
                 Debug.LogError("Mp4 format does not support requested resolution.");
             }
 
-            var cbRenderTextureInput = m_Inputs[0] as Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine.CBRenderTextureInput;
+            var cbRenderTextureInput = this.m_Inputs[0] as Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine.CBRenderTextureInput;
 
             bool includeAlphaFromTexture = cbRenderTextureInput != null && cbRenderTextureInput.cbSettings.m_AllowTransparency;
-            if (includeAlphaFromTexture && m_Settings.m_OutputFormat == MediaRecorderOutputFormat.MP4)
+            if (includeAlphaFromTexture && this.m_Settings.m_OutputFormat == MediaRecorderOutputFormat.MP4)
             {
                 Debug.LogWarning("Mp4 format does not support alpha.");
                 includeAlphaFromTexture = false;
@@ -144,7 +144,7 @@ namespace UnityEditor.Recorder
                 height = (uint)height,
 #if UNITY_2018_1_OR_NEWER
                 includeAlpha = includeAlphaFromTexture,
-                bitRateMode = (VideoBitrateMode)m_Settings.m_VideoBitRateMode
+                bitRateMode = (VideoBitrateMode)this.m_Settings.m_VideoBitRateMode
 #else
                 includeAlpha = includeAlphaFromTexture
 #endif
@@ -155,12 +155,13 @@ namespace UnityEditor.Recorder
                     string.Format(
                         "MovieRecorder starting to write video {0}x{1}@[{2}/{3}] fps into {4}",
                         width, height, videoAttrs.frameRate.numerator,
-                        videoAttrs.frameRate.denominator, m_Settings.m_DestinationPath.GetFullPath()));
+                        videoAttrs.frameRate.denominator,
+                        this.m_Settings.m_DestinationPath.GetFullPath()));
 
-            var audioInput = (AudioInput)m_Inputs[1];
-            var audioAttrsList = new List<UnityEditor.Media.AudioTrackAttributes>();
+            var audioInput = (AudioInput)this.m_Inputs[1];
+            var audioAttrsList = new List<AudioTrackAttributes>();
             var audioAttrs =
-                new UnityEditor.Media.AudioTrackAttributes()
+                new AudioTrackAttributes()
                 {
                     sampleRate = new MediaRational
                     {
@@ -195,10 +196,10 @@ namespace UnityEditor.Recorder
 
             try
             {
-                var fileName = m_Settings.m_BaseFileName.BuildFileName( session, recordedFramesCount, width, height, m_Settings.m_OutputFormat.ToString().ToLower());
-                var path =  m_Settings.m_DestinationPath.GetFullPath() + "/" + fileName;
+                var fileName = this.m_Settings.m_BaseFileName.BuildFileName( session, this.recordedFramesCount, width, height, this.m_Settings.m_OutputFormat.ToString().ToLower());
+                var path = this.m_Settings.m_DestinationPath.GetFullPath() + "/" + fileName;
 
-                m_Encoder = new UnityEditor.Media.MediaEncoder( path, videoAttrs, audioAttrsList.ToArray() );
+                this.m_Encoder = new MediaEncoder( path, videoAttrs, audioAttrsList.ToArray() );
                 return true;
             }
             catch
@@ -212,34 +213,33 @@ namespace UnityEditor.Recorder
 
         public override void RecordFrame(Unity_Technologies.Recorder.Framework.Core.Engine.RecordingSession session)
         {
-            if (m_Inputs.Count != 2)
+            if (this.m_Inputs.Count != 2)
                 throw new Exception("Unsupported number of sources");
 
             int width;
             int height;
-            if (m_Inputs[0] is Unity_Technologies.Recorder.Framework.Inputs.ScreenCapture.Engine.ScreenCaptureInput)
+            if (this.m_Inputs[0] is Unity_Technologies.Recorder.Framework.Inputs.ScreenCapture.Engine.ScreenCaptureInput)
             {
-                var input = (Unity_Technologies.Recorder.Framework.Inputs.ScreenCapture.Engine.ScreenCaptureInput)m_Inputs[0];
+                var input = (Unity_Technologies.Recorder.Framework.Inputs.ScreenCapture.Engine.ScreenCaptureInput)this.m_Inputs[0];
                 width = input.outputWidth;
                 height = input.outputHeight;
-                m_Encoder.AddFrame(input.image);
+                this.m_Encoder.AddFrame(input.image);
             }
             else
             {
-                var input = (Unity_Technologies.Recorder.Framework.Core.Engine.BaseRenderTextureInput)m_Inputs[0];
+                var input = (Unity_Technologies.Recorder.Framework.Core.Engine.BaseRenderTextureInput)this.m_Inputs[0];
                 width = input.outputWidth;
                 height = input.outputHeight;
 
-                if (!m_ReadBackTexture)
-                    m_ReadBackTexture = new Texture2D(width, height, TextureFormat.RGBA32, false);
+                if (!this.m_ReadBackTexture) this.m_ReadBackTexture = new Texture2D(width, height, TextureFormat.RGBA32, false);
                 var backupActive = RenderTexture.active;
                 RenderTexture.active = input.outputRT;
-                m_ReadBackTexture.ReadPixels(new Rect(0, 0, width, height), 0, 0, false);
-                m_Encoder.AddFrame(m_ReadBackTexture);
+                this.m_ReadBackTexture.ReadPixels(new Rect(0, 0, width, height), 0, 0, false);
+                this.m_Encoder.AddFrame(this.m_ReadBackTexture);
                 RenderTexture.active = backupActive;
             }
 
-            var audioInput = (AudioInput)m_Inputs[1];
+            var audioInput = (AudioInput)this.m_Inputs[1];
             if (!audioInput.audioSettings.m_PreserveAudio)
                 return;
 
@@ -249,20 +249,20 @@ namespace UnityEditor.Recorder
                     m_WavWriters[n].Feed(audioInput.mixerGroupAudioBuffer(n));
 #endif
 
-            m_Encoder.AddSamples(audioInput.mainBuffer);
+            this.m_Encoder.AddSamples(audioInput.mainBuffer);
         }
 
         public override void EndRecording(Unity_Technologies.Recorder.Framework.Core.Engine.RecordingSession session)
         {
             base.EndRecording(session);
-            if (m_Encoder != null)
+            if (this.m_Encoder != null)
             {
-                m_Encoder.Dispose();
-                m_Encoder = null;
+                this.m_Encoder.Dispose();
+                this.m_Encoder = null;
             }
 
             // When adding a file to Unity's assets directory, trigger a refresh so it is detected.
-            if (m_Settings.m_DestinationPath.root == Unity_Technologies.Recorder.Framework.Core.Engine.OutputPath.ERoot.AssetsPath )
+            if (this.m_Settings.m_DestinationPath.root == Unity_Technologies.Recorder.Framework.Core.Engine.OutputPath.ERoot.AssetsPath )
                 AssetDatabase.Refresh();
         }
 

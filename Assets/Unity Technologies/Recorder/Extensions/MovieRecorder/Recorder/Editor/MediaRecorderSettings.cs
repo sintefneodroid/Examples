@@ -19,21 +19,21 @@ namespace UnityEditor.Recorder
     {
         public MediaRecorderOutputFormat m_OutputFormat = MediaRecorderOutputFormat.MP4;
 #if UNITY_2018_1_OR_NEWER
-        public UnityEditor.VideoBitrateMode m_VideoBitRateMode = UnityEditor.VideoBitrateMode.High;
+        public VideoBitrateMode m_VideoBitRateMode = VideoBitrateMode.High;
 #endif
         public bool m_AppendSuffix = false;
 
         MediaRecorderSettings()
         {
-            m_BaseFileName.pattern = "movie.<ext>";
+            this.m_BaseFileName.pattern = "movie.<ext>";
         }
 
         public override List<Unity_Technologies.Recorder.Framework.Core.Engine.RecorderInputSetting> GetDefaultInputSettings()
         {
             return new List<Unity_Technologies.Recorder.Framework.Core.Engine.RecorderInputSetting>()
             {
-                NewInputSettingsObj<Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine.CBRenderTextureInputSettings>("Pixels"),
-                NewInputSettingsObj<AudioInputSettings>("Audio")
+                    this.NewInputSettingsObj<Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine.CBRenderTextureInputSettings>("Pixels"),
+                    this.NewInputSettingsObj<AudioInputSettings>("Audio")
             };
         }
 
@@ -41,12 +41,12 @@ namespace UnityEditor.Recorder
         {
             var ok = base.ValidityCheck(errors);
 
-            if( string.IsNullOrEmpty(m_DestinationPath.GetFullPath() ))
+            if( string.IsNullOrEmpty(this.m_DestinationPath.GetFullPath() ))
             {
                 ok = false;
                 errors.Add("Missing destination path.");
             } 
-            if(  string.IsNullOrEmpty(m_BaseFileName.pattern))
+            if(  string.IsNullOrEmpty(this.m_BaseFileName.pattern))
             {
                 ok = false;
                 errors.Add("missing file name");
@@ -106,15 +106,15 @@ namespace UnityEditor.Recorder
 
         public override bool SelfAdjustSettings()
         {
-            if (inputsSettings.Count == 0 )
+            if (this.inputsSettings.Count == 0 )
                 return false;
 
             var adjusted = false;
 
-            if (inputsSettings[0] is Unity_Technologies.Recorder.Framework.Core.Engine.ImageInputSettings)
+            if (this.inputsSettings[0] is Unity_Technologies.Recorder.Framework.Core.Engine.ImageInputSettings)
             {
-                var iis = (Unity_Technologies.Recorder.Framework.Core.Engine.ImageInputSettings)inputsSettings[0];
-                var maxRes = m_OutputFormat == MediaRecorderOutputFormat.MP4 ? Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension.x2160p_4K : Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension.x4320p_8K;
+                var iis = (Unity_Technologies.Recorder.Framework.Core.Engine.ImageInputSettings)this.inputsSettings[0];
+                var maxRes = this.m_OutputFormat == MediaRecorderOutputFormat.MP4 ? Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension.x2160p_4K : Unity_Technologies.Recorder.Framework.Core.Engine.EImageDimension.x4320p_8K;
                 if (iis.maxSupportedSize != maxRes)
                 {
                     iis.maxSupportedSize = maxRes;

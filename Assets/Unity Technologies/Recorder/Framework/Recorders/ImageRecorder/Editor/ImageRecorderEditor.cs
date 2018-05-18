@@ -18,11 +18,11 @@ namespace UnityEditor.Recorder
         {
             base.OnEnable();
 
-            if (target == null)
+            if (this.target == null)
                 return;
 
-            var pf = new PropertyFinder<Unity_Technologies.Recorder.Framework.Recorders.ImageRecorder.Engine.ImageRecorderSettings>(serializedObject);
-            m_OutputFormat = pf.Find(w => w.m_OutputFormat);
+            var pf = new PropertyFinder<Unity_Technologies.Recorder.Framework.Recorders.ImageRecorder.Engine.ImageRecorderSettings>(this.serializedObject);
+            this.m_OutputFormat = pf.Find(w => w.m_OutputFormat);
         }
 
         protected override void OnEncodingGroupGui()
@@ -32,7 +32,7 @@ namespace UnityEditor.Recorder
 
         protected override void OnOutputGui()
         {
-            AddProperty(m_OutputFormat, () => EditorGUILayout.PropertyField(m_OutputFormat, new GUIContent("Output format")));
+            this.AddProperty(this.m_OutputFormat, () => EditorGUILayout.PropertyField(this.m_OutputFormat, new GUIContent("Output format")));
             base.OnOutputGui();
         }
 
@@ -40,7 +40,7 @@ namespace UnityEditor.Recorder
         {
             if (property.name == "m_AllowTransparency")
             {
-                return (target as Unity_Technologies.Recorder.Framework.Recorders.ImageRecorder.Engine.ImageRecorderSettings).m_OutputFormat == Unity_Technologies.Recorder.Framework.Recorders.ImageRecorder.Engine.PNGRecordeOutputFormat.JPEG ? EFieldDisplayState.Hidden : EFieldDisplayState.Enabled;
+                return (this.target as Unity_Technologies.Recorder.Framework.Recorders.ImageRecorder.Engine.ImageRecorderSettings).m_OutputFormat == Unity_Technologies.Recorder.Framework.Recorders.ImageRecorder.Engine.PNGRecordeOutputFormat.JPEG ? EFieldDisplayState.Hidden : EFieldDisplayState.Enabled;
             }
 
             return base.GetFieldDisplayState(property);

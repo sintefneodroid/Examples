@@ -7,15 +7,15 @@ namespace UTJ.FrameCapturer
     {
         public virtual void CommonConfig()
         {
-            var so = serializedObject;
+            var so = this.serializedObject;
             EditorGUILayout.PropertyField(so.FindProperty("m_outputDir"), true);
             EditorGUILayout.PropertyField(so.FindProperty("m_encoderConfigs"), true);
         }
 
         public virtual void ResolutionControl()
         {
-            var recorder = target as Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.RecorderBase;
-            var so = serializedObject;
+            var recorder = this.target as Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.RecorderBase;
+            var so = this.serializedObject;
 
             EditorGUILayout.PropertyField(so.FindProperty("m_resolution"));
             EditorGUI.indentLevel++;
@@ -32,11 +32,11 @@ namespace UTJ.FrameCapturer
 
         public virtual void FramerateControl()
         {
-            var recorder = target as Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.RecorderBase;
-            var so = serializedObject;
+            var recorder = this.target as Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.RecorderBase;
+            var so = this.serializedObject;
 
             EditorGUILayout.PropertyField(so.FindProperty("m_framerateMode"));
-            if (recorder.framerateMode == Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.MovieRecorder.FrameRateMode.Constant)
+            if (recorder.framerateMode == Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.RecorderBase.FrameRateMode.Constant)
             {
                 EditorGUI.indentLevel++;
                 EditorGUILayout.PropertyField(so.FindProperty("m_targetFramerate"));
@@ -53,8 +53,8 @@ namespace UTJ.FrameCapturer
 
         public virtual void RecordingControl()
         {
-            var recorder = target as Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.RecorderBase;
-            var so = serializedObject;
+            var recorder = this.target as Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.RecorderBase;
+            var so = this.serializedObject;
 
             // capture control
             EditorGUILayout.PropertyField(so.FindProperty("m_captureControl"));

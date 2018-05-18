@@ -5,17 +5,17 @@ namespace UnityEditor.Recorder
 {
     public class AboutBox : EditorWindow
     {
-        [MenuItem("Tools/Recorder/About...", false, Int32.MaxValue)]
+        [MenuItem("Tools/Recorder/About...", false, int.MaxValue)]
         public static void ShowAboutBox()
         {
-            EditorWindow.GetWindowWithRect<AboutBox>(new Rect(100, 100, 550, 330), true, "About Recorder");
+            GetWindowWithRect<AboutBox>(new Rect(100, 100, 550, 330), true, "About Recorder");
         }
 
         GUIContent s_Header;
 
         void OnEnable()
         {
-            s_Header = EditorGUIUtility.IconContent("AboutWindow.MainHeader");
+            this.s_Header = EditorGUIUtility.IconContent("AboutWindow.MainHeader");
         }
 
         public void OnGUI()
@@ -24,7 +24,7 @@ namespace UnityEditor.Recorder
             GUILayout.BeginHorizontal();
             GUILayout.Space(5);
             GUILayout.BeginVertical();
-            GUILayout.Label(s_Header, GUIStyle.none);
+            GUILayout.Label(this.s_Header, GUIStyle.none);
 
             GUILayout.BeginHorizontal();
             GUILayout.Space(52f);
@@ -41,7 +41,7 @@ namespace UnityEditor.Recorder
 
             var text = "The Unity Recorder package is a collection of Recorders that allow in-game capturing of data and saving it. For example; generate an mp4 file from a game session.\r\n\r\nIn support to the recorders, it provides a graphical interface that is used to manually trigger recording sessions, which take care of: entering play mode, recording requested data and exiting play mode when done. It also supports triggering recording sessions from user scripts and timeline tracks.\r\n\r\nThe Recorder is aimed at extensibility and is implemented as a plugin system, where anyone can create new recorders and have them seamlessly integrate into the Unity Recorder ecosystem, while maximizing code reuse.";
 
-            float textWidth = position.width - 10;
+            float textWidth = this.position.width - 10;
             float textHeight = EditorStyles.wordWrappedLabel.CalcHeight(new GUIContent(text), textWidth);
             Rect creditsNamesRect = new Rect(5, 120, textWidth, textHeight);
             GUI.Label(creditsNamesRect, text, EditorStyles.wordWrappedLabel);

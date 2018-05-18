@@ -20,7 +20,7 @@ namespace UnityEditor.Experimental.FrameRecorder
 
         protected override void OnInputGui()
         {
-            var aRecorderSettings = target as AnimationRecorderSettings;
+            var aRecorderSettings = this.target as AnimationRecorderSettings;
             var inputs = aRecorderSettings.inputsSettings;
 
             for (int i = 0; i < inputs.Count; i++)
@@ -58,7 +58,7 @@ namespace UnityEditor.Experimental.FrameRecorder
                    EditorGUILayout.EndHorizontal();
                     if (input.fold)
                     {
-                        OnInputGui(i);
+                        this.OnInputGui(i);
 
                     }
                 }
@@ -78,7 +78,7 @@ namespace UnityEditor.Experimental.FrameRecorder
 
         protected override void OnOutputGui()
         {
-            var aRecorderSettings = target as AnimationRecorderSettings;
+            var aRecorderSettings = this.target as AnimationRecorderSettings;
             aRecorderSettings.outputPath = EditorGUILayout.TextField("Output Path", aRecorderSettings.outputPath);
         }
 
@@ -88,19 +88,19 @@ namespace UnityEditor.Experimental.FrameRecorder
 
         protected override void OnGroupGui()
         {
-            recorderSettings = EditorGUILayout.Foldout(recorderSettings,"Recorder Settings");
-            if (recorderSettings)
+            this.recorderSettings = EditorGUILayout.Foldout(this.recorderSettings,"Recorder Settings");
+            if (this.recorderSettings)
             {
                 using (new EditorGUI.IndentLevelScope(1))
                 {
-                    OnOutputGroupGui();
-                    OnEncodingGroupGui();
-                    OnFrameRateGroupGui();
-                    OnBoundsGroupGui();
+                    this.OnOutputGroupGui();
+                    this.OnEncodingGroupGui();
+                    this.OnFrameRateGroupGui();
+                    this.OnBoundsGroupGui();
                 }
             }
-            
-            OnInputGui();
+
+            this.OnInputGui();
         }
         
     }

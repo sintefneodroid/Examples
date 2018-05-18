@@ -56,7 +56,7 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
     /// 
     /// </summary>
     [SerializeField]
-    Boolean _use_3_d;
+    bool _use_3_d;
 
     // Called at beginning of script execution
     /// <summary>
