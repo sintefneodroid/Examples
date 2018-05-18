@@ -264,8 +264,6 @@ namespace SceneAssets.GridWorlds {
     }
 
     protected override void PreSetup() {
-      base.PreSetup();
-
       var xs = this._grid_size.x;
       var ys = this._grid_size.y;
       var zs = this._grid_size.z;
