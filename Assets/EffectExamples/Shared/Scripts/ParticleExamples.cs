@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace EffectExamples.Shared.Scripts {
-  [System.Serializable]
+  [Serializable]
   public class ParticleExamples {
     public string _Title;
     [TextArea] public string _Description;

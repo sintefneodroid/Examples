@@ -1,4 +1,5 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -85,7 +86,7 @@ namespace TextMesh_Pro.Scripts
 
 
 
-        private TMPro.TMP_Text m_TextComponent;
+        private TMP_Text m_TextComponent;
 
         private Camera m_Camera;
         private Canvas m_Canvas;
@@ -98,10 +99,10 @@ namespace TextMesh_Pro.Scripts
         void Awake()
         {
             // Get a reference to the text component.
-            this.m_TextComponent = this.gameObject.GetComponent<TMPro.TMP_Text>();
+            this.m_TextComponent = this.gameObject.GetComponent<TMP_Text>();
 
             // Get a reference to the camera rendering the text taking into consideration the text component type.
-            if (this.m_TextComponent.GetType() == typeof(TMPro.TextMeshProUGUI))
+            if (this.m_TextComponent.GetType() == typeof(TextMeshProUGUI))
             {
                 this.m_Canvas = this.gameObject.GetComponentInParent<Canvas>();
                 if (this.m_Canvas != null)
@@ -122,20 +123,20 @@ namespace TextMesh_Pro.Scripts
 
         void LateUpdate()
         {
-            if (TMPro.TMP_TextUtilities.IsIntersectingRectTransform(this.m_TextComponent.rectTransform, Input.mousePosition, this.m_Camera))
+            if (TMP_TextUtilities.IsIntersectingRectTransform(this.m_TextComponent.rectTransform, Input.mousePosition, this.m_Camera))
             {
                 #region Example of Character or Sprite Selection
-                int charIndex = TMPro.TMP_TextUtilities.FindIntersectingCharacter(this.m_TextComponent, Input.mousePosition, this.m_Camera, true);
+                int charIndex = TMP_TextUtilities.FindIntersectingCharacter(this.m_TextComponent, Input.mousePosition, this.m_Camera, true);
                 if (charIndex != -1 && charIndex != this.m_lastCharIndex)
                 {
                     this.m_lastCharIndex = charIndex;
 
-                    TMPro.TMP_TextElementType elementType = this.m_TextComponent.textInfo.characterInfo[charIndex].elementType;
+                    TMP_TextElementType elementType = this.m_TextComponent.textInfo.characterInfo[charIndex].elementType;
 
                     // Send event to any event listeners depending on whether it is a character or sprite.
-                    if (elementType == TMPro.TMP_TextElementType.Character) {
+                    if (elementType == TMP_TextElementType.Character) {
                         this.SendOnCharacterSelection(this.m_TextComponent.textInfo.characterInfo[charIndex].character, charIndex);
-                    } else if (elementType == TMPro.TMP_TextElementType.Sprite) {
+                    } else if (elementType == TMP_TextElementType.Sprite) {
                         this.SendOnSpriteSelection(this.m_TextComponent.textInfo.characterInfo[charIndex].character, charIndex);
                     }
                 }
@@ -144,13 +145,13 @@ namespace TextMesh_Pro.Scripts
 
                 #region Example of Word Selection
                 // Check if Mouse intersects any words and if so assign a random color to that word.
-                int wordIndex = TMPro.TMP_TextUtilities.FindIntersectingWord(this.m_TextComponent, Input.mousePosition, this.m_Camera);
+                int wordIndex = TMP_TextUtilities.FindIntersectingWord(this.m_TextComponent, Input.mousePosition, this.m_Camera);
                 if (wordIndex != -1 && wordIndex != this.m_lastWordIndex)
                 {
                     this.m_lastWordIndex = wordIndex;
 
                     // Get the information about the selected word.
-                    TMPro.TMP_WordInfo wInfo = this.m_TextComponent.textInfo.wordInfo[wordIndex];
+                    TMP_WordInfo wInfo = this.m_TextComponent.textInfo.wordInfo[wordIndex];
 
                     // Send the event to any listeners.
                     this.SendOnWordSelection(wInfo.GetWord(), wInfo.firstCharacterIndex, wInfo.characterCount);
@@ -160,13 +161,13 @@ namespace TextMesh_Pro.Scripts
 
                 #region Example of Line Selection
                 // Check if Mouse intersects any words and if so assign a random color to that word.
-                int lineIndex = TMPro.TMP_TextUtilities.FindIntersectingLine(this.m_TextComponent, Input.mousePosition, this.m_Camera);
+                int lineIndex = TMP_TextUtilities.FindIntersectingLine(this.m_TextComponent, Input.mousePosition, this.m_Camera);
                 if (lineIndex != -1 && lineIndex != this.m_lastLineIndex)
                 {
                     this.m_lastLineIndex = lineIndex;
 
                     // Get the information about the selected word.
-                    TMPro.TMP_LineInfo lineInfo = this.m_TextComponent.textInfo.lineInfo[lineIndex];
+                    TMP_LineInfo lineInfo = this.m_TextComponent.textInfo.lineInfo[lineIndex];
 
                     // Send the event to any listeners.
                     char[] buffer = new char[lineInfo.characterCount];
@@ -183,7 +184,7 @@ namespace TextMesh_Pro.Scripts
 
                 #region Example of Link Handling
                 // Check if mouse intersects with any links.
-                int linkIndex = TMPro.TMP_TextUtilities.FindIntersectingLink(this.m_TextComponent, Input.mousePosition, this.m_Camera);
+                int linkIndex = TMP_TextUtilities.FindIntersectingLink(this.m_TextComponent, Input.mousePosition, this.m_Camera);
 
                 // Handle new Link selection.
                 if (linkIndex != -1 && linkIndex != this.m_selectedLink)
@@ -191,7 +192,7 @@ namespace TextMesh_Pro.Scripts
                     this.m_selectedLink = linkIndex;
 
                     // Get information about the link.
-                    TMPro.TMP_LinkInfo linkInfo = this.m_TextComponent.textInfo.linkInfo[linkIndex];
+                    TMP_LinkInfo linkInfo = this.m_TextComponent.textInfo.linkInfo[linkIndex];
 
                     // Send the event to any listeners. 
                     this.SendOnLinkSelection(linkInfo.GetLinkID(), linkInfo.GetLinkText(), linkIndex);

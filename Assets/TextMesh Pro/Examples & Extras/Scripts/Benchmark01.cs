@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 namespace TextMesh_Pro.Scripts
@@ -9,11 +10,11 @@ namespace TextMesh_Pro.Scripts
 
         public int BenchmarkType = 0;
 
-        public TMPro.TMP_FontAsset TMProFont;
+        public TMP_FontAsset TMProFont;
         public Font TextMeshFont;
 
-        private TMPro.TextMeshPro m_textMeshPro;
-        private TMPro.TextContainer m_textContainer;
+        private TextMeshPro m_textMeshPro;
+        private TextContainer m_textContainer;
         private TextMesh m_textMesh;
 
         private const string label01 = "The <#0050FF>count is: </color>{0}";
@@ -34,7 +35,7 @@ namespace TextMesh_Pro.Scripts
 
             if (this.BenchmarkType == 0) // TextMesh Pro Component
             {
-                this.m_textMeshPro = this.gameObject.AddComponent<TMPro.TextMeshPro>();
+                this.m_textMeshPro = this.gameObject.AddComponent<TextMeshPro>();
                 this.m_textMeshPro.autoSizeTextContainer = true;
 
                 //m_textMeshPro.anchorDampening = true;
@@ -47,7 +48,7 @@ namespace TextMesh_Pro.Scripts
                 //m_textMeshPro.fontSharedMaterial = Resources.Load("Fonts & Materials/Anton SDF", typeof(Material)) as Material; // Same as above make sure this material exists.
 
                 this.m_textMeshPro.fontSize = 48;
-                this.m_textMeshPro.alignment = TMPro.TextAlignmentOptions.Center;
+                this.m_textMeshPro.alignment = TextAlignmentOptions.Center;
                 //m_textMeshPro.anchor = AnchorPositions.Center;
                 this.m_textMeshPro.extraPadding = true;
                 //m_textMeshPro.outlineWidth = 0.25f;

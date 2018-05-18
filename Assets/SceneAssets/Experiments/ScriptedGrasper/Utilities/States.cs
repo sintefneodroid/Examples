@@ -1,5 +1,5 @@
 ﻿using System;
-using Neodroid.Utilities;
+using droid.Neodroid.Utilities.Unsorted;
 
 namespace SceneAssets.Experiments.ScriptedGrasper.Utilities {
   #region Enums
@@ -112,7 +112,7 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Utilities {
     }
 
     public MotionState GetMotionState<T>(T[] objects, MotionState previous_state, float sensitivity = 0.1f)
-        where T : Neodroid.Utilities.Unsorted.IMotionTracker {
+        where T : IMotionTracker {
       foreach (var o in objects) {
         if (o.IsInMotion(sensitivity)) {
           return MotionState.Is_moving_;

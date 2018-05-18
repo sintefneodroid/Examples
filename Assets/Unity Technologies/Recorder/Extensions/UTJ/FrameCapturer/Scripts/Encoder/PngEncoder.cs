@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encoder
@@ -33,7 +34,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encod
             if (this.m_ctx)
             {
                 string path = this.m_outPath + "_" + this.m_frame.ToString("0000") + ".png";
-                int channels = System.Math.Min(this.m_config.channels, (int)format & 7);
+                int channels = Math.Min(this.m_config.channels, (int)format & 7);
                 fcAPI.fcPngExportPixels(this.m_ctx, path, frame, this.m_config.width, this.m_config.height, format, channels);
             }
             ++this.m_frame;

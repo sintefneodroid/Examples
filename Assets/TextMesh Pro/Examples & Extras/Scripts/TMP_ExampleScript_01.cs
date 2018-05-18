@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 namespace TextMesh_Pro.Scripts
 {
@@ -10,7 +11,7 @@ namespace TextMesh_Pro.Scripts
         public objectType ObjectType;
         public bool isStatic;
 
-        private TMPro.TMP_Text m_text;
+        private TMP_Text m_text;
 
         //private TMP_InputField m_inputfield;
 
@@ -23,13 +24,13 @@ namespace TextMesh_Pro.Scripts
             // Get a reference to the TMP text component if one already exists otherwise add one.
             // This example show the convenience of having both TMP components derive from TMP_Text. 
             if (this.ObjectType == 0) {
-                this.m_text = this.GetComponent<TMPro.TextMeshPro>() ?? this.gameObject.AddComponent<TMPro.TextMeshPro>();
+                this.m_text = this.GetComponent<TextMeshPro>() ?? this.gameObject.AddComponent<TextMeshPro>();
             } else {
-                this.m_text = this.GetComponent<TMPro.TextMeshProUGUI>() ?? this.gameObject.AddComponent<TMPro.TextMeshProUGUI>();
+                this.m_text = this.GetComponent<TextMeshProUGUI>() ?? this.gameObject.AddComponent<TextMeshProUGUI>();
             }
 
             // Load a new font asset and assign it to the text object.
-            this.m_text.font = Resources.Load<TMPro.TMP_FontAsset>("Fonts & Materials/Anton SDF");
+            this.m_text.font = Resources.Load<TMP_FontAsset>("Fonts & Materials/Anton SDF");
 
             // Load a new material preset which was created with the context menu duplicate.
             this.m_text.fontSharedMaterial = Resources.Load<Material>("Fonts & Materials/Anton SDF - Drop Shadow");

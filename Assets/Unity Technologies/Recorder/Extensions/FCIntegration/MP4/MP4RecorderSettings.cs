@@ -1,13 +1,16 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encoder;
+using Unity_Technologies.Recorder.Framework.Core.Engine;
+using Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine;
 
 namespace Unity_Technologies.Recorder.Extensions.FCIntegration.MP4
 {
     [ExecuteInEditMode]
     public class MP4RecorderSettings : BaseFCRecorderSettings
     {
-        public UTJ.FrameCapturer.Scripts.Encoder.fcAPI.fcMP4Config m_MP4EncoderSettings = UTJ.FrameCapturer.Scripts.Encoder.fcAPI.fcMP4Config.default_value;
+        public fcAPI.fcMP4Config m_MP4EncoderSettings = fcAPI.fcMP4Config.default_value;
         public bool m_AutoSelectBR;
 
         MP4RecorderSettings()
@@ -16,20 +19,20 @@ namespace Unity_Technologies.Recorder.Extensions.FCIntegration.MP4
             this.m_AutoSelectBR = true;
         }
 
-        public override List<Framework.Core.Engine.RecorderInputSetting> GetDefaultInputSettings()
+        public override List<RecorderInputSetting> GetDefaultInputSettings()
         {
-            return new List<Framework.Core.Engine.RecorderInputSetting>()
+            return new List<RecorderInputSetting>()
             {
-                this.NewInputSettingsObj<Framework.Inputs.CBRenderTexture.Engine.CBRenderTextureInputSettings>("Pixels") 
+                this.NewInputSettingsObj<CBRenderTextureInputSettings>("Pixels") 
             };
         }
 
-        public override Framework.Core.Engine.RecorderInputSetting NewInputSettingsObj(Type type, string title )
+        public override RecorderInputSetting NewInputSettingsObj(Type type, string title )
         {
             var obj = base.NewInputSettingsObj(type, title);
-            if (type == typeof(Framework.Inputs.CBRenderTexture.Engine.CBRenderTextureInputSettings))
+            if (type == typeof(CBRenderTextureInputSettings))
             {
-                var settings = (Framework.Inputs.CBRenderTexture.Engine.CBRenderTextureInputSettings)obj;
+                var settings = (CBRenderTextureInputSettings)obj;
                 settings.m_ForceEvenSize = true;
                 settings.m_FlipFinalOutput = true;
             }
@@ -52,12 +55,12 @@ namespace Unity_Technologies.Recorder.Extensions.FCIntegration.MP4
 
             var adjusted = false;
 
-            if (this.inputsSettings[0] is Framework.Core.Engine.ImageInputSettings)
+            if (this.inputsSettings[0] is ImageInputSettings)
             {
-                var iis = (Framework.Core.Engine.ImageInputSettings)this.inputsSettings[0];
-                if (iis.maxSupportedSize != Framework.Core.Engine.EImageDimension.x2160p_4K)
+                var iis = (ImageInputSettings)this.inputsSettings[0];
+                if (iis.maxSupportedSize != EImageDimension.x2160p_4K)
                 {
-                    iis.maxSupportedSize = Framework.Core.Engine.EImageDimension.x2160p_4K;
+                    iis.maxSupportedSize = EImageDimension.x2160p_4K;
                     adjusted = true;
                 }
             }

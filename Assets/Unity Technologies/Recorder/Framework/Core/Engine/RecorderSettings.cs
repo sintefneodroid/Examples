@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Unity_Technologies.Recorder.Framework.Core.Engine
 {
@@ -61,14 +62,14 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
     /// - Some of the fields in this class actually don't apply to ALL recorders but are so common that they are included 
     ///   here for convenience.
     /// </summary>    
-    [UnityEngine.ExecuteInEditMode]
-    public abstract class RecorderSettings : UnityEngine.ScriptableObject
+    [ExecuteInEditMode]
+    public abstract class RecorderSettings : ScriptableObject
     {
-        [UnityEngine.SerializeField]
+        [SerializeField]
         string m_AssetID;
         public int m_CaptureEveryNthFrame = 1;
         public FrameRateMode m_FrameRateMode = FrameRateMode.Constant;
-        [UnityEngine.Range(1, 120)]
+        [Range(1, 120)]
         public double m_FrameRate = 30.0;
         public EFrameRate m_FrameRateExact = EFrameRate.FR_CUSTOM;
         public int m_StartFrame;
@@ -80,7 +81,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
         public FileNameGenerator m_BaseFileName;
         public OutputPath m_DestinationPath;
 
-        [UnityEngine.SerializeField]
+        [SerializeField]
         private InputSettingsList m_InputsSettings = new InputSettingsList();
 
         public InputSettingsList inputsSettings
@@ -89,7 +90,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
         }
 
 
-        [UnityEngine.SerializeField]
+        [SerializeField]
         string m_RecorderTypeName;
 
         public string assetID
@@ -186,7 +187,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
 #endif
 
             if (this.m_InputsSettings.hasBrokenBindings)
-                UnityEngine.Debug.LogError("Recorder: missing input settings");
+                Debug.LogError("Recorder: missing input settings");
         }
 
         public virtual void OnDestroy()
@@ -204,7 +205,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
 
         public virtual RecorderInputSetting NewInputSettingsObj(Type type, string title)
         {
-            var obj = (RecorderInputSetting)UnityEngine.ScriptableObject.CreateInstance(type);
+            var obj = (RecorderInputSetting)CreateInstance(type);
             obj.m_DisplayName = title;
             obj.name = Guid.NewGuid().ToString();
             return obj;

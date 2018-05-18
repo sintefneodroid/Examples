@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
 
@@ -17,7 +18,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine {
         m_cachedState = value;
         var go = SceneHook.GetGameObject(false);
         if (go != null) {
-          go.hideFlags = value ? UnityEngine.HideFlags.None : UnityEngine.HideFlags.HideInHierarchy;
+          go.hideFlags = value ? HideFlags.None : HideFlags.HideInHierarchy;
         }
       }
     }

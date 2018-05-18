@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Neodroid.Environments;
-using Neodroid.Prototyping.Evaluation;
-using Neodroid.Prototyping.Observers;
-using Neodroid.Utilities;
-using Neodroid.Utilities.Structs;
+using droid.Neodroid.Environments;
+using droid.Neodroid.Prototyping.Evaluation;
+using droid.Neodroid.Prototyping.Observers;
+using droid.Neodroid.Utilities.Structs;
+using droid.Neodroid.Utilities.Unsorted;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace SceneAssets.GridWorlds {
   /// <summary>
@@ -92,7 +90,7 @@ namespace SceneAssets.GridWorlds {
     [SerializeField] Material _goal_cell_material;
 
     [SerializeField] GoalCellObserver _goal_cell_observer;
-    [SerializeField] Neodroid.Utilities.Unsorted.GridCell[,,] _grid;
+    [SerializeField] GridCell[,,] _grid;
     [SerializeField] IntVector3 _grid_size = new IntVector3(Vector3.one * 20);
 
     /// <summary>
@@ -114,8 +112,8 @@ namespace SceneAssets.GridWorlds {
     /// <param name="ys"></param>
     /// <param name="zs"></param>
     /// <returns></returns>
-    Neodroid.Utilities.Unsorted.GridCell[,,] GenerateFullGrid(int xs, int ys, int zs) {
-      var new_grid = new Neodroid.Utilities.Unsorted.GridCell[xs, ys, zs];
+    GridCell[,,] GenerateFullGrid(int xs, int ys, int zs) {
+      var new_grid = new GridCell[xs, ys, zs];
       for (var i = 0; i < xs; i++) {
         for (var j = 0; j < ys; j++) {
           for (var k = 0; k < zs; k++) {
@@ -135,14 +133,14 @@ namespace SceneAssets.GridWorlds {
     /// <param name="zs"></param>
     /// <param name="min_empty_cells_percentage"></param>
     /// <returns></returns>
-    Neodroid.Utilities.Unsorted.GridCell[,,] GenerateRandomGrid(int xs, int ys, int zs, float min_empty_cells_percentage = 0.4f) {
+    GridCell[,,] GenerateRandomGrid(int xs, int ys, int zs, float min_empty_cells_percentage = 0.4f) {
       var empty_cells_num = 0;
-      var new_grid = new Neodroid.Utilities.Unsorted.GridCell[xs, ys, zs];
+      var new_grid = new GridCell[xs, ys, zs];
       var total_cells = (float)(xs * ys * zs);
       var percentage_empty_cells = 0f;
       while (percentage_empty_cells <= min_empty_cells_percentage) {
         var c = this.RandomCoordinates;
-        var active_cells = new List<Neodroid.Utilities.Unsorted.GridCell>();
+        var active_cells = new List<GridCell>();
         this.DoFirstGenerationStep(
             ref empty_cells_num,
             ref new_grid,
@@ -184,8 +182,8 @@ namespace SceneAssets.GridWorlds {
     /// <param name="zs"></param>
     void DoFirstGenerationStep(
         ref int empty_cells_num,
-        ref Neodroid.Utilities.Unsorted.GridCell[,,] grid,
-        ref List<Neodroid.Utilities.Unsorted.GridCell> active_cells,
+        ref GridCell[,,] grid,
+        ref List<GridCell> active_cells,
         IntVector3 c,
         int xs,
         int ys,
@@ -200,8 +198,8 @@ namespace SceneAssets.GridWorlds {
 
     void DoNextGenerationStep(
         ref int empty_cells_num,
-        ref Neodroid.Utilities.Unsorted.GridCell[,,] grid,
-        ref List<Neodroid.Utilities.Unsorted.GridCell> active_cells,
+        ref GridCell[,,] grid,
+        ref List<GridCell> active_cells,
         int xs,
         int ys,
         int zs) {
@@ -228,29 +226,29 @@ namespace SceneAssets.GridWorlds {
              && coordinate.z < this._grid_size.z;
     }
 
-    Neodroid.Utilities.Unsorted.GridCell CreateEmptyCell(IntVector3 c, IntVector3 size) {
+    GridCell CreateEmptyCell(IntVector3 c, IntVector3 size) {
       return this.CreateEmptyCell(c.x, c.y, c.z, size.x, size.y, size.z);
     }
 
-    Neodroid.Utilities.Unsorted.GridCell CreateEmptyCell(IntVector3 c, int xs, int ys, int zs) {
+    GridCell CreateEmptyCell(IntVector3 c, int xs, int ys, int zs) {
       return this.CreateEmptyCell(c.x, c.y, c.z, xs, ys, zs);
     }
 
-    Neodroid.Utilities.Unsorted.GridCell CreateEmptyCell(int x, int y, int z, int xs, int ys, int zs) {
+    GridCell CreateEmptyCell(int x, int y, int z, int xs, int ys, int zs) {
       var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
       cube.transform.parent = this.transform;
       cube.transform.localPosition = new Vector3(
           x - xs * 0.5f + 0.5f,
           y - ys * 0.5f + 0.5f,
           z - zs * 0.5f + 0.5f);
-      var new_cell = cube.AddComponent<Neodroid.Utilities.Unsorted.EmptyCell>();
+      var new_cell = cube.AddComponent<EmptyCell>();
       var n = $"EmptyCell{x}{y}{z}";
       new_cell.Setup(n, this._empty_cell_material);
       new_cell.GridCoordinates = new IntVector3(x, y, z);
       return new_cell;
     }
 
-    Neodroid.Utilities.Unsorted.GridCell CreateFilledCell(int x, int y, int z, int xs, int ys, int zs) {
+    GridCell CreateFilledCell(int x, int y, int z, int xs, int ys, int zs) {
       var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
       cube.transform.parent = this.transform;
@@ -258,7 +256,7 @@ namespace SceneAssets.GridWorlds {
           x - xs * 0.5f + 0.5f,
           y - ys * 0.5f + 0.5f,
           z - zs * 0.5f + 0.5f);
-      var new_cell = cube.AddComponent<Neodroid.Utilities.Unsorted.FilledCell>();
+      var new_cell = cube.AddComponent<FilledCell>();
       var n = $"FilledCell{x}{y}{z}";
       new_cell.Setup(n, this._filled_cell_material);
       new_cell.GridCoordinates = new IntVector3(x, y, z);
@@ -301,7 +299,7 @@ namespace SceneAssets.GridWorlds {
     }
 
     protected override void Setup() {
-      var empty_cells = FindObjectsOfType<Neodroid.Utilities.Unsorted.EmptyCell>().ToList();
+      var empty_cells = FindObjectsOfType<EmptyCell>().ToList();
 
       var objective_function = this.ObjectiveFunction as ReachGoal;
 

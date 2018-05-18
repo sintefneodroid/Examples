@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 namespace TextMesh_Pro.Scripts
@@ -40,7 +41,7 @@ namespace TextMesh_Pro.Scripts
                 //m_Material.SetFloat(ShaderPropertyIDs.ID_LightAngle, lightAngle);
 
                 glowPower = this.GlowCurve.Evaluate(this.m_frame);
-                this.m_Material.SetFloat(TMPro.ShaderUtilities.ID_GlowPower, glowPower);
+                this.m_Material.SetFloat(ShaderUtilities.ID_GlowPower, glowPower);
 
                 this.m_frame += Time.deltaTime * Random.Range(0.2f, 0.3f);
                 yield return new WaitForEndOfFrame();

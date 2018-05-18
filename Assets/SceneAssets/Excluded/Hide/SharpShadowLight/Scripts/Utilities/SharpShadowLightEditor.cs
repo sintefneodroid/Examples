@@ -1,4 +1,5 @@
 ﻿#if UNITY_EDITOR
+using System;
 using UnityEditor;
 using UnityEngine;
 
@@ -27,7 +28,7 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Utilities {
     /// <summary>
     /// 
     /// </summary>
-    const System.Double _tolerance = System.Double.Epsilon;
+    const Double _tolerance = Double.Epsilon;
 
     /// <summary>
     /// 
@@ -81,7 +82,7 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Utilities {
       {
         var fradius = Mathf.Abs(this._radius.floatValue);
 
-        if (System.Math.Abs(this._radius.floatValue - fradius) > _tolerance) {
+        if (Math.Abs(this._radius.floatValue - fradius) > _tolerance) {
           this._radius.floatValue = fradius;
         }
 

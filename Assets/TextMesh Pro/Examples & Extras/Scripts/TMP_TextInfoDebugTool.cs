@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEditor;
+using UnityEngine;
 
 namespace TextMesh_Pro.Scripts
 {
@@ -16,7 +18,7 @@ namespace TextMesh_Pro.Scripts
         [TextArea(2, 2)]
         public string ObjectStats;
 
-        private TMPro.TMP_Text m_TextComponent;
+        private TMP_Text m_TextComponent;
 
         private Transform m_Transform;
 
@@ -25,7 +27,7 @@ namespace TextMesh_Pro.Scripts
 
         void OnEnable()
         {
-            this.m_TextComponent = this.gameObject.GetComponent<TMPro.TMP_Text>();
+            this.m_TextComponent = this.gameObject.GetComponent<TMP_Text>();
 
             if (this.m_Transform == null) {
                 this.m_Transform = this.gameObject.GetComponent<Transform>();
@@ -36,7 +38,7 @@ namespace TextMesh_Pro.Scripts
         void OnDrawGizmos()
         {
             // Update Text Statistics
-            TMPro.TMP_TextInfo textInfo = this.m_TextComponent.textInfo;
+            TMP_TextInfo textInfo = this.m_TextComponent.textInfo;
 
             this.ObjectStats = "Characters: " + textInfo.characterCount + "   Words: " + textInfo.wordCount + "   Spaces: " + textInfo.spaceCount + "   Sprites: " + textInfo.spriteCount + "   Links: " + textInfo.linkCount
                       + "\nLines: " + textInfo.lineCount + "   Pages: " + textInfo.pageCount;
@@ -102,16 +104,16 @@ namespace TextMesh_Pro.Scripts
         /// <param name="text"></param>
         void DrawCharactersBounds()
         {
-            TMPro.TMP_TextInfo textInfo = this.m_TextComponent.textInfo;
+            TMP_TextInfo textInfo = this.m_TextComponent.textInfo;
 
             for (int i = 0; i < textInfo.characterCount; i++)
             {
                 // Draw visible as well as invisible characters
-                TMPro.TMP_CharacterInfo cInfo = textInfo.characterInfo[i];
+                TMP_CharacterInfo cInfo = textInfo.characterInfo[i];
 
                 bool isCharacterVisible = i >= this.m_TextComponent.maxVisibleCharacters ||
                                           cInfo.lineNumber >= this.m_TextComponent.maxVisibleLines ||
-                                          (this.m_TextComponent.overflowMode == TMPro.TextOverflowModes.Page && cInfo.pageNumber + 1 != this.m_TextComponent.pageToDisplay) ? false : true;
+                                          (this.m_TextComponent.overflowMode == TextOverflowModes.Page && cInfo.pageNumber + 1 != this.m_TextComponent.pageToDisplay) ? false : true;
 
                 if (!isCharacterVisible) {
                     continue;
@@ -171,11 +173,11 @@ namespace TextMesh_Pro.Scripts
         /// <param name="text"></param>
         void DrawWordBounds()
         {
-            TMPro.TMP_TextInfo textInfo = this.m_TextComponent.textInfo;
+            TMP_TextInfo textInfo = this.m_TextComponent.textInfo;
 
             for (int i = 0; i < textInfo.wordCount; i++)
             {
-                TMPro.TMP_WordInfo wInfo = textInfo.wordInfo[i];
+                TMP_WordInfo wInfo = textInfo.wordInfo[i];
 
                 bool isBeginRegion = false;
 
@@ -193,12 +195,12 @@ namespace TextMesh_Pro.Scripts
                 for (int j = 0; j < wInfo.characterCount; j++)
                 {
                     int characterIndex = wInfo.firstCharacterIndex + j;
-                    TMPro.TMP_CharacterInfo currentCharInfo = textInfo.characterInfo[characterIndex];
+                    TMP_CharacterInfo currentCharInfo = textInfo.characterInfo[characterIndex];
                     int currentLine = currentCharInfo.lineNumber;
 
                     bool isCharacterVisible = characterIndex > this.m_TextComponent.maxVisibleCharacters ||
                                               currentCharInfo.lineNumber > this.m_TextComponent.maxVisibleLines ||
-                                             (this.m_TextComponent.overflowMode == TMPro.TextOverflowModes.Page && currentCharInfo.pageNumber + 1 != this.m_TextComponent.pageToDisplay) ? false : true;
+                                             (this.m_TextComponent.overflowMode == TextOverflowModes.Page && currentCharInfo.pageNumber + 1 != this.m_TextComponent.pageToDisplay) ? false : true;
 
                     // Track Max Ascender and Min Descender
                     maxAscender = Mathf.Max(maxAscender, currentCharInfo.ascender);
@@ -277,11 +279,11 @@ namespace TextMesh_Pro.Scripts
         /// <param name="text"></param>
         void DrawLinkBounds()
         {
-            TMPro.TMP_TextInfo textInfo = this.m_TextComponent.textInfo;
+            TMP_TextInfo textInfo = this.m_TextComponent.textInfo;
 
             for (int i = 0; i < textInfo.linkCount; i++)
             {
-                TMPro.TMP_LinkInfo linkInfo = textInfo.linkInfo[i];
+                TMP_LinkInfo linkInfo = textInfo.linkInfo[i];
 
                 bool isBeginRegion = false;
 
@@ -299,12 +301,12 @@ namespace TextMesh_Pro.Scripts
                 for (int j = 0; j < linkInfo.linkTextLength; j++)
                 {
                     int characterIndex = linkInfo.linkTextfirstCharacterIndex + j;
-                    TMPro.TMP_CharacterInfo currentCharInfo = textInfo.characterInfo[characterIndex];
+                    TMP_CharacterInfo currentCharInfo = textInfo.characterInfo[characterIndex];
                     int currentLine = currentCharInfo.lineNumber;
 
                     bool isCharacterVisible = characterIndex > this.m_TextComponent.maxVisibleCharacters ||
                                               currentCharInfo.lineNumber > this.m_TextComponent.maxVisibleLines ||
-                                             (this.m_TextComponent.overflowMode == TMPro.TextOverflowModes.Page && currentCharInfo.pageNumber + 1 != this.m_TextComponent.pageToDisplay) ? false : true;
+                                             (this.m_TextComponent.overflowMode == TextOverflowModes.Page && currentCharInfo.pageNumber + 1 != this.m_TextComponent.pageToDisplay) ? false : true;
 
                     // Track Max Ascender and Min Descender
                     maxAscender = Mathf.Max(maxAscender, currentCharInfo.ascender);
@@ -381,15 +383,15 @@ namespace TextMesh_Pro.Scripts
         /// <param name="text"></param>
         void DrawLineBounds()
         {
-            TMPro.TMP_TextInfo textInfo = this.m_TextComponent.textInfo;
+            TMP_TextInfo textInfo = this.m_TextComponent.textInfo;
 
             for (int i = 0; i < textInfo.lineCount; i++)
             {
-                TMPro.TMP_LineInfo lineInfo = textInfo.lineInfo[i];
+                TMP_LineInfo lineInfo = textInfo.lineInfo[i];
 
                 bool isLineVisible = (lineInfo.characterCount == 1 && textInfo.characterInfo[lineInfo.firstCharacterIndex].character == 10) ||
                                       i > this.m_TextComponent.maxVisibleLines ||
-                                     (this.m_TextComponent.overflowMode == TMPro.TextOverflowModes.Page && textInfo.characterInfo[lineInfo.firstCharacterIndex].pageNumber + 1 != this.m_TextComponent.pageToDisplay) ? false : true;
+                                     (this.m_TextComponent.overflowMode == TextOverflowModes.Page && textInfo.characterInfo[lineInfo.firstCharacterIndex].pageNumber + 1 != this.m_TextComponent.pageToDisplay) ? false : true;
 
                 if (!isLineVisible) {
                     continue;
@@ -503,12 +505,12 @@ namespace TextMesh_Pro.Scripts
         {
             var cam = Camera.current;
             float dotSpacing = (cam.WorldToScreenPoint(br).x - cam.WorldToScreenPoint(bl).x) / 75f;
-            UnityEditor.Handles.color = color;
+            Handles.color = color;
 
-            UnityEditor.Handles.DrawDottedLine(bl, tl, dotSpacing);
-            UnityEditor.Handles.DrawDottedLine(tl, tr, dotSpacing);
-            UnityEditor.Handles.DrawDottedLine(tr, br, dotSpacing);
-            UnityEditor.Handles.DrawDottedLine(br, bl, dotSpacing);
+            Handles.DrawDottedLine(bl, tl, dotSpacing);
+            Handles.DrawDottedLine(tl, tr, dotSpacing);
+            Handles.DrawDottedLine(tr, br, dotSpacing);
+            Handles.DrawDottedLine(br, bl, dotSpacing);
         }
 
 #endif

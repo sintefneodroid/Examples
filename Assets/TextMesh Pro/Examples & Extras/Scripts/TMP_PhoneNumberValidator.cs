@@ -1,4 +1,5 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 
 namespace TextMesh_Pro.Scripts
@@ -8,7 +9,7 @@ namespace TextMesh_Pro.Scripts
     /// </summary>
     [Serializable]
     //[CreateAssetMenu(fileName = "InputValidator - Phone Numbers.asset", menuName = "TextMeshPro/Input Validators/Phone Numbers")]
-    public class TMP_PhoneNumberValidator : TMPro.TMP_InputValidator
+    public class TMP_PhoneNumberValidator : TMP_InputValidator
     {
         // Custom text input validation function
         public override char Validate(ref string text, ref int pos, char ch)

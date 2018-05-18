@@ -4,6 +4,8 @@ using System;
 using System.Collections;
 using System.Reflection;
 using UnityEditor;
+using UnityEngine;
+using Object = System.Object;
 
 namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
 {
@@ -17,7 +19,7 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
         {
             Type T = Type.GetType("UnityEditor.GameView,UnityEditor");
             MethodInfo GetMainGameView = T.GetMethod("GetMainGameView", BindingFlags.NonPublic | BindingFlags.Static);
-            System.Object Res = GetMainGameView.Invoke(null, null);
+            Object Res = GetMainGameView.Invoke(null, null);
             return (EditorWindow)Res;
         }
 
@@ -28,7 +30,7 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
 
             if ((gameView.GetType().GetField("m_MaximizeOnPlay", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(gameView)  as bool? )== true)
             {
-                UnityEngine.Debug.LogWarning("'Maximize on Play' not compatible wit recorder: disabling it!");
+                Debug.LogWarning("'Maximize on Play' not compatible wit recorder: disabling it!");
                 gameView.GetType().GetField("m_MaximizeOnPlay", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(gameView, false);
             }
         }
@@ -37,7 +39,7 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
         {
             var gameView = GetMainGameView();
             var prop = gameView.GetType().GetProperty("targetSize", BindingFlags.NonPublic | BindingFlags.Instance);
-            var size = (UnityEngine.Vector2)prop.GetValue(gameView, new object[0] { });
+            var size = (Vector2)prop.GetValue(gameView, new object[0] { });
             width = (int)size.x;
             height = (int)size.y;
         }

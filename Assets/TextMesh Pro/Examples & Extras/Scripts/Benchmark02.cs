@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace TextMesh_Pro.Scripts
@@ -25,12 +26,12 @@ namespace TextMesh_Pro.Scripts
                     GameObject go = new GameObject();
                     go.transform.position = new Vector3(Random.Range(-95f, 95f), 0.25f, Random.Range(-95f, 95f));
 
-                    TMPro.TextMeshPro textMeshPro = go.AddComponent<TMPro.TextMeshPro>();
+                    TextMeshPro textMeshPro = go.AddComponent<TextMeshPro>();
 
                     textMeshPro.autoSizeTextContainer = true;
                     textMeshPro.rectTransform.pivot = new Vector2(0.5f, 0);
 
-                    textMeshPro.alignment = TMPro.TextAlignmentOptions.Bottom;
+                    textMeshPro.alignment = TextAlignmentOptions.Bottom;
                     textMeshPro.fontSize = 96;
                     textMeshPro.enableKerning = false;
 
@@ -71,11 +72,11 @@ namespace TextMesh_Pro.Scripts
                     go.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                     go.transform.position = new Vector3(Random.Range(-95f, 95f), 5f, Random.Range(-95f, 95f));
 
-                    TMPro.TextMeshProUGUI textObject = new GameObject().AddComponent<TMPro.TextMeshProUGUI>();
+                    TextMeshProUGUI textObject = new GameObject().AddComponent<TextMeshProUGUI>();
                     textObject.rectTransform.SetParent(go.transform, false);
 
                     textObject.color = new Color32(255, 255, 0, 255);
-                    textObject.alignment = TMPro.TextAlignmentOptions.Bottom;
+                    textObject.alignment = TextAlignmentOptions.Bottom;
                     textObject.fontSize = 96;
                     textObject.text = "!";
 

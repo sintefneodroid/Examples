@@ -1,3 +1,4 @@
+using System;
 using UnityEngine.Timeline;
 
 namespace Unity_Technologies.Recorder.Framework.Core.Engine.Timeline
@@ -9,7 +10,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine.Timeline
     /// 
     /// Note: Instances of this call Own their associated Settings asset's lifetime.
     /// </summary>
-    [System.Serializable]
+    [Serializable]
     [TrackClipType(typeof(RecorderClip))]
     //[TrackMediaType(TimelineAsset.MediaType.Script)]
     [TrackColor(0f, 0.53f, 0.08f)]

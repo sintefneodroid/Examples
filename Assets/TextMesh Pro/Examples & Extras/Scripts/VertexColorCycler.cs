@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 namespace TextMesh_Pro.Scripts
@@ -7,11 +8,11 @@ namespace TextMesh_Pro.Scripts
     public class VertexColorCycler : MonoBehaviour
     {
 
-        private TMPro.TMP_Text m_TextComponent;
+        private TMP_Text m_TextComponent;
 
         void Awake()
         {
-            this.m_TextComponent = this.GetComponent<TMPro.TMP_Text>();
+            this.m_TextComponent = this.GetComponent<TMP_Text>();
         }
 
 
@@ -27,7 +28,7 @@ namespace TextMesh_Pro.Scripts
         /// <returns></returns>
         IEnumerator AnimateVertexColors()
         {
-            TMPro.TMP_TextInfo textInfo = this.m_TextComponent.textInfo;
+            TMP_TextInfo textInfo = this.m_TextComponent.textInfo;
             int currentCharacter = 0;
 
             Color32[] newVertexColors;
@@ -64,7 +65,7 @@ namespace TextMesh_Pro.Scripts
                     newVertexColors[vertexIndex + 3] = c0;
 
                     // New function which pushes (all) updated vertex data to the appropriate meshes when using either the Mesh Renderer or CanvasRenderer.
-                    this.m_TextComponent.UpdateVertexData(TMPro.TMP_VertexDataUpdateFlags.Colors32);
+                    this.m_TextComponent.UpdateVertexData(TMP_VertexDataUpdateFlags.Colors32);
 
                     // This last process could be done to only update the vertex data that has changed as opposed to all of the vertex data but it would require extra steps and knowing what type of renderer is used.
                     // These extra steps would be a performance optimization but it is unlikely that such optimization will be necessary.

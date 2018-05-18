@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,10 +12,10 @@ namespace TextMesh_Pro.Scripts
         public int BenchmarkType = 0;
 
         public Canvas canvas;
-        public TMPro.TMP_FontAsset TMProFont;
+        public TMP_FontAsset TMProFont;
         public Font TextMeshFont;
 
-        private TMPro.TextMeshProUGUI m_textMeshPro;
+        private TextMeshProUGUI m_textMeshPro;
         //private TextContainer m_textContainer;
         private Text m_textMesh;
 
@@ -39,7 +40,7 @@ namespace TextMesh_Pro.Scripts
 
             if (this.BenchmarkType == 0) // TextMesh Pro Component
             {
-                this.m_textMeshPro = this.gameObject.AddComponent<TMPro.TextMeshProUGUI>();
+                this.m_textMeshPro = this.gameObject.AddComponent<TextMeshProUGUI>();
                 //m_textContainer = GetComponent<TextContainer>();
 
 
@@ -53,7 +54,7 @@ namespace TextMesh_Pro.Scripts
                 //m_textMeshPro.fontSharedMaterial = Resources.Load("Fonts & Materials/Anton SDF", typeof(Material)) as Material; // Same as above make sure this material exists.
 
                 this.m_textMeshPro.fontSize = 48;
-                this.m_textMeshPro.alignment = TMPro.TextAlignmentOptions.Center;
+                this.m_textMeshPro.alignment = TextAlignmentOptions.Center;
                 //m_textMeshPro.anchor = AnchorPositions.Center;
                 this.m_textMeshPro.extraPadding = true;
                 //m_textMeshPro.outlineWidth = 0.25f;

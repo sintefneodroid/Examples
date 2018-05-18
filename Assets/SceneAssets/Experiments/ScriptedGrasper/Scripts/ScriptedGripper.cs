@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Neodroid.Utilities;
+using droid.Neodroid.Utilities.Unsorted;
+using SceneAssets.Experiments.ScriptedGrasper.Grasps;
+using SceneAssets.Experiments.ScriptedGrasper.Navigation;
+using SceneAssets.Experiments.ScriptedGrasper.Utilities;
 using UnityEngine;
 
 namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
@@ -37,13 +40,13 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
       ObstacleSpawner obstacles_spawner = FindObjectOfType<ObstacleSpawner>();
       obstacles_spawner.SpawnObstacles(obstacles_spawner.number_of_cubes, obstacles_spawner.number_of_spheres);
     }*/
-    public Utilities.States State { get { return this._state; } set { this._state = value; } }
+    public States State { get { return this._state; } set { this._state = value; } }
 
     #region Helpers
 
-    void PerformReactionToCurrentState(Utilities.States state) {
+    void PerformReactionToCurrentState(States state) {
       switch (state.PathFindingState) {
-        case Utilities.PathFindingState.Waiting_for_target_:
+        case PathFindingState.Waiting_for_target_:
           this.FindTargetAndUpdatePath();
           if (this._target_grasp != null) {
             state.NavigateToTarget();
@@ -51,7 +54,7 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
 
           break;
 
-        case Utilities.PathFindingState.Navigating_:
+        case PathFindingState.Navigating_:
           if (state.IsEnvironmentMoving() && this._wait_for_resting_environment) {
             state.WaitForRestingEnvironment();
             break;
@@ -67,18 +70,18 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
           this.MaybeBeginApproachProcedure();
           break;
 
-        case Utilities.PathFindingState.Approaching_:
+        case PathFindingState.Approaching_:
           this.ApproachTarget(this._step_size);
           break;
 
-        case Utilities.PathFindingState.Picking_up_target_:
+        case PathFindingState.Picking_up_target_:
           if (state.IsGripperClosed() && state.IsTargetNotGrabbed()) {
             //state.ReturnToStartPosition();
           }
 
           break;
 
-        case Utilities.PathFindingState.Waiting_for_resting_environment_:
+        case PathFindingState.Waiting_for_resting_environment_:
           if (state.WasEnvironmentMoving()) {
             this.FindTargetAndUpdatePath();
           }
@@ -94,7 +97,7 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
 
           break;
 
-        case Utilities.PathFindingState.Returning_:
+        case PathFindingState.Returning_:
           if (state.WereObstructionMoving()) {
             this._path = this.FindPath(this.transform.position, this._reset_position);
           }
@@ -115,15 +118,15 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
       }
 
       switch (state.GripperState) {
-        case Utilities.GripperState.Opening_:
+        case GripperState.Opening_:
           this.OpenClaws(this._step_size);
           break;
 
-        case Utilities.GripperState.Closing_:
+        case GripperState.Closing_:
           this.CloseClaws(this._step_size);
           break;
 
-        case Utilities.GripperState.Closed_:
+        case GripperState.Closed_:
           break;
       }
 
@@ -153,8 +156,8 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
 
     GraspableObject _target_game_object;
     Vector3 _approach_position;
-    Grasps.Grasp _target_grasp;
-    Navigation.BezierCurvePath _path;
+    Grasp _target_grasp;
+    BezierCurvePath _path;
 
     Vector3 _default_motor_position;
     Vector3 _closed_motor_position;
@@ -163,7 +166,7 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
     //GameObject[] _targets;
 
     Vector3 _reset_position;
-    Navigation.BezierCurve _bezier_curve;
+    BezierCurve _bezier_curve;
 
     float _step_size;
 
@@ -182,10 +185,10 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
     [SerializeField] GameObject _claw_1;
     [SerializeField] GameObject _claw_2;
 
-    [SerializeField] Utilities.States _state;
+    [SerializeField] States _state;
     [SerializeField] Transform _closed_motor_transform;
     [SerializeField] ObstacleSpawner _obstacle_spawner;
-    [SerializeField] Navigation.BezierCurve _bezier_curve_prefab;
+    [SerializeField] BezierCurve _bezier_curve_prefab;
 
     [Space(1)]
     [Header("Path Finding Parameters")]
@@ -215,7 +218,7 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
     #region Setup
 
     void UpdateMeshFilterBounds() {
-      var actor_bounds = Neodroid.Utilities.Unsorted.GraspingUtilities.GetMaxBounds(this.gameObject);
+      var actor_bounds = GraspingUtilities.GetMaxBounds(this.gameObject);
       //_environment_size = agent_bounds.size.magnitude;
       //_approach_distance = agent_bounds.size.magnitude + _precision;
       this._actor_size =
@@ -225,7 +228,7 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
     }
 
     void SetupEnvironment() {
-      Neodroid.Utilities.Unsorted.NeodroidUtilities.RegisterCollisionTriggerCallbacksOnChildren(
+      NeodroidUtilities.RegisterCollisionTriggerCallbacksOnChildren(
           this,
           this.transform,
           this.OnCollisionEnterChild,
@@ -242,11 +245,11 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
     #region UnityCallbacks
 
     void Start() {
-      this._state = new Utilities.States();
+      this._state = new States();
       this._reset_position = this.transform.position;
       this._default_motor_position = this._motor.transform.localPosition;
       this._closed_motor_position = this._closed_motor_transform.localPosition;
-      this._bezier_curve = FindObjectOfType<Navigation.BezierCurve>();
+      this._bezier_curve = FindObjectOfType<BezierCurve>();
       if (!this._bezier_curve) {
         this._bezier_curve = Instantiate(this._bezier_curve_prefab);
       }
@@ -261,11 +264,11 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
     void Update() {
       this._step_size = this._speed * Time.deltaTime;
       if (this._draw_search_boundary) {
-        Neodroid.Utilities.Unsorted.GraspingUtilities.DrawBoxFromCenter(this.transform.position, this._search_boundary, Color.magenta);
+        GraspingUtilities.DrawBoxFromCenter(this.transform.position, this._search_boundary, Color.magenta);
       }
 
       this._state.ObstructionMotionState = this._state.GetMotionState(
-          FindObjectsOfType<Neodroid.Utilities.Unsorted.Obstruction>(),
+          FindObjectsOfType<Obstruction>(),
           this._state.ObstructionMotionState,
           this._sensitivity);
       this._state.TargetMotionState = this._state.GetMotionState(
@@ -481,7 +484,7 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
 
     #region PathFinding
 
-    Tuple<GraspableObject, Grasps.Grasp> GetOptimalTargetAndGrasp() {
+    Tuple<GraspableObject, Grasp> GetOptimalTargetAndGrasp() {
       var targets = FindObjectsOfType<GraspableObject>();
       if (targets.Length == 0) {
         return null;
@@ -489,7 +492,7 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
 
       var shortest_distance = float.MaxValue;
       GraspableObject optimal_target = null;
-      Grasps.Grasp optimal_grasp = null;
+      Grasp optimal_grasp = null;
       foreach (var target in targets) {
         var pair = target.GetOptimalGrasp(this);
         if (pair == null || pair.Item1 == null || pair.Item1.IsObstructed()) {
@@ -505,13 +508,13 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
         }
       }
 
-      return new Tuple<GraspableObject, Grasps.Grasp>(optimal_target, optimal_grasp);
+      return new Tuple<GraspableObject, Grasp>(optimal_target, optimal_grasp);
     }
 
     public void FindTargetAndUpdatePath() {
       var pair = this.GetOptimalTargetAndGrasp();
       if (pair == null || pair.Item1 == null || pair.Item2 == null) {
-        this._state.PathFindingState = Utilities.PathFindingState.Returning_;
+        this._state.PathFindingState = PathFindingState.Returning_;
         this._path = this.FindPath(this.transform.position, this._reset_position);
         return;
       }
@@ -528,9 +531,9 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
       this._intermediate_target = this._path.Next(this._step_size);
     }
 
-    Navigation.BezierCurvePath FindPath(Vector3 start_position, Vector3 target_position) {
+    BezierCurvePath FindPath(Vector3 start_position, Vector3 target_position) {
       this.UpdateMeshFilterBounds();
-      var path_list = Navigation.PathFinding.FindPathAstar(
+      var path_list = PathFinding.FindPathAstar(
           start_position,
           target_position,
           this._search_boundary,
@@ -538,13 +541,13 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
           this._actor_size,
           this._approach_distance);
       if (path_list != null && path_list.Count > 0) {
-        path_list = Navigation.PathFinding.SimplifyPath(path_list, this._actor_size);
+        path_list = PathFinding.SimplifyPath(path_list, this._actor_size);
         path_list.Add(target_position);
       } else {
         path_list = new List<Vector3> {start_position, target_position};
       }
 
-      var path = new Navigation.BezierCurvePath(
+      var path = new BezierCurvePath(
           start_position,
           target_position,
           this._bezier_curve,

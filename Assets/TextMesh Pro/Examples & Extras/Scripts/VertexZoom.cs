@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace TextMesh_Pro.Scripts
@@ -11,25 +12,25 @@ namespace TextMesh_Pro.Scripts
         public float SpeedMultiplier = 1.0f;
         public float CurveScale = 1.0f;
 
-        private TMPro.TMP_Text m_TextComponent;
+        private TMP_Text m_TextComponent;
         private bool hasTextChanged;
 
 
         void Awake()
         {
-            this.m_TextComponent = this.GetComponent<TMPro.TMP_Text>();
+            this.m_TextComponent = this.GetComponent<TMP_Text>();
         }
 
         void OnEnable()
         {
             // Subscribe to event fired when text object has been regenerated.
-            TMPro.TMPro_EventManager.TEXT_CHANGED_EVENT.Add(this.ON_TEXT_CHANGED);
+            TMPro_EventManager.TEXT_CHANGED_EVENT.Add(this.ON_TEXT_CHANGED);
         }
 
         void OnDisable()
         {
             // UnSubscribe to event fired when text object has been regenerated.
-            TMPro.TMPro_EventManager.TEXT_CHANGED_EVENT.Remove(this.ON_TEXT_CHANGED);
+            TMPro_EventManager.TEXT_CHANGED_EVENT.Remove(this.ON_TEXT_CHANGED);
         }
 
 
@@ -57,10 +58,10 @@ namespace TextMesh_Pro.Scripts
             // Alternatively, we could yield and wait until the end of the frame when the text object will be generated.
             this.m_TextComponent.ForceMeshUpdate();
 
-            TMPro.TMP_TextInfo textInfo = this.m_TextComponent.textInfo;
+            TMP_TextInfo textInfo = this.m_TextComponent.textInfo;
 
             Matrix4x4 matrix;
-            TMPro.TMP_MeshInfo[] cachedMeshInfoVertexData = textInfo.CopyMeshInfoVertexData();
+            TMP_MeshInfo[] cachedMeshInfoVertexData = textInfo.CopyMeshInfoVertexData();
 
             // Allocations for sorting of the modified scales
             List<float> modifiedCharScale = new List<float>();
@@ -94,7 +95,7 @@ namespace TextMesh_Pro.Scripts
 
                 for (int i = 0; i < characterCount; i++)
                 {
-                    TMPro.TMP_CharacterInfo charInfo = textInfo.characterInfo[i];
+                    TMP_CharacterInfo charInfo = textInfo.characterInfo[i];
 
                     // Skip characters that are not visible and thus have no geometry to manipulate.
                     if (!charInfo.isVisible) {

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 namespace TextMesh_Pro.Scripts
@@ -7,7 +8,7 @@ namespace TextMesh_Pro.Scripts
     public class WarpTextExample : MonoBehaviour
     {
 
-        private TMPro.TMP_Text m_TextComponent;
+        private TMP_Text m_TextComponent;
 
         public AnimationCurve VertexCurve = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.25f, 2.0f), new Keyframe(0.5f, 0), new Keyframe(0.75f, 2.0f), new Keyframe(1, 0f));
         public float AngleMultiplier = 1.0f;
@@ -16,7 +17,7 @@ namespace TextMesh_Pro.Scripts
 
         void Awake()
         {
-            this.m_TextComponent = this.gameObject.GetComponent<TMPro.TMP_Text>();
+            this.m_TextComponent = this.gameObject.GetComponent<TMP_Text>();
         }
 
 
@@ -69,7 +70,7 @@ namespace TextMesh_Pro.Scripts
 
                 this.m_TextComponent.ForceMeshUpdate(); // Generate the mesh and populate the textInfo with data we can use and manipulate.
 
-                TMPro.TMP_TextInfo textInfo = this.m_TextComponent.textInfo;
+                TMP_TextInfo textInfo = this.m_TextComponent.textInfo;
                 int characterCount = textInfo.characterCount;
 
 

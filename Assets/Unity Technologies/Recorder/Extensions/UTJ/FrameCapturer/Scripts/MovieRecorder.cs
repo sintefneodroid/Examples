@@ -2,6 +2,8 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
+using Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encoder;
+
 #if UNITY_EDITOR
 
 #endif
@@ -24,7 +26,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
 
 
         #region fields
-        [SerializeField] Encoder.MovieEncoderConfigs m_encoderConfigs = new Encoder.MovieEncoderConfigs(Encoder.MovieEncoder.Type.WebM);
+        [SerializeField] MovieEncoderConfigs m_encoderConfigs = new MovieEncoderConfigs(MovieEncoder.Type.WebM);
         [SerializeField] CaptureTarget m_captureTarget = CaptureTarget.FrameBuffer;
         [SerializeField] RenderTexture m_targetRT;
         [SerializeField] bool m_captureVideo = true;
@@ -35,7 +37,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
         Mesh m_quad;
         CommandBuffer m_cb;
         RenderTexture m_scratchBuffer;
-        Encoder.MovieEncoder m_encoder;
+        MovieEncoder m_encoder;
         #endregion
 
 
@@ -82,7 +84,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
             }
 
             this.m_outputDir.CreateDirectory();
-            if (this.m_quad == null) this.m_quad = Encoder.fcAPI.CreateFullscreenQuad();
+            if (this.m_quad == null) this.m_quad = fcAPI.CreateFullscreenQuad();
             if (this.m_matCopy == null) this.m_matCopy = new Material(this.m_shCopy);
 
             var cam = this.GetComponent<Camera>();
@@ -100,8 +102,8 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
                 int captureWidth = cam.pixelWidth;
                 int captureHeight = cam.pixelHeight;
                 this.GetCaptureResolution(ref captureWidth, ref captureHeight);
-                if (this.m_encoderConfigs.format == Encoder.MovieEncoder.Type.MP4 ||
-                    this.m_encoderConfigs.format == Encoder.MovieEncoder.Type.WebM)
+                if (this.m_encoderConfigs.format == MovieEncoder.Type.MP4 ||
+                    this.m_encoderConfigs.format == MovieEncoder.Type.WebM)
                 {
                     captureWidth = (captureWidth + 1) & ~1;
                     captureHeight = (captureHeight + 1) & ~1;
@@ -124,7 +126,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
                 this.m_encoderConfigs.captureVideo = this.m_captureVideo;
                 this.m_encoderConfigs.captureAudio = this.m_captureAudio;
                 this.m_encoderConfigs.Setup(this.m_scratchBuffer.width, this.m_scratchBuffer.height, 3, targetFramerate);
-                this.m_encoder = Encoder.MovieEncoder.Create(this.m_encoderConfigs, outPath);
+                this.m_encoder = MovieEncoder.Create(this.m_encoderConfigs, outPath);
                 if (this.m_encoder == null || !this.m_encoder.IsValid())
                 {
                     this.EndRecording();
@@ -191,7 +193,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
 #if UNITY_EDITOR
         void Reset()
         {
-            this.m_shCopy = Encoder.fcAPI.GetFrameBufferCopyShader();
+            this.m_shCopy = fcAPI.GetFrameBufferCopyShader();
         }
 #endif // UNITY_EDITOR
 
@@ -207,7 +209,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
                     timestamp = 1.0 / this.m_targetFramerate * this.m_recordedFrames;
                 }
 
-                Encoder.fcAPI.fcLock(this.m_scratchBuffer, TextureFormat.RGB24, (data, fmt) =>
+                fcAPI.fcLock(this.m_scratchBuffer, TextureFormat.RGB24, (data, fmt) =>
                 {
                     this.m_encoder.AddVideoFrame(data, fmt, timestamp);
                 });

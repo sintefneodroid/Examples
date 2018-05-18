@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Unity_Technologies.Recorder.Framework.Core.Engine
 {
     /// <summary>
@@ -7,7 +9,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
     /// </summary>
     public abstract class GenericRecorder<TSettings> : Recorder where TSettings : RecorderSettings
     {
-        [UnityEngine.SerializeField]
+        [SerializeField]
         protected TSettings m_Settings;
         public override RecorderSettings settings
         {

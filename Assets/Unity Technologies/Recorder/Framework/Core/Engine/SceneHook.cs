@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor.SceneManagement;
 #endif
@@ -15,33 +16,33 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
     {
         const string k_HostGoName = "UnityEngine-Recorder";
 
-        internal static UnityEngine.GameObject GetGameObject(bool createIfAbsent)
+        internal static GameObject GetGameObject(bool createIfAbsent)
         {
-            var go = UnityEngine.GameObject.Find(k_HostGoName);
+            var go = GameObject.Find(k_HostGoName);
             /*if (go != null && go.scene != SceneManager.GetActiveScene())
                 go = null;*/
 
             if (go == null && createIfAbsent)
             {
-                go = new UnityEngine.GameObject(k_HostGoName);
+                go = new GameObject(k_HostGoName);
                 if (!Verbose.enabled)
-                    go.hideFlags = UnityEngine.HideFlags.HideInHierarchy;
+                    go.hideFlags = HideFlags.HideInHierarchy;
             }
 
             return go;
         }
 
-        static UnityEngine.GameObject GetRecordingSessionsRoot(bool createIfAbsent)
+        static GameObject GetRecordingSessionsRoot(bool createIfAbsent)
         {
             var root = GetGameObject(createIfAbsent);
             if (root == null)
                 return null;
 
             var settingsTr = root.transform.Find("RecordingSessions");
-            UnityEngine.GameObject settingsGO;
+            GameObject settingsGO;
             if (settingsTr == null)
             {
-                settingsGO = new UnityEngine.GameObject("RecordingSessions");
+                settingsGO = new GameObject("RecordingSessions");
                 settingsGO.transform.parent = root.transform;
             }
             else
@@ -50,17 +51,17 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
             return settingsGO;
         }
 
-        public static UnityEngine.GameObject GetSettingsRoot(bool createIfAbsent)
+        public static GameObject GetSettingsRoot(bool createIfAbsent)
         {
             var root = GetGameObject(createIfAbsent);
             if (root == null)
                 return null;
 
             var settingsTr = root.transform.Find("Settings");
-            UnityEngine.GameObject settingsGO;
+            GameObject settingsGO;
             if (settingsTr == null)
             {
-                settingsGO = new UnityEngine.GameObject("Settings");
+                settingsGO = new GameObject("Settings");
                 settingsGO.transform.parent = root.transform;
             }
             else
@@ -69,18 +70,18 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
             return settingsGO;
         }
 
-        public static UnityEngine.GameObject HookupRecorder()
+        public static GameObject HookupRecorder()
         {
             var ctrl = GetRecordingSessionsRoot(true);
 
-            var recorderGO = new UnityEngine.GameObject();
+            var recorderGO = new GameObject();
 
             recorderGO.transform.parent = ctrl.transform;
 
             return recorderGO;
         }
 
-        public static UnityEngine.GameObject FindRecorder(RecorderSettings settings)
+        public static GameObject FindRecorder(RecorderSettings settings)
         {
             var ctrl = GetRecordingSessionsRoot(false);
             if (ctrl == null)
@@ -122,7 +123,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
             var parentRoot = ctrl.transform.Find(assetId);
             if (parentRoot == null)
             {
-                parentRoot = (new UnityEngine.GameObject()).transform;
+                parentRoot = (new GameObject()).transform;
                 parentRoot.name = assetId;
                 parentRoot.parent = ctrl.transform;
             }

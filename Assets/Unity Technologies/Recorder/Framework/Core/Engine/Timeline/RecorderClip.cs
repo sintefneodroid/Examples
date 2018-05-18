@@ -1,4 +1,6 @@
 using System;
+using System.ComponentModel;
+using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 
@@ -10,14 +12,14 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine.Timeline
     /// 
     /// Note: Instances of this call Own their associated Settings asset's lifetime.
     /// </summary>
-    [System.ComponentModel.DisplayName("Recorder Clip")]
+    [DisplayName("Recorder Clip")]
     public class RecorderClip : PlayableAsset, ITimelineClipAsset
     {
         public delegate void RecordingClipDoneDelegate(RecorderClip clip);
 
         public static RecordingClipDoneDelegate OnClipDone;
 
-        [UnityEngine.SerializeField]
+        [SerializeField]
         public RecorderSettings m_Settings;
 
         public Type recorderType
@@ -30,7 +32,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine.Timeline
             get { return ClipCaps.None; }
         }
 
-        public override Playable CreatePlayable(PlayableGraph graph, UnityEngine.GameObject owner)
+        public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
         {
             var playable = ScriptPlayable<RecorderPlayableBehaviour>.Create(graph);
             var behaviour = playable.GetBehaviour();
@@ -49,8 +51,8 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine.Timeline
                     }
                     catch (Exception ex)
                     {
-                        UnityEngine.Debug.Log("OnClipDone call back generated an exception: " + ex.Message );
-                        UnityEngine.Debug.LogException(ex);
+                        Debug.Log("OnClipDone call back generated an exception: " + ex.Message );
+                        Debug.LogException(ex);
                     }
                 };
             }

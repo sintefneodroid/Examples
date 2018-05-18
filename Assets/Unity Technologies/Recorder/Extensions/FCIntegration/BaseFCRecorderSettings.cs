@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity_Technologies.Recorder.Framework.Core.Engine;
+using Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine;
+using Unity_Technologies.Recorder.Framework.Inputs.RenderTexture.Engine;
+using Unity_Technologies.Recorder.Framework.Inputs.RenderTextureSampler.Engine;
 
 namespace Unity_Technologies.Recorder.Extensions.FCIntegration
 {
-    public abstract class BaseFCRecorderSettings : Framework.Core.Engine.RecorderSettings
+    public abstract class BaseFCRecorderSettings : RecorderSettings
     {
         public override bool ValidityCheck( List<string> errors )
         {
@@ -37,34 +41,34 @@ namespace Unity_Technologies.Recorder.Extensions.FCIntegration
             }
         }
 
-        public override Framework.Core.Engine.RecorderInputSetting NewInputSettingsObj(Type type, string title )
+        public override RecorderInputSetting NewInputSettingsObj(Type type, string title )
         {
             var obj = base.NewInputSettingsObj(type, title);
-            if (type == typeof(Framework.Inputs.CBRenderTexture.Engine.CBRenderTextureInputSettings))
+            if (type == typeof(CBRenderTextureInputSettings))
             {
-                var settings = (Framework.Inputs.CBRenderTexture.Engine.CBRenderTextureInputSettings)obj;
+                var settings = (CBRenderTextureInputSettings)obj;
                 settings.m_FlipFinalOutput = true;
             }
-            else if (type == typeof(Framework.Inputs.RenderTextureSampler.Engine.RenderTextureSamplerSettings))
+            else if (type == typeof(RenderTextureSamplerSettings))
             {
-                var settings = (Framework.Inputs.RenderTextureSampler.Engine.RenderTextureSamplerSettings)obj;
+                var settings = (RenderTextureSamplerSettings)obj;
                 settings.m_FlipFinalOutput = true;
             }
 
             return obj ;
         }
 
-        public override List<Framework.Core.Engine.InputGroupFilter> GetInputGroups()
+        public override List<InputGroupFilter> GetInputGroups()
         {
-            return new List<Framework.Core.Engine.InputGroupFilter>()
+            return new List<InputGroupFilter>()
             {
-                new Framework.Core.Engine.InputGroupFilter()
+                new InputGroupFilter()
                 {
-                    title = "Pixels", typesFilter = new List<Framework.Core.Engine.InputFilter>()
+                    title = "Pixels", typesFilter = new List<InputFilter>()
                     {
-                        new Framework.Core.Engine.TInputFilter<Framework.Inputs.CBRenderTexture.Engine.CBRenderTextureInputSettings>("Camera(s)"),
-                        new Framework.Core.Engine.TInputFilter<Framework.Inputs.RenderTextureSampler.Engine.RenderTextureSamplerSettings>("Sampling"),
-                        new Framework.Core.Engine.TInputFilter<Framework.Inputs.RenderTexture.Engine.RenderTextureInputSettings>("Render Texture"),
+                        new TInputFilter<CBRenderTextureInputSettings>("Camera(s)"),
+                        new TInputFilter<RenderTextureSamplerSettings>("Sampling"),
+                        new TInputFilter<RenderTextureInputSettings>("Render Texture"),
                     }
                 }
             };
@@ -77,12 +81,12 @@ namespace Unity_Technologies.Recorder.Extensions.FCIntegration
 
             var adjusted = false;
 
-            if (this.inputsSettings[0] is Framework.Core.Engine.ImageInputSettings)
+            if (this.inputsSettings[0] is ImageInputSettings)
             {
-                var iis = (Framework.Core.Engine.ImageInputSettings)this.inputsSettings[0];
-                if (iis.maxSupportedSize != Framework.Core.Engine.EImageDimension.x4320p_8K)
+                var iis = (ImageInputSettings)this.inputsSettings[0];
+                if (iis.maxSupportedSize != EImageDimension.x4320p_8K)
                 {
-                    iis.maxSupportedSize = Framework.Core.Engine.EImageDimension.x4320p_8K;
+                    iis.maxSupportedSize = EImageDimension.x4320p_8K;
                     adjusted = true;
                 }
             }

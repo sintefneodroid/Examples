@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
-using Neodroid.Utilities;
+﻿using System;
+using System.Collections.Generic;
+using droid.Neodroid.Utilities.Unsorted;
+using SceneAssets.Experiments.ScriptedGrasper.Grasps;
 using UnityEngine;
 
 namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
   public class GraspableObject : MonoBehaviour,
-                                 Neodroid.Utilities.Unsorted.IMotionTracker {
+                                 IMotionTracker {
     //[SerializeField] bool _draw_grasp = true;
     [SerializeField] Vector3 _last_recorded_move;
     [SerializeField] Quaternion _last_recorded_rotation;
@@ -50,8 +52,8 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
 
     void Update() { this.UpdatePreviousTranform(); }
 
-    Grasps.Grasp[] GetGrasps() {
-      var grasps = this.gameObject.GetComponentsInChildren<Grasps.Grasp>();
+    Grasp[] GetGrasps() {
+      var grasps = this.gameObject.GetComponentsInChildren<Grasp>();
       return grasps;
     }
 
@@ -61,7 +63,7 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
       }
     }
 
-    void ChangeIndicatorColor(Grasps.Grasp grasp, Color color) {
+    void ChangeIndicatorColor(Grasp grasp, Color color) {
       foreach (var child in grasp.GetComponentsInChildren<MeshRenderer>()) {
         child.material.SetColor("_Color1", color);
       }
@@ -69,9 +71,9 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
 
     //Main function
     //return grip vector/transform with highest score
-    public System.Tuple<Grasps.Grasp, float> GetOptimalGrasp(ScriptedGripper gripper) {
+    public Tuple<Grasp, float> GetOptimalGrasp(ScriptedGripper gripper) {
       var grasps = this.GetGrasps();
-      var unobstructed_grasps = new List<Grasps.Grasp>();
+      var unobstructed_grasps = new List<Grasp>();
 
       foreach (var grasp in grasps) {
         if (!grasp.IsObstructed()) {
@@ -82,7 +84,7 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
         }
       }
 
-      Grasps.Grasp optimal_grasp = null;
+      Grasp optimal_grasp = null;
       var shortest_distance = float.MaxValue;
       foreach (var grasp in unobstructed_grasps) {
         var distance = Vector3.Distance(grasp.transform.position, gripper.transform.position);
@@ -94,7 +96,7 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
 
       if (optimal_grasp != null) {
         this.ChangeIndicatorColor(optimal_grasp, Color.green);
-        return new System.Tuple<Grasps.Grasp, float>(optimal_grasp, shortest_distance);
+        return new Tuple<Grasp, float>(optimal_grasp, shortest_distance);
       }
 
       return null;

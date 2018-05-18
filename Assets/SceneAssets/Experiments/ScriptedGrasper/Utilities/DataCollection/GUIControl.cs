@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using SceneAssets.Experiments.ScriptedGrasper.Scripts;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -17,7 +18,7 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Utilities.DataCollection {
     //float gripper_target_distance;
     //int iterations;
     //int obstacle_num;
-    [SerializeField] Scripts.ScriptedGripper _pf;
+    [SerializeField] ScriptedGripper _pf;
     [SerializeField] Text _pf_state;
 
     [SerializeField] Slider _s_distance;
@@ -32,7 +33,7 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Utilities.DataCollection {
     [SerializeField] Text _target_state;
 
     void Start() {
-      this._pf = FindObjectOfType<Scripts.ScriptedGripper>();
+      this._pf = FindObjectOfType<ScriptedGripper>();
       this._t_gripper_target_distance.text = this._s_distance.value.ToString("0.00");
       this._t_obstacle_num.text = this._s_obstacle.value.ToString(CultureInfo.InvariantCulture);
       this._t_waiting.text = "";

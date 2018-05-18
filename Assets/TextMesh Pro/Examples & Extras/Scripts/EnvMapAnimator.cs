@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 namespace TextMesh_Pro.Scripts {
@@ -6,14 +7,14 @@ namespace TextMesh_Pro.Scripts {
 
         //private Vector3 TranslationSpeeds;
         public Vector3 RotationSpeeds;
-        private TMPro.TMP_Text m_textMeshPro;
+        private TMP_Text m_textMeshPro;
         private Material m_material;
     
 
         void Awake()
         {
             //Debug.Log("Awake() on Script called.");
-            this.m_textMeshPro = this.GetComponent<TMPro.TMP_Text>();
+            this.m_textMeshPro = this.GetComponent<TMP_Text>();
             this.m_material = this.m_textMeshPro.fontSharedMaterial;
         }
 

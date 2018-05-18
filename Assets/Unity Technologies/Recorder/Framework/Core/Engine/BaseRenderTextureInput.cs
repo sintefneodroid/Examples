@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Unity_Technologies.Recorder.Framework.Core.Engine
 {
     /// <summary>
@@ -7,7 +9,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
     /// </summary>    
     public abstract class BaseRenderTextureInput : RecorderInput
     {
-        public UnityEngine.RenderTexture outputRT { get; set; }
+        public RenderTexture outputRT { get; set; }
 
         public int outputWidth { get; protected set; }
         public int outputHeight { get; protected set; }
@@ -16,8 +18,8 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
         {
             if (this.outputRT != null)
             {
-                if (this.outputRT == UnityEngine.RenderTexture.active)
-                    UnityEngine.RenderTexture.active = null;
+                if (this.outputRT == RenderTexture.active)
+                    RenderTexture.active = null;
 
                 this.outputRT.Release();
                 this.outputRT = null;

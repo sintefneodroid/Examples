@@ -1,13 +1,16 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encoder;
+using Unity_Technologies.Recorder.Framework.Core.Engine;
+using Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine;
 
 namespace Unity_Technologies.Recorder.Extensions.FCIntegration.WEBM
 {
     [ExecuteInEditMode]
     public class WEBMRecorderSettings : BaseFCRecorderSettings
     {
-        public UTJ.FrameCapturer.Scripts.Encoder.fcAPI.fcWebMConfig m_WebmEncoderSettings = UTJ.FrameCapturer.Scripts.Encoder.fcAPI.fcWebMConfig.default_value;
+        public fcAPI.fcWebMConfig m_WebmEncoderSettings = fcAPI.fcWebMConfig.default_value;
         public bool m_AutoSelectBR;
 
         WEBMRecorderSettings()
@@ -16,19 +19,19 @@ namespace Unity_Technologies.Recorder.Extensions.FCIntegration.WEBM
             this.m_AutoSelectBR = true;
         }
 
-        public override List<Framework.Core.Engine.RecorderInputSetting> GetDefaultInputSettings()
+        public override List<RecorderInputSetting> GetDefaultInputSettings()
         {
-            return new List<Framework.Core.Engine.RecorderInputSetting>()
+            return new List<RecorderInputSetting>()
             {
-                this.NewInputSettingsObj<Framework.Inputs.CBRenderTexture.Engine.CBRenderTextureInputSettings>("Pixels") 
+                this.NewInputSettingsObj<CBRenderTextureInputSettings>("Pixels") 
             };
         }
 
-        public override Framework.Core.Engine.RecorderInputSetting NewInputSettingsObj(Type type, string title )
+        public override RecorderInputSetting NewInputSettingsObj(Type type, string title )
         {
             var obj = base.NewInputSettingsObj(type, title);
-            if (type == typeof(Framework.Inputs.CBRenderTexture.Engine.CBRenderTextureInputSettings))
-                (obj as Framework.Inputs.CBRenderTexture.Engine.CBRenderTextureInputSettings).m_ForceEvenSize = true;
+            if (type == typeof(CBRenderTextureInputSettings))
+                (obj as CBRenderTextureInputSettings).m_ForceEvenSize = true;
 
             return obj ;
         }

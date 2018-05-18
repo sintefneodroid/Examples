@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using UnityEditor;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Unity_Technologies.Recorder.Framework.Core.Engine
@@ -31,7 +33,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
             Extension
         }
 
-        [UnityEngine.SerializeField]
+        [SerializeField]
         string m_Pattern;
 
         string m_FramePattern;
@@ -99,7 +101,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
             if (string.IsNullOrEmpty(m_projectName))
             {
 #if UNITY_EDITOR
-                var parts = UnityEngine.Application.dataPath.Split('/');
+                var parts = Application.dataPath.Split('/');
                 m_projectName = parts[parts.Length - 2];                  
 #else
                 m_projectName = "N/A";
@@ -125,7 +127,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
                 .Replace(tags[(int)ETags.Scene], SceneManager.GetActiveScene().name)
                 .Replace(tags[(int)ETags.Project], m_projectName)
 #if UNITY_EDITOR
-                .Replace(tags[(int)ETags.Product], UnityEditor.PlayerSettings.productName )
+                .Replace(tags[(int)ETags.Product], PlayerSettings.productName )
 #else
                 .Replace(tags[(int)ETags.Product], "(prd-NA)")
 #endif

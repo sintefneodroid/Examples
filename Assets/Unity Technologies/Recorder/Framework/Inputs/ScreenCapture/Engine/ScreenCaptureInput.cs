@@ -1,10 +1,12 @@
 ﻿#if UNITY_2017_3_OR_NEWER
 
 using UnityEngine;
+using Unity_Technologies.Recorder.Framework.Core.Engine;
+using Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine;
 
 namespace Unity_Technologies.Recorder.Framework.Inputs.ScreenCapture.Engine
 {
-    public class ScreenCaptureInput : Core.Engine.RecorderInput
+    public class ScreenCaptureInput : RecorderInput
     {
         bool m_ModifiedResolution;
 
@@ -18,21 +20,21 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.ScreenCapture.Engine
         public int outputWidth { get; protected set; }
         public int outputHeight { get; protected set; }
 
-        public override void NewFrameReady(Core.Engine.RecordingSession session)
+        public override void NewFrameReady(RecordingSession session)
         {
             this.image = UnityEngine.ScreenCapture.CaptureScreenshotAsTexture();
         }
 
-        public override void BeginRecording(Core.Engine.RecordingSession session)
+        public override void BeginRecording(RecordingSession session)
         {
             int screenWidth = Screen.width;
             int screenHeight = Screen.height;
 #if UNITY_EDITOR
             switch (this.scSettings.m_OutputSize)
             {
-                case Core.Engine.EImageDimension.Window:
+                case EImageDimension.Window:
                 {
-                    CBRenderTexture.Engine.GameViewSize.GetGameRenderSize(out screenWidth, out screenHeight);
+                    GameViewSize.GetGameRenderSize(out screenWidth, out screenHeight);
                     this.outputWidth = screenWidth;
                     this.outputHeight = screenHeight;
 
@@ -47,7 +49,7 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.ScreenCapture.Engine
                 default:
                 {
                     this.outputHeight = (int)this.scSettings.m_OutputSize;
-                    this.outputWidth = (int)(this.outputHeight * Core.Engine.AspectRatioHelper.GetRealAR(this.scSettings.m_AspectRatio));
+                    this.outputWidth = (int)(this.outputHeight * AspectRatioHelper.GetRealAR(this.scSettings.m_AspectRatio));
 
                     if (this.scSettings.m_ForceEvenSize)
                     {
@@ -60,30 +62,30 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.ScreenCapture.Engine
             }
 
             int w, h;
-            CBRenderTexture.Engine.GameViewSize.GetGameRenderSize(out w, out h);
+            GameViewSize.GetGameRenderSize(out w, out h);
             if (w != this.outputWidth || h != this.outputHeight)
             {
-                var size = CBRenderTexture.Engine.GameViewSize.SetCustomSize(this.outputWidth, this.outputHeight) ?? CBRenderTexture.Engine.GameViewSize.AddSize(this.outputWidth, this.outputHeight);
-                if (CBRenderTexture.Engine.GameViewSize.m_ModifiedResolutionCount == 0)
-                    CBRenderTexture.Engine.GameViewSize.BackupCurrentSize();
+                var size = GameViewSize.SetCustomSize(this.outputWidth, this.outputHeight) ?? GameViewSize.AddSize(this.outputWidth, this.outputHeight);
+                if (GameViewSize.m_ModifiedResolutionCount == 0)
+                    GameViewSize.BackupCurrentSize();
                 else
                 {
-                    if (size != CBRenderTexture.Engine.GameViewSize.currentSize)
+                    if (size != GameViewSize.currentSize)
                     {
                         Debug.LogError("Requestion a resultion change while a recorder's input has already requested one! Undefined behaviour.");
                     }
                 }
-                CBRenderTexture.Engine.GameViewSize.m_ModifiedResolutionCount++;
+                GameViewSize.m_ModifiedResolutionCount++;
                 this.m_ModifiedResolution = true;
-                CBRenderTexture.Engine.GameViewSize.SelectSize(size);
+                GameViewSize.SelectSize(size);
             }
 #endif
 
         }
 
-        public override void FrameDone(Core.Engine.RecordingSession session)
+        public override void FrameDone(RecordingSession session)
         {
-            Core.Engine.UnityHelpers.Destroy(this.image);
+            UnityHelpers.Destroy(this.image);
             this.image = null;
         }
 
@@ -94,9 +96,9 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.ScreenCapture.Engine
 #if UNITY_EDITOR
                 if (this.m_ModifiedResolution)
                 {
-                    CBRenderTexture.Engine.GameViewSize.m_ModifiedResolutionCount--;
-                    if (CBRenderTexture.Engine.GameViewSize.m_ModifiedResolutionCount == 0)
-                        CBRenderTexture.Engine.GameViewSize.RestoreSize();
+                    GameViewSize.m_ModifiedResolutionCount--;
+                    if (GameViewSize.m_ModifiedResolutionCount == 0)
+                        GameViewSize.RestoreSize();
                 }
 #endif
             }

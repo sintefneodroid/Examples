@@ -1,4 +1,5 @@
-using Object = UnityEngine.Object;
+using UnityEditor;
+using UnityEngine;
 
 namespace Unity_Technologies.Recorder.Framework.Core.Engine
 {
@@ -15,7 +16,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
             if (obj == null)
                 return;
 #if UNITY_EDITOR
-            if (UnityEditor.EditorApplication.isPlaying)
+            if (EditorApplication.isPlaying)
                 Object.Destroy(obj);
             else
                 Object.DestroyImmediate(obj, allowDestroyingAssets);
@@ -28,7 +29,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
         public static bool IsPlaying()
         {
 #if UNITY_EDITOR
-            return UnityEditor.EditorApplication.isPlaying;
+            return EditorApplication.isPlaying;
 #else
             return true;
 #endif

@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encoder;
+using Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Misc;
 
 namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
 {
@@ -60,7 +62,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
             int m_channels;
             int m_targetFramerate = 30;
             string m_name;
-            Encoder.MovieEncoder m_encoder;
+            MovieEncoder m_encoder;
 
             public BufferRecorder(RenderTexture rt, int ch, string name, int tf)
             {
@@ -69,11 +71,11 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
                 this.m_name = name;
             }
 
-            public bool Initialize(Encoder.MovieEncoderConfigs c, Misc.DataPath p)
+            public bool Initialize(MovieEncoderConfigs c, DataPath p)
             {
                 string path = p.GetFullPath() + "/" + this.m_name;
                 c.Setup(this.m_rt.width, this.m_rt.height, this.m_channels, this.m_targetFramerate);
-                this.m_encoder = Encoder.MovieEncoder.Create(c, path);
+                this.m_encoder = MovieEncoder.Create(c, path);
                 return this.m_encoder != null && this.m_encoder.IsValid();
             }
 
@@ -90,7 +92,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
             {
                 if (this.m_encoder != null)
                 {
-                    Encoder.fcAPI.fcLock(this.m_rt, (data, fmt) =>
+                    fcAPI.fcLock(this.m_rt, (data, fmt) =>
                     {
                         this.m_encoder.AddVideoFrame(data, fmt, time);
                     });
@@ -102,7 +104,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
 
 
         #region fields
-        [SerializeField] Encoder.MovieEncoderConfigs m_encoderConfigs = new Encoder.MovieEncoderConfigs(Encoder.MovieEncoder.Type.Exr);
+        [SerializeField] MovieEncoderConfigs m_encoderConfigs = new MovieEncoderConfigs(MovieEncoder.Type.Exr);
         [SerializeField] FrameBufferConponents m_fbComponents = FrameBufferConponents.defaultValue;
 
         [SerializeField] Shader m_shCopy;
@@ -125,7 +127,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
             set { this.m_fbComponents = value; }
         }
 
-        public Encoder.MovieEncoderConfigs encoderConfigs { get { return this.m_encoderConfigs; } }
+        public MovieEncoderConfigs encoderConfigs { get { return this.m_encoderConfigs; } }
         #endregion
 
 
@@ -140,7 +142,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
             }
 
             this.m_outputDir.CreateDirectory();
-            if (this.m_quad == null) this.m_quad = Encoder.fcAPI.CreateFullscreenQuad();
+            if (this.m_quad == null) this.m_quad = fcAPI.CreateFullscreenQuad();
             if (this.m_matCopy == null) this.m_matCopy = new Material(this.m_shCopy);
 
             var cam = this.GetComponent<Camera>();
@@ -156,8 +158,8 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
             int captureWidth = cam.pixelWidth;
             int captureHeight = cam.pixelHeight;
             this.GetCaptureResolution(ref captureWidth, ref captureHeight);
-            if (this.m_encoderConfigs.format == Encoder.MovieEncoder.Type.MP4 ||
-                this.m_encoderConfigs.format == Encoder.MovieEncoder.Type.WebM)
+            if (this.m_encoderConfigs.format == MovieEncoder.Type.MP4 ||
+                this.m_encoderConfigs.format == MovieEncoder.Type.WebM)
             {
                 captureWidth = (captureWidth + 1) & ~1;
                 captureHeight = (captureHeight + 1) & ~1;
@@ -313,7 +315,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
 #if UNITY_EDITOR
         void Reset()
         {
-            this.m_shCopy = Encoder.fcAPI.GetFrameBufferCopyShader();
+            this.m_shCopy = fcAPI.GetFrameBufferCopyShader();
         }
 #endif // UNITY_EDITOR
 

@@ -2,6 +2,9 @@
 using System.Runtime.InteropServices;
 using UnityEditor;
 using UnityEngine;
+using Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Misc;
+using Object = UnityEngine.Object;
+
 #if UNITY_EDITOR
 
 #endif
@@ -150,7 +153,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encod
         }
 
 
-        [DllImport ("fccore")] public static extern void fcEnableAsyncReleaseContext(Misc.Bool v);
+        [DllImport ("fccore")] public static extern void fcEnableAsyncReleaseContext(Bool v);
         [DllImport ("fccore")] public static extern void fcWaitAsyncDelete();
         [DllImport ("fccore")] public static extern void fcReleaseContext(IntPtr ctx);
 
@@ -196,9 +199,9 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encod
             public static implicit operator bool(fcPngContext v) { return v.ptr != IntPtr.Zero; }
         }
 
-        [DllImport ("fccore")] public static extern Misc.Bool         fcPngIsSupported();
+        [DllImport ("fccore")] public static extern Bool         fcPngIsSupported();
         [DllImport ("fccore")] public static extern fcPngContext fcPngCreateContext(ref fcPngConfig conf);
-        [DllImport ("fccore")] public static extern Misc.Bool         fcPngExportPixels(fcPngContext ctx, string path, byte[] pixels, int width, int height, fcPixelFormat fmt, int num_channels);
+        [DllImport ("fccore")] public static extern Bool         fcPngExportPixels(fcPngContext ctx, string path, byte[] pixels, int width, int height, fcPixelFormat fmt, int num_channels);
 
 
         // -------------------------------------------------------------
@@ -254,11 +257,11 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encod
             public static implicit operator bool(fcExrContext v) { return v.ptr != IntPtr.Zero; }
         }
 
-        [DllImport ("fccore")] public static extern Misc.Bool         fcExrIsSupported();
+        [DllImport ("fccore")] public static extern Bool         fcExrIsSupported();
         [DllImport ("fccore")] public static extern fcExrContext fcExrCreateContext(ref fcExrConfig conf);
-        [DllImport ("fccore")] public static extern Misc.Bool         fcExrBeginImage(fcExrContext ctx, string path, int width, int height);
-        [DllImport ("fccore")] public static extern Misc.Bool         fcExrAddLayerPixels(fcExrContext ctx, byte[] pixels, fcPixelFormat fmt, int ch, string name);
-        [DllImport ("fccore")] public static extern Misc.Bool         fcExrEndImage(fcExrContext ctx);
+        [DllImport ("fccore")] public static extern Bool         fcExrBeginImage(fcExrContext ctx, string path, int width, int height);
+        [DllImport ("fccore")] public static extern Bool         fcExrAddLayerPixels(fcExrContext ctx, byte[] pixels, fcPixelFormat fmt, int ch, string name);
+        [DllImport ("fccore")] public static extern Bool         fcExrEndImage(fcExrContext ctx);
 
 
         // -------------------------------------------------------------
@@ -294,10 +297,10 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encod
             public static implicit operator bool(fcGifContext v) { return v.ptr != IntPtr.Zero; }
         }
 
-        [DllImport ("fccore")] public static extern Misc.Bool         fcGifIsSupported();
+        [DllImport ("fccore")] public static extern Bool         fcGifIsSupported();
         [DllImport ("fccore")] public static extern fcGifContext fcGifCreateContext(ref fcGifConfig conf);
         [DllImport ("fccore")] public static extern void         fcGifAddOutputStream(fcGifContext ctx, fcStream stream);
-        [DllImport ("fccore")] public static extern Misc.Bool         fcGifAddFramePixels(fcGifContext ctx, byte[] pixels, fcPixelFormat fmt, double timestamp = -1.0);
+        [DllImport ("fccore")] public static extern Bool         fcGifAddFramePixels(fcGifContext ctx, byte[] pixels, fcPixelFormat fmt, double timestamp = -1.0);
 
 
         // -------------------------------------------------------------
@@ -324,7 +327,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encod
         [Serializable]
         public struct fcMP4Config
         {
-            [HideInInspector] public Misc.Bool video;
+            [HideInInspector] public Bool video;
             [HideInInspector] public int videoWidth;
             [HideInInspector] public int videoHeight;
             [HideInInspector] public int videoTargetFramerate;
@@ -333,7 +336,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encod
             [HideInInspector] public int videoFlags;
             [Range(1, 32)] public int videoMaxTasks;
 
-            [HideInInspector] public Misc.Bool audio;
+            [HideInInspector] public Bool audio;
             [HideInInspector] public int audioSampleRate;
             [HideInInspector] public int audioNumChannels;
             public fcBitrateMode audioBitrateMode;
@@ -372,15 +375,15 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encod
             public static implicit operator bool(fcMP4Context v) { return v.ptr != IntPtr.Zero; }
         }
 
-        [DllImport ("fccore")] public static extern Misc.Bool             fcMP4IsSupported();
-        [DllImport ("fccore")] public static extern Misc.Bool             fcMP4OSIsSupported();
+        [DllImport ("fccore")] public static extern Bool             fcMP4IsSupported();
+        [DllImport ("fccore")] public static extern Bool             fcMP4OSIsSupported();
         [DllImport ("fccore")] public static extern fcMP4Context     fcMP4CreateContext(ref fcMP4Config conf);
         [DllImport ("fccore")] public static extern fcMP4Context     fcMP4OSCreateContext(ref fcMP4Config conf, string path);
         [DllImport ("fccore")] public static extern void             fcMP4AddOutputStream(fcMP4Context ctx, fcStream s);
         [DllImport ("fccore")] private static extern IntPtr          fcMP4GetAudioEncoderInfo(fcMP4Context ctx);
         [DllImport ("fccore")] private static extern IntPtr          fcMP4GetVideoEncoderInfo(fcMP4Context ctx);
-        [DllImport ("fccore")] public static extern Misc.Bool             fcMP4AddVideoFramePixels(fcMP4Context ctx, byte[] pixels, fcPixelFormat fmt, double timestamp = -1.0);
-        [DllImport ("fccore")] public static extern Misc.Bool             fcMP4AddAudioSamples(fcMP4Context ctx, float[] samples, int num_samples);
+        [DllImport ("fccore")] public static extern Bool             fcMP4AddVideoFramePixels(fcMP4Context ctx, byte[] pixels, fcPixelFormat fmt, double timestamp = -1.0);
+        [DllImport ("fccore")] public static extern Bool             fcMP4AddAudioSamples(fcMP4Context ctx, float[] samples, int num_samples);
 
         public static string fcMP4GetAudioEncoderInfoS(fcMP4Context ctx)
         {
@@ -419,7 +422,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encod
         [Serializable]
         public struct fcWebMConfig
         {
-            [HideInInspector] public Misc.Bool video;
+            [HideInInspector] public Bool video;
             public fcWebMVideoEncoder videoEncoder;
             [HideInInspector] public int videoWidth;
             [HideInInspector] public int videoHeight;
@@ -428,7 +431,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encod
             public int videoTargetBitrate;
             [Range(1, 32)] public int videoMaxTasks;
 
-            [HideInInspector] public Misc.Bool audio;
+            [HideInInspector] public Bool audio;
             public fcWebMAudioEncoder audioEncoder;
             [HideInInspector] public int audioSampleRate;
             [HideInInspector] public int audioNumChannels;
@@ -461,13 +464,13 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encod
             }
         }
 
-        [DllImport ("fccore")] public static extern Misc.Bool fcWebMIsSupported();
+        [DllImport ("fccore")] public static extern Bool fcWebMIsSupported();
         [DllImport ("fccore")] public static extern fcWebMContext fcWebMCreateContext(ref fcWebMConfig conf);
         [DllImport ("fccore")] public static extern void fcWebMAddOutputStream(fcWebMContext ctx, fcStream stream);
         // timestamp=-1 is treated as current time.
-        [DllImport ("fccore")] public static extern Misc.Bool fcWebMAddVideoFramePixels(fcWebMContext ctx, byte[] pixels, fcPixelFormat fmt, double timestamp = -1.0);
+        [DllImport ("fccore")] public static extern Bool fcWebMAddVideoFramePixels(fcWebMContext ctx, byte[] pixels, fcPixelFormat fmt, double timestamp = -1.0);
         // timestamp=-1 is treated as current time.
-        [DllImport ("fccore")] public static extern Misc.Bool fcWebMAddAudioSamples(fcWebMContext ctx, float[] samples, int num_samples);
+        [DllImport ("fccore")] public static extern Bool fcWebMAddAudioSamples(fcWebMContext ctx, float[] samples, int num_samples);
 
 
         // -------------------------------------------------------------
@@ -503,10 +506,10 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encod
             }
         }
 
-        [DllImport ("fccore")] public static extern Misc.Bool fcWaveIsSupported();
+        [DllImport ("fccore")] public static extern Bool fcWaveIsSupported();
         [DllImport ("fccore")] public static extern fcWaveContext fcWaveCreateContext(ref fcWaveConfig conf);
         [DllImport ("fccore")] public static extern void fcWaveAddOutputStream(fcWaveContext ctx, fcStream stream);
-        [DllImport ("fccore")] public static extern Misc.Bool fcWaveAddAudioSamples(fcWaveContext ctx, float[] samples, int num_samples);
+        [DllImport ("fccore")] public static extern Bool fcWaveAddAudioSamples(fcWaveContext ctx, float[] samples, int num_samples);
 
         
 
@@ -545,10 +548,10 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encod
             }
         }
 
-        [DllImport ("fccore")] public static extern Misc.Bool fcOggIsSupported();
+        [DllImport ("fccore")] public static extern Bool fcOggIsSupported();
         [DllImport ("fccore")] public static extern fcOggContext fcOggCreateContext(ref fcOggConfig conf);
         [DllImport ("fccore")] public static extern void fcOggAddOutputStream(fcOggContext ctx, fcStream stream);
-        [DllImport ("fccore")] public static extern Misc.Bool fcOggAddAudioSamples(fcOggContext ctx, float[] samples, int num_samples);
+        [DllImport ("fccore")] public static extern Bool fcOggAddAudioSamples(fcOggContext ctx, float[] samples, int num_samples);
 
 
         // -------------------------------------------------------------
@@ -569,7 +572,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encod
             public fcAudioBitsPerSample bitsPerSample;
             [Range(0,9)] public int compressionLevel;
             public int blockSize;
-            [HideInInspector] public Misc.Bool verify;
+            [HideInInspector] public Bool verify;
             [Range(1, 32)] public int maxTasks;
 
             public static fcFlacConfig default_value
@@ -590,10 +593,10 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encod
             }
         }
 
-        [DllImport ("fccore")] public static extern Misc.Bool fcFlacIsSupported();
+        [DllImport ("fccore")] public static extern Bool fcFlacIsSupported();
         [DllImport ("fccore")] public static extern fcFlacContext fcFlacCreateContext(ref fcFlacConfig conf);
         [DllImport ("fccore")] public static extern void fcFlacAddOutputStream(fcFlacContext ctx, fcStream stream);
-        [DllImport ("fccore")] public static extern Misc.Bool fcFlacAddAudioSamples(fcFlacContext ctx, float[] samples, int num_samples);
+        [DllImport ("fccore")] public static extern Bool fcFlacAddAudioSamples(fcFlacContext ctx, float[] samples, int num_samples);
 
 
 
@@ -605,7 +608,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encod
             tex.ReadPixels(new Rect(0, 0, tex.width, tex.height), 0, 0, false);
             tex.Apply();
             body(tex.GetRawTextureData(), fcGetPixelFormat(tex.format));
-            UnityEngine.Object.Destroy(tex);
+            Object.Destroy(tex);
         }
 
         public static void fcLock(RenderTexture src, Action<byte[], fcPixelFormat> body)

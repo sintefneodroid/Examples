@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace TextMesh_Pro.Scripts
@@ -6,7 +7,7 @@ namespace TextMesh_Pro.Scripts
     public class SimpleScript : MonoBehaviour
     {
 
-        private TMPro.TextMeshPro m_textMeshPro;
+        private TextMeshPro m_textMeshPro;
         //private TMP_FontAsset m_FontAsset;
 
         private const string label = "The <#0050FF>count is: </color>{0:2}";
@@ -16,7 +17,7 @@ namespace TextMesh_Pro.Scripts
         void Start()
         {
             // Add new TextMesh Pro Component
-            this.m_textMeshPro = this.gameObject.AddComponent<TMPro.TextMeshPro>();
+            this.m_textMeshPro = this.gameObject.AddComponent<TextMeshPro>();
 
             this.m_textMeshPro.autoSizeTextContainer = true;
 
@@ -31,7 +32,7 @@ namespace TextMesh_Pro.Scripts
             // Set various font settings.
             this.m_textMeshPro.fontSize = 48;
 
-            this.m_textMeshPro.alignment = TMPro.TextAlignmentOptions.Center;
+            this.m_textMeshPro.alignment = TextAlignmentOptions.Center;
             
             //m_textMeshPro.anchorDampening = true; // Has been deprecated but under consideration for re-implementation.
             //m_textMeshPro.enableAutoSizing = true;

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using UnityEngine;
 
 namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Misc
@@ -74,7 +75,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Misc
             }
             else
             {
-                var cur = System.IO.Directory.GetCurrentDirectory().Replace("\\", "/");
+                var cur = Directory.GetCurrentDirectory().Replace("\\", "/");
                 if (path.Contains(cur))
                 {
                     this.m_root = Root.Current;
@@ -131,7 +132,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Misc
                 var path = this.GetFullPath();
                 if(path.Length > 0)
                 {
-                    System.IO.Directory.CreateDirectory(path);
+                    Directory.CreateDirectory(path);
                 }
             }
             catch(Exception)

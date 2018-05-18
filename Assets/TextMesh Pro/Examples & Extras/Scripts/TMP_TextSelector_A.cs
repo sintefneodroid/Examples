@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace TextMesh_Pro.Scripts
@@ -6,7 +7,7 @@ namespace TextMesh_Pro.Scripts
 
     public class TMP_TextSelector_A : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        private TMPro.TextMeshPro m_TextMeshPro;
+        private TextMeshPro m_TextMeshPro;
 
         private Camera m_Camera;
 
@@ -17,7 +18,7 @@ namespace TextMesh_Pro.Scripts
 
         void Awake()
         {
-            this.m_TextMeshPro = this.gameObject.GetComponent<TMPro.TextMeshPro>();
+            this.m_TextMeshPro = this.gameObject.GetComponent<TextMeshPro>();
             this.m_Camera = Camera.main;
 
             // Force generation of the text object so we have valid data to work with. This is needed since LateUpdate() will be called before the text object has a chance to generated when entering play mode.
@@ -29,7 +30,7 @@ namespace TextMesh_Pro.Scripts
         {
             this.m_isHoveringObject = false;
 
-            if (TMPro.TMP_TextUtilities.IsIntersectingRectTransform(this.m_TextMeshPro.rectTransform, Input.mousePosition, Camera.main))
+            if (TMP_TextUtilities.IsIntersectingRectTransform(this.m_TextMeshPro.rectTransform, Input.mousePosition, Camera.main))
             {
                 this.m_isHoveringObject = true;
             }
@@ -37,7 +38,7 @@ namespace TextMesh_Pro.Scripts
             if (this.m_isHoveringObject)
             {
                 #region Example of Character Selection
-                int charIndex = TMPro.TMP_TextUtilities.FindIntersectingCharacter(this.m_TextMeshPro, Input.mousePosition, Camera.main, true);
+                int charIndex = TMP_TextUtilities.FindIntersectingCharacter(this.m_TextMeshPro, Input.mousePosition, Camera.main, true);
                 if (charIndex != -1 && charIndex != this.m_lastCharIndex && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
                 {
                     //Debug.Log("[" + m_TextMeshPro.textInfo.characterInfo[charIndex].character + "] has been selected.");
@@ -64,7 +65,7 @@ namespace TextMesh_Pro.Scripts
 
                 #region Example of Link Handling
                 // Check if mouse intersects with any links.
-                int linkIndex = TMPro.TMP_TextUtilities.FindIntersectingLink(this.m_TextMeshPro, Input.mousePosition, this.m_Camera);
+                int linkIndex = TMP_TextUtilities.FindIntersectingLink(this.m_TextMeshPro, Input.mousePosition, this.m_Camera);
 
                 // Clear previous link selection if one existed.
                 if ((linkIndex == -1 && this.m_selectedLink != -1) || linkIndex != this.m_selectedLink)
@@ -78,7 +79,7 @@ namespace TextMesh_Pro.Scripts
                 {
                     this.m_selectedLink = linkIndex;
 
-                    TMPro.TMP_LinkInfo linkInfo = this.m_TextMeshPro.textInfo.linkInfo[linkIndex];
+                    TMP_LinkInfo linkInfo = this.m_TextMeshPro.textInfo.linkInfo[linkIndex];
 
                     // The following provides an example of how to access the link properties.
                     Debug.Log("Link ID: \"" + linkInfo.GetLinkID() + "\"   Link Text: \"" + linkInfo.GetLinkText() + "\""); // Example of how to retrieve the Link ID and Link Text.
@@ -105,12 +106,12 @@ namespace TextMesh_Pro.Scripts
 
                 #region Example of Word Selection
                 // Check if Mouse intersects any words and if so assign a random color to that word.
-                int wordIndex = TMPro.TMP_TextUtilities.FindIntersectingWord(this.m_TextMeshPro, Input.mousePosition, Camera.main);
+                int wordIndex = TMP_TextUtilities.FindIntersectingWord(this.m_TextMeshPro, Input.mousePosition, Camera.main);
                 if (wordIndex != -1 && wordIndex != this.m_lastWordIndex)
                 {
                     this.m_lastWordIndex = wordIndex;
 
-                    TMPro.TMP_WordInfo wInfo = this.m_TextMeshPro.textInfo.wordInfo[wordIndex];
+                    TMP_WordInfo wInfo = this.m_TextMeshPro.textInfo.wordInfo[wordIndex];
 
                     Vector3 wordPOS = this.m_TextMeshPro.transform.TransformPoint(this.m_TextMeshPro.textInfo.characterInfo[wInfo.firstCharacterIndex].bottomLeft);
                     wordPOS = Camera.main.WorldToScreenPoint(wordPOS);

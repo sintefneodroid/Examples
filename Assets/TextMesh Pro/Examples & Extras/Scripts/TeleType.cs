@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 namespace TextMesh_Pro.Scripts
@@ -15,16 +16,16 @@ namespace TextMesh_Pro.Scripts
         private string label02 = "Example <sprite=2> of using <sprite=7> <#ffa000>Graphics Inline</color> <sprite=5> with Text in <font=\"Bangers SDF\" material=\"Bangers SDF - Drop Shadow\">TextMesh<#40a0ff>Pro</color></font><sprite=0> and Unity<sprite=2>";
 
 
-        private TMPro.TMP_Text m_textMeshPro;
+        private TMP_Text m_textMeshPro;
 
 
         void Awake()
         {
             // Get Reference to TextMeshPro Component
-            this.m_textMeshPro = this.GetComponent<TMPro.TMP_Text>();
+            this.m_textMeshPro = this.GetComponent<TMP_Text>();
             this.m_textMeshPro.text = this.label01;
             this.m_textMeshPro.enableWordWrapping = true;
-            this.m_textMeshPro.alignment = TMPro.TextAlignmentOptions.Top;
+            this.m_textMeshPro.alignment = TextAlignmentOptions.Top;
 
 
 

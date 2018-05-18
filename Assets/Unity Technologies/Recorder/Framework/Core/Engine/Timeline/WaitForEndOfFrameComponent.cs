@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using UnityEngine;
 
 namespace Unity_Technologies.Recorder.Framework.Core.Engine.Timeline
 {
@@ -15,15 +16,15 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine.Timeline
     ///     - This component get's added to a transient GameObject, that lives in the scene in play mode and that is associated
     ///       to the recording session.
     /// </summary>    
-    [UnityEngine.ExecuteInEditMode]
-    class WaitForEndOfFrameComponent : UnityEngine.MonoBehaviour
+    [ExecuteInEditMode]
+    class WaitForEndOfFrameComponent : MonoBehaviour
     {
         [NonSerialized]
         public RecorderPlayableBehaviour m_playable;
 
         public IEnumerator WaitForEndOfFrame()
         {
-            yield return new UnityEngine.WaitForEndOfFrame();
+            yield return new WaitForEndOfFrame();
             if(this.m_playable != null)
                 this.m_playable.FrameEnded();
         }

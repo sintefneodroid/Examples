@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Unity_Technologies.Recorder.Framework.Core.Engine;
 
 namespace Unity_Technologies.Recorder.Framework.Inputs.RenderTexture.Engine
 {
-    public class RenderTextureInputSettings : Core.Engine.ImageInputSettings
+    public class RenderTextureInputSettings : ImageInputSettings
     {
         public UnityEngine.RenderTexture m_SourceRTxtr;
 

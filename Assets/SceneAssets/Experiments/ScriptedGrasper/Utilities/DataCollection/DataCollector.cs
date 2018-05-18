@@ -1,5 +1,7 @@
 ﻿using System.IO;
 using System.Text;
+using SceneAssets.Experiments.ScriptedGrasper.Grasps;
+using SceneAssets.Experiments.ScriptedGrasper.Scripts;
 using UnityEngine;
 
 namespace SceneAssets.Experiments.ScriptedGrasper.Utilities.DataCollection {
@@ -14,18 +16,18 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Utilities.DataCollection {
     [SerializeField] int _current_episode_progress;
 
     [SerializeField] bool _delete_file_content;
-    [SerializeField] Scripts.ScriptedGripper _gripper;
+    [SerializeField] ScriptedGripper _gripper;
 
     int _i;
-    [SerializeField] Grasps.Grasp _target;
+    [SerializeField] Grasp _target;
 
     void Start() {
       if (!this._gripper) {
-        this._gripper = FindObjectOfType<Scripts.ScriptedGripper>();
+        this._gripper = FindObjectOfType<ScriptedGripper>();
       }
 
       if (!this._target) {
-        this._target = FindObjectOfType<Grasps.Grasp>();
+        this._target = FindObjectOfType<Grasp>();
       }
 
       //print ("GPU supports depth format: " + SystemInfo.SupportsRenderTextureFormat (RenderTextureFormat.Depth));

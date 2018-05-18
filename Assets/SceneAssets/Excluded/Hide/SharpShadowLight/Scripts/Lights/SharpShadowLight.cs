@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Utilities;
 using UnityEngine;
 
 namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
@@ -63,7 +64,7 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
     /// </summary>
     /// <exception cref="ArgumentNullException"></exception>
     void Start() {
-      Utilities.SinCosTable.Init();
+      SinCosTable.Init();
 
       //-- Step 1: obtain all active meshes in the scene --//
  
@@ -302,7 +303,7 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
         }
 
         var v = new Verts {
-            Pos = new Vector3(Utilities.SinCosTable._Sen_Array[theta], Utilities.SinCosTable._Cos_Array[theta], 0)
+            Pos = new Vector3(SinCosTable._Sen_Array[theta], SinCosTable._Cos_Array[theta], 0)
         };
         //v.pos = new Vector3((Mathf.Sin(theta)), (Mathf.Cos(theta)), 0); // in radians low performance
         // in dregrees (previous calculate)

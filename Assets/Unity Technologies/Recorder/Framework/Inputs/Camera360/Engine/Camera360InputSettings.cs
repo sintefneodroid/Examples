@@ -2,13 +2,14 @@
 
 using System;
 using System.Collections.Generic;
+using Unity_Technologies.Recorder.Framework.Core.Engine;
 
 namespace Unity_Technologies.Recorder.Framework.Inputs.Camera360.Engine
 {
 
-    public class Camera360InputSettings : Core.Engine.ImageInputSettings
+    public class Camera360InputSettings : ImageInputSettings
     {
-        public Core.Engine.EImageSource source = Core.Engine.EImageSource.MainCamera;
+        public EImageSource source = EImageSource.MainCamera;
         public string m_CameraTag;
         public bool m_FlipFinalOutput = false;
         public bool m_RenderStereo = true;
@@ -26,7 +27,7 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.Camera360.Engine
         {
             bool ok = base.ValidityCheck(errors);
 
-            if (this.source == Core.Engine.EImageSource.TaggedCamera && string.IsNullOrEmpty(this.m_CameraTag))
+            if (this.source == EImageSource.TaggedCamera && string.IsNullOrEmpty(this.m_CameraTag))
             {
                 ok = false;
                 errors.Add("Missing camera tag");

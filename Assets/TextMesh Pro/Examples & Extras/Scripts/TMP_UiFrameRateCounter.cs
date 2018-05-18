@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 namespace TextMesh_Pro.Scripts
 {
@@ -16,7 +17,7 @@ namespace TextMesh_Pro.Scripts
         private string htmlColorTag;
         private const string fpsLabel = "{0:2}</color> <#8080ff>FPS \n<#FF8000>{1:2} <#8080ff>MS";
 
-        private TMPro.TextMeshProUGUI m_TextMeshPro;
+        private TextMeshProUGUI m_TextMeshPro;
         private RectTransform m_frameCounter_transform;
 
         private FpsCounterAnchorPositions last_AnchorPosition;
@@ -34,8 +35,8 @@ namespace TextMesh_Pro.Scripts
 
             this.m_frameCounter_transform.SetParent(this.transform, false);
 
-            this.m_TextMeshPro = frameCounter.AddComponent<TMPro.TextMeshProUGUI>();
-            this.m_TextMeshPro.font = Resources.Load<TMPro.TMP_FontAsset>("Fonts & Materials/LiberationSans SDF");
+            this.m_TextMeshPro = frameCounter.AddComponent<TextMeshProUGUI>();
+            this.m_TextMeshPro.font = Resources.Load<TMP_FontAsset>("Fonts & Materials/LiberationSans SDF");
             this.m_TextMeshPro.fontSharedMaterial = Resources.Load<Material>("Fonts & Materials/LiberationSans SDF - Overlay");
 
             this.m_TextMeshPro.enableWordWrapping = false;
@@ -93,28 +94,28 @@ namespace TextMesh_Pro.Scripts
             switch (anchor_position)
             {
                 case FpsCounterAnchorPositions.TopLeft:
-                    this.m_TextMeshPro.alignment = TMPro.TextAlignmentOptions.TopLeft;
+                    this.m_TextMeshPro.alignment = TextAlignmentOptions.TopLeft;
                     this.m_frameCounter_transform.pivot = new Vector2(0, 1);
                     this.m_frameCounter_transform.anchorMin = new Vector2(0.01f, 0.99f);
                     this.m_frameCounter_transform.anchorMax = new Vector2(0.01f, 0.99f);
                     this.m_frameCounter_transform.anchoredPosition = new Vector2(0, 1);
                     break;
                 case FpsCounterAnchorPositions.BottomLeft:
-                    this.m_TextMeshPro.alignment = TMPro.TextAlignmentOptions.BottomLeft;
+                    this.m_TextMeshPro.alignment = TextAlignmentOptions.BottomLeft;
                     this.m_frameCounter_transform.pivot = new Vector2(0, 0);
                     this.m_frameCounter_transform.anchorMin = new Vector2(0.01f, 0.01f);
                     this.m_frameCounter_transform.anchorMax = new Vector2(0.01f, 0.01f);
                     this.m_frameCounter_transform.anchoredPosition = new Vector2(0, 0);
                     break;
                 case FpsCounterAnchorPositions.TopRight:
-                    this.m_TextMeshPro.alignment = TMPro.TextAlignmentOptions.TopRight;
+                    this.m_TextMeshPro.alignment = TextAlignmentOptions.TopRight;
                     this.m_frameCounter_transform.pivot = new Vector2(1, 1);
                     this.m_frameCounter_transform.anchorMin = new Vector2(0.99f, 0.99f);
                     this.m_frameCounter_transform.anchorMax = new Vector2(0.99f, 0.99f);
                     this.m_frameCounter_transform.anchoredPosition = new Vector2(1, 1);
                     break;
                 case FpsCounterAnchorPositions.BottomRight:
-                    this.m_TextMeshPro.alignment = TMPro.TextAlignmentOptions.BottomRight;
+                    this.m_TextMeshPro.alignment = TextAlignmentOptions.BottomRight;
                     this.m_frameCounter_transform.pivot = new Vector2(1, 0);
                     this.m_frameCounter_transform.anchorMin = new Vector2(0.99f, 0.01f);
                     this.m_frameCounter_transform.anchorMax = new Vector2(0.99f, 0.01f);

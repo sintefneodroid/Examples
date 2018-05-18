@@ -1,4 +1,6 @@
 using System;
+using System.Threading;
+using UnityEngine;
 
 namespace Unity_Technologies.Recorder.Framework.Core.Engine
 {
@@ -11,7 +13,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
     public class RecordingSession : IDisposable
     {
         public Recorder m_Recorder;
-        public UnityEngine.GameObject m_RecorderGO;
+        public GameObject m_RecorderGO;
 
         public double m_CurrentFrameStartTS;
         public double m_RecordingStartTS;
@@ -41,7 +43,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
 
         public int RecordedFrameSpan
         {
-            get { return this.m_FirstRecordedFrameCount == -1 ? 0 : UnityEngine.Time.renderedFrameCount - this.m_FirstRecordedFrameCount; }
+            get { return this.m_FirstRecordedFrameCount == -1 ? 0 : Time.renderedFrameCount - this.m_FirstRecordedFrameCount; }
         }
 
         public float recorderTime
@@ -51,11 +53,11 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
 
         void AllowInBackgroundMode()
         {
-            if (!UnityEngine.Application.runInBackground)
+            if (!Application.runInBackground)
             {
-                UnityEngine.Application.runInBackground = true;
+                Application.runInBackground = true;
                 if (Verbose.enabled)
-                    UnityEngine.Debug.Log("Recording sessions is enabling Application.runInBackground!");
+                    Debug.Log("Recording sessions is enabling Application.runInBackground!");
             }
         }
 
@@ -64,7 +66,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
             try
             {
                 this.AllowInBackgroundMode();
-                this.m_RecordingStartTS = (UnityEngine.Time.time / UnityEngine.Time.timeScale);
+                this.m_RecordingStartTS = (Time.time / Time.timeScale);
                 this.m_SessionStartTS = DateTime.Now;
                 this.m_Recorder.SessionCreated(this);
                 return true;
@@ -72,7 +74,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
             }
             catch (Exception ex)
             {
-                UnityEngine.Debug.LogException(ex);
+                Debug.LogException(ex);
                 return false;
             }
         }
@@ -84,25 +86,25 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
             {
                 if (!this.settings.isPlatformSupported)
                 {
-                    UnityEngine.Debug.LogError(string.Format("Recorder {0} does not support current platform", this.m_Recorder.GetType().Name));
+                    Debug.LogError(string.Format("Recorder {0} does not support current platform", this.m_Recorder.GetType().Name));
                     return false;
                 }
 
                 this.AllowInBackgroundMode();
 
-                this.m_RecordingStartTS = (UnityEngine.Time.time / UnityEngine.Time.timeScale);
+                this.m_RecordingStartTS = (Time.time / Time.timeScale);
                 this.m_Recorder.SignalInputsOfStage(ERecordingSessionStage.BeginRecording, this);
 
                 if (!this.m_Recorder.BeginRecording(this))
                     return false;
-                this.m_InitialFrame = UnityEngine.Time.renderedFrameCount;
-                this.m_FPSTimeStart = UnityEngine.Time.unscaledTime;
+                this.m_InitialFrame = Time.renderedFrameCount;
+                this.m_FPSTimeStart = Time.unscaledTime;
 
                 return true;
             }
             catch (Exception ex)
             {
-                UnityEngine.Debug.LogException(ex);
+                Debug.LogException(ex);
                 return false;
             }
         }
@@ -116,7 +118,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
             }
             catch (Exception ex)
             {
-                UnityEngine.Debug.LogException(ex);
+                Debug.LogException(ex);
             }
         }
 
@@ -130,41 +132,41 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
                     this.m_Recorder.RecordFrame(this);
                     this.m_Recorder.recordedFramesCount++;
                     if (this.m_Recorder.recordedFramesCount == 1)
-                        this.m_FirstRecordedFrameCount = UnityEngine.Time.renderedFrameCount;
+                        this.m_FirstRecordedFrameCount = Time.renderedFrameCount;
                 }
                 this.m_Recorder.SignalInputsOfStage(ERecordingSessionStage.FrameDone, this);
             }
             catch (Exception ex)
             {
-                UnityEngine.Debug.LogException(ex);
+                Debug.LogException(ex);
             }
 
             // Note: This is not great when multiple recorders are simultaneously active...
             if (this.m_Recorder.settings.m_FrameRateMode == FrameRateMode.Variable ||
                 (this.m_Recorder.settings.m_FrameRateMode == FrameRateMode.Constant && this.m_Recorder.settings.m_SynchFrameRate))
             {
-                var frameCount = UnityEngine.Time.renderedFrameCount - this.m_InitialFrame;
+                var frameCount = Time.renderedFrameCount - this.m_InitialFrame;
                 var frameLen = 1.0f / this.m_Recorder.settings.m_FrameRate;
-                var elapsed = UnityEngine.Time.unscaledTime - this.m_FPSTimeStart;
+                var elapsed = Time.unscaledTime - this.m_FPSTimeStart;
                 var target = frameLen * (frameCount + 1);
                 var sleep = (int)((target - elapsed) * 1000);
 
                 if (sleep > 2)
                 {
                     if (Verbose.enabled)
-                        UnityEngine.Debug.Log(string.Format("Recording session info => dT: {0:F1}s, Target dT: {1:F1}s, Retarding: {2}ms, fps: {3:F1}", elapsed, target, sleep, frameCount / elapsed));
-                    System.Threading.Thread.Sleep(Math.Min(sleep, 1000));
+                        Debug.Log(string.Format("Recording session info => dT: {0:F1}s, Target dT: {1:F1}s, Retarding: {2}ms, fps: {3:F1}", elapsed, target, sleep, frameCount / elapsed));
+                    Thread.Sleep(Math.Min(sleep, 1000));
                 }
                 else if (sleep < -frameLen)
                     this.m_InitialFrame--;
                 else if (Verbose.enabled)
-                    UnityEngine.Debug.Log(string.Format("Recording session info => fps: {0:F1}", frameCount / elapsed));
+                    Debug.Log(string.Format("Recording session info => fps: {0:F1}", frameCount / elapsed));
 
                 // reset every 30 frames
                 if (frameCount % 50 == 49)
                 {
-                    this.m_FPSNextTimeStart = UnityEngine.Time.unscaledTime;
-                    this.m_FPSNextFrameCount = UnityEngine.Time.renderedFrameCount;
+                    this.m_FPSNextTimeStart = Time.unscaledTime;
+                    this.m_FPSNextFrameCount = Time.renderedFrameCount;
                 }
                 if (frameCount % 100 == 99)
                 {
@@ -181,13 +183,13 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
             {
                 this.AllowInBackgroundMode();
 
-                this.m_CurrentFrameStartTS = (UnityEngine.Time.time / UnityEngine.Time.timeScale) - this.m_RecordingStartTS;
+                this.m_CurrentFrameStartTS = (Time.time / Time.timeScale) - this.m_RecordingStartTS;
                 this.m_Recorder.SignalInputsOfStage(ERecordingSessionStage.NewFrameStarting, this);
                 this.m_Recorder.PrepareNewFrame(this);
             }
             catch (Exception ex)
             {
-                UnityEngine.Debug.LogException(ex);
+                Debug.LogException(ex);
             }
         }
 
@@ -202,7 +204,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
                 }
                 catch (Exception ex)
                 {
-                    UnityEngine.Debug.LogException(ex);
+                    Debug.LogException(ex);
                 }
 
                 UnityHelpers.Destroy(this.m_Recorder);

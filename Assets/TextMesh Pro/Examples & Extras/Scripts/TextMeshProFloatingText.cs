@@ -1,6 +1,6 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
-using TMPro_ExtensionMethods = TMPro.TMPro_ExtensionMethods;
 
 namespace TextMesh_Pro.Scripts
 {
@@ -10,7 +10,7 @@ namespace TextMesh_Pro.Scripts
         public Font TheFont;
 
         private GameObject m_floatingText;
-        private TMPro.TextMeshPro m_textMeshPro;
+        private TextMeshPro m_textMeshPro;
         private TextMesh m_textMesh;
 
         private Transform m_transform;
@@ -41,7 +41,7 @@ namespace TextMesh_Pro.Scripts
             if (this.SpawnType == 0)
             {
                 // TextMesh Pro Implementation
-                this.m_textMeshPro = this.m_floatingText.AddComponent<TMPro.TextMeshPro>();
+                this.m_textMeshPro = this.m_floatingText.AddComponent<TextMeshPro>();
                 this.m_textMeshPro.rectTransform.sizeDelta = new Vector2(3, 3);
                 
                 this.m_floatingText_Transform = this.m_floatingText.transform;
@@ -50,7 +50,7 @@ namespace TextMesh_Pro.Scripts
                 //m_textMeshPro.fontAsset = Resources.Load("Fonts & Materials/JOKERMAN SDF", typeof(TextMeshProFont)) as TextMeshProFont; // User should only provide a string to the resource.
                 //m_textMeshPro.fontSharedMaterial = Resources.Load("Fonts & Materials/LiberationSans SDF", typeof(Material)) as Material;
 
-                this.m_textMeshPro.alignment = TMPro.TextAlignmentOptions.Center;
+                this.m_textMeshPro.alignment = TextAlignmentOptions.Center;
                 this.m_textMeshPro.color = new Color32((byte)Random.Range(0, 255), (byte)Random.Range(0, 255), (byte)Random.Range(0, 255), 255);
                 this.m_textMeshPro.fontSize = 24;
                 //m_textMeshPro.enableExtraPadding = true;

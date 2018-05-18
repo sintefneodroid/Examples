@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
+using Unity_Technologies.Recorder.Framework.Core.Engine;
 
 namespace Unity_Technologies.Recorder.Framework.Inputs.RenderTextureSampler.Engine
 {
@@ -16,15 +18,15 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.RenderTextureSampler.Engi
         x16 = 16,
     }
 
-    public class RenderTextureSamplerSettings : Core.Engine.ImageInputSettings
+    public class RenderTextureSamplerSettings : ImageInputSettings
     {
-        public Core.Engine.EImageSource source = Core.Engine.EImageSource.ActiveCameras;
-        public Core.Engine.EImageDimension m_RenderSize = Core.Engine.EImageDimension.x720p_HD;
+        public EImageSource source = EImageSource.ActiveCameras;
+        public EImageDimension m_RenderSize = EImageDimension.x720p_HD;
         public ESuperSamplingCount m_SuperSampling = ESuperSamplingCount.x1;
         public float m_SuperKernelPower = 16f;
         public float m_SuperKernelScale = 1f;
         public string m_CameraTag;
-        public UnityEngine.ColorSpace m_ColorSpace = UnityEngine.ColorSpace.Gamma;
+        public ColorSpace m_ColorSpace = ColorSpace.Gamma;
         public bool m_FlipFinalOutput = false;
 
         public override Type inputType

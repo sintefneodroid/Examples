@@ -1,16 +1,17 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 namespace TextMesh_Pro.Scripts
 {
     public class TextConsoleSimulator : MonoBehaviour
     {
-        private TMPro.TMP_Text m_TextComponent;
+        private TMP_Text m_TextComponent;
         private bool hasTextChanged;
 
         void Awake()
         {
-            this.m_TextComponent = this.gameObject.GetComponent<TMPro.TMP_Text>();
+            this.m_TextComponent = this.gameObject.GetComponent<TMP_Text>();
         }
 
 
@@ -24,12 +25,12 @@ namespace TextMesh_Pro.Scripts
         void OnEnable()
         {
             // Subscribe to event fired when text object has been regenerated.
-            TMPro.TMPro_EventManager.TEXT_CHANGED_EVENT.Add(this.ON_TEXT_CHANGED);
+            TMPro_EventManager.TEXT_CHANGED_EVENT.Add(this.ON_TEXT_CHANGED);
         }
 
         void OnDisable()
         {
-            TMPro.TMPro_EventManager.TEXT_CHANGED_EVENT.Remove(this.ON_TEXT_CHANGED);
+            TMPro_EventManager.TEXT_CHANGED_EVENT.Remove(this.ON_TEXT_CHANGED);
         }
 
 
@@ -44,11 +45,11 @@ namespace TextMesh_Pro.Scripts
         /// Method revealing the text one character at a time.
         /// </summary>
         /// <returns></returns>
-        IEnumerator RevealCharacters(TMPro.TMP_Text textComponent)
+        IEnumerator RevealCharacters(TMP_Text textComponent)
         {
             textComponent.ForceMeshUpdate();
 
-            TMPro.TMP_TextInfo textInfo = textComponent.textInfo;
+            TMP_TextInfo textInfo = textComponent.textInfo;
 
             int totalVisibleCharacters = textInfo.characterCount; // Get # of Visible Character in text object
             int visibleCount = 0;
@@ -80,7 +81,7 @@ namespace TextMesh_Pro.Scripts
         /// Method revealing the text one word at a time.
         /// </summary>
         /// <returns></returns>
-        IEnumerator RevealWords(TMPro.TMP_Text textComponent)
+        IEnumerator RevealWords(TMP_Text textComponent)
         {
             textComponent.ForceMeshUpdate();
 

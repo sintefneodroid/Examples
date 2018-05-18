@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encoder;
 
 namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
 {
@@ -9,8 +10,8 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
     public class AudioRecorder : RecorderBase
     {
         #region fields
-        [SerializeField] Encoder.AudioEncoderConfigs m_encoderConfigs = new Encoder.AudioEncoderConfigs();
-        Encoder.AudioEncoder m_encoder;
+        [SerializeField] AudioEncoderConfigs m_encoderConfigs = new AudioEncoderConfigs();
+        AudioEncoder m_encoder;
         #endregion
 
 
@@ -25,7 +26,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
                 string outPath = this.m_outputDir.GetFullPath() + "/" + DateTime.Now.ToString("yyyyMMdd_HHmmss");
 
                 this.m_encoderConfigs.Setup();
-                this.m_encoder = Encoder.AudioEncoder.Create(this.m_encoderConfigs, outPath);
+                this.m_encoder = AudioEncoder.Create(this.m_encoderConfigs, outPath);
                 if (this.m_encoder == null || !this.m_encoder.IsValid())
                 {
                     this.EndRecording();

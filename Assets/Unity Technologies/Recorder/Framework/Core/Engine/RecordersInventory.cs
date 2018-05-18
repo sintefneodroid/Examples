@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
+using UnityEngine;
+using Object = UnityEngine.Object;
+
 #if UNITY_EDITOR
 
 #endif
@@ -42,7 +45,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
                 }
                 catch (Exception)
                 {
-                    UnityEngine.Debug.LogError( "Failed reflecting assembly: " + a.FullName );
+                    Debug.LogError( "Failed reflecting assembly: " + a.FullName );
                     continue;
                 }
 
@@ -86,7 +89,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
             {
                 if (m_AvailableCategories == null)
                 {
-                    m_AvailableCategories = RecordersInventory.ListRecorders()
+                    m_AvailableCategories = ListRecorders()
                         .GroupBy(x => x.category)
                         .Select(x => x.Key)
                         .OrderBy(x => x)
@@ -136,7 +139,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
             }
             else
             {
-                UnityEngine.Debug.LogError(String.Format("The class '{0}' does not have a FrameRecorderAttribute attached to it. ", recorderType.FullName));
+                Debug.LogError(String.Format("The class '{0}' does not have a FrameRecorderAttribute attached to it. ", recorderType.FullName));
             }
 
             return false;
@@ -179,7 +182,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
             var factory = GetRecorderInfo(recorderType);
             if (factory != null)
             {
-                var recorder = UnityEngine.ScriptableObject.CreateInstance(recorderType) as Recorder;
+                var recorder = ScriptableObject.CreateInstance(recorderType) as Recorder;
                 recorder.Reset();
                 recorder.settings = settings;
                 return recorder;
@@ -189,14 +192,14 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
         }
 
 #if UNITY_EDITOR
-        public static RecorderSettings GenerateRecorderInitialSettings(UnityEngine.Object parent, Type recorderType)
+        public static RecorderSettings GenerateRecorderInitialSettings(Object parent, Type recorderType)
         {
             Init();
             var recorderinfo = GetRecorderInfo(recorderType);
             if (recorderinfo != null)
             {
                 RecorderSettings settings = null;
-                settings = UnityEngine.ScriptableObject.CreateInstance(recorderinfo.settingsClass) as RecorderSettings;
+                settings = ScriptableObject.CreateInstance(recorderinfo.settingsClass) as RecorderSettings;
                 settings.name = "Recorder Settings";
                 settings.recorderType = recorderType;
 

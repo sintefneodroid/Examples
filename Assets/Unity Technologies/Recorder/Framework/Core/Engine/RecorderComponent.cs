@@ -1,4 +1,6 @@
 using System.Collections;
+using UnityEditor;
+using UnityEngine;
 
 namespace Unity_Technologies.Recorder.Framework.Core.Engine
 {
@@ -8,8 +10,8 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
     /// Motivation  : 
     /// Notes: 
     /// </summary>    
-    [UnityEngine.ExecuteInEditMode]
-    public class RecorderComponent : UnityEngine.MonoBehaviour
+    [ExecuteInEditMode]
+    public class RecorderComponent : MonoBehaviour
     {
         public bool autoExitPlayMode { get; set; }
         public RecordingSession session { get; set; }
@@ -22,7 +24,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
 
         IEnumerator RecordFrame()
         {
-            yield return new UnityEngine.WaitForEndOfFrame();
+            yield return new WaitForEndOfFrame();
             if (this.session != null && this.session.recording)
             {
                 this.session.RecordFrame();
@@ -77,7 +79,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
 
 #if UNITY_EDITOR
                 if (this.autoExitPlayMode)
-                    UnityEditor.EditorApplication.isPlaying = false;
+                    EditorApplication.isPlaying = false;
 #endif
             }
         }

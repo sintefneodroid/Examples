@@ -1,13 +1,15 @@
-﻿using UnityEngine;
+﻿using System;
+using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace TextMesh_Pro.Scripts {
     public class ChatController : MonoBehaviour {
 
 
-        public TMPro.TMP_InputField TMP_ChatInput;
+        public TMP_InputField TMP_ChatInput;
 
-        public TMPro.TMP_Text TMP_ChatOutput;
+        public TMP_Text TMP_ChatOutput;
 
         public Scrollbar ChatScrollbar;
 
@@ -29,7 +31,7 @@ namespace TextMesh_Pro.Scripts {
             // Clear Input Field
             this.TMP_ChatInput.text = string.Empty;
 
-            var timeNow = System.DateTime.Now;
+            var timeNow = DateTime.Now;
 
             this.TMP_ChatOutput.text += "[<#FFFF80>" + timeNow.Hour.ToString("d2") + ":" + timeNow.Minute.ToString("d2") + ":" + timeNow.Second.ToString("d2") + "</color>] " + newText + "\n";
 

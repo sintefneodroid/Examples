@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace TextMesh_Pro.Scripts
@@ -35,7 +36,7 @@ namespace TextMesh_Pro.Scripts
                     //go.renderer.receiveShadows = false;
                     //go.transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
 
-                    TMPro.TextMeshPro textMeshPro = go.AddComponent<TMPro.TextMeshPro>();
+                    TextMeshPro textMeshPro = go.AddComponent<TextMeshPro>();
                     //textMeshPro.FontAsset = Resources.Load("Fonts & Materials/LiberationSans SDF", typeof(TextMeshProFont)) as TextMeshProFont;
                     //textMeshPro.anchor = AnchorPositions.Bottom;
                     textMeshPro.fontSize = 96;

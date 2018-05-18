@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 namespace TextMesh_Pro.Scripts
@@ -12,24 +13,24 @@ namespace TextMesh_Pro.Scripts
         public float ScaleMultiplier = 1.0f;
         public float RotationMultiplier = 1.0f;
 
-        private TMPro.TMP_Text m_TextComponent;
+        private TMP_Text m_TextComponent;
         private bool hasTextChanged;
 
 
         void Awake()
         {
-            this.m_TextComponent = this.GetComponent<TMPro.TMP_Text>();
+            this.m_TextComponent = this.GetComponent<TMP_Text>();
         }
 
         void OnEnable()
         {
             // Subscribe to event fired when text object has been regenerated.
-            TMPro.TMPro_EventManager.TEXT_CHANGED_EVENT.Add(this.ON_TEXT_CHANGED);
+            TMPro_EventManager.TEXT_CHANGED_EVENT.Add(this.ON_TEXT_CHANGED);
         }
 
         void OnDisable()
         {
-            TMPro.TMPro_EventManager.TEXT_CHANGED_EVENT.Remove(this.ON_TEXT_CHANGED);
+            TMPro_EventManager.TEXT_CHANGED_EVENT.Remove(this.ON_TEXT_CHANGED);
         }
 
 
@@ -57,7 +58,7 @@ namespace TextMesh_Pro.Scripts
             // Alternatively, we could yield and wait until the end of the frame when the text object will be generated.
             this.m_TextComponent.ForceMeshUpdate();
 
-            TMPro.TMP_TextInfo textInfo = this.m_TextComponent.textInfo;
+            TMP_TextInfo textInfo = this.m_TextComponent.textInfo;
 
             Matrix4x4 matrix;
             Vector3[][] copyOfVertices = new Vector3[0][];

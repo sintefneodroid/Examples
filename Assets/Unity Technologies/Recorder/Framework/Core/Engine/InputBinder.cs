@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Unity_Technologies.Recorder.Framework.Core.Engine
 {
@@ -10,7 +11,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
     /// </summary>
     public class InputBinder : RecorderInputSetting
     {
-        [UnityEngine.SerializeField]
+        [SerializeField]
         string m_TypeName;
 
         public string typeName

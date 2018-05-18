@@ -1,6 +1,9 @@
 using System.Collections;
+using System.Threading;
 using UnityEditor;
 using UnityEngine;
+using Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Misc;
+
 #if UNITY_EDITOR
 
 #endif
@@ -31,7 +34,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
         }
 
 
-        [SerializeField] protected Misc.DataPath m_outputDir = new Misc.DataPath(Misc.DataPath.Root.Current, "Capture");
+        [SerializeField] protected DataPath m_outputDir = new DataPath(DataPath.Root.Current, "Capture");
 
         [SerializeField] protected ResolutionUnit m_resolution = ResolutionUnit.Percent;
         [SerializeField] [Range(1,100)] protected int m_resolutionPercent = 100;
@@ -60,7 +63,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
         protected int m_recordedSamples = 0;
 
 
-        public Misc.DataPath outputDir
+        public DataPath outputDir
         {
             get { return this.m_outputDir; }
             set { this.m_outputDir = value; }
@@ -208,7 +211,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
             float wt = (1.0f / this.m_targetFramerate) * (Time.renderedFrameCount - this.m_initialFrame);
             while (Time.realtimeSinceStartup - this.m_initialRealTime < wt)
             {
-                System.Threading.Thread.Sleep(1);
+                Thread.Sleep(1);
             }
         }
 

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace TextMesh_Pro.Scripts
@@ -38,7 +39,7 @@ namespace TextMesh_Pro.Scripts
 
                     go.transform.position = this.m_Transform.position + new Vector3(ratio * -orthoSize * 0.975f, orthoSize * 0.975f - lineHeight, 0);
 
-                    TMPro.TextMeshPro textMeshPro = go.AddComponent<TMPro.TextMeshPro>();
+                    TextMeshPro textMeshPro = go.AddComponent<TextMeshPro>();
 
                     //textMeshPro.fontSharedMaterial = material;
                     //textMeshPro.font = Resources.Load("Fonts & Materials/LiberationSans SDF", typeof(TextMeshProFont)) as TextMeshProFont;

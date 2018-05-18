@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using Unity_Technologies.Recorder.Framework.Core.Engine;
 
 namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
 {
-    public class CBRenderTextureInputSettings : Core.Engine.ImageInputSettings
+    public class CBRenderTextureInputSettings : ImageInputSettings
     {
-        public Core.Engine.EImageSource source = Core.Engine.EImageSource.ActiveCameras;
+        public EImageSource source = EImageSource.ActiveCameras;
         public string m_CameraTag;
         public bool m_FlipFinalOutput = false;
         public bool m_AllowTransparency = false;
@@ -19,7 +20,7 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
         public override bool ValidityCheck( List<string> errors )
         {
             var ok = base.ValidityCheck(errors);
-            if (this.source == Core.Engine.EImageSource.TaggedCamera && string.IsNullOrEmpty(this.m_CameraTag))
+            if (this.source == EImageSource.TaggedCamera && string.IsNullOrEmpty(this.m_CameraTag))
             {
                 ok = false;
                 errors.Add("Missing tag for camera selection");

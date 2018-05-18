@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
+using UnityEngine;
 
 namespace Unity_Technologies.Recorder.Framework.Core.Engine
 {
     [Serializable]
     public class InputSettingsList : IEnumerable<RecorderInputSetting>
     {
-        [UnityEngine.SerializeField]
+        [SerializeField]
         List<RecorderInputSetting> m_InputsSettingsAssets;
         List<RecorderInputSetting> m_InputsSettings;
 
@@ -53,14 +54,14 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
                     {
                         var binder = inputAsset as InputBinder;
                         if( string.IsNullOrEmpty( binder.typeName) )
-                            UnityEngine.Debug.LogError("Recorder Input asset in invalid!");
+                            Debug.LogError("Recorder Input asset in invalid!");
                         else
                         {
-                            if( UnityEngine.Application.isPlaying )
-                                UnityEngine.Debug.LogError("Recorder input setting missing from scene, adding with default state.");
+                            if( Application.isPlaying )
+                                Debug.LogError("Recorder input setting missing from scene, adding with default state.");
                             else if( Verbose.enabled )
-                                UnityEngine.Debug.Log("Recorder input setting missing from scene, adding with default state.");
-                            var replacementInput = UnityEngine.ScriptableObject.CreateInstance(binder.inputType) as RecorderInputSetting;
+                                Debug.Log("Recorder input setting missing from scene, adding with default state.");
+                            var replacementInput = ScriptableObject.CreateInstance(binder.inputType) as RecorderInputSetting;
                             replacementInput.m_Id = inputAsset.m_Id;
                             this.m_InputsSettings.Add(replacementInput);
                         }
@@ -138,7 +139,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
         {
             if (input is InputBinder)
             {
-                UnityEngine.Debug.LogError("Cannot bind a InputBinder object!");
+                Debug.LogError("Cannot bind a InputBinder object!");
                 return;
             }
 
@@ -178,7 +179,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
             this.m_InputsSettings[index] = input;
             if (input.storeInScene)
             {
-                var binder = UnityEngine.ScriptableObject.CreateInstance<InputBinder>();
+                var binder = ScriptableObject.CreateInstance<InputBinder>();
                 binder.name = "Scene-Stored";
                 binder.m_DisplayName = input.m_DisplayName;
                 binder.typeName = input.GetType().AssemblyQualifiedName;
@@ -231,7 +232,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
                 var ib = this.m_InputsSettingsAssets[i] as InputBinder;
                 if (ib != null && this.m_InputsSettings[i] == null)
                 {
-                    var newInput = UnityEngine.ScriptableObject.CreateInstance(ib.inputType) as RecorderInputSetting;
+                    var newInput = ScriptableObject.CreateInstance(ib.inputType) as RecorderInputSetting;
                     newInput.m_DisplayName = ib.m_DisplayName;
                     newInput.m_Id = ib.m_Id;
                     this.m_InputsSettings[i] = newInput;

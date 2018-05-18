@@ -19,9 +19,9 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Utilities {
     int _light_count = 1;
 
     void Start() {
-      this._cam = GameObject.FindObjectOfType<Camera>();
+      this._cam = FindObjectOfType<Camera>();
 
-      this._c_light = GameObject.FindObjectOfType<Lights.SharpShadowLight>();
+      this._c_light = FindObjectOfType<Lights.SharpShadowLight>();
     }
 
     void Update() {

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 namespace TextMesh_Pro.Scripts
 {
@@ -16,7 +17,7 @@ namespace TextMesh_Pro.Scripts
         private string htmlColorTag;
         private const string fpsLabel = "{0:2}</color> <#8080ff>FPS \n<#FF8000>{1:2} <#8080ff>MS";
 
-        private TMPro.TextMeshPro m_TextMeshPro;
+        private TextMeshPro m_TextMeshPro;
         private Transform m_frameCounter_transform;
         private Camera m_camera;
 
@@ -33,8 +34,8 @@ namespace TextMesh_Pro.Scripts
 
             GameObject frameCounter = new GameObject("Frame Counter");
 
-            this.m_TextMeshPro = frameCounter.AddComponent<TMPro.TextMeshPro>();
-            this.m_TextMeshPro.font = Resources.Load<TMPro.TMP_FontAsset>("Fonts & Materials/LiberationSans SDF");
+            this.m_TextMeshPro = frameCounter.AddComponent<TextMeshPro>();
+            this.m_TextMeshPro.font = Resources.Load<TMP_FontAsset>("Fonts & Materials/LiberationSans SDF");
             this.m_TextMeshPro.fontSharedMaterial = Resources.Load<Material>("Fonts & Materials/LiberationSans SDF - Overlay");
 
 
@@ -109,22 +110,22 @@ namespace TextMesh_Pro.Scripts
             switch (anchor_position)
             {
                 case FpsCounterAnchorPositions.TopLeft:
-                    this.m_TextMeshPro.alignment = TMPro.TextAlignmentOptions.TopLeft;
+                    this.m_TextMeshPro.alignment = TextAlignmentOptions.TopLeft;
                     this.m_TextMeshPro.rectTransform.pivot = new Vector2(0, 1);
                     this.m_frameCounter_transform.position = this.m_camera.ViewportToWorldPoint(new Vector3(0, 1, 100.0f));
                     break;
                 case FpsCounterAnchorPositions.BottomLeft:
-                    this.m_TextMeshPro.alignment = TMPro.TextAlignmentOptions.BottomLeft;
+                    this.m_TextMeshPro.alignment = TextAlignmentOptions.BottomLeft;
                     this.m_TextMeshPro.rectTransform.pivot = new Vector2(0, 0);
                     this.m_frameCounter_transform.position = this.m_camera.ViewportToWorldPoint(new Vector3(0, 0, 100.0f));
                     break;
                 case FpsCounterAnchorPositions.TopRight:
-                    this.m_TextMeshPro.alignment = TMPro.TextAlignmentOptions.TopRight;
+                    this.m_TextMeshPro.alignment = TextAlignmentOptions.TopRight;
                     this.m_TextMeshPro.rectTransform.pivot = new Vector2(1, 1);
                     this.m_frameCounter_transform.position = this.m_camera.ViewportToWorldPoint(new Vector3(1, 1, 100.0f));
                     break;
                 case FpsCounterAnchorPositions.BottomRight:
-                    this.m_TextMeshPro.alignment = TMPro.TextAlignmentOptions.BottomRight;
+                    this.m_TextMeshPro.alignment = TextAlignmentOptions.BottomRight;
                     this.m_TextMeshPro.rectTransform.pivot = new Vector2(1, 0);
                     this.m_frameCounter_transform.position = this.m_camera.ViewportToWorldPoint(new Vector3(1, 0, 100.0f));
                     break;

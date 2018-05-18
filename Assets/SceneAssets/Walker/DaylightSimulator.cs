@@ -1,5 +1,5 @@
-﻿using System;
-using Neodroid.Utilities;
+﻿using droid.Neodroid.Prototyping.Internals;
+using droid.Neodroid.Utilities.Unsorted;
 using UnityEngine;
 
 namespace SceneAssets.Walker {
@@ -9,7 +9,7 @@ namespace SceneAssets.Walker {
   [ExecuteInEditMode]
   [RequireComponent(typeof(Light))]
   [RequireComponent(typeof(ParticleSystem))]
-  public class DaylightSimulator : Neodroid.Prototyping.Internals.Resetable {
+  public class DaylightSimulator : Resetable {
     [SerializeField] float _day_atmosphere_thickness = 0.88f;
 
     [SerializeField] AnimationCurve _fog_density_curve;
@@ -41,13 +41,13 @@ namespace SceneAssets.Walker {
 
     protected override void Setup() {
       if (this._fog_density_curve ==null) {
-        this._fog_density_curve = Neodroid.Utilities.Unsorted.NeodroidUtilities.DefaultAnimationCurve();
+        this._fog_density_curve = NeodroidUtilities.DefaultAnimationCurve();
       }
       if (this._fog_gradient ==null) {
-        this._fog_gradient = Neodroid.Utilities.Unsorted.NeodroidUtilities.DefaultGradient();
+        this._fog_gradient = NeodroidUtilities.DefaultGradient();
       }
       if (this._light_gradient ==null) {
-        this._light_gradient =Neodroid.Utilities.Unsorted.NeodroidUtilities.DefaultGradient();
+        this._light_gradient = NeodroidUtilities.DefaultGradient();
       }
       this._light = this.GetComponent<Light>();
       this._sky_mat = RenderSettings.skybox;

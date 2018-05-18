@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Neodroid.Utilities;
+using droid.Neodroid.Utilities.Unsorted;
 using UnityEngine;
 
 namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
@@ -120,7 +120,7 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
 
     void Update() {
       if (this._visualize_grid) {
-        Neodroid.Utilities.Unsorted.GraspingUtilities.DrawRect(
+        GraspingUtilities.DrawRect(
             this._x_size,
             this._y_size,
             this._z_size,

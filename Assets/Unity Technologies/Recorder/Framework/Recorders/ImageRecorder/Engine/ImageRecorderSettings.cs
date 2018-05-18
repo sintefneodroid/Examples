@@ -1,4 +1,11 @@
 using System.Collections.Generic;
+using UnityEngine;
+using Unity_Technologies.Recorder.Framework.Core.Engine;
+using Unity_Technologies.Recorder.Framework.Inputs.Camera360.Engine;
+using Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine;
+using Unity_Technologies.Recorder.Framework.Inputs.RenderTexture.Engine;
+using Unity_Technologies.Recorder.Framework.Inputs.RenderTextureSampler.Engine;
+using Unity_Technologies.Recorder.Framework.Inputs.ScreenCapture.Engine;
 
 namespace Unity_Technologies.Recorder.Framework.Recorders.ImageRecorder.Engine
 {
@@ -10,8 +17,8 @@ namespace Unity_Technologies.Recorder.Framework.Recorders.ImageRecorder.Engine
         EXR
     }
 
-    [UnityEngine.ExecuteInEditMode]
-    public class ImageRecorderSettings : Core.Engine.RecorderSettings
+    [ExecuteInEditMode]
+    public class ImageRecorderSettings : RecorderSettings
     {
         public PNGRecordeOutputFormat m_OutputFormat = PNGRecordeOutputFormat.JPEG;
 
@@ -20,11 +27,11 @@ namespace Unity_Technologies.Recorder.Framework.Recorders.ImageRecorder.Engine
             this.m_BaseFileName.pattern = "image_<0000>.<ext>";
         }
 
-        public override List<Core.Engine.RecorderInputSetting> GetDefaultInputSettings()
+        public override List<RecorderInputSetting> GetDefaultInputSettings()
         {
-            return new List<Core.Engine.RecorderInputSetting>()
+            return new List<RecorderInputSetting>()
             {
-                this.NewInputSettingsObj<Inputs.CBRenderTexture.Engine.CBRenderTextureInputSettings>("Pixels") 
+                this.NewInputSettingsObj<CBRenderTextureInputSettings>("Pixels") 
             };
         }
 
@@ -53,10 +60,10 @@ namespace Unity_Technologies.Recorder.Framework.Recorders.ImageRecorder.Engine
 
             bool adjusted = false;
 
-            if (this.inputsSettings[0] is Inputs.RenderTextureSampler.Engine.RenderTextureSamplerSettings)
+            if (this.inputsSettings[0] is RenderTextureSamplerSettings)
             {
-                var input = (Inputs.RenderTextureSampler.Engine.RenderTextureSamplerSettings)this.inputsSettings[0];
-                var colorSpace = this.m_OutputFormat == PNGRecordeOutputFormat.EXR ? UnityEngine.ColorSpace.Linear : UnityEngine.ColorSpace.Gamma;
+                var input = (RenderTextureSamplerSettings)this.inputsSettings[0];
+                var colorSpace = this.m_OutputFormat == PNGRecordeOutputFormat.EXR ? ColorSpace.Linear : ColorSpace.Gamma;
                 if (input.m_ColorSpace != colorSpace)
                 {
                     input.m_ColorSpace = colorSpace;
@@ -64,12 +71,12 @@ namespace Unity_Technologies.Recorder.Framework.Recorders.ImageRecorder.Engine
                 }
             }
 
-            if (this.inputsSettings[0] is Core.Engine.ImageInputSettings)
+            if (this.inputsSettings[0] is ImageInputSettings)
             {
-                var iis = (Core.Engine.ImageInputSettings)this.inputsSettings[0];
-                if (iis.maxSupportedSize != Core.Engine.EImageDimension.x4320p_8K)
+                var iis = (ImageInputSettings)this.inputsSettings[0];
+                if (iis.maxSupportedSize != EImageDimension.x4320p_8K)
                 {
-                    iis.maxSupportedSize = Core.Engine.EImageDimension.x4320p_8K;
+                    iis.maxSupportedSize = EImageDimension.x4320p_8K;
                     adjusted = true;
                 }
             }
@@ -77,23 +84,23 @@ namespace Unity_Technologies.Recorder.Framework.Recorders.ImageRecorder.Engine
             return adjusted;
         }
 
-        public override List<Core.Engine.InputGroupFilter> GetInputGroups()
+        public override List<InputGroupFilter> GetInputGroups()
         {
-            return new List<Core.Engine.InputGroupFilter>()
+            return new List<InputGroupFilter>()
             {
-                new Core.Engine.InputGroupFilter()
+                new InputGroupFilter()
                 {
-                    title = "Pixels", typesFilter = new List<Core.Engine.InputFilter>()
+                    title = "Pixels", typesFilter = new List<InputFilter>()
                     {
 #if UNITY_2017_3_OR_NEWER
-                        new Core.Engine.TInputFilter<Inputs.ScreenCapture.Engine.ScreenCaptureInputSettings>("Screen"),
+                        new TInputFilter<ScreenCaptureInputSettings>("Screen"),
 #endif
-                        new Core.Engine.TInputFilter<Inputs.CBRenderTexture.Engine.CBRenderTextureInputSettings>("Camera(s)"),
+                        new TInputFilter<CBRenderTextureInputSettings>("Camera(s)"),
 #if UNITY_2018_1_OR_NEWER
-                        new Core.Engine.TInputFilter<Inputs.Camera360.Engine.Camera360InputSettings>("360 View (feature preview)"),
+                        new TInputFilter<Camera360InputSettings>("360 View (feature preview)"),
 #endif
-                        new Core.Engine.TInputFilter<Inputs.RenderTextureSampler.Engine.RenderTextureSamplerSettings>("Sampling"),
-                        new Core.Engine.TInputFilter<Inputs.RenderTexture.Engine.RenderTextureInputSettings>("Render Texture"),
+                        new TInputFilter<RenderTextureSamplerSettings>("Sampling"),
+                        new TInputFilter<RenderTextureInputSettings>("Render Texture"),
                     }
                 }
             };

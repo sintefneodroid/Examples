@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Unity_Technologies.Recorder.Framework.Core.Engine
 {
@@ -8,7 +9,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
     /// Motivation  : 
     /// Notes: 
     /// </summary>    
-    public abstract class  RecorderInputSetting : UnityEngine.ScriptableObject
+    public abstract class  RecorderInputSetting : ScriptableObject
     {
         public abstract Type inputType { get; }
         public abstract bool ValidityCheck(List<string> errors);

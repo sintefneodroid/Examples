@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace EffectExamples.Shared.Scripts {
   public class GunShoot : MonoBehaviour {

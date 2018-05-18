@@ -1,21 +1,24 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encoder;
+using Unity_Technologies.Recorder.Framework.Core.Engine;
+using Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine;
 
 namespace Unity_Technologies.Recorder.Extensions.FCIntegration.GIF
 {
     [ExecuteInEditMode]
     public class GIFRecorderSettings : BaseFCRecorderSettings
     {
-        public UTJ.FrameCapturer.Scripts.Encoder.fcAPI.fcGifConfig m_GifEncoderSettings = UTJ.FrameCapturer.Scripts.Encoder.fcAPI.fcGifConfig.default_value;
+        public fcAPI.fcGifConfig m_GifEncoderSettings = fcAPI.fcGifConfig.default_value;
 
         GIFRecorderSettings()
         {
             this.m_BaseFileName.pattern = "image.<ext>";
         }
 
-        public override List<Framework.Core.Engine.RecorderInputSetting> GetDefaultInputSettings()
+        public override List<RecorderInputSetting> GetDefaultInputSettings()
         {
-            return new List<Framework.Core.Engine.RecorderInputSetting>() { this.NewInputSettingsObj<Framework.Inputs.CBRenderTexture.Engine.CBRenderTextureInputSettings>("Pixels") };
+            return new List<RecorderInputSetting>() { this.NewInputSettingsObj<CBRenderTextureInputSettings>("Pixels") };
         }
     }
 }

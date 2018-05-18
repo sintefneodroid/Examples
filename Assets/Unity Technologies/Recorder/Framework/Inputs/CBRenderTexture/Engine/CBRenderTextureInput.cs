@@ -1,30 +1,34 @@
 ﻿using System;
+using UnityEngine;
 using UnityEngine.Rendering;
+using Unity_Technologies.Recorder.Framework.Core.Engine;
+using Object = UnityEngine.Object;
+
 #if UNITY_EDITOR
 #endif
 
 namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
 {
-    public class CBRenderTextureInput : Core.Engine.BaseRenderTextureInput
+    public class CBRenderTextureInput : BaseRenderTextureInput
     {
         struct CanvasBackup
         {
-            public UnityEngine.Camera camera;
-            public UnityEngine.Canvas canvas;
+            public Camera camera;
+            public Canvas canvas;
         }
 
         bool m_ModifiedResolution;
-        UnityEngine.Shader m_shCopy;
-        UnityEngine.Material m_CopyMaterial;
-        Core.Engine.TextureFlipper m_VFlipper = new Core.Engine.TextureFlipper();
-        UnityEngine.Mesh m_quad;
+        Shader m_shCopy;
+        Material m_CopyMaterial;
+        TextureFlipper m_VFlipper = new TextureFlipper();
+        Mesh m_quad;
         CommandBuffer m_cbCopyFB;
         CommandBuffer m_cbCopyGB;
         CommandBuffer m_cbClearGB;
         CommandBuffer m_cbCopyVelocity;
-        UnityEngine.Camera m_Camera;
+        Camera m_Camera;
         bool m_cameraChanged;
-        UnityEngine.Camera m_UICamera;
+        Camera m_UICamera;
 
         CanvasBackup[] m_CanvasBackups;
 
@@ -33,7 +37,7 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
             get { return (CBRenderTextureInputSettings)this.settings; }
         }
 
-        public UnityEngine.Camera targetCamera
+        public Camera targetCamera
         {
             get { return this.m_Camera; }
 
@@ -48,13 +52,13 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
             }
         }
 
-        public UnityEngine.Shader copyShader
+        public Shader copyShader
         {
             get
             {
                 if (this.m_shCopy == null)
                 {
-                    this.m_shCopy = UnityEngine.Shader.Find("Hidden/Recorder/Inputs/CBRenderTexture/CopyFB");
+                    this.m_shCopy = Shader.Find("Hidden/Recorder/Inputs/CBRenderTexture/CopyFB");
                 }
                 return this.m_shCopy;
             }
@@ -62,13 +66,13 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
             set { this.m_shCopy = value; }
         }
 
-        public UnityEngine.Material copyMaterial
+        public Material copyMaterial
         {
             get
             {
                 if (this.m_CopyMaterial == null)
                 {
-                    this.m_CopyMaterial = new UnityEngine.Material(this.copyShader);
+                    this.m_CopyMaterial = new Material(this.copyShader);
                     this.copyMaterial.EnableKeyword("OFFSCREEN");
                     if (this.cbSettings.m_AllowTransparency)
                         this.m_CopyMaterial.EnableKeyword("TRANSPARENCY_ON");
@@ -77,24 +81,24 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
             }
         }
 
-        public override void BeginRecording(Core.Engine.RecordingSession session)
+        public override void BeginRecording(RecordingSession session)
         {
             if (this.cbSettings.m_FlipFinalOutput)
-                this.m_VFlipper = new Core.Engine.TextureFlipper();
+                this.m_VFlipper = new TextureFlipper();
 
             this.m_quad = CreateFullscreenQuad();
             switch (this.cbSettings.source)
             {
-                case Core.Engine.EImageSource.ActiveCameras:
-                case Core.Engine.EImageSource.MainCamera:
-                case Core.Engine.EImageSource.TaggedCamera:
+                case EImageSource.ActiveCameras:
+                case EImageSource.MainCamera:
+                case EImageSource.TaggedCamera:
                 {
-                    int screenWidth = UnityEngine.Screen.width;
-                    int screenHeight = UnityEngine.Screen.height;
+                    int screenWidth = Screen.width;
+                    int screenHeight = Screen.height;
 #if UNITY_EDITOR
                     switch (this.cbSettings.m_OutputSize)
                     {
-                        case Core.Engine.EImageDimension.Window:
+                        case EImageDimension.Window:
                         {
                             GameViewSize.GetGameRenderSize(out screenWidth, out screenHeight);
                             this.outputWidth = screenWidth;
@@ -112,7 +116,7 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
                         default:
                         {
                             this.outputHeight = (int)this.cbSettings.m_OutputSize;
-                            this.outputWidth = (int)(this.outputHeight * Core.Engine.AspectRatioHelper.GetRealAR(this.cbSettings.m_AspectRatio));
+                            this.outputWidth = (int)(this.outputHeight * AspectRatioHelper.GetRealAR(this.cbSettings.m_AspectRatio));
 
                             if (this.cbSettings.m_ForceEvenSize)
                             {
@@ -130,7 +134,7 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
                             {
                                 if (size != GameViewSize.currentSize)
                                 {
-                                    UnityEngine.Debug.LogError("Requestion a resultion change while a recorder's input has already requested one! Undefined behaviour.");
+                                    Debug.LogError("Requestion a resultion change while a recorder's input has already requested one! Undefined behaviour.");
                                 }
                             }
                             GameViewSize.m_ModifiedResolutionCount++;
@@ -148,36 +152,36 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
 
             if (this.cbSettings.m_CaptureUI)
             {
-                var uiGO = new UnityEngine.GameObject();
+                var uiGO = new GameObject();
                 uiGO.name = "UICamera";
                 uiGO.transform.parent = session.m_RecorderGO.transform;
 
-                this.m_UICamera = uiGO.AddComponent<UnityEngine.Camera>();
+                this.m_UICamera = uiGO.AddComponent<Camera>();
                 this.m_UICamera.cullingMask = 1 << 5;
-                this.m_UICamera.clearFlags = UnityEngine.CameraClearFlags.Depth;
-                this.m_UICamera.renderingPath = UnityEngine.RenderingPath.DeferredShading;
+                this.m_UICamera.clearFlags = CameraClearFlags.Depth;
+                this.m_UICamera.renderingPath = RenderingPath.DeferredShading;
                 this.m_UICamera.targetTexture = this.outputRT;
                 this.m_UICamera.enabled = false;
             }
         }
 
-        public override void NewFrameStarting(Core.Engine.RecordingSession session)
+        public override void NewFrameStarting(RecordingSession session)
         {
             switch (this.cbSettings.source)
             {
-                case Core.Engine.EImageSource.ActiveCameras:
+                case EImageSource.ActiveCameras:
                 {
                     if (this.targetCamera == null)
                     {
-                        var displayGO = new UnityEngine.GameObject();
+                        var displayGO = new GameObject();
                         displayGO.name = "CameraHostGO-" + displayGO.GetInstanceID();
                         displayGO.transform.parent = session.m_RecorderGO.transform;
-                        var camera = displayGO.AddComponent<UnityEngine.Camera>();
-                        camera.clearFlags = UnityEngine.CameraClearFlags.Nothing;
+                        var camera = displayGO.AddComponent<Camera>();
+                        camera.clearFlags = CameraClearFlags.Nothing;
                         camera.cullingMask = 0;
-                        camera.renderingPath = UnityEngine.RenderingPath.DeferredShading;
+                        camera.renderingPath = RenderingPath.DeferredShading;
                         camera.targetDisplay = 0;
-                        camera.rect = new UnityEngine.Rect(0, 0, 1, 1);
+                        camera.rect = new Rect(0, 0, 1, 1);
                         camera.depth = float.MaxValue;
 
                         this.targetCamera = camera;
@@ -185,16 +189,16 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
                     break;
                 }
 
-                case Core.Engine.EImageSource.MainCamera:
+                case EImageSource.MainCamera:
                 {
-                    if (this.targetCamera != UnityEngine.Camera.main )
+                    if (this.targetCamera != Camera.main )
                     {
-                        this.targetCamera = UnityEngine.Camera.main;
+                        this.targetCamera = Camera.main;
                         this.m_cameraChanged = true;
                     }
                     break;
                 }
-                case Core.Engine.EImageSource.TaggedCamera:
+                case EImageSource.TaggedCamera:
                 {
                     var tag = (this.settings as CBRenderTextureInputSettings).m_CameraTag;
 
@@ -202,15 +206,15 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
                     {
                         try
                         {
-                            var cams = UnityEngine.GameObject.FindGameObjectsWithTag(tag);
+                            var cams = GameObject.FindGameObjectsWithTag(tag);
                             if (cams.Length > 0)
-                                UnityEngine.Debug.LogWarning("More than one camera has the requested target tag:" + tag);
-                            this.targetCamera = cams[0].transform.GetComponent<UnityEngine.Camera>();
+                                Debug.LogWarning("More than one camera has the requested target tag:" + tag);
+                            this.targetCamera = cams[0].transform.GetComponent<Camera>();
                             
                         }
-                        catch (UnityEngine.UnityException)
+                        catch (UnityException)
                         {
-                            UnityEngine.Debug.LogWarning("No camera has the requested target tag:" + tag);
+                            Debug.LogWarning("No camera has the requested target tag:" + tag);
                             this.targetCamera = null;
                         }
                     }
@@ -231,12 +235,12 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
                     this.m_cbCopyFB.Release();
                 }
 
-                var tid = UnityEngine.Shader.PropertyToID("_TmpFrameBuffer");
+                var tid = Shader.PropertyToID("_TmpFrameBuffer");
                 this.m_cbCopyFB = new CommandBuffer { name = "Recorder: copy frame buffer" };
-                this.m_cbCopyFB.GetTemporaryRT(tid, -1, -1, 0, UnityEngine.FilterMode.Bilinear);
+                this.m_cbCopyFB.GetTemporaryRT(tid, -1, -1, 0, FilterMode.Bilinear);
                 this.m_cbCopyFB.Blit(BuiltinRenderTextureType.CurrentActive, tid);
                 this.m_cbCopyFB.SetRenderTarget(this.outputRT);
-                this.m_cbCopyFB.DrawMesh(this.m_quad, UnityEngine.Matrix4x4.identity, this.copyMaterial, 0, 0);
+                this.m_cbCopyFB.DrawMesh(this.m_quad, Matrix4x4.identity, this.copyMaterial, 0, 0);
                 this.m_cbCopyFB.ReleaseTemporaryRT(tid);
                 this.m_Camera.AddCommandBuffer(CameraEvent.AfterEverything, this.m_cbCopyFB);
 
@@ -245,16 +249,16 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
 
             if (Math.Abs(1-this.targetCamera.rect.width) > float.Epsilon || Math.Abs(1 - this.targetCamera.rect.height) > float.Epsilon)
             {
-                UnityEngine.Debug.LogWarning( string.Format("Recording output of camera '{0}' who's rectangle does not cover the viewport: resulting image will be up-sampled with associated quality degradation!", this.targetCamera.gameObject.name));
+                Debug.LogWarning( string.Format("Recording output of camera '{0}' who's rectangle does not cover the viewport: resulting image will be up-sampled with associated quality degradation!", this.targetCamera.gameObject.name));
             }
         }
 
-        public override void NewFrameReady(Core.Engine.RecordingSession session)
+        public override void NewFrameReady(RecordingSession session)
         {
             if (this.cbSettings.m_CaptureUI)
             {
                 // Find canvases
-                var canvases = UnityEngine.Object.FindObjectsOfType<UnityEngine.Canvas>();
+                var canvases = Object.FindObjectsOfType<Canvas>();
                 if (this.m_CanvasBackups == null || this.m_CanvasBackups.Length != canvases.Length)
                     this.m_CanvasBackups = new CanvasBackup[canvases.Length];
 
@@ -262,11 +266,11 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
                 for (var i = 0; i < canvases.Length; i++)
                 {
                     var canvas = canvases[i];
-                    if (canvas.isRootCanvas && canvas.renderMode == UnityEngine.RenderMode.ScreenSpaceOverlay)
+                    if (canvas.isRootCanvas && canvas.renderMode == RenderMode.ScreenSpaceOverlay)
                     {
                         this.m_CanvasBackups[i].camera = canvas.worldCamera;
                         this.m_CanvasBackups[i].canvas = canvas;
-                        canvas.renderMode = UnityEngine.RenderMode.ScreenSpaceCamera;
+                        canvas.renderMode = RenderMode.ScreenSpaceCamera;
                         canvas.worldCamera = this.m_UICamera;
                     }
                     else
@@ -287,7 +291,7 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
                     if (this.m_CanvasBackups[i].canvas == null)
                         continue;
                         
-                    this.m_CanvasBackups[i].canvas.renderMode = UnityEngine.RenderMode.ScreenSpaceOverlay;
+                    this.m_CanvasBackups[i].canvas.renderMode = RenderMode.ScreenSpaceOverlay;
                     this.m_CanvasBackups[i].canvas.worldCamera = this.m_CanvasBackups[i].camera;
                 }
             }
@@ -301,7 +305,7 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
             if (disposing)
             {
                 this.ReleaseCamera();
-                Core.Engine.UnityHelpers.Destroy(this.m_UICamera);
+                UnityHelpers.Destroy(this.m_UICamera);
 #if UNITY_EDITOR
                 if (this.m_ModifiedResolution)
                 {
@@ -329,7 +333,7 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
             }
 
             if (this.m_CopyMaterial != null)
-                Core.Engine.UnityHelpers.Destroy(this.m_CopyMaterial);
+                UnityHelpers.Destroy(this.m_CopyMaterial);
         }
 
         bool PrepFrameRenderTexture()
@@ -344,9 +348,9 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
                 this.ReleaseBuffer();
             }
 
-            this.outputRT = new UnityEngine.RenderTexture(this.outputWidth, this.outputHeight, 0, UnityEngine.RenderTextureFormat.ARGB32)
+            this.outputRT = new UnityEngine.RenderTexture(this.outputWidth, this.outputHeight, 0, RenderTextureFormat.ARGB32)
             {
-                wrapMode = UnityEngine.TextureWrapMode.Repeat
+                wrapMode = TextureWrapMode.Repeat
             };
             this.outputRT.Create();
             if (this.m_UICamera != null)
@@ -357,18 +361,18 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
             return true;
         }
 
-        public static UnityEngine.Mesh CreateFullscreenQuad()
+        public static Mesh CreateFullscreenQuad()
         {
-            var vertices = new UnityEngine.Vector3[4]
+            var vertices = new Vector3[4]
             {
-                new UnityEngine.Vector3(1.0f, 1.0f, 0.0f),
-                new UnityEngine.Vector3(-1.0f, 1.0f, 0.0f),
-                new UnityEngine.Vector3(-1.0f, -1.0f, 0.0f),
-                new UnityEngine.Vector3(1.0f, -1.0f, 0.0f),
+                new Vector3(1.0f, 1.0f, 0.0f),
+                new Vector3(-1.0f, 1.0f, 0.0f),
+                new Vector3(-1.0f, -1.0f, 0.0f),
+                new Vector3(1.0f, -1.0f, 0.0f),
             };
             var indices = new[] { 0, 1, 2, 2, 3, 0 };
 
-            var r = new UnityEngine.Mesh
+            var r = new Mesh
             {
                 vertices = vertices,
                 triangles = indices

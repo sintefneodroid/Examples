@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections;
-using Neodroid.Environments;
-using Neodroid.Prototyping.Actors;
-using Neodroid.Utilities;
+﻿using System.Collections;
+using droid.Neodroid.Prototyping.Actors;
+using droid.Neodroid.Prototyping.Internals;
+using droid.Neodroid.Utilities.Unsorted;
 using UnityEngine;
 
 namespace SceneAssets.LunarLander.Scripts {
-  public class CollisionExplosion : Neodroid.Prototyping.Internals.Resetable {
+  public class CollisionExplosion : Resetable {
     public KillableActor _Actor;
     GameObject _broken_object;
     public GameObject _Broken_Object_Prefab;
@@ -27,7 +26,7 @@ namespace SceneAssets.LunarLander.Scripts {
 
       //this._explosion_particle_system = this.GetComponent<ParticleSystem>();
 
-      Neodroid.Utilities.Unsorted.NeodroidUtilities.RegisterCollisionTriggerCallbacksOnChildren(
+      NeodroidUtilities.RegisterCollisionTriggerCallbacksOnChildren(
           this,
           this._Rigidbody.transform,
           this.ChildOnCollisionEnter,
@@ -62,12 +61,12 @@ namespace SceneAssets.LunarLander.Scripts {
     void MaybeDestroy(Rigidbody rb, Rigidbody other = null) {
       var val = 0f;
       if (rb != null) {
-        val = Neodroid.Utilities.Unsorted.NeodroidUtilities.KineticEnergy(rb);
+        val = NeodroidUtilities.KineticEnergy(rb);
       }
 
       var val_other = 0f;
       if (other != null) {
-        val_other = Neodroid.Utilities.Unsorted.NeodroidUtilities.KineticEnergy(rb);
+        val_other = NeodroidUtilities.KineticEnergy(rb);
       }
 
       if (this.Debugging) {

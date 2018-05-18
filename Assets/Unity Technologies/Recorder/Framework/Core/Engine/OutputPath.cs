@@ -112,9 +112,9 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
         public void CreateDirectory()
         {
             var path = this.GetFullPath();
-            if(path.Length > 0 && !System.IO.Directory.Exists(path) )
+            if(path.Length > 0 && !Directory.Exists(path) )
             {
-                System.IO.Directory.CreateDirectory(path);
+                Directory.CreateDirectory(path);
             }
         }
     }

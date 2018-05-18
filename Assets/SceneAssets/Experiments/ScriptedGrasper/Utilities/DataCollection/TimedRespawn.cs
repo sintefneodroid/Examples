@@ -1,13 +1,15 @@
 ﻿using System.Collections;
-using Neodroid.Utilities;
+using droid.Neodroid.Utilities.Unsorted;
+using SceneAssets.Experiments.ScriptedGrasper.Grasps;
+using SceneAssets.Experiments.ScriptedGrasper.Scripts;
 using UnityEngine;
 
 namespace SceneAssets.Experiments.ScriptedGrasper.Utilities.DataCollection {
   public class TimedRespawn : MonoBehaviour {
     [SerializeField] bool _debugging;
-    [SerializeField] Grasps.Grasp _grasp;
-    [SerializeField] Scripts.GraspableObject _graspable_object;
-    [SerializeField] Scripts.ScriptedGripper _gripper;
+    [SerializeField] Grasp _grasp;
+    [SerializeField] GraspableObject _graspable_object;
+    [SerializeField] ScriptedGripper _gripper;
     [SerializeField] Vector3 _initial_position;
     [SerializeField] Quaternion _initial_rotation;
     [SerializeField] Rigidbody[] _rigid_bodies;
@@ -16,11 +18,11 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Utilities.DataCollection {
     // Use this for initialization
     void Start() {
       if (!this._graspable_object) {
-        this._graspable_object = this.GetComponent<Scripts.GraspableObject>();
+        this._graspable_object = this.GetComponent<GraspableObject>();
       }
 
       if (!this._gripper) {
-        this._gripper = FindObjectOfType<Scripts.ScriptedGripper>();
+        this._gripper = FindObjectOfType<ScriptedGripper>();
       }
 
       this._grasp = this._graspable_object.GetOptimalGrasp(this._gripper).Item1;
@@ -29,7 +31,7 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Utilities.DataCollection {
       this._initial_position = this._rigid_body.transform.position;
       this._initial_rotation = this._rigid_body.transform.rotation;
 
-      Neodroid.Utilities.Unsorted.NeodroidUtilities.RegisterCollisionTriggerCallbacksOnChildren(
+      NeodroidUtilities.RegisterCollisionTriggerCallbacksOnChildren(
           this,
           this.transform,
           this.OnCollisionEnterChild,
