@@ -936,17 +936,17 @@ MonoBehaviour:
   _debugging: 0
   _: 
   _environment: {fileID: 1620948092}
-  _normalise_observation_using_space: 1
-  _angular_space:
+  _normalise_observation: 0
+  _angular_velocity: {x: 0, y: 0, z: 0}
+  _velocity: {x: 0, y: 0, z: 0}
+  _last_update_time: 0
+  _rigidbody: {fileID: 965130052}
+  _differential: 1
+  _velocity_space:
     _Decimal_Granularity: 10
     _Min_Values: {x: -100, y: -100, z: -100}
     _Max_Values: {x: 100, y: 100, z: 100}
-  _angular_velocity: {x: 0, y: 0, z: 0}
-  _differential: 1
-  _last_update_time: 0
-  _rigidbody: {fileID: 965130052}
-  _velocity: {x: 0, y: 0, z: 0}
-  _velocity_space:
+  _angular_space:
     _Decimal_Granularity: 10
     _Min_Values: {x: -100, y: -100, z: -100}
     _Max_Values: {x: 100, y: 100, z: 100}
@@ -968,17 +968,17 @@ MonoBehaviour:
   _debugging: 0
   _: 
   _environment: {fileID: 1620948092}
-  _normalise_observation_using_space: 1
-  _angular_space:
+  _normalise_observation: 0
+  _angular_velocity: {x: 0, y: 0, z: 0}
+  _velocity: {x: 0, y: 0, z: 0}
+  _last_update_time: 0
+  _rigidbody: {fileID: 965130052}
+  _differential: 0
+  _velocity_space:
     _Decimal_Granularity: 10
     _Min_Values: {x: -100, y: -100, z: -100}
     _Max_Values: {x: 100, y: 100, z: 100}
-  _angular_velocity: {x: 0, y: 0, z: 0}
-  _differential: 0
-  _last_update_time: 0
-  _rigidbody: {fileID: 965130052}
-  _velocity: {x: 0, y: 0, z: 0}
-  _velocity_space:
+  _angular_space:
     _Decimal_Granularity: 10
     _Min_Values: {x: -100, y: -100, z: -100}
     _Max_Values: {x: 100, y: 100, z: 100}
@@ -1430,12 +1430,12 @@ Prefab:
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.08406249
+      value: 0.15718749
       objectReference: {fileID: 0}
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.91593754
+      value: 0.84281254
       objectReference: {fileID: 0}
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
@@ -1573,6 +1573,7 @@ MonoBehaviour:
   _target_frame_rate: -1
   _update_fixed_time_scale: 0
   _max_reply_interval: 0
+  _num_of_environments: 0
 --- !u!1 &1610833646
 GameObject:
   m_ObjectHideFlags: 0
@@ -1832,6 +1833,7 @@ MonoBehaviour:
   _ip_address: localhost
   _port: 5555
   _awaiting_reply: 0
+  _step: 0
   _allow_in_editor_blockage: 0
 --- !u!114 &1620948095
 MonoBehaviour:
@@ -1853,6 +1855,7 @@ MonoBehaviour:
   _in_mdp_discount_factor: 1
   _environment: {fileID: 1620948092}
   _solved_threshold: 0
+  _last_signal: 0
   _penalty: 0
   _rigidbody: {fileID: 965130052}
 --- !u!114 &1620948096
@@ -1870,6 +1873,7 @@ MonoBehaviour:
   _player_motions: {fileID: 11400000, guid: 43eb035cfbe4d4253b215ce70a5e5d58, type: 2}
   _auto_reset: 1
   _debugging: 0
+  _script_execution_order: -2000
 --- !u!114 &1620948097
 MonoBehaviour:
   m_ObjectHideFlags: 0

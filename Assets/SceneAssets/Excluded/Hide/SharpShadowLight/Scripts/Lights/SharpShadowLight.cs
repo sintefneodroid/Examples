@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Utilities;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
   /// <summary>
   /// 
   /// </summary>
-  public class Verts {
+  public class MyVertex {
     /// <summary>
     /// 
     /// </summary>
@@ -36,10 +37,10 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
     /// 
     /// </summary>
     Mesh _light_mesh; // Mesh for our light mesh
-    [HideInInspector] public PolygonCollider2D[] _All_Meshes; // Array for all of the meshes in our scene
+    [HideInInspector] public PolygonCollider2D[] _Colliders; // Array for all of the meshes in our scene
 
     [HideInInspector]
-    public List<Verts> _All_Vertices = new List<Verts>(); // Array for all of the vertices in our meshes
+    public List<MyVertex> _Vertices = new List<MyVertex>(); // Array for all of the vertices in our meshes
 
     public LayerMask _Layer;
 
@@ -58,6 +59,8 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
     [SerializeField]
     bool _use_3_d;
 
+    [SerializeField] bool _self_shadowing;
+
     // Called at beginning of script execution
     /// <summary>
     /// 
@@ -67,13 +70,26 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
       SinCosTable.Init();
 
       //-- Step 1: obtain all active meshes in the scene --//
- 
-      var mesh_filter =
-          (MeshFilter)this.gameObject.AddComponent(
-              typeof(MeshFilter)); // Add a Mesh Filter component to the light game object so it can take on a form
-      var my_renderer =
-          this.gameObject.AddComponent(
-              typeof(MeshRenderer)) as MeshRenderer; // Add a Mesh Renderer component to the light game object so the form can become visible
+
+      var go = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+      Destroy(go.GetComponent<CapsuleCollider>());
+      go.transform.parent = this.transform;
+      go.transform.localPosition=Vector3.zero;
+      go.transform.localRotation=Quaternion.identity;
+
+
+      var mesh_filter = go.GetComponent<MeshFilter>();
+          if(!mesh_filter) {
+            mesh_filter = (MeshFilter)go.AddComponent(
+                typeof(MeshFilter)); // Add a Mesh Filter component to the light game object so it can take on a form
+          }
+
+      var my_renderer = go.GetComponent<MeshRenderer>();
+      if(!my_renderer) {
+        my_renderer= go.AddComponent(
+                         typeof(MeshRenderer)) as MeshRenderer; // Add a Mesh Renderer component to the light game object so the form can become visible
+      }
+
       if (my_renderer == null) {
         throw new ArgumentNullException(nameof(my_renderer));
       }
@@ -98,20 +114,32 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
     /// </summary>
     void GetAllMeshes() {   
       if (this._use_3_d) {
-        var all_colls =Physics.OverlapSphere(this.transform.position, this._Light_Radius, this._Layer);
-        this._All_Meshes = new PolygonCollider2D[all_colls.Length];
+        var all_colls = Physics.OverlapSphere(this.transform.position, this._Light_Radius, this._Layer);
+        this._Colliders = new PolygonCollider2D[all_colls.Length];
 
-        for (var i = 0; i < all_colls.Length; i++) { //TODO:IMPLEMENT
+        //for (var i = 0; i < all_colls.Length; i++) { //TODO:IMPLEMENT
           //this._All_Meshes[i] = all_colls[i];
-        }
+        //}
       } else {
-        var all_coll2_d = Physics2D.OverlapCircleAll(this.transform.position, this._Light_Radius, this._Layer);
-        this._All_Meshes = new PolygonCollider2D[all_coll2_d.Length];
+        var all_coll2_d = Physics2D.OverlapCircleAll(
+            this.transform.position,
+            this._Light_Radius,
+            this._Layer);
+        this._Colliders = new PolygonCollider2D[all_coll2_d.Length];
 
         for (var i = 0; i < all_coll2_d.Length; i++) {
-          this._All_Meshes[i] = (PolygonCollider2D)all_coll2_d[i];
+          if(all_coll2_d[i] is PolygonCollider2D) {
+            if(!this._self_shadowing && this.gameObject == all_coll2_d[i].gameObject) {
+              continue;
+            }
+
+            this._Colliders[i] = (PolygonCollider2D)all_coll2_d[i];
+          }
         }
       }
+
+
+      
 
 
 
@@ -129,7 +157,7 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
     void SetLight() {
       var sort_angles = false;
 
-      this._All_Vertices
+      this._Vertices
           .Clear(); // Since these lists are populated every frame, clear them first to prevent overpopulation
 
       //layer = 1 << 8;
@@ -139,22 +167,25 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
 
       var mag_range = 0.15f;
 
-      var temp_verts = new List<Verts>();
+      var temp_verts = new List<MyVertex>();
 
-      foreach (var t in this._All_Meshes) {
+      foreach (var my_mesh in this._Colliders) {
+        if(!my_mesh) {
+          continue;
+        }
+
         temp_verts.Clear();
-        var mf = t;
 
         var lows = false;
         var his = false;
 
-        if (((1 << mf.transform.gameObject.layer) & this._Layer) != 0) {
-          for (var i = 0; i < mf.GetTotalPointCount(); i++) {
+        if (((1 << my_mesh.transform.gameObject.layer) & this._Layer) != 0) {
+          for (var i = 0; i < my_mesh.GetTotalPointCount(); i++) {
             // ...and for ever vertex we have of each mesh filter...
 
-            var v = new Verts();
+            var v = new MyVertex();
             // Convert to world space
-            var world_point = mf.transform.TransformPoint(mf.points[i]);
+            var world_point = my_mesh.transform.TransformPoint(my_mesh.points[i]);
 
             var ray = Physics2D.Raycast(
                 this.transform.position,
@@ -210,7 +241,7 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
 
           //Debug.Log(lows + " " + his);
 
-          if (his && lows) { //-- FIX BUG OF SORTING CUANDRANT 1-4 --//
+          if (his && lows) { // BUG SORTING CUANDRANT 1-4 //
             var lowest_angle = -1f; //tempVerts[0].angle; // init with first data
             var highest_angle = temp_verts[0].Angle;
 
@@ -236,7 +267,7 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
           temp_verts[pos_high_angle].Location = -1; // left
 
           //--Add vertices to the main meshes vertexes--//
-          this._All_Vertices.AddRange(temp_verts);
+          this._Vertices.AddRange(temp_verts);
           //allVertices.Add(tempVerts[0]);
           //allVertices.Add(tempVerts[tempVerts.Count - 1]);
 
@@ -281,10 +312,10 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
 
               Debug.DrawLine(from_cast, hitp, Color.green);
 
-              var v_l = new Verts {Pos = this.transform.InverseTransformPoint(hitp)};
+              var v_l = new MyVertex {Pos = this.transform.InverseTransformPoint(hitp)};
 
               v_l.Angle = this.GetVectorAngle(true, v_l.Pos.x, v_l.Pos.y);
-              this._All_Vertices.Add(v_l);
+              this._Vertices.Add(v_l);
             }
           }
         }
@@ -302,7 +333,7 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
           theta = 0;
         }
 
-        var v = new Verts {
+        var v = new MyVertex {
             Pos = new Vector3(SinCosTable._Sen_Array[theta], SinCosTable._Cos_Array[theta], 0)
         };
         //v.pos = new Vector3((Mathf.Sin(theta)), (Mathf.Cos(theta)), 0); // in radians low performance
@@ -323,38 +354,38 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
           //Debug.DrawLine(transform.position, v.pos, Color.white);
 
           v.Pos = this.transform.InverseTransformPoint(v.Pos);
-          this._All_Vertices.Add(v);
+          this._Vertices.Add(v);
         }
       }
 
       //-- Step 4: Sort each vertice by angle (along sweep ray 0 - 2PI)--//
       //---------------------------------------------------------------------//
       if (sort_angles) {
-        SortList(this._All_Vertices);
+        SortList(this._Vertices);
       }
       //-----------------------------------------------------------------------------
 
       //--auxiliar step (change order vertices close to light first in position when has same direction) --//
       var range_angle_comparision = 0.00001f;
-      for (var i = 0; i < this._All_Vertices.Count - 1; i += 1) {
-        var uno = this._All_Vertices[i];
-        var dos = this._All_Vertices[i + 1];
+      for (var i = 0; i < this._Vertices.Count - 1; i += 1) {
+        var current = this._Vertices[i];
+        var next = this._Vertices[i + 1];
 
-        if (uno.Angle >= dos.Angle - range_angle_comparision
-            && uno.Angle <= dos.Angle + range_angle_comparision) {
-          if (dos.Location == -1) { // Right Ray
+        if (current.Angle >= next.Angle - range_angle_comparision
+            && current.Angle <= next.Angle + range_angle_comparision) {
+          if (next.Location == -1) { // Right Ray
 
-            if (uno.Pos.sqrMagnitude > dos.Pos.sqrMagnitude) {
-              this._All_Vertices[i] = dos;
-              this._All_Vertices[i + 1] = uno;
+            if (current.Pos.sqrMagnitude > next.Pos.sqrMagnitude) {
+              this._Vertices[i] = next;
+              this._Vertices[i + 1] = current;
               //Debug.Log("changing left");
             }
           }
 
-          if (uno.Location == 1) { // Left Ray
-            if (uno.Pos.sqrMagnitude < dos.Pos.sqrMagnitude) {
-              this._All_Vertices[i] = dos;
-              this._All_Vertices[i + 1] = uno;
+          if (current.Location == 1) { // Left Ray
+            if (current.Pos.sqrMagnitude < next.Pos.sqrMagnitude) {
+              this._Vertices[i] = next;
+              this._Vertices[i + 1] = current;
               //Debug.Log("changing");
             }
           }
@@ -368,13 +399,13 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
 
       //interface_touch.vertexCount = allVertices.Count; // notify to UI
 
-      var init_vertices_mesh_light = new Vector3[this._All_Vertices.Count + 1];
+      var init_vertices_mesh_light = new Vector3[this._Vertices.Count + 1];
 
       init_vertices_mesh_light[0] = Vector3.zero;
 
-      for (var i = 0; i < this._All_Vertices.Count; i++) //Debug.Log(allVertices[i].angle);
+      for (var i = 0; i < this._Vertices.Count; i++) //Debug.Log(allVertices[i].angle);
       {
-        init_vertices_mesh_light[i + 1] = this._All_Vertices[i].Pos;
+        init_vertices_mesh_light[i + 1] = this._Vertices[i].Pos;
       }
 
       //if(allVertices[i].endpoint == true)
@@ -392,12 +423,12 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
 
       // triangles
       var idx = 0;
-      var triangles = new int[this._All_Vertices.Count * 3];
-      for (var i = 0; i < this._All_Vertices.Count * 3; i += 3) {
+      var triangles = new int[this._Vertices.Count * 3];
+      for (var i = 0; i < this._Vertices.Count * 3; i += 3) {
         triangles[i] = 0;
         triangles[i + 1] = idx + 1;
 
-        if (i == this._All_Vertices.Count * 3 - 3) {
+        if (i == this._Vertices.Count * 3 - 3) {
           //-- if is the last vertex (one loop)
           triangles[i + 2] = 1;
         } else {
@@ -416,7 +447,7 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
     /// 
     /// </summary>
     /// <param name="lista"></param>
-    static void SortList(List<Verts> lista) {
+    static void SortList(List<MyVertex> lista) {
       lista.Sort((item1, item2) => item2.Angle.CompareTo(item1.Angle));
     }
 
@@ -424,16 +455,16 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
     /// 
     /// </summary>
     void DrawLinePerVertex() {
-      for (var i = 0; i < this._All_Vertices.Count; i++) {
-        if (i < this._All_Vertices.Count - 1) {
+      for (var i = 0; i < this._Vertices.Count; i++) {
+        if (i < this._Vertices.Count - 1) {
           Debug.DrawLine(
-              this._All_Vertices[i].Pos,
-              this._All_Vertices[i + 1].Pos,
+              this._Vertices[i].Pos,
+              this._Vertices[i + 1].Pos,
               new Color(i * 0.02f, i * 0.02f, i * 0.02f));
         } else {
           Debug.DrawLine(
-              this._All_Vertices[i].Pos,
-              this._All_Vertices[0].Pos,
+              this._Vertices[i].Pos,
+              this._Vertices[0].Pos,
               new Color(i * 0.02f, i * 0.02f, i * 0.02f));
         }
       }
@@ -451,7 +482,7 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
     }
 
     float PseudoAngle(float dx, float dy) {
-      // Hight performance for calculate angle on a vector (only for sort)
+      // Calculate angle on a vector (only for sorting)
       // APROXIMATE VALUES -- NOT EXACT!! //
       var ax = Mathf.Abs(dx);
       var ay = Mathf.Abs(dy);

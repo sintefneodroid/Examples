@@ -101,6 +101,6 @@ namespace SceneAssets.Walker {
 
     public override void Reset() { }
 
-    public override string PrototypingType { get { return "DaylightSimulator"; } }
+    public override string PrototypingTypeName { get { return "DaylightSimulator"; } }
   }
 }

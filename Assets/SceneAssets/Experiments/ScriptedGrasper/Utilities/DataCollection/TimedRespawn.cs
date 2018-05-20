@@ -14,6 +14,7 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Utilities.DataCollection {
     [SerializeField] Quaternion _initial_rotation;
     [SerializeField] Rigidbody[] _rigid_bodies;
     [SerializeField] Rigidbody _rigid_body;
+    WaitForSeconds _wait_for_seconds = new WaitForSeconds(.5f);
 
     // Use this for initialization
     void Start() {
@@ -54,8 +55,10 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Utilities.DataCollection {
       }
     }
 
+
+    
     IEnumerator RespawnObject() {
-      yield return new WaitForSeconds(.5f);
+      yield return this._wait_for_seconds;
       this.StopCoroutine(nameof(this.MakeObjectVisible));
       this._graspable_object.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
       this._rigid_body.transform.position = this._initial_position;
@@ -89,7 +92,7 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Utilities.DataCollection {
     }
 
     IEnumerator MakeObjectVisible() {
-      yield return new WaitForSeconds(.5f);
+      yield return this._wait_for_seconds;
       this._rigid_body.transform.position = this._initial_position;
       this._rigid_body.transform.rotation = this._initial_rotation;
       this.WakeUpRigidBodies();

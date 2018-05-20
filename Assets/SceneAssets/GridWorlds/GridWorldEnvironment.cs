@@ -99,9 +99,9 @@ namespace SceneAssets.GridWorlds {
     IntVector3 RandomCoordinates {
       get {
         return new IntVector3(
-            Random.Range(0, this._grid_size.x),
-            Random.Range(0, this._grid_size.y),
-            Random.Range(0, this._grid_size.z));
+            Random.Range(0, this._grid_size.X),
+            Random.Range(0, this._grid_size.Y),
+            Random.Range(0, this._grid_size.Z));
       }
     }
 
@@ -188,12 +188,12 @@ namespace SceneAssets.GridWorlds {
         int xs,
         int ys,
         int zs) {
-      if (grid[c.x, c.y, c.z] == null) {
-        grid[c.x, c.y, c.z] = this.CreateEmptyCell(c, xs, ys, zs);
+      if (grid[c.X, c.Y, c.Z] == null) {
+        grid[c.X, c.Y, c.Z] = this.CreateEmptyCell(c, xs, ys, zs);
         empty_cells_num += 1;
       }
 
-      active_cells.Add(grid[c.x, c.y, c.z]);
+      active_cells.Add(grid[c.X, c.Y, c.Z]);
     }
 
     void DoNextGenerationStep(
@@ -208,9 +208,9 @@ namespace SceneAssets.GridWorlds {
       var direction = MazeDirections.RandomValue;
       var c = current_cell.GridCoordinates + direction.ToIntVector3();
 
-      if (this.ContainsCoordinates(c) && grid[c.x, c.y, c.z] == null) {
-        grid[c.x, c.y, c.z] = this.CreateEmptyCell(c, xs, ys, zs);
-        active_cells.Add(grid[c.x, c.y, c.z]);
+      if (this.ContainsCoordinates(c) && grid[c.X, c.Y, c.Z] == null) {
+        grid[c.X, c.Y, c.Z] = this.CreateEmptyCell(c, xs, ys, zs);
+        active_cells.Add(grid[c.X, c.Y, c.Z]);
         empty_cells_num += 1;
       } else {
         active_cells.RemoveAt(current_index);
@@ -218,20 +218,20 @@ namespace SceneAssets.GridWorlds {
     }
 
     bool ContainsCoordinates(IntVector3 coordinate) {
-      return coordinate.x >= 0
-             && coordinate.x < this._grid_size.x
-             && coordinate.y >= 0
-             && coordinate.y < this._grid_size.y
-             && coordinate.z >= 0
-             && coordinate.z < this._grid_size.z;
+      return coordinate.X >= 0
+             && coordinate.X < this._grid_size.X
+             && coordinate.Y >= 0
+             && coordinate.Y < this._grid_size.Y
+             && coordinate.Z >= 0
+             && coordinate.Z < this._grid_size.Z;
     }
 
     GridCell CreateEmptyCell(IntVector3 c, IntVector3 size) {
-      return this.CreateEmptyCell(c.x, c.y, c.z, size.x, size.y, size.z);
+      return this.CreateEmptyCell(c.X, c.Y, c.Z, size.X, size.Y, size.Z);
     }
 
     GridCell CreateEmptyCell(IntVector3 c, int xs, int ys, int zs) {
-      return this.CreateEmptyCell(c.x, c.y, c.z, xs, ys, zs);
+      return this.CreateEmptyCell(c.X, c.Y, c.Z, xs, ys, zs);
     }
 
     GridCell CreateEmptyCell(int x, int y, int z, int xs, int ys, int zs) {
@@ -264,9 +264,9 @@ namespace SceneAssets.GridWorlds {
     }
 
     protected override void PreSetup() {
-      var xs = this._grid_size.x;
-      var ys = this._grid_size.y;
-      var zs = this._grid_size.z;
+      var xs = this._grid_size.X;
+      var ys = this._grid_size.Y;
+      var zs = this._grid_size.Z;
       this._grid = this.GenerateRandomGrid(xs, ys, zs, this._min_empty_cells_percentage);
 
       this._goal_cell_observer = this.gameObject.GetComponent<GoalCellObserver>();
@@ -279,9 +279,9 @@ namespace SceneAssets.GridWorlds {
     }
 
     void NewGridWorld() {
-      var xs = this._grid_size.x;
-      var ys = this._grid_size.y;
-      var zs = this._grid_size.z;
+      var xs = this._grid_size.X;
+      var ys = this._grid_size.Y;
+      var zs = this._grid_size.Z;
 
       for (var i = 0; i < xs; i++) {
         for (var j = 0; j < ys; j++) {

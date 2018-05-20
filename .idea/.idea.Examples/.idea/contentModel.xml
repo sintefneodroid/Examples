@@ -117,6 +117,11 @@
             </e>
           </e>
           <e p="Manipulator" t="Include">
+            <e p="Excluded" t="Include">
+              <e p="AdventureForge" t="Include">
+                <e p="CabinetsAndShelvesReadme.txt" t="Include" />
+              </e>
+            </e>
             <e p="InjectRandomRigidbodyNoise.cs" t="Include" />
           </e>
           <e p="Satellite" t="Include">
@@ -482,7 +487,6 @@
               <e p="PrototypingEnvironment.cs" t="Include" />
               <e p="RandomisedEnvironment.cs" t="Include" />
               <e p="ScriptedEnviroment.cs" t="Include" />
-              <e p="StatusUpdater.cs" t="Include" />
             </e>
             <e p="Gizmos" t="Include">
               <e p="Icons" t="Include">
@@ -661,6 +665,11 @@
                 <e p="CoordinateSystem.cs" t="Include" />
                 <e p="WaitOn.cs" t="Include" />
               </e>
+              <e p="EventRecipients" t="Include">
+                <e p="DataPoller.cs" t="Include" />
+                <e p="TextUpdater.cs" t="Include" />
+                <e p="ToggleUpdater.cs" t="Include" />
+              </e>
               <e p="GameObjects" t="Include">
                 <e p="PrototypingGameObject.cs" t="Include" />
               </e>
@@ -708,7 +717,7 @@
                   <e p="Reaction.cs" t="Include" />
                   <e p="ReactionParameters.cs" t="Include" />
                   <e p="Reactions.cs" t="Include" />
-                  <e p="SimulatorConfiguration.cs" t="Include" />
+                  <e p="SimulatorConfigurationMessage.cs" t="Include" />
                   <e p="Unobservables.cs" t="Include" />
                 </e>
               </e>
@@ -786,6 +795,7 @@
             <e p="NeodroidTests.asmdef" t="Include" />
             <e p="SimulatorTests.cs" t="Include" />
           </e>
+          <e p="mcs.rsp" t="Include" />
         </e>
         <e p="mcs.rsp" t="Include" />
       </e>

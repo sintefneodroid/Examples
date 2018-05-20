@@ -129,6 +129,6 @@ namespace SceneAssets.LunarLander.Scripts {
       this._has_exploded = false;
     }
 
-    public override string PrototypingType { get { return "CollisionExplosion"; } }
+    public override string PrototypingTypeName { get { return "CollisionExplosion"; } }
   }
 }
