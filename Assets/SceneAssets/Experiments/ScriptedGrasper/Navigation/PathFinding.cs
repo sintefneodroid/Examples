@@ -87,6 +87,8 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Navigation {
         float grid_granularity = 1f,
         float agent_size = 1f,
         float near_stopping_distance = 3f) {
+      
+      
       var closed_set = new HashSet<FastVector3>();
       //FastPriorityQueue<FastVector3> frontier_set = new FastPriorityQueue<FastVector3>(MAX_VECTORS_IN_QUEUE);
       var frontier_set = new SimplePriorityQueue<FastVector3>();

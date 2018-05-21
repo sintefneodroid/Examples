@@ -5,7 +5,7 @@ using SceneAssets.Experiments.ScriptedGrasper.Scripts;
 using UnityEngine;
 
 namespace SceneAssets.Experiments.ScriptedGrasper.Utilities.DataCollection {
-  public class TimedRespawn : MonoBehaviour {
+  public class GraspTimedRespawn : MonoBehaviour {
     [SerializeField] bool _debugging;
     [SerializeField] Grasp _grasp;
     [SerializeField] GraspableObject _graspable_object;
