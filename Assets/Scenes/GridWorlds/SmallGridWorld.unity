@@ -811,13 +811,13 @@ MonoBehaviour:
   _: 
   _environment: {fileID: 1943801937}
   _normalise_observation: 0
-  _space: 2
+  _use_space: 2
   _2_d_position: {x: 0.5, y: 0.475}
-  _position: {x: 0.5, y: 0.5, z: 0.475}
+  _dim_combination: 0
   _position_space:
     _Decimal_Granularity: 10
-    _Min_Values: {x: -100, y: -100, z: -100}
-    _Max_Values: {x: 100, y: 100, z: 100}
+    _Min_Values: {x: -100, y: -100}
+    _Max_Values: {x: 100, y: 100}
 --- !u!114 &745076144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1714,6 +1714,7 @@ MonoBehaviour:
     m_Extent: {x: 0.4000001, y: 0.4, z: 0.4000001}
   _draw_bounds: 0
   _environment: {fileID: 1943801937}
+  _script_execution_order: -10
 --- !u!114 &1650564494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1786,13 +1787,13 @@ MonoBehaviour:
   _: 
   _environment: {fileID: 1943801937}
   _normalise_observation: 0
-  _space: 2
-  _2_d_position: {x: -2, y: 3}
-  _position: {x: -2, y: 0, z: 3}
+  _use_space: 2
+  _2_d_position: {x: -2, y: 0}
+  _dim_combination: 0
   _position_space:
     _Decimal_Granularity: 2
-    _Min_Values: {x: -3, y: 0, z: -4}
-    _Max_Values: {x: 3, y: 0, z: 4}
+    _Min_Values: {x: -3, y: 0}
+    _Max_Values: {x: 3, y: 0}
 --- !u!114 &1650564497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1926,12 +1927,12 @@ Prefab:
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.996875
+      value: 0.72778726
       objectReference: {fileID: 0}
     - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 2.5
+      value: 214.00002
       objectReference: {fileID: 0}
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
@@ -2060,6 +2061,7 @@ MonoBehaviour:
   _: 
   _Simulation_Manager: {fileID: 773778362}
   _episode_length: 200
+  _script_execution_order: -20
   _ordered_observables: 0
   _keep_unobservables: 1
   _objective_function: {fileID: 1943801934}
