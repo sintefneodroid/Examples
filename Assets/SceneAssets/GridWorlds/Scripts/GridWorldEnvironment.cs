@@ -2,12 +2,12 @@
 using System.Linq;
 using droid.Neodroid.Environments;
 using droid.Neodroid.Prototyping.Evaluation;
-using droid.Neodroid.Prototyping.Observers;
+using droid.Neodroid.Prototyping.Observers.Grid;
 using droid.Neodroid.Utilities.Structs;
 using droid.Neodroid.Utilities.Unsorted;
 using UnityEngine;
 
-namespace SceneAssets.GridWorlds {
+namespace SceneAssets.GridWorlds.Scripts {
   /// <summary>
   /// 
   /// </summary>

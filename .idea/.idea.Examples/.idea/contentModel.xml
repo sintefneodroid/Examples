@@ -104,8 +104,10 @@
             </e>
           </e>
           <e p="GridWorlds" t="Include">
-            <e p="EnsureReachablity.cs" t="Include" />
-            <e p="GridWorldEnvironment.cs" t="Include" />
+            <e p="Scripts" t="Include">
+              <e p="EnsureReachablity.cs" t="Include" />
+              <e p="GridWorldEnvironment.cs" t="Include" />
+            </e>
           </e>
           <e p="ImagePuzzler" t="Include">
             <e p="Block.cs" t="Include" />
@@ -584,9 +586,8 @@
                 <e p="Editors" t="Include">
                   <e p="EnablerConfigurableEditor.cs" t="Include" />
                 </e>
-                <e p="EnablerConfigurable.cs" t="Include" />
                 <e p="EulerTransformConfigurable.cs" t="Include" />
-                <e p="IKConfigurable.cs" t="Include" />
+                <e p="IkSolverEnablerConfigurable.cs" t="Include" />
                 <e p="ObjectSpawnerConfigurable.cs" t="Include" />
                 <e p="PositionConfigurable.cs" t="Include" />
                 <e p="QuaternionTransformConfigurable.cs" t="Include" />
@@ -658,28 +659,40 @@
                 </e>
               </e>
               <e p="Observers" t="Include">
-                <e p="AdjacencyObserver.cs" t="Include" />
-                <e p="CameraObserver.cs" t="Include" />
+                <e p="Camera" t="Include">
+                  <e p="CameraObserver.cs" t="Include" />
+                  <e p="FloatArrayCameraObserver.cs" t="Include" />
+                </e>
                 <e p="CategoricalObserver.cs" t="Include" />
                 <e p="CompassObserver.cs" t="Include" />
-                <e p="EulerTransformObserver.cs" t="Include" />
                 <e p="Experimental" t="Include">
                   <e p="BoundingBoxObserver.cs" t="Include" />
                 </e>
-                <e p="FixedLidarObserver.cs" t="Include" />
-                <e p="FloatArrayCameraObserver.cs" t="Include" />
-                <e p="GoalCellObserver.cs" t="Include" />
-                <e p="GridPositionObserver.cs" t="Include" />
-                <e p="LineOfSightObserver.cs" t="Include" />
-                <e p="NearestByTagObserver.cs" t="Include" />
+                <e p="Grid" t="Include">
+                  <e p="GoalCellObserver.cs" t="Include" />
+                  <e p="GridPositionObserver.cs" t="Include" />
+                </e>
                 <e p="Observer.cs" t="Include" />
                 <e p="ObserverComponentMenuPath.cs" t="Include" />
-                <e p="PositionObserver.cs" t="Include" />
-                <e p="PositionObserver2D.cs" t="Include" />
-                <e p="QuaternionTransformObserver.cs" t="Include" />
-                <e p="RaycastObserver.cs" t="Include" />
-                <e p="RigidbodyObserver.cs" t="Include" />
-                <e p="RotationObserver.cs" t="Include" />
+                <e p="Rays" t="Include">
+                  <e p="AdjacencyObserver.cs" t="Include" />
+                  <e p="FixedLidarObserver.cs" t="Include" />
+                  <e p="LineOfSightObserver.cs" t="Include" />
+                  <e p="NearestByTagObserver.cs" t="Include" />
+                  <e p="RaycastObserver.cs" t="Include" />
+                </e>
+                <e p="Rigidbody" t="Include">
+                  <e p="AngularVelocityObserver.cs" t="Include" />
+                  <e p="RigidbodyObserver.cs" t="Include" />
+                  <e p="VelocityObserver.cs" t="Include" />
+                </e>
+                <e p="Transform" t="Include">
+                  <e p="EulerTransformObserver.cs" t="Include" />
+                  <e p="PositionObserver.cs" t="Include" />
+                  <e p="PositionObserver2D.cs" t="Include" />
+                  <e p="QuaternionTransformObserver.cs" t="Include" />
+                  <e p="RotationObserver.cs" t="Include" />
+                </e>
                 <e p="ValueObserver.cs" t="Include" />
               </e>
               <e p="PrototypingComponentMenuPath.cs" t="Include" />
