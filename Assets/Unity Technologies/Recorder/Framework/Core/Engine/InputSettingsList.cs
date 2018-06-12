@@ -39,7 +39,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
                 if (inputAsset is InputBinder)
                 {
                     var sceneInputs = SceneHook.GetInputsComponent(this.ownerRecorderSettingsAssetId);
-                    bool found = false;
+                    var found = false;
                     foreach (var input in sceneInputs.m_Settings)
                     {
                         if (input.m_Id == inputAsset.m_Id)
@@ -143,7 +143,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
                 return;
             }
 
-            for (int i = 0; i < this.m_InputsSettings.Count; i++)
+            for (var i = 0; i < this.m_InputsSettings.Count; i++)
             {
                 var x = this.m_InputsSettings[i];
                 var ib = x as InputBinder;
@@ -157,7 +157,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
 
         public void Remove(RecorderInputSetting input)
         {
-            for (int i = 0; i < this.m_InputsSettings.Count; i++)
+            for (var i = 0; i < this.m_InputsSettings.Count; i++)
             {
                 if (this.m_InputsSettings[i] == input)
                 {
@@ -211,7 +211,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
         void ReleaseAt(int index)
         {
 #if UNITY_EDITOR
-            bool isBinder = this.m_InputsSettingsAssets[index] is InputBinder;
+            var isBinder = this.m_InputsSettingsAssets[index] is InputBinder;
             if ( isBinder ) 
                 SceneHook.UnregisterInputSettingObj(this.ownerRecorderSettingsAssetId, this.m_InputsSettings[index]);
 #endif
@@ -227,7 +227,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
 #if UNITY_EDITOR
         public void RepareMissingBindings()
         {
-            for (int i = 0; i < this.m_InputsSettingsAssets.Count; i++)
+            for (var i = 0; i < this.m_InputsSettingsAssets.Count; i++)
             {
                 var ib = this.m_InputsSettingsAssets[i] as InputBinder;
                 if (ib != null && this.m_InputsSettings[i] == null)
@@ -244,7 +244,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
 
         public void OnDestroy()
         {
-            for (int i = 0; i < this.m_InputsSettingsAssets.Count; i++)
+            for (var i = 0; i < this.m_InputsSettingsAssets.Count; i++)
             {
                 if (this.m_InputsSettingsAssets[i] is InputBinder)
                     SceneHook.UnregisterInputSettingObj(this.ownerRecorderSettingsAssetId, this.m_InputsSettings[i]);

@@ -100,7 +100,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Misc
                 return this.m_leaf.Length == 0 ? "." : "./" + this.m_leaf;
             }
 
-            string ret = "";
+            var ret = "";
             switch (this.m_root)
             {
                 case Root.PersistentData:

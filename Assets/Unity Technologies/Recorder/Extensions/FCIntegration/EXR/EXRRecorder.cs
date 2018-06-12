@@ -45,8 +45,8 @@ namespace Unity_Technologies.Recorder.Extensions.FCIntegration.EXR
             fcAPI.fcLock(frame, (data, fmt) =>
             {
                 fcAPI.fcExrBeginImage(this.m_ctx, path, frame.width, frame.height);
-                int channels = (int)fmt & 7;
-                for (int i = 0; i < channels; ++i)
+                var channels = (int)fmt & 7;
+                for (var i = 0; i < channels; ++i)
                 {
                     fcAPI.fcExrAddLayerPixels(this.m_ctx, data, fmt, i, s_channelNames[i]);
                 }

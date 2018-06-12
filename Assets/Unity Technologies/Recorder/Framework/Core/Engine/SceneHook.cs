@@ -87,7 +87,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
             if (ctrl == null)
                 return null;
 
-            for (int i = 0; i < ctrl.transform.childCount; i++)
+            for (var i = 0; i < ctrl.transform.childCount; i++)
             {
                 var child = ctrl.transform.GetChild(i);
                 var settingsHost = child.GetComponent<RecorderComponent>();

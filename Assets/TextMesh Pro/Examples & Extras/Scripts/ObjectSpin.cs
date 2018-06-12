@@ -10,14 +10,14 @@ namespace TextMesh_Pro.Scripts
 
         public float SpinSpeed = 5;
         public int RotationRange = 15;
-        private Transform m_transform;
+        Transform m_transform;
 
-        private float m_time;
-        private Vector3 m_prevPOS;
-        private Vector3 m_initial_Rotation;
-        private Vector3 m_initial_Position;
-        private Color32 m_lightColor;
-        private int frames = 0;
+        float m_time;
+        Vector3 m_prevPOS;
+        Vector3 m_initial_Rotation;
+        Vector3 m_initial_Position;
+        Color32 m_lightColor;
+        int frames = 0;
 
         public enum MotionType { Rotation, BackAndForth, Translation };
         public MotionType Motion;
@@ -28,7 +28,7 @@ namespace TextMesh_Pro.Scripts
             this.m_initial_Rotation = this.m_transform.rotation.eulerAngles;
             this.m_initial_Position = this.m_transform.position;
 
-            Light light = this.GetComponent<Light>();
+            var light = this.GetComponent<Light>();
             this.m_lightColor = light != null ? light.color : Color.black;
         }
 
@@ -49,9 +49,9 @@ namespace TextMesh_Pro.Scripts
             {
                 this.m_time += this.SpinSpeed * Time.deltaTime;
 
-                float x = 15 * Mathf.Cos(this.m_time * .95f);
+                var x = 15 * Mathf.Cos(this.m_time * .95f);
                 float y = 10; // *Mathf.Sin(m_time * 1f) * Mathf.Cos(m_time * 1f);
-                float z = 0f; // *Mathf.Sin(m_time * .9f);    
+                var z = 0f; // *Mathf.Sin(m_time * .9f);    
 
                 this.m_transform.position = this.m_initial_Position + new Vector3(x, z, y);
 

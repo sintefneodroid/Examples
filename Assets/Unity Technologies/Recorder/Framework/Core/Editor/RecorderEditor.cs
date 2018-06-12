@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-namespace UnityEditor.Recorder
+namespace Unity_Technologies.Recorder.Framework.Core.Editor
 {
     public enum EFieldDisplayState
     {
@@ -11,7 +12,7 @@ namespace UnityEditor.Recorder
         Hidden
     }
 
-    public abstract class RecorderEditor : Editor
+    public abstract class RecorderEditor : UnityEditor.Editor
     {
 
         protected class InputEditorState

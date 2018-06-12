@@ -1,9 +1,9 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace UTJ.FrameCapturer
+namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Editor
 {
-    public class RecorderBaseEditor : Editor
+    public class RecorderBaseEditor : UnityEditor.Editor
     {
         public virtual void CommonConfig()
         {

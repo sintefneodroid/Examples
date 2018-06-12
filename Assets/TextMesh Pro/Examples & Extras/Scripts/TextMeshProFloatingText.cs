@@ -9,13 +9,13 @@ namespace TextMesh_Pro.Scripts
     {
         public Font TheFont;
 
-        private GameObject m_floatingText;
-        private TextMeshPro m_textMeshPro;
-        private TextMesh m_textMesh;
+        GameObject m_floatingText;
+        TextMeshPro m_textMeshPro;
+        TextMesh m_textMesh;
 
-        private Transform m_transform;
-        private Transform m_floatingText_Transform;
-        private Transform m_cameraTransform;
+        Transform m_transform;
+        Transform m_floatingText_Transform;
+        Transform m_cameraTransform;
 
         Vector3 lastPOS = Vector3.zero;
         Quaternion lastRotation = Quaternion.identity;
@@ -101,17 +101,17 @@ namespace TextMesh_Pro.Scripts
 
         public IEnumerator DisplayTextMeshProFloatingText()
         {
-            float CountDuration = 2.0f; // How long is the countdown alive.    
-            float starting_Count = Random.Range(5f, 20f); // At what number is the counter starting at.
-            float current_Count = starting_Count;
+            var CountDuration = 2.0f; // How long is the countdown alive.    
+            var starting_Count = Random.Range(5f, 20f); // At what number is the counter starting at.
+            var current_Count = starting_Count;
 
-            Vector3 start_pos = this.m_floatingText_Transform.position;
+            var start_pos = this.m_floatingText_Transform.position;
             Color32 start_color = this.m_textMeshPro.color;
             float alpha = 255;
-            int int_counter = 0;
+            var int_counter = 0;
 
 
-            float fadeDuration = 3 / starting_Count * CountDuration;
+            var fadeDuration = 3 / starting_Count * CountDuration;
 
             while (current_Count > 0)
             {
@@ -138,7 +138,7 @@ namespace TextMesh_Pro.Scripts
                     this.lastPOS = this.m_cameraTransform.position;
                     this.lastRotation = this.m_cameraTransform.rotation;
                     this.m_floatingText_Transform.rotation = this.lastRotation;
-                    Vector3 dir = this.m_transform.position - this.lastPOS;
+                    var dir = this.m_transform.position - this.lastPOS;
                     this.m_transform.forward = new Vector3(dir.x, 0, dir.z);
                 }
 
@@ -157,16 +157,16 @@ namespace TextMesh_Pro.Scripts
 
         public IEnumerator DisplayTextMeshFloatingText()
         {
-            float CountDuration = 2.0f; // How long is the countdown alive.    
-            float starting_Count = Random.Range(5f, 20f); // At what number is the counter starting at.
-            float current_Count = starting_Count;
+            var CountDuration = 2.0f; // How long is the countdown alive.    
+            var starting_Count = Random.Range(5f, 20f); // At what number is the counter starting at.
+            var current_Count = starting_Count;
 
-            Vector3 start_pos = this.m_floatingText_Transform.position;
+            var start_pos = this.m_floatingText_Transform.position;
             Color32 start_color = this.m_textMesh.color;
             float alpha = 255;
-            int int_counter = 0;
+            var int_counter = 0;
 
-            float fadeDuration = 3 / starting_Count * CountDuration;
+            var fadeDuration = 3 / starting_Count * CountDuration;
 
             while (current_Count > 0)
             {
@@ -193,7 +193,7 @@ namespace TextMesh_Pro.Scripts
                     this.lastPOS = this.m_cameraTransform.position;
                     this.lastRotation = this.m_cameraTransform.rotation;
                     this.m_floatingText_Transform.rotation = this.lastRotation;
-                    Vector3 dir = this.m_transform.position - this.lastPOS;
+                    var dir = this.m_transform.position - this.lastPOS;
                     this.m_transform.forward = new Vector3(dir.x, 0, dir.z);
                 }
 

@@ -1,8 +1,6 @@
-using System;
 using UnityEditor;
-using UnityEngine;
 
-namespace UTJ.FrameCapturer
+namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Editor
 {
     [CustomEditor(typeof(Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.AudioRecorder))]
     public class AudioRecorderEditor : RecorderBaseEditor

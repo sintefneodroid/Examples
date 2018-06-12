@@ -6,19 +6,34 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="EffectExamples" t="Include">
-          <e p="Shared" t="Include">
-            <e p="Scripts" t="Include">
-              <e p="DecalDestroyer.cs" t="Include" />
-              <e p="ExtinguishableFire.cs" t="Include" />
-              <e p="GunAim.cs" t="Include" />
-              <e p="GunShoot.cs" t="Include" />
-              <e p="ParticleCollision.cs" t="Include" />
-              <e p="ParticleExamples.cs" t="Include" />
-              <e p="ParticleMenu.cs" t="Include" />
+        <e p="Excluded" t="Include">
+          <e p="Common" t="Include">
+            <e p="EffectExamples" t="Include">
+              <e p="Shared" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="DecalDestroyer.cs" t="Include" />
+                  <e p="ExtinguishableFire.cs" t="Include" />
+                  <e p="GunAim.cs" t="Include" />
+                  <e p="GunShoot.cs" t="Include" />
+                  <e p="ParticleCollision.cs" t="Include" />
+                  <e p="ParticleExamples.cs" t="Include" />
+                  <e p="ParticleMenu.cs" t="Include" />
+                </e>
+                <e p="Shaders" t="Include">
+                  <e p="SurfaceShader_VC.shader" t="Include" />
+                </e>
+              </e>
             </e>
-            <e p="Shaders" t="Include">
-              <e p="SurfaceShader_VC.shader" t="Include" />
+            <e p="ReadMe" t="Include">
+              <e p="ScriptableObjects" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="ReadMeEditor.cs" t="Include" />
+                </e>
+                <e p="ReadMe.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="SimpleCameraController.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -49,6 +64,37 @@
                   <e p="Gradient-ZFighting.shader" t="Include" />
                   <e p="NoTexture.shader" t="Include" />
                 </e>
+              </e>
+            </e>
+            <e p="UnityHexapodSimulator" t="Include">
+              <e p="Assets" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="CPG.cs" t="Include" />
+                  <e p="CameraController.cs" t="Include" />
+                  <e p="Extract" t="Include">
+                    <e p="PowerUp.cs" t="Include" />
+                    <e p="RL" t="Include">
+                      <e p="AgentWalk.cs" t="Include" />
+                      <e p="HeuristicWalker.cs" t="Include" />
+                      <e p="Oscillator.cs" t="Include" />
+                    </e>
+                    <e p="Robot" t="Include">
+                      <e p="Body.cs" t="Include" />
+                      <e p="Foot.cs" t="Include" />
+                      <e p="Leg.cs" t="Include" />
+                      <e p="Limb.cs" t="Include" />
+                      <e p="Robot.cs" t="Include" />
+                      <e p="Socket.cs" t="Include" />
+                    </e>
+                    <e p="Util" t="Include">
+                      <e p="VectorUtil.cs" t="Include" />
+                    </e>
+                  </e>
+                  <e p="JointsController.cs" t="Include" />
+                </e>
+              </e>
+              <e p="ProjectSettings" t="Include">
+                <e p="ProjectVersion.txt" t="Include" />
               </e>
             </e>
           </e>
@@ -799,7 +845,7 @@
                 <e p="Curriculum.cs" t="Include" />
                 <e p="NeodroidTask.cs" t="Include" />
                 <e p="PlayerMotions.cs" t="Include" />
-                <e p="Segmentations.cs" t="Include" />
+                <e p="Segmentation.cs" t="Include" />
                 <e p="SimulatorConfiguration.cs" t="Include" />
               </e>
               <e p="Segmentation" t="Include">

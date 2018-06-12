@@ -27,8 +27,8 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.ScreenCapture.Engine
 
         public override void BeginRecording(RecordingSession session)
         {
-            int screenWidth = Screen.width;
-            int screenHeight = Screen.height;
+            var screenWidth = Screen.width;
+            var screenHeight = Screen.height;
 #if UNITY_EDITOR
             switch (this.scSettings.m_OutputSize)
             {

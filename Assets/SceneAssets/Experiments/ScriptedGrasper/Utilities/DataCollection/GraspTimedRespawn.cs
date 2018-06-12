@@ -55,8 +55,6 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Utilities.DataCollection {
       }
     }
 
-
-    
     IEnumerator RespawnObject() {
       yield return this._wait_for_seconds;
       this.StopCoroutine(nameof(this.MakeObjectVisible));

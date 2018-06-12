@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using UnityEditor;
 using UnityEngine;
+using Unity_Technologies.Recorder.Framework.Core.Editor;
 
-namespace UnityEditor.Recorder.Input
+namespace Unity_Technologies.Recorder.Framework.Inputs.RenderTextureSampler.Editor
 {
     [CustomEditor(typeof(Unity_Technologies.Recorder.Framework.Inputs.RenderTextureSampler.Engine.RenderTextureSamplerSettings))]
     public class RenderTextureSamplerEditor : InputEditor

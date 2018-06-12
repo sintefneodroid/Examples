@@ -21,10 +21,10 @@ namespace TextMesh_Pro.Scripts
                 return (char)0;
             }
 
-            int length = text.Length;
+            var length = text.Length;
 
             // Enforce Phone Number format for every character input.
-            for (int i = 0; i < length + 1; i++)
+            for (var i = 0; i < length + 1; i++)
             {
                 switch (i)
                 {

@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using Unity_Technologies.Recorder.Framework.Packager.Editor;
 
-namespace UnityEditor.Recorder
+namespace Unity_Technologies.Recorder.Framework.Core.Editor
 {
     public class RecorderWindow : EditorWindow
     {
@@ -324,7 +326,7 @@ namespace UnityEditor.Recorder
             }
 
             if(this.m_WindowSettingsAsset.m_Settings == null ) this.m_WindowSettingsAsset.m_Settings = Unity_Technologies.Recorder.Framework.Core.Engine.RecordersInventory.GenerateRecorderInitialSettings(this.m_WindowSettingsAsset, this.m_recorderSelector.selectedRecorder );
-            this.m_Editor = Editor.CreateEditor(this.m_WindowSettingsAsset.m_Settings ) as RecorderEditor;
+            this.m_Editor = UnityEditor.Editor.CreateEditor(this.m_WindowSettingsAsset.m_Settings ) as RecorderEditor;
             AssetDatabase.Refresh();
 
         }

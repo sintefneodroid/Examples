@@ -73,7 +73,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
 
             public bool Initialize(MovieEncoderConfigs c, DataPath p)
             {
-                string path = p.GetFullPath() + "/" + this.m_name;
+                var path = p.GetFullPath() + "/" + this.m_name;
                 c.Setup(this.m_rt.width, this.m_rt.height, this.m_channels, this.m_targetFramerate);
                 this.m_encoder = MovieEncoder.Create(c, path);
                 return this.m_encoder != null && this.m_encoder.IsValid();
@@ -155,8 +155,8 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
                 this.m_matCopy.DisableKeyword("OFFSCREEN");
             }
 
-            int captureWidth = cam.pixelWidth;
-            int captureHeight = cam.pixelHeight;
+            var captureWidth = cam.pixelWidth;
+            var captureHeight = cam.pixelHeight;
             this.GetCaptureResolution(ref captureWidth, ref captureHeight);
             if (this.m_encoderConfigs.format == MovieEncoder.Type.MP4 ||
                 this.m_encoderConfigs.format == MovieEncoder.Type.WebM)
@@ -168,14 +168,14 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
             if (this.m_fbComponents.frameBuffer)
             {
                 this.m_rtFB = new RenderTexture[2];
-                for (int i = 0; i < this.m_rtFB.Length; ++i)
+                for (var i = 0; i < this.m_rtFB.Length; ++i)
                 {
                     this.m_rtFB[i] = new RenderTexture(captureWidth, captureHeight, 0, RenderTextureFormat.ARGBHalf);
                     this.m_rtFB[i].filterMode = FilterMode.Point;
                     this.m_rtFB[i].Create();
                 }
 
-                int tid = Shader.PropertyToID("_TmpFrameBuffer");
+                var tid = Shader.PropertyToID("_TmpFrameBuffer");
                 this.m_cbCopyFB = new CommandBuffer();
                 this.m_cbCopyFB.name = "GBufferRecorder: Copy FrameBuffer";
                 this.m_cbCopyFB.GetTemporaryRT(tid, -1, -1, 0, FilterMode.Point);
@@ -188,7 +188,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
             if (this.m_fbComponents.GBuffer)
             {
                 this.m_rtGB = new RenderTexture[8];
-                for (int i = 0; i < this.m_rtGB.Length; ++i)
+                for (var i = 0; i < this.m_rtGB.Length; ++i)
                 {
                     this.m_rtGB[i] = new RenderTexture(captureWidth, captureHeight, 0, RenderTextureFormat.ARGBHalf);
                     this.m_rtGB[i].filterMode = FilterMode.Point;
@@ -230,7 +230,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
                 }
             }
 
-            int framerate = this.m_targetFramerate;
+            var framerate = this.m_targetFramerate;
             if (this.m_fbComponents.frameBuffer) {
                 if (this.m_fbComponents.fbColor) this.m_recorders.Add(new BufferRecorder(this.m_rtFB[0], 4, "FrameBuffer", framerate));
                 if (this.m_fbComponents.fbAlpha) this.m_recorders.Add(new BufferRecorder(this.m_rtFB[1], 1, "Alpha", framerate));
@@ -326,7 +326,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
                 yield return new WaitForEndOfFrame();
 
                 //double timestamp = Time.unscaledTime - m_initialTime;
-                double timestamp = 1.0 / this.m_targetFramerate * this.m_recordedFrames;
+                var timestamp = 1.0 / this.m_targetFramerate * this.m_recordedFrames;
                 foreach (var rec in this.m_recorders) { rec.Update(timestamp); }
 
                 ++this.m_recordedFrames;

@@ -1,9 +1,8 @@
-using System;
 using UnityEditor;
-using UnityEditor.Recorder;
 using UnityEngine;
+using Unity_Technologies.Recorder.Extensions.FCIntegration.Editor;
 
-namespace UTJ.FrameCapturer.Recorders
+namespace Unity_Technologies.Recorder.Extensions.FCIntegration.PNG.Editor
 {
     [CustomEditor(typeof(Unity_Technologies.Recorder.Extensions.FCIntegration.PNG.PNGRecorderSettings))]
     public class PngRecorderSettingsEditor : RecorderEditorBase

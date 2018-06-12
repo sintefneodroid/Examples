@@ -1,7 +1,7 @@
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
-namespace UTJ.FrameCapturer
+namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Editor.Misc
 {
     [CustomPropertyDrawer(typeof(Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Misc.Bool))]
     class BoolDrawer : PropertyDrawer

@@ -99,8 +99,8 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
 
             // create scratch buffer
             {
-                int captureWidth = cam.pixelWidth;
-                int captureHeight = cam.pixelHeight;
+                var captureWidth = cam.pixelWidth;
+                var captureHeight = cam.pixelHeight;
                 this.GetCaptureResolution(ref captureWidth, ref captureHeight);
                 if (this.m_encoderConfigs.format == MovieEncoder.Type.MP4 ||
                     this.m_encoderConfigs.format == MovieEncoder.Type.WebM)
@@ -116,12 +116,12 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
 
             // initialize encoder
             {
-                int targetFramerate = 60;
+                var targetFramerate = 60;
                 if(this.m_framerateMode == FrameRateMode.Constant)
                 {
                     targetFramerate = this.m_targetFramerate;
                 }
-                string outPath = this.m_outputDir.GetFullPath() + "/" + DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                var outPath = this.m_outputDir.GetFullPath() + "/" + DateTime.Now.ToString("yyyyMMdd_HHmmss");
 
                 this.m_encoderConfigs.captureVideo = this.m_captureVideo;
                 this.m_encoderConfigs.captureAudio = this.m_captureAudio;
@@ -136,7 +136,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
 
             // create command buffer
             {
-                int tid = Shader.PropertyToID("_TmpFrameBuffer");
+                var tid = Shader.PropertyToID("_TmpFrameBuffer");
                 this.m_cb = new CommandBuffer();
                 this.m_cb.name = "MovieRecorder: copy frame buffer";
 

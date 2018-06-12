@@ -1,8 +1,6 @@
-using System;
 using UnityEditor;
-using UnityEngine;
 
-namespace UTJ.FrameCapturer
+namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Editor
 {
     [CustomEditor(typeof(Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.GBufferRecorder))]
     public class ImageSequenceRecorderEditor : RecorderBaseEditor

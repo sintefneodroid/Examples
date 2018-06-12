@@ -25,7 +25,7 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.Camera360.Engine
 
         public override bool ValidityCheck( List<string> errors )
         {
-            bool ok = base.ValidityCheck(errors);
+            var ok = base.ValidityCheck(errors);
 
             if (this.source == EImageSource.TaggedCamera && string.IsNullOrEmpty(this.m_CameraTag))
             {

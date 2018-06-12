@@ -11,13 +11,12 @@ namespace TextMesh_Pro.Scripts
         public objectType ObjectType;
         public bool isStatic;
 
-        private TMP_Text m_text;
+        TMP_Text m_text;
 
         //private TMP_InputField m_inputfield;
 
-
-        private const string k_label = "The count is <#0080ff>{0}</color>";
-        private int count;
+        const string k_label = "The count is <#0080ff>{0}</color>";
+        int count;
 
         void Awake()
         {
@@ -42,7 +41,7 @@ namespace TextMesh_Pro.Scripts
             this.m_text.text = "A <#0080ff>simple</color> line of text.";
 
             // Get the preferred width and height based on the supplied width and height as opposed to the actual size of the current text container.
-            Vector2 size = this.m_text.GetPreferredValues(Mathf.Infinity, Mathf.Infinity);
+            var size = this.m_text.GetPreferredValues(Mathf.Infinity, Mathf.Infinity);
 
             // Set the size of the RectTransform based on the new calculated values.
             this.m_text.rectTransform.sizeDelta = new Vector2(size.x, size.y);

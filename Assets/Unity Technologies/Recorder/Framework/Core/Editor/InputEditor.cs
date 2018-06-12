@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using UnityEditor;
 
-namespace UnityEditor.Recorder
+namespace Unity_Technologies.Recorder.Framework.Core.Editor
 {
-    public abstract class InputEditor : Editor
+    public abstract class InputEditor : UnityEditor.Editor
     {
         protected List<string> m_SettingsErrors = new List<string>();
 

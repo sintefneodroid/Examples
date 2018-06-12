@@ -17,9 +17,9 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
 
         public static EditorWindow GetMainGameView()
         {
-            Type T = Type.GetType("UnityEditor.GameView,UnityEditor");
-            MethodInfo GetMainGameView = T.GetMethod("GetMainGameView", BindingFlags.NonPublic | BindingFlags.Static);
-            Object Res = GetMainGameView.Invoke(null, null);
+            var T = Type.GetType("UnityEditor.GameView,UnityEditor");
+            var GetMainGameView = T.GetMethod("GetMainGameView", BindingFlags.NonPublic | BindingFlags.Static);
+            var Res = GetMainGameView.Invoke(null, null);
             return (EditorWindow)Res;
         }
 
@@ -94,7 +94,7 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine
         {
             var group = Group();
             var method = @group.GetType().GetMethod("IndexOf", BindingFlags.Public | BindingFlags.Instance);
-            int index = (int)method.Invoke(@group, new object[] {sizeObj}) ;
+            var index = (int)method.Invoke(@group, new object[] {sizeObj}) ;
 
             var builtinList = @group.GetType().GetField("m_Builtin", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(@group);
 

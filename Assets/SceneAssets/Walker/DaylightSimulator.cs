@@ -40,15 +40,18 @@ namespace SceneAssets.Walker {
     [SerializeField] Material _sky_mat;
 
     protected override void Setup() {
-      if (this._fog_density_curve ==null) {
+      if (this._fog_density_curve == null) {
         this._fog_density_curve = NeodroidUtilities.DefaultAnimationCurve();
       }
-      if (this._fog_gradient ==null) {
+
+      if (this._fog_gradient == null) {
         this._fog_gradient = NeodroidUtilities.DefaultGradient();
       }
-      if (this._light_gradient ==null) {
+
+      if (this._light_gradient == null) {
         this._light_gradient = NeodroidUtilities.DefaultGradient();
       }
+
       this._light = this.GetComponent<Light>();
       this._sky_mat = RenderSettings.skybox;
       this.transform.rotation = this._start_rotation;

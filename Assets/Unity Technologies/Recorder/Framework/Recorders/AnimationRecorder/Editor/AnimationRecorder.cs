@@ -1,10 +1,10 @@
 ﻿using System.IO;
 using System.Linq;
 using UnityEditor;
-using UnityEditor.Experimental.Recorder.Input;
 using UnityEngine;
+using Unity_Technologies.Recorder.Framework.Inputs.Animation.Editor;
 
-namespace UnityEditor.Experimental.Recorder
+namespace Unity_Technologies.Recorder.Framework.Recorders.AnimationRecorder.Editor
 {
     [Unity_Technologies.Recorder.Framework.Core.Engine.Recorder(typeof(AnimationRecorderSettings), "Animation Clips", "Unity/Animation Recording")]
     public class AnimationRecorder : Unity_Technologies.Recorder.Framework.Core.Engine.GenericRecorder<AnimationRecorderSettings>

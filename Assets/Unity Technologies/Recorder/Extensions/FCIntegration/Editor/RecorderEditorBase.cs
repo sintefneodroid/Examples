@@ -1,9 +1,7 @@
-﻿using System;
-using UnityEditor;
-using UnityEditor.Recorder;
-using UnityEngine;
+﻿using UnityEditor;
+using Unity_Technologies.Recorder.Framework.Core.Editor;
 
-namespace UTJ.FrameCapturer.Recorders
+namespace Unity_Technologies.Recorder.Extensions.FCIntegration.Editor
 {
     public class RecorderEditorBase: RecorderEditor
     {

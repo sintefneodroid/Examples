@@ -10,23 +10,23 @@ namespace TextMesh_Pro.Scripts
         public int SpawnType = 0;
         public int NumberOfNPC = 12;
 
-        private TextMeshProFloatingText floatingText_Script;
+        TextMeshProFloatingText floatingText_Script;
 
 
         void Start()
         {
 
-            for (int i = 0; i < this.NumberOfNPC; i++)
+            for (var i = 0; i < this.NumberOfNPC; i++)
             {
 
 
                 if (this.SpawnType == 0)
                 {
                     // TextMesh Pro Implementation
-                    GameObject go = new GameObject();
+                    var go = new GameObject();
                     go.transform.position = new Vector3(Random.Range(-95f, 95f), 0.25f, Random.Range(-95f, 95f));
 
-                    TextMeshPro textMeshPro = go.AddComponent<TextMeshPro>();
+                    var textMeshPro = go.AddComponent<TextMeshPro>();
 
                     textMeshPro.autoSizeTextContainer = true;
                     textMeshPro.rectTransform.pivot = new Vector2(0.5f, 0);
@@ -45,10 +45,10 @@ namespace TextMesh_Pro.Scripts
                 else if (this.SpawnType == 1)
                 {
                     // TextMesh Implementation
-                    GameObject go = new GameObject();
+                    var go = new GameObject();
                     go.transform.position = new Vector3(Random.Range(-95f, 95f), 0.25f, Random.Range(-95f, 95f));
 
-                    TextMesh textMesh = go.AddComponent<TextMesh>();
+                    var textMesh = go.AddComponent<TextMesh>();
                     textMesh.font = Resources.Load<Font>("Fonts/ARIAL");
                     textMesh.GetComponent<Renderer>().sharedMaterial = textMesh.font.material;
 
@@ -65,14 +65,14 @@ namespace TextMesh_Pro.Scripts
                 else if (this.SpawnType == 2)
                 {
                     // Canvas WorldSpace Camera
-                    GameObject go = new GameObject();
-                    Canvas canvas = go.AddComponent<Canvas>();
+                    var go = new GameObject();
+                    var canvas = go.AddComponent<Canvas>();
                     canvas.worldCamera = Camera.main;
 
                     go.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                     go.transform.position = new Vector3(Random.Range(-95f, 95f), 5f, Random.Range(-95f, 95f));
 
-                    TextMeshProUGUI textObject = new GameObject().AddComponent<TextMeshProUGUI>();
+                    var textObject = new GameObject().AddComponent<TextMeshProUGUI>();
                     textObject.rectTransform.SetParent(go.transform, false);
 
                     textObject.color = new Color32(255, 255, 0, 255);

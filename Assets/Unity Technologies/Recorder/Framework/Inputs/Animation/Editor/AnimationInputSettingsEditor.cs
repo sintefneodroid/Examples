@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Experimental.Recorder.Input;
-using UnityEditor.Recorder;
+using UnityEditor;
 using UnityEngine;
+using Unity_Technologies.Recorder.Framework.Core.Editor;
 
-namespace UnityEditor.Experimental.FrameRecorder.Input
+namespace Unity_Technologies.Recorder.Framework.Inputs.Animation.Editor
 {
     [CustomEditor(typeof(AnimationInputSettings))]
     public class AnimationInputSettingsEditor : InputEditor

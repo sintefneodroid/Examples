@@ -22,13 +22,13 @@ namespace TextMesh_Pro.Scripts
 
         void Start()
         {
-            for (int i = 0; i < this.NumberOfNPC; i++)
+            for (var i = 0; i < this.NumberOfNPC; i++)
             {
                 if (this.SpawnType == 0)
                 {
                     // TextMesh Pro Implementation
                     //go.transform.localScale = new Vector3(2, 2, 2);
-                    GameObject go = new GameObject(); //"NPC " + i);
+                    var go = new GameObject(); //"NPC " + i);
                     //go.transform.position = new Vector3(Random.Range(-95f, 95f), 0.5f, Random.Range(-95f, 95f));
 
                     go.transform.position = new Vector3(0, 0, 0);
@@ -36,7 +36,7 @@ namespace TextMesh_Pro.Scripts
                     //go.renderer.receiveShadows = false;
                     //go.transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
 
-                    TextMeshPro textMeshPro = go.AddComponent<TextMeshPro>();
+                    var textMeshPro = go.AddComponent<TextMeshPro>();
                     //textMeshPro.FontAsset = Resources.Load("Fonts & Materials/LiberationSans SDF", typeof(TextMeshProFont)) as TextMeshProFont;
                     textMeshPro.alignment = TextAlignmentOptions.Center;
                     textMeshPro.fontSize = 96;
@@ -53,12 +53,12 @@ namespace TextMesh_Pro.Scripts
                 else
                 {
                     // TextMesh Implementation
-                    GameObject go = new GameObject(); //"NPC " + i);
+                    var go = new GameObject(); //"NPC " + i);
                     //go.transform.position = new Vector3(Random.Range(-95f, 95f), 0.5f, Random.Range(-95f, 95f));
 
                     go.transform.position = new Vector3(0, 0, 0);
 
-                    TextMesh textMesh = go.AddComponent<TextMesh>();
+                    var textMesh = go.AddComponent<TextMesh>();
                     textMesh.GetComponent<Renderer>().sharedMaterial = this.TheFont.material;
                     textMesh.font = this.TheFont;
                     textMesh.anchor = TextAnchor.MiddleCenter;

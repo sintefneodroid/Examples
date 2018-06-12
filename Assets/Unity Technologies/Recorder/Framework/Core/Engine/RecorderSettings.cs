@@ -81,8 +81,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
         public FileNameGenerator m_BaseFileName;
         public OutputPath m_DestinationPath;
 
-        [SerializeField]
-        private InputSettingsList m_InputsSettings = new InputSettingsList();
+        [SerializeField] InputSettingsList m_InputsSettings = new InputSettingsList();
 
         public InputSettingsList inputsSettings
         {
@@ -127,7 +126,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
 
         public virtual bool ValidityCheck( List<string> errors )
         {
-            bool ok = true;
+            var ok = true;
 
             if (this.m_InputsSettings != null)
             {

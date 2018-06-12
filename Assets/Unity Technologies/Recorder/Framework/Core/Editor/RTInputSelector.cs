@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 
-namespace UnityEditor.Recorder
+namespace Unity_Technologies.Recorder.Framework.Core.Editor
 {
     public class RTInputSelector
     {

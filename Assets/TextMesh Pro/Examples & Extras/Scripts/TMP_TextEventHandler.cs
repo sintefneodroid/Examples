@@ -33,8 +33,7 @@ namespace TextMesh_Pro.Scripts
             get { return this.m_OnCharacterSelection; }
             set { this.m_OnCharacterSelection = value; }
         }
-        [SerializeField]
-        private CharacterSelectionEvent m_OnCharacterSelection = new CharacterSelectionEvent();
+        [SerializeField] CharacterSelectionEvent m_OnCharacterSelection = new CharacterSelectionEvent();
 
 
         /// <summary>
@@ -45,8 +44,7 @@ namespace TextMesh_Pro.Scripts
             get { return this.m_OnSpriteSelection; }
             set { this.m_OnSpriteSelection = value; }
         }
-        [SerializeField]
-        private SpriteSelectionEvent m_OnSpriteSelection = new SpriteSelectionEvent();
+        [SerializeField] SpriteSelectionEvent m_OnSpriteSelection = new SpriteSelectionEvent();
 
 
         /// <summary>
@@ -57,8 +55,7 @@ namespace TextMesh_Pro.Scripts
             get { return this.m_OnWordSelection; }
             set { this.m_OnWordSelection = value; }
         }
-        [SerializeField]
-        private WordSelectionEvent m_OnWordSelection = new WordSelectionEvent();
+        [SerializeField] WordSelectionEvent m_OnWordSelection = new WordSelectionEvent();
 
 
         /// <summary>
@@ -69,8 +66,7 @@ namespace TextMesh_Pro.Scripts
             get { return this.m_OnLineSelection; }
             set { this.m_OnLineSelection = value; }
         }
-        [SerializeField]
-        private LineSelectionEvent m_OnLineSelection = new LineSelectionEvent();
+        [SerializeField] LineSelectionEvent m_OnLineSelection = new LineSelectionEvent();
 
 
         /// <summary>
@@ -81,20 +77,17 @@ namespace TextMesh_Pro.Scripts
             get { return this.m_OnLinkSelection; }
             set { this.m_OnLinkSelection = value; }
         }
-        [SerializeField]
-        private LinkSelectionEvent m_OnLinkSelection = new LinkSelectionEvent();
+        [SerializeField] LinkSelectionEvent m_OnLinkSelection = new LinkSelectionEvent();
 
+        TMP_Text m_TextComponent;
 
+        Camera m_Camera;
+        Canvas m_Canvas;
 
-        private TMP_Text m_TextComponent;
-
-        private Camera m_Camera;
-        private Canvas m_Canvas;
-
-        private int m_selectedLink = -1;
-        private int m_lastCharIndex = -1;
-        private int m_lastWordIndex = -1;
-        private int m_lastLineIndex = -1;
+        int m_selectedLink = -1;
+        int m_lastCharIndex = -1;
+        int m_lastWordIndex = -1;
+        int m_lastLineIndex = -1;
 
         void Awake()
         {
@@ -126,12 +119,12 @@ namespace TextMesh_Pro.Scripts
             if (TMP_TextUtilities.IsIntersectingRectTransform(this.m_TextComponent.rectTransform, Input.mousePosition, this.m_Camera))
             {
                 #region Example of Character or Sprite Selection
-                int charIndex = TMP_TextUtilities.FindIntersectingCharacter(this.m_TextComponent, Input.mousePosition, this.m_Camera, true);
+                var charIndex = TMP_TextUtilities.FindIntersectingCharacter(this.m_TextComponent, Input.mousePosition, this.m_Camera, true);
                 if (charIndex != -1 && charIndex != this.m_lastCharIndex)
                 {
                     this.m_lastCharIndex = charIndex;
 
-                    TMP_TextElementType elementType = this.m_TextComponent.textInfo.characterInfo[charIndex].elementType;
+                    var elementType = this.m_TextComponent.textInfo.characterInfo[charIndex].elementType;
 
                     // Send event to any event listeners depending on whether it is a character or sprite.
                     if (elementType == TMP_TextElementType.Character) {
@@ -145,13 +138,13 @@ namespace TextMesh_Pro.Scripts
 
                 #region Example of Word Selection
                 // Check if Mouse intersects any words and if so assign a random color to that word.
-                int wordIndex = TMP_TextUtilities.FindIntersectingWord(this.m_TextComponent, Input.mousePosition, this.m_Camera);
+                var wordIndex = TMP_TextUtilities.FindIntersectingWord(this.m_TextComponent, Input.mousePosition, this.m_Camera);
                 if (wordIndex != -1 && wordIndex != this.m_lastWordIndex)
                 {
                     this.m_lastWordIndex = wordIndex;
 
                     // Get the information about the selected word.
-                    TMP_WordInfo wInfo = this.m_TextComponent.textInfo.wordInfo[wordIndex];
+                    var wInfo = this.m_TextComponent.textInfo.wordInfo[wordIndex];
 
                     // Send the event to any listeners.
                     this.SendOnWordSelection(wInfo.GetWord(), wInfo.firstCharacterIndex, wInfo.characterCount);
@@ -161,22 +154,22 @@ namespace TextMesh_Pro.Scripts
 
                 #region Example of Line Selection
                 // Check if Mouse intersects any words and if so assign a random color to that word.
-                int lineIndex = TMP_TextUtilities.FindIntersectingLine(this.m_TextComponent, Input.mousePosition, this.m_Camera);
+                var lineIndex = TMP_TextUtilities.FindIntersectingLine(this.m_TextComponent, Input.mousePosition, this.m_Camera);
                 if (lineIndex != -1 && lineIndex != this.m_lastLineIndex)
                 {
                     this.m_lastLineIndex = lineIndex;
 
                     // Get the information about the selected word.
-                    TMP_LineInfo lineInfo = this.m_TextComponent.textInfo.lineInfo[lineIndex];
+                    var lineInfo = this.m_TextComponent.textInfo.lineInfo[lineIndex];
 
                     // Send the event to any listeners.
-                    char[] buffer = new char[lineInfo.characterCount];
-                    for (int i = 0; i < lineInfo.characterCount && i < this.m_TextComponent.textInfo.characterInfo.Length; i++)
+                    var buffer = new char[lineInfo.characterCount];
+                    for (var i = 0; i < lineInfo.characterCount && i < this.m_TextComponent.textInfo.characterInfo.Length; i++)
                     {
                         buffer[i] = this.m_TextComponent.textInfo.characterInfo[i + lineInfo.firstCharacterIndex].character;
                     }
 
-                    string lineText = new string(buffer);
+                    var lineText = new string(buffer);
                     this.SendOnLineSelection(lineText, lineInfo.firstCharacterIndex, lineInfo.characterCount);
                 }
                 #endregion
@@ -184,7 +177,7 @@ namespace TextMesh_Pro.Scripts
 
                 #region Example of Link Handling
                 // Check if mouse intersects with any links.
-                int linkIndex = TMP_TextUtilities.FindIntersectingLink(this.m_TextComponent, Input.mousePosition, this.m_Camera);
+                var linkIndex = TMP_TextUtilities.FindIntersectingLink(this.m_TextComponent, Input.mousePosition, this.m_Camera);
 
                 // Handle new Link selection.
                 if (linkIndex != -1 && linkIndex != this.m_selectedLink)
@@ -192,7 +185,7 @@ namespace TextMesh_Pro.Scripts
                     this.m_selectedLink = linkIndex;
 
                     // Get information about the link.
-                    TMP_LinkInfo linkInfo = this.m_TextComponent.textInfo.linkInfo[linkIndex];
+                    var linkInfo = this.m_TextComponent.textInfo.linkInfo[linkIndex];
 
                     // Send the event to any listeners. 
                     this.SendOnLinkSelection(linkInfo.GetLinkID(), linkInfo.GetLinkText(), linkIndex);
@@ -213,36 +206,35 @@ namespace TextMesh_Pro.Scripts
             //Debug.Log("OnPointerExit()");
         }
 
-
-        private void SendOnCharacterSelection(char character, int characterIndex)
+        void SendOnCharacterSelection(char character, int characterIndex)
         {
             if (this.onCharacterSelection != null) {
                 this.onCharacterSelection.Invoke(character, characterIndex);
             }
         }
 
-        private void SendOnSpriteSelection(char character, int characterIndex)
+        void SendOnSpriteSelection(char character, int characterIndex)
         {
             if (this.onSpriteSelection != null) {
                 this.onSpriteSelection.Invoke(character, characterIndex);
             }
         }
 
-        private void SendOnWordSelection(string word, int charIndex, int length)
+        void SendOnWordSelection(string word, int charIndex, int length)
         {
             if (this.onWordSelection != null) {
                 this.onWordSelection.Invoke(word, charIndex, length);
             }
         }
 
-        private void SendOnLineSelection(string line, int charIndex, int length)
+        void SendOnLineSelection(string line, int charIndex, int length)
         {
             if (this.onLineSelection != null) {
                 this.onLineSelection.Invoke(line, charIndex, length);
             }
         }
 
-        private void SendOnLinkSelection(string linkID, string linkText, int linkIndex)
+        void SendOnLinkSelection(string linkID, string linkText, int linkIndex)
         {
             if (this.onLinkSelection != null) {
                 this.onLinkSelection.Invoke(linkID, linkText, linkIndex);

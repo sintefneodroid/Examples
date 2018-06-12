@@ -521,9 +521,8 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 433336211}
-  _normalise_observation_using_space: 1
+  _normalise_observation: 0
   _current_goal: {fileID: 0}
   _current_goal_position: {x: 0, y: 0, z: 0}
   _draw_names: 1
@@ -708,12 +707,12 @@ Prefab:
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.03343749
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.9665625
+      value: 0.689375
       objectReference: {fileID: 0}
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
@@ -734,6 +733,11 @@ Prefab:
         type: 2}
       propertyPath: m_SizeDelta.y
       value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 248.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e92782f81c5740819ca66bda35481ce, type: 2}
@@ -841,7 +845,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 433336211}
   _relative_to_existing_value: 0
 --- !u!1 &422333791
@@ -928,10 +931,11 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
+  _Episode_Return: 0
   _in_mdp_discount_factor: 1
   _environment: {fileID: 433336211}
   _solved_threshold: 0
+  _last_signal: 0
   _actor: {fileID: 1678840424}
   _area: {fileID: 433336215}
   _based_on_tags: 0
@@ -955,9 +959,9 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _Simulation_Manager: {fileID: 0}
   _episode_length: 1000
+  _script_execution_order: -20
   _objective_function: {fileID: 0}
   _coordinate_reference_point: {fileID: 0}
   _track_only_children: 1
@@ -994,10 +998,6 @@ MonoBehaviour:
   _testing_motors: 0
   _script_execution_order: -9999
   _configuration: {fileID: 787374341}
-  _skip_frame_i: 0
-  _ip_address: localhost
-  _port: 5555
-  _awaiting_reply: 0
   _allow_in_editor_blockage: 0
 --- !u!65 &433336215
 BoxCollider:
@@ -1067,7 +1067,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _actor: {fileID: 709803750}
   _motion_value_space:
     _Decimal_Granularity: 0
@@ -1097,7 +1096,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 433336211}
   _relative_to_existing_value: 0
   _position: {x: 0.135, y: 5.537, z: 1.277}
@@ -1139,12 +1137,12 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   _draw_bounds: 0
   _environment: {fileID: 433336211}
+  _script_execution_order: -10
 --- !u!54 &709803751
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1293,9 +1291,8 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 433336211}
-  _normalise_observation_using_space: 1
+  _normalise_observation: 0
   _current_goal: {fileID: 0}
   _current_goal_position: {x: 0, y: 0, z: 0}
   _draw_names: 1
@@ -1552,8 +1549,13 @@ MonoBehaviour:
   _step_execution_phase: 1
   _time_scale: 1
   _target_frame_rate: -1
+  _ip_address: localhost
+  _port: 6969
+  _do_serialise_unobservables: 0
+  _do_serialise_indidual_observables: 0
   _update_fixed_time_scale: 0
   _max_reply_interval: 0
+  _num_of_environments: 0
 --- !u!21 &796073441
 Material:
   serializedVersion: 6
@@ -2202,7 +2204,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 433336211}
   _relative_to_existing_value: 0
 --- !u!21 &1203184135
@@ -2514,9 +2515,8 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 433336211}
-  _normalise_observation_using_space: 1
+  _normalise_observation: 0
   _current_goal: {fileID: 0}
   _current_goal_position: {x: 0, y: 0, z: 0}
   _draw_names: 1
@@ -2712,7 +2712,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 433336211}
   _relative_to_existing_value: 0
 --- !u!21 &1454623397
@@ -2852,7 +2851,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _actor: {fileID: 709803750}
   _motion_value_space:
     _Decimal_Granularity: 0
@@ -3046,7 +3044,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 433336211}
   _relative_to_existing_value: 0
 --- !u!135 &1678840424
@@ -3165,7 +3162,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 433336211}
   _relative_to_existing_value: 0
 --- !u!1 &1716049547 stripped
@@ -3660,9 +3656,8 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 433336211}
-  _normalise_observation_using_space: 1
+  _normalise_observation: 0
   _current_goal: {fileID: 0}
   _current_goal_position: {x: 0, y: 0, z: 0}
   _draw_names: 1
@@ -3893,6 +3888,5 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 433336211}
   _relative_to_existing_value: 0

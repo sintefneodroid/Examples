@@ -1,9 +1,9 @@
 #if UNITY_2017_3_OR_NEWER
-using UnityEditorInternal;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
+using Unity_Technologies.Recorder.Framework.Core.Editor;
 
-namespace UnityEditor.Recorder.Input
+namespace Unity_Technologies.Recorder.Extensions.MovieRecorder.Audio.Editor
 {
     [CustomEditor(typeof(AudioInputSettings))]
     public class AudioInputSettingsEditor : InputEditor

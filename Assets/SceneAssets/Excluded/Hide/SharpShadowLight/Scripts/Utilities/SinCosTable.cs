@@ -14,6 +14,7 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Utilities {
     /// 
     /// </summary>
     public static float[] _Sen_Array;
+
     /// <summary>
     /// 
     /// </summary>

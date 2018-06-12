@@ -85,13 +85,13 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encod
         }
         [DllImport ("fccore")] public static extern fcStream     fcCreateFileStream(string path);
         [DllImport ("fccore")] public static extern fcStream     fcCreateMemoryStream();
-        [DllImport ("fccore")] private static extern void        fcReleaseStream(fcStream s);
+        [DllImport ("fccore")] static extern void        fcReleaseStream(fcStream s);
         [DllImport ("fccore")] public static extern ulong        fcStreamGetWrittenSize(fcStream s);
 
         [DllImport ("fccore")] public static extern void         fcGuardBegin();
         [DllImport ("fccore")] public static extern void         fcGuardEnd();
         [DllImport ("fccore")] public static extern fcDeferredCall fcAllocateDeferredCall();
-        [DllImport ("fccore")] private static extern void        fcReleaseDeferredCall(fcDeferredCall dc);
+        [DllImport ("fccore")] static extern void        fcReleaseDeferredCall(fcDeferredCall dc);
         [DllImport ("fccore")] public static extern IntPtr       fcGetRenderEventFunc();
 
         public static void fcGuard(Action body)
@@ -380,8 +380,8 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encod
         [DllImport ("fccore")] public static extern fcMP4Context     fcMP4CreateContext(ref fcMP4Config conf);
         [DllImport ("fccore")] public static extern fcMP4Context     fcMP4OSCreateContext(ref fcMP4Config conf, string path);
         [DllImport ("fccore")] public static extern void             fcMP4AddOutputStream(fcMP4Context ctx, fcStream s);
-        [DllImport ("fccore")] private static extern IntPtr          fcMP4GetAudioEncoderInfo(fcMP4Context ctx);
-        [DllImport ("fccore")] private static extern IntPtr          fcMP4GetVideoEncoderInfo(fcMP4Context ctx);
+        [DllImport ("fccore")] static extern IntPtr          fcMP4GetAudioEncoderInfo(fcMP4Context ctx);
+        [DllImport ("fccore")] static extern IntPtr          fcMP4GetVideoEncoderInfo(fcMP4Context ctx);
         [DllImport ("fccore")] public static extern Bool             fcMP4AddVideoFramePixels(fcMP4Context ctx, byte[] pixels, fcPixelFormat fmt, double timestamp = -1.0);
         [DllImport ("fccore")] public static extern Bool             fcMP4AddAudioSamples(fcMP4Context ctx, float[] samples, int num_samples);
 
@@ -613,7 +613,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts.Encod
 
         public static void fcLock(RenderTexture src, Action<byte[], fcPixelFormat> body)
         {
-            TextureFormat dstfmt = TextureFormat.RGBA32;
+            var dstfmt = TextureFormat.RGBA32;
             switch (src.format)
             {
                 case RenderTextureFormat.DefaultHDR:

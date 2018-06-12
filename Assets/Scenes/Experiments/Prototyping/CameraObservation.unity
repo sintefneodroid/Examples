@@ -413,11 +413,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Custom_Name: 
   _Use_Custom_Name: 0
-  _debugging: 0
-  _children_control: 0
+  _disables_children: 0
   _editor_reregistering: 1
+  _debugging: 0
   _environment: {fileID: 1368340967}
-  _normalise_observation_using_space: 1
+  _normalise_observation: 0
   _space: 2
   _use_environments_coordinates: 1
   _position: {x: 2, y: 3, z: -3}
@@ -4339,12 +4339,12 @@ Prefab:
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.19593751
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.8040625
+      value: 0.689375
       objectReference: {fileID: 0}
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
@@ -4374,6 +4374,11 @@ Prefab:
         type: 2}
       propertyPath: m_IsOn
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 248.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e92782f81c5740819ca66bda35481ce, type: 2}
@@ -4574,11 +4579,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Custom_Name: 
   _Use_Custom_Name: 0
-  _debugging: 0
-  _children_control: 0
+  _disables_children: 0
   _editor_reregistering: 1
+  _debugging: 0
   _Simulation_Manager: {fileID: 1368340969}
   _episode_length: 500
+  _script_execution_order: -20
   _objective_function: {fileID: 1368340970}
   _coordinate_reference_point: {fileID: 0}
   _track_only_children: 1
@@ -4620,10 +4626,6 @@ MonoBehaviour:
   _testing_motors: 0
   _script_execution_order: -9999
   _configuration: {fileID: 11400000, guid: 0f7ed9f832fa3445f96611947a2d99c0, type: 2}
-  _skip_frame_i: 0
-  _ip_address: localhost
-  _port: 6969
-  _awaiting_reply: 0
   _allow_in_editor_blockage: 1
 --- !u!114 &1368340970
 MonoBehaviour:
@@ -4638,12 +4640,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Custom_Name: 
   _Use_Custom_Name: 0
-  _debugging: 0
-  _children_control: 0
+  _disables_children: 0
   _editor_reregistering: 1
+  _debugging: 0
+  _Episode_Return: 0
   _in_mdp_discount_factor: 1
   _environment: {fileID: 1368340967}
   _solved_threshold: 0
+  _last_signal: 0
   _rigidbody: {fileID: 1700427963}
 --- !u!1 &1700427960
 GameObject:

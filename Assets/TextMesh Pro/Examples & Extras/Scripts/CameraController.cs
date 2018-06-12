@@ -7,8 +7,8 @@ namespace TextMesh_Pro.Scripts
     {
         public enum CameraModes { Follow, Isometric, Free }
 
-        private Transform cameraTransform;
-        private Transform dummyTarget;
+        Transform cameraTransform;
+        Transform dummyTarget;
 
         public Transform CameraTarget;
 
@@ -26,26 +26,25 @@ namespace TextMesh_Pro.Scripts
 
         public bool MovementSmoothing = true;
         public bool RotationSmoothing = false;
-        private bool previousSmoothing;
+        bool previousSmoothing;
 
         public float MovementSmoothingValue = 25f;
         public float RotationSmoothingValue = 5.0f;
 
         public float MoveSensitivity = 2.0f;
 
-        private Vector3 currentVelocity = Vector3.zero;
-        private Vector3 desiredPosition;
-        private float mouseX;
-        private float mouseY;
-        private Vector3 moveVector;
-        private float mouseWheel;
+        Vector3 currentVelocity = Vector3.zero;
+        Vector3 desiredPosition;
+        float mouseX;
+        float mouseY;
+        Vector3 moveVector;
+        float mouseWheel;
 
         // Controls for Touches on Mobile devices
         //private float prev_ZoomDelta;
 
-
-        private const string event_SmoothingValue = "Slider - Smoothing Value";
-        private const string event_FollowDistance = "Slider - Camera Zoom";
+        const string event_SmoothingValue = "Slider - Smoothing Value";
+        const string event_FollowDistance = "Slider - Camera Zoom";
 
 
         void Awake()
@@ -177,7 +176,7 @@ namespace TextMesh_Pro.Scripts
                 // Get Input from Mobile Device
                 if (touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved)
                 {
-                    Vector2 deltaPosition = Input.GetTouch(0).deltaPosition;
+                    var deltaPosition = Input.GetTouch(0).deltaPosition;
 
                     // Handle elevation changes
                     if (deltaPosition.y > 0.01f || deltaPosition.y < -0.01f)
@@ -207,7 +206,7 @@ namespace TextMesh_Pro.Scripts
                 if (Input.GetMouseButton(0))
                 {
                     RaycastHit hit;
-                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                     if (Physics.Raycast(ray, out hit, 300, 1 << 10 | 1 << 11 | 1 << 12 | 1 << 14))
                     {
                         if (hit.transform == this.CameraTarget)
@@ -263,16 +262,16 @@ namespace TextMesh_Pro.Scripts
             // Check Pinching to Zoom in - out on Mobile device
             if (touchCount == 2)
             {
-                Touch touch0 = Input.GetTouch(0);
-                Touch touch1 = Input.GetTouch(1);
+                var touch0 = Input.GetTouch(0);
+                var touch1 = Input.GetTouch(1);
 
-                Vector2 touch0PrevPos = touch0.position - touch0.deltaPosition;
-                Vector2 touch1PrevPos = touch1.position - touch1.deltaPosition;
+                var touch0PrevPos = touch0.position - touch0.deltaPosition;
+                var touch1PrevPos = touch1.position - touch1.deltaPosition;
 
-                float prevTouchDelta = (touch0PrevPos - touch1PrevPos).magnitude;
-                float touchDelta = (touch0.position - touch1.position).magnitude;
+                var prevTouchDelta = (touch0PrevPos - touch1PrevPos).magnitude;
+                var touchDelta = (touch0.position - touch1.position).magnitude;
 
-                float zoomDelta = prevTouchDelta - touchDelta;
+                var zoomDelta = prevTouchDelta - touchDelta;
 
                 if (zoomDelta > 0.01f || zoomDelta < -0.01f)
                 {

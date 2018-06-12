@@ -79,7 +79,7 @@ namespace Unity_Technologies.Recorder.Framework.Core.Engine
                 return string.IsNullOrEmpty(leaf) ? "." : "./" + leaf;
             }
 
-            string ret = "";
+            var ret = "";
             switch (root)
             {
                 case ERoot.PersistentData:

@@ -11,7 +11,7 @@ namespace SceneAssets.LunarLander.Scripts {
     LineRenderer _line_renderer;
     [SerializeField] bool _use_local_transforms;
 
-    [SerializeField]  Vector3 _offset = Vector3.up;
+    [SerializeField] Vector3 _offset = Vector3.up;
 
     // Use this for initialization
     /// <summary>
@@ -22,7 +22,6 @@ namespace SceneAssets.LunarLander.Scripts {
       if (!this._Connection_To) {
         this._Connection_To = this.GetComponentInParent<Transform>();
       }
-
     }
 
     // Update is called once per frame

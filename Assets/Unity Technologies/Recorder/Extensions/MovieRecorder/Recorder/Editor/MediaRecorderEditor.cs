@@ -1,11 +1,10 @@
 #if UNITY_2017_3_OR_NEWER
 
-using System;
-using System.Collections.Generic;
-using UnityEditor.Recorder.Input;
+using UnityEditor;
 using UnityEngine;
+using Unity_Technologies.Recorder.Framework.Core.Editor;
 
-namespace UnityEditor.Recorder
+namespace Unity_Technologies.Recorder.Extensions.MovieRecorder.Recorder.Editor
 {
     [CustomEditor(typeof(MediaRecorderSettings))]
     public class MediaRecorderEditor : RecorderEditor

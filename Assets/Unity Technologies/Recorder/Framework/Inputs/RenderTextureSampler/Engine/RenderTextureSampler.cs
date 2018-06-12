@@ -91,8 +91,8 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.RenderTextureSampler.Engi
                     return;
             }
             const float oneOverSixteen = 1.0f / 16.0f;
-            Vector2 halfHalf = new Vector2(0.5f, 0.5f);
-            for (int i = 0; i < samples.Length; i++)
+            var halfHalf = new Vector2(0.5f, 0.5f);
+            for (var i = 0; i < samples.Length; i++)
             {
                 samples[i] = samples[i] * oneOverSixteen + halfHalf;
             }
@@ -136,7 +136,7 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.RenderTextureSampler.Engi
 
             this.m_renderRT = new UnityEngine.RenderTexture(this.m_renderWidth, this.m_renderHeight, 24, RenderTextureFormat.DefaultHDR, RenderTextureReadWrite.Linear);
             this.m_renderRT.wrapMode = TextureWrapMode.Clamp;
-            for (int i = 0; i < 2; ++i)
+            for (var i = 0; i < 2; ++i)
             {
                 this.m_accumulateRTs[i] = new UnityEngine.RenderTexture(this.m_renderWidth, this.m_renderHeight, 0, RenderTextureFormat.DefaultHDR, RenderTextureReadWrite.Linear);
                 this.m_accumulateRTs[i].wrapMode = TextureWrapMode.Clamp;
@@ -157,7 +157,7 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.RenderTextureSampler.Engi
             {
                 case EImageSource.ActiveCameras:
                 {
-                    bool sort = false;
+                    var sort = false;
 
                     // Find all cameras targetting Display
                     foreach (var cam in Resources.FindObjectsOfTypeAll<Camera>())
@@ -227,7 +227,7 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.RenderTextureSampler.Engi
                     }
 
                     // Remove un-tagged cameras form list
-                    for (int i = this.m_hookedCameras.Count - 1; i >= 0; i--)
+                    for (var i = this.m_hookedCameras.Count - 1; i >= 0; i--)
                     {
                         if (this.m_hookedCameras[i].camera.gameObject.tag != tag)
                         {
@@ -329,9 +329,9 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.RenderTextureSampler.Engi
         void ShiftProjectionMatrix(Camera camera, Vector2 sample)
         {
             camera.ResetProjectionMatrix();
-            Matrix4x4 projectionMatrix = camera.projectionMatrix;
-            float dx = sample.x / this.m_renderWidth;
-            float dy = sample.y / this.m_renderHeight;
+            var projectionMatrix = camera.projectionMatrix;
+            var dx = sample.x / this.m_renderWidth;
+            var dy = sample.y / this.m_renderHeight;
             projectionMatrix.m02 += dx;
             projectionMatrix.m12 += dy;
             camera.projectionMatrix = projectionMatrix;
@@ -348,7 +348,7 @@ namespace Unity_Technologies.Recorder.Framework.Inputs.RenderTextureSampler.Engi
             this.m_renderRT.wrapMode = TextureWrapMode.Clamp;
             this.m_renderRT.filterMode = FilterMode.Point;
 
-            int x = 0;
+            var x = 0;
             Graphics.SetRenderTarget(this.m_accumulateRTs[0]);
             GL.Clear(false, true, Color.black);
 

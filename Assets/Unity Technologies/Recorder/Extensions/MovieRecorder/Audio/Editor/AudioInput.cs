@@ -1,19 +1,17 @@
 #if UNITY_2017_3_OR_NEWER
 using System;
+using System.Reflection;
+using Unity.Collections;
 using UnityEngine;
 #if UNITY_EDITOR
-using System.Reflection;
-using UnityEditor;
-using UnityEditorInternal;
-
 #endif
 #if UNITY_2018_1_OR_NEWER
-    using Unity.Collections;
+
 #else
     using UnityEngine.Collections;
 #endif
 
-namespace UnityEditor.Recorder.Input
+namespace Unity_Technologies.Recorder.Extensions.MovieRecorder.Audio.Editor
 {
     class AudioRenderer
     {

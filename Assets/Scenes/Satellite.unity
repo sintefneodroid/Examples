@@ -813,12 +813,12 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   _draw_bounds: 0
   _environment: {fileID: 1620948092}
+  _script_execution_order: -10
 --- !u!114 &965130051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -835,7 +835,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _actor: {fileID: 965130050}
   _motion_value_space:
     _Decimal_Granularity: 0
@@ -905,7 +904,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 1620948092}
   _relative_to_existing_value: 0
   _velocity: {x: 0, y: 0, z: 0}
@@ -934,7 +932,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 1620948092}
   _normalise_observation: 0
   _angular_velocity: {x: 0, y: 0, z: 0}
@@ -966,7 +963,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 1620948092}
   _normalise_observation: 0
   _angular_velocity: {x: 0, y: 0, z: 0}
@@ -1430,12 +1426,12 @@ Prefab:
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.15718749
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.84281254
+      value: 0.450625
       objectReference: {fileID: 0}
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
@@ -1471,6 +1467,11 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ResetAllEnvironments
+      objectReference: {fileID: 0}
+    - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 251.94412
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e92782f81c5740819ca66bda35481ce, type: 2}
@@ -1571,6 +1572,10 @@ MonoBehaviour:
   _step_execution_phase: 1
   _time_scale: 1
   _target_frame_rate: -1
+  _ip_address: localhost
+  _port: 6969
+  _do_serialise_unobservables: 0
+  _do_serialise_indidual_observables: 0
   _update_fixed_time_scale: 0
   _max_reply_interval: 0
   _num_of_environments: 0
@@ -1792,9 +1797,9 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _Simulation_Manager: {fileID: 1620948094}
   _episode_length: 800
+  _script_execution_order: -20
   _objective_function: {fileID: 1620948095}
   _coordinate_reference_point: {fileID: 0}
   _track_only_children: 1
@@ -1829,11 +1834,6 @@ MonoBehaviour:
   _testing_motors: 0
   _script_execution_order: -9999
   _configuration: {fileID: 1493890375}
-  _skip_frame_i: 0
-  _ip_address: localhost
-  _port: 5555
-  _awaiting_reply: 0
-  _step: 0
   _allow_in_editor_blockage: 0
 --- !u!114 &1620948095
 MonoBehaviour:
@@ -1851,7 +1851,7 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
+  _Episode_Return: 0
   _in_mdp_discount_factor: 1
   _environment: {fileID: 1620948092}
   _solved_threshold: 0
@@ -1890,7 +1890,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 1620948092}
   _relative_to_existing_value: 0
 --- !u!1001 &1628582664

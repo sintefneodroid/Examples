@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
+using Unity_Technologies.Recorder.Framework.Core.Editor;
 
-namespace UnityEditor.Recorder.Input
+namespace Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Editor
 {
     [CustomEditor(typeof(Unity_Technologies.Recorder.Framework.Inputs.CBRenderTexture.Engine.CBRenderTextureInputSettings))]
     public class CBRenderTextureInputSettingsEditor : InputEditor

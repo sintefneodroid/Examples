@@ -7,21 +7,21 @@ namespace TextMesh_Pro.Scripts
     public class TMP_FrameRateCounter : MonoBehaviour
     {
         public float UpdateInterval = 5.0f;
-        private float m_LastInterval = 0;
-        private int m_Frames = 0;
+        float m_LastInterval = 0;
+        int m_Frames = 0;
 
         public enum FpsCounterAnchorPositions { TopLeft, BottomLeft, TopRight, BottomRight };
 
         public FpsCounterAnchorPositions AnchorPosition = FpsCounterAnchorPositions.TopRight;
 
-        private string htmlColorTag;
-        private const string fpsLabel = "{0:2}</color> <#8080ff>FPS \n<#FF8000>{1:2} <#8080ff>MS";
+        string htmlColorTag;
+        const string fpsLabel = "{0:2}</color> <#8080ff>FPS \n<#FF8000>{1:2} <#8080ff>MS";
 
-        private TextMeshPro m_TextMeshPro;
-        private Transform m_frameCounter_transform;
-        private Camera m_camera;
+        TextMeshPro m_TextMeshPro;
+        Transform m_frameCounter_transform;
+        Camera m_camera;
 
-        private FpsCounterAnchorPositions last_AnchorPosition;
+        FpsCounterAnchorPositions last_AnchorPosition;
 
         void Awake()
         {
@@ -32,7 +32,7 @@ namespace TextMesh_Pro.Scripts
             this.m_camera = Camera.main;
             Application.targetFrameRate = -1;
 
-            GameObject frameCounter = new GameObject("Frame Counter");
+            var frameCounter = new GameObject("Frame Counter");
 
             this.m_TextMeshPro = frameCounter.AddComponent<TextMeshPro>();
             this.m_TextMeshPro.font = Resources.Load<TMP_FontAsset>("Fonts & Materials/LiberationSans SDF");
@@ -76,13 +76,13 @@ namespace TextMesh_Pro.Scripts
             this.last_AnchorPosition = this.AnchorPosition;
 
             this.m_Frames += 1;
-            float timeNow = Time.realtimeSinceStartup;
+            var timeNow = Time.realtimeSinceStartup;
 
             if (timeNow > this.m_LastInterval + this.UpdateInterval)
             {
                 // display two fractional digits (f2 format)
-                float fps = this.m_Frames / (timeNow - this.m_LastInterval);
-                float ms = 1000.0f / Mathf.Max(fps, 0.00001f);
+                var fps = this.m_Frames / (timeNow - this.m_LastInterval);
+                var ms = 1000.0f / Mathf.Max(fps, 0.00001f);
 
                 if (fps < 30) {
                     this.htmlColorTag = "<color=yellow>";

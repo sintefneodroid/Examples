@@ -13,7 +13,7 @@ namespace TextMesh_Pro.Scripts
         public int MaxPointSize = 64;
         public int Steps = 4;
 
-        private Transform m_Transform;
+        Transform m_Transform;
         //private TextMeshProFloatingText floatingText_Script;
         //public Material material;
 
@@ -23,15 +23,15 @@ namespace TextMesh_Pro.Scripts
             this.m_Transform = this.transform;
 
             float lineHeight = 0;
-            float orthoSize = Camera.main.orthographicSize = Screen.height / 2;
-            float ratio = (float)Screen.width / Screen.height;
+            var orthoSize = Camera.main.orthographicSize = Screen.height / 2;
+            var ratio = (float)Screen.width / Screen.height;
 
-            for (int i = this.MinPointSize; i <= this.MaxPointSize; i += this.Steps)
+            for (var i = this.MinPointSize; i <= this.MaxPointSize; i += this.Steps)
             {
                 if (this.SpawnType == 0)
                 {
                     // TextMesh Pro Implementation
-                    GameObject go = new GameObject("Text - " + i + " Pts");
+                    var go = new GameObject("Text - " + i + " Pts");
 
                     if (lineHeight > orthoSize * 2) {
                         return;
@@ -39,7 +39,7 @@ namespace TextMesh_Pro.Scripts
 
                     go.transform.position = this.m_Transform.position + new Vector3(ratio * -orthoSize * 0.975f, orthoSize * 0.975f - lineHeight, 0);
 
-                    TextMeshPro textMeshPro = go.AddComponent<TextMeshPro>();
+                    var textMeshPro = go.AddComponent<TextMeshPro>();
 
                     //textMeshPro.fontSharedMaterial = material;
                     //textMeshPro.font = Resources.Load("Fonts & Materials/LiberationSans SDF", typeof(TextMeshProFont)) as TextMeshProFont;

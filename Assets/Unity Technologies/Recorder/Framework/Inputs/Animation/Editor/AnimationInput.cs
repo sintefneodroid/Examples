@@ -1,8 +1,6 @@
-﻿using System;
-using UnityEditor.Experimental.Animations;
-using UnityEngine;
+﻿using UnityEditor.Experimental.Animations;
 
-namespace UnityEditor.Experimental.Recorder.Input
+namespace Unity_Technologies.Recorder.Framework.Inputs.Animation.Editor
 {
     public class AnimationInput : Unity_Technologies.Recorder.Framework.Core.Engine.RecorderInput
     {

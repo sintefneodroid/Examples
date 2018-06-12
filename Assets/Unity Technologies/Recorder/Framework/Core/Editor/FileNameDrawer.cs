@@ -1,7 +1,8 @@
 ﻿using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
-namespace UnityEditor.Recorder
+namespace Unity_Technologies.Recorder.Framework.Core.Editor
 {
     [CustomPropertyDrawer(typeof(Unity_Technologies.Recorder.Framework.Core.Engine.FileNameGenerator))]
     public class FileNameDrawer : PropertyDrawer

@@ -23,7 +23,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
 
             // initialize encoder
             {
-                string outPath = this.m_outputDir.GetFullPath() + "/" + DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                var outPath = this.m_outputDir.GetFullPath() + "/" + DateTime.Now.ToString("yyyyMMdd_HHmmss");
 
                 this.m_encoderConfigs.Setup();
                 this.m_encoder = AudioEncoder.Create(this.m_encoderConfigs, outPath);

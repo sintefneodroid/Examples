@@ -1,19 +1,16 @@
 #if UNITY_2017_3_OR_NEWER
 using System;
 using System.Collections.Generic;
-using System.IO;
+using UnityEditor;
+using UnityEditor.Media;
 using UnityEngine;
-using UnityEngine.Audio;
+using Unity_Technologies.Recorder.Extensions.MovieRecorder.Audio.Editor;
 #if UNITY_2018_1_OR_NEWER
-    using Unity.Collections;
 #else
     using UnityEngine.Collections;
 #endif
-using UnityEditor;
-using UnityEditor.Media;
-using UnityEditor.Recorder.Input;
 
-namespace UnityEditor.Recorder
+namespace Unity_Technologies.Recorder.Extensions.MovieRecorder.Recorder.Editor
 {
 #if RECORD_AUDIO_MIXERS
     class WavWriter

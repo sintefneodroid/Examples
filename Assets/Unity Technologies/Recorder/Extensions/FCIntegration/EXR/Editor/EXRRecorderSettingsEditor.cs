@@ -1,8 +1,8 @@
 using UnityEditor;
-using UnityEditor.Recorder;
 using UnityEngine;
+using Unity_Technologies.Recorder.Extensions.FCIntegration.Editor;
 
-namespace UTJ.FrameCapturer.Recorders
+namespace Unity_Technologies.Recorder.Extensions.FCIntegration.EXR.Editor
 {
     [CustomEditor(typeof(Unity_Technologies.Recorder.Extensions.FCIntegration.EXR.EXRRecorderSettings))]
     public class EXRRecorderSettingsEditor : RecorderEditorBase

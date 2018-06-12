@@ -27,7 +27,7 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Utilities {
     void Update() {
       this._mouse_click = Input.GetMouseButtonDown(0);
       this._ctrl_down = Input.GetKey(KeyCode.LeftControl);
-      
+
       var pos = this._c_light.transform.position;
       pos.x += Input.GetAxis("Horizontal") * 30f * Time.deltaTime;
       pos.y += Input.GetAxis("Vertical") * 30f * Time.deltaTime;
@@ -59,7 +59,5 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Utilities {
 
       this._c_light.transform.position = pos;
     }
-
- 
   }
 }

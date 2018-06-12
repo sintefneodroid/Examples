@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace UnityEditor.Recorder
+namespace Unity_Technologies.Recorder.Framework.Core.Editor
 {
     /// <summary>
     /// This is just a helper class that should disappear once we have a proper way of saving the recorder window settings...

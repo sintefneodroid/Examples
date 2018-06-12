@@ -161,7 +161,7 @@ Terrain:
   m_GameObject: {fileID: 19160459}
   m_Enabled: 1
   serializedVersion: 3
-  m_TerrainData: {fileID: 15600000, guid: abca01e0eb43943bfa470dc7d2012276, type: 2}
+  m_TerrainData: {fileID: 0}
   m_TreeDistance: 2000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
@@ -182,6 +182,7 @@ Terrain:
   m_LegacyShininess: 0.078125
   m_MaterialTemplate: {fileID: 0}
   m_BakeLightProbesForTrees: 1
+  m_PreserveTreePrototypeLayers: 0
   m_ScaleInLightmap: 0.0512
   m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1001 &128471349
@@ -481,12 +482,12 @@ Prefab:
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.1903125
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.8096875
+      value: 0.68937445
       objectReference: {fileID: 0}
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
@@ -527,6 +528,11 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ResetAllEnvironments
+      objectReference: {fileID: 0}
+    - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 248.50014
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e92782f81c5740819ca66bda35481ce, type: 2}
@@ -886,7 +892,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 903194204}
   _relative_to_existing_value: 0
   _direction: {x: -0.015881147, y: 0.009075678, z: 0.9998327}
@@ -944,9 +949,9 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 1
-  _: 
   _Simulation_Manager: {fileID: 903194205}
   _episode_length: 1000
+  _script_execution_order: -20
   _objective_function: {fileID: 903194209}
   _coordinate_reference_point: {fileID: 0}
   _track_only_children: 1
@@ -967,10 +972,6 @@ MonoBehaviour:
   _testing_motors: 0
   _script_execution_order: -9999
   _configuration: {fileID: 945563843}
-  _skip_frame_i: 0
-  _ip_address: localhost
-  _port: 5555
-  _awaiting_reply: 0
   _allow_in_editor_blockage: 0
 --- !u!4 &903194206
 Transform:
@@ -1013,6 +1014,7 @@ MonoBehaviour:
   _player_motions: {fileID: 11400000, guid: 6933863fa391246018c9224647f1ad1f, type: 2}
   _auto_reset: 1
   _debugging: 0
+  _script_execution_order: -2000
 --- !u!114 &903194209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1029,10 +1031,11 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
+  _Episode_Return: 0
   _in_mdp_discount_factor: 1
   _environment: {fileID: 903194204}
   _solved_threshold: 0
+  _last_signal: 0
   _resting_time: 3
   _actor: {fileID: 206429976}
   _area: {fileID: 675183322}
@@ -1085,7 +1088,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _Parent_Environment: {fileID: 903194204}
   _Actor: {fileID: 206429976}
   _Broken_Object_Prefab: {fileID: 1524659847642198, guid: 78319db9524e54cb6b3f01bea4245a2f,
@@ -1117,8 +1119,13 @@ MonoBehaviour:
   _step_execution_phase: 1
   _time_scale: 1
   _target_frame_rate: -1
+  _ip_address: localhost
+  _port: 6969
+  _do_serialise_unobservables: 0
+  _do_serialise_indidual_observables: 0
   _update_fixed_time_scale: 0
   _max_reply_interval: 0
+  _num_of_environments: 0
 --- !u!1 &966582398
 GameObject:
   m_ObjectHideFlags: 0
@@ -1267,22 +1274,21 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 903194204}
-  _normalise_observation_using_space: 1
+  _normalise_observation: 0
   _space: 2
-  _direction: {x: 0.4999206, y: 0.50004536, z: 0.50499916}
-  _direction_space:
-    _Decimal_Granularity: 10
-    _Min_Values: {x: -100, y: -100, z: -100}
-    _Max_Values: {x: 100, y: 100, z: 100}
-  _position: {x: 0.4307829, y: 0.49823904, z: 0.57152855}
+  _position: {x: -13.843416, y: -0.3521912, z: 14.305706}
   _position_space:
     _Decimal_Granularity: 10
     _Min_Values: {x: -100, y: -100, z: -100}
     _Max_Values: {x: 100, y: 100, z: 100}
-  _rotation: {x: 0.49988905, y: 0.50499856, z: 0.49995285}
+  _rotation: {x: -0.022191504, y: 0.9997093, z: -0.009427044}
   _rotation_space:
+    _Decimal_Granularity: 10
+    _Min_Values: {x: -100, y: -100, z: -100}
+    _Max_Values: {x: 100, y: 100, z: 100}
+  _direction: {x: -0.015881147, y: 0.009075678, z: 0.9998327}
+  _direction_space:
     _Decimal_Granularity: 10
     _Min_Values: {x: -100, y: -100, z: -100}
     _Max_Values: {x: 100, y: 100, z: 100}

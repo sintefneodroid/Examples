@@ -1,8 +1,9 @@
 using UnityEditor;
-using UnityEditor.Recorder;
 using UnityEngine;
+using Unity_Technologies.Recorder.Extensions.FCIntegration.Editor;
+using Unity_Technologies.Recorder.Framework.Core.Editor;
 
-namespace UTJ.FrameCapturer.Recorders
+namespace Unity_Technologies.Recorder.Extensions.FCIntegration.WEBM.Editor
 {
     [CustomEditor(typeof(Unity_Technologies.Recorder.Extensions.FCIntegration.WEBM.WEBMRecorderSettings))]
     public class WEBMRecorderSettingsEditor : RecorderEditorBase

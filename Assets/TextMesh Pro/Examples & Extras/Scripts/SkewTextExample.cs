@@ -7,8 +7,7 @@ namespace TextMesh_Pro.Scripts
 
     public class SkewTextExample : MonoBehaviour
     {
-
-        private TMP_Text m_TextComponent;
+        TMP_Text m_TextComponent;
 
         public AnimationCurve VertexCurve = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.25f, 2.0f), new Keyframe(0.5f, 0), new Keyframe(0.75f, 2.0f), new Keyframe(1, 0f));
         //public float AngleMultiplier = 1.0f;
@@ -27,10 +26,9 @@ namespace TextMesh_Pro.Scripts
             this.StartCoroutine(this.WarpText());
         }
 
-
-        private AnimationCurve CopyAnimationCurve(AnimationCurve curve)
+        AnimationCurve CopyAnimationCurve(AnimationCurve curve)
         {
-            AnimationCurve newCurve = new AnimationCurve();
+            var newCurve = new AnimationCurve();
 
             newCurve.keys = curve.keys;
 
@@ -55,9 +53,9 @@ namespace TextMesh_Pro.Scripts
 
             this.m_TextComponent.havePropertiesChanged = true; // Need to force the TextMeshPro Object to be updated.
             this.CurveScale *= 10;
-            float old_CurveScale = this.CurveScale;
-            float old_ShearValue = this.ShearAmount;
-            AnimationCurve old_curve = this.CopyAnimationCurve(this.VertexCurve);
+            var old_CurveScale = this.CurveScale;
+            var old_ShearValue = this.ShearAmount;
+            var old_curve = this.CopyAnimationCurve(this.VertexCurve);
 
             while (true)
             {
@@ -73,8 +71,8 @@ namespace TextMesh_Pro.Scripts
 
                 this.m_TextComponent.ForceMeshUpdate(); // Generate the mesh and populate the textInfo with data we can use and manipulate.
 
-                TMP_TextInfo textInfo = this.m_TextComponent.textInfo;
-                int characterCount = textInfo.characterCount;
+                var textInfo = this.m_TextComponent.textInfo;
+                var characterCount = textInfo.characterCount;
 
 
                 if (characterCount == 0) {
@@ -84,21 +82,21 @@ namespace TextMesh_Pro.Scripts
                 //vertices = textInfo.meshInfo[0].vertices;
                 //int lastVertexIndex = textInfo.characterInfo[characterCount - 1].vertexIndex;
 
-                float boundsMinX = this.m_TextComponent.bounds.min.x;  //textInfo.meshInfo[0].mesh.bounds.min.x;
-                float boundsMaxX = this.m_TextComponent.bounds.max.x;  //textInfo.meshInfo[0].mesh.bounds.max.x;
+                var boundsMinX = this.m_TextComponent.bounds.min.x;  //textInfo.meshInfo[0].mesh.bounds.min.x;
+                var boundsMaxX = this.m_TextComponent.bounds.max.x;  //textInfo.meshInfo[0].mesh.bounds.max.x;
 
 
 
-                for (int i = 0; i < characterCount; i++)
+                for (var i = 0; i < characterCount; i++)
                 {
                     if (!textInfo.characterInfo[i].isVisible) {
                         continue;
                     }
 
-                    int vertexIndex = textInfo.characterInfo[i].vertexIndex;
+                    var vertexIndex = textInfo.characterInfo[i].vertexIndex;
 
                     // Get the index of the mesh used by this character.
-                    int materialIndex = textInfo.characterInfo[i].materialReferenceIndex;
+                    var materialIndex = textInfo.characterInfo[i].materialReferenceIndex;
 
                     vertices = textInfo.meshInfo[materialIndex].vertices;
 
@@ -113,9 +111,9 @@ namespace TextMesh_Pro.Scripts
                     vertices[vertexIndex + 3] += -offsetToMidBaseline;
 
                     // Apply the Shearing FX
-                    float shear_value = this.ShearAmount * 0.01f;
-                    Vector3 topShear = new Vector3(shear_value * (textInfo.characterInfo[i].topRight.y - textInfo.characterInfo[i].baseLine), 0, 0);
-                    Vector3 bottomShear = new Vector3(shear_value * (textInfo.characterInfo[i].baseLine - textInfo.characterInfo[i].bottomRight.y), 0, 0);
+                    var shear_value = this.ShearAmount * 0.01f;
+                    var topShear = new Vector3(shear_value * (textInfo.characterInfo[i].topRight.y - textInfo.characterInfo[i].baseLine), 0, 0);
+                    var bottomShear = new Vector3(shear_value * (textInfo.characterInfo[i].baseLine - textInfo.characterInfo[i].bottomRight.y), 0, 0);
 
                     vertices[vertexIndex + 0] += -bottomShear;
                     vertices[vertexIndex + 1] += topShear;
@@ -124,18 +122,18 @@ namespace TextMesh_Pro.Scripts
 
 
                     // Compute the angle of rotation for each character based on the animation curve
-                    float x0 = (offsetToMidBaseline.x - boundsMinX) / (boundsMaxX - boundsMinX); // Character's position relative to the bounds of the mesh.
-                    float x1 = x0 + 0.0001f;
-                    float y0 = this.VertexCurve.Evaluate(x0) * this.CurveScale;
-                    float y1 = this.VertexCurve.Evaluate(x1) * this.CurveScale;
+                    var x0 = (offsetToMidBaseline.x - boundsMinX) / (boundsMaxX - boundsMinX); // Character's position relative to the bounds of the mesh.
+                    var x1 = x0 + 0.0001f;
+                    var y0 = this.VertexCurve.Evaluate(x0) * this.CurveScale;
+                    var y1 = this.VertexCurve.Evaluate(x1) * this.CurveScale;
 
-                    Vector3 horizontal = new Vector3(1, 0, 0);
+                    var horizontal = new Vector3(1, 0, 0);
                     //Vector3 normal = new Vector3(-(y1 - y0), (x1 * (boundsMaxX - boundsMinX) + boundsMinX) - offsetToMidBaseline.x, 0);
-                    Vector3 tangent = new Vector3(x1 * (boundsMaxX - boundsMinX) + boundsMinX, y1) - new Vector3(offsetToMidBaseline.x, y0);
+                    var tangent = new Vector3(x1 * (boundsMaxX - boundsMinX) + boundsMinX, y1) - new Vector3(offsetToMidBaseline.x, y0);
 
-                    float dot = Mathf.Acos(Vector3.Dot(horizontal, tangent.normalized)) * 57.2957795f;
-                    Vector3 cross = Vector3.Cross(horizontal, tangent);
-                    float angle = cross.z > 0 ? dot : 360 - dot;
+                    var dot = Mathf.Acos(Vector3.Dot(horizontal, tangent.normalized)) * 57.2957795f;
+                    var cross = Vector3.Cross(horizontal, tangent);
+                    var angle = cross.z > 0 ? dot : 360 - dot;
 
                     matrix = Matrix4x4.TRS(new Vector3(0, y0, 0), Quaternion.Euler(0, 0, angle), Vector3.one);
 

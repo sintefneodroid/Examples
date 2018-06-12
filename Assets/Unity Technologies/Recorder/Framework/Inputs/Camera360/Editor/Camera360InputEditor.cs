@@ -1,8 +1,10 @@
 ﻿#if UNITY_2018_1_OR_NEWER
 
+using UnityEditor;
 using UnityEngine;
+using Unity_Technologies.Recorder.Framework.Core.Editor;
 
-namespace UnityEditor.Recorder.Input
+namespace Unity_Technologies.Recorder.Framework.Inputs.Camera360.Editor
 {
     [CustomEditor(typeof(Unity_Technologies.Recorder.Framework.Inputs.Camera360.Engine.Camera360InputSettings))]
     public class Camera360InputEditor : InputEditor

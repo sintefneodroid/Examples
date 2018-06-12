@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Experimental.Recorder.Input;
+using UnityEditor;
 using UnityEngine;
+using Unity_Technologies.Recorder.Framework.Inputs.Animation.Editor;
 
-namespace UnityEditor.Experimental.Recorder
+namespace Unity_Technologies.Recorder.Framework.Recorders.AnimationRecorder.Editor
 {
     [ExecuteInEditMode]
     [Serializable]

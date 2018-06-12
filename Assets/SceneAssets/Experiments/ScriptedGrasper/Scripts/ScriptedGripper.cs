@@ -547,11 +547,7 @@ namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
         path_list = new List<Vector3> {start_position, target_position};
       }
 
-      var path = new BezierCurvePath(
-          start_position,
-          target_position,
-          this._bezier_curve,
-          path_list);
+      var path = new BezierCurvePath(start_position, target_position, this._bezier_curve, path_list);
       return path;
     }
 

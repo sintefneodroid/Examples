@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-namespace UnityEditor.Experimental.Recorder.Input
+namespace Unity_Technologies.Recorder.Framework.Inputs.Animation.Editor
 {
     [Serializable]
     [Unity_Technologies.Recorder.Framework.Core.Engine.StoreInScene]

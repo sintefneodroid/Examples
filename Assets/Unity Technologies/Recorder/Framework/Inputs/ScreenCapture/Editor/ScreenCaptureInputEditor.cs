@@ -1,9 +1,10 @@
 ﻿#if UNITY_2017_3_OR_NEWER
 
-using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using Unity_Technologies.Recorder.Framework.Core.Editor;
 
-namespace UnityEditor.Recorder.Input
+namespace Unity_Technologies.Recorder.Framework.Inputs.ScreenCapture.Editor
 {
     [CustomEditor(typeof(Unity_Technologies.Recorder.Framework.Inputs.ScreenCapture.Engine.ScreenCaptureInputSettings))]
     public class ScreenCaptureInputEditor : InputEditor

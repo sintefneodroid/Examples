@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using UnityEditor;
 using UnityEngine;
+using Unity_Technologies.Recorder.Framework.Core.Editor;
 
-namespace UnityEditor.Recorder.Input
+namespace Unity_Technologies.Recorder.Framework.Inputs.RenderTexture.Editor
 {
     [CustomEditor(typeof(Unity_Technologies.Recorder.Framework.Inputs.RenderTexture.Engine.RenderTextureInputSettings))]
     public class RenderTextureInputSettingsEditor : InputEditor
@@ -25,7 +26,7 @@ namespace UnityEditor.Recorder.Input
                 var res = "N/A";
                 if (this.m_SourceRTxtr.objectReferenceValue != null)
                 {
-                    var renderTexture = (RenderTexture)this.m_SourceRTxtr.objectReferenceValue;
+                    var renderTexture = (UnityEngine.RenderTexture)this.m_SourceRTxtr.objectReferenceValue;
                     res = string.Format("{0} , {1}", renderTexture.width, renderTexture.height);
                 }
                 EditorGUILayout.TextField("Resolution", res);

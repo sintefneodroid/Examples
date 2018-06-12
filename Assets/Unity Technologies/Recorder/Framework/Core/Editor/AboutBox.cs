@@ -1,7 +1,8 @@
-﻿using System;
+﻿using UnityEditor;
 using UnityEngine;
+using Unity_Technologies.Recorder.Framework.Packager.Editor;
 
-namespace UnityEditor.Recorder
+namespace Unity_Technologies.Recorder.Framework.Core.Editor
 {
     public class AboutBox : EditorWindow
     {

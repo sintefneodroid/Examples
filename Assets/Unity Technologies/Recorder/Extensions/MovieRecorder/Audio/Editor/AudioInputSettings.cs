@@ -1,9 +1,8 @@
 #if UNITY_2017_3_OR_NEWER
 using System;
 using System.Collections.Generic;
-using UnityEngine.Audio;
 
-namespace UnityEditor.Recorder.Input
+namespace Unity_Technologies.Recorder.Extensions.MovieRecorder.Audio.Editor
 {
     public class AudioInputSettings : Unity_Technologies.Recorder.Framework.Core.Engine.RecorderInputSetting
     {

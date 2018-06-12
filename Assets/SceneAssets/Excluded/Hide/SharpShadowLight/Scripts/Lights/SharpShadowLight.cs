@@ -18,10 +18,12 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
     /// 
     /// </summary>
     public int Location { get; set; } // 1= left end point    0= middle     -1=right endpoint
+
     /// <summary>
     /// 
     /// </summary>
     public Vector3 Pos { get; set; }
+
     /// <summary>
     /// 
     /// </summary>
@@ -37,6 +39,7 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
     /// 
     /// </summary>
     Mesh _light_mesh; // Mesh for our light mesh
+
     [HideInInspector] public PolygonCollider2D[] _Colliders; // Array for all of the meshes in our scene
 
     [HideInInspector]
@@ -51,7 +54,8 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
     /// <summary>
     /// 
     /// </summary>
-    [Range(4, 20)] public int _Light_Segments = 8;
+    [Range(4, 20)]
+    public int _Light_Segments = 8;
 
     /// <summary>
     /// 
@@ -74,20 +78,22 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
       var go = GameObject.CreatePrimitive(PrimitiveType.Capsule);
       Destroy(go.GetComponent<CapsuleCollider>());
       go.transform.parent = this.transform;
-      go.transform.localPosition=Vector3.zero;
-      go.transform.localRotation=Quaternion.identity;
-
+      go.transform.localPosition = Vector3.zero;
+      go.transform.localRotation = Quaternion.identity;
 
       var mesh_filter = go.GetComponent<MeshFilter>();
-          if(!mesh_filter) {
-            mesh_filter = (MeshFilter)go.AddComponent(
+      if (!mesh_filter) {
+        mesh_filter =
+            (MeshFilter)go.AddComponent(
                 typeof(MeshFilter)); // Add a Mesh Filter component to the light game object so it can take on a form
-          }
+      }
 
       var my_renderer = go.GetComponent<MeshRenderer>();
-      if(!my_renderer) {
-        my_renderer= go.AddComponent(
-                         typeof(MeshRenderer)) as MeshRenderer; // Add a Mesh Renderer component to the light game object so the form can become visible
+      if (!my_renderer) {
+        my_renderer =
+            go.AddComponent(
+                    typeof(MeshRenderer)) as
+                MeshRenderer; // Add a Mesh Renderer component to the light game object so the form can become visible
       }
 
       if (my_renderer == null) {
@@ -112,13 +118,13 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
     /// <summary>
     /// 
     /// </summary>
-    void GetAllMeshes() {   
+    void GetAllMeshes() {
       if (this._use_3_d) {
         var all_colls = Physics.OverlapSphere(this.transform.position, this._Light_Radius, this._Layer);
         this._Colliders = new PolygonCollider2D[all_colls.Length];
 
         //for (var i = 0; i < all_colls.Length; i++) { //TODO:IMPLEMENT
-          //this._All_Meshes[i] = all_colls[i];
+        //this._All_Meshes[i] = all_colls[i];
         //}
       } else {
         var all_coll2_d = Physics2D.OverlapCircleAll(
@@ -128,8 +134,8 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
         this._Colliders = new PolygonCollider2D[all_coll2_d.Length];
 
         for (var i = 0; i < all_coll2_d.Length; i++) {
-          if(all_coll2_d[i] is PolygonCollider2D) {
-            if(!this._self_shadowing && this.gameObject == all_coll2_d[i].gameObject) {
+          if (all_coll2_d[i] is PolygonCollider2D) {
+            if (!this._self_shadowing && this.gameObject == all_coll2_d[i].gameObject) {
               continue;
             }
 
@@ -137,12 +143,6 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
           }
         }
       }
-
-
-      
-
-
-
     }
 
     /// <summary>
@@ -170,7 +170,7 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
       var temp_verts = new List<MyVertex>();
 
       foreach (var my_mesh in this._Colliders) {
-        if(!my_mesh) {
+        if (!my_mesh) {
           continue;
         }
 

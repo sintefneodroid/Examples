@@ -192,13 +192,13 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
         {
             if(this.m_resolution == ResolutionUnit.Percent)
             {
-                float scale = this.m_resolutionPercent * 0.01f;
+                var scale = this.m_resolutionPercent * 0.01f;
                 w = (int)(w * scale);
                 h = (int)(h * scale);
             }
             else
             {
-                float aspect = (float)h / w;
+                var aspect = (float)h / w;
                 w = this.m_resolutionWidth;
                 h = (int)(this.m_resolutionWidth * aspect);
             }
@@ -208,7 +208,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
         {
             yield return new WaitForEndOfFrame();
 
-            float wt = (1.0f / this.m_targetFramerate) * (Time.renderedFrameCount - this.m_initialFrame);
+            var wt = (1.0f / this.m_targetFramerate) * (Time.renderedFrameCount - this.m_initialFrame);
             while (Time.realtimeSinceStartup - this.m_initialRealTime < wt)
             {
                 Thread.Sleep(1);
@@ -273,7 +273,7 @@ namespace Unity_Technologies.Recorder.Extensions.UTJ.FrameCapturer.Scripts
                 }
                 else if (this.m_captureControl == CaptureControl.TimeRange)
                 {
-                    float time = Time.unscaledTime - this.m_initialTime;
+                    var time = Time.unscaledTime - this.m_initialTime;
                     if (!this.m_aborted && time >= this.m_startTime && time <= this.m_endTime)
                     {
                         if (!this.m_recording) { this.BeginRecording(); }

@@ -1,7 +1,8 @@
-using System;
+using UnityEditor;
 using UnityEngine;
+using Unity_Technologies.Recorder.Framework.Core.Editor;
 
-namespace UnityEditor.Recorder
+namespace Unity_Technologies.Recorder.Framework.Recorders.ImageRecorder.Editor
 {
     [CustomEditor(typeof(Unity_Technologies.Recorder.Framework.Recorders.ImageRecorder.Engine.ImageRecorderSettings))]
     public class ImageRecorderEditor : RecorderEditor

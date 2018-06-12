@@ -58,7 +58,7 @@ namespace Unity_Technologies.Recorder.Framework.Recorders.ImageRecorder.Engine
             if (this.inputsSettings.Count == 0 )
                 return false;
 
-            bool adjusted = false;
+            var adjusted = false;
 
             if (this.inputsSettings[0] is RenderTextureSamplerSettings)
             {

@@ -1,11 +1,12 @@
 using System;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Timeline;
 
-namespace UnityEditor.Recorder.Timeline
+namespace Unity_Technologies.Recorder.Framework.Core.Editor.Timeline
 {
     [CustomEditor(typeof(Unity_Technologies.Recorder.Framework.Core.Engine.Timeline.RecorderClip), true)]
-    public class RecorderClipEditor : Editor
+    public class RecorderClipEditor : UnityEditor.Editor
     {
         RecorderEditor m_Editor;
         TimelineAsset m_Timeline;
