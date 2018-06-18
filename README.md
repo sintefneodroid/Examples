@@ -28,12 +28,12 @@
 <!--    ├  └  ─  │   -->
     sintefneodroid/droid      # This repository
     │
-    ├── docs                
+    ├── docs
     │   ├── source            # Documentation files
     │   │
     │   ├── make.bat          # Compile docs
     │   └── Makefile          # ^
-    │       
+    │
     ├── Examples              # Prebuilt Neodroid environments
     │   ├── Assets            # Model checkpoints
     │   │   ├── Neodroid      # Symlinked folder to top-level Neodroid folder
@@ -46,20 +46,33 @@
     │
     ├── Neodroid              # The Neodroid unity package
     │   ├── Prototyping       # All classes for quick prototyping of observations and actions
-    │   │   ├── Actors        
-    │   │   ├── Evaluation    
-    │   │   ├── Observers     
-    │   │   ├── Displayers    
+    │   │   ├── Actors
+    │   │   ├── Evaluation
+    │   │   ├── Observers
+    │   │   ├── Displayers
     │   │   ├── Configurables
-    │   │   └── Motors        
+    │   │   └── Motors
     │   │
     │   ├── Environments      # Classes for encapsulating all Neodroid environments
     │   ├── Managers          # Classes for managing the simulation of Neodroid environments
     │   └── Utilities         # Lots of helper functionalities
-    │   
+    │
     ├── LICENSE               # License file (Important but boring)
     └── README.md             # The top-level README
 ---
+
+# Citation
+
+For citation you may use the following bibtex entry:
+
+@misc{neodroid-examples,
+  author = {Heider, Christian},
+  title = {Neodroid Platform Examples},
+  year = {2018},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/sintefneodroid/Examples}},
+}
 
 
 # Components Of The Neodroid Platform

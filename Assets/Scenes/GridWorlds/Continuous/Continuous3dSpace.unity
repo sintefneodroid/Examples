@@ -121,7 +121,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 197384602}
-  - component: {fileID: 197384603}
   m_Layer: 0
   m_Name: 39a0927514e4b46a7b473690a46c4929
   m_TagString: Untagged
@@ -135,26 +134,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 197384601}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 875329661}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &197384603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 197384601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 393ba449d1ca2d84ead6595000d41c14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Settings:
-  - {fileID: 1531645587}
 --- !u!1 &209709474
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,9 +588,7 @@ MonoBehaviour:
   _debugging: 0
   _testing_motors: 0
   _script_execution_order: -9999
-  _configuration: {fileID: 11400000, guid: c3c70696f17e34bd680ff7a7d04d960b, type: 2}
-  _ip_address: localhost
-  _port: 6969
+  _configuration: {fileID: 11400000, guid: 6ab9ebed65ab2426f916a7e9e82a0dfa, type: 2}
   _allow_in_editor_blockage: 0
 --- !u!114 &773778363
 MonoBehaviour:
@@ -612,13 +596,13 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 773778360}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a1c2f6fda1324e1dbb824ee2e6e7321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _manager: {fileID: 773778362}
-  _player_motions: {fileID: 11400000, guid: 89bb62747dac84347941765995296270, type: 2}
+  _player_motions: {fileID: 11400000, guid: 0ad9e632d748947ef8043fb831dd184b, type: 2}
   _auto_reset: 1
   _debugging: 0
   _script_execution_order: -2000
@@ -912,24 +896,6 @@ Transform:
   m_Father: {fileID: 1175400990}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 45, y: 225, z: 0}
---- !u!114 &1531645587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c011637fb4c894c56a9178092966b5ac, type: 3}
-  m_Name: 4f6f0c92-489d-445b-b973-aa2509ef7c5e
-  m_EditorClassIdentifier: 
-  m_DisplayName: Animation
-  m_Id: 4d240cba-834a-4a3f-907c-5359d0322335
-  gameObject: {fileID: 0}
-  enabled: 0
-  recursive: 1
-  fold: 1
-  bindingTypeName: []
 --- !u!1 &1533926068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,7 +998,6 @@ GameObject:
   - component: {fileID: 1650564492}
   - component: {fileID: 1650564497}
   - component: {fileID: 1650564495}
-  - component: {fileID: 1650564491}
   - component: {fileID: 1650564490}
   - component: {fileID: 1650564498}
   - component: {fileID: 1650564501}
@@ -1128,7 +1093,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 1943801937}
   _normalise_observation: 0
   _space: 2
@@ -1147,33 +1111,6 @@ MonoBehaviour:
     _Decimal_Granularity: 10
     _Min_Values: {x: -100, y: -100, z: -100}
     _Max_Values: {x: 100, y: 100, z: 100}
---- !u!114 &1650564491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1650564485}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2936c6bde76942dc809bcdaa9b3901f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Custom_Name: 
-  _Use_Custom_Name: 0
-  _disables_children: 0
-  _editor_reregistering: 1
-  _debugging: 0
-  _: 
-  _actor: {fileID: 1650564493}
-  _motion_value_space:
-    _Decimal_Granularity: 0
-    _Min_Value: -10
-    _Max_Value: 10
-  _energy_spend_since_reset: 0
-  _energy_cost: 0
-  _Relative_To: 1
-  _Rigidbody: {fileID: 1650564497}
-  _ForceMode: 0
 --- !u!114 &1650564492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1190,7 +1127,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 1943801937}
   _relative_to_existing_value: 0
   _single_value_space:
@@ -1218,7 +1154,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _bounds:
     m_Center: {x: -2, y: 0, z: 3}
     m_Extent: {x: 0.4000001, y: 0.4, z: 0.4000001}
@@ -1241,7 +1176,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 1943801937}
   _relative_to_existing_value: 0
   _single_value_space:
@@ -1269,7 +1203,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 1943801937}
   _normalise_observation: 0
   _angular_velocity: {x: 0, y: 0, z: 0}
@@ -1301,7 +1234,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 1943801937}
   _relative_to_existing_value: 0
   _single_value_space:
@@ -1356,7 +1288,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 1943801937}
   _normalise_observation: 0
   _velocity_space:
@@ -1380,7 +1311,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 1943801937}
   _normalise_observation: 0
   _space: 2
@@ -1405,18 +1335,17 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _actor: {fileID: 1650564493}
   _motion_value_space:
     _Decimal_Granularity: 0
-    _Min_Value: -10
-    _Max_Value: 10
+    _Min_Value: -1
+    _Max_Value: 1
   _energy_spend_since_reset: 0
   _energy_cost: 0
   _Relative_To: 1
   _Rigidbody: {fileID: 1650564497}
   _ForceMode: 0
-  _Rotational_Motors: 0
+  _Angular_Motors: 0
 --- !u!4 &1751041613 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce,
@@ -1602,7 +1531,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _Episode_Return: 0
   _in_mdp_discount_factor: 1
   _environment: {fileID: 1943801937}
@@ -1618,7 +1546,7 @@ MonoBehaviour:
   - {fileID: 1093460785}
   - {fileID: 2143180223}
   _state_full: 0
-  _goal_reached_radius: 0.01
+  _goal_reached_radius: 0.5
   _solved_reward: 1
   _default_reward: 0
   _terminate_on_collision: 0
@@ -1655,18 +1583,14 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _Simulation_Manager: {fileID: 773778362}
   _episode_length: 1000
   _script_execution_order: -20
-  _ordered_observables: 0
-  _keep_unobservables: 1
   _objective_function: {fileID: 1943801934}
   _coordinate_reference_point: {fileID: 1650564486}
   _track_only_children: 1
   _coordinate_system: 1
   _playable_area: {fileID: 1943801936}
-  _keep_named_observables: 0
 --- !u!114 &1943801938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1683,7 +1607,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _Parent_Environment: {fileID: 1943801937}
   _actor: {fileID: 1650564493}
   _environment: {fileID: 1943801937}

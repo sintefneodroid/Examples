@@ -104,11 +104,11 @@
         <xs:attribute default="false" name="showVerticalScroller" type="xs:boolean" use="optional" />
         <xs:attribute default="0" name="horizontalLowValue" type="xs:float" use="optional" />
         <xs:attribute default="0" name="horizontalHighValue" type="xs:float" use="optional" />
-        <xs:attribute default="0" name="horizontalPageSize" type="xs:float" use="optional" />
+        <xs:attribute default="10" name="horizontalPageSize" type="xs:float" use="optional" />
         <xs:attribute default="0" name="horizontalValue" type="xs:float" use="optional" />
         <xs:attribute default="0" name="verticalLowValue" type="xs:float" use="optional" />
         <xs:attribute default="0" name="verticalHighValue" type="xs:float" use="optional" />
-        <xs:attribute default="0" name="verticalPageSize" type="xs:float" use="optional" />
+        <xs:attribute default="10" name="verticalPageSize" type="xs:float" use="optional" />
         <xs:attribute default="0" name="verticalValue" type="xs:float" use="optional" />
         <xs:anyAttribute processContents="lax" />
       </xs:restriction>
@@ -149,8 +149,8 @@
         <xs:attribute default="Position" name="pickingMode" type="engine:VisualElement_pickingMode_Type" use="optional" />
         <xs:attribute default="-1" name="focusIndex" type="xs:int" use="optional" />
         <xs:attribute default="0" name="lowValue" type="xs:float" use="optional" />
-        <xs:attribute default="0" name="highValue" type="xs:float" use="optional" />
-        <xs:attribute default="0" name="pageSize" type="xs:float" use="optional" />
+        <xs:attribute default="10" name="highValue" type="xs:float" use="optional" />
+        <xs:attribute default="10" name="pageSize" type="xs:float" use="optional" />
         <xs:attribute default="Vertical" name="direction" type="engine:Slider_direction_Type" use="optional" />
         <xs:attribute default="0" name="value" type="xs:float" use="optional" />
         <xs:anyAttribute processContents="lax" />

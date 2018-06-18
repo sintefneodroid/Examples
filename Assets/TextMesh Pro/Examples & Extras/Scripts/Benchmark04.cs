@@ -1,86 +1,79 @@
 using TMPro;
 using UnityEngine;
 
-namespace TextMesh_Pro.Scripts
-{
-    
-    public class Benchmark04 : MonoBehaviour
-    {
+namespace TextMesh_Pro.Scripts {
+  public class Benchmark04 : MonoBehaviour {
+    public int SpawnType = 0;
 
-        public int SpawnType = 0;
+    public int MinPointSize = 12;
+    public int MaxPointSize = 64;
+    public int Steps = 4;
 
-        public int MinPointSize = 12;
-        public int MaxPointSize = 64;
-        public int Steps = 4;
+    Transform m_Transform;
+    //private TextMeshProFloatingText floatingText_Script;
+    //public Material material;
 
-        Transform m_Transform;
-        //private TextMeshProFloatingText floatingText_Script;
-        //public Material material;
+    void Start() {
+      this.m_Transform = this.transform;
 
+      float lineHeight = 0;
+      var orthoSize = Camera.main.orthographicSize = Screen.height / 2;
+      var ratio = (float)Screen.width / Screen.height;
 
-        void Start()
-        {
-            this.m_Transform = this.transform;
+      for (var i = this.MinPointSize; i <= this.MaxPointSize; i += this.Steps) {
+        if (this.SpawnType == 0) {
+          // TextMesh Pro Implementation
+          var go = new GameObject("Text - " + i + " Pts");
 
-            float lineHeight = 0;
-            var orthoSize = Camera.main.orthographicSize = Screen.height / 2;
-            var ratio = (float)Screen.width / Screen.height;
+          if (lineHeight > orthoSize * 2) {
+            return;
+          }
 
-            for (var i = this.MinPointSize; i <= this.MaxPointSize; i += this.Steps)
-            {
-                if (this.SpawnType == 0)
-                {
-                    // TextMesh Pro Implementation
-                    var go = new GameObject("Text - " + i + " Pts");
+          go.transform.position = this.m_Transform.position
+                                  + new Vector3(
+                                      ratio * -orthoSize * 0.975f,
+                                      orthoSize * 0.975f - lineHeight,
+                                      0);
 
-                    if (lineHeight > orthoSize * 2) {
-                        return;
-                    }
+          var textMeshPro = go.AddComponent<TextMeshPro>();
 
-                    go.transform.position = this.m_Transform.position + new Vector3(ratio * -orthoSize * 0.975f, orthoSize * 0.975f - lineHeight, 0);
+          //textMeshPro.fontSharedMaterial = material;
+          //textMeshPro.font = Resources.Load("Fonts & Materials/LiberationSans SDF", typeof(TextMeshProFont)) as TextMeshProFont;
+          //textMeshPro.anchor = AnchorPositions.Left;
+          textMeshPro.rectTransform.pivot = new Vector2(0, 0.5f);
 
-                    var textMeshPro = go.AddComponent<TextMeshPro>();
+          textMeshPro.enableWordWrapping = false;
+          textMeshPro.extraPadding = true;
+          textMeshPro.isOrthographic = true;
+          textMeshPro.fontSize = i;
 
-                    //textMeshPro.fontSharedMaterial = material;
-                    //textMeshPro.font = Resources.Load("Fonts & Materials/LiberationSans SDF", typeof(TextMeshProFont)) as TextMeshProFont;
-                    //textMeshPro.anchor = AnchorPositions.Left;
-                    textMeshPro.rectTransform.pivot = new Vector2(0, 0.5f);
+          textMeshPro.text = i + " pts - Lorem ipsum dolor sit...";
+          textMeshPro.color = new Color32(255, 255, 255, 255);
 
-                    textMeshPro.enableWordWrapping = false;
-                    textMeshPro.extraPadding = true;
-                    textMeshPro.isOrthographic = true;
-                    textMeshPro.fontSize = i;
+          lineHeight += i;
+        } else {
+          // TextMesh Implementation
+          // Causes crashes since atlas needed exceeds 4096 X 4096
+          /*
+          GameObject go = new GameObject("Arial " + i);
 
-                    textMeshPro.text = i + " pts - Lorem ipsum dolor sit...";
-                    textMeshPro.color = new Color32(255, 255, 255, 255);
+          //if (lineHeight > orthoSize * 2 * 0.9f) return;
 
-                    lineHeight += i;
-                }
-                else
-                {
-                    // TextMesh Implementation
-                    // Causes crashes since atlas needed exceeds 4096 X 4096
-                    /*
-                    GameObject go = new GameObject("Arial " + i);
+          go.transform.position = m_Transform.position + new Vector3(ratio * -orthoSize * 0.975f, orthoSize * 0.975f - lineHeight, 1);
+                             
+          TextMesh textMesh = go.AddComponent<TextMesh>();
+          textMesh.font = Resources.Load("Fonts/ARIAL", typeof(Font)) as Font;
+          textMesh.renderer.sharedMaterial = textMesh.font.material;
+          textMesh.anchor = TextAnchor.MiddleLeft;
+          textMesh.fontSize = i * 10;
 
-                    //if (lineHeight > orthoSize * 2 * 0.9f) return;
+          textMesh.color = new Color32(255, 255, 255, 255);
+          textMesh.text = i + " pts - Lorem ipsum dolor sit...";
 
-                    go.transform.position = m_Transform.position + new Vector3(ratio * -orthoSize * 0.975f, orthoSize * 0.975f - lineHeight, 1);
-                                       
-                    TextMesh textMesh = go.AddComponent<TextMesh>();
-                    textMesh.font = Resources.Load("Fonts/ARIAL", typeof(Font)) as Font;
-                    textMesh.renderer.sharedMaterial = textMesh.font.material;
-                    textMesh.anchor = TextAnchor.MiddleLeft;
-                    textMesh.fontSize = i * 10;
-
-                    textMesh.color = new Color32(255, 255, 255, 255);
-                    textMesh.text = i + " pts - Lorem ipsum dolor sit...";
-
-                    lineHeight += i;
-                    */
-                }
-            }
+          lineHeight += i;
+          */
         }
-
+      }
     }
+  }
 }

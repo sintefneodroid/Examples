@@ -64,7 +64,7 @@
     <Compile Include="Assets\droid\Neodroid\Editor\ScriptableObjects\NeodroidTask.cs" />
     <Compile Include="Assets\droid\Neodroid\Editor\ScriptableObjects\PlayerMotions.cs" />
     <Compile Include="Assets\droid\Neodroid\Editor\ScriptableObjects\Segmentations.cs" />
-    <Compile Include="Assets\droid\Neodroid\Editor\Utilities\Utilities.cs" />
+    <Compile Include="Assets\droid\Neodroid\Editor\Utilities\NeodroidUtilities.cs" />
     <Compile Include="Assets\droid\Neodroid\Editor\Windows\CameraSynchronisationWindow.cs" />
     <Compile Include="Assets\droid\Neodroid\Editor\Windows\DebugWindow.cs" />
     <Compile Include="Assets\droid\Neodroid\Editor\Windows\DemonstrationWindow.cs" />
@@ -74,66 +74,30 @@
     <Compile Include="Assets\droid\Neodroid\Editor\Windows\SegmentationWindow.cs" />
     <Compile Include="Assets\droid\Neodroid\Editor\Windows\SimulationWindow.cs" />
     <Compile Include="Assets\droid\Neodroid\Editor\Windows\TaskWindow.cs" />
+    <Compile Include="Assets\droid\Neodroid\Editor\Windows\UnityDebug\FindMissingScripts.cs" />
     <Compile Include="Assets\droid\Neodroid\Editor\Windows\WindowManager.cs" />
     <Compile Include="Assets\Excluded\Common\ReadMe\ScriptableObjects\Editor\ReadMeEditor.cs" />
     <Compile Include="Assets\SceneAssets\Manipulator\Excluded\BioIK\Editor\BioIKEditor.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Extensions\FCIntegration\Editor\RecorderEditorBase.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Extensions\FCIntegration\EXR\Editor\EXRRecorderSettingsEditor.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Extensions\FCIntegration\GIF\Editor\GIFRecorderSettingsEditor.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Extensions\FCIntegration\MP4\Editor\Mp4RecorderSettingsEditor.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Extensions\FCIntegration\PNG\Editor\PngRecorderSettingsEditor.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Extensions\FCIntegration\WEBM\Editor\WEBMRecorderSettingsEditor.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Extensions\MovieRecorder\Audio\Editor\AudioInput.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Extensions\MovieRecorder\Audio\Editor\AudioInputSettings.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Extensions\MovieRecorder\Audio\Editor\AudioInputSettingsEditor.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Extensions\MovieRecorder\Recorder\Editor\MediaRecorder.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Extensions\MovieRecorder\Recorder\Editor\MediaRecorderEditor.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Extensions\MovieRecorder\Recorder\Editor\MediaRecorderSettings.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Extensions\UTJ\FrameCapturer\Editor\AudioEncoderConfigDrawer.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Extensions\UTJ\FrameCapturer\Editor\AudioRecorderEditor.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Extensions\UTJ\FrameCapturer\Editor\GBufferRecorderEditor.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Extensions\UTJ\FrameCapturer\Editor\Misc\BoolDrawer.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Extensions\UTJ\FrameCapturer\Editor\Misc\DataPathDrawer.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Extensions\UTJ\FrameCapturer\Editor\MovieEncoderConfigDrawer.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Extensions\UTJ\FrameCapturer\Editor\MovieRecorderEditor.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Extensions\UTJ\FrameCapturer\Editor\RecorderBaseEditor.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Core\Editor\AboutBox.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Core\Editor\EnumHelper.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Core\Editor\FileNameDrawer.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Core\Editor\InputEditor.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Core\Editor\OutputPathDrawer.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Core\Editor\RecorderEditor.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Core\Editor\RecorderSelector.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Core\Editor\RecorderWindow.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Core\Editor\RecorderWindowSettings.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Core\Editor\ResolutionSelector.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Core\Editor\RTInputSelector.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Core\Editor\SerializableObjHelper.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Core\Editor\Timeline\RecorderClipEditor.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Inputs\Animation\Editor\AnimationInput.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Inputs\Animation\Editor\AnimationInputSettings.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Inputs\Animation\Editor\AnimationInputSettingsEditor.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Inputs\Camera360\Editor\Camera360InputEditor.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Inputs\CBRenderTexture\Editor\CBRenderTextureInputSettingsEditor.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Inputs\RenderTexture\Editor\RenderTextureInputSettingsEditor.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Inputs\RenderTextureSampler\Editor\RenderTextureSamplerEditor.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Inputs\ScreenCapture\Editor\ScreenCaptureInputEditor.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Packager\Editor\FRPackagerPaths.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Recorders\AnimationRecorder\Editor\AnimationRecorder.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Recorders\AnimationRecorder\Editor\AnimationRecorderSettings.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Recorders\AnimationRecorder\Editor\AnimationRecorderSettingsEditor.cs" />
-    <Compile Include="Assets\Unity Technologies\Recorder\Framework\Recorders\ImageRecorder\Editor\ImageRecorderEditor.cs" />
     <Reference Include="Unity.ProBuilder.AddOns.Editor">
       <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProGrids">
       <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VectorGraphics">
+      <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/Unity.VectorGraphics.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.ProGrids.Editor">
       <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.2d.ik.Editor">
+      <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/com.unity.2d.ik.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.2d.ik.Runtime">
+      <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/com.unity.2d.ik.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
       <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
@@ -144,11 +108,29 @@
     <Reference Include="Unity.AssetBundleBrowser.Editor">
       <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/Unity.AssetBundleBrowser.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VectorGraphics.Editor">
+      <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/Unity.VectorGraphics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InternalAPIEngineBridge.001">
+      <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.2d.common.Runtime">
+      <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/com.unity.2d.common.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="com.unity.postprocessing.Runtime">
       <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/com.unity.postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.2d.common.Editor">
+      <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/com.unity.2d.common.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InternalAPIEditorBridge.001">
+      <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.vectorgraphics">
+      <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/com.unity.vectorgraphics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/opt/Unity-2018.2.0b7/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -414,26 +396,29 @@
     <Reference Include="JetBrains.Rider.Unity.Editor.Plugin.Repacked">
       <HintPath>/home/heider/Neodroid/Examples/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll</HintPath>
     </Reference>
+    <Reference Include="NSubstitute">
+      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.2d.common@1.0.9-preview.2/Tests/EditorTests/Lib/NSubstitute/NSubstitute.dll</HintPath>
+    </Reference>
     <Reference Include="ProBuilderEditor">
-      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.8/ProBuilder/Editor/ProBuilderEditor.dll</HintPath>
+      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.9/ProBuilder/Editor/ProBuilderEditor.dll</HintPath>
     </Reference>
     <Reference Include="AssetIdRemapUtility">
-      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.8/ProBuilder/AssetIdRemapUtility/Editor/AssetIdRemapUtility.dll</HintPath>
+      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.9/ProBuilder/AssetIdRemapUtility/Editor/AssetIdRemapUtility.dll</HintPath>
     </Reference>
     <Reference Include="ProBuilderCore">
-      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.8/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
+      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.9/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
     </Reference>
     <Reference Include="ProBuilderMeshOps">
-      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.8/ProBuilder/Classes/ProBuilderMeshOps.dll</HintPath>
+      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.9/ProBuilder/Classes/ProBuilderMeshOps.dll</HintPath>
     </Reference>
     <Reference Include="pb_Stl">
-      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.8/ProBuilder/Classes/ClassesLib/pb_Stl.dll</HintPath>
+      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.9/ProBuilder/Classes/ClassesLib/pb_Stl.dll</HintPath>
     </Reference>
     <Reference Include="KdTreeLib">
-      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.8/ProBuilder/Classes/ClassesLib/KdTreeLib.dll</HintPath>
+      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.9/ProBuilder/Classes/ClassesLib/KdTreeLib.dll</HintPath>
     </Reference>
     <Reference Include="Poly2Tri">
-      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.8/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
+      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.9/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>/opt/Unity-2018.2.0b7/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

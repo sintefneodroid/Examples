@@ -4,43 +4,37 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace TextMesh_Pro.Scripts {
-    public class ChatController : MonoBehaviour {
+  public class ChatController : MonoBehaviour {
+    public TMP_InputField TMP_ChatInput;
 
+    public TMP_Text TMP_ChatOutput;
 
-        public TMP_InputField TMP_ChatInput;
+    public Scrollbar ChatScrollbar;
 
-        public TMP_Text TMP_ChatOutput;
+    void OnEnable() { this.TMP_ChatInput.onSubmit.AddListener(this.AddToChatOutput); }
 
-        public Scrollbar ChatScrollbar;
+    void OnDisable() { this.TMP_ChatInput.onSubmit.RemoveListener(this.AddToChatOutput); }
 
-        void OnEnable()
-        {
-            this.TMP_ChatInput.onSubmit.AddListener(this.AddToChatOutput);
+    void AddToChatOutput(string newText) {
+      // Clear Input Field
+      this.TMP_ChatInput.text = string.Empty;
 
-        }
+      var timeNow = DateTime.Now;
 
-        void OnDisable()
-        {
-            this.TMP_ChatInput.onSubmit.RemoveListener(this.AddToChatOutput);
+      this.TMP_ChatOutput.text += "[<#FFFF80>"
+                                  + timeNow.Hour.ToString("d2")
+                                  + ":"
+                                  + timeNow.Minute.ToString("d2")
+                                  + ":"
+                                  + timeNow.Second.ToString("d2")
+                                  + "</color>] "
+                                  + newText
+                                  + "\n";
 
-        }
+      this.TMP_ChatInput.ActivateInputField();
 
-
-        void AddToChatOutput(string newText)
-        {
-            // Clear Input Field
-            this.TMP_ChatInput.text = string.Empty;
-
-            var timeNow = DateTime.Now;
-
-            this.TMP_ChatOutput.text += "[<#FFFF80>" + timeNow.Hour.ToString("d2") + ":" + timeNow.Minute.ToString("d2") + ":" + timeNow.Second.ToString("d2") + "</color>] " + newText + "\n";
-
-            this.TMP_ChatInput.ActivateInputField();
-
-            // Set the scrollbar to the bottom when next text is submitted.
-            this.ChatScrollbar.value = 0;
-
-        }
-
+      // Set the scrollbar to the bottom when next text is submitted.
+      this.ChatScrollbar.value = 0;
     }
+  }
 }
