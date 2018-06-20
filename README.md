@@ -64,7 +64,7 @@
 # Citation
 
 For citation you may use the following bibtex entry:
-
+````
 @misc{neodroid-examples,
   author = {Heider, Christian},
   title = {Neodroid Platform Examples},
@@ -73,7 +73,7 @@ For citation you may use the following bibtex entry:
   journal = {GitHub repository},
   howpublished = {\url{https://github.com/sintefneodroid/Examples}},
 }
-
+````
 
 # Components Of The Neodroid Platform
 - [agent](https://github.com/sintefneodroid/agent)
