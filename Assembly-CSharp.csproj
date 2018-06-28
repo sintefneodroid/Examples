@@ -27,7 +27,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -36,7 +36,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <NoConfig>true</NoConfig>
@@ -66,6 +66,7 @@
     <Compile Include="Assets\droid\Neodroid\NeodroidInfo.cs" />
     <Compile Include="Assets\droid\Neodroid\PlayerControls\KeyEventEnabler.cs" />
     <Compile Include="Assets\droid\Neodroid\PlayerControls\PlayerReactions.cs" />
+    <Compile Include="Assets\droid\Neodroid\PlayerControls\ScriptedReactions.cs" />
     <Compile Include="Assets\droid\Neodroid\Properties\AssemblyInfo.cs" />
     <Compile Include="Assets\droid\Neodroid\Prototyping\Actors\Actor.cs" />
     <Compile Include="Assets\droid\Neodroid\Prototyping\Actors\ActorComponentMenuPath.cs" />
@@ -96,7 +97,6 @@
     <Compile Include="Assets\droid\Neodroid\Prototyping\Evaluation\AngularVelocityEvaluation.cs" />
     <Compile Include="Assets\droid\Neodroid\Prototyping\Evaluation\EuclideanDistance.cs" />
     <Compile Include="Assets\droid\Neodroid\Prototyping\Evaluation\EvaluationComponentMenuPath.cs" />
-    <Compile Include="Assets\droid\Neodroid\Prototyping\Evaluation\MultiArmedBanditEvaluation.cs" />
     <Compile Include="Assets\droid\Neodroid\Prototyping\Evaluation\ObjectiveFunction.cs" />
     <Compile Include="Assets\droid\Neodroid\Prototyping\Evaluation\PoseDeviance.cs" />
     <Compile Include="Assets\droid\Neodroid\Prototyping\Evaluation\PunishmentFunction.cs" />
@@ -236,6 +236,7 @@
     <Compile Include="Assets\droid\Neodroid\Utilities\Structs\Space3.cs" />
     <Compile Include="Assets\droid\Neodroid\Utilities\Structs\Space4.cs" />
     <Compile Include="Assets\droid\Neodroid\Utilities\Structs\ValueSpace.cs" />
+    <Compile Include="Assets\droid\Neodroid\Utilities\Unsorted\ActionCounter.cs" />
     <Compile Include="Assets\droid\Neodroid\Utilities\Unsorted\DrawString.cs" />
     <Compile Include="Assets\droid\Neodroid\Utilities\Unsorted\EnsureValidState.cs" />
     <Compile Include="Assets\droid\Neodroid\Utilities\Unsorted\FollowTarget.cs" />
@@ -261,6 +262,58 @@
     <Compile Include="Assets\Excluded\Common\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
     <Compile Include="Assets\Excluded\Common\ReadMe\ScriptableObjects\ReadMe.cs" />
     <Compile Include="Assets\Excluded\Common\Scripts\SimpleCameraController.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Breakout\Breakout.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Breakout\BreakoutConfigurator.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Breakout\Brick.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Buildings\BuildingGenerator.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Buildings\BuildingGeneratorBase.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Buildings\BuildingGeneratorConfigurator.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Buildings\FacadeLayout.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Buildings\HorizontalLayout.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Buildings\IFacadeLayout.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Buildings\IFacadePanel.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Buildings\ProceduralFacadePanels.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Buildings\RoofGenerator.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Buildings\VerticalLayout.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\CellularAutomata\CellularAutomatonConfigurator.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Chairs\Armrests.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Chairs\Backs.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Chairs\ChairGenerator.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Chairs\ChairGeneratorConfigurator.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Chairs\Stretchers.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Characters\Character.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Characters\CharacterGenerator.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Characters\CharacterGeneratorConfigurator.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Characters\NameGenerator.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Common\ButtonControl.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Common\CameraRotator.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Common\ConfiguratorBase.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Common\SkyBoxGenerator.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Common\SliderControl.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Common\TextControl.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Common\ToggleControl.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Drawing\Drawer.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\LowPolyTerrain\LowPolyTerrainGenerator.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\LowPolyTerrain\LowPolyTerrainGeneratorConfigurator.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Mazes\Maze.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Mazes\MazeGenerator.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Mazes\MazeGeneratorConfigurator.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Primitives\Cylinder.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Primitives\Dodecahedron.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Primitives\FlatSphere.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Primitives\FlatSpheroid.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Primitives\FlatTeardrop.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Primitives\Hexahedron.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Primitives\Icosahedron.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Primitives\Octahedron.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Primitives\Plane.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Primitives\Prism.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Primitives\Pyramid.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Primitives\Sphere.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Primitives\Spheroid.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Primitives\Teardrop.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Primitives\Tetrahedron.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\SDF\ImageSelector.cs" />
     <Compile Include="Assets\SceneAssets\Catch\DropSpawner.cs" />
     <Compile Include="Assets\SceneAssets\Excluded\Bicycle\sportbike_pro_kit\Mobile\Scripts\MobileControls.cs" />
     <Compile Include="Assets\SceneAssets\Excluded\Bicycle\sportbike_pro_kit\Scripts\CamSwitcher.cs" />
@@ -343,6 +396,9 @@
     <Compile Include="Assets\SceneAssets\Manipulator\Excluded\BioIK\Setup\Objectives\Position.cs" />
     <Compile Include="Assets\SceneAssets\Manipulator\Excluded\BioIK\Setup\Objectives\Projection.cs" />
     <Compile Include="Assets\SceneAssets\Manipulator\InjectRandomRigidbodyNoise.cs" />
+    <Compile Include="Assets\SceneAssets\Sanity\NoHorison\MultiArmedBandit\MultiArmedBanditEvaluation.cs" />
+    <Compile Include="Assets\SceneAssets\Sanity\NoHorison\MultiArmedBandit\MultiArmedBanditMotor.cs" />
+    <Compile Include="Assets\SceneAssets\Sanity\NoHorison\MultiArmedBandit\TextBarPlotDisplayer.cs" />
     <Compile Include="Assets\SceneAssets\Satellite\Scripts\BodyWithMass.cs" />
     <Compile Include="Assets\SceneAssets\Satellite\Scripts\InitialForce.cs" />
     <Compile Include="Assets\SceneAssets\Walker\DaylightSimulator.cs" />
@@ -380,69 +436,82 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <None Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Shaders\Experimental\QuickBlur.shader" />
+    <None Include="Assets\Excluded\ProceduralToolkit\Examples\SDF\Animation.shader" />
+    <None Include="Assets\Excluded\ProceduralToolkit\Shaders\Transitions.cginc" />
+    <None Include="Assets\Excluded\ProceduralToolkit\Shaders\VertexColor\Standard Vertex Color.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\Excluded\ProceduralToolkit\Shaders\Gradient Skybox.shader" />
     <None Include="Assets\Excluded\Common\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
     <None Include="Assets\droid\Neodroid\Shaders\Depth.shader" />
+    <None Include="Assets\Excluded\ProceduralToolkit\Examples\Characters\names.txt" />
     <None Include="Assets\droid\Neodroid\Libaries\NetMQ.4.0.0.156-pre\lib\net40\NetMQ.xml" />
     <None Include="Assets\SceneAssets\Excluded\Hide\SharpShadowLight\Shaders\Gradient-AlphaBlend.shader" />
     <None Include="Assets\droid\Neodroid\Utilities\Plotting\ValueRangePlotter.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\Excluded\ProceduralToolkit\Examples\SDF\Easing.shader" />
+    <None Include="Assets\Excluded\ProceduralToolkit\Shaders\Debug\Debug UV1.shader" />
+    <None Include="Assets\Excluded\ProceduralToolkit\Shaders\Debug\Debug Bitangents.shader" />
     <None Include="Assets\droid\Neodroid\Libaries\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.xml" />
     <None Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Shaders\IgnoreZ.shader" />
     <None Include="Assets\droid\Neodroid\Shaders\FlatColor.shader" />
+    <None Include="Assets\Excluded\ProceduralToolkit\Examples\SDF\DistanceOperations.shader" />
     <None Include="Assets\SceneAssets\Excluded\Hide\SharpShadowLight\Shaders\NoTexture.shader" />
+    <None Include="Assets\Excluded\ProceduralToolkit\Shaders\SDF.cginc" />
     <None Include="Assets\droid\Neodroid\Shaders\Normal.shader" />
     <None Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Shaders\Experimental\CompositeAdd.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
+    <None Include="Assets\Excluded\ProceduralToolkit\Shaders\VertexColor\Unlit Vertex Color.shader" />
     <None Include="Assets\SceneAssets\Manipulator\Excluded\AdventureForge\CabinetsAndShelvesReadme.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\mcs.rsp" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Shaders\Experimental\DepthDeprecated.shader" />
+    <None Include="Assets\Excluded\ProceduralToolkit\Examples\SDF\Transitions.shader" />
+    <None Include="Assets\Excluded\ProceduralToolkit\LICENSE.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\SceneAssets\Excluded\UnityHexapodSimulator\ProjectSettings\ProjectVersion.txt" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
+    <None Include="Assets\Excluded\ProceduralToolkit\Examples\SDF\Shapes.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\Excluded\ProceduralToolkit\Shaders\Easing.cginc" />
     <None Include="Assets\droid\Neodroid\Gizmos\Icons\readme.txt" />
     <None Include="Assets\droid\Neodroid\Shaders\Segmentation.shader" />
     <None Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Shaders\Experimental\OverDraw.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Excluded\ProceduralToolkit\Shaders\VertexColor\Diffuse Vertex Color.shader" />
+    <None Include="Assets\Excluded\ProceduralToolkit\Shaders\Debug\Debug Normals.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\SceneAssets\Excluded\Hide\SharpShadowLight\Shaders\Gradient-ZFighting.shader" />
+    <None Include="Assets\Excluded\ProceduralToolkit\Shaders\Debug\Debug UV2.shader" />
     <None Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Shaders\Experimental\Shadow.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\Excluded\ProceduralToolkit\Examples\SDF\StarPolygon.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\droid\Neodroid\Libaries\OptimizedPriorityQueue.4.1.1\lib\net45\Priority Queue.xml" />
+    <None Include="Assets\Excluded\ProceduralToolkit\Shaders\VertexColor\Specular Vertex Color.shader" />
     <None Include="Assets\droid\mcs.rsp" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\Excluded\ProceduralToolkit\Shaders\Common.cginc" />
     <None Include="Assets\droid\Neodroid\Shaders\ScreenSpaceFlow.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\Excluded\ProceduralToolkit\Shaders\Debug\Debug Tangents.shader" />
     <Reference Include="Unity.ProBuilder.AddOns.Editor">
       <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProGrids">
       <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VectorGraphics">
-      <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/Unity.VectorGraphics.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.ProGrids.Editor">
       <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.2d.ik.Editor">
-      <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/com.unity.2d.ik.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.2d.ik.Runtime">
-      <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/com.unity.2d.ik.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
       <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
@@ -453,29 +522,11 @@
     <Reference Include="Unity.AssetBundleBrowser.Editor">
       <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/Unity.AssetBundleBrowser.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VectorGraphics.Editor">
-      <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/Unity.VectorGraphics.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.InternalAPIEngineBridge.001">
-      <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.2d.common.Runtime">
-      <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/com.unity.2d.common.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="com.unity.postprocessing.Runtime">
       <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/com.unity.postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.2d.common.Editor">
-      <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/com.unity.2d.common.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.InternalAPIEditorBridge.001">
-      <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.vectorgraphics">
-      <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/com.unity.vectorgraphics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/opt/Unity-2018.2.0b7/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -692,9 +743,6 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>/home/heider/Neodroid/Examples/Assets/droid/Neodroid/Libaries/Newtonsoft.Json.11.0.2/lib/net45/Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="NSubstitute">
-      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.2d.common@1.0.9-preview.2/Tests/EditorTests/Lib/NSubstitute/NSubstitute.dll</HintPath>
     </Reference>
     <Reference Include="ProBuilderCore">
       <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.9/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
@@ -1050,6 +1098,16 @@
     <Reference Include="Boo.Lang">
       <HintPath>/opt/Unity-2018.2.0b7/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="ProceduralToolkit.csproj">
+      <Project>{81D05F9D-C0D5-0BBE-1300-78CA32C5AF3A}</Project>
+      <Name>ProceduralToolkit</Name>
+    </ProjectReference>
+    <ProjectReference Include="ProceduralToolkit.Editor.csproj">
+      <Project>{0B957477-8F07-B177-35AB-8B75CAD05115}</Project>
+      <Name>ProceduralToolkit.Editor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

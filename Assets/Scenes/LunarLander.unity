@@ -487,7 +487,7 @@ Prefab:
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.70437485
+      value: 0.704375
       objectReference: {fileID: 0}
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
@@ -957,6 +957,7 @@ MonoBehaviour:
   _track_only_children: 1
   _coordinate_system: 0
   _playable_area: {fileID: 903194210}
+  _initials_saved_flag: 0
 --- !u!114 &903194205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1121,8 +1122,8 @@ MonoBehaviour:
   _target_frame_rate: -1
   _ip_address: localhost
   _port: 6969
-  _do_serialise_unobservables: 0
-  _do_serialise_indidual_observables: 0
+  _always_serialise_unobservables: 0
+  _always_serialise_indidual_observables: 0
   _update_fixed_time_scale: 0
   _max_reply_interval: 0
   _num_of_environments: 0
