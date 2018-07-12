@@ -393,6 +393,9 @@
     <Reference Include="Poly2Tri">
       <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.9/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
     </Reference>
+    <Reference Include="OdinSerializer">
+      <HintPath>/home/heider/Neodroid/Examples/Assets/Plugins/Excluded/Sirenix/Odin Serializer/EditorOnly/OdinSerializer.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib">
       <HintPath>/opt/Unity-2018.2.0b7/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
     </Reference>
@@ -734,9 +737,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{BE2D8BB4-0EA5-1B09-D75F-8D4043C30BB5}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{1037E0B1-5CBB-D3DD-8F15-81F7802CD1F0}</Project>
       <Name>Assembly-CSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="Assembly-CSharp-Editor-firstpass.csproj">
+      <Project>{552FEDB3-FE8E-AB31-DF5C-45B9E7A62AB5}</Project>
+      <Name>Assembly-CSharp-Editor-firstpass</Name>
     </ProjectReference>
     <ProjectReference Include="ProceduralToolkit.csproj">
       <Project>{81D05F9D-C0D5-0BBE-1300-78CA32C5AF3A}</Project>

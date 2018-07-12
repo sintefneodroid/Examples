@@ -13,8 +13,8 @@ namespace SceneAssets.Sanity.NoHorison.MultiArmedBandit {
   public class TextBarPlotDisplayer : Resetable {
 
     
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     public override String PrototypingTypeName { get { return "TextBarPlot"; } }
     
@@ -38,11 +38,22 @@ namespace SceneAssets.Sanity.NoHorison.MultiArmedBandit {
       }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="values"></param>
     public void Display(float[] values) {
       for (var i = 0; i < this._canvas_bars.Length; i++) {
-        if(i < values.Length) {
-          this._canvas_bars[i].Display(values[i]);
-          this._canvas_text[i].Display(values[i]);
+        if (i < values.Length) {
+          var bar = this._canvas_bars[i];
+          if (bar) {
+            bar.Display(values[i]);
+          }
+
+          var text = this._canvas_text[i];
+          if(text) {
+            text.Display(values[i]);
+          }
         }
       }
     }

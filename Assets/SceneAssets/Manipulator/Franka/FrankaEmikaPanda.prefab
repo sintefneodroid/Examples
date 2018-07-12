@@ -5219,8 +5219,8 @@ Rigidbody:
   m_GameObject: {fileID: 1665831370381052}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 1
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -5234,8 +5234,8 @@ Rigidbody:
   m_GameObject: {fileID: 1966993051259258}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 1
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -5249,8 +5249,8 @@ Rigidbody:
   m_GameObject: {fileID: 1549671977892282}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 1
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
@@ -5264,8 +5264,8 @@ Rigidbody:
   m_GameObject: {fileID: 1756754966622262}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 1
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -5279,8 +5279,8 @@ Rigidbody:
   m_GameObject: {fileID: 1147408834296180}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 1
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -5294,8 +5294,8 @@ Rigidbody:
   m_GameObject: {fileID: 1397445506031224}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 1
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -5309,8 +5309,8 @@ Rigidbody:
   m_GameObject: {fileID: 1314221177327546}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 1
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -5324,8 +5324,8 @@ Rigidbody:
   m_GameObject: {fileID: 1916660072538628}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 1
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -5339,8 +5339,8 @@ Rigidbody:
   m_GameObject: {fileID: 1346491379951526}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 1
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -5354,8 +5354,8 @@ Rigidbody:
   m_GameObject: {fileID: 1521300646842862}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 1
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -5986,12 +5986,11 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 0}
   _normalise_observation: 0
   _space: 2
   _use_environments_coordinates: 1
-  _position: {x: 0.00000002980234, y: 1.382, z: -0.5}
+  _position: {x: 0.00000002980234, y: 1.382, z: -1.5}
   _rotation: {x: 0.008726538, y: 2.7234583e-11, z: -0.0000000031207732, w: 0.9999619}
 --- !u!114 &114148518609468832
 MonoBehaviour:
@@ -6054,7 +6053,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _actor: {fileID: 114655408489002388}
   _motion_value_space:
     _Decimal_Granularity: 0
@@ -6252,12 +6250,11 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 0}
   _normalise_observation: 0
   _space: 2
   _use_environments_coordinates: 1
-  _position: {x: 0.00000008940704, y: 1.779, z: -0.29399985}
+  _position: {x: 0.00000008940704, y: 1.779, z: -1.2939999}
   _rotation: {x: 0.008726539, y: 3.631278e-11, z: -0.0000000041610306, w: 0.9999619}
 --- !u!114 &114233350646460018
 MonoBehaviour:
@@ -6596,8 +6593,8 @@ MonoBehaviour:
     Joint: {fileID: 114288810265035028}
     Enabled: 0
     Constrained: 1
-    LowerLimit: -85
-    UpperLimit: 85
+    LowerLimit: -105
+    UpperLimit: 105
     TargetValue: 0
     CurrentValue: 0
     CurrentError: 0
@@ -6608,8 +6605,8 @@ MonoBehaviour:
     Joint: {fileID: 114288810265035028}
     Enabled: 1
     Constrained: 1
-    LowerLimit: -85
-    UpperLimit: 85
+    LowerLimit: -105
+    UpperLimit: 105
     TargetValue: 0
     CurrentValue: 0
     CurrentError: 0
@@ -6764,12 +6761,11 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 0}
   _normalise_observation: 0
   _angular_velocity: {x: 0, y: 0, z: 0}
   _velocity: {x: 0, y: 0, z: 0}
-  _last_update_time: 7.568807
+  _last_update_time: 0.8775761
   _rigidbody: {fileID: 54660278356358138}
   _differential: 0
   _velocity_space:
@@ -7183,12 +7179,11 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 0}
   _normalise_observation: 0
   _angular_velocity: {x: 0, y: 0, z: 0}
   _velocity: {x: 0, y: 0, z: 0}
-  _last_update_time: 7.568807
+  _last_update_time: 0.8775761
   _rigidbody: {fileID: 54603854802391526}
   _differential: 0
   _velocity_space:
@@ -7266,12 +7261,11 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 0}
   _normalise_observation: 0
   _space: 2
   _use_environments_coordinates: 1
-  _position: {x: 0.000000089407024, y: 1.576, z: -0.5}
+  _position: {x: 0.000000089407024, y: 1.576, z: -1.5}
   _rotation: {x: 0.008726538, y: 2.7234583e-11, z: -0.0000000031207732, w: 0.9999619}
 --- !u!114 &114401927320516080
 MonoBehaviour:
@@ -7289,7 +7283,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _actor: {fileID: 114655408489002388}
   _motion_value_space:
     _Decimal_Granularity: 0
@@ -7445,7 +7438,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _actor: {fileID: 114655408489002388}
   _motion_value_space:
     _Decimal_Granularity: 0
@@ -7484,12 +7476,11 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 0}
   _normalise_observation: 0
   _angular_velocity: {x: 0, y: 0, z: 0}
   _velocity: {x: 0, y: 0, z: 0}
-  _last_update_time: 7.568807
+  _last_update_time: 0.8775761
   _rigidbody: {fileID: 54269356298317812}
   _differential: 0
   _velocity_space:
@@ -7553,12 +7544,11 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 0}
   _normalise_observation: 0
   _space: 2
   _use_environments_coordinates: 1
-  _position: {x: 3.5527137e-14, y: 1.7279999, z: 0.054000318}
+  _position: {x: 3.5527137e-14, y: 1.7279999, z: -0.9459997}
   _rotation: {x: -0.006283451, y: 0.00003805341, z: 0.0060554733, w: 0.9999619}
 --- !u!114 &114430742519046108
 MonoBehaviour:
@@ -7576,15 +7566,9 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 0}
   _normalise_observation: 0
   _space: 0
-  _direction: {x: 0, y: 1.0000002, z: -0.00000023841858}
-  _direction_space:
-    _Decimal_Granularity: 10
-    _Min_Values: {x: -100, y: -100, z: -100}
-    _Max_Values: {x: 100, y: 100, z: 100}
   _position: {x: 0, y: 0.14, z: -0}
   _position_space:
     _Decimal_Granularity: 10
@@ -7592,6 +7576,11 @@ MonoBehaviour:
     _Max_Values: {x: 100, y: 100, z: 100}
   _rotation: {x: 1.0000002, y: -0.00000023841858, z: 0}
   _rotation_space:
+    _Decimal_Granularity: 10
+    _Min_Values: {x: -100, y: -100, z: -100}
+    _Max_Values: {x: 100, y: 100, z: 100}
+  _direction: {x: 0, y: 1.0000002, z: -0.00000023841858}
+  _direction_space:
     _Decimal_Granularity: 10
     _Min_Values: {x: -100, y: -100, z: -100}
     _Max_Values: {x: 100, y: 100, z: 100}
@@ -7628,15 +7617,9 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 0}
   _normalise_observation: 0
   _space: 0
-  _direction: {x: 1.0000004, y: 0, z: -0.00000035762787}
-  _direction_space:
-    _Decimal_Granularity: 10
-    _Min_Values: {x: -100, y: -100, z: -100}
-    _Max_Values: {x: 100, y: 100, z: 100}
   _position: {x: 0, y: -0.194, z: 0}
   _position_space:
     _Decimal_Granularity: 10
@@ -7644,6 +7627,11 @@ MonoBehaviour:
     _Max_Values: {x: 100, y: 100, z: 100}
   _rotation: {x: 0, y: 1, z: 0.000000087422805}
   _rotation_space:
+    _Decimal_Granularity: 10
+    _Min_Values: {x: -100, y: -100, z: -100}
+    _Max_Values: {x: 100, y: 100, z: 100}
+  _direction: {x: 1.0000004, y: 0, z: -0.00000035762787}
+  _direction_space:
     _Decimal_Granularity: 10
     _Min_Values: {x: -100, y: -100, z: -100}
     _Max_Values: {x: 100, y: 100, z: 100}
@@ -7767,7 +7755,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _actor: {fileID: 114655408489002388}
   _motion_value_space:
     _Decimal_Granularity: 0
@@ -7879,7 +7866,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _actor: {fileID: 114655408489002388}
   _motion_value_space:
     _Decimal_Granularity: 0
@@ -8288,8 +8274,8 @@ MonoBehaviour:
     Joint: {fileID: 114550365396419850}
     Enabled: 1
     Constrained: 1
-    LowerLimit: -85
-    UpperLimit: 85
+    LowerLimit: -105
+    UpperLimit: 105
     TargetValue: 0
     CurrentValue: 0
     CurrentError: 0
@@ -8533,7 +8519,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _actor: {fileID: 114655408489002388}
   _motion_value_space:
     _Decimal_Granularity: 0
@@ -8541,7 +8526,7 @@ MonoBehaviour:
     _Max_Value: 10
   _energy_spend_since_reset: 0
   _energy_cost: 0
-  _Axis_Of_Motion: 0
+  _Axis_Of_Motion: 4
   _Relative_To: 1
   _Rigidbody: {fileID: 54269356298317812}
   _ForceMode: 0
@@ -8704,7 +8689,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _actor: {fileID: 114655408489002388}
   _motion_value_space:
     _Decimal_Granularity: 0
@@ -8783,15 +8767,9 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 0}
   _normalise_observation: 0
   _space: 0
-  _direction: {x: 1.0000004, y: 0, z: -0.00000035762787}
-  _direction_space:
-    _Decimal_Granularity: 10
-    _Min_Values: {x: -100, y: -100, z: -100}
-    _Max_Values: {x: 100, y: 100, z: 100}
   _position: {x: 0, y: -0, z: 0.192}
   _position_space:
     _Decimal_Granularity: 10
@@ -8802,13 +8780,18 @@ MonoBehaviour:
     _Decimal_Granularity: 10
     _Min_Values: {x: -100, y: -100, z: -100}
     _Max_Values: {x: 100, y: 100, z: 100}
+  _direction: {x: 1.0000004, y: 0, z: -0.00000035762787}
+  _direction_space:
+    _Decimal_Granularity: 10
+    _Min_Values: {x: -100, y: -100, z: -100}
+    _Max_Values: {x: 100, y: 100, z: 100}
 --- !u!114 &114655408489002388
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1740881682883292}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8b7c65bfbcfa4ac381370b0b8eef1bc, type: 3}
   m_Name: 
@@ -8818,13 +8801,11 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   _draw_bounds: 0
   _environment: {fileID: 0}
-  _script_execution_order: -10
 --- !u!114 &114661095495179696
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8899,12 +8880,11 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 0}
   _normalise_observation: 0
   _angular_velocity: {x: 0, y: 0, z: 0}
   _velocity: {x: 0, y: 0, z: 0}
-  _last_update_time: 7.568807
+  _last_update_time: 0.8775761
   _rigidbody: {fileID: 54614529043574790}
   _differential: 0
   _velocity_space:
@@ -8983,12 +8963,11 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 0}
   _normalise_observation: 0
   _space: 2
   _use_environments_coordinates: 1
-  _position: {x: 0.00000011175878, y: 1.696, z: -0.41799995}
+  _position: {x: 0.00000011175878, y: 1.696, z: -1.418}
   _rotation: {x: -6.4192523e-12, y: 7.3557327e-10, z: -0.008726537, w: 0.9999619}
 --- !u!114 &114679607396048578
 MonoBehaviour:
@@ -9136,7 +9115,7 @@ MonoBehaviour:
   Root: {fileID: 114764881958809056}
   Solution: []
   SelectedSegment: {fileID: 0}
-  Scroll: {x: 0, y: 1200}
+  Scroll: {x: 0, y: 420}
 --- !u!114 &114688691557192934
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9228,12 +9207,11 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 0}
   _normalise_observation: 0
   _angular_velocity: {x: 0, y: 0, z: 0}
   _velocity: {x: 0, y: 0, z: 0}
-  _last_update_time: 7.568807
+  _last_update_time: 0.8775761
   _rigidbody: {fileID: 54685945711810252}
   _differential: 0
   _velocity_space:
@@ -9613,12 +9591,11 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 0}
   _normalise_observation: 0
   _space: 2
   _use_environments_coordinates: 1
-  _position: {x: 0.000000059604716, y: 1.7789999, z: -0.03399968}
+  _position: {x: 0.000000059604716, y: 1.7789999, z: -1.0339997}
   _rotation: {x: -0.0000000043757042, y: -0.008726539, z: -0.0000000052398708, w: 0.9999619}
 --- !u!114 &114789016239235716
 MonoBehaviour:
@@ -9653,12 +9630,11 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 0}
   _normalise_observation: 0
   _angular_velocity: {x: 0, y: 0, z: 0}
   _velocity: {x: 0, y: 0, z: 0}
-  _last_update_time: 7.568807
+  _last_update_time: 0.8775761
   _rigidbody: {fileID: 54063363842812260}
   _differential: 0
   _velocity_space:
@@ -9872,15 +9848,9 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 0}
   _normalise_observation: 0
   _space: 0
-  _direction: {x: -0.0000005066395, y: -1.0000005, z: -0.00000059604645}
-  _direction_space:
-    _Decimal_Granularity: 10
-    _Min_Values: {x: -100, y: -100, z: -100}
-    _Max_Values: {x: 100, y: 100, z: 100}
   _position: {x: 0, y: 0.26, z: 0}
   _position_space:
     _Decimal_Granularity: 10
@@ -9888,6 +9858,11 @@ MonoBehaviour:
     _Max_Values: {x: 100, y: 100, z: 100}
   _rotation: {x: 1.0000005, y: -0.0000009536743, z: -0.0000004172325}
   _rotation_space:
+    _Decimal_Granularity: 10
+    _Min_Values: {x: -100, y: -100, z: -100}
+    _Max_Values: {x: 100, y: 100, z: 100}
+  _direction: {x: -0.0000005066395, y: -1.0000005, z: -0.00000059604645}
+  _direction_space:
     _Decimal_Granularity: 10
     _Min_Values: {x: -100, y: -100, z: -100}
     _Max_Values: {x: 100, y: 100, z: 100}
@@ -9960,12 +9935,11 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 0}
   _normalise_observation: 0
   _angular_velocity: {x: 0, y: 0, z: 0}
   _velocity: {x: 0, y: 0, z: 0}
-  _last_update_time: 7.568807
+  _last_update_time: 0.8775761
   _rigidbody: {fileID: 54970981198253758}
   _differential: 0
   _velocity_space:
@@ -10131,7 +10105,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _actor: {fileID: 114655408489002388}
   _motion_value_space:
     _Decimal_Granularity: 0
@@ -10159,7 +10132,6 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _actor: {fileID: 114655408489002388}
   _motion_value_space:
     _Decimal_Granularity: 0
@@ -10404,15 +10376,9 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 0}
   _normalise_observation: 0
   _space: 0
-  _direction: {x: 0, y: 0.0000000842937, z: -1.0000002}
-  _direction_space:
-    _Decimal_Granularity: 10
-    _Min_Values: {x: -100, y: -100, z: -100}
-    _Max_Values: {x: 100, y: 100, z: 100}
   _position: {x: -0.082, y: 0.12, z: 0}
   _position_space:
     _Decimal_Granularity: 10
@@ -10420,6 +10386,11 @@ MonoBehaviour:
     _Max_Values: {x: 100, y: 100, z: 100}
   _rotation: {x: 1.0000001, y: -0.00000011920929, z: 0}
   _rotation_space:
+    _Decimal_Granularity: 10
+    _Min_Values: {x: -100, y: -100, z: -100}
+    _Max_Values: {x: 100, y: 100, z: 100}
+  _direction: {x: 0, y: 0.0000000842937, z: -1.0000002}
+  _direction_space:
     _Decimal_Granularity: 10
     _Min_Values: {x: -100, y: -100, z: -100}
     _Max_Values: {x: 100, y: 100, z: 100}
@@ -10507,15 +10478,9 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 0}
   _normalise_observation: 0
   _space: 0
-  _direction: {x: 1.0000005, y: 0, z: -0.00000047683716}
-  _direction_space:
-    _Decimal_Granularity: 10
-    _Min_Values: {x: -100, y: -100, z: -100}
-    _Max_Values: {x: 100, y: 100, z: 100}
   _position: {x: 0.083, y: 0, z: -0.124}
   _position_space:
     _Decimal_Granularity: 10
@@ -10523,6 +10488,11 @@ MonoBehaviour:
     _Max_Values: {x: 100, y: 100, z: 100}
   _rotation: {x: 0, y: -0.00000071525574, z: 1.0000005}
   _rotation_space:
+    _Decimal_Granularity: 10
+    _Min_Values: {x: -100, y: -100, z: -100}
+    _Max_Values: {x: 100, y: 100, z: 100}
+  _direction: {x: 1.0000005, y: 0, z: -0.00000047683716}
+  _direction_space:
     _Decimal_Granularity: 10
     _Min_Values: {x: -100, y: -100, z: -100}
     _Max_Values: {x: 100, y: 100, z: 100}
@@ -10542,12 +10512,11 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 0}
   _normalise_observation: 0
   _space: 2
   _use_environments_coordinates: 1
-  _position: {x: 0, y: 1.1899999, z: -0.5}
+  _position: {x: 0, y: 1.1899999, z: -1.5}
   _rotation: {x: -1.8156386e-11, y: 0.008726537, z: -0.0000000020805153, w: 0.9999619}
 --- !u!114 &114963380255657826
 MonoBehaviour:
@@ -10599,15 +10568,9 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _: 
   _environment: {fileID: 0}
   _normalise_observation: 0
   _space: 0
-  _direction: {x: -0.7200484, y: 0.00000030840624, z: 0.69392407}
-  _direction_space:
-    _Decimal_Granularity: 10
-    _Min_Values: {x: -100, y: -100, z: -100}
-    _Max_Values: {x: 100, y: 100, z: 100}
   _position: {x: -0.088, y: 0, z: 0.051}
   _position_space:
     _Decimal_Granularity: 10
@@ -10615,6 +10578,11 @@ MonoBehaviour:
     _Max_Values: {x: 100, y: 100, z: 100}
   _rotation: {x: -0.00000057600766, y: -1.0000012, z: -0.0000001532543}
   _rotation_space:
+    _Decimal_Granularity: 10
+    _Min_Values: {x: -100, y: -100, z: -100}
+    _Max_Values: {x: 100, y: 100, z: 100}
+  _direction: {x: -0.7200484, y: 0.00000030840624, z: 0.69392407}
+  _direction_space:
     _Decimal_Granularity: 10
     _Min_Values: {x: -100, y: -100, z: -100}
     _Max_Values: {x: 100, y: 100, z: 100}
@@ -10676,7 +10644,7 @@ ConfigurableJoint:
     spring: 0
     damper: 0
   m_AngularYLimit:
-    limit: 170
+    limit: 85
     bounciness: 0
     contactDistance: 0
   m_AngularZLimit:
@@ -10868,7 +10836,7 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularZLimit:
-    limit: 170
+    limit: 85
     bounciness: 0
     contactDistance: 0
   m_TargetPosition: {x: 0, y: 0, z: 0}
@@ -10958,7 +10926,7 @@ ConfigurableJoint:
     spring: 0
     damper: 0
   m_AngularYLimit:
-    limit: 170
+    limit: 85
     bounciness: 0
     contactDistance: 0
   m_AngularZLimit:
@@ -11115,7 +11083,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.08200001, y: 0.12000013, z: 0.000000029802322}
+  m_ConnectedAnchor: {x: -0.08199998, y: 0.12000013, z: 0.000000029802322}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0

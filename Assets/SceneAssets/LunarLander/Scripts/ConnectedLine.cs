@@ -4,8 +4,7 @@ namespace SceneAssets.LunarLander.Scripts {
   /// <inheritdoc />
   /// <summary>
   /// </summary>
-  [ExecuteInEditMode]
-  [RequireComponent(typeof(LineRenderer))]
+  [ExecuteInEditMode, RequireComponent(typeof(LineRenderer))]
   public class ConnectedLine : MonoBehaviour {
     public Transform _Connection_To;
     LineRenderer _line_renderer;

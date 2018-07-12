@@ -10,20 +10,25 @@ namespace SceneAssets.Sanity.NoHorison.MultiArmedBandit {
 	/// </summary>
 	[AddComponentMenu(DisplayerComponentMenuPath._ComponentMenuPath + "MultiArmedBanditMotor" + MotorComponentMenuPath._Postfix)]
 	public class MultiArmedBanditMotor : Motor {
-
 		[SerializeField] Material[] _indicators;
 		[SerializeField] Color _inactive_color;
 		[SerializeField] Color _active_color;
 		[SerializeField] float[] _values;
 		[SerializeField] int _last_index;
 		
+		/// <inheritdoc />
 		/// <summary>
-		/// 
 		/// </summary>
 		public override string PrototypingTypeName { get { return "MultiArmedBanditMotor"; } }
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public Single[] Values { get { return this._values; } set { this._values = value; } }
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public Int32 LastIndex { get { return this._last_index; } set { this._last_index = value; } }
 
 		/// <inheritdoc />

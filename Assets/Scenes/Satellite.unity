@@ -818,7 +818,6 @@ MonoBehaviour:
     m_Extent: {x: 0, y: 0, z: 0}
   _draw_bounds: 0
   _environment: {fileID: 1620948092}
-  _script_execution_order: -10
 --- !u!114 &965130051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -845,7 +844,7 @@ MonoBehaviour:
   _Relative_To: 1
   _Rigidbody: {fileID: 965130052}
   _ForceMode: 0
-  _Angular_Motors: 0
+  _Angular_Motors: 1
 --- !u!54 &965130052
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1125,7 +1124,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1717779939}
     m_Modifications:
     - target: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1183,6 +1182,51 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224293318527779910, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114988635351345222, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 2}
+      propertyPath: _poll_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1620948092}
+    - target: {fileID: 114988635351345222, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 2}
+      propertyPath: _poll_event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: IdentifierString
+      objectReference: {fileID: 0}
+    - target: {fileID: 114501781773825270, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 2}
+      propertyPath: _poll_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1620948092}
+    - target: {fileID: 114501781773825270, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 2}
+      propertyPath: _poll_event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FrameString
+      objectReference: {fileID: 0}
+    - target: {fileID: 114088500222901950, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 2}
+      propertyPath: _poll_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1620948095}
+    - target: {fileID: 114088500222901950, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 2}
+      propertyPath: _poll_event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SignalString
+      objectReference: {fileID: 0}
+    - target: {fileID: 114221796099513398, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 2}
+      propertyPath: _poll_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1620948092}
+    - target: {fileID: 114221796099513398, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 2}
+      propertyPath: _poll_event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TerminatedBoolean
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e92782f81c5740819ca66bda35481ce, type: 2}
@@ -1484,7 +1528,6 @@ MonoBehaviour:
   _Lastest_Reset_Time: 0
   _Energy_Spent: 0
   _Terminated: 0
-  _script_execution_order: -20
   _Terminable: 1
   _LastTermination_Reason: None
   _Resetting: 0
@@ -1523,7 +1566,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _debugging: 0
   _testing_motors: 0
-  _script_execution_order: -9999
   _configuration: {fileID: 11400000, guid: 0f7ed9f832fa3445f96611947a2d99c0, type: 2}
   _skip_frame_i: 0
   _syncing_environments: 0
@@ -1548,7 +1590,6 @@ MonoBehaviour:
   _editor_reregistering: 1
   _debugging: 0
   _Episode_Return: 0
-  _in_mdp_discount_factor: 1
   _environment: {fileID: 1620948092}
   _solved_threshold: 0
   _last_signal: 0
@@ -1567,7 +1608,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Manager: {fileID: 1620948094}
   _debugging: 0
-  _script_execution_order: -2000
   _player_motions: {fileID: 11400000, guid: 43eb035cfbe4d4253b215ce70a5e5d58, type: 2}
   _auto_reset: 1
 --- !u!114 &1620948097
@@ -1667,9 +1707,15 @@ Transform:
   - {fileID: 1061500706}
   - {fileID: 1610833650}
   - {fileID: 554375541}
+  - {fileID: 1841995751}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &1841995751 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224293318527779910, guid: 2e92782f81c5740819ca66bda35481ce,
+    type: 2}
+  m_PrefabInternal: {fileID: 1163255018}
 --- !u!1 &1865115292
 GameObject:
   m_ObjectHideFlags: 0

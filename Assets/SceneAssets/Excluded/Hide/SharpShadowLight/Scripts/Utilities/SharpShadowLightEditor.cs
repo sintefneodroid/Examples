@@ -7,8 +7,7 @@ namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Utilities {
   /// <inheritdoc />
   /// <summary>
   /// </summary>
-  [CustomEditor(typeof(Lights.SharpShadowLight))]
-  [CanEditMultipleObjects]
+  [CustomEditor(typeof(Lights.SharpShadowLight)), CanEditMultipleObjects]
   public class SharpShadowLightEditor : Editor {
     /// <summary>
     /// 

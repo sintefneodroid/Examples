@@ -222,7 +222,7 @@
     <Compile Include="Assets\droid\Neodroid\Utilities\Segmentation\ChangeMaterialOnRenderByInstance.cs" />
     <Compile Include="Assets\droid\Neodroid\Utilities\Segmentation\ChangeMaterialOnRenderByTag.cs" />
     <Compile Include="Assets\droid\Neodroid\Utilities\Segmentation\SegmentationColor.cs" />
-    <Compile Include="Assets\droid\Neodroid\Utilities\Sensors\ChildSensor.cs" />
+    <Compile Include="Assets\droid\Neodroid\Utilities\Sensors\ChildColliderSensor.cs" />
     <Compile Include="Assets\droid\Neodroid\Utilities\SerialisableDictionary\Example.cs" />
     <Compile Include="Assets\droid\Neodroid\Utilities\SerialisableDictionary\SerializableDictionary.cs" />
     <Compile Include="Assets\droid\Neodroid\Utilities\SerialisableDictionary\SerializableDictionaryDrawer.cs" />
@@ -348,26 +348,26 @@
     <Compile Include="Assets\SceneAssets\Experiments\Rigidbodies\FestoBehaviour.cs" />
     <Compile Include="Assets\SceneAssets\Experiments\Rigidbodies\HoverStabilise.cs" />
     <Compile Include="Assets\SceneAssets\Experiments\Rigidbodies\Traction.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Grasps\Grasp.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Grasps\VRGrip.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Navigation\BezierCurve.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Navigation\BezierPoint.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Navigation\Path.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Navigation\PathFinding.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedGrasper\QuickGlow.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Scripts\GraspableObject.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Scripts\ObstacleSpawner.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Scripts\ScriptedGripper.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedGrasper\SimpleBlur.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Utilities\DataCollection\BlitToMaterial.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Utilities\DataCollection\DataCollector.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Utilities\DataCollection\Experimental\ImageRecorder.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Utilities\DataCollection\GraspTimedRespawn.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Utilities\DataCollection\GUIControl.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Utilities\DataCollection\TimeManager.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Utilities\DataCollection\VerticalGameObjectSpawner.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Utilities\IgnoreCollision.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Utilities\States.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Grasps\Grasp.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Grasps\VRGrip.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Navigation\BezierCurve.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Navigation\BezierPoint.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Navigation\Path.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Navigation\PathFinding.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\QuickGlow.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Scripts\GraspableObject.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Scripts\ObstacleSpawner.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Scripts\ScriptedGripper.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\SimpleBlur.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Utilities\DataCollection\BlitToMaterial.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Utilities\DataCollection\DataCollector.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Utilities\DataCollection\Experimental\ImageRecorder.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Utilities\DataCollection\GraspTimedRespawn.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Utilities\DataCollection\GUIControl.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Utilities\DataCollection\TimeManager.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Utilities\DataCollection\VerticalGameObjectSpawner.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Utilities\IgnoreCollision.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Utilities\States.cs" />
     <Compile Include="Assets\SceneAssets\GridWorlds\Scripts\EnsureReachablity.cs" />
     <Compile Include="Assets\SceneAssets\GridWorlds\Scripts\GridWorldEnvironment.cs" />
     <Compile Include="Assets\SceneAssets\ImagePuzzler\Block.cs" />
@@ -435,7 +435,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
-    <None Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Shaders\Experimental\QuickBlur.shader" />
+    <None Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Shaders\Experimental\QuickBlur.shader" />
     <None Include="Assets\Excluded\ProceduralToolkit\Examples\SDF\Animation.shader" />
     <None Include="Assets\Excluded\ProceduralToolkit\Shaders\Transitions.cginc" />
     <None Include="Assets\Excluded\ProceduralToolkit\Shaders\VertexColor\Standard Vertex Color.shader" />
@@ -453,20 +453,20 @@
     <None Include="Assets\Excluded\ProceduralToolkit\Shaders\Debug\Debug UV1.shader" />
     <None Include="Assets\Excluded\ProceduralToolkit\Shaders\Debug\Debug Bitangents.shader" />
     <None Include="Assets\droid\Neodroid\Libaries\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.xml" />
-    <None Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Shaders\IgnoreZ.shader" />
+    <None Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Shaders\IgnoreZ.shader" />
     <None Include="Assets\droid\Neodroid\Shaders\FlatColor.shader" />
     <None Include="Assets\Excluded\ProceduralToolkit\Examples\SDF\DistanceOperations.shader" />
     <None Include="Assets\SceneAssets\Excluded\Hide\SharpShadowLight\Shaders\NoTexture.shader" />
     <None Include="Assets\Excluded\ProceduralToolkit\Shaders\SDF.cginc" />
     <None Include="Assets\droid\Neodroid\Shaders\Normal.shader" />
-    <None Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Shaders\Experimental\CompositeAdd.shader" />
+    <None Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Shaders\Experimental\CompositeAdd.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
     <None Include="Assets\Excluded\ProceduralToolkit\Shaders\VertexColor\Unlit Vertex Color.shader" />
     <None Include="Assets\SceneAssets\Manipulator\Excluded\AdventureForge\CabinetsAndShelvesReadme.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\mcs.rsp" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-    <None Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Shaders\Experimental\DepthDeprecated.shader" />
+    <None Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Shaders\Experimental\DepthDeprecated.shader" />
     <None Include="Assets\Excluded\ProceduralToolkit\Examples\SDF\Transitions.shader" />
     <None Include="Assets\Excluded\ProceduralToolkit\LICENSE.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
@@ -478,7 +478,7 @@
     <None Include="Assets\Excluded\ProceduralToolkit\Shaders\Easing.cginc" />
     <None Include="Assets\droid\Neodroid\Gizmos\Icons\readme.txt" />
     <None Include="Assets\droid\Neodroid\Shaders\Segmentation.shader" />
-    <None Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Shaders\Experimental\OverDraw.shader" />
+    <None Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Shaders\Experimental\OverDraw.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
@@ -487,7 +487,7 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\SceneAssets\Excluded\Hide\SharpShadowLight\Shaders\Gradient-ZFighting.shader" />
     <None Include="Assets\Excluded\ProceduralToolkit\Shaders\Debug\Debug UV2.shader" />
-    <None Include="Assets\SceneAssets\Experiments\ScriptedGrasper\Shaders\Experimental\Shadow.shader" />
+    <None Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Shaders\Experimental\Shadow.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\Excluded\ProceduralToolkit\Examples\SDF\StarPolygon.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
@@ -758,6 +758,9 @@
     </Reference>
     <Reference Include="Poly2Tri">
       <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.9/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
+    </Reference>
+    <Reference Include="OdinSerializer">
+      <HintPath>/home/heider/Neodroid/Examples/Assets/Plugins/Excluded/Sirenix/Odin Serializer/EditorOnly/OdinSerializer.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>/opt/Unity-2018.2.0b7/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -1100,6 +1103,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{BE2D8BB4-0EA5-1B09-D75F-8D4043C30BB5}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
     <ProjectReference Include="ProceduralToolkit.csproj">
       <Project>{81D05F9D-C0D5-0BBE-1300-78CA32C5AF3A}</Project>
       <Name>ProceduralToolkit</Name>

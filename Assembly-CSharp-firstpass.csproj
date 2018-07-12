@@ -27,7 +27,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -36,7 +36,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <NoConfig>true</NoConfig>
@@ -54,7 +54,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Plugins\controlHub.cs" />
+    <Compile Include="Assets\Plugins\Excluded\BluConsole\Scripts\Core\BluLog.cs" />
+    <Compile Include="Assets\Plugins\Excluded\BluConsole\Scripts\Core\BluLogFrame.cs" />
+    <Compile Include="Assets\Plugins\Excluded\BluConsole\Scripts\Core\BluLogType.cs" />
+    <Compile Include="Assets\Plugins\Excluded\BluConsole\Scripts\Core\UnityLoggerApi\BluInternalEditorUtility.cs" />
+    <Compile Include="Assets\Plugins\Excluded\BluConsole\Scripts\Core\UnityLoggerApi\ConsoleWindow.cs" />
+    <Compile Include="Assets\Plugins\Excluded\BluConsole\Scripts\Core\UnityLoggerApi\LogEntries.cs" />
+    <Compile Include="Assets\Plugins\Excluded\BluConsole\Scripts\Core\UnityLoggerApi\LogEntry.cs" />
+    <Compile Include="Assets\Plugins\Excluded\BluConsole\Scripts\Core\UnityLoggerApi\ReflectionCache.cs" />
+    <Compile Include="Assets\Plugins\Excluded\BluConsole\Scripts\Core\UnityLoggerApi\UnityLoggerServer.cs" />
+    <Compile Include="Assets\Plugins\Excluded\BluConsole\Scripts\Extensions\Extensions.cs" />
+    <Compile Include="Assets\Plugins\Excluded\BluConsole\Scripts\StackTraceIgnore.cs" />
+    <Compile Include="Assets\Plugins\Excluded\BluConsole\Scripts\Test\Test1.cs" />
+    <Compile Include="Assets\Plugins\Excluded\BluConsole\Scripts\Test\Test2.cs" />
+    <Compile Include="Assets\Plugins\Excluded\BluConsole\Scripts\Test\Test3.cs" />
+    <Compile Include="Assets\Plugins\Excluded\BluConsole\Scripts\Test\Test4.cs" />
+    <Compile Include="Assets\Plugins\Excluded\BluConsole\Scripts\Test\Test5.cs" />
+    <Compile Include="Assets\Plugins\Excluded\BluConsole\Scripts\Test\Test6.cs" />
+    <Compile Include="Assets\Plugins\Excluded\BluConsole\Scripts\Test\TestManager.cs" />
+    <Compile Include="Assets\Plugins\Excluded\Sirenix\Odin Serializer\OdinBuildAutomation.cs" />
+    <None Include="Assets\Plugins\Excluded\Sirenix\Odin Serializer\License.txt" />
+    <None Include="Assets\Plugins\Excluded\Sirenix\Odin Serializer\EditorOnly\OdinSerializer.xml" />
+    <None Include="Assets\Plugins\Excluded\Sirenix\Odin Serializer\Version.txt" />
     <Reference Include="Unity.ProBuilder.AddOns.Editor">
       <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
@@ -299,19 +320,22 @@
       <HintPath>/home/heider/Neodroid/Examples/Assets/droid/Neodroid/Libaries/Newtonsoft.Json.11.0.2/lib/net45/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="ProBuilderCore">
-      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.8/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
+      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.9/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
     </Reference>
     <Reference Include="ProBuilderMeshOps">
-      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.8/ProBuilder/Classes/ProBuilderMeshOps.dll</HintPath>
+      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.9/ProBuilder/Classes/ProBuilderMeshOps.dll</HintPath>
     </Reference>
     <Reference Include="pb_Stl">
-      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.8/ProBuilder/Classes/ClassesLib/pb_Stl.dll</HintPath>
+      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.9/ProBuilder/Classes/ClassesLib/pb_Stl.dll</HintPath>
     </Reference>
     <Reference Include="KdTreeLib">
-      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.8/ProBuilder/Classes/ClassesLib/KdTreeLib.dll</HintPath>
+      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.9/ProBuilder/Classes/ClassesLib/KdTreeLib.dll</HintPath>
     </Reference>
     <Reference Include="Poly2Tri">
-      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.8/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
+      <HintPath>/home/heider/.config/unity3d/cache/packages/packages.unity.com/com.unity.probuilder@3.0.9/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
+    </Reference>
+    <Reference Include="OdinSerializer">
+      <HintPath>/home/heider/Neodroid/Examples/Assets/Plugins/Excluded/Sirenix/Odin Serializer/EditorOnly/OdinSerializer.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>/opt/Unity-2018.2.0b7/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -652,6 +676,16 @@
     <Reference Include="Boo.Lang">
       <HintPath>/opt/Unity-2018.2.0b7/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="ProceduralToolkit.csproj">
+      <Project>{81D05F9D-C0D5-0BBE-1300-78CA32C5AF3A}</Project>
+      <Name>ProceduralToolkit</Name>
+    </ProjectReference>
+    <ProjectReference Include="ProceduralToolkit.Editor.csproj">
+      <Project>{0B957477-8F07-B177-35AB-8B75CAD05115}</Project>
+      <Name>ProceduralToolkit.Editor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -6,9 +6,7 @@ namespace SceneAssets.Walker {
   /// <summary>
   /// 
   /// </summary>
-  [ExecuteInEditMode]
-  [RequireComponent(typeof(Light))]
-  [RequireComponent(typeof(ParticleSystem))]
+  [ExecuteInEditMode, RequireComponent(typeof(Light)), RequireComponent(typeof(ParticleSystem))]
   public class DaylightSimulator : Resetable {
     [SerializeField] float _day_atmosphere_thickness = 0.88f;
 
@@ -39,6 +37,9 @@ namespace SceneAssets.Walker {
 
     [SerializeField] Material _sky_mat;
 
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
     protected override void Setup() {
       if (this._fog_density_curve == null) {
         this._fog_density_curve = NeodroidUtilities.DefaultAnimationCurve();
@@ -102,8 +103,14 @@ namespace SceneAssets.Walker {
       this.transform.Rotate(this._rotation * Time.deltaTime * this._speed_multiplier);
     }
 
-    public override void Reset() { }
+    /// <summary>
+    /// 
+    /// </summary>
+    public override void Reset() {  }
 
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
     public override string PrototypingTypeName { get { return "DaylightSimulator"; } }
   }
 }
