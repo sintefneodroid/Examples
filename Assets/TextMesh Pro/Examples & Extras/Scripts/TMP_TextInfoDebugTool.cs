@@ -11,7 +11,7 @@ namespace TextMesh_Pro.Scripts {
     public bool ShowLines;
     public bool ShowMeshBounds;
     public bool ShowTextBounds;
-    [Space(10), TextArea(2, 2)]  public string ObjectStats;
+    [Space(10), TextArea(2, 2)] public string ObjectStats;
 
     TMP_Text m_TextComponent;
 

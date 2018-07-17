@@ -24,7 +24,6 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
     /// 
     /// </summary>
     [Header("Sphere"), SerializeField]
-    
     bool _spawn_spheres = true;
 
     /// <summary>
@@ -45,9 +44,9 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
     [Space, Header("Bounderies"), Range(0.10f, 5.00f), SerializeField]
     float _x_size = 1.4f;
 
-    [Range(0.10f, 5.00f), SerializeField]  float _y_size = 1.2f;
+    [Range(0.10f, 5.00f), SerializeField] float _y_size = 1.2f;
 
-    [Range(0.10f, 5.00f), SerializeField]  float _z_size = 1.4f;
+    [Range(0.10f, 5.00f), SerializeField] float _z_size = 1.4f;
     [SerializeField] GameObject _cube;
     [SerializeField] Material _material_cube;
 
@@ -61,10 +60,10 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
     [Space, Header("Random scaling of objects (0 = uniform scale)"), Range(0.000f, 0.300f), SerializeField]
     float _scaling_factor;
 
-    [Header("Cube"), SerializeField]  bool _spawn_cubes = true;
+    [Header("Cube"), SerializeField] bool _spawn_cubes = true;
     [SerializeField] GameObject _sphere;
 
-    [Range(0.00f, 3.00f), SerializeField]  float _y_center_point = 1.4f;
+    [Range(0.00f, 3.00f), SerializeField] float _y_center_point = 1.4f;
 
     void Awake() { this.Setup(); }
 

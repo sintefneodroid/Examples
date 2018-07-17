@@ -13,6 +13,8 @@
 
 ## Usage
 
+Requires a version of Unity >= 2018.2.0f2 (Due to a unity package manager functionality)
+
 1. ```git clone https://github.com/sintefneodroid/droid```
 2. ```git submodule init && git submodule update && cd Assets/droid && git-lfs pull```
 3. Open the repo folder as an Unity project
@@ -26,33 +28,18 @@
 ## Repository Structure
 ---
 <!--    ├  └  ─  │   -->
-    sintefneodroid/droid      # This repository
+    sintefneodroid/Examples      # This repository
     │
-    ├── docs
-    │   ├── source            # Documentation files
-    │   │
-    │   ├── make.bat          # Compile docs
-    │   └── Makefile          # ^
+    ├── Packages
+    │   └── droid          # ^
     │
-    ├── Examples              # Prebuilt Neodroid environments
-    │   ├── Assets            # Model checkpoints
-    │   │   ├── Neodroid      # Symlinked folder to top-level Neodroid folder
-    │   │   ├── SceneAssets   # All scene-specific assets for the prebuilt environments
-    │   │   └── Scenes        # All prebuilt environment scenes
-    │   │
-    │   └── Examples.sln      # C# project file
+    ├── Assets              # Prebuilt Neodroid environments
+    │   ├── SceneAssets            # All scene-specific assets for the prebuilt environments
+    │   └── Scenes        # All prebuilt environment scenes
     │
     ├── .github            # Images and such for this README
     │
-    ├── Neodroid              # The Neodroid unity package
-    │   ├── Prototyping       # All classes for quick prototyping of observations and actions
-    │   │   ├── Actors
-    │   │   ├── Evaluation
-    │   │   ├── Observers
-    │   │   ├── Displayers
-    │   │   ├── Configurables
-    │   │   └── Motors
-    │   │
+    ├── Presets              # The Neodroid unity package
     │   ├── Environments      # Classes for encapsulating all Neodroid environments
     │   ├── Managers          # Classes for managing the simulation of Neodroid environments
     │   └── Utilities         # Lots of helper functionalities

@@ -9,15 +9,14 @@ namespace SceneAssets.Sanity.NoHorison.MultiArmedBandit {
   /// <inheritdoc />
   /// <summary>
   /// </summary>
-  [AddComponentMenu(DisplayerComponentMenuPath._ComponentMenuPath + "TextBarPlot" + DisplayerComponentMenuPath._Postfix)]
+  [AddComponentMenu(
+      DisplayerComponentMenuPath._ComponentMenuPath + "TextBarPlot" + DisplayerComponentMenuPath._Postfix)]
   public class TextBarPlotDisplayer : Resetable {
-
-    
     /// <inheritdoc />
     /// <summary>
     /// </summary>
     public override String PrototypingTypeName { get { return "TextBarPlot"; } }
-    
+
     [SerializeField] CanvasBarDisplayer[] _canvas_bars;
     [SerializeField] CanvasTextDisplayer[] _canvas_text;
     [SerializeField] float[] _values;
@@ -30,7 +29,6 @@ namespace SceneAssets.Sanity.NoHorison.MultiArmedBandit {
         bar.Display(0.5);
       }
     }
-
 
     void Update() {
       if (this.Debugging) {
@@ -51,7 +49,7 @@ namespace SceneAssets.Sanity.NoHorison.MultiArmedBandit {
           }
 
           var text = this._canvas_text[i];
-          if(text) {
+          if (text) {
             text.Display(values[i]);
           }
         }

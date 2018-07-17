@@ -106,7 +106,7 @@ namespace SceneAssets.Walker {
     /// <summary>
     /// 
     /// </summary>
-    public override void Reset() {  }
+    public override void Reset() { }
 
     /// <inheritdoc />
     /// <summary>
