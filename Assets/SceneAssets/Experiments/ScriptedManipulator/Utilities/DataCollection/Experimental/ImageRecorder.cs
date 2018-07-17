@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using UnityEngine;
 
-namespace SceneAssets.Experiments.ScriptedGrasper.Utilities.DataCollection.Experimental {
+namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection.Experimental {
   public class ImageRecorder : MonoBehaviour {
     readonly string _file_path = @"training_data/shadow/";
 

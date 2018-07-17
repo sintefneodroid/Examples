@@ -1,10 +1,10 @@
 ﻿using System.Globalization;
-using SceneAssets.Experiments.ScriptedGrasper.Scripts;
+using SceneAssets.Experiments.ScriptedManipulator.Scripts;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace SceneAssets.Experiments.ScriptedGrasper.Utilities.DataCollection {
+namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
   public class GuiControl : MonoBehaviour {
     [SerializeField] Text _claw1_state;
     [SerializeField] Text _claw2_state;

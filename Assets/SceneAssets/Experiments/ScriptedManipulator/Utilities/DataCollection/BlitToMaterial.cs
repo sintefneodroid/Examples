@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SceneAssets.Experiments.ScriptedGrasper.Utilities.DataCollection {
+namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
   [ExecuteInEditMode]
   public class BlitToMaterial : MonoBehaviour {
     [SerializeField] Material _material;

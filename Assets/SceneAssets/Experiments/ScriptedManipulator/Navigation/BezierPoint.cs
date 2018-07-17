@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace SceneAssets.Experiments.ScriptedGrasper.Navigation {
+namespace SceneAssets.Experiments.ScriptedManipulator.Navigation {
   /// <summary>
   ///   - Helper class for storing and manipulating Bezier Point data
   ///   - Ensures that handles are in correct relation to one another

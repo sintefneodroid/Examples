@@ -1,7 +1,7 @@
 ﻿using System;
 using droid.Neodroid.Utilities.Unsorted;
 
-namespace SceneAssets.Experiments.ScriptedGrasper.Utilities {
+namespace SceneAssets.Experiments.ScriptedManipulator.Utilities {
   #region Enums
 
   public enum MotionState {

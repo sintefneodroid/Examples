@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using droid.Neodroid.Utilities.Unsorted;
-using SceneAssets.Experiments.ScriptedGrasper.Grasps;
+using SceneAssets.Experiments.ScriptedManipulator.Grasps;
 using UnityEngine;
 
-namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
+namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
   public class GraspableObject : MonoBehaviour,
                                  IMotionTracker {
     //[SerializeField] bool _draw_grasp = true;

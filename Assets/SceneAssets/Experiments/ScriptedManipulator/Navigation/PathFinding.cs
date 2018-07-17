@@ -2,7 +2,7 @@
 using Priority_Queue;
 using UnityEngine;
 
-namespace SceneAssets.Experiments.ScriptedGrasper.Navigation {
+namespace SceneAssets.Experiments.ScriptedManipulator.Navigation {
   public static class PathFinding {
     static float Heuristic(Vector3 source, Vector3 destination) {
       return Vector3.Distance(source, destination);

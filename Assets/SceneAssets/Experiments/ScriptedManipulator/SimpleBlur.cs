@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SceneAssets.Experiments.ScriptedGrasper {
+namespace SceneAssets.Experiments.ScriptedManipulator {
   [ExecuteInEditMode]
   public class SimpleBlur : MonoBehaviour {
     [SerializeField] Material _background;

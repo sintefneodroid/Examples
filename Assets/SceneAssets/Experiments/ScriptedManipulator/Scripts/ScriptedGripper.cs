@@ -2,12 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using droid.Neodroid.Utilities.Unsorted;
-using SceneAssets.Experiments.ScriptedGrasper.Grasps;
-using SceneAssets.Experiments.ScriptedGrasper.Navigation;
-using SceneAssets.Experiments.ScriptedGrasper.Utilities;
+using SceneAssets.Experiments.ScriptedManipulator.Grasps;
+using SceneAssets.Experiments.ScriptedManipulator.Navigation;
+using SceneAssets.Experiments.ScriptedManipulator.Utilities;
 using UnityEngine;
 
-namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
+namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
   /// <summary>
   /// 
   /// </summary>

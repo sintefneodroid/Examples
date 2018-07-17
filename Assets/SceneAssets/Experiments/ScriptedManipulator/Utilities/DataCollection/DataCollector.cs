@@ -1,10 +1,10 @@
 ﻿using System.IO;
 using System.Text;
-using SceneAssets.Experiments.ScriptedGrasper.Grasps;
-using SceneAssets.Experiments.ScriptedGrasper.Scripts;
+using SceneAssets.Experiments.ScriptedManipulator.Grasps;
+using SceneAssets.Experiments.ScriptedManipulator.Scripts;
 using UnityEngine;
 
-namespace SceneAssets.Experiments.ScriptedGrasper.Utilities.DataCollection {
+namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
   public class DataCollector : MonoBehaviour {
     [SerializeField] int _episode_length = 100;
 

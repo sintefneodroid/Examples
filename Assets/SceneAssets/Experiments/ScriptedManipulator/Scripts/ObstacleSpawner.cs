@@ -2,7 +2,7 @@
 using droid.Neodroid.Utilities.Unsorted;
 using UnityEngine;
 
-namespace SceneAssets.Experiments.ScriptedGrasper.Scripts {
+namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
   //[ExecuteInEditMode]
   /// <summary>
   /// 

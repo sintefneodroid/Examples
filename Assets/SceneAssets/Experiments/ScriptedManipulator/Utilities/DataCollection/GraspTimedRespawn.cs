@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using droid.Neodroid.Utilities.Unsorted;
-using SceneAssets.Experiments.ScriptedGrasper.Grasps;
-using SceneAssets.Experiments.ScriptedGrasper.Scripts;
+using SceneAssets.Experiments.ScriptedManipulator.Grasps;
+using SceneAssets.Experiments.ScriptedManipulator.Scripts;
 using UnityEngine;
 
-namespace SceneAssets.Experiments.ScriptedGrasper.Utilities.DataCollection {
+namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
   public class GraspTimedRespawn : MonoBehaviour {
     [SerializeField] bool _debugging;
     [SerializeField] Grasp _grasp;

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SceneAssets.Experiments.ScriptedGrasper.Grasps {
+namespace SceneAssets.Experiments.ScriptedManipulator.Grasps {
   [ExecuteInEditMode]
   public class Grasp : MonoBehaviour {
     [SerializeField] float _obstruction_cast_length = 0.1f;

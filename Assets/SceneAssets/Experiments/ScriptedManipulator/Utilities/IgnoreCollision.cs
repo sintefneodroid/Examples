@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SceneAssets.Experiments.ScriptedGrasper.Utilities {
+namespace SceneAssets.Experiments.ScriptedManipulator.Utilities {
   public class IgnoreCollision : MonoBehaviour {
     // Use this for initialization
     void Start() { }
