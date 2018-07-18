@@ -488,16 +488,6 @@
                 </e>
               </e>
             </e>
-            <e p="Sirenix" t="Include">
-              <e p="Odin Serializer" t="Include">
-                <e p="EditorOnly" t="Include">
-                  <e p="OdinSerializer.xml" t="Include" />
-                </e>
-                <e p="License.txt" t="Include" />
-                <e p="OdinBuildAutomation.cs" t="Include" />
-                <e p="Version.txt" t="Include" />
-              </e>
-            </e>
           </e>
         </e>
         <e p="SceneAssets" t="Include">
@@ -693,15 +683,6 @@
             </e>
             <e p="InjectRandomRigidbodyNoise.cs" t="Include" />
           </e>
-          <e p="Sanity" t="Include">
-            <e p="NoHorison" t="Include">
-              <e p="MultiArmedBandit" t="Include">
-                <e p="MultiArmedBanditEvaluation.cs" t="Include" />
-                <e p="MultiArmedBanditMotor.cs" t="Include" />
-                <e p="TextBarPlotDisplayer.cs" t="Include" />
-              </e>
-            </e>
-          </e>
           <e p="Satellite" t="Include">
             <e p="Scripts" t="Include">
               <e p="BodyWithMass.cs" t="Include" />
@@ -786,6 +767,13 @@
       <e p="NeodroidTests.csproj" t="IncludeRecursive" />
       <e p="Packages" t="Include">
         <e p="droid" t="Include">
+          <e p="ExampleScenes" t="Include">
+            <e p="MultiArmedBandit" t="Include">
+              <e p="MultiArmedBanditEvaluation.cs" t="Include" />
+              <e p="MultiArmedBanditMotor.cs" t="Include" />
+              <e p="TextBarPlotDisplayer.cs" t="Include" />
+            </e>
+          </e>
           <e p="Neodroid" t="Include">
             <e p="Editor" t="Include">
               <e p="GameObjects" t="Include">
@@ -1153,6 +1141,10 @@
             <e p="NeodroidTests.asmdef" t="Include" />
             <e p="SimulatorTests.cs" t="Include" />
           </e>
+          <e p="Tests" t="Include">
+            <e p="NeodroidTestsNewTestScript.cs" t="Include" />
+            <e p="Tests.asmdef" t="Include" />
+          </e>
           <e p="mcs.rsp" t="Include" />
         </e>
       </e>
@@ -1161,6 +1153,7 @@
       <e p="Temp" t="ExcludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
       </e>
+      <e p="Tests.csproj" t="IncludeRecursive" />
       <e p="net.cnheider.neodroid.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
