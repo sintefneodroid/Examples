@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using droid.Neodroid.Environments;
-using droid.Neodroid.Prototyping.Evaluation;
-using droid.Neodroid.Prototyping.Observers.Grid;
-using droid.Neodroid.Utilities.Structs;
-using droid.Neodroid.Utilities.Unsorted;
+using Neodroid.Environments;
+using Neodroid.Prototyping.Evaluation;
+using Neodroid.Prototyping.Observers.Grid;
+using Neodroid.Utilities.Structs;
+using Neodroid.Utilities.Unsorted;
 using UnityEngine;
 
 namespace SceneAssets.GridWorlds.Scripts {

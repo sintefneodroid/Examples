@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using droid.Neodroid.Utilities.Structs;
+using Neodroid.Utilities.Structs;
 using UnityEngine;
 using Object = System.Object;
 using Random = UnityEngine.Random;

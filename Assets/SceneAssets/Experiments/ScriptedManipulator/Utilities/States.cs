@@ -1,5 +1,5 @@
 ﻿using System;
-using droid.Neodroid.Utilities.Unsorted;
+using Neodroid.Utilities.Unsorted;
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Utilities {
   #region Enums

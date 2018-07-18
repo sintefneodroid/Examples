@@ -1,7 +1,7 @@
 ﻿using System.Collections;
-using droid.Neodroid.Prototyping.Actors;
-using droid.Neodroid.Prototyping.Internals;
-using droid.Neodroid.Utilities.Unsorted;
+using Neodroid.Prototyping.Actors;
+using Neodroid.Prototyping.Internals;
+using Neodroid.Utilities.Unsorted;
 using UnityEngine;
 
 namespace SceneAssets.LunarLander.Scripts {
