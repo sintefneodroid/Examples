@@ -178,7 +178,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1751041613}
+  - {fileID: 1720318890}
   - {fileID: 769297009}
   - {fileID: 287115054}
   m_Father: {fileID: 1175400990}
@@ -969,8 +969,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _debugging: 0
   _testing_motors: 0
-  _script_execution_order: -9999
   _configuration: {fileID: 11400000, guid: e2189a3389d5f499e860c3b928a2b944, type: 2}
+  _skip_frame_i: 0
+  _syncing_environments: 0
+  _awaiting_reply: 0
+  _step: 0
+  _has_stepped: 0
   _allow_in_editor_blockage: 0
 --- !u!114 &773778363
 MonoBehaviour:
@@ -983,11 +987,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1c2f6fda1324e1dbb824ee2e6e7321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _manager: {fileID: 773778362}
+  _Manager: {fileID: 773778362}
+  _debugging: 0
   _player_motions: {fileID: 11400000, guid: 0ad9e632d748947ef8043fb831dd184b, type: 2}
   _auto_reset: 1
-  _debugging: 0
-  _script_execution_order: -2000
 --- !u!1 &875329660
 GameObject:
   m_ObjectHideFlags: 0
@@ -1684,7 +1687,6 @@ MonoBehaviour:
     m_Extent: {x: 0.4000001, y: 0.4, z: 0.4000001}
   _draw_bounds: 0
   _environment: {fileID: 1943801937}
-  _script_execution_order: -10
 --- !u!114 &1650564494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1732,7 +1734,7 @@ MonoBehaviour:
   _normalise_observation: 0
   _angular_velocity: {x: 0, y: 0, z: 0}
   _velocity: {x: 0, y: 0, z: 0}
-  _last_update_time: 0.35333335
+  _last_update_time: 0
   _rigidbody: {fileID: 1650564497}
   _differential: 0
   _velocity_space:
@@ -1783,9 +1785,9 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!4 &1751041613 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce,
+--- !u!224 &1720318890 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224293318527779910, guid: 2e92782f81c5740819ca66bda35481ce,
     type: 2}
   m_PrefabInternal: {fileID: 1933536016}
 --- !u!1001 &1933536016
@@ -1840,12 +1842,12 @@ Prefab:
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.69125
+      value: 0.531875
       objectReference: {fileID: 0}
     - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 247
+      value: 374.5
       objectReference: {fileID: 0}
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
@@ -1961,7 +1963,6 @@ MonoBehaviour:
   _editor_reregistering: 1
   _debugging: 0
   _Episode_Return: 0
-  _in_mdp_discount_factor: 1
   _environment: {fileID: 1943801937}
   _solved_threshold: 0
   _last_signal: 0
@@ -2014,12 +2015,20 @@ MonoBehaviour:
   _debugging: 0
   _Simulation_Manager: {fileID: 773778362}
   _episode_length: 1000
-  _script_execution_order: -20
+  _Lastest_Reset_Time: 0
+  _Energy_Spent: 0
+  _Terminated: 0
+  _Terminable: 1
+  _LastTermination_Reason: None
+  _Resetting: 0
+  _current_frame_number: 0
   _objective_function: {fileID: 1943801934}
   _coordinate_reference_point: {fileID: 1650564486}
   _track_only_children: 1
   _coordinate_system: 1
   _playable_area: {fileID: 1943801936}
+  _reset_i: 0
+  _initials_saved_flag: 0
 --- !u!114 &1943801938
 MonoBehaviour:
   m_ObjectHideFlags: 0

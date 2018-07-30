@@ -335,6 +335,23 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e9875463c1ed451bb25878f63e0cdc7, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &93136903 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1238596673498848, guid: 9e9875463c1ed451bb25878f63e0cdc7,
+    type: 2}
+  m_PrefabInternal: {fileID: 93136902}
+--- !u!114 &93136904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 93136903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00a8513f1d35246ad88d5fc538bc6346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _caller: {fileID: 433336210}
 --- !u!21 &195729467
 Material:
   serializedVersion: 6
@@ -431,6 +448,7 @@ GameObject:
   - component: {fileID: 199698695}
   - component: {fileID: 199698694}
   - component: {fileID: 199698697}
+  - component: {fileID: 199698698}
   m_Layer: 0
   m_Name: Goal2
   m_TagString: Goal
@@ -527,6 +545,18 @@ MonoBehaviour:
   _current_goal_position: {x: 0, y: 0, z: 0}
   _draw_names: 1
   _order_index: 0
+--- !u!114 &199698698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 199698692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00a8513f1d35246ad88d5fc538bc6346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _caller: {fileID: 433336210}
 --- !u!43 &291461660
 Mesh:
   m_ObjectHideFlags: 0
@@ -707,12 +737,12 @@ Prefab:
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.2340625
       objectReference: {fileID: 0}
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.689375
+      value: 0.7659375
       objectReference: {fileID: 0}
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
@@ -737,7 +767,7 @@ Prefab:
     - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 248.5
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e92782f81c5740819ca66bda35481ce, type: 2}
@@ -908,6 +938,7 @@ GameObject:
   - component: {fileID: 433336211}
   - component: {fileID: 433336210}
   - component: {fileID: 433336213}
+  - component: {fileID: 433336214}
   m_Layer: 0
   m_Name: Environment
   m_TagString: Untagged
@@ -932,7 +963,6 @@ MonoBehaviour:
   _editor_reregistering: 1
   _debugging: 0
   _Episode_Return: 0
-  _in_mdp_discount_factor: 1
   _environment: {fileID: 433336211}
   _solved_threshold: 0
   _last_signal: 0
@@ -959,14 +989,22 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _Simulation_Manager: {fileID: 0}
+  _Simulation_Manager: {fileID: 433336213}
   _episode_length: 1000
-  _script_execution_order: -20
-  _objective_function: {fileID: 0}
+  _Lastest_Reset_Time: 0
+  _Energy_Spent: 0
+  _Terminated: 0
+  _Terminable: 1
+  _LastTermination_Reason: None
+  _Resetting: 0
+  _current_frame_number: 0
+  _objective_function: {fileID: 433336210}
   _coordinate_reference_point: {fileID: 0}
   _track_only_children: 1
   _coordinate_system: 1
-  _playable_area: {fileID: 0}
+  _playable_area: {fileID: 433336216}
+  _reset_i: 0
+  _initials_saved_flag: 0
 --- !u!4 &433336212
 Transform:
   m_ObjectHideFlags: 0
@@ -996,9 +1034,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _debugging: 0
   _testing_motors: 0
-  _script_execution_order: -9999
   _configuration: {fileID: 787374341}
+  _skip_frame_i: 0
+  _syncing_environments: 0
+  _awaiting_reply: 0
+  _step: 0
+  _has_stepped: 0
   _allow_in_editor_blockage: 0
+--- !u!114 &433336214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 433336209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00a8513f1d35246ad88d5fc538bc6346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _caller: {fileID: 433336210}
 --- !u!65 &433336215
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1043,6 +1097,7 @@ GameObject:
   - component: {fileID: 709803749}
   - component: {fileID: 709803748}
   - component: {fileID: 709803747}
+  - component: {fileID: 709803752}
   m_Layer: 0
   m_Name: Manipulator
   m_TagString: Actor
@@ -1142,7 +1197,6 @@ MonoBehaviour:
     m_Extent: {x: 0, y: 0, z: 0}
   _draw_bounds: 0
   _environment: {fileID: 433336211}
-  _script_execution_order: -10
 --- !u!54 &709803751
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1159,6 +1213,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &709803752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 709803746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00a8513f1d35246ad88d5fc538bc6346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _caller: {fileID: 433336210}
 --- !u!21 &710446778
 Material:
   serializedVersion: 6
@@ -1255,6 +1321,7 @@ GameObject:
   - component: {fileID: 710721098}
   - component: {fileID: 710721100}
   - component: {fileID: 710721097}
+  - component: {fileID: 710721101}
   m_Layer: 0
   m_Name: Goal1
   m_TagString: Goal
@@ -1351,6 +1418,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &710721101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 710721095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00a8513f1d35246ad88d5fc538bc6346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _caller: {fileID: 433336210}
 --- !u!21 &768078400
 Material:
   serializedVersion: 6
@@ -1447,6 +1526,7 @@ GameObject:
   - component: {fileID: 768519086}
   - component: {fileID: 768519085}
   - component: {fileID: 768519084}
+  - component: {fileID: 768519087}
   m_Layer: 0
   m_Name: House
   m_TagString: Actor
@@ -1527,6 +1607,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 768519082}
   m_Mesh: {fileID: 4300006, guid: f742b9df054d68644ba2621b1fdb5859, type: 3}
+--- !u!114 &768519087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 768519082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00a8513f1d35246ad88d5fc538bc6346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _caller: {fileID: 433336210}
 --- !u!114 &787374341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1538,6 +1630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5f73ed10ef42709ef975f07e9b1a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _apply_resolution_settings: 0
   _full_screen: 0
   _width: 500
   _height: 500
@@ -1551,11 +1644,12 @@ MonoBehaviour:
   _target_frame_rate: -1
   _ip_address: localhost
   _port: 6969
-  _do_serialise_unobservables: 0
-  _do_serialise_indidual_observables: 0
+  _always_serialise_unobservables: 0
+  _always_serialise_indidual_observables: 0
   _update_fixed_time_scale: 0
   _max_reply_interval: 0
   _num_of_environments: 0
+  _replay_reaction_in_skips: 0
 --- !u!21 &796073441
 Material:
   serializedVersion: 6
@@ -2006,6 +2100,7 @@ GameObject:
   - component: {fileID: 1165498830}
   - component: {fileID: 1165498829}
   - component: {fileID: 1165498828}
+  - component: {fileID: 1165498832}
   m_Layer: 0
   m_Name: Claw2
   m_TagString: Actor
@@ -2102,6 +2197,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1165498826}
   m_Mesh: {fileID: 4300000, guid: f742b9df054d68644ba2621b1fdb5859, type: 3}
+--- !u!114 &1165498832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1165498826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00a8513f1d35246ad88d5fc538bc6346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _caller: {fileID: 433336210}
 --- !u!1 &1173944696
 GameObject:
   m_ObjectHideFlags: 0
@@ -2425,6 +2532,7 @@ GameObject:
   - component: {fileID: 1363222656}
   - component: {fileID: 1363222655}
   - component: {fileID: 1363222658}
+  - component: {fileID: 1363222659}
   m_Layer: 0
   m_Name: Goal4
   m_TagString: Goal
@@ -2521,6 +2629,18 @@ MonoBehaviour:
   _current_goal_position: {x: 0, y: 0, z: 0}
   _draw_names: 1
   _order_index: 0
+--- !u!114 &1363222659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1363222653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00a8513f1d35246ad88d5fc538bc6346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _caller: {fileID: 433336210}
 --- !u!21 &1371373111
 Material:
   serializedVersion: 6
@@ -2812,6 +2932,7 @@ GameObject:
   - component: {fileID: 1498498905}
   - component: {fileID: 1498498904}
   - component: {fileID: 1498498903}
+  - component: {fileID: 1498498908}
   m_Layer: 0
   m_Name: SliderMotor
   m_TagString: Actor
@@ -2937,6 +3058,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1498498901}
   m_Mesh: {fileID: 4300004, guid: f742b9df054d68644ba2621b1fdb5859, type: 3}
+--- !u!114 &1498498908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1498498901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00a8513f1d35246ad88d5fc538bc6346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _caller: {fileID: 433336210}
 --- !u!1 &1505300449
 GameObject:
   m_ObjectHideFlags: 0
@@ -3335,6 +3468,7 @@ GameObject:
   - component: {fileID: 1915265703}
   - component: {fileID: 1915265702}
   - component: {fileID: 1915265701}
+  - component: {fileID: 1915265705}
   m_Layer: 0
   m_Name: Claw1
   m_TagString: Actor
@@ -3431,6 +3565,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1915265699}
   m_Mesh: {fileID: 4300002, guid: f742b9df054d68644ba2621b1fdb5859, type: 3}
+--- !u!114 &1915265705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1915265699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00a8513f1d35246ad88d5fc538bc6346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _caller: {fileID: 433336210}
 --- !u!1 &1973966704
 GameObject:
   m_ObjectHideFlags: 0
@@ -3566,6 +3712,7 @@ GameObject:
   - component: {fileID: 2050422327}
   - component: {fileID: 2050422326}
   - component: {fileID: 2050422329}
+  - component: {fileID: 2050422330}
   m_Layer: 0
   m_Name: Goal3
   m_TagString: Goal
@@ -3662,6 +3809,18 @@ MonoBehaviour:
   _current_goal_position: {x: 0, y: 0, z: 0}
   _draw_names: 1
   _order_index: 0
+--- !u!114 &2050422330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2050422324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00a8513f1d35246ad88d5fc538bc6346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _caller: {fileID: 433336210}
 --- !u!1 &2079893295
 GameObject:
   m_ObjectHideFlags: 0

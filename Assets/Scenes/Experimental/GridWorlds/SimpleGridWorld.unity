@@ -401,6 +401,37 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 475446146}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &666599399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff5f73ed10ef42709ef975f07e9b1a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _apply_resolution_settings: 0
+  _full_screen: 0
+  _width: 500
+  _height: 500
+  _quality_level: 1
+  _frame_finishes: 3
+  _reset_iterations: 1
+  _frame_skips: 0
+  _simulation_type: 0
+  _step_execution_phase: 1
+  _time_scale: 1
+  _target_frame_rate: -1
+  _ip_address: localhost
+  _port: 6969
+  _always_serialise_unobservables: 0
+  _always_serialise_indidual_observables: 0
+  _update_fixed_time_scale: 0
+  _max_reply_interval: 0
+  _num_of_environments: 0
+  _replay_reaction_in_skips: 0
 --- !u!1001 &744080835
 Prefab:
   m_ObjectHideFlags: 0
@@ -676,7 +707,7 @@ Transform:
   - {fileID: 331667747}
   - {fileID: 744080836}
   - {fileID: 979055168}
-  - {fileID: 1751041613}
+  - {fileID: 1866891588}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1009,11 +1040,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1650564485}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1751041613 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce,
-    type: 2}
-  m_PrefabInternal: {fileID: 1866891587}
 --- !u!1001 &1866891587
 Prefab:
   m_ObjectHideFlags: 0
@@ -1100,16 +1126,26 @@ Prefab:
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.68937373
+      value: 0.531875
       objectReference: {fileID: 0}
     - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 248.50163
+      value: 374.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224293318527779910, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e92782f81c5740819ca66bda35481ce, type: 2}
   m_IsPrefabAsset: 0
+--- !u!224 &1866891588 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224293318527779910, guid: 2e92782f81c5740819ca66bda35481ce,
+    type: 2}
+  m_PrefabInternal: {fileID: 1866891587}
 --- !u!1 &1943801930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,11 +1190,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1c2f6fda1324e1dbb824ee2e6e7321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _manager: {fileID: 1943801933}
+  _Manager: {fileID: 1943801933}
+  _debugging: 0
   _player_motions: {fileID: 11400000, guid: 649c3415cdb1c417fa4d85a5723d8fd4, type: 2}
   _auto_reset: 1
-  _debugging: 0
-  _script_execution_order: -2000
 --- !u!114 &1943801933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1172,8 +1207,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _debugging: 0
   _testing_motors: 0
-  _script_execution_order: -1000
-  _configuration: {fileID: 0}
+  _configuration: {fileID: 666599399}
+  _skip_frame_i: 0
+  _syncing_environments: 0
+  _awaiting_reply: 0
+  _step: 0
+  _has_stepped: 0
   _allow_in_editor_blockage: 0
 --- !u!114 &1943801935
 MonoBehaviour:
@@ -1193,7 +1232,13 @@ MonoBehaviour:
   _debugging: 0
   _Simulation_Manager: {fileID: 0}
   _episode_length: 1000
-  _script_execution_order: -20
+  _Lastest_Reset_Time: 0
+  _Energy_Spent: 0
+  _Terminated: 0
+  _Terminable: 1
+  _LastTermination_Reason: None
+  _Resetting: 0
+  _current_frame_number: 0
   _actor_renderer: {fileID: 1650564487}
   _actor_x: 2
   _actor_y: 1

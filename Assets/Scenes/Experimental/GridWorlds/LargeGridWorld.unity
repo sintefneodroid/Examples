@@ -152,6 +152,11 @@ Transform:
   m_Father: {fileID: 1943801931}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &59524173 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224296894259501836, guid: 2e92782f81c5740819ca66bda35481ce,
+    type: 2}
+  m_PrefabInternal: {fileID: 1866891587}
 --- !u!1 &138967060
 GameObject:
   m_ObjectHideFlags: 0
@@ -6191,6 +6196,37 @@ Transform:
   m_Father: {fileID: 251524082}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &919875358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff5f73ed10ef42709ef975f07e9b1a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _apply_resolution_settings: 0
+  _full_screen: 0
+  _width: 500
+  _height: 500
+  _quality_level: 1
+  _frame_finishes: 3
+  _reset_iterations: 1
+  _frame_skips: 0
+  _simulation_type: 0
+  _step_execution_phase: 1
+  _time_scale: 1
+  _target_frame_rate: -1
+  _ip_address: localhost
+  _port: 6969
+  _always_serialise_unobservables: 0
+  _always_serialise_indidual_observables: 0
+  _update_fixed_time_scale: 0
+  _max_reply_interval: 0
+  _num_of_environments: 0
+  _replay_reaction_in_skips: 0
 --- !u!1 &929718258
 GameObject:
   m_ObjectHideFlags: 0
@@ -6787,6 +6823,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1093460780}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!224 &1151105233 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224293318527779910, guid: 2e92782f81c5740819ca66bda35481ce,
+    type: 2}
+  m_PrefabInternal: {fileID: 1866891587}
 --- !u!1 &1175400989
 GameObject:
   m_ObjectHideFlags: 0
@@ -6812,7 +6853,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1751041613}
+  - {fileID: 1151105233}
   - {fileID: 744080836}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -7952,7 +7993,6 @@ MonoBehaviour:
     m_Extent: {x: 0, y: 0, z: 0}
   _draw_bounds: 0
   _environment: {fileID: 1943801937}
-  _script_execution_order: -10
 --- !u!114 &1650564494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8306,11 +8346,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1742764867}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1751041613 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce,
-    type: 2}
-  m_PrefabInternal: {fileID: 1866891587}
 --- !u!1 &1823857759
 GameObject:
   m_ObjectHideFlags: 0
@@ -8492,12 +8527,12 @@ Prefab:
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.68936497
+      value: 0.531875
       objectReference: {fileID: 0}
     - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 248.51448
+      value: 374.5002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e92782f81c5740819ca66bda35481ce, type: 2}
@@ -8741,8 +8776,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _debugging: 0
   _testing_motors: 0
-  _script_execution_order: -1000
-  _configuration: {fileID: 0}
+  _configuration: {fileID: 919875358}
+  _skip_frame_i: 0
+  _syncing_environments: 0
+  _awaiting_reply: 0
+  _step: 0
+  _has_stepped: 0
   _allow_in_editor_blockage: 0
 --- !u!114 &1943801934
 MonoBehaviour:
@@ -8761,7 +8800,6 @@ MonoBehaviour:
   _editor_reregistering: 1
   _debugging: 0
   _Episode_Return: 0
-  _in_mdp_discount_factor: 1
   _environment: {fileID: 1943801937}
   _solved_threshold: 0
   _last_signal: 0
@@ -8769,7 +8807,7 @@ MonoBehaviour:
   _exponent: 2
   _sparse: 1
   _goal: {fileID: 745076139}
-  _actor_transform: {fileID: 0}
+  _actor_transform: {fileID: 59524173}
   _playable_area: {fileID: 1943801936}
   _obstructions: []
   _state_full: 0
@@ -8788,11 +8826,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1c2f6fda1324e1dbb824ee2e6e7321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _manager: {fileID: 1943801933}
+  _Manager: {fileID: 1943801933}
+  _debugging: 0
   _player_motions: {fileID: 11400000, guid: 89bb62747dac84347941765995296270, type: 2}
   _auto_reset: 1
-  _debugging: 0
-  _script_execution_order: -2000
 --- !u!114 &1943801936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8826,14 +8863,22 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _Simulation_Manager: {fileID: 0}
+  _Simulation_Manager: {fileID: 1943801933}
   _episode_length: 250
-  _script_execution_order: -20
+  _Lastest_Reset_Time: 0
+  _Energy_Spent: 0
+  _Terminated: 0
+  _Terminable: 1
+  _LastTermination_Reason: None
+  _Resetting: 0
+  _current_frame_number: 0
   _objective_function: {fileID: 1943801934}
   _coordinate_reference_point: {fileID: 1650564486}
   _track_only_children: 1
   _coordinate_system: 2
   _playable_area: {fileID: 1943801936}
+  _reset_i: 0
+  _initials_saved_flag: 0
 --- !u!1 &1963020936
 GameObject:
   m_ObjectHideFlags: 0

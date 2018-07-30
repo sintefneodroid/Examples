@@ -262,7 +262,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1751041613}
+  - {fileID: 1866891589}
   - {fileID: 769297009}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -3491,7 +3491,6 @@ MonoBehaviour:
     m_Extent: {x: 0.4000001, y: 0.4, z: 0.4000001}
   _draw_bounds: 0
   _environment: {fileID: 1943801937}
-  _script_execution_order: -10
 --- !u!114 &1650564494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3845,11 +3844,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1742764867}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1751041613 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce,
-    type: 2}
-  m_PrefabInternal: {fileID: 1866891587}
 --- !u!1 &1823857759
 GameObject:
   m_ObjectHideFlags: 0
@@ -3982,7 +3976,7 @@ Prefab:
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.689375
+      value: 0.531875
       objectReference: {fileID: 0}
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
@@ -4017,7 +4011,7 @@ Prefab:
     - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 248.5
+      value: 374.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e92782f81c5740819ca66bda35481ce, type: 2}
@@ -4025,6 +4019,11 @@ Prefab:
 --- !u!224 &1866891588 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224296894259501836, guid: 2e92782f81c5740819ca66bda35481ce,
+    type: 2}
+  m_PrefabInternal: {fileID: 1866891587}
+--- !u!224 &1866891589 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224293318527779910, guid: 2e92782f81c5740819ca66bda35481ce,
     type: 2}
   m_PrefabInternal: {fileID: 1866891587}
 --- !u!1 &1885873971
@@ -4266,8 +4265,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _debugging: 0
   _testing_motors: 0
-  _script_execution_order: -9999
   _configuration: {fileID: 11400000, guid: c3c70696f17e34bd680ff7a7d04d960b, type: 2}
+  _skip_frame_i: 0
+  _syncing_environments: 0
+  _awaiting_reply: 0
+  _step: 0
+  _has_stepped: 0
   _allow_in_editor_blockage: 0
 --- !u!114 &1943801934
 MonoBehaviour:
@@ -4286,7 +4289,6 @@ MonoBehaviour:
   _editor_reregistering: 1
   _debugging: 0
   _Episode_Return: 0
-  _in_mdp_discount_factor: 1
   _environment: {fileID: 1943801937}
   _solved_threshold: 0
   _last_signal: 0
@@ -4315,11 +4317,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1c2f6fda1324e1dbb824ee2e6e7321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _manager: {fileID: 1943801933}
+  _Manager: {fileID: 1943801933}
+  _debugging: 0
   _player_motions: {fileID: 11400000, guid: 89bb62747dac84347941765995296270, type: 2}
   _auto_reset: 1
-  _debugging: 0
-  _script_execution_order: -2000
 --- !u!114 &1943801936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4355,12 +4356,20 @@ MonoBehaviour:
   _debugging: 0
   _Simulation_Manager: {fileID: 1943801933}
   _episode_length: 200
-  _script_execution_order: -20
+  _Lastest_Reset_Time: 0
+  _Energy_Spent: 0
+  _Terminated: 0
+  _Terminable: 1
+  _LastTermination_Reason: None
+  _Resetting: 0
+  _current_frame_number: 0
   _objective_function: {fileID: 1943801934}
   _coordinate_reference_point: {fileID: 1650564486}
   _track_only_children: 1
   _coordinate_system: 1
   _playable_area: {fileID: 1943801936}
+  _reset_i: 0
+  _initials_saved_flag: 0
 --- !u!114 &1943801938
 MonoBehaviour:
   m_ObjectHideFlags: 0

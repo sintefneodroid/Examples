@@ -11,4 +11,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa96101fe55749209a8963174b3defa, type: 3}
   m_Name: CarPlayerMotions
   m_EditorClassIdentifier: 
-  _Motions: []
+  _Motions:
+  - _Key: 119
+    _Actor: ActorActor
+    _Motor: FRTorque
+    _Strength: 1
+  - _Key: 115
+    _Actor: ActorActor
+    _Motor: FRTorque
+    _Strength: -1
+  - _Key: 97
+    _Actor: ActorActor
+    _Motor: FRSteering
+    _Strength: 1
+  - _Key: 100
+    _Actor: ActorActor
+    _Motor: FLSteering
+    _Strength: 0
+  - _Key: 114
+    _Actor: Environment
+    _Motor: Reset
+    _Strength: 1
