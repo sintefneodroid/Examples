@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Utilities;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Lights {
   /// <summary>

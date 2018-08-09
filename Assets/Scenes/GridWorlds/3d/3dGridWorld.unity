@@ -121,7 +121,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 197384602}
-  - component: {fileID: 197384603}
   m_Layer: 0
   m_Name: 39a0927514e4b46a7b473690a46c4929
   m_TagString: Untagged
@@ -142,17 +141,6 @@ Transform:
   m_Father: {fileID: 875329661}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &197384603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 197384601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 393ba449d1ca2d84ead6595000d41c14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &209709474
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +166,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1751041613}
+  - {fileID: 1167657354}
   - {fileID: 769297009}
   - {fileID: 287115054}
   m_Father: {fileID: 1175400990}
@@ -599,8 +587,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _debugging: 0
   _testing_motors: 0
-  _script_execution_order: -9999
   _configuration: {fileID: 11400000, guid: e2189a3389d5f499e860c3b928a2b944, type: 2}
+  _skip_frame_i: 0
+  _syncing_environments: 0
+  _awaiting_reply: 0
+  _step: 0
+  _has_stepped: 0
   _allow_in_editor_blockage: 1
 --- !u!114 &773778363
 MonoBehaviour:
@@ -613,11 +605,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1c2f6fda1324e1dbb824ee2e6e7321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _manager: {fileID: 773778362}
+  _Manager: {fileID: 773778362}
+  _debugging: 0
   _player_motions: {fileID: 11400000, guid: 89bb62747dac84347941765995296270, type: 2}
   _auto_reset: 1
-  _debugging: 0
-  _script_execution_order: -2000
 --- !u!1001 &813440989
 Prefab:
   m_ObjectHideFlags: 0
@@ -791,6 +782,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627c6167d445e91469f411043fdb2236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1167657354 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224293318527779910, guid: 2e92782f81c5740819ca66bda35481ce,
+    type: 2}
+  m_PrefabInternal: {fileID: 1933536016}
 --- !u!1 &1175400989
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,7 +831,7 @@ GameObject:
   - component: {fileID: 1369387255}
   - component: {fileID: 1369387254}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: MainCameraRight
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -863,8 +859,8 @@ Camera:
   m_GameObject: {fileID: 1369387253}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.12691349, g: 0.4339623, b: 0.36290783, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -920,7 +916,7 @@ GameObject:
   - component: {fileID: 1533926071}
   - component: {fileID: 1533926070}
   m_Layer: 0
-  m_Name: Main Camera (1)
+  m_Name: MainCameraLeft
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -961,8 +957,8 @@ Camera:
   m_GameObject: {fileID: 1533926068}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.12691349, g: 0.4339623, b: 0.36290783, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -1160,7 +1156,6 @@ MonoBehaviour:
     m_Extent: {x: 0.4000001, y: 0.4, z: 0.4000001}
   _draw_bounds: 0
   _environment: {fileID: 1943801937}
-  _script_execution_order: -10
 --- !u!114 &1650564494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1239,11 +1234,6 @@ MonoBehaviour:
     _Decimal_Granularity: 10
     _Min_Values: {x: -100, y: -100, z: -100}
     _Max_Values: {x: 100, y: 100, z: 100}
---- !u!4 &1751041613 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce,
-    type: 2}
-  m_PrefabInternal: {fileID: 1933536016}
 --- !u!1001 &1933536016
 Prefab:
   m_ObjectHideFlags: 0
@@ -1425,12 +1415,14 @@ MonoBehaviour:
   _editor_reregistering: 1
   _debugging: 0
   _Episode_Return: 0
-  _in_mdp_discount_factor: 1
   _environment: {fileID: 1943801937}
   _solved_threshold: 0
   _last_signal: 0
   _peak_reward: 0
-  _exponent: 1
+  _distance_base: 2
+  _distance_nominator: 5
+  _angle_base: 6
+  _angle_nominator: 3
   _sparse: 0
   _goal: {fileID: 745076139}
   _actor_transform: {fileID: 1650564486}
@@ -1478,12 +1470,20 @@ MonoBehaviour:
   _debugging: 0
   _Simulation_Manager: {fileID: 773778362}
   _episode_length: 1000
-  _script_execution_order: -20
+  _Lastest_Reset_Time: 0
+  _Energy_Spent: 0
+  _Terminated: 0
+  _Terminable: 1
+  _LastTermination_Reason: None
+  _Resetting: 0
+  _current_frame_number: 0
   _objective_function: {fileID: 1943801934}
   _coordinate_reference_point: {fileID: 1650564486}
   _track_only_children: 1
   _coordinate_system: 1
   _playable_area: {fileID: 1943801936}
+  _reset_i: 0
+  _initials_saved_flag: 0
 --- !u!114 &1943801938
 MonoBehaviour:
   m_ObjectHideFlags: 0

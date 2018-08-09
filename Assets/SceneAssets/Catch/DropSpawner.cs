@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Neodroid.Utilities.Structs;
 using UnityEngine;
-using Object = System.Object;
 using Random = UnityEngine.Random;
 
 namespace SceneAssets.Catch {

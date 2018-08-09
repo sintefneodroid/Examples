@@ -121,14 +121,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 197384602}
-  - component: {fileID: 197384603}
   m_Layer: 0
   m_Name: 39a0927514e4b46a7b473690a46c4929
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &197384602
 Transform:
   m_ObjectHideFlags: 0
@@ -142,17 +141,6 @@ Transform:
   m_Father: {fileID: 875329661}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &197384603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 197384601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 393ba449d1ca2d84ead6595000d41c14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &209709474
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,7 +957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _debugging: 0
   _testing_motors: 0
-  _configuration: {fileID: 11400000, guid: e2189a3389d5f499e860c3b928a2b944, type: 2}
+  _configuration: {fileID: 11400000, guid: c3c70696f17e34bd680ff7a7d04d960b, type: 2}
   _skip_frame_i: 0
   _syncing_environments: 0
   _awaiting_reply: 0
@@ -1734,7 +1722,7 @@ MonoBehaviour:
   _normalise_observation: 0
   _angular_velocity: {x: 0, y: 0, z: 0}
   _velocity: {x: 0, y: 0, z: 0}
-  _last_update_time: 0
+  _last_update_time: 1.1940169
   _rigidbody: {fileID: 1650564497}
   _differential: 0
   _velocity_space:
@@ -1842,12 +1830,12 @@ Prefab:
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.531875
+      value: 0.51375
       objectReference: {fileID: 0}
     - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 374.5
+      value: 389
       objectReference: {fileID: 0}
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
@@ -2014,7 +2002,7 @@ MonoBehaviour:
   _editor_reregistering: 1
   _debugging: 0
   _Simulation_Manager: {fileID: 773778362}
-  _episode_length: 1000
+  _episode_length: 4000
   _Lastest_Reset_Time: 0
   _Energy_Spent: 0
   _Terminated: 0

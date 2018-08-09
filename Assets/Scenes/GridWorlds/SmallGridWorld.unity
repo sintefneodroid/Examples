@@ -121,14 +121,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 197384602}
-  - component: {fileID: 197384603}
   m_Layer: 0
   m_Name: 39a0927514e4b46a7b473690a46c4929
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &197384602
 Transform:
   m_ObjectHideFlags: 0
@@ -142,19 +141,6 @@ Transform:
   m_Father: {fileID: 875329661}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &197384603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 197384601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 393ba449d1ca2d84ead6595000d41c14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Settings:
-  - {fileID: 1531645587}
 --- !u!1 &209709474
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,7 +166,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1751041613}
+  - {fileID: 2020908407}
   - {fileID: 769297009}
   - {fileID: 287115054}
   m_Father: {fileID: 1175400990}
@@ -971,8 +957,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _debugging: 0
   _testing_motors: 0
-  _script_execution_order: -9999
-  _configuration: {fileID: 11400000, guid: e2189a3389d5f499e860c3b928a2b944, type: 2}
+  _configuration: {fileID: 11400000, guid: 88c3c899a02384efdba0c7ba008dad77, type: 2}
+  _skip_frame_i: 0
+  _syncing_environments: 0
+  _awaiting_reply: 0
+  _step: 0
+  _has_stepped: 0
   _allow_in_editor_blockage: 0
 --- !u!114 &773778363
 MonoBehaviour:
@@ -985,11 +975,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1c2f6fda1324e1dbb824ee2e6e7321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _manager: {fileID: 773778362}
+  _Manager: {fileID: 773778362}
+  _debugging: 0
   _player_motions: {fileID: 11400000, guid: 89bb62747dac84347941765995296270, type: 2}
   _auto_reset: 1
-  _debugging: 0
-  _script_execution_order: -2000
 --- !u!1 &875329660
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,24 +1306,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1442532566}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1531645587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c011637fb4c894c56a9178092966b5ac, type: 3}
-  m_Name: 4f6f0c92-489d-445b-b973-aa2509ef7c5e
-  m_EditorClassIdentifier: 
-  m_DisplayName: Animation
-  m_Id: 4d240cba-834a-4a3f-907c-5359d0322335
-  gameObject: {fileID: 0}
-  enabled: 0
-  recursive: 1
-  fold: 1
-  bindingTypeName: []
 --- !u!1 &1534593085
 GameObject:
   m_ObjectHideFlags: 0
@@ -1705,7 +1676,6 @@ MonoBehaviour:
     m_Extent: {x: 0.4000001, y: 0.4, z: 0.4000001}
   _draw_bounds: 0
   _environment: {fileID: 1943801937}
-  _script_execution_order: -10
 --- !u!114 &1650564494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1856,11 +1826,6 @@ MonoBehaviour:
     _Min_Values: {x: -1, y: -1, z: -1}
     _Max_Values: {x: 1, y: 1, z: 1}
   _target: {fileID: 745076139}
---- !u!4 &1751041613 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce,
-    type: 2}
-  m_PrefabInternal: {fileID: 1933536016}
 --- !u!1001 &1933536016
 Prefab:
   m_ObjectHideFlags: 0
@@ -1913,12 +1878,12 @@ Prefab:
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.7024773
+      value: 0.51375
       objectReference: {fileID: 0}
     - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 237.99998
+      value: 389.00012
       objectReference: {fileID: 0}
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
@@ -1927,7 +1892,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1190758182245004, guid: 2e92782f81c5740819ca66bda35481ce, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e92782f81c5740819ca66bda35481ce, type: 2}
@@ -1998,13 +1963,15 @@ MonoBehaviour:
   _editor_reregistering: 1
   _debugging: 0
   _Episode_Return: 0
-  _in_mdp_discount_factor: 1
   _environment: {fileID: 1943801937}
   _solved_threshold: 0
   _last_signal: 0
   _peak_reward: 0
-  _exponent: 2
-  _sparse: 1
+  _distance_base: 2
+  _distance_nominator: 8.3
+  _angle_base: 6
+  _angle_nominator: 3
+  _sparse: 0
   _goal: {fileID: 745076139}
   _actor_transform: {fileID: 1650564486}
   _playable_area: {fileID: 1943801936}
@@ -2014,7 +1981,7 @@ MonoBehaviour:
   _state_full: 0
   _goal_reached_radius: 0.01
   _solved_reward: 1
-  _default_reward: 0
+  _default_reward: -0.01
   _terminate_on_collision: 0
 --- !u!114 &1943801936
 MonoBehaviour:
@@ -2051,12 +2018,20 @@ MonoBehaviour:
   _debugging: 0
   _Simulation_Manager: {fileID: 773778362}
   _episode_length: 200
-  _script_execution_order: -20
+  _Lastest_Reset_Time: 0
+  _Energy_Spent: 0
+  _Terminated: 0
+  _Terminable: 1
+  _LastTermination_Reason: None
+  _Resetting: 0
+  _current_frame_number: 0
   _objective_function: {fileID: 1943801934}
   _coordinate_reference_point: {fileID: 1650564486}
   _track_only_children: 1
   _coordinate_system: 1
   _playable_area: {fileID: 1943801936}
+  _reset_i: 0
+  _initials_saved_flag: 0
 --- !u!114 &1943801938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2111,6 +2086,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &2020908407 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224293318527779910, guid: 2e92782f81c5740819ca66bda35481ce,
+    type: 2}
+  m_PrefabInternal: {fileID: 1933536016}
 --- !u!1 &2143180218
 GameObject:
   m_ObjectHideFlags: 0

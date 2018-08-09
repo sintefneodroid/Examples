@@ -3976,7 +3976,7 @@ Prefab:
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.531875
+      value: 0.51375
       objectReference: {fileID: 0}
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
@@ -4011,7 +4011,7 @@ Prefab:
     - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 374.5
+      value: 389
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e92782f81c5740819ca66bda35481ce, type: 2}
@@ -4293,7 +4293,10 @@ MonoBehaviour:
   _solved_threshold: 0
   _last_signal: 0
   _peak_reward: 0
-  _exponent: 2
+  _distance_base: 2
+  _distance_nominator: 5
+  _angle_base: 6
+  _angle_nominator: 3
   _sparse: 0
   _goal: {fileID: 745076139}
   _actor_transform: {fileID: 1866891588}
