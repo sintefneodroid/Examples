@@ -67,9 +67,6 @@ namespace TextMesh_Pro.Scripts {
         if (this.TextMeshFont != null) {
           this.m_textMesh.font = this.TextMeshFont;
           //m_textMesh.renderer.sharedMaterial = m_textMesh.font.material;
-        } else {
-          //m_textMesh.font = Resources.Load("Fonts/ARIAL", typeof(Font)) as Font;
-          //m_textMesh.renderer.sharedMaterial = m_textMesh.font.material;
         }
 
         this.m_textMesh.fontSize = 48;

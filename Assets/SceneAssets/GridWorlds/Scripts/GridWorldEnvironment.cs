@@ -5,6 +5,7 @@ using Neodroid.Prototyping.Evaluation;
 using Neodroid.Prototyping.Observers.Grid;
 using Neodroid.Utilities.Structs;
 using Neodroid.Utilities.Unsorted;
+using Neodroid.Utilities.Unsorted.SearchableEnum;
 using UnityEngine;
 
 namespace SceneAssets.GridWorlds.Scripts {
@@ -67,6 +68,7 @@ namespace SceneAssets.GridWorlds.Scripts {
     /// <summary>
     /// 
     /// </summary>
+
     public static MazeDirection RandomValue { get { return (MazeDirection)Random.Range(0, _Count); } }
 
     /// <summary>
@@ -77,7 +79,6 @@ namespace SceneAssets.GridWorlds.Scripts {
     public static IntVector3 ToIntVector3(this MazeDirection direction) { return _vectors[(int)direction]; }
   }
 
-  /// <inheritdoc />
   /// <summary>
   /// </summary>
   [RequireComponent(typeof(GoalCellObserver))]

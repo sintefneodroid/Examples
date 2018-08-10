@@ -87,8 +87,6 @@ namespace TextMesh_Pro.Scripts {
                                  + this.CameraTarget.TransformDirection(
                                      Quaternion.Euler(this.ElevationAngle, this.OrbitalAngle, 0f)
                                      * (new Vector3(0, 0, -this.FollowDistance)));
-        } else {
-          // Free Camera implementation
         }
 
         if (this.MovementSmoothing == true) {

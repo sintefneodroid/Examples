@@ -124,20 +124,22 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Navigation {
     #region UnityFunctions
 
     void OnDrawGizmos() {
-      Gizmos.color = this._draw_color;
-      if (!this._draw_curve) {
-        this._draw_color.a = 0;
-      } else if (this._draw_curve) {
-        this._draw_color.a = 255;
-      }
-
-      if (this._points.Length > 1) {
-        for (var i = 0; i < this._points.Length - 1; i++) {
-          DrawCurve(this._points[i], this._points[i + 1], this._resolution);
+      if (this.enabled) {
+        Gizmos.color = this._draw_color;
+        if (!this._draw_curve) {
+          this._draw_color.a = 0;
+        } else if (this._draw_curve) {
+          this._draw_color.a = 255;
         }
 
-        if (this.Close) {
-          DrawCurve(this._points[this._points.Length - 1], this._points[0], this._resolution);
+        if (this._points.Length > 1) {
+          for (var i = 0; i < this._points.Length - 1; i++) {
+            DrawCurve(this._points[i], this._points[i + 1], this._resolution);
+          }
+
+          if (this.Close) {
+            DrawCurve(this._points[this._points.Length - 1], this._points[0], this._resolution);
+          }
         }
       }
     }

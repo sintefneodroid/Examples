@@ -1,6 +1,9 @@
 using UnityEngine;
 
 namespace SceneAssets.Satellite.Scripts {
+  /// <summary>
+  /// 
+  /// </summary>
   [RequireComponent(typeof(Rigidbody))]
   public class BodyWithMass : MonoBehaviour {
     const float _gravitational_constant = 667.4f;
