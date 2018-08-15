@@ -957,7 +957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _debugging: 0
   _testing_motors: 0
-  _configuration: {fileID: 11400000, guid: 88c3c899a02384efdba0c7ba008dad77, type: 2}
+  _configuration: {fileID: 11400000, guid: 3d032a9579bcd4d1480cc25aaa91d2d8, type: 2}
   _skip_frame_i: 0
   _syncing_environments: 0
   _awaiting_reply: 0
@@ -1978,6 +1978,26 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 773778362}
+    - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 16.500006
+      objectReference: {fileID: 0}
+    - target: {fileID: 224582703667719680, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.69125
+      objectReference: {fileID: 0}
+    - target: {fileID: 224701342121933384, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 247
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e92782f81c5740819ca66bda35481ce, type: 2}
   m_IsPrefabAsset: 0
@@ -2055,7 +2075,7 @@ MonoBehaviour:
   _distance_nominator: 7.9
   _angle_base: 6
   _angle_nominator: 3
-  _sparse: 0
+  _sparse: 1
   _goal: {fileID: 745076139}
   _actor_transform: {fileID: 1650564486}
   _playable_area: {fileID: 1943801936}
@@ -2064,8 +2084,8 @@ MonoBehaviour:
   - {fileID: 895734767}
   _state_full: 0
   _goal_reached_radius: 0.01
-  _solved_reward: 1000
-  _default_reward: -2
+  _solved_reward: 10000
+  _default_reward: 0
   _terminate_on_collision: 0
 --- !u!114 &1943801936
 MonoBehaviour:

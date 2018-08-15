@@ -35,6 +35,7 @@
               </e>
             </e>
             <e p="Scripts" t="Include">
+              <e p="ScenePreview.cs" t="Include" />
               <e p="SimpleCameraController.cs" t="Include" />
             </e>
           </e>
@@ -405,6 +406,28 @@
                 <e p="Specular Vertex Color.shader" t="Include" />
                 <e p="Standard Vertex Color.shader" t="Include" />
                 <e p="Unlit Vertex Color.shader" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Utils" t="Include">
+            <e p="ExecutionOrderManager.cs" t="Include" />
+            <e p="MissingReferencesFinder.cs" t="Include" />
+            <e p="ObjectDropdownAttribute.cs" t="Include" />
+            <e p="ObjectSelectorDropdown.cs" t="Include" />
+            <e p="ScriptExecutionOrderAttribute.cs" t="Include" />
+            <e p="UnityMainThreadDispatcher.cs" t="Include" />
+            <e p="reference_checker" t="Include">
+              <e p="unity-reference-checker-master" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="ColorfulLogBuilder.cs" t="Include" />
+                  <e p="Commands.cs" t="Include" />
+                  <e p="Settings.cs" t="Include" />
+                  <e p="SettingsWindow.cs" t="Include" />
+                </e>
+                <e p="IgnoreRefCheckerAttribute.cs" t="Include" />
+                <e p="Tests" t="Include">
+                  <e p="RefCheckerTestComponent.cs" t="Include" />
+                </e>
               </e>
             </e>
           </e>
@@ -869,6 +892,7 @@
                   </e>
                 </e>
                 <e p="GameObjectScatterPlotDisplayer.cs" t="Include" />
+                <e p="IndexedScatterPlotDisplayer.cs" t="Include" />
                 <e p="ScatterPlotDisplayer.cs" t="Include" />
                 <e p="TextMeshDisplayer.cs" t="Include" />
               </e>

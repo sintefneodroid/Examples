@@ -774,7 +774,6 @@ GameObject:
   - component: {fileID: 965130054}
   - component: {fileID: 965130055}
   - component: {fileID: 965130056}
-  - component: {fileID: 965130057}
   m_Layer: 0
   m_Name: Satellite
   m_TagString: Untagged
@@ -935,38 +934,7 @@ MonoBehaviour:
   _normalise_observation: 0
   _angular_velocity: {x: 0, y: 0, z: 0}
   _velocity: {x: 0, y: 0, z: 0}
-  _last_update_time: 0
-  _rigidbody: {fileID: 965130052}
-  _differential: 1
-  _velocity_space:
-    _Decimal_Granularity: 10
-    _Min_Values: {x: -100, y: -100, z: -100}
-    _Max_Values: {x: 100, y: 100, z: 100}
-  _angular_space:
-    _Decimal_Granularity: 10
-    _Min_Values: {x: -100, y: -100, z: -100}
-    _Max_Values: {x: 100, y: 100, z: 100}
---- !u!114 &965130057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 965130048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8246a433fa854b2aa2438e2441a02a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Custom_Name: 
-  _Use_Custom_Name: 0
-  _disables_children: 0
-  _editor_reregistering: 1
-  _debugging: 0
-  _environment: {fileID: 1620948092}
-  _normalise_observation: 0
-  _angular_velocity: {x: 0, y: 0, z: 0}
-  _velocity: {x: 0, y: 0, z: 0}
-  _last_update_time: 0
+  _last_update_time: 0.05103709
   _rigidbody: {fileID: 965130052}
   _differential: 0
   _velocity_space:
@@ -1249,12 +1217,17 @@ Prefab:
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.531875
+      value: 0.69125
       objectReference: {fileID: 0}
     - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 374.5
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224701342121933384, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 247
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e92782f81c5740819ca66bda35481ce, type: 2}
