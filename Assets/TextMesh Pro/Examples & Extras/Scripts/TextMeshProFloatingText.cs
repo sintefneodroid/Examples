@@ -122,8 +122,8 @@ namespace TextMesh_Pro.Scripts {
         this.m_floatingText_Transform.position += new Vector3(0, starting_Count * Time.deltaTime, 0);
 
         // Align floating text perpendicular to Camera.
-        if (!TMPro_ExtensionMethods.Compare(this.lastPOS, this.m_cameraTransform.position, 1000)
-            || !TMPro_ExtensionMethods.Compare(this.lastRotation, this.m_cameraTransform.rotation, 1000)) {
+        if (!this.lastPOS.Compare(this.m_cameraTransform.position, 1000)
+            || !this.lastRotation.Compare(this.m_cameraTransform.rotation, 1000)) {
           this.lastPOS = this.m_cameraTransform.position;
           this.lastRotation = this.m_cameraTransform.rotation;
           this.m_floatingText_Transform.rotation = this.lastRotation;
@@ -173,8 +173,8 @@ namespace TextMesh_Pro.Scripts {
         this.m_floatingText_Transform.position += new Vector3(0, starting_Count * Time.deltaTime, 0);
 
         // Align floating text perpendicular to Camera.
-        if (!TMPro_ExtensionMethods.Compare(this.lastPOS, this.m_cameraTransform.position, 1000)
-            || !TMPro_ExtensionMethods.Compare(this.lastRotation, this.m_cameraTransform.rotation, 1000)) {
+        if (!this.lastPOS.Compare(this.m_cameraTransform.position, 1000)
+            || !this.lastRotation.Compare(this.m_cameraTransform.rotation, 1000)) {
           this.lastPOS = this.m_cameraTransform.position;
           this.lastRotation = this.m_cameraTransform.rotation;
           this.m_floatingText_Transform.rotation = this.lastRotation;

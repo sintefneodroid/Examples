@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
 namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Utilities {
+  /// <inheritdoc />
   /// <summary>
-  /// 
   /// </summary>
   public class ExampleScript : MonoBehaviour {
     [HideInInspector] public static int _Vertex_Count;

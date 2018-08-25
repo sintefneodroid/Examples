@@ -8,8 +8,8 @@ using SceneAssets.Experiments.ScriptedManipulator.Utilities;
 using UnityEngine;
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
+  /// <inheritdoc />
   /// <summary>
-  /// 
   /// </summary>
   public class ScriptedGripper : MonoBehaviour {
     /*

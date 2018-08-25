@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using Neodroid.Utilities.Structs;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace SceneAssets.Catch {
+  /// <inheritdoc />
   /// <summary>
-  /// 
   /// </summary>
   public class DropSpawner : MonoBehaviour {
     /// <summary>

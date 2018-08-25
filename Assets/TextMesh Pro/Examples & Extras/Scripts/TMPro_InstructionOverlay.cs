@@ -8,7 +8,7 @@ namespace TextMesh_Pro.Scripts {
       BottomLeft,
       TopRight,
       BottomRight
-    };
+    }
 
     public FpsCounterAnchorPositions AnchorPosition = FpsCounterAnchorPositions.BottomLeft;
 

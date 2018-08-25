@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
 namespace SceneAssets.Experiments.Rigidbodies {
+  /// <inheritdoc />
   /// <summary>
-  /// 
   /// </summary>
   public class HoverStabilise : MonoBehaviour {
     Rigidbody _rb;

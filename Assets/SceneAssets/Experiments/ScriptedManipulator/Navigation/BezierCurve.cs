@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Navigation {
+  /// <inheritdoc />
   /// <summary>
   ///   - Class for describing and drawing Bezier Curves
   ///   - Efficiently handles approximate length calculation through 'dirty' system

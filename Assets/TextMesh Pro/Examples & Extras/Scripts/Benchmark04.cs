@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TextMesh_Pro.Scripts {
   public class Benchmark04 : MonoBehaviour {
-    public int SpawnType = 0;
+    public int SpawnType;
 
     public int MinPointSize = 12;
     public int MaxPointSize = 64;

@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
   //[ExecuteInEditMode]
+  /// <inheritdoc />
   /// <summary>
-  /// 
   /// </summary>
   public class ObstacleSpawner : MonoBehaviour {
     /// <summary>

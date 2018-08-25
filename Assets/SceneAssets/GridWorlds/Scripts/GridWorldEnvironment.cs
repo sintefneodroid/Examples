@@ -5,7 +5,6 @@ using Neodroid.Prototyping.Evaluation;
 using Neodroid.Prototyping.Observers.Grid;
 using Neodroid.Utilities.Structs;
 using Neodroid.Utilities.Unsorted;
-using Neodroid.Utilities.Unsorted.SearchableEnum;
 using UnityEngine;
 
 namespace SceneAssets.GridWorlds.Scripts {
@@ -79,6 +78,7 @@ namespace SceneAssets.GridWorlds.Scripts {
     public static IntVector3 ToIntVector3(this MazeDirection direction) { return _vectors[(int)direction]; }
   }
 
+  /// <inheritdoc />
   /// <summary>
   /// </summary>
   [RequireComponent(typeof(GoalCellObserver))]
@@ -272,7 +272,7 @@ namespace SceneAssets.GridWorlds.Scripts {
 
       this._goal_cell_observer = this.gameObject.GetComponent<GoalCellObserver>();
 
-      this.Setup();
+      //this.Setup();
 
       var dominant_dimension = Mathf.Max(xs, ys, zs);
       this._camera.orthographicSize = dominant_dimension / 2f + 1f;
@@ -324,9 +324,9 @@ namespace SceneAssets.GridWorlds.Scripts {
 
         this.NewGridWorld();
 
-        this.Reset();
+        this.EnvironmentReset();
 
-        this.Setup();
+        //this.Setup();
 
         if (this._Configure) {
           this._Configure = false;

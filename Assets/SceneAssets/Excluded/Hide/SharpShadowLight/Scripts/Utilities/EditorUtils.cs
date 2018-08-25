@@ -5,8 +5,8 @@ using System.Text.RegularExpressions;
 using UnityEditor;
 
 namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Utilities {
+  /// <inheritdoc />
   /// <summary>
-  /// 
   /// </summary>
   public class EditorUtils : Editor {
     public static EditorUtils _EditorUtils;

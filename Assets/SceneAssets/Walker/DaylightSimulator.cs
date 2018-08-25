@@ -3,8 +3,8 @@ using Neodroid.Utilities.Unsorted;
 using UnityEngine;
 
 namespace SceneAssets.Walker {
+  /// <inheritdoc />
   /// <summary>
-  /// 
   /// </summary>
   [ExecuteInEditMode, RequireComponent(typeof(Light)), RequireComponent(typeof(ParticleSystem))]
   public class DaylightSimulator : Resetable {
@@ -103,10 +103,10 @@ namespace SceneAssets.Walker {
       this.transform.Rotate(this._rotation * Time.deltaTime * this._speed_multiplier);
     }
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    public override void Reset() { }
+    public override void EnvironmentReset() { }
 
     /// <inheritdoc />
     /// <summary>

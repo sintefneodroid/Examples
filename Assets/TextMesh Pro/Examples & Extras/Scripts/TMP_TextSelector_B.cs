@@ -44,7 +44,7 @@ namespace TextMesh_Pro.Scripts {
       }
 
       // Create pop-up text object which is used to show the link information.
-      this.m_TextPopup_RectTransform = Instantiate(this.TextPopup_Prefab_01) as RectTransform;
+      this.m_TextPopup_RectTransform = Instantiate(this.TextPopup_Prefab_01);
       this.m_TextPopup_RectTransform.SetParent(this.m_Canvas.transform, false);
       this.m_TextPopup_TMPComponent =
           this.m_TextPopup_RectTransform.GetComponentInChildren<TextMeshProUGUI>();
@@ -184,7 +184,7 @@ namespace TextMesh_Pro.Scripts {
             // Get a reference to the vertex color
             var vertexColors = this.m_TextMeshPro.textInfo.meshInfo[meshIndex].colors32;
 
-            var c = TMPro_ExtensionMethods.Tint(vertexColors[vertexIndex + 0], 1.33333f);
+            var c = vertexColors[vertexIndex + 0].Tint(1.33333f);
 
             vertexColors[vertexIndex + 0] = c;
             vertexColors[vertexIndex + 1] = c;
@@ -218,7 +218,7 @@ namespace TextMesh_Pro.Scripts {
             // Get a reference to the vertex color
             var vertexColors = this.m_TextMeshPro.textInfo.meshInfo[meshIndex].colors32;
 
-            var c = TMPro_ExtensionMethods.Tint(vertexColors[vertexIndex + 0], 0.75f);
+            var c = vertexColors[vertexIndex + 0].Tint(0.75f);
 
             vertexColors[vertexIndex + 0] = c;
             vertexColors[vertexIndex + 1] = c;

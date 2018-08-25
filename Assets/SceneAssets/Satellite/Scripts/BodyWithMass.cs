@@ -1,8 +1,8 @@
 using UnityEngine;
 
 namespace SceneAssets.Satellite.Scripts {
+  /// <inheritdoc />
   /// <summary>
-  /// 
   /// </summary>
   [RequireComponent(typeof(Rigidbody))]
   public class BodyWithMass : MonoBehaviour {

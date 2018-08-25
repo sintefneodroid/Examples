@@ -340,7 +340,7 @@
               <e p="Draw.cs" t="Include" />
               <e p="DrawRaster.cs" t="Include" />
               <e p="Editor" t="Include">
-                <e p="ColorHSVDrawer.cs" t="Include" />
+                <e p="ColorHsvDrawer.cs" t="Include" />
                 <e p="MeshFilterExtension.cs" t="Include" />
                 <e p="ProceduralToolkit.Editor.asmdef" t="Include" />
                 <e p="ProceduralToolkitMenu.cs" t="Include" />
@@ -410,10 +410,14 @@
             </e>
           </e>
           <e p="Utils" t="Include">
+            <e p="ArrowRenderer.cs" t="Include" />
+            <e p="CylinderLineRenderer.cs" t="Include" />
             <e p="ExecutionOrderManager.cs" t="Include" />
             <e p="MissingReferencesFinder.cs" t="Include" />
             <e p="ObjectDropdownAttribute.cs" t="Include" />
             <e p="ObjectSelectorDropdown.cs" t="Include" />
+            <e p="RuntimeDebugDraw.cs" t="Include" />
+            <e p="RuntimeDebugDrawExample.cs" t="Include" />
             <e p="ScriptExecutionOrderAttribute.cs" t="Include" />
             <e p="UnityMainThreadDispatcher.cs" t="Include" />
             <e p="reference_checker" t="Include">
@@ -906,6 +910,7 @@
                 <e p="ReachArea.cs" t="Include" />
                 <e p="ReachGoal.cs" t="Include" />
                 <e p="RestInArea.cs" t="Include" />
+                <e p="SeekAndAvoidEvaluation.cs" t="Include" />
                 <e p="Tasks" t="Include">
                   <e p="TaskSequence.cs" t="Include" />
                 </e>
@@ -938,6 +943,7 @@
                 <e p="RigidbodyMotor.cs" t="Include" />
                 <e p="RigidbodyMotor1Dof.cs" t="Include" />
                 <e p="RigidbodyMotor3Dof.cs" t="Include" />
+                <e p="TargetRigidbodyMotor.cs" t="Include" />
                 <e p="WheelColliderMotor" t="Include">
                   <e p="SteeringMotor.cs" t="Include" />
                   <e p="TorqueMotor.cs" t="Include" />
@@ -971,6 +977,7 @@
                   <e p="RigidbodyObserver.cs" t="Include" />
                   <e p="VelocityObserver.cs" t="Include" />
                 </e>
+                <e p="TargetRigidbodyObserver.cs" t="Include" />
                 <e p="Transform" t="Include">
                   <e p="EulerTransformObserver.cs" t="Include" />
                   <e p="PositionObserver.cs" t="Include" />
@@ -1014,6 +1021,7 @@
                 <e p="PrototypingGameObject.cs" t="Include" />
               </e>
               <e p="Interfaces" t="Include">
+                <e p="IEnvironmentListener.cs" t="Include" />
                 <e p="IHasArray.cs" t="Include" />
                 <e p="IHasByteArray.cs" t="Include" />
                 <e p="IHasDouble.cs" t="Include" />
@@ -1025,6 +1033,7 @@
                 <e p="IHasRigidbody.cs" t="Include" />
                 <e p="IHasSingle.cs" t="Include" />
                 <e p="IHasTriple.cs" t="Include" />
+                <e p="IResetable.cs" t="Include" />
               </e>
               <e p="Messaging" t="Include">
                 <e p="FBS" t="Include">
@@ -1114,6 +1123,7 @@
               </e>
               <e p="Unsorted" t="Include">
                 <e p="ActionCounter.cs" t="Include" />
+                <e p="DrawArrow.cs" t="Include" />
                 <e p="DrawString.cs" t="Include" />
                 <e p="EnsureValidState.cs" t="Include" />
                 <e p="FollowTarget.cs" t="Include" />
@@ -1121,6 +1131,7 @@
                 <e p="GameObjectCloner.cs" t="Include" />
                 <e p="GraspingUtilities.cs" t="Include" />
                 <e p="GridCell.cs" t="Include" />
+                <e p="GuiDraw.cs" t="Include" />
                 <e p="JointFix.cs" t="Include" />
                 <e p="MotionTracker.cs" t="Include" />
                 <e p="Note.cs" t="Include" />

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
 namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Utilities {
+  /// <inheritdoc />
   /// <summary>
-  /// 
   /// </summary>
   public class Rotate : MonoBehaviour {
     [SerializeField] Vector3 _rotation_vector = Vector3.up;

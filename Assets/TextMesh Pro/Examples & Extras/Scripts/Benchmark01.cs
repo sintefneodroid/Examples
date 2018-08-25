@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TextMesh_Pro.Scripts {
   public class Benchmark01 : MonoBehaviour {
-    public int BenchmarkType = 0;
+    public int BenchmarkType;
 
     public TMP_FontAsset TMProFont;
     public Font TextMeshFont;
@@ -83,7 +83,7 @@ namespace TextMesh_Pro.Scripts {
                                                               this.m_material01;
           }
         } else if (this.BenchmarkType == 1) {
-          this.m_textMesh.text = label02 + (i % 1000).ToString();
+          this.m_textMesh.text = label02 + (i % 1000);
         }
 
         yield return null;

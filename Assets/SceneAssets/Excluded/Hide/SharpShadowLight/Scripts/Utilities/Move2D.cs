@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
 namespace SceneAssets.Excluded.Hide.SharpShadowLight.Scripts.Utilities {
+  /// <inheritdoc />
   /// <summary>
-  /// 
   /// </summary>
   public class Move2D : MonoBehaviour {
     /// <summary>

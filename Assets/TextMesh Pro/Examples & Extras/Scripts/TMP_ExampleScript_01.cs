@@ -6,7 +6,7 @@ namespace TextMesh_Pro.Scripts {
     public enum objectType {
       TextMeshPro = 0,
       TextMeshProUGUI = 1
-    };
+    }
 
     public objectType ObjectType;
     public bool isStatic;

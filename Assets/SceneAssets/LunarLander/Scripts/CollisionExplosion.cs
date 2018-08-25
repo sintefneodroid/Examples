@@ -116,7 +116,7 @@ namespace SceneAssets.LunarLander.Scripts {
       this._Parent_Environment.Terminate("Actor exploded");
     }
 
-    public override void Reset() {
+    public override void EnvironmentReset() {
       if (this._broken_object) {
         Destroy(this._broken_object);
       }
