@@ -62,7 +62,6 @@
     <Compile Include="Assets\Excluded\Common\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
     <Compile Include="Assets\Excluded\Common\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
     <Compile Include="Assets\Excluded\Common\ReadMe\ScriptableObjects\ReadMe.cs" />
-    <Compile Include="Assets\Excluded\Common\Scripts\ScenePreview.cs" />
     <Compile Include="Assets\Excluded\Common\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Excluded\Klak\Extension\MaterialExtension.cs" />
     <Compile Include="Assets\Excluded\Klak\Extension\VectorMathExtension.cs" />
@@ -1010,4 +1009,9 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp">
+      <HintPath>/opt/Unity-2018.2.4f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Microsoft.CSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

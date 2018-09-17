@@ -62,6 +62,7 @@
     <Compile Include="Packages\droid\Neodroid\Editor\GameObjects\MotorSpawner.cs" />
     <Compile Include="Packages\droid\Neodroid\Editor\GameObjects\ObserverSpawner.cs" />
     <Compile Include="Packages\droid\Neodroid\Editor\GameObjects\PrebuiltSpawner.cs" />
+    <Compile Include="Packages\droid\Neodroid\Editor\GameObjects\PrefabSpawnerPopup.cs" />
     <Compile Include="Packages\droid\Neodroid\Editor\ScriptableObjects\Curriculum.cs" />
     <Compile Include="Packages\droid\Neodroid\Editor\ScriptableObjects\EditorScriptableObjectMenuPath.cs" />
     <Compile Include="Packages\droid\Neodroid\Editor\ScriptableObjects\NeodroidTask.cs" />
@@ -110,13 +111,19 @@
     <Compile Include="Packages\droid\Neodroid\Prototyping\Configurables\TransformConfigurable1Dof.cs" />
     <Compile Include="Packages\droid\Neodroid\Prototyping\Displayers\Canvas\CanvasBarDisplayer.cs" />
     <Compile Include="Packages\droid\Neodroid\Prototyping\Displayers\Canvas\CanvasTextDisplayer.cs" />
+    <Compile Include="Packages\droid\Neodroid\Prototyping\Displayers\Canvas\DistributionDisplayer.cs" />
+    <Compile Include="Packages\droid\Neodroid\Prototyping\Displayers\Cells\HexCellDisplayer.cs" />
+    <Compile Include="Packages\droid\Neodroid\Prototyping\Displayers\Cells\QuadCellDisplayer.cs" />
     <Compile Include="Packages\droid\Neodroid\Prototyping\Displayers\Displayer.cs" />
     <Compile Include="Packages\droid\Neodroid\Prototyping\Displayers\DisplayerComponentMenuPath.cs" />
     <Compile Include="Packages\droid\Neodroid\Prototyping\Displayers\Experimental\ECS\ECSDisplayer.cs" />
     <Compile Include="Packages\droid\Neodroid\Prototyping\Displayers\Experimental\ECS\ECSScatterPlotDisplayer.cs" />
-    <Compile Include="Packages\droid\Neodroid\Prototyping\Displayers\GameObjectScatterPlotDisplayer.cs" />
-    <Compile Include="Packages\droid\Neodroid\Prototyping\Displayers\IndexedScatterPlotDisplayer.cs" />
-    <Compile Include="Packages\droid\Neodroid\Prototyping\Displayers\ScatterPlotDisplayer.cs" />
+    <Compile Include="Packages\droid\Neodroid\Prototyping\Displayers\GridWorld\VectorFieldDisplayer1.cs" />
+    <Compile Include="Packages\droid\Neodroid\Prototyping\Displayers\ScatterPlots\GameObjectScatterPlotDisplayer.cs" />
+    <Compile Include="Packages\droid\Neodroid\Prototyping\Displayers\ScatterPlots\IndexedScatterPlotDisplayer.cs" />
+    <Compile Include="Packages\droid\Neodroid\Prototyping\Displayers\ScatterPlots\ScatterPlotDisplayer.cs" />
+    <Compile Include="Packages\droid\Neodroid\Prototyping\Displayers\ScatterPlots\TextScatterPlotDisplayer.cs" />
+    <Compile Include="Packages\droid\Neodroid\Prototyping\Displayers\ScatterPlots\VectorFieldDisplayer.cs" />
     <Compile Include="Packages\droid\Neodroid\Prototyping\Displayers\TextMeshDisplayer.cs" />
     <Compile Include="Packages\droid\Neodroid\Prototyping\Evaluation\AngularVelocityEvaluation.cs" />
     <Compile Include="Packages\droid\Neodroid\Prototyping\Evaluation\EuclideanDistance.cs" />
@@ -196,7 +203,7 @@
     <Compile Include="Packages\droid\Neodroid\Utilities\Interfaces\IHasByteArray.cs" />
     <Compile Include="Packages\droid\Neodroid\Utilities\Interfaces\IHasDouble.cs" />
     <Compile Include="Packages\droid\Neodroid\Utilities\Interfaces\IHasEulerTransform.cs" />
-    <Compile Include="Packages\droid\Neodroid\Utilities\Interfaces\IHasFloatEnumarable.cs" />
+    <Compile Include="Packages\droid\Neodroid\Utilities\Interfaces\IHasFloatEnumerable.cs" />
     <Compile Include="Packages\droid\Neodroid\Utilities\Interfaces\IHasQuadruple.cs" />
     <Compile Include="Packages\droid\Neodroid\Utilities\Interfaces\IHasQuaternionTransform.cs" />
     <Compile Include="Packages\droid\Neodroid\Utilities\Interfaces\IHasRegister.cs" />
@@ -282,6 +289,7 @@
     <Compile Include="Packages\droid\Neodroid\Utilities\Unsorted\OnCollision.cs" />
     <Compile Include="Packages\droid\Neodroid\Utilities\Unsorted\ParticleController.cs" />
     <Compile Include="Packages\droid\Neodroid\Utilities\Unsorted\PointInDirection.cs" />
+    <Compile Include="Packages\droid\Neodroid\Utilities\Unsorted\ScenePreview.cs" />
     <Compile Include="Packages\droid\Neodroid\Utilities\Unsorted\SceneReference\Editor\SceneReference.cs" />
     <Compile Include="Packages\droid\Neodroid\Utilities\Unsorted\SceneReference\Editor\SceneReferenceEditor.cs" />
     <Compile Include="Packages\droid\Neodroid\Utilities\Unsorted\SearchableEnum\Editor\SearchableEnumDrawer.cs" />
@@ -935,4 +943,9 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp">
+      <HintPath>/opt/Unity-2018.2.4f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Microsoft.CSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

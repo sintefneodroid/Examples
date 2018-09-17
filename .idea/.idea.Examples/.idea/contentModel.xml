@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$USER_HOME$/.Rider2018.1/system/resharper-host/local/Transient/ReSharperHost/v12/SolutionCaches/_Examples.-1172022719.00" t="ExcludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/consoles/db" t="IncludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/extensions" t="IncludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.Rider2018.2/system/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.Rider2018.2/system/resharper-host/local/Transient/ReSharperHost/v182/SolutionCaches/_Examples.-1172022719.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
@@ -35,7 +39,6 @@
               </e>
             </e>
             <e p="Scripts" t="Include">
-              <e p="ScenePreview.cs" t="Include" />
               <e p="SimpleCameraController.cs" t="Include" />
             </e>
           </e>
@@ -781,6 +784,7 @@
                 <e p="MotorSpawner.cs" t="Include" />
                 <e p="ObserverSpawner.cs" t="Include" />
                 <e p="PrebuiltSpawner.cs" t="Include" />
+                <e p="PrefabSpawnerPopup.cs" t="Include" />
               </e>
               <e p="ScriptableObjects" t="Include">
                 <e p="Curriculum.cs" t="Include" />
@@ -822,7 +826,7 @@
                 <e p="readme.txt" t="Include" />
               </e>
             </e>
-            <e p="Libaries" t="Include">
+            <e p="Libaries" t="ExcludeRecursive">
               <e p="NetMQ.4.0.0.156-pre" t="Include">
                 <e p="lib" t="Include">
                   <e p="net40" t="Include">
@@ -886,6 +890,11 @@
                 <e p="Canvas" t="Include">
                   <e p="CanvasBarDisplayer.cs" t="Include" />
                   <e p="CanvasTextDisplayer.cs" t="Include" />
+                  <e p="DistributionDisplayer.cs" t="Include" />
+                </e>
+                <e p="Cells" t="Include">
+                  <e p="HexCellDisplayer.cs" t="Include" />
+                  <e p="QuadCellDisplayer.cs" t="Include" />
                 </e>
                 <e p="Displayer.cs" t="Include" />
                 <e p="DisplayerComponentMenuPath.cs" t="Include" />
@@ -895,9 +904,16 @@
                     <e p="ECSScatterPlotDisplayer.cs" t="Include" />
                   </e>
                 </e>
-                <e p="GameObjectScatterPlotDisplayer.cs" t="Include" />
-                <e p="IndexedScatterPlotDisplayer.cs" t="Include" />
-                <e p="ScatterPlotDisplayer.cs" t="Include" />
+                <e p="GridWorld" t="Include">
+                  <e p="VectorFieldDisplayer1.cs" t="Include" />
+                </e>
+                <e p="ScatterPlots" t="Include">
+                  <e p="GameObjectScatterPlotDisplayer.cs" t="Include" />
+                  <e p="IndexedScatterPlotDisplayer.cs" t="Include" />
+                  <e p="ScatterPlotDisplayer.cs" t="Include" />
+                  <e p="TextScatterPlotDisplayer.cs" t="Include" />
+                  <e p="VectorFieldDisplayer.cs" t="Include" />
+                </e>
                 <e p="TextMeshDisplayer.cs" t="Include" />
               </e>
               <e p="Evaluation" t="Include">
@@ -1026,7 +1042,7 @@
                 <e p="IHasByteArray.cs" t="Include" />
                 <e p="IHasDouble.cs" t="Include" />
                 <e p="IHasEulerTransform.cs" t="Include" />
-                <e p="IHasFloatEnumarable.cs" t="Include" />
+                <e p="IHasFloatEnumerable.cs" t="Include" />
                 <e p="IHasQuadruple.cs" t="Include" />
                 <e p="IHasQuaternionTransform.cs" t="Include" />
                 <e p="IHasRegister.cs" t="Include" />
@@ -1139,6 +1155,7 @@
                 <e p="OnCollision.cs" t="Include" />
                 <e p="ParticleController.cs" t="Include" />
                 <e p="PointInDirection.cs" t="Include" />
+                <e p="ScenePreview.cs" t="Include" />
                 <e p="SceneReference" t="Include">
                   <e p="Editor" t="Include">
                     <e p="SceneReference.cs" t="Include" />
@@ -1178,7 +1195,6 @@
       <e p="Tests.csproj" t="IncludeRecursive" />
       <e p="net.cnheider.neodroid.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
-      <e p="packages" t="ExcludeRecursive" />
     </e>
   </component>
 </project>
