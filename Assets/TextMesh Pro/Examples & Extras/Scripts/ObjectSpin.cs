@@ -13,13 +13,13 @@ namespace TextMesh_Pro.Scripts {
     Vector3 m_initial_Rotation;
     Vector3 m_initial_Position;
     Color32 m_lightColor;
-    int frames;
+    int frames = 0;
 
     public enum MotionType {
       Rotation,
       BackAndForth,
       Translation
-    }
+    };
 
     public MotionType Motion;
 

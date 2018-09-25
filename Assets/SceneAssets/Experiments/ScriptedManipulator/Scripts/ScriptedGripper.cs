@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Neodroid.Utilities.Unsorted;
+using Neodroid.Runtime.Utilities.Unsorted;
 using SceneAssets.Experiments.ScriptedManipulator.Grasps;
 using SceneAssets.Experiments.ScriptedManipulator.Navigation;
 using SceneAssets.Experiments.ScriptedManipulator.Utilities;
@@ -46,7 +46,10 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
     /// <summary>
     /// 
     /// </summary>
-    public States State { get { return this._state; } set { this._state = value; } }
+    public States State {
+      get { return this._state; }
+      set { this._state = value; }
+    }
 
     #region Helpers
 

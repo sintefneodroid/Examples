@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TextMesh_Pro.Scripts {
   public class Benchmark02 : MonoBehaviour {
-    public int SpawnType;
+    public int SpawnType = 0;
     public int NumberOfNPC = 12;
 
     TextMeshProFloatingText floatingText_Script;

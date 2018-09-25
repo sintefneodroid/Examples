@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TextMesh_Pro.Scripts {
   public class TextMeshSpawner : MonoBehaviour {
-    public int SpawnType;
+    public int SpawnType = 0;
     public int NumberOfNPC = 12;
 
     public Font TheFont;

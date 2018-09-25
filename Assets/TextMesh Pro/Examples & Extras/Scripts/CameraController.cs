@@ -19,14 +19,14 @@ namespace TextMesh_Pro.Scripts {
 
     public float ElevationAngle = 30.0f;
     public float MaxElevationAngle = 85.0f;
-    public float MinElevationAngle;
+    public float MinElevationAngle = 0f;
 
-    public float OrbitalAngle;
+    public float OrbitalAngle = 0f;
 
     public CameraModes CameraMode = CameraModes.Follow;
 
     public bool MovementSmoothing = true;
-    public bool RotationSmoothing;
+    public bool RotationSmoothing = false;
     bool previousSmoothing;
 
     public float MovementSmoothingValue = 25f;
@@ -48,16 +48,14 @@ namespace TextMesh_Pro.Scripts {
     const string event_FollowDistance = "Slider - Camera Zoom";
 
     void Awake() {
-      if (QualitySettings.vSyncCount > 0) {
+      if (QualitySettings.vSyncCount > 0)
         Application.targetFrameRate = 60;
-      } else {
+      else
         Application.targetFrameRate = -1;
-      }
 
       if (Application.platform == RuntimePlatform.IPhonePlayer
-          || Application.platform == RuntimePlatform.Android) {
+          || Application.platform == RuntimePlatform.Android)
         Input.simulateMouseWithTouches = false;
-      }
 
       this.cameraTransform = this.transform;
       this.previousSmoothing = this.MovementSmoothing;
@@ -87,9 +85,11 @@ namespace TextMesh_Pro.Scripts {
                                  + this.CameraTarget.TransformDirection(
                                      Quaternion.Euler(this.ElevationAngle, this.OrbitalAngle, 0f)
                                      * (new Vector3(0, 0, -this.FollowDistance)));
+        } else {
+          // Free Camera implementation
         }
 
-        if (this.MovementSmoothing) {
+        if (this.MovementSmoothing == true) {
           // Using Smoothing
           this.cameraTransform.position = Vector3.SmoothDamp(
               this.cameraTransform.position,
@@ -102,12 +102,12 @@ namespace TextMesh_Pro.Scripts {
           this.cameraTransform.position = this.desiredPosition;
         }
 
-        if (this.RotationSmoothing) {
+        if (this.RotationSmoothing == true)
           this.cameraTransform.rotation = Quaternion.Lerp(
               this.cameraTransform.rotation,
               Quaternion.LookRotation(this.CameraTarget.position - this.cameraTransform.position),
               this.RotationSmoothingValue * Time.deltaTime);
-        } else {
+        else {
           this.cameraTransform.LookAt(this.CameraTarget);
         }
       }
@@ -124,17 +124,11 @@ namespace TextMesh_Pro.Scripts {
       if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) || touchCount > 0) {
         this.mouseWheel *= 10;
 
-        if (Input.GetKeyDown(KeyCode.I)) {
-          this.CameraMode = CameraModes.Isometric;
-        }
+        if (Input.GetKeyDown(KeyCode.I)) this.CameraMode = CameraModes.Isometric;
 
-        if (Input.GetKeyDown(KeyCode.F)) {
-          this.CameraMode = CameraModes.Follow;
-        }
+        if (Input.GetKeyDown(KeyCode.F)) this.CameraMode = CameraModes.Follow;
 
-        if (Input.GetKeyDown(KeyCode.S)) {
-          this.MovementSmoothing = !this.MovementSmoothing;
-        }
+        if (Input.GetKeyDown(KeyCode.S)) this.MovementSmoothing = !this.MovementSmoothing;
 
         // Check for right mouse button to change camera follow and elevation angle
         if (Input.GetMouseButton(1)) {
@@ -152,13 +146,8 @@ namespace TextMesh_Pro.Scripts {
 
           if (this.mouseX > 0.01f || this.mouseX < -0.01f) {
             this.OrbitalAngle += this.mouseX * this.MoveSensitivity;
-            if (this.OrbitalAngle > 360) {
-              this.OrbitalAngle -= 360;
-            }
-
-            if (this.OrbitalAngle < 0) {
-              this.OrbitalAngle += 360;
-            }
+            if (this.OrbitalAngle > 360) this.OrbitalAngle -= 360;
+            if (this.OrbitalAngle < 0) this.OrbitalAngle += 360;
           }
         }
 
@@ -179,13 +168,8 @@ namespace TextMesh_Pro.Scripts {
           // Handle left & right 
           if (deltaPosition.x > 0.01f || deltaPosition.x < -0.01f) {
             this.OrbitalAngle += deltaPosition.x * 0.1f;
-            if (this.OrbitalAngle > 360) {
-              this.OrbitalAngle -= 360;
-            }
-
-            if (this.OrbitalAngle < 0) {
-              this.OrbitalAngle += 360;
-            }
+            if (this.OrbitalAngle > 360) this.OrbitalAngle -= 360;
+            if (this.OrbitalAngle < 0) this.OrbitalAngle += 360;
           }
         }
 

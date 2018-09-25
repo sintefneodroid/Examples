@@ -115,10 +115,7 @@ namespace SceneAssets.ImagePuzzler {
 
     void MakeNextShuffleMove() {
       Vector2Int[] offsets = {
-          new Vector2Int(1, 0),
-          new Vector2Int(-1, 0),
-          new Vector2Int(0, 1),
-          new Vector2Int(0, -1)
+          new Vector2Int(1, 0), new Vector2Int(-1, 0), new Vector2Int(0, 1), new Vector2Int(0, -1)
       };
       var random_index = Random.Range(0, offsets.Length);
 

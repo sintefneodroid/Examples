@@ -4,15 +4,15 @@ using UnityEngine;
 namespace TextMesh_Pro.Scripts {
   public class TMP_FrameRateCounter : MonoBehaviour {
     public float UpdateInterval = 5.0f;
-    float m_LastInterval;
-    int m_Frames;
+    float m_LastInterval = 0;
+    int m_Frames = 0;
 
     public enum FpsCounterAnchorPositions {
       TopLeft,
       BottomLeft,
       TopRight,
       BottomRight
-    }
+    };
 
     public FpsCounterAnchorPositions AnchorPosition = FpsCounterAnchorPositions.TopRight;
 
@@ -26,9 +26,8 @@ namespace TextMesh_Pro.Scripts {
     FpsCounterAnchorPositions last_AnchorPosition;
 
     void Awake() {
-      if (!this.enabled) {
+      if (!this.enabled)
         return;
-      }
 
       this.m_camera = Camera.main;
       Application.targetFrameRate = -1;
@@ -66,9 +65,8 @@ namespace TextMesh_Pro.Scripts {
     }
 
     void Update() {
-      if (this.AnchorPosition != this.last_AnchorPosition) {
+      if (this.AnchorPosition != this.last_AnchorPosition)
         this.Set_FrameCounter_Position(this.AnchorPosition);
-      }
 
       this.last_AnchorPosition = this.AnchorPosition;
 
@@ -80,13 +78,12 @@ namespace TextMesh_Pro.Scripts {
         var fps = this.m_Frames / (timeNow - this.m_LastInterval);
         var ms = 1000.0f / Mathf.Max(fps, 0.00001f);
 
-        if (fps < 30) {
+        if (fps < 30)
           this.htmlColorTag = "<color=yellow>";
-        } else if (fps < 10) {
+        else if (fps < 10)
           this.htmlColorTag = "<color=red>";
-        } else {
+        else
           this.htmlColorTag = "<color=green>";
-        }
 
         //string format = System.String.Format(htmlColorTag + "{0:F2} </color>FPS \n{1:F2} <#8080ff>MS",fps, ms);
         //m_TextMeshPro.text = format;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TextMesh_Pro.Scripts {
   public class Benchmark01 : MonoBehaviour {
-    public int BenchmarkType;
+    public int BenchmarkType = 0;
 
     public TMP_FontAsset TMProFont;
     public Font TextMeshFont;
@@ -30,9 +30,7 @@ namespace TextMesh_Pro.Scripts {
 
         //m_textMeshPro.anchorDampening = true;
 
-        if (this.TMProFont != null) {
-          this.m_textMeshPro.font = this.TMProFont;
-        }
+        if (this.TMProFont != null) this.m_textMeshPro.font = this.TMProFont;
 
         //m_textMeshPro.font = Resources.Load("Fonts & Materials/Anton SDF", typeof(TextMeshProFont)) as TextMeshProFont; // Make sure the Anton SDF exists before calling this...
         //m_textMeshPro.fontSharedMaterial = Resources.Load("Fonts & Materials/Anton SDF", typeof(Material)) as Material; // Same as above make sure this material exists.
@@ -75,16 +73,13 @@ namespace TextMesh_Pro.Scripts {
       for (var i = 0; i <= 1000000; i++) {
         if (this.BenchmarkType == 0) {
           this.m_textMeshPro.SetText(label01, i % 1000);
-          if (i % 1000 == 999) {
+          if (i % 1000 == 999)
             this.m_textMeshPro.fontSharedMaterial = this.m_textMeshPro.fontSharedMaterial == this.m_material01
                                                         ? this.m_textMeshPro.fontSharedMaterial =
                                                               this.m_material02
                                                         : this.m_textMeshPro.fontSharedMaterial =
                                                               this.m_material01;
-          }
-        } else if (this.BenchmarkType == 1) {
-          this.m_textMesh.text = label02 + (i % 1000);
-        }
+        } else if (this.BenchmarkType == 1) this.m_textMesh.text = label02 + (i % 1000).ToString();
 
         yield return null;
       }

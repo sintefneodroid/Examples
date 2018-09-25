@@ -32,9 +32,7 @@ namespace TextMesh_Pro.Scripts {
     void Start() { this.StartCoroutine(this.AnimateVertexColors()); }
 
     void ON_TEXT_CHANGED(Object obj) {
-      if (obj == this.m_TextComponent) {
-        this.hasTextChanged = true;
-      }
+      if (obj == this.m_TextComponent) this.hasTextChanged = true;
     }
 
     /// <summary>
@@ -84,9 +82,8 @@ namespace TextMesh_Pro.Scripts {
           var charInfo = textInfo.characterInfo[i];
 
           // Skip characters that are not visible and thus have no geometry to manipulate.
-          if (!charInfo.isVisible) {
+          if (!charInfo.isVisible)
             continue;
-          }
 
           // Retrieve the pre-computed animation data for the given character.
           var vertAnim = vertexAnim[i];

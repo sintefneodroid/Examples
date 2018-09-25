@@ -12,7 +12,9 @@ namespace SceneAssets.Satellite.Scripts {
 
     Rigidbody _rigidbody;
 
-    public float Mass { get { return this._rigidbody.mass; } }
+    public float Mass {
+      get { return this._rigidbody.mass; }
+    }
 
     void Start() {
       if (!this._rigidbody) {

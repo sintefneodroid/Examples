@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 
 namespace SceneAssets.Manipulator {
+  /// <inheritdoc />
+  /// <summary>
+  /// </summary>
   public class InjectRandomRigidbodyNoise : MonoBehaviour {
     Rigidbody _rigidbody;
     [SerializeField] float _magnitude = 1;

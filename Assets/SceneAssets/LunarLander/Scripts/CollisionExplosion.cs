@@ -1,10 +1,13 @@
 ﻿using System.Collections;
-using Neodroid.Prototyping.Actors;
-using Neodroid.Prototyping.Internals;
-using Neodroid.Utilities.Unsorted;
+using Neodroid.Runtime.Prototyping.Actors;
+using Neodroid.Runtime.Prototyping.Internals;
+using Neodroid.Runtime.Utilities.Unsorted;
 using UnityEngine;
 
 namespace SceneAssets.LunarLander.Scripts {
+  /// <inheritdoc />
+  /// <summary>
+  /// </summary>
   public class CollisionExplosion : Resetable {
     public KillableActor _Actor;
     GameObject _broken_object;
@@ -129,6 +132,8 @@ namespace SceneAssets.LunarLander.Scripts {
       this._has_exploded = false;
     }
 
-    public override string PrototypingTypeName { get { return "CollisionExplosion"; } }
+    public override string PrototypingTypeName {
+      get { return "CollisionExplosion"; }
+    }
   }
 }

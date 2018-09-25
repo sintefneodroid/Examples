@@ -1,5 +1,4 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,7 +18,7 @@ namespace TextMesh_Pro.Scripts {
       // Clear Input Field
       this.TMP_ChatInput.text = string.Empty;
 
-      var timeNow = DateTime.Now;
+      var timeNow = System.DateTime.Now;
 
       this.TMP_ChatOutput.text += "[<#FFFF80>"
                                   + timeNow.Hour.ToString("d2")

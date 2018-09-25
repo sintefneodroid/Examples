@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Neodroid.Environments;
-using Neodroid.Prototyping.Evaluation;
-using Neodroid.Prototyping.Observers.Grid;
-using Neodroid.Utilities.Structs;
-using Neodroid.Utilities.Unsorted;
+using Neodroid.Runtime.Environments;
+using Neodroid.Runtime.Prototyping.Evaluation;
+using Neodroid.Runtime.Prototyping.Observers.Grid;
+using Neodroid.Runtime.Utilities.Structs;
+using Neodroid.Runtime.Utilities.Unsorted;
 using UnityEngine;
 
 namespace SceneAssets.GridWorlds.Scripts {
@@ -68,7 +68,9 @@ namespace SceneAssets.GridWorlds.Scripts {
     /// 
     /// </summary>
 
-    public static MazeDirection RandomValue { get { return (MazeDirection)Random.Range(0, _Count); } }
+    public static MazeDirection RandomValue {
+      get { return (MazeDirection)Random.Range(0, _Count); }
+    }
 
     /// <summary>
     /// 
@@ -305,11 +307,11 @@ namespace SceneAssets.GridWorlds.Scripts {
       foreach (var a in this.Actors) {
         var idx = Random.Range(0, empty_cells.Count);
         var empty_cell = empty_cells[idx];
-        a.Value.transform.position = empty_cell.transform.position;
+        a.Value.Transform.position = empty_cell.transform.position;
         empty_cells.RemoveAt(idx);
       }
 
-      if (objective_function) {
+      if (objective_function != null) {
         var idx = Random.Range(0, empty_cells.Count);
         var empty_cell = empty_cells[idx];
         empty_cell.SetAsGoal("Goal", this._goal_cell_material);

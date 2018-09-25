@@ -1,5 +1,5 @@
-﻿using Neodroid.Prototyping.Internals;
-using Neodroid.Utilities.Unsorted;
+﻿using Neodroid.Runtime.Prototyping.Internals;
+using Neodroid.Runtime.Utilities.Unsorted;
 using UnityEngine;
 
 namespace SceneAssets.Walker {
@@ -111,6 +111,8 @@ namespace SceneAssets.Walker {
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    public override string PrototypingTypeName { get { return "DaylightSimulator"; } }
+    public override string PrototypingTypeName {
+      get { return "DaylightSimulator"; }
+    }
   }
 }

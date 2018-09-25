@@ -37,14 +37,13 @@ namespace TextMesh_Pro.Scripts {
       this.m_Canvas = this.gameObject.GetComponentInParent<Canvas>();
 
       // Get a reference to the camera if Canvas Render Mode is not ScreenSpace Overlay.
-      if (this.m_Canvas.renderMode == RenderMode.ScreenSpaceOverlay) {
+      if (this.m_Canvas.renderMode == RenderMode.ScreenSpaceOverlay)
         this.m_Camera = null;
-      } else {
+      else
         this.m_Camera = this.m_Canvas.worldCamera;
-      }
 
       // Create pop-up text object which is used to show the link information.
-      this.m_TextPopup_RectTransform = Instantiate(this.TextPopup_Prefab_01);
+      this.m_TextPopup_RectTransform = Instantiate(this.TextPopup_Prefab_01) as RectTransform;
       this.m_TextPopup_RectTransform.SetParent(this.m_Canvas.transform, false);
       this.m_TextPopup_TMPComponent =
           this.m_TextPopup_RectTransform.GetComponentInChildren<TextMeshProUGUI>();
@@ -446,9 +445,7 @@ namespace TextMesh_Pro.Scripts {
     }
 
     void RestoreCachedVertexAttributes(int index) {
-      if (index == -1 || index > this.m_TextMeshPro.textInfo.characterCount - 1) {
-        return;
-      }
+      if (index == -1 || index > this.m_TextMeshPro.textInfo.characterCount - 1) return;
 
       // Get the index of the material / sub text object used by this character.
       var materialIndex = this.m_TextMeshPro.textInfo.characterInfo[index].materialReferenceIndex;

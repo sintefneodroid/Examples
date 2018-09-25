@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace TextMesh_Pro.Scripts {
   public class Benchmark01_UGUI : MonoBehaviour {
-    public int BenchmarkType;
+    public int BenchmarkType = 0;
 
     public Canvas canvas;
     public TMP_FontAsset TMProFont;
@@ -36,9 +36,7 @@ namespace TextMesh_Pro.Scripts {
 
         //m_textMeshPro.anchorDampening = true;
 
-        if (this.TMProFont != null) {
-          this.m_textMeshPro.font = this.TMProFont;
-        }
+        if (this.TMProFont != null) this.m_textMeshPro.font = this.TMProFont;
 
         //m_textMeshPro.font = Resources.Load("Fonts & Materials/Anton SDF", typeof(TextMeshProFont)) as TextMeshProFont; // Make sure the Anton SDF exists before calling this...           
         //m_textMeshPro.fontSharedMaterial = Resources.Load("Fonts & Materials/Anton SDF", typeof(Material)) as Material; // Same as above make sure this material exists.
@@ -67,6 +65,9 @@ namespace TextMesh_Pro.Scripts {
         if (this.TextMeshFont != null) {
           this.m_textMesh.font = this.TextMeshFont;
           //m_textMesh.renderer.sharedMaterial = m_textMesh.font.material;
+        } else {
+          //m_textMesh.font = Resources.Load("Fonts/ARIAL", typeof(Font)) as Font;
+          //m_textMesh.renderer.sharedMaterial = m_textMesh.font.material;
         }
 
         this.m_textMesh.fontSize = 48;
@@ -78,16 +79,13 @@ namespace TextMesh_Pro.Scripts {
       for (var i = 0; i <= 1000000; i++) {
         if (this.BenchmarkType == 0) {
           this.m_textMeshPro.text = label01 + (i % 1000);
-          if (i % 1000 == 999) {
+          if (i % 1000 == 999)
             this.m_textMeshPro.fontSharedMaterial = this.m_textMeshPro.fontSharedMaterial == this.m_material01
                                                         ? this.m_textMeshPro.fontSharedMaterial =
                                                               this.m_material02
                                                         : this.m_textMeshPro.fontSharedMaterial =
                                                               this.m_material01;
-          }
-        } else if (this.BenchmarkType == 1) {
-          this.m_textMesh.text = label02 + (i % 1000);
-        }
+        } else if (this.BenchmarkType == 1) this.m_textMesh.text = label02 + (i % 1000).ToString();
 
         yield return null;
       }
