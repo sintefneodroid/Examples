@@ -3,8 +3,8 @@ using System.Linq;
 using Neodroid.Runtime.Environments;
 using Neodroid.Runtime.Prototyping.Evaluation;
 using Neodroid.Runtime.Prototyping.Observers.Grid;
+using Neodroid.Runtime.Utilities.Misc.Grid;
 using Neodroid.Runtime.Utilities.Structs;
-using Neodroid.Runtime.Utilities.Unsorted;
 using UnityEngine;
 
 namespace SceneAssets.GridWorlds.Scripts {

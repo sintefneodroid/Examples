@@ -10,48 +10,207 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="AsmDefTools" t="Include">
-          <e p="Editor" t="Include">
-            <e p="AsmDefIgnore.cs" t="Include" />
-            <e p="AsmDefMenu.cs" t="Include" />
-          </e>
-          <e p="VisibilityHelper.cs" t="Include" />
-        </e>
         <e p="Common" t="Include">
-          <e p="Utilities" t="Include">
+          <e p="AsmDefTools" t="Include">
+            <e p="Editor" t="Include">
+              <e p="AsmDefIgnore.cs" t="Include" />
+              <e p="AsmDefMenu.cs" t="Include" />
+            </e>
+            <e p="VisibilityHelper.cs" t="Include" />
+          </e>
+          <e p="Drawing" t="Include">
+            <e p="ArrowRenderer.cs" t="Include" />
+            <e p="CylinderLineRenderer.cs" t="Include" />
+            <e p="RuntimeDebugDraw.cs" t="Include" />
+            <e p="RuntimeDebugDrawExample.cs" t="Include" />
+          </e>
+          <e p="Editors" t="Include">
+            <e p="EnablerConfigurableEditor.cs" t="Include" />
+            <e p="ExecutionOrderManager.cs" t="Include" />
+            <e p="MissingReferencesFinder.cs" t="Include" />
+            <e p="NeodroidPackageImporterWindow.cs" t="Include" />
+            <e p="ObjectDropdownAttribute.cs" t="Include" />
+            <e p="ObjectSelectorDropdown.cs" t="Include" />
+            <e p="ScriptExecutionOrderAttribute.cs" t="Include" />
+          </e>
+          <e p="EffectExamples" t="Include">
+            <e p="Shared" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="DecalDestroyer.cs" t="Include" />
+                <e p="ExtinguishableFire.cs" t="Include" />
+                <e p="GunAim.cs" t="Include" />
+                <e p="GunShoot.cs" t="Include" />
+                <e p="ParticleCollision.cs" t="Include" />
+                <e p="ParticleExamples.cs" t="Include" />
+                <e p="ParticleMenu.cs" t="Include" />
+              </e>
+              <e p="Shaders" t="Include">
+                <e p="SurfaceShader_VC.shader" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="ListView" t="Include">
+            <e p="Examples" t="Include">
+              <e p="0. Simple" t="Include">
+                <e p="SimpleListView.cs" t="Include" />
+              </e>
+              <e p="1. Basic" t="Include">
+                <e p="BasicListView.cs" t="Include" />
+              </e>
+              <e p="10. Card Game" t="Include">
+                <e p="CardGameHand.cs" t="Include" />
+                <e p="CardGameInputHandler.cs" t="Include" />
+                <e p="CardGameList.cs" t="Include" />
+              </e>
+              <e p="2. Custom Scrolling" t="Include">
+                <e p="ListViewMouseScroller.cs" t="Include" />
+              </e>
+              <e p="3. Custom Item" t="Include">
+                <e p="CubeItem.cs" t="Include" />
+                <e p="CubeList.cs" t="Include" />
+              </e>
+              <e p="8. Dictionary" t="Include">
+                <e p="DictionaryInputHandler.cs" t="Include" />
+                <e p="DictionaryList.cs" t="Include" />
+                <e p="DictionaryListItem.cs" t="Include" />
+                <e p="Editor" t="Include">
+                  <e p="SqLitePostBuild.cs" t="Include" />
+                </e>
+              </e>
+              <e p="9. Cards" t="Include">
+                <e p="Card.cs" t="Include" />
+                <e p="CardList.cs" t="Include" />
+                <e p="CardListInputHandler.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Masking" t="Include">
+              <e p="AlphaMask" t="Include">
+                <e p="AlphaMask.shader" t="Include" />
+              </e>
+              <e p="DepthMask" t="Include">
+                <e p="CustomFont.shader" t="Include" />
+                <e p="DepthMask.shader" t="Include" />
+              </e>
+            </e>
+            <e p="README.txt" t="Include" />
+            <e p="Scripts" t="Include">
+              <e p="ListViewController.cs" t="Include" />
+              <e p="ListViewInputHandler.cs" t="Include" />
+              <e p="ListViewItem.cs" t="Include" />
+            </e>
+          </e>
+          <e p="ReadMe" t="Include">
+            <e p="ScriptableObjects" t="Include">
+              <e p="Editor" t="Include">
+                <e p="ReadMeEditor.cs" t="Include" />
+              </e>
+              <e p="ReadMe.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="SimpleCameraController.cs" t="Include" />
+            <e p="UnityMainThreadDispatcher.cs" t="Include" />
+          </e>
+          <e p="Tools" t="Include">
             <e p="ProceduralCapsule.cs" t="Include" />
+          </e>
+          <e p="reference_checker" t="Include">
+            <e p="unity-reference-checker-master" t="Include">
+              <e p="Editor" t="Include">
+                <e p="ColorfulLogBuilder.cs" t="Include" />
+                <e p="Commands.cs" t="Include" />
+                <e p="Settings.cs" t="Include" />
+                <e p="SettingsWindow.cs" t="Include" />
+              </e>
+              <e p="IgnoreRefCheckerAttribute.cs" t="Include" />
+              <e p="Tests" t="Include">
+                <e p="RefCheckerTestComponent.cs" t="Include" />
+              </e>
+            </e>
           </e>
         </e>
         <e p="Excluded" t="Include">
-          <e p="Common" t="Include">
-            <e p="EffectExamples" t="Include">
-              <e p="Shared" t="Include">
-                <e p="Scripts" t="Include">
-                  <e p="DecalDestroyer.cs" t="Include" />
-                  <e p="ExtinguishableFire.cs" t="Include" />
-                  <e p="GunAim.cs" t="Include" />
-                  <e p="GunShoot.cs" t="Include" />
-                  <e p="ParticleCollision.cs" t="Include" />
-                  <e p="ParticleExamples.cs" t="Include" />
-                  <e p="ParticleMenu.cs" t="Include" />
-                </e>
-                <e p="Shaders" t="Include">
-                  <e p="SurfaceShader_VC.shader" t="Include" />
-                </e>
-              </e>
-            </e>
-            <e p="ReadMe" t="Include">
-              <e p="ScriptableObjects" t="Include">
-                <e p="Editor" t="Include">
-                  <e p="ReadMeEditor.cs" t="Include" />
-                </e>
-                <e p="ReadMe.cs" t="Include" />
-              </e>
-            </e>
-            <e p="Scripts" t="Include">
-              <e p="SimpleCameraController.cs" t="Include" />
+          <e p="Assets" t="Include">
+            <e p="AdventureForge" t="Include">
+              <e p="CabinetsAndShelvesReadme.txt" t="Include" />
             </e>
           </e>
+          <e p="Bicycle" t="Include">
+            <e p="sportbike_pro_kit" t="Include">
+              <e p="Mobile" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="MobileControls.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Scripts" t="Include">
+                <e p="CamSwitcher.cs" t="Include" />
+                <e p="CarScript.cs" t="Include" />
+                <e p="KeyboardControls.cs" t="Include" />
+                <e p="StartScript.cs" t="Include" />
+                <e p="ToMainMenu.cs" t="Include" />
+              </e>
+              <e p="SportBikeControlHub.cs" t="Include" />
+            </e>
+          </e>
+          <e p="BioIK" t="Include">
+            <e p="BioIK.cs" t="Include" />
+            <e p="Demo" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="CameraController.cs" t="Include" />
+                <e p="Demo.cs" t="Include" />
+                <e p="MouseDrag.cs" t="Include" />
+                <e p="Rotate.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Editor" t="Include">
+              <e p="BioIKEditor.cs" t="Include" />
+            </e>
+            <e p="Helpers" t="Include">
+              <e p="Enums.cs" t="Include" />
+              <e p="Evolution.cs" t="Include" />
+              <e p="Model.cs" t="Include" />
+              <e p="Utility.cs" t="Include" />
+            </e>
+            <e p="Setup" t="Include">
+              <e p="BioJoint.cs" t="Include" />
+              <e p="BioObjective.cs" t="Include" />
+              <e p="BioSegment.cs" t="Include" />
+              <e p="Objectives" t="Include">
+                <e p="Displacement.cs" t="Include" />
+                <e p="Distance.cs" t="Include" />
+                <e p="JointValue.cs" t="Include" />
+                <e p="LookAt.cs" t="Include" />
+                <e p="Orientation.cs" t="Include" />
+                <e p="Position.cs" t="Include" />
+                <e p="Projection.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Hide" t="Include">
+            <e p="SharpShadowLight" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="Lights" t="Include">
+                  <e p="SharpShadowLight.cs" t="Include" />
+                </e>
+                <e p="Utilities" t="Include">
+                  <e p="EditorUtils.cs" t="Include" />
+                  <e p="ExampleScript.cs" t="Include" />
+                  <e p="FollowLight.cs" t="Include" />
+                  <e p="Move2D.cs" t="Include" />
+                  <e p="Rotate.cs" t="Include" />
+                  <e p="SharpShadowLightEditor.cs" t="Include" />
+                  <e p="SharpShadowLightMenu.cs" t="Include" />
+                  <e p="SinCosTable.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Shaders" t="Include">
+                <e p="Gradient-AlphaBlend.shader" t="Include" />
+                <e p="Gradient-ZFighting.shader" t="Include" />
+                <e p="NoTexture.shader" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="IkSolverEnablerConfigurable.cs" t="Include" />
           <e p="Klak" t="Include">
             <e p="Extension" t="Include">
               <e p="MaterialExtension.cs" t="Include" />
@@ -198,54 +357,61 @@
               </e>
             </e>
           </e>
-          <e p="ListView" t="Include">
-            <e p="Examples" t="Include">
-              <e p="0. Simple" t="Include">
-                <e p="SimpleListView.cs" t="Include" />
-              </e>
-              <e p="1. Basic" t="Include">
-                <e p="BasicListView.cs" t="Include" />
-              </e>
-              <e p="10. Card Game" t="Include">
-                <e p="CardGameHand.cs" t="Include" />
-                <e p="CardGameInputHandler.cs" t="Include" />
-                <e p="CardGameList.cs" t="Include" />
-              </e>
-              <e p="2. Custom Scrolling" t="Include">
-                <e p="ListViewMouseScroller.cs" t="Include" />
-              </e>
-              <e p="3. Custom Item" t="Include">
-                <e p="CubeItem.cs" t="Include" />
-                <e p="CubeList.cs" t="Include" />
-              </e>
-              <e p="8. Dictionary" t="Include">
-                <e p="DictionaryInputHandler.cs" t="Include" />
-                <e p="DictionaryList.cs" t="Include" />
-                <e p="DictionaryListItem.cs" t="Include" />
-                <e p="Editor" t="Include">
-                  <e p="SqLitePostBuild.cs" t="Include" />
+          <e p="Move" t="Include">
+            <e p="Environments" t="Include">
+              <e p="DeepMindHopper" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="DeepMindHopperAgent.cs" t="Include" />
+                </e>
+                <e p="Xml" t="Include">
+                  <e p="unity_dm_hopper.xml" t="Include" />
                 </e>
               </e>
-              <e p="9. Cards" t="Include">
-                <e p="Card.cs" t="Include" />
-                <e p="CardList.cs" t="Include" />
-                <e p="CardListInputHandler.cs" t="Include" />
+              <e p="DeepMindHumanoid" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="DeepMindHumanoidAgent.cs" t="Include" />
+                </e>
+                <e p="Xml" t="Include">
+                  <e p="unity_dm_humanoid.xml" t="Include" />
+                </e>
+              </e>
+              <e p="DeepMindWalker" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="DeepMindWalkerAgent.cs" t="Include" />
+                </e>
+                <e p="Xml" t="Include">
+                  <e p="unity_dm_walker.xml" t="Include" />
+                </e>
+              </e>
+              <e p="OpenAIAnt" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="OpenAiAntAgent.cs" t="Include" />
+                </e>
+                <e p="Xml" t="Include">
+                  <e p="unity_oai_ant.xml" t="Include" />
+                </e>
+              </e>
+              <e p="TestBed" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="MarathonTestBedAgent.cs" t="Include" />
+                  <e p="MarathonTestBedDecision.cs" t="Include" />
+                </e>
               </e>
             </e>
-            <e p="Masking" t="Include">
-              <e p="AlphaMask" t="Include">
-                <e p="AlphaMask.shader" t="Include" />
-              </e>
-              <e p="DepthMask" t="Include">
-                <e p="CustomFont.shader" t="Include" />
-                <e p="DepthMask.shader" t="Include" />
-              </e>
-            </e>
-            <e p="README.txt" t="Include" />
             <e p="Scripts" t="Include">
-              <e p="ListViewController.cs" t="Include" />
-              <e p="ListViewInputHandler.cs" t="Include" />
-              <e p="ListViewItem.cs" t="Include" />
+              <e p="HandleOverlap.cs" t="Include" />
+              <e p="Jep" t="Include">
+                <e p="Data" t="Include">
+                  <e p="MarathonJoint.cs" t="Include" />
+                  <e p="MarathonSensor.cs" t="Include" />
+                </e>
+                <e p="MarathonAgent.cs" t="Include" />
+                <e p="MarathonHelper.cs" t="Include" />
+                <e p="MarathonSpawner.cs" t="Include" />
+              </e>
+              <e p="SendOnCollisionTrigger.cs" t="Include" />
+              <e p="SensorBehavior.cs" t="Include" />
+              <e p="SmoothFollow.cs" t="Include" />
             </e>
           </e>
           <e p="ProceduralToolkit" t="Include">
@@ -422,30 +588,35 @@
               </e>
             </e>
           </e>
-          <e p="Utils" t="Include">
-            <e p="ArrowRenderer.cs" t="Include" />
-            <e p="CylinderLineRenderer.cs" t="Include" />
-            <e p="ExecutionOrderManager.cs" t="Include" />
-            <e p="MissingReferencesFinder.cs" t="Include" />
-            <e p="ObjectDropdownAttribute.cs" t="Include" />
-            <e p="ObjectSelectorDropdown.cs" t="Include" />
-            <e p="RuntimeDebugDraw.cs" t="Include" />
-            <e p="RuntimeDebugDrawExample.cs" t="Include" />
-            <e p="ScriptExecutionOrderAttribute.cs" t="Include" />
-            <e p="UnityMainThreadDispatcher.cs" t="Include" />
-            <e p="reference_checker" t="Include">
-              <e p="unity-reference-checker-master" t="Include">
-                <e p="Editor" t="Include">
-                  <e p="ColorfulLogBuilder.cs" t="Include" />
-                  <e p="Commands.cs" t="Include" />
-                  <e p="Settings.cs" t="Include" />
-                  <e p="SettingsWindow.cs" t="Include" />
+          <e p="UnityHexapodSimulator" t="Include">
+            <e p="Assets" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="CameraController.cs" t="Include" />
+                <e p="Cpg.cs" t="Include" />
+                <e p="Extract" t="Include">
+                  <e p="PowerUp.cs" t="Include" />
+                  <e p="RL" t="Include">
+                    <e p="AgentWalk.cs" t="Include" />
+                    <e p="HeuristicWalker.cs" t="Include" />
+                    <e p="Oscillator.cs" t="Include" />
+                  </e>
+                  <e p="Robot" t="Include">
+                    <e p="Body.cs" t="Include" />
+                    <e p="Foot.cs" t="Include" />
+                    <e p="Leg.cs" t="Include" />
+                    <e p="Limb.cs" t="Include" />
+                    <e p="Robot.cs" t="Include" />
+                    <e p="Socket.cs" t="Include" />
+                  </e>
+                  <e p="Util" t="Include">
+                    <e p="VectorUtil.cs" t="Include" />
+                  </e>
                 </e>
-                <e p="IgnoreRefCheckerAttribute.cs" t="Include" />
-                <e p="Tests" t="Include">
-                  <e p="RefCheckerTestComponent.cs" t="Include" />
-                </e>
+                <e p="JointsController.cs" t="Include" />
               </e>
+            </e>
+            <e p="ProjectSettings" t="Include">
+              <e p="ProjectVersion.txt" t="Include" />
             </e>
           </e>
         </e>
@@ -468,11 +639,15 @@
               <e p="Segmentations.cs" t="Include" />
             </e>
             <e p="Utilities" t="Include">
-              <e p="Excluded" t="Include">
-                <e p="NeodroidPackageImporterWindow.cs" t="Include" />
-              </e>
               <e p="NeodroidEditorUtilities.cs" t="Include" />
+              <e p="Note.cs" t="Include" />
               <e p="ScenePreview.cs" t="Include" />
+              <e p="SceneReference.cs" t="Include" />
+              <e p="SceneReferenceEditor.cs" t="Include" />
+              <e p="SearchableEnum" t="Include">
+                <e p="SearchableEnumDrawer.cs" t="Include" />
+                <e p="SearchablePopup.cs" t="Include" />
+              </e>
             </e>
             <e p="Windows" t="Include">
               <e p="CameraSynchronisationWindow.cs" t="Include" />
@@ -548,9 +723,11 @@
               <e p="IHasQuaternionTransform.cs" t="Include" />
               <e p="IHasRegister.cs" t="Include" />
               <e p="IHasRigidbody.cs" t="Include" />
+              <e p="IHasSerialisedString.cs" t="Include" />
               <e p="IHasSingle.cs" t="Include" />
               <e p="IHasTriple.cs" t="Include" />
               <e p="IManager.cs" t="Include" />
+              <e p="IMaterialManipulator.cs" t="Include" />
               <e p="IMotor.cs" t="Include" />
               <e p="IMotorMotion.cs" t="Include" />
               <e p="IObjective.cs" t="Include" />
@@ -717,6 +894,8 @@
                 <e p="Camera" t="Include">
                   <e p="CameraObserver.cs" t="Include" />
                   <e p="FloatArrayCameraObserver.cs" t="Include" />
+                  <e p="SegmentationCameraObserver.cs" t="Include" />
+                  <e p="StringAugmentedCameraObserver.cs" t="Include" />
                 </e>
                 <e p="CategoricalObserver.cs" t="Include" />
                 <e p="CompassObserver.cs" t="Include" />
@@ -785,6 +964,39 @@
               <e p="GameObjects" t="Include">
                 <e p="PrototypingGameObject.cs" t="Include" />
               </e>
+              <e p="Misc" t="Include">
+                <e p="Drawing" t="Include">
+                  <e p="DrawArrow.cs" t="Include" />
+                  <e p="DrawString.cs" t="Include" />
+                  <e p="GuiDraw.cs" t="Include" />
+                  <e p="NeodroidUtilities.cs" t="Include" />
+                </e>
+                <e p="Extensions" t="Include">
+                  <e p="JointFix.cs" t="Include" />
+                  <e p="Obstruction.cs" t="Include" />
+                  <e p="OnCollision.cs" t="Include" />
+                  <e p="ParticleController.cs" t="Include" />
+                </e>
+                <e p="Grasping" t="Include">
+                  <e p="GraspingUtilities.cs" t="Include" />
+                </e>
+                <e p="Grid" t="Include">
+                  <e p="GridCell.cs" t="Include" />
+                </e>
+                <e p="Orientation" t="Include">
+                  <e p="FollowTarget.cs" t="Include" />
+                  <e p="FollowTargetRotation.cs" t="Include" />
+                  <e p="MotionTracker.cs" t="Include" />
+                  <e p="PointInDirection.cs" t="Include" />
+                </e>
+                <e p="Procedural" t="Include">
+                  <e p="GameObjectCloner.cs" t="Include" />
+                  <e p="SnakeSpaceFilling.cs" t="Include" />
+                </e>
+                <e p="SearchableEnum" t="Include">
+                  <e p="SearchableEnumAttribute.cs" t="Include" />
+                </e>
+              </e>
               <e p="NeodroidCamera" t="Include">
                 <e p="DisparityCameraBehaviour.cs" t="Include" />
                 <e p="FlowCameraBehaviour.cs" t="Include" />
@@ -814,6 +1026,7 @@
               <e p="Segmentation" t="Include">
                 <e p="ChangeMaterialOnRenderByInstance.cs" t="Include" />
                 <e p="ChangeMaterialOnRenderByTag.cs" t="Include" />
+                <e p="Segmenter.cs" t="Include" />
               </e>
               <e p="Sensors" t="Include">
                 <e p="ChildColliderSensor.cs" t="Include" />
@@ -839,38 +1052,6 @@
                 <e p="Space4.cs" t="Include" />
                 <e p="ValueSpace.cs" t="Include" />
               </e>
-              <e p="Unsorted" t="Include">
-                <e p="DrawArrow.cs" t="Include" />
-                <e p="DrawString.cs" t="Include" />
-                <e p="FollowTarget.cs" t="Include" />
-                <e p="FollowTargetRotation.cs" t="Include" />
-                <e p="GameObjectCloner.cs" t="Include" />
-                <e p="GraspingUtilities.cs" t="Include" />
-                <e p="GridCell.cs" t="Include" />
-                <e p="GuiDraw.cs" t="Include" />
-                <e p="JointFix.cs" t="Include" />
-                <e p="MotionTracker.cs" t="Include" />
-                <e p="Note.cs" t="Include" />
-                <e p="Obstruction.cs" t="Include" />
-                <e p="OnCollision.cs" t="Include" />
-                <e p="ParticleController.cs" t="Include" />
-                <e p="PointInDirection.cs" t="Include" />
-                <e p="SceneReference" t="Include">
-                  <e p="Editor" t="Include">
-                    <e p="SceneReference.cs" t="Include" />
-                    <e p="SceneReferenceEditor.cs" t="Include" />
-                  </e>
-                </e>
-                <e p="SearchableEnum" t="Include">
-                  <e p="Editor" t="Include">
-                    <e p="SearchableEnumDrawer.cs" t="Include" />
-                    <e p="SearchablePopup.cs" t="Include" />
-                  </e>
-                  <e p="SearchableEnumAttribute.cs" t="Include" />
-                </e>
-                <e p="SnakeSpaceFilling.cs" t="Include" />
-                <e p="Utilities.cs" t="Include" />
-              </e>
             </e>
           </e>
           <e p="Samples" t="Include">
@@ -895,137 +1076,6 @@
         <e p="SceneAssets" t="Include">
           <e p="Catch" t="Include">
             <e p="DropSpawner.cs" t="Include" />
-          </e>
-          <e p="Excluded" t="Include">
-            <e p="Bicycle" t="Include">
-              <e p="sportbike_pro_kit" t="Include">
-                <e p="Mobile" t="Include">
-                  <e p="Scripts" t="Include">
-                    <e p="MobileControls.cs" t="Include" />
-                  </e>
-                </e>
-                <e p="Scripts" t="Include">
-                  <e p="CamSwitcher.cs" t="Include" />
-                  <e p="CarScript.cs" t="Include" />
-                  <e p="KeyboardControls.cs" t="Include" />
-                  <e p="StartScript.cs" t="Include" />
-                  <e p="ToMainMenu.cs" t="Include" />
-                </e>
-                <e p="SportBikeControlHub.cs" t="Include" />
-              </e>
-            </e>
-            <e p="Hide" t="Include">
-              <e p="SharpShadowLight" t="Include">
-                <e p="Scripts" t="Include">
-                  <e p="Lights" t="Include">
-                    <e p="SharpShadowLight.cs" t="Include" />
-                  </e>
-                  <e p="Utilities" t="Include">
-                    <e p="EditorUtils.cs" t="Include" />
-                    <e p="ExampleScript.cs" t="Include" />
-                    <e p="FollowLight.cs" t="Include" />
-                    <e p="Move2D.cs" t="Include" />
-                    <e p="Rotate.cs" t="Include" />
-                    <e p="SharpShadowLightEditor.cs" t="Include" />
-                    <e p="SharpShadowLightMenu.cs" t="Include" />
-                    <e p="SinCosTable.cs" t="Include" />
-                  </e>
-                </e>
-                <e p="Shaders" t="Include">
-                  <e p="Gradient-AlphaBlend.shader" t="Include" />
-                  <e p="Gradient-ZFighting.shader" t="Include" />
-                  <e p="NoTexture.shader" t="Include" />
-                </e>
-              </e>
-            </e>
-            <e p="Move" t="Include">
-              <e p="Environments" t="Include">
-                <e p="DeepMindHopper" t="Include">
-                  <e p="Scripts" t="Include">
-                    <e p="DeepMindHopperAgent.cs" t="Include" />
-                  </e>
-                  <e p="Xml" t="Include">
-                    <e p="unity_dm_hopper.xml" t="Include" />
-                  </e>
-                </e>
-                <e p="DeepMindHumanoid" t="Include">
-                  <e p="Scripts" t="Include">
-                    <e p="DeepMindHumanoidAgent.cs" t="Include" />
-                  </e>
-                  <e p="Xml" t="Include">
-                    <e p="unity_dm_humanoid.xml" t="Include" />
-                  </e>
-                </e>
-                <e p="DeepMindWalker" t="Include">
-                  <e p="Scripts" t="Include">
-                    <e p="DeepMindWalkerAgent.cs" t="Include" />
-                  </e>
-                  <e p="Xml" t="Include">
-                    <e p="unity_dm_walker.xml" t="Include" />
-                  </e>
-                </e>
-                <e p="OpenAIAnt" t="Include">
-                  <e p="Scripts" t="Include">
-                    <e p="OpenAiAntAgent.cs" t="Include" />
-                  </e>
-                  <e p="Xml" t="Include">
-                    <e p="unity_oai_ant.xml" t="Include" />
-                  </e>
-                </e>
-                <e p="TestBed" t="Include">
-                  <e p="Scripts" t="Include">
-                    <e p="MarathonTestBedAgent.cs" t="Include" />
-                    <e p="MarathonTestBedDecision.cs" t="Include" />
-                  </e>
-                </e>
-              </e>
-              <e p="Scripts" t="Include">
-                <e p="Excluded" t="Include">
-                  <e p="Data" t="Include">
-                    <e p="MarathonJoint.cs" t="Include" />
-                    <e p="MarathonSensor.cs" t="Include" />
-                  </e>
-                  <e p="MarathonAgent.cs" t="Include" />
-                  <e p="MarathonHelper.cs" t="Include" />
-                  <e p="MarathonSpawner.cs" t="Include" />
-                </e>
-                <e p="HandleOverlap.cs" t="Include" />
-                <e p="SendOnCollisionTrigger.cs" t="Include" />
-                <e p="SensorBehavior.cs" t="Include" />
-                <e p="SmoothFollow.cs" t="Include" />
-              </e>
-            </e>
-            <e p="UnityHexapodSimulator" t="Include">
-              <e p="Assets" t="Include">
-                <e p="Scripts" t="Include">
-                  <e p="CameraController.cs" t="Include" />
-                  <e p="Cpg.cs" t="Include" />
-                  <e p="Extract" t="Include">
-                    <e p="PowerUp.cs" t="Include" />
-                    <e p="RL" t="Include">
-                      <e p="AgentWalk.cs" t="Include" />
-                      <e p="HeuristicWalker.cs" t="Include" />
-                      <e p="Oscillator.cs" t="Include" />
-                    </e>
-                    <e p="Robot" t="Include">
-                      <e p="Body.cs" t="Include" />
-                      <e p="Foot.cs" t="Include" />
-                      <e p="Leg.cs" t="Include" />
-                      <e p="Limb.cs" t="Include" />
-                      <e p="Robot.cs" t="Include" />
-                      <e p="Socket.cs" t="Include" />
-                    </e>
-                    <e p="Util" t="Include">
-                      <e p="VectorUtil.cs" t="Include" />
-                    </e>
-                  </e>
-                  <e p="JointsController.cs" t="Include" />
-                </e>
-              </e>
-              <e p="ProjectSettings" t="Include">
-                <e p="ProjectVersion.txt" t="Include" />
-              </e>
-            </e>
           </e>
           <e p="Experiments" t="Include">
             <e p="Rigidbodies" t="Include">
@@ -1097,49 +1147,6 @@
             </e>
           </e>
           <e p="Manipulator" t="Include">
-            <e p="Excluded" t="Include">
-              <e p="AdventureForge" t="Include">
-                <e p="CabinetsAndShelvesReadme.txt" t="Include" />
-              </e>
-              <e p="BioIK" t="Include">
-                <e p="BioIK.cs" t="Include" />
-                <e p="Demo" t="Include">
-                  <e p="Scripts" t="Include">
-                    <e p="CameraController.cs" t="Include" />
-                    <e p="Demo.cs" t="Include" />
-                    <e p="MouseDrag.cs" t="Include" />
-                    <e p="Rotate.cs" t="Include" />
-                  </e>
-                </e>
-                <e p="Editor" t="Include">
-                  <e p="BioIKEditor.cs" t="Include" />
-                </e>
-                <e p="Helpers" t="Include">
-                  <e p="Enums.cs" t="Include" />
-                  <e p="Evolution.cs" t="Include" />
-                  <e p="Model.cs" t="Include" />
-                  <e p="Utility.cs" t="Include" />
-                </e>
-                <e p="Setup" t="Include">
-                  <e p="BioJoint.cs" t="Include" />
-                  <e p="BioObjective.cs" t="Include" />
-                  <e p="BioSegment.cs" t="Include" />
-                  <e p="Objectives" t="Include">
-                    <e p="Displacement.cs" t="Include" />
-                    <e p="Distance.cs" t="Include" />
-                    <e p="JointValue.cs" t="Include" />
-                    <e p="LookAt.cs" t="Include" />
-                    <e p="Orientation.cs" t="Include" />
-                    <e p="Position.cs" t="Include" />
-                    <e p="Projection.cs" t="Include" />
-                  </e>
-                </e>
-              </e>
-              <e p="Editors" t="Include">
-                <e p="EnablerConfigurableEditor.cs" t="Include" />
-              </e>
-              <e p="IkSolverEnablerConfigurable.cs" t="Include" />
-            </e>
             <e p="InjectRandomRigidbodyNoise.cs" t="Include" />
           </e>
           <e p="Satellite" t="Include">
@@ -1225,7 +1232,6 @@
       </e>
       <e p="Examples.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />
-      <e p="Packages/droid/Neodroid/Libaries" t="ExcludeRecursive" />
       <e p="ProceduralToolkit.Editor.csproj" t="IncludeRecursive" />
       <e p="ProceduralToolkit.csproj" t="IncludeRecursive" />
       <e p="Temp" t="ExcludeRecursive">

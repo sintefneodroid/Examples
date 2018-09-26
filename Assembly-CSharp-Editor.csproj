@@ -54,9 +54,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AsmDefTools\Editor\AsmDefIgnore.cs" />
-    <Compile Include="Assets\AsmDefTools\Editor\AsmDefMenu.cs" />
-    <Compile Include="Assets\Excluded\Common\ReadMe\ScriptableObjects\Editor\ReadMeEditor.cs" />
+    <Compile Include="Assets\Common\AsmDefTools\Editor\AsmDefIgnore.cs" />
+    <Compile Include="Assets\Common\AsmDefTools\Editor\AsmDefMenu.cs" />
+    <Compile Include="Assets\Common\ListView\Examples\8. Dictionary\Editor\SqLitePostBuild.cs" />
+    <Compile Include="Assets\Common\ReadMe\ScriptableObjects\Editor\ReadMeEditor.cs" />
+    <Compile Include="Assets\Common\ReferenceChecker\unity-reference-checker-master\Editor\ColorfulLogBuilder.cs" />
+    <Compile Include="Assets\Common\ReferenceChecker\unity-reference-checker-master\Editor\Commands.cs" />
+    <Compile Include="Assets\Common\ReferenceChecker\unity-reference-checker-master\Editor\Settings.cs" />
+    <Compile Include="Assets\Common\ReferenceChecker\unity-reference-checker-master\Editor\SettingsWindow.cs" />
+    <Compile Include="Assets\Excluded\BioIK\Editor\BioIKEditor.cs" />
     <Compile Include="Assets\Excluded\Klak\Math\Editor\InterpolatorConfigDrawer.cs" />
     <Compile Include="Assets\Excluded\Klak\Motion\Editor\BrownianMotionEditor.cs" />
     <Compile Include="Assets\Excluded\Klak\Motion\Editor\ConstantMotionEditor.cs" />
@@ -112,14 +118,9 @@
     <Compile Include="Assets\Excluded\Klak\Wiring\Editor\Patcher\PatcherWindow.cs" />
     <Compile Include="Assets\Excluded\Klak\Wiring\Editor\Patcher\Styles.cs" />
     <Compile Include="Assets\Excluded\Klak\Wiring\Editor\System\PatchEditor.cs" />
-    <Compile Include="Assets\Excluded\ListView\Examples\8. Dictionary\Editor\SqLitePostBuild.cs" />
     <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Buildings\Editor\BuildingGeneratorConfiguratorEditor.cs" />
     <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\Chairs\Editor\ChairGeneratorConfiguratorEditor.cs" />
     <Compile Include="Assets\Excluded\ProceduralToolkit\Examples\LowPolyTerrain\Editor\LowPolyTerrainGeneratorConfiguratorEditor.cs" />
-    <Compile Include="Assets\Excluded\Utils\reference_checker\unity-reference-checker-master\Editor\ColorfulLogBuilder.cs" />
-    <Compile Include="Assets\Excluded\Utils\reference_checker\unity-reference-checker-master\Editor\Commands.cs" />
-    <Compile Include="Assets\Excluded\Utils\reference_checker\unity-reference-checker-master\Editor\Settings.cs" />
-    <Compile Include="Assets\Excluded\Utils\reference_checker\unity-reference-checker-master\Editor\SettingsWindow.cs" />
     <Compile Include="Assets\Neodroid\Editor\GameObjects\EditorGameObjectMenuPath.cs" />
     <Compile Include="Assets\Neodroid\Editor\GameObjects\GeneralSpawner.cs" />
     <Compile Include="Assets\Neodroid\Editor\GameObjects\MotorSpawner.cs" />
@@ -132,9 +133,13 @@
     <Compile Include="Assets\Neodroid\Editor\ScriptableObjects\NeodroidTask.cs" />
     <Compile Include="Assets\Neodroid\Editor\ScriptableObjects\PlayerMotions.cs" />
     <Compile Include="Assets\Neodroid\Editor\ScriptableObjects\Segmentations.cs" />
-    <Compile Include="Assets\Neodroid\Editor\Utilities\Excluded\NeodroidPackageImporterWindow.cs" />
     <Compile Include="Assets\Neodroid\Editor\Utilities\NeodroidEditorUtilities.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Utilities\Note.cs" />
     <Compile Include="Assets\Neodroid\Editor\Utilities\ScenePreview.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Utilities\SceneReference.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Utilities\SceneReferenceEditor.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Utilities\SearchableEnum\SearchableEnumDrawer.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Utilities\SearchableEnum\SearchablePopup.cs" />
     <Compile Include="Assets\Neodroid\Editor\Windows\CameraSynchronisationWindow.cs" />
     <Compile Include="Assets\Neodroid\Editor\Windows\DebugWindow.cs" />
     <Compile Include="Assets\Neodroid\Editor\Windows\DemonstrationWindow.cs" />
@@ -146,12 +151,7 @@
     <Compile Include="Assets\Neodroid\Editor\Windows\TaskWindow.cs" />
     <Compile Include="Assets\Neodroid\Editor\Windows\UnityDebug\FindMissingScripts.cs" />
     <Compile Include="Assets\Neodroid\Editor\Windows\WindowManager.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Unsorted\SceneReference\Editor\SceneReference.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Unsorted\SceneReference\Editor\SceneReferenceEditor.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Unsorted\SearchableEnum\Editor\SearchableEnumDrawer.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Unsorted\SearchableEnum\Editor\SearchablePopup.cs" />
     <Compile Include="Assets\Neodroid\Tests\Editor\NeodroidTestsNewTestScript.cs" />
-    <Compile Include="Assets\SceneAssets\Manipulator\Excluded\BioIK\Editor\BioIKEditor.cs" />
     <Reference Include="Unity.ProBuilder.AddOns.Editor">
       <HintPath>/home/heider/Neodroid/Examples/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
@@ -414,13 +414,31 @@
       <HintPath>/opt/2018.3.0b2/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Data.Sqlite">
-      <HintPath>/home/heider/Neodroid/Examples/Assets/Excluded/ListView/Examples/8. Dictionary/Plugins/Mono.Data.Sqlite.dll</HintPath>
+      <HintPath>/home/heider/Neodroid/Examples/Assets/Common/ListView/Examples/8. Dictionary/Plugins/Mono.Data.Sqlite.dll</HintPath>
     </Reference>
     <Reference Include="System.Data">
-      <HintPath>/home/heider/Neodroid/Examples/Assets/Excluded/ListView/Examples/8. Dictionary/Plugins/System.Data.dll</HintPath>
+      <HintPath>/home/heider/Neodroid/Examples/Assets/Common/ListView/Examples/8. Dictionary/Plugins/System.Data.dll</HintPath>
     </Reference>
     <Reference Include="JetBrains.Rider.Unity.Editor.Plugin.Repacked">
       <HintPath>/home/heider/Neodroid/Examples/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll</HintPath>
+    </Reference>
+    <Reference Include="Neodroid-FlatBuffers">
+      <HintPath>/home/heider/Neodroid/Examples/Assets/Neodroid/Libaries/Neodroid-FlatBuffers.1.0.0/lib/net45/Neodroid-FlatBuffers.dll</HintPath>
+    </Reference>
+    <Reference Include="NetMQ">
+      <HintPath>/home/heider/Neodroid/Examples/Assets/Neodroid/Libaries/NetMQ.4.0.0.175-pre/lib/net40/NetMQ.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <HintPath>/home/heider/Neodroid/Examples/Assets/Neodroid/Libaries/Microsoft.CSharp.4.5.0/lib/netcore50/Microsoft.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Priority Queue">
+      <HintPath>/home/heider/Neodroid/Examples/Assets/Neodroid/Libaries/OptimizedPriorityQueue.4.1.1/lib/net45/Priority Queue.dll</HintPath>
+    </Reference>
+    <Reference Include="AsyncIO">
+      <HintPath>/home/heider/Neodroid/Examples/Assets/Neodroid/Libaries/AsyncIO.0.1.61/lib/net40/AsyncIO.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>/home/heider/Neodroid/Examples/Assets/Neodroid/Libaries/Newtonsoft.Json.11.0.2/lib/net45/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="ProBuilderEditor">
       <HintPath>/home/heider/Neodroid/Examples/Library/PackageCache/com.unity.probuilder@3.0.9/ProBuilder/Editor/ProBuilderEditor.dll</HintPath>
@@ -442,24 +460,6 @@
     </Reference>
     <Reference Include="Poly2Tri">
       <HintPath>/home/heider/Neodroid/Examples/Library/PackageCache/com.unity.probuilder@3.0.9/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
-    </Reference>
-    <Reference Include="Neodroid-FlatBuffers">
-      <HintPath>/home/heider/Neodroid/Examples/Assets/Neodroid/Libaries/Neodroid-FlatBuffers.1.0.0/lib/net45/Neodroid-FlatBuffers.dll</HintPath>
-    </Reference>
-    <Reference Include="NetMQ">
-      <HintPath>/home/heider/Neodroid/Examples/Assets/Neodroid/Libaries/NetMQ.4.0.0.175-pre/lib/net40/NetMQ.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.CSharp">
-      <HintPath>/home/heider/Neodroid/Examples/Assets/Neodroid/Libaries/Microsoft.CSharp.4.5.0/lib/netcore50/Microsoft.CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Priority Queue">
-      <HintPath>/home/heider/Neodroid/Examples/Assets/Neodroid/Libaries/OptimizedPriorityQueue.4.1.1/lib/net45/Priority Queue.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>/home/heider/Neodroid/Examples/Assets/Neodroid/Libaries/Newtonsoft.Json.11.0.2/lib/net45/Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="AsyncIO">
-      <HintPath>/home/heider/Neodroid/Examples/Assets/Neodroid/Libaries/AsyncIO.0.1.61/lib/net40/AsyncIO.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>/opt/2018.3.0b2/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
