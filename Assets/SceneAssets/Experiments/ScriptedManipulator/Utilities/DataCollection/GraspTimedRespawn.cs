@@ -1,5 +1,6 @@
 ﻿using System.Collections;
-using Neodroid.Runtime.Utilities.Unsorted;
+using Neodroid.Runtime.Utilities.Misc.Drawing;
+using Neodroid.Runtime.Utilities.Misc.Grasping;
 using SceneAssets.Experiments.ScriptedManipulator.Grasps;
 using SceneAssets.Experiments.ScriptedManipulator.Scripts;
 using UnityEngine;

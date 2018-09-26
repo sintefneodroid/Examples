@@ -107,14 +107,7 @@
               <e p="ReadMe.cs" t="Include" />
             </e>
           </e>
-          <e p="Scripts" t="Include">
-            <e p="SimpleCameraController.cs" t="Include" />
-            <e p="UnityMainThreadDispatcher.cs" t="Include" />
-          </e>
-          <e p="Tools" t="Include">
-            <e p="ProceduralCapsule.cs" t="Include" />
-          </e>
-          <e p="reference_checker" t="Include">
+          <e p="ReferenceChecker" t="Include">
             <e p="unity-reference-checker-master" t="Include">
               <e p="Editor" t="Include">
                 <e p="ColorfulLogBuilder.cs" t="Include" />
@@ -127,6 +120,13 @@
                 <e p="RefCheckerTestComponent.cs" t="Include" />
               </e>
             </e>
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="SimpleCameraController.cs" t="Include" />
+            <e p="UnityMainThreadDispatcher.cs" t="Include" />
+          </e>
+          <e p="Tools" t="Include">
+            <e p="ProceduralCapsule.cs" t="Include" />
           </e>
         </e>
         <e p="Excluded" t="Include">
@@ -736,6 +736,11 @@
               <e p="IResetable.cs" t="Include" />
               <e p="ISimulatorConfiguration.cs" t="Include" />
             </e>
+            <e p="InternalReactions" t="Include">
+              <e p="KeyEventEnabler.cs" t="Include" />
+              <e p="PlayerReactions.cs" t="Include" />
+              <e p="ScriptedReactions.cs" t="Include" />
+            </e>
             <e p="Managers" t="Include">
               <e p="Experimental" t="Include">
                 <e p="CurriculumManager.cs" t="Include" />
@@ -780,11 +785,6 @@
               </e>
             </e>
             <e p="NeodroidInfo.cs" t="Include" />
-            <e p="PlayerControls" t="Include">
-              <e p="KeyEventEnabler.cs" t="Include" />
-              <e p="PlayerReactions.cs" t="Include" />
-              <e p="ScriptedReactions.cs" t="Include" />
-            </e>
             <e p="Properties" t="Include">
               <e p="AssemblyInfo.cs" t="Include" />
             </e>
@@ -1153,6 +1153,18 @@
             <e p="Scripts" t="Include">
               <e p="BodyWithMass.cs" t="Include" />
               <e p="InitialForce.cs" t="Include" />
+            </e>
+          </e>
+          <e p="UnityHexapodSimulator" t="Include">
+            <e p="Assets" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="CPG.cs" t="Include" />
+                <e p="CameraController.cs" t="Include" />
+                <e p="JointsController.cs" t="Include" />
+              </e>
+            </e>
+            <e p="ProjectSettings" t="Include">
+              <e p="ProjectVersion.txt" t="Include" />
             </e>
           </e>
           <e p="Walker" t="Include">
