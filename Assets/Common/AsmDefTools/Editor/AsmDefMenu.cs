@@ -107,7 +107,7 @@ namespace Common.AsmDefTools.Editor {
         }
       }
 
-      AssetDatabase.Refresh(ImportAssetOptions.Default);
+      //AssetDatabase.Refresh(ImportAssetOptions.Default);
     }
 
     [MenuItem(_menu_path+"AsmDef/Toggle AsmDef", validate = true)]

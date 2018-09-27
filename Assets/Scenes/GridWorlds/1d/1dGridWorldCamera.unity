@@ -684,11 +684,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 20224209517257972, guid: 9e9875463c1ed451bb25878f63e0cdc7, type: 3}
       propertyPath: orthographic size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8108044723890373889, guid: 9e9875463c1ed451bb25878f63e0cdc7, type: 3}
       propertyPath: _Serialised_String
-      value: ', -115930: RGBA(0.452, 0.454, 0.456, 1.000), 115540: RGBA(0.275, 0.256, 0.624, 1.000), 115560: RGBA(0.796, 0.868, 0.036, 1.000), 115570: RGBA(0.397, 0.696, 0.393, 1.000), 115580: RGBA(0.223, 0.101, 0.612, 1.000), 115626: RGBA(0.027, 0.022, 0.028, 1.000), 115636: RGBA(0.434, 0.290, 0.169, 1.000)'
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9119703340410289289, guid: 9e9875463c1ed451bb25878f63e0cdc7, type: 3}
       propertyPath: m_Enabled
@@ -806,6 +806,10 @@ PrefabInstance:
       propertyPath: _textures.Array.data[2]
       value: 
       objectReference: {fileID: 8400000, guid: afc5604d79d0849129803e463fc07bca, type: 2}
+    - target: {fileID: 962180073, guid: 9e9875463c1ed451bb25878f63e0cdc7, type: 3}
+      propertyPath: _Serialised_String
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e9875463c1ed451bb25878f63e0cdc7, type: 3}
 --- !u!4 &316349115 stripped
@@ -1453,9 +1457,7 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _values: []
-  _retain_last_plot: 1
-  _plot_random_series: 0
+  _RetainLastPlot: 1
 --- !u!114 &877642499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1473,9 +1475,7 @@ MonoBehaviour:
   _disables_children: 0
   _editor_reregistering: 1
   _debugging: 0
-  _values: []
-  _retain_last_plot: 1
-  _plot_random_series: 0
+  _RetainLastPlot: 1
   _designs:
   - {fileID: 1836928407309126, guid: ad54d047c9ad94ba59f129cca37f519f, type: 3}
   - {fileID: 1411392743962356, guid: 997674981f58b41629a13b75044f03d9, type: 3}
@@ -1904,7 +1904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 16.500008
+      value: 16.499947
       objectReference: {fileID: 0}
     - target: {fileID: 224701342121933384, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1973,6 +1973,22 @@ PrefabInstance:
     - target: {fileID: 224022790003590410, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224582703667719680, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114360142959021996, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114360142959021996, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
+      propertyPath: m_Size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114785673117026166, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
+      propertyPath: m_Value
+      value: 0.48622367
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
