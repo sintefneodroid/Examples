@@ -905,6 +905,7 @@ GameObject:
   - component: {fileID: 146385367}
   - component: {fileID: 146385369}
   - component: {fileID: 146385368}
+  - component: {fileID: 146385371}
   m_Layer: 0
   m_Name: NeodroidCamera
   m_TagString: Untagged
@@ -1025,6 +1026,41 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &146385371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146385365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3dd815fb29337f73b480c9dd61a4ae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cameras:
+  - {fileID: 87235917}
+  - {fileID: 146385370}
+  - {fileID: 227475709}
+  - {fileID: 470007330}
+  - {fileID: 508431466}
+  - {fileID: 873548047}
+  - {fileID: 1299203710}
+  - {fileID: 1524234842}
+  - {fileID: 1793004002}
+  _textures:
+  - {fileID: 8400000, guid: b22ce111b5af44afe8b8f2f085799a5f, type: 2}
+  - {fileID: 8400000, guid: 8fb1467d625b3486199ecd1d9d21ef7d, type: 2}
+  - {fileID: 8400000, guid: afc5604d79d0849129803e463fc07bca, type: 2}
+  - {fileID: 8400000, guid: 4c7dcaf7e8ef74c11bd8ad06365ea216, type: 2}
+  - {fileID: 8400000, guid: c0062e72afb4348d9b9bb702fba6c398, type: 2}
+  - {fileID: 8400000, guid: bc593ac7628a042ac93b20ca1c0101b6, type: 2}
+  - {fileID: 8400000, guid: 5d9eca522a1944267b89beea11ffc58c, type: 2}
+  - {fileID: 8400000, guid: 63f7bf9c3a80b4d169b394696cbbd9ab, type: 2}
+  _size: {x: 84, y: 84}
+  _texture_format: 5
+  _filter_mode: 1
+  _wrap_mode: 1
 --- !u!1 &147755602
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,7 +1461,7 @@ MonoBehaviour:
   _image_format: 0
   _jpeg_quality: 75
   _camera: {fileID: 227475709}
-  _Serialised_String: 
+  _Serialised_String: ', 37240: RGBA(0.161, 0.149, 0.150, 1.000), 37540: RGBA(0.238, 0.136, 0.460, 1.000), 37762: RGBA(0.037, 0.206, 0.045, 1.000), 37930: RGBA(0.058, 0.620, 0.782, 1.000), 38088: RGBA(0.429, 0.180, 0.003, 1.000)'
   _segmenter: {fileID: 227475706}
 --- !u!20 &227475709
 Camera:
@@ -2018,10 +2054,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 323796244}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3beb8362c00a430284276d3f715f4a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c73f43bba7e64ece94e08cb9d121a4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 100
+  _rotation_vector: {x: 0, y: 1, z: 0}
+  _speed: 1
 --- !u!1 &336744586
 GameObject:
   m_ObjectHideFlags: 0
@@ -4152,7 +4189,7 @@ MonoBehaviour:
   _image_format: 1
   _jpeg_quality: 75
   _camera: {fileID: 873548047}
-  _Serialised_String: 
+  _Serialised_String: ', Goal: RGBA(0.000, 1.000, 0.000, 1.000), Obstruction: RGBA(1.000, 0.000, 0.000, 1.000)'
   _segmenter: {fileID: 873548045}
 --- !u!114 &873548045
 MonoBehaviour:
@@ -4298,8 +4335,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1925218452}
   m_HandleRect: {fileID: 1925218450}
   m_Direction: 0
-  m_Value: 0.00000008073433
-  m_Size: 0.5275
+  m_Value: 0
+  m_Size: 0.5274866
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6123,7 +6160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 378, y: 50}
+  m_AnchoredPosition: {x: 378.0006, y: 50}
   m_SizeDelta: {x: 1600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1299203703
@@ -7837,7 +7874,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 267884093}
   m_HandleRect: {fileID: 267884092}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -9104,7 +9141,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8636ac5021ec51f48844b1019d1fdc06, type: 2}
+  - {fileID: 2100000, guid: 131ebc67be39e4ec29fe4a999f520085, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
