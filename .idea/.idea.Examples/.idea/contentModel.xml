@@ -723,8 +723,8 @@
               <e p="IHasQuaternionTransform.cs" t="Include" />
               <e p="IHasRegister.cs" t="Include" />
               <e p="IHasRigidbody.cs" t="Include" />
-              <e p="IHasSerialisedString.cs" t="Include" />
               <e p="IHasSingle.cs" t="Include" />
+              <e p="IHasString.cs" t="Include" />
               <e p="IHasTriple.cs" t="Include" />
               <e p="IManager.cs" t="Include" />
               <e p="IMaterialManipulator.cs" t="Include" />
@@ -920,6 +920,7 @@
                   <e p="RigidbodyObserver.cs" t="Include" />
                   <e p="VelocityObserver.cs" t="Include" />
                 </e>
+                <e p="StringObserver.cs" t="Include" />
                 <e p="TargetRigidbodyObserver.cs" t="Include" />
                 <e p="Transform" t="Include">
                   <e p="EulerTransformObserver.cs" t="Include" />
@@ -966,10 +967,9 @@
               </e>
               <e p="Misc" t="Include">
                 <e p="Drawing" t="Include">
-                  <e p="DrawArrow.cs" t="Include" />
                   <e p="DrawString.cs" t="Include" />
                   <e p="GuiDraw.cs" t="Include" />
-                  <e p="NeodroidUtilities.cs" t="Include" />
+                  <e p="NeodroidDrawingUtilities.cs" t="Include" />
                 </e>
                 <e p="Extensions" t="Include">
                   <e p="JointFix.cs" t="Include" />
@@ -983,6 +983,7 @@
                 <e p="Grid" t="Include">
                   <e p="GridCell.cs" t="Include" />
                 </e>
+                <e p="NeodroidUtilities.cs" t="Include" />
                 <e p="Orientation" t="Include">
                   <e p="FollowTarget.cs" t="Include" />
                   <e p="FollowTargetRotation.cs" t="Include" />
@@ -998,7 +999,7 @@
                 </e>
               </e>
               <e p="NeodroidCamera" t="Include">
-                <e p="CameraObservationController.cs" t="Include" />
+                <e p="CameraObservationTextureController.cs" t="Include" />
                 <e p="DisparityCameraBehaviour.cs" t="Include" />
                 <e p="FlowCameraBehaviour.cs" t="Include" />
                 <e p="IgnoreLightSource.cs" t="Include" />

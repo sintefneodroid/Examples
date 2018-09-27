@@ -68,9 +68,7 @@ namespace SceneAssets.GridWorlds.Scripts {
     /// 
     /// </summary>
 
-    public static MazeDirection RandomValue {
-      get { return (MazeDirection)Random.Range(0, _Count); }
-    }
+    public static MazeDirection RandomValue { get { return (MazeDirection)Random.Range(0, _Count); } }
 
     /// <summary>
     /// 

@@ -80,9 +80,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Navigation {
     /// <param name='index'>
     ///   - the index
     /// </param>
-    public BezierPoint this[int index] {
-      get { return this._points[index]; }
-    }
+    public BezierPoint this[int index] { get { return this._points[index]; } }
 
     /// <summary>
     ///   - number of points stored in 'points' variable
@@ -92,9 +90,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Navigation {
     /// <value>
     ///   - The point count
     /// </value>
-    public int PointCount {
-      get { return this._points.Length; }
-    }
+    public int PointCount { get { return this._points.Length; } }
 
     /// <summary>
     ///   - The approximate length of the curve

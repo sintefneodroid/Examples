@@ -46,10 +46,8 @@ namespace Common.EffectExamples.Shared.Scripts {
       // ..spawn the relevant game object based on the array of potential game objects, according to the current index (position in the array)
       this._current_go = Instantiate(
           this._ParticleSystems[this._current_index]._ParticleSystemGo,
-          this._SpawnLocation.position
-          + this._ParticleSystems[this._current_index]._ParticlePosition,
-          Quaternion.Euler(
-              this._ParticleSystems[this._current_index]._ParticleRotation));
+          this._SpawnLocation.position + this._ParticleSystems[this._current_index]._ParticlePosition,
+          Quaternion.Euler(this._ParticleSystems[this._current_index]._ParticleRotation));
 
       // only activate the gun GameObject if the current effect is a weapon effect
       this._GunGameObject.SetActive(this._ParticleSystems[this._current_index]._IsWeaponEffect);

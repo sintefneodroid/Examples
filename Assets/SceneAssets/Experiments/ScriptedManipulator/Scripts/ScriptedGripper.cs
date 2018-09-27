@@ -8,6 +8,7 @@ using SceneAssets.Experiments.ScriptedManipulator.Grasps;
 using SceneAssets.Experiments.ScriptedManipulator.Navigation;
 using SceneAssets.Experiments.ScriptedManipulator.Utilities;
 using UnityEngine;
+using NeodroidUtilities = Neodroid.Runtime.Utilities.Misc.NeodroidUtilities;
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
   /// <inheritdoc />
@@ -48,10 +49,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
     /// <summary>
     /// 
     /// </summary>
-    public States State {
-      get { return this._state; }
-      set { this._state = value; }
-    }
+    public States State { get { return this._state; } set { this._state = value; } }
 
     #region Helpers
 

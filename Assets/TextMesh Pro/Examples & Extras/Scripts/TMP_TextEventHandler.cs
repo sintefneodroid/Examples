@@ -111,8 +111,7 @@ namespace TextMesh_Pro.Scripts {
         if (charIndex != -1 && charIndex != this.m_lastCharIndex) {
           this.m_lastCharIndex = charIndex;
 
-          var elementType =
-              this.m_TextComponent.textInfo.characterInfo[charIndex].elementType;
+          var elementType = this.m_TextComponent.textInfo.characterInfo[charIndex].elementType;
 
           // Send event to any event listeners depending on whether it is a character or sprite.
           if (elementType == TMP_TextElementType.Character)

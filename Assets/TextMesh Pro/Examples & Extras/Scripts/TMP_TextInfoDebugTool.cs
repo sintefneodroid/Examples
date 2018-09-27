@@ -105,11 +105,11 @@ namespace TextMesh_Pro.Scripts {
         var cInfo = textInfo.characterInfo[i];
 
         var isCharacterVisible = i >= this.m_TextComponent.maxVisibleCharacters
-                                  || cInfo.lineNumber >= this.m_TextComponent.maxVisibleLines
-                                  || (this.m_TextComponent.overflowMode == TextOverflowModes.Page
-                                      && cInfo.pageNumber + 1 != this.m_TextComponent.pageToDisplay)
-                                      ? false
-                                      : true;
+                                 || cInfo.lineNumber >= this.m_TextComponent.maxVisibleLines
+                                 || (this.m_TextComponent.overflowMode == TextOverflowModes.Page
+                                     && cInfo.pageNumber + 1 != this.m_TextComponent.pageToDisplay)
+                                     ? false
+                                     : true;
 
         if (!isCharacterVisible) continue;
 
@@ -211,12 +211,12 @@ namespace TextMesh_Pro.Scripts {
           var currentLine = currentCharInfo.lineNumber;
 
           var isCharacterVisible = characterIndex > this.m_TextComponent.maxVisibleCharacters
-                                    || currentCharInfo.lineNumber > this.m_TextComponent.maxVisibleLines
-                                    || (this.m_TextComponent.overflowMode == TextOverflowModes.Page
-                                        && currentCharInfo.pageNumber + 1
-                                        != this.m_TextComponent.pageToDisplay)
-                                        ? false
-                                        : true;
+                                   || currentCharInfo.lineNumber > this.m_TextComponent.maxVisibleLines
+                                   || (this.m_TextComponent.overflowMode == TextOverflowModes.Page
+                                       && currentCharInfo.pageNumber + 1
+                                       != this.m_TextComponent.pageToDisplay)
+                                       ? false
+                                       : true;
 
           // Track Max Ascender and Min Descender
           maxAscender = Mathf.Max(maxAscender, currentCharInfo.ascender);
@@ -316,12 +316,12 @@ namespace TextMesh_Pro.Scripts {
           var currentLine = currentCharInfo.lineNumber;
 
           var isCharacterVisible = characterIndex > this.m_TextComponent.maxVisibleCharacters
-                                    || currentCharInfo.lineNumber > this.m_TextComponent.maxVisibleLines
-                                    || (this.m_TextComponent.overflowMode == TextOverflowModes.Page
-                                        && currentCharInfo.pageNumber + 1
-                                        != this.m_TextComponent.pageToDisplay)
-                                        ? false
-                                        : true;
+                                   || currentCharInfo.lineNumber > this.m_TextComponent.maxVisibleLines
+                                   || (this.m_TextComponent.overflowMode == TextOverflowModes.Page
+                                       && currentCharInfo.pageNumber + 1
+                                       != this.m_TextComponent.pageToDisplay)
+                                       ? false
+                                       : true;
 
           // Track Max Ascender and Min Descender
           maxAscender = Mathf.Max(maxAscender, currentCharInfo.ascender);

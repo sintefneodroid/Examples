@@ -11,6 +11,7 @@ namespace Common.EffectExamples.Shared.Scripts {
     /// 
     /// </summary>
     public ParticleSystem _FireParticleSystem;
+
     public ParticleSystem _SmokeParticleSystem;
 
     protected bool _M_IsExtinguished;

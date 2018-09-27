@@ -9,6 +9,7 @@ namespace Common.reference_checker.Tests {
     /// 
     /// </summary>
     public int _ExampleInt;
+
     [IgnoreRefChecker] public MonoBehaviour _ExampleWithTag;
     public MonoBehaviour _WithoutReferenceWithoutTag; // Should print log
     public MonoBehaviour _WithoutReferenceWithoutTag2; // Should print log

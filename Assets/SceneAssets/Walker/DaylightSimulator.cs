@@ -2,6 +2,7 @@
 using Neodroid.Runtime.Utilities.Misc.Drawing;
 using Neodroid.Runtime.Utilities.Misc.Grasping;
 using UnityEngine;
+using NeodroidUtilities = Neodroid.Runtime.Utilities.Misc.NeodroidUtilities;
 
 namespace SceneAssets.Walker {
   /// <inheritdoc />
@@ -112,8 +113,6 @@ namespace SceneAssets.Walker {
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    public override string PrototypingTypeName {
-      get { return "DaylightSimulator"; }
-    }
+    public override string PrototypingTypeName { get { return "DaylightSimulator"; } }
   }
 }

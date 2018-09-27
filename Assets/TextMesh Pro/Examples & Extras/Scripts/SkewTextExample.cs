@@ -119,7 +119,7 @@ namespace TextMesh_Pro.Scripts {
 
           // Compute the angle of rotation for each character based on the animation curve
           var x0 = (offsetToMidBaseline.x - boundsMinX)
-                     / (boundsMaxX - boundsMinX); // Character's position relative to the bounds of the mesh.
+                   / (boundsMaxX - boundsMinX); // Character's position relative to the bounds of the mesh.
           var x1 = x0 + 0.0001f;
           var y0 = this.VertexCurve.Evaluate(x0) * this.CurveScale;
           var y1 = this.VertexCurve.Evaluate(x1) * this.CurveScale;
@@ -127,7 +127,7 @@ namespace TextMesh_Pro.Scripts {
           var horizontal = new Vector3(1, 0, 0);
           //Vector3 normal = new Vector3(-(y1 - y0), (x1 * (boundsMaxX - boundsMinX) + boundsMinX) - offsetToMidBaseline.x, 0);
           var tangent = new Vector3(x1 * (boundsMaxX - boundsMinX) + boundsMinX, y1)
-                            - new Vector3(offsetToMidBaseline.x, y0);
+                        - new Vector3(offsetToMidBaseline.x, y0);
 
           var dot = Mathf.Acos(Vector3.Dot(horizontal, tangent.normalized)) * 57.2957795f;
           var cross = Vector3.Cross(horizontal, tangent);

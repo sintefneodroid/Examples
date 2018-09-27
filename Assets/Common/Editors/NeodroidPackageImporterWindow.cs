@@ -19,8 +19,8 @@ namespace Common.Editors {
     }
 
     [SerializeField] bool _k_essential_resources_imported;
- [SerializeField] bool _k_examples_and_extras_resources_imported;
-[SerializeField] bool _k_is_importing_examples;
+    [SerializeField] bool _k_examples_and_extras_resources_imported;
+    [SerializeField] bool _k_is_importing_examples;
 
     void OnEnable() {
       // Set Editor Window Size
@@ -72,7 +72,8 @@ namespace Common.Editors {
               new GUIStyle(EditorStyles.label) {wordWrap = true});
           GUILayout.Space(5f);
 
-          GUI.enabled = this._k_essential_resources_imported && !this._k_examples_and_extras_resources_imported;
+          GUI.enabled = this._k_essential_resources_imported
+                        && !this._k_examples_and_extras_resources_imported;
           if (GUILayout.Button("Import TMP Examples & Extras")) {
             import_examples_package = true;
           }

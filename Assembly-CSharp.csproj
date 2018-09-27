@@ -286,8 +286,8 @@
     <Compile Include="Assets\Neodroid\Runtime\Interfaces\IHasQuaternionTransform.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Interfaces\IHasRegister.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Interfaces\IHasRigidbody.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IHasSerialisedString.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Interfaces\IHasSingle.cs" />
+    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IHasString.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Interfaces\IHasTriple.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Interfaces\IManager.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Interfaces\IMaterialManipulator.cs" />
@@ -420,6 +420,7 @@
     <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Rigidbody\AngularVelocityObserver.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Rigidbody\RigidbodyObserver.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Rigidbody\VelocityObserver.cs" />
+    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\StringObserver.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\TargetRigidbodyObserver.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Transform\EulerTransformObserver.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Transform\PositionObserver.cs" />
@@ -442,16 +443,16 @@
     <Compile Include="Assets\Neodroid\Runtime\Utilities\EventRecipients\TextUpdater.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\EventRecipients\ToggleUpdater.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\GameObjects\PrototypingGameObject.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Drawing\DrawArrow.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Drawing\DrawString.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Drawing\GuiDraw.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Drawing\NeodroidUtilities.cs" />
+    <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Drawing\NeodroidDrawingUtilities.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Extensions\JointFix.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Extensions\Obstruction.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Extensions\OnCollision.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Extensions\ParticleController.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Grasping\GraspingUtilities.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Grid\GridCell.cs" />
+    <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\NeodroidUtilities.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Orientation\FollowTarget.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Orientation\FollowTargetRotation.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Orientation\MotionTracker.cs" />

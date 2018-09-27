@@ -4,6 +4,7 @@ using Neodroid.Runtime.Utilities.Misc.Grasping;
 using SceneAssets.Experiments.ScriptedManipulator.Grasps;
 using SceneAssets.Experiments.ScriptedManipulator.Scripts;
 using UnityEngine;
+using NeodroidUtilities = Neodroid.Runtime.Utilities.Misc.NeodroidUtilities;
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
   public class GraspTimedRespawn : MonoBehaviour {

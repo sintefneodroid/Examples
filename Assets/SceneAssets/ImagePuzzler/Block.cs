@@ -7,10 +7,7 @@ namespace SceneAssets.ImagePuzzler {
     [SerializeField] Vector2Int _coord;
     [SerializeField] Vector2Int _starting_coord;
 
-    public Vector2Int Coord {
-      get { return this._coord; }
-      set { this._coord = value; }
-    }
+    public Vector2Int Coord { get { return this._coord; } set { this._coord = value; } }
 
     public event Action<Block> OnBlockPressed;
     public event Action OnFinishedMoving;

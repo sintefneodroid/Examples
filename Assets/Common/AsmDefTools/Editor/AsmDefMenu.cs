@@ -61,8 +61,8 @@ namespace Common.AsmDefTools.Editor {
     #region Menu
 
     const string _menu_path = "Tools/";
-    
-    [MenuItem(_menu_path+"AsmDef/Toggle AsmDef")]
+
+    [MenuItem(_menu_path + "AsmDef/Toggle AsmDef")]
     static void ToggleAsmDef() {
       var files = Directory.GetFiles(
           Application.dataPath,
@@ -110,13 +110,13 @@ namespace Common.AsmDefTools.Editor {
       //AssetDatabase.Refresh(ImportAssetOptions.Default);
     }
 
-    [MenuItem(_menu_path+"AsmDef/Toggle AsmDef", validate = true)]
+    [MenuItem(_menu_path + "AsmDef/Toggle AsmDef", validate = true)]
     static bool ToggleAsmDefValidate() {
       Menu.SetChecked("AsmDef/Toggle AsmDef", Hidden);
       return true;
     }
 
-    [MenuItem(_menu_path+"Assets/Keep AsmDef active")]
+    [MenuItem(_menu_path + "Assets/Keep AsmDef active")]
     static void KeepAsmDefActive() {
       var file_name = Path.GetFileNameWithoutExtension(AssetDatabase.GetAssetPath(Selection.activeObject));
       var active = Ignore.Contains(file_name);
@@ -130,7 +130,7 @@ namespace Common.AsmDefTools.Editor {
       Menu.SetChecked("Assets/Keep AsmDef active", !active);
     }
 
-    [MenuItem(_menu_path+"Assets/Keep AsmDef active", validate = true)]
+    [MenuItem(_menu_path + "Assets/Keep AsmDef active", validate = true)]
     static bool KeepAsmDefActiveValidate() {
       if (Selection.activeObject == null) {
         return false;
