@@ -11,8 +11,8 @@ namespace Common.ListView.Scripts {
 
   public abstract class ListViewScroller : ListViewInputHandler {
     protected bool _M_Scrolling;
-    protected Vector3 _M_StartPosition;
     protected float _M_StartOffset;
+    protected Vector3 _M_StartPosition;
 
     protected virtual void StartScrolling(Vector3 start) {
       if (this._M_Scrolling) {

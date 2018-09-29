@@ -8,22 +8,23 @@ namespace TextMesh_Pro.Scripts {
       BottomLeft,
       TopRight,
       BottomRight
-    };
-
-    public FpsCounterAnchorPositions AnchorPosition = FpsCounterAnchorPositions.BottomLeft;
+    }
 
     const string instructions = "Camera Control - <#ffff00>Shift + RMB\n</color>Zoom - <#ffff00>Mouse wheel.";
 
-    TextMeshPro m_TextMeshPro;
-    TextContainer m_textContainer;
-    Transform m_frameCounter_transform;
+    public FpsCounterAnchorPositions AnchorPosition = FpsCounterAnchorPositions.BottomLeft;
     Camera m_camera;
+    Transform m_frameCounter_transform;
+    TextContainer m_textContainer;
+
+    TextMeshPro m_TextMeshPro;
 
     //private FpsCounterAnchorPositions last_AnchorPosition;
 
     void Awake() {
-      if (!this.enabled)
+      if (!this.enabled) {
         return;
+      }
 
       this.m_camera = Camera.main;
 

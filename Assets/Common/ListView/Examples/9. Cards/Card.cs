@@ -11,16 +11,17 @@ namespace Common.ListView.Examples._9._Cards {
       Clubs_
     }
 
-    public TextMesh _TopNum, _BotNum;
+    const float _k_quad_offset = 0.001f; //Local y offset for placing quads
     public float _CenterScale = 3f;
+    [SerializeField] GameObject _m_club;
 
     [SerializeField] GameObject _m_diamond;
     [SerializeField] GameObject _m_heart;
-    [SerializeField] GameObject _m_spade;
-    [SerializeField] GameObject _m_club;
 
     Vector3 _m_size;
-    const float _k_quad_offset = 0.001f; //Local y offset for placing quads
+    [SerializeField] GameObject _m_spade;
+
+    public TextMesh _TopNum, _BotNum;
 
     public override void Setup(CardData data) {
       base.Setup(data);
@@ -72,7 +73,7 @@ namespace Common.ListView.Examples._9._Cards {
           var val_num = Convert.ToInt32(this._Data._Value);
           float division_y = 0;
           float division_x = 0;
-          var cols = (val_num < 4 ? 1 : 2);
+          var cols = val_num < 4 ? 1 : 2;
           var rows = val_num / cols;
           if (val_num == 8) {
             rows = 3;
@@ -141,8 +142,9 @@ namespace Common.ListView.Examples._9._Cards {
 
   //[System.Serializable]     //Will cause warnings, but helpful for debugging
   public class CardData : ListViewItemData {
+    public Card.Suit _Suit;
+
     //Ace is 1, King is 13
     public string _Value;
-    public Card.Suit _Suit;
   }
 }

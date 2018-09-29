@@ -11,7 +11,7 @@ namespace TextMesh_Pro.Scripts {
     void Start() { this.StartCoroutine(this.AnimateVertexColors()); }
 
     /// <summary>
-    /// Method to animate vertex colors of a TMP Text object.
+    ///   Method to animate vertex colors of a TMP Text object.
     /// </summary>
     /// <returns></returns>
     IEnumerator AnimateVertexColors() {

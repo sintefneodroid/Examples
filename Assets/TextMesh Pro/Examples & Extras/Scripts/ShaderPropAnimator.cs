@@ -4,12 +4,11 @@ using UnityEngine;
 
 namespace TextMesh_Pro.Scripts {
   public class ShaderPropAnimator : MonoBehaviour {
-    Renderer m_Renderer;
-    Material m_Material;
-
     public AnimationCurve GlowCurve;
 
     public float m_frame;
+    Material m_Material;
+    Renderer m_Renderer;
 
     void Awake() {
       // Cache a reference to object's renderer

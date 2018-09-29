@@ -3,11 +3,9 @@ using UnityEngine;
 
 namespace Common.reference_checker.Editor {
   /// <summary>
-  /// 
   /// </summary>
   public static class Settings {
     /// <summary>
-    /// 
     /// </summary>
     /// <returns></returns>
     public static bool GetCheckOnCompilation() { return GetPlayerPrefsBool(Keys._CheckOnCompilation, false); }
@@ -61,7 +59,6 @@ namespace Common.reference_checker.Editor {
     }
 
     /// <summary>
-    /// 
     /// </summary>
     static class Keys {
       static string _refchecker_pretext = "RefChecker:";

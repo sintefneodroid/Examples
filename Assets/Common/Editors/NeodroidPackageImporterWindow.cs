@@ -9,18 +9,17 @@ namespace Common.Editors {
   /// <summary>
   /// </summary>
   public class NeodroidPackageImporterWindow : EditorWindow {
+    [SerializeField] bool _k_essential_resources_imported;
+    [SerializeField] bool _k_examples_and_extras_resources_imported;
+    [SerializeField] bool _k_is_importing_examples;
+
     /// <summary>
-    /// 
     /// </summary>
     public static void ShowPackageImporterWindow() {
       var window = GetWindow<NeodroidPackageImporterWindow>();
       window.titleContent = new GUIContent("Neodroid Importer");
       window.Focus();
     }
-
-    [SerializeField] bool _k_essential_resources_imported;
-    [SerializeField] bool _k_examples_and_extras_resources_imported;
-    [SerializeField] bool _k_is_importing_examples;
 
     void OnEnable() {
       // Set Editor Window Size
@@ -111,7 +110,7 @@ namespace Common.Editors {
     void OnInspectorUpdate() { this.Repaint(); }
 
     /// <summary>
-    /// Limits the minimum size of the editor window.
+    ///   Limits the minimum size of the editor window.
     /// </summary>
     void SetEditorWindowSize() {
       EditorWindow editor_window = this;
@@ -122,7 +121,6 @@ namespace Common.Editors {
     }
 
     /// <summary>
-    /// 
     /// </summary>
     /// <param name="package_name"></param>
     void ImportCallback(string package_name) {

@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace TextMesh_Pro.Scripts {
   public class TextConsoleSimulator : MonoBehaviour {
-    TMP_Text m_TextComponent;
     bool hasTextChanged;
+    TMP_Text m_TextComponent;
 
     void Awake() { this.m_TextComponent = this.gameObject.GetComponent<TMP_Text>(); }
 
@@ -25,7 +25,7 @@ namespace TextMesh_Pro.Scripts {
     void ON_TEXT_CHANGED(Object obj) { this.hasTextChanged = true; }
 
     /// <summary>
-    /// Method revealing the text one character at a time.
+    ///   Method revealing the text one character at a time.
     /// </summary>
     /// <returns></returns>
     IEnumerator RevealCharacters(TMP_Text textComponent) {
@@ -56,7 +56,7 @@ namespace TextMesh_Pro.Scripts {
     }
 
     /// <summary>
-    /// Method revealing the text one word at a time.
+    ///   Method revealing the text one word at a time.
     /// </summary>
     /// <returns></returns>
     IEnumerator RevealWords(TMP_Text textComponent) {
@@ -74,11 +74,16 @@ namespace TextMesh_Pro.Scripts {
 
         // Get last character index for the current word.
         if (currentWord == 0) // Display no words.
+        {
           visibleCount = 0;
-        else if (currentWord < totalWordCount) // Display all other words with the exception of the last one.
+        } else if (currentWord < totalWordCount
+        ) // Display all other words with the exception of the last one.
+        {
           visibleCount = textComponent.textInfo.wordInfo[currentWord - 1].lastCharacterIndex + 1;
-        else if (currentWord == totalWordCount) // Display last word and all remaining characters.
+        } else if (currentWord == totalWordCount) // Display last word and all remaining characters.
+        {
           visibleCount = totalVisibleCharacters;
+        }
 
         textComponent.maxVisibleCharacters = visibleCount; // How many characters should TextMeshPro display?
 

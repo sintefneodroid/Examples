@@ -1,10 +1,8 @@
 ﻿using System.Collections;
 using Neodroid.Runtime.Prototyping.Actors;
 using Neodroid.Runtime.Prototyping.Internals;
-using Neodroid.Runtime.Utilities.Misc.Drawing;
-using Neodroid.Runtime.Utilities.Misc.Grasping;
+using Neodroid.Runtime.Utilities.Misc;
 using UnityEngine;
-using NeodroidUtilities = Neodroid.Runtime.Utilities.Misc.NeodroidUtilities;
 
 namespace SceneAssets.LunarLander.Scripts {
   /// <inheritdoc />
@@ -23,6 +21,8 @@ namespace SceneAssets.LunarLander.Scripts {
     bool _has_exploded;
     public Rigidbody _Rigidbody;
     public float _Threshold = 150;
+
+    public override string PrototypingTypeName { get { return "CollisionExplosion"; } }
 
     protected override void Setup() {
       if (!this._Rigidbody) {
@@ -133,7 +133,5 @@ namespace SceneAssets.LunarLander.Scripts {
 
       this._has_exploded = false;
     }
-
-    public override string PrototypingTypeName { get { return "CollisionExplosion"; } }
   }
 }

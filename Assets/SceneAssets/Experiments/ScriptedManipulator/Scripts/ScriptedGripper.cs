@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Neodroid.Runtime.Utilities.Misc.Drawing;
+using Neodroid.Runtime.Utilities.Misc;
 using Neodroid.Runtime.Utilities.Misc.Extensions;
 using Neodroid.Runtime.Utilities.Misc.Grasping;
 using SceneAssets.Experiments.ScriptedManipulator.Grasps;
 using SceneAssets.Experiments.ScriptedManipulator.Navigation;
 using SceneAssets.Experiments.ScriptedManipulator.Utilities;
 using UnityEngine;
-using NeodroidUtilities = Neodroid.Runtime.Utilities.Misc.NeodroidUtilities;
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
   /// <inheritdoc />
@@ -47,7 +46,6 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
       obstacles_spawner.SpawnObstacles(obstacles_spawner.number_of_cubes, obstacles_spawner.number_of_spheres);
     }*/
     /// <summary>
-    /// 
     /// </summary>
     public States State { get { return this._state; } set { this._state = value; } }
 
@@ -183,7 +181,10 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
 
     #region PublicMembers
 
-    [Space(1), Header("Game Objects"), Tooltip("Game Object references"), SerializeField]
+    [Space(1)]
+    [Header("Game Objects")]
+    [Tooltip("Game Object references")]
+    [SerializeField]
     GameObject _motor;
 
     [SerializeField] GameObject _grab_region;
@@ -197,7 +198,9 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
     [SerializeField] ObstacleSpawner _obstacle_spawner;
     [SerializeField] BezierCurve _bezier_curve_prefab;
 
-    [Space(1), Header("Path Finding Parameters"), SerializeField]
+    [Space(1)]
+    [Header("Path Finding Parameters")]
+    [SerializeField]
     float _search_boundary = 6f;
 
     [SerializeField] float _actor_size = 0.3f;
@@ -208,10 +211,14 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
     [SerializeField] float _approach_distance = 0.6f;
     [SerializeField] bool _wait_for_resting_environment;
 
-    [Space(1), Header("Show debug logs"), SerializeField]
+    [Space(1)]
+    [Header("Show debug logs")]
+    [SerializeField]
     bool _debugging;
 
-    [Space(1), Header("Draw Search Boundary"), SerializeField]
+    [Space(1)]
+    [Header("Draw Search Boundary")]
+    [SerializeField]
     bool _draw_search_boundary = true;
 
     #endregion

@@ -5,19 +5,11 @@ using UnityEngine.UI;
 
 namespace TextMesh_Pro.Scripts {
   public class Benchmark01_UGUI : MonoBehaviour {
-    public int BenchmarkType = 0;
-
-    public Canvas canvas;
-    public TMP_FontAsset TMProFont;
-    public Font TextMeshFont;
-
-    TextMeshProUGUI m_textMeshPro;
-
-    //private TextContainer m_textContainer;
-    Text m_textMesh;
-
     const string label01 = "The <#0050FF>count is: </color>";
     const string label02 = "The <color=#0050FF>count is: </color>";
+    public int BenchmarkType;
+
+    public Canvas canvas;
 
     //private const string label01 = "TextMesh <#0050FF>Pro!</color>  The count is: {0}";
     //private const string label02 = "Text Mesh<color=#0050FF>        The count is: </color>";
@@ -28,6 +20,13 @@ namespace TextMesh_Pro.Scripts {
     Material m_material01;
     Material m_material02;
 
+    //private TextContainer m_textContainer;
+    Text m_textMesh;
+
+    TextMeshProUGUI m_textMeshPro;
+    public Font TextMeshFont;
+    public TMP_FontAsset TMProFont;
+
     IEnumerator Start() {
       if (this.BenchmarkType == 0) // TextMesh Pro Component
       {
@@ -36,7 +35,9 @@ namespace TextMesh_Pro.Scripts {
 
         //m_textMeshPro.anchorDampening = true;
 
-        if (this.TMProFont != null) this.m_textMeshPro.font = this.TMProFont;
+        if (this.TMProFont != null) {
+          this.m_textMeshPro.font = this.TMProFont;
+        }
 
         //m_textMeshPro.font = Resources.Load("Fonts & Materials/Anton SDF", typeof(TextMeshProFont)) as TextMeshProFont; // Make sure the Anton SDF exists before calling this...           
         //m_textMeshPro.fontSharedMaterial = Resources.Load("Fonts & Materials/Anton SDF", typeof(Material)) as Material; // Same as above make sure this material exists.
@@ -65,9 +66,6 @@ namespace TextMesh_Pro.Scripts {
         if (this.TextMeshFont != null) {
           this.m_textMesh.font = this.TextMeshFont;
           //m_textMesh.renderer.sharedMaterial = m_textMesh.font.material;
-        } else {
-          //m_textMesh.font = Resources.Load("Fonts/ARIAL", typeof(Font)) as Font;
-          //m_textMesh.renderer.sharedMaterial = m_textMesh.font.material;
         }
 
         this.m_textMesh.fontSize = 48;
@@ -78,14 +76,17 @@ namespace TextMesh_Pro.Scripts {
 
       for (var i = 0; i <= 1000000; i++) {
         if (this.BenchmarkType == 0) {
-          this.m_textMeshPro.text = label01 + (i % 1000);
-          if (i % 1000 == 999)
+          this.m_textMeshPro.text = label01 + i % 1000;
+          if (i % 1000 == 999) {
             this.m_textMeshPro.fontSharedMaterial = this.m_textMeshPro.fontSharedMaterial == this.m_material01
                                                         ? this.m_textMeshPro.fontSharedMaterial =
                                                               this.m_material02
                                                         : this.m_textMeshPro.fontSharedMaterial =
                                                               this.m_material01;
-        } else if (this.BenchmarkType == 1) this.m_textMesh.text = label02 + (i % 1000).ToString();
+          }
+        } else if (this.BenchmarkType == 1) {
+          this.m_textMesh.text = label02 + i % 1000;
+        }
 
         yield return null;
       }

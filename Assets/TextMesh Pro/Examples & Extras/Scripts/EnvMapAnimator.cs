@@ -4,10 +4,12 @@ using UnityEngine;
 
 namespace TextMesh_Pro.Scripts {
   public class EnvMapAnimator : MonoBehaviour {
+    Material m_material;
+
+    TMP_Text m_textMeshPro;
+
     //private Vector3 TranslationSpeeds;
     public Vector3 RotationSpeeds;
-    TMP_Text m_textMeshPro;
-    Material m_material;
 
     void Awake() {
       //Debug.Log("Awake() on Script called.");

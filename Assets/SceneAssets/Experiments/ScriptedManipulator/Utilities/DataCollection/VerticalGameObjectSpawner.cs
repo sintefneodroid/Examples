@@ -2,8 +2,8 @@
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
   public class VerticalGameObjectSpawner : MonoBehaviour {
-    [SerializeField] int _spawn_count = 10;
     [SerializeField] GameObject _game_object;
+    [SerializeField] int _spawn_count = 10;
 
     public void SpawnGameObjectsVertically(
         GameObject game_object,

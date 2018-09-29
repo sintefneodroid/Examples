@@ -894,7 +894,10 @@
                 <e p="Camera" t="Include">
                   <e p="CameraObserver.cs" t="Include" />
                   <e p="FloatArrayCameraObserver.cs" t="Include" />
-                  <e p="SegmentationCameraObserver.cs" t="Include" />
+                  <e p="Segmentation" t="Include">
+                    <e p="SegmentationCameraObserver.cs" t="Include" />
+                    <e p="SegmentationObserver.cs" t="Include" />
+                  </e>
                   <e p="StringAugmentedCameraObserver.cs" t="Include" />
                 </e>
                 <e p="CategoricalObserver.cs" t="Include" />
@@ -919,9 +922,6 @@
                   <e p="AngularVelocityObserver.cs" t="Include" />
                   <e p="RigidbodyObserver.cs" t="Include" />
                   <e p="VelocityObserver.cs" t="Include" />
-                </e>
-                <e p="Segmentation" t="Include">
-                  <e p="SegmentationObserver.cs" t="Include" />
                 </e>
                 <e p="StringObserver.cs" t="Include" />
                 <e p="TargetRigidbodyObserver.cs" t="Include" />

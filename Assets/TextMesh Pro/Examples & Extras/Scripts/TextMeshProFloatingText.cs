@@ -4,20 +4,19 @@ using UnityEngine;
 
 namespace TextMesh_Pro.Scripts {
   public class TextMeshProFloatingText : MonoBehaviour {
-    public Font TheFont;
-
-    GameObject m_floatingText;
-    TextMeshPro m_textMeshPro;
-    TextMesh m_textMesh;
-
-    Transform m_transform;
-    Transform m_floatingText_Transform;
-    Transform m_cameraTransform;
-
     Vector3 lastPOS = Vector3.zero;
     Quaternion lastRotation = Quaternion.identity;
+    Transform m_cameraTransform;
+
+    GameObject m_floatingText;
+    Transform m_floatingText_Transform;
+    TextMesh m_textMesh;
+    TextMeshPro m_textMeshPro;
+
+    Transform m_transform;
 
     public int SpawnType;
+    public Font TheFont;
 
     //private int m_frame = 0;
 
@@ -105,11 +104,11 @@ namespace TextMesh_Pro.Scripts {
       var fadeDuration = 3 / starting_Count * CountDuration;
 
       while (current_Count > 0) {
-        current_Count -= (Time.deltaTime / CountDuration) * starting_Count;
+        current_Count -= Time.deltaTime / CountDuration * starting_Count;
 
         if (current_Count <= 3) {
           //Debug.Log("Fading Counter ... " + current_Count.ToString("f2"));
-          alpha = Mathf.Clamp(alpha - (Time.deltaTime / fadeDuration) * 255, 0, 255);
+          alpha = Mathf.Clamp(alpha - Time.deltaTime / fadeDuration * 255, 0, 255);
         }
 
         int_counter = (int)current_Count;
@@ -156,11 +155,11 @@ namespace TextMesh_Pro.Scripts {
       var fadeDuration = 3 / starting_Count * CountDuration;
 
       while (current_Count > 0) {
-        current_Count -= (Time.deltaTime / CountDuration) * starting_Count;
+        current_Count -= Time.deltaTime / CountDuration * starting_Count;
 
         if (current_Count <= 3) {
           //Debug.Log("Fading Counter ... " + current_Count.ToString("f2"));
-          alpha = Mathf.Clamp(alpha - (Time.deltaTime / fadeDuration) * 255, 0, 255);
+          alpha = Mathf.Clamp(alpha - Time.deltaTime / fadeDuration * 255, 0, 255);
         }
 
         int_counter = (int)current_Count;

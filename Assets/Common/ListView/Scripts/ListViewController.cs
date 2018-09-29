@@ -5,9 +5,14 @@ namespace Common.ListView.Scripts {
   public class ListViewController : ListViewController<ListViewItemInspectorData, ListViewItem> { }
 
   public abstract class ListViewControllerBase : MonoBehaviour {
-    //Public variables
-    [Tooltip("Distance (in meters) we have scrolled from initial position")]
-    public float _ScrollOffset;
+    protected readonly Dictionary<string, ListViewItemTemplate> _M_Templates =
+        new Dictionary<string, ListViewItemTemplate>();
+
+    //Protected variables
+    protected int _M_DataOffset;
+    protected Vector3 _M_ItemSize;
+    protected Vector3 _M_LeftSide;
+    protected int _M_NumItems;
 
     [Tooltip("Padding (in meters) between items")]
     public float _Padding = 0.01f;
@@ -15,17 +20,12 @@ namespace Common.ListView.Scripts {
     [Tooltip("Width (in meters) of visible region")]
     public float _Range = 1;
 
+    //Public variables
+    [Tooltip("Distance (in meters) we have scrolled from initial position")]
+    public float _ScrollOffset;
+
     [Tooltip("Item temlate prefabs (at least one is required)")]
     public GameObject[] _Templates;
-
-    //Protected variables
-    protected int _M_DataOffset;
-    protected int _M_NumItems;
-    protected Vector3 _M_LeftSide;
-    protected Vector3 _M_ItemSize;
-
-    protected readonly Dictionary<string, ListViewItemTemplate> _M_Templates =
-        new Dictionary<string, ListViewItemTemplate>();
 
     //Public properties
     public Vector3 ItemSize { get { return this._M_ItemSize; } }

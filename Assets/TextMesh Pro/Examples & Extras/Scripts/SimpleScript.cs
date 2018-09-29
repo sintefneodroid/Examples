@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace TextMesh_Pro.Scripts {
   public class SimpleScript : MonoBehaviour {
-    TextMeshPro m_textMeshPro;
     //private TMP_FontAsset m_FontAsset;
 
     const string label = "The <#0050FF>count is: </color>{0:2}";
     float m_frame;
+    TextMeshPro m_textMeshPro;
 
     void Start() {
       // Add new TextMesh Pro Component

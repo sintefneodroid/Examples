@@ -10,7 +10,9 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
     [SerializeField] Text _claw2_state;
     [SerializeField] Text _env_state;
 
-    [Space, Header("State Panel"), SerializeField]
+    [Space]
+    [Header("State Panel")]
+    [SerializeField]
     Text _gripper_state;
 
     //float gripper_target_distance;

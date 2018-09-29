@@ -2,11 +2,10 @@
 
 namespace Common.reference_checker.Editor {
   /// <summary>
-  /// 
   /// </summary>
   public class ColorfulLogBuilder {
-    StringBuilder _log = new StringBuilder();
     bool _colorful = true;
+    StringBuilder _log = new StringBuilder();
 
     public void SetColorful(bool use) { this._colorful = use; }
 

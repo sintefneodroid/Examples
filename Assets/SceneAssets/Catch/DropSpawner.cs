@@ -7,21 +7,19 @@ namespace SceneAssets.Catch {
   /// <summary>
   /// </summary>
   public class DropSpawner : MonoBehaviour {
-    /// <summary>
-    /// 
-    /// </summary>
-    [SerializeField]
-    List<Transform> _spawn_poses;
+    [SerializeField] int _max_num_concurrent_objects = 4;
+    [SerializeField] float _next_spawn_time;
+    [SerializeField] ValueSpace _spawn_delay_range = new ValueSpace {_Max_Value = 1f, _Min_Value = 0.1f};
 
     /// <summary>
-    /// 
     /// </summary>
     [SerializeField]
     List<GameObject> _spawn_objects;
 
-    [SerializeField] List<GameObject> _spawned_objects;
-
-    [SerializeField] bool _use_predefined_spawn_locations;
+    /// <summary>
+    /// </summary>
+    [SerializeField]
+    List<Transform> _spawn_poses;
 
     [SerializeField]
     Space3 _spawn_position_range =
@@ -30,9 +28,9 @@ namespace SceneAssets.Catch {
     [SerializeField]
     Space4 _spawn_rotation_range = new Space4 {_Max_Values = Vector4.one, _Min_Values = -Vector4.one};
 
-    [SerializeField] int _max_num_concurrent_objects = 4;
-    [SerializeField] ValueSpace _spawn_delay_range = new ValueSpace {_Max_Value = 1f, _Min_Value = 0.1f};
-    [SerializeField] float _next_spawn_time;
+    [SerializeField] List<GameObject> _spawned_objects;
+
+    [SerializeField] bool _use_predefined_spawn_locations;
 
     void Start() { this._next_spawn_time = 0; }
 

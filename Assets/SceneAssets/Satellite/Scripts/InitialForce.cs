@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 
 namespace SceneAssets.Satellite.Scripts {
+  /// <inheritdoc />
+  /// <summary>
+  /// </summary>
   [RequireComponent(typeof(Rigidbody))]
   public class InitialForce : MonoBehaviour {
-    [SerializeField] bool _on_awake = true;
     [SerializeField] Vector3 _force;
+    [SerializeField] bool _on_awake = true;
 
     [SerializeField] Rigidbody _rb;
     [SerializeField] bool _relative;

@@ -6,14 +6,23 @@ namespace TextMesh_Pro.Scripts {
   public class TMP_TextSelector_A : MonoBehaviour,
                                     IPointerEnterHandler,
                                     IPointerExitHandler {
-    TextMeshPro m_TextMeshPro;
-
     Camera m_Camera;
 
     bool m_isHoveringObject;
-    int m_selectedLink = -1;
     int m_lastCharIndex = -1;
     int m_lastWordIndex = -1;
+    int m_selectedLink = -1;
+    TextMeshPro m_TextMeshPro;
+
+    public void OnPointerEnter(PointerEventData eventData) {
+      Debug.Log("OnPointerEnter()");
+      this.m_isHoveringObject = true;
+    }
+
+    public void OnPointerExit(PointerEventData eventData) {
+      Debug.Log("OnPointerExit()");
+      this.m_isHoveringObject = false;
+    }
 
     void Awake() {
       this.m_TextMeshPro = this.gameObject.GetComponent<TextMeshPro>();
@@ -80,7 +89,7 @@ namespace TextMesh_Pro.Scripts {
             this.m_Camera);
 
         // Clear previous link selection if one existed.
-        if ((linkIndex == -1 && this.m_selectedLink != -1) || linkIndex != this.m_selectedLink) {
+        if (linkIndex == -1 && this.m_selectedLink != -1 || linkIndex != this.m_selectedLink) {
           //m_TextPopup_RectTransform.gameObject.SetActive(false);
           this.m_selectedLink = -1;
         }
@@ -162,16 +171,6 @@ namespace TextMesh_Pro.Scripts {
 
         #endregion
       }
-    }
-
-    public void OnPointerEnter(PointerEventData eventData) {
-      Debug.Log("OnPointerEnter()");
-      this.m_isHoveringObject = true;
-    }
-
-    public void OnPointerExit(PointerEventData eventData) {
-      Debug.Log("OnPointerExit()");
-      this.m_isHoveringObject = false;
     }
   }
 }

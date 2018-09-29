@@ -3,21 +3,21 @@ using UnityEngine;
 
 namespace SceneAssets.ImagePuzzler {
   public class Puzzle : MonoBehaviour {
-    [SerializeField] float _default_move_duration = .2f;
-    [SerializeField] int _horisontal_divisions = 6;
-    [SerializeField] int _shuffle_length = 20;
-    [SerializeField] float _shuffle_move_duration = .1f;
-    [SerializeField] int _vertical_divisions = 6;
     bool _block_is_moving;
     Block[,] _blocks;
+    [SerializeField] float _default_move_duration = .2f;
     [SerializeField] Block _empty_block;
+    [SerializeField] int _horisontal_divisions = 6;
 
     [SerializeField] Texture2D _image;
     Queue<Block> _inputs;
     Vector2Int _prev_shuffle_offset;
+    [SerializeField] int _shuffle_length = 20;
+    [SerializeField] float _shuffle_move_duration = .1f;
     int _shuffle_moves_remaining;
 
     PuzzleState _state;
+    [SerializeField] int _vertical_divisions = 6;
 
     void Start() { this.CreatePuzzle(); }
 

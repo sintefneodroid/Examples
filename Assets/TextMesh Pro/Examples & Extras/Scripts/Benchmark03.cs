@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace TextMesh_Pro.Scripts {
   public class Benchmark03 : MonoBehaviour {
-    public int SpawnType = 0;
     public int NumberOfNPC = 12;
+    public int SpawnType;
 
     public Font TheFont;
 

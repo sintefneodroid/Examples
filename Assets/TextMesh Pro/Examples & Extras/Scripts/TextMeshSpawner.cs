@@ -3,12 +3,11 @@ using UnityEngine;
 
 namespace TextMesh_Pro.Scripts {
   public class TextMeshSpawner : MonoBehaviour {
-    public int SpawnType = 0;
+    TextMeshProFloatingText floatingText_Script;
     public int NumberOfNPC = 12;
+    public int SpawnType;
 
     public Font TheFont;
-
-    TextMeshProFloatingText floatingText_Script;
 
     void Awake() { }
 

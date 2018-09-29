@@ -8,75 +8,73 @@ namespace TextMesh_Pro.Scripts {
   public class TMP_TextEventHandler : MonoBehaviour,
                                       IPointerEnterHandler,
                                       IPointerExitHandler {
-    [Serializable] public class CharacterSelectionEvent : UnityEvent<char, int> { }
+    Camera m_Camera;
+    Canvas m_Canvas;
+    int m_lastCharIndex = -1;
+    int m_lastLineIndex = -1;
+    int m_lastWordIndex = -1;
 
-    [Serializable] public class SpriteSelectionEvent : UnityEvent<char, int> { }
+    [SerializeField] CharacterSelectionEvent m_OnCharacterSelection = new CharacterSelectionEvent();
 
-    [Serializable] public class WordSelectionEvent : UnityEvent<string, int, int> { }
+    [SerializeField] LineSelectionEvent m_OnLineSelection = new LineSelectionEvent();
 
-    [Serializable] public class LineSelectionEvent : UnityEvent<string, int, int> { }
+    [SerializeField] LinkSelectionEvent m_OnLinkSelection = new LinkSelectionEvent();
 
-    [Serializable] public class LinkSelectionEvent : UnityEvent<string, string, int> { }
+    [SerializeField] SpriteSelectionEvent m_OnSpriteSelection = new SpriteSelectionEvent();
+
+    [SerializeField] WordSelectionEvent m_OnWordSelection = new WordSelectionEvent();
+
+    int m_selectedLink = -1;
+
+    TMP_Text m_TextComponent;
 
     /// <summary>
-    /// Event delegate triggered when pointer is over a character.
+    ///   Event delegate triggered when pointer is over a character.
     /// </summary>
     public CharacterSelectionEvent onCharacterSelection {
       get { return this.m_OnCharacterSelection; }
       set { this.m_OnCharacterSelection = value; }
     }
 
-    [SerializeField] CharacterSelectionEvent m_OnCharacterSelection = new CharacterSelectionEvent();
-
     /// <summary>
-    /// Event delegate triggered when pointer is over a sprite.
+    ///   Event delegate triggered when pointer is over a sprite.
     /// </summary>
     public SpriteSelectionEvent onSpriteSelection {
       get { return this.m_OnSpriteSelection; }
       set { this.m_OnSpriteSelection = value; }
     }
 
-    [SerializeField] SpriteSelectionEvent m_OnSpriteSelection = new SpriteSelectionEvent();
-
     /// <summary>
-    /// Event delegate triggered when pointer is over a word.
+    ///   Event delegate triggered when pointer is over a word.
     /// </summary>
     public WordSelectionEvent onWordSelection {
       get { return this.m_OnWordSelection; }
       set { this.m_OnWordSelection = value; }
     }
 
-    [SerializeField] WordSelectionEvent m_OnWordSelection = new WordSelectionEvent();
-
     /// <summary>
-    /// Event delegate triggered when pointer is over a line.
+    ///   Event delegate triggered when pointer is over a line.
     /// </summary>
     public LineSelectionEvent onLineSelection {
       get { return this.m_OnLineSelection; }
       set { this.m_OnLineSelection = value; }
     }
 
-    [SerializeField] LineSelectionEvent m_OnLineSelection = new LineSelectionEvent();
-
     /// <summary>
-    /// Event delegate triggered when pointer is over a link.
+    ///   Event delegate triggered when pointer is over a link.
     /// </summary>
     public LinkSelectionEvent onLinkSelection {
       get { return this.m_OnLinkSelection; }
       set { this.m_OnLinkSelection = value; }
     }
 
-    [SerializeField] LinkSelectionEvent m_OnLinkSelection = new LinkSelectionEvent();
+    public void OnPointerEnter(PointerEventData eventData) {
+      //Debug.Log("OnPointerEnter()");
+    }
 
-    TMP_Text m_TextComponent;
-
-    Camera m_Camera;
-    Canvas m_Canvas;
-
-    int m_selectedLink = -1;
-    int m_lastCharIndex = -1;
-    int m_lastWordIndex = -1;
-    int m_lastLineIndex = -1;
+    public void OnPointerExit(PointerEventData eventData) {
+      //Debug.Log("OnPointerExit()");
+    }
 
     void Awake() {
       // Get a reference to the text component.
@@ -86,10 +84,11 @@ namespace TextMesh_Pro.Scripts {
       if (this.m_TextComponent.GetType() == typeof(TextMeshProUGUI)) {
         this.m_Canvas = this.gameObject.GetComponentInParent<Canvas>();
         if (this.m_Canvas != null) {
-          if (this.m_Canvas.renderMode == RenderMode.ScreenSpaceOverlay)
+          if (this.m_Canvas.renderMode == RenderMode.ScreenSpaceOverlay) {
             this.m_Camera = null;
-          else
+          } else {
             this.m_Camera = this.m_Canvas.worldCamera;
+          }
         }
       } else {
         this.m_Camera = Camera.main;
@@ -114,14 +113,15 @@ namespace TextMesh_Pro.Scripts {
           var elementType = this.m_TextComponent.textInfo.characterInfo[charIndex].elementType;
 
           // Send event to any event listeners depending on whether it is a character or sprite.
-          if (elementType == TMP_TextElementType.Character)
+          if (elementType == TMP_TextElementType.Character) {
             this.SendOnCharacterSelection(
                 this.m_TextComponent.textInfo.characterInfo[charIndex].character,
                 charIndex);
-          else if (elementType == TMP_TextElementType.Sprite)
+          } else if (elementType == TMP_TextElementType.Sprite) {
             this.SendOnSpriteSelection(
                 this.m_TextComponent.textInfo.characterInfo[charIndex].character,
                 charIndex);
+          }
         }
 
         #endregion
@@ -196,32 +196,44 @@ namespace TextMesh_Pro.Scripts {
       }
     }
 
-    public void OnPointerEnter(PointerEventData eventData) {
-      //Debug.Log("OnPointerEnter()");
-    }
-
-    public void OnPointerExit(PointerEventData eventData) {
-      //Debug.Log("OnPointerExit()");
-    }
-
     void SendOnCharacterSelection(char character, int characterIndex) {
-      if (this.onCharacterSelection != null) this.onCharacterSelection.Invoke(character, characterIndex);
+      if (this.onCharacterSelection != null) {
+        this.onCharacterSelection.Invoke(character, characterIndex);
+      }
     }
 
     void SendOnSpriteSelection(char character, int characterIndex) {
-      if (this.onSpriteSelection != null) this.onSpriteSelection.Invoke(character, characterIndex);
+      if (this.onSpriteSelection != null) {
+        this.onSpriteSelection.Invoke(character, characterIndex);
+      }
     }
 
     void SendOnWordSelection(string word, int charIndex, int length) {
-      if (this.onWordSelection != null) this.onWordSelection.Invoke(word, charIndex, length);
+      if (this.onWordSelection != null) {
+        this.onWordSelection.Invoke(word, charIndex, length);
+      }
     }
 
     void SendOnLineSelection(string line, int charIndex, int length) {
-      if (this.onLineSelection != null) this.onLineSelection.Invoke(line, charIndex, length);
+      if (this.onLineSelection != null) {
+        this.onLineSelection.Invoke(line, charIndex, length);
+      }
     }
 
     void SendOnLinkSelection(string linkID, string linkText, int linkIndex) {
-      if (this.onLinkSelection != null) this.onLinkSelection.Invoke(linkID, linkText, linkIndex);
+      if (this.onLinkSelection != null) {
+        this.onLinkSelection.Invoke(linkID, linkText, linkIndex);
+      }
     }
+
+    [Serializable] public class CharacterSelectionEvent : UnityEvent<char, int> { }
+
+    [Serializable] public class SpriteSelectionEvent : UnityEvent<char, int> { }
+
+    [Serializable] public class WordSelectionEvent : UnityEvent<string, int, int> { }
+
+    [Serializable] public class LineSelectionEvent : UnityEvent<string, int, int> { }
+
+    [Serializable] public class LinkSelectionEvent : UnityEvent<string, string, int> { }
   }
 }

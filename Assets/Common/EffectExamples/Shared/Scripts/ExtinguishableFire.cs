@@ -4,19 +4,18 @@ using UnityEngine;
 namespace Common.EffectExamples.Shared.Scripts {
   /// <inheritdoc />
   /// <summary>
-  /// This simulate an extinguishable fire, 
+  ///   This simulate an extinguishable fire,
   /// </summary>
   public class ExtinguishableFire : MonoBehaviour {
+    const float _m_fire_starting_time = 2.0f;
+
     /// <summary>
-    /// 
     /// </summary>
     public ParticleSystem _FireParticleSystem;
 
-    public ParticleSystem _SmokeParticleSystem;
-
     protected bool _M_IsExtinguished;
 
-    const float _m_fire_starting_time = 2.0f;
+    public ParticleSystem _SmokeParticleSystem;
 
     void Start() {
       this._M_IsExtinguished = true;
@@ -43,7 +42,7 @@ namespace Common.EffectExamples.Shared.Scripts {
 
       var elapsed_time = 0.0f;
       while (elapsed_time < _m_fire_starting_time) {
-        var ratio = Mathf.Max(0.0f, 1.0f - (elapsed_time / _m_fire_starting_time));
+        var ratio = Mathf.Max(0.0f, 1.0f - elapsed_time / _m_fire_starting_time);
 
         this._FireParticleSystem.transform.localScale = Vector3.one * ratio;
 
@@ -69,7 +68,7 @@ namespace Common.EffectExamples.Shared.Scripts {
 
       var elapsed_time = 0.0f;
       while (elapsed_time < _m_fire_starting_time) {
-        var ratio = Mathf.Min(1.0f, (elapsed_time / _m_fire_starting_time));
+        var ratio = Mathf.Min(1.0f, elapsed_time / _m_fire_starting_time);
 
         this._FireParticleSystem.transform.localScale = Vector3.one * ratio;
 

@@ -5,24 +5,24 @@ namespace Common.EffectExamples.Shared.Scripts {
   /// <summary>
   /// </summary>
   public class GunShoot : MonoBehaviour {
+    Animator _anim;
+    public ParticleSystem _CartridgeEjection;
     public float _FireRate = 0.25f; // Number in seconds which controls how often the player can fire
-    public float _WeaponRange = 20f; // Distance in Unity units over which the player can fire
+    public GameObject[] _FleshHitEffects;
+    GunAim _gun_aim;
 
     public Transform _GunEnd;
-    public ParticleSystem _MuzzleFlash;
-    public ParticleSystem _CartridgeEjection;
 
     public GameObject _MetalHitEffect;
+    public ParticleSystem _MuzzleFlash;
+
+    float _next_fire; // Float to store the time the player will be allowed to fire again, after firing
     public GameObject _SandHitEffect;
     public GameObject _StoneHitEffect;
     public GameObject _WaterLeakEffect;
     public GameObject _WaterLeakExtinguishEffect;
-    public GameObject[] _FleshHitEffects;
+    public float _WeaponRange = 20f; // Distance in Unity units over which the player can fire
     public GameObject _WoodHitEffect;
-
-    float _next_fire; // Float to store the time the player will be allowed to fire again, after firing
-    Animator _anim;
-    GunAim _gun_aim;
 
     void Start() {
       this._anim = this.GetComponent<Animator>();

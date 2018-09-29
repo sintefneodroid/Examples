@@ -6,16 +6,16 @@ using UnityEngine;
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
   public class DataCollector : MonoBehaviour {
+    [SerializeField] Camera[] _cameras;
+    [SerializeField] int _current_episode_progress;
+
+    [SerializeField] bool _delete_file_content;
     [SerializeField] int _episode_length = 100;
 
     // Sampling rate
     string _file_path = @"training_data/";
     string _file_path_gripper = @"gripper_position_rotation.csv";
     string _file_path_target = @"target_position_rotation.csv";
-    [SerializeField] Camera[] _cameras;
-    [SerializeField] int _current_episode_progress;
-
-    [SerializeField] bool _delete_file_content;
     [SerializeField] ScriptedGripper _gripper;
 
     int _i;

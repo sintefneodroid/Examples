@@ -3,30 +3,31 @@ using UnityEngine;
 
 namespace TextMesh_Pro.Scripts {
   public class TMP_UiFrameRateCounter : MonoBehaviour {
-    public float UpdateInterval = 5.0f;
-    float m_LastInterval = 0;
-    int m_Frames = 0;
-
     public enum FpsCounterAnchorPositions {
       TopLeft,
       BottomLeft,
       TopRight,
       BottomRight
-    };
+    }
+
+    const string fpsLabel = "{0:2}</color> <#8080ff>FPS \n<#FF8000>{1:2} <#8080ff>MS";
 
     public FpsCounterAnchorPositions AnchorPosition = FpsCounterAnchorPositions.TopRight;
 
     string htmlColorTag;
-    const string fpsLabel = "{0:2}</color> <#8080ff>FPS \n<#FF8000>{1:2} <#8080ff>MS";
-
-    TextMeshProUGUI m_TextMeshPro;
-    RectTransform m_frameCounter_transform;
 
     FpsCounterAnchorPositions last_AnchorPosition;
+    RectTransform m_frameCounter_transform;
+    int m_Frames;
+    float m_LastInterval;
+
+    TextMeshProUGUI m_TextMeshPro;
+    public float UpdateInterval = 5.0f;
 
     void Awake() {
-      if (!this.enabled)
+      if (!this.enabled) {
         return;
+      }
 
       Application.targetFrameRate = -1;
 
@@ -55,8 +56,9 @@ namespace TextMesh_Pro.Scripts {
     }
 
     void Update() {
-      if (this.AnchorPosition != this.last_AnchorPosition)
+      if (this.AnchorPosition != this.last_AnchorPosition) {
         this.Set_FrameCounter_Position(this.AnchorPosition);
+      }
 
       this.last_AnchorPosition = this.AnchorPosition;
 
@@ -68,12 +70,13 @@ namespace TextMesh_Pro.Scripts {
         var fps = this.m_Frames / (timeNow - this.m_LastInterval);
         var ms = 1000.0f / Mathf.Max(fps, 0.00001f);
 
-        if (fps < 30)
+        if (fps < 30) {
           this.htmlColorTag = "<color=yellow>";
-        else if (fps < 10)
+        } else if (fps < 10) {
           this.htmlColorTag = "<color=red>";
-        else
+        } else {
           this.htmlColorTag = "<color=green>";
+        }
 
         this.m_TextMeshPro.SetText(this.htmlColorTag + fpsLabel, fps, ms);
 

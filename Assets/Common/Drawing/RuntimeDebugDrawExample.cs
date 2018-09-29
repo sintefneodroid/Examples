@@ -5,17 +5,16 @@ using UnityEngine;
 
 namespace Common.Drawing {
   /// <summary>
-  /// 
   /// </summary>
   public class RuntimeDebugDrawExample : MonoBehaviour {
-    Color[] _colors = {Color.red, Color.blue, Color.cyan, Color.magenta, Color.yellow};
-    int _color_ix;
-
-    float _timer;
-    float _interval_timer;
+    static float _born_radian_offset;
 
     Vector3 _born_pos;
-    static float _born_radian_offset;
+    int _color_ix;
+    Color[] _colors = {Color.red, Color.blue, Color.cyan, Color.magenta, Color.yellow};
+    float _interval_timer;
+
+    float _timer;
 
     Color GetNextColor() {
       this._color_ix = (this._color_ix + 1) % this._colors.Length;
@@ -54,7 +53,7 @@ namespace Common.Drawing {
             this.GetNextColor(),
             16,
             0.5f,
-            pop_up : true);
+            true);
         Draw.DrawLine(
             this.transform.position,
             this.transform.position + Vector3.up * 1.5f,

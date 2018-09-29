@@ -17,20 +17,20 @@ namespace Common.ListView.Scripts {
   }
 
   public class ListViewItemData {
-    public string _Template;
     public MonoBehaviour _Item;
+    public string _Template;
   }
 
   public class ListViewItemNestedData<TChildType> : ListViewItemData {
-    public bool _Expanded;
     public TChildType[] _Children;
+    public bool _Expanded;
   }
 
   [Serializable] public class ListViewItemInspectorData : ListViewItemData { }
 
   public class ListViewItemTemplate {
-    public readonly GameObject _Prefab;
     public readonly List<MonoBehaviour> _Pool = new List<MonoBehaviour>();
+    public readonly GameObject _Prefab;
 
     public ListViewItemTemplate(GameObject prefab) {
       if (prefab == null) {

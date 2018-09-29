@@ -8,13 +8,13 @@ using Random = System.Random;
 
 namespace Common.ListView.Examples._10._Card_Game {
   public class CardGameList : ListViewController<CardData, Card> {
-    public string _DefaultTemplate = "Card";
-    public float _Interpolate = 15f;
-    public float _RecycleDuration = 0.3f;
     public int _DealMax = 5;
     public Transform _Deck;
+    public string _DefaultTemplate = "Card";
+    public float _Interpolate = 15f;
 
     Vector3 _m_start_pos;
+    public float _RecycleDuration = 0.3f;
 
     protected override void Setup() {
       base.Setup();

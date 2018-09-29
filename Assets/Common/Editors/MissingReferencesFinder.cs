@@ -8,13 +8,13 @@ using UnityEngine.SceneManagement;
 namespace Common.Editors {
   /// <inheritdoc />
   /// <summary>
-  /// A helper editor script for finding missing references to objects.
+  ///   A helper editor script for finding missing references to objects.
   /// </summary>
   public class MissingReferencesFinder : MonoBehaviour {
     const string _menu_root = "Tools/" + "Missing References/";
 
     /// <summary>
-    /// Finds all missing references to objects in the currently loaded scene.
+    ///   Finds all missing references to objects in the currently loaded scene.
     /// </summary>
     [MenuItem(_menu_root + "Search in scene", false, 50)]
     public static void FindMissingReferencesInCurrentScene() {
@@ -23,8 +23,8 @@ namespace Common.Editors {
     }
 
     /// <summary>
-    /// Finds all missing references to objects in all enabled scenes in the project.
-    /// This works by loading the scenes one by one and checking for missing object references.
+    ///   Finds all missing references to objects in all enabled scenes in the project.
+    ///   This works by loading the scenes one by one and checking for missing object references.
     /// </summary>
     [MenuItem(_menu_root + "Search in all scenes", false, 51)]
     public static void MissingSpritesInAllScenes() {
@@ -35,7 +35,7 @@ namespace Common.Editors {
     }
 
     /// <summary>
-    /// Finds all missing references to objects in assets (objects from the project window).
+    ///   Finds all missing references to objects in assets (objects from the project window).
     /// </summary>
     [MenuItem(_menu_root + "Search in assets", false, 52)]
     public static void MissingSpritesInAssets() {

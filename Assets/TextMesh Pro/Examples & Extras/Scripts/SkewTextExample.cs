@@ -4,7 +4,11 @@ using UnityEngine;
 
 namespace TextMesh_Pro.Scripts {
   public class SkewTextExample : MonoBehaviour {
+    //public float AngleMultiplier = 1.0f;
+    //public float SpeedMultiplier = 1.0f;
+    public float CurveScale = 1.0f;
     TMP_Text m_TextComponent;
+    public float ShearAmount = 1.0f;
 
     public AnimationCurve VertexCurve = new AnimationCurve(
         new Keyframe(0, 0),
@@ -12,11 +16,6 @@ namespace TextMesh_Pro.Scripts {
         new Keyframe(0.5f, 0),
         new Keyframe(0.75f, 2.0f),
         new Keyframe(1, 0f));
-
-    //public float AngleMultiplier = 1.0f;
-    //public float SpeedMultiplier = 1.0f;
-    public float CurveScale = 1.0f;
-    public float ShearAmount = 1.0f;
 
     void Awake() { this.m_TextComponent = this.gameObject.GetComponent<TMP_Text>(); }
 
@@ -31,7 +30,7 @@ namespace TextMesh_Pro.Scripts {
     }
 
     /// <summary>
-    ///  Method to curve text along a Unity animation curve.
+    ///   Method to curve text along a Unity animation curve.
     /// </summary>
     /// <param name="textComponent"></param>
     /// <returns></returns>
@@ -70,7 +69,9 @@ namespace TextMesh_Pro.Scripts {
         var textInfo = this.m_TextComponent.textInfo;
         var characterCount = textInfo.characterCount;
 
-        if (characterCount == 0) continue;
+        if (characterCount == 0) {
+          continue;
+        }
 
         //vertices = textInfo.meshInfo[0].vertices;
         //int lastVertexIndex = textInfo.characterInfo[characterCount - 1].vertexIndex;
@@ -79,8 +80,9 @@ namespace TextMesh_Pro.Scripts {
         var boundsMaxX = this.m_TextComponent.bounds.max.x; //textInfo.meshInfo[0].mesh.bounds.max.x;
 
         for (var i = 0; i < characterCount; i++) {
-          if (!textInfo.characterInfo[i].isVisible)
+          if (!textInfo.characterInfo[i].isVisible) {
             continue;
+          }
 
           var vertexIndex = textInfo.characterInfo[i].vertexIndex;
 

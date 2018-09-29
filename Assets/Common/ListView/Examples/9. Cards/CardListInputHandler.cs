@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace Common.ListView.Examples._9._Cards {
   public class CardListInputHandler : ListViewScroller {
-    public float _ScrollWheelCoeff = 1;
     float _m_list_depth;
+    public float _ScrollWheelCoeff = 1;
 
     protected override void HandleInput() {
       var screen_point = Input.mousePosition;

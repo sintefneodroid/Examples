@@ -9,51 +9,41 @@ using UnityEngine;
 
 namespace SceneAssets.GridWorlds.Scripts {
   /// <summary>
-  /// 
   /// </summary>
   public enum MazeDirection {
     /// <summary>
-    /// 
     /// </summary>
     North_,
 
     /// <summary>
-    /// 
     /// </summary>
     East_,
 
     /// <summary>
-    /// 
     /// </summary>
     South_,
 
     /// <summary>
-    /// 
     /// </summary>
     West_,
 
     /// <summary>
-    /// 
     /// </summary>
     Up_,
 
     /// <summary>
-    /// 
     /// </summary>
     Down_
   }
 
   /// <summary>
-  /// 
   /// </summary>
   public static class MazeDirections {
     /// <summary>
-    /// 
     /// </summary>
     public const int _Count = 6;
 
     /// <summary>
-    /// 
     /// </summary>
     static IntVector3[] _vectors = {
         new IntVector3(0, 0, 1),
@@ -65,13 +55,11 @@ namespace SceneAssets.GridWorlds.Scripts {
     };
 
     /// <summary>
-    /// 
     /// </summary>
 
     public static MazeDirection RandomValue { get { return (MazeDirection)Random.Range(0, _Count); } }
 
     /// <summary>
-    /// 
     /// </summary>
     /// <param name="direction"></param>
     /// <returns></returns>
@@ -83,7 +71,6 @@ namespace SceneAssets.GridWorlds.Scripts {
   /// </summary>
   [RequireComponent(typeof(GoalCellObserver))]
   public class GridWorldEnvironment : PrototypingEnvironment {
-    [Range(0.0f, 0.999f), SerializeField] float _min_empty_cells_percentage = 0.5f;
     [SerializeField] Camera _camera;
     [SerializeField] Material _empty_cell_material;
     [SerializeField] Material _filled_cell_material;
@@ -93,9 +80,9 @@ namespace SceneAssets.GridWorlds.Scripts {
     [SerializeField] GoalCellObserver _goal_cell_observer;
     [SerializeField] GridCell[,,] _grid;
     [SerializeField] IntVector3 _grid_size = new IntVector3(Vector3.one * 20);
+    [Range(0.0f, 0.999f)] [SerializeField] float _min_empty_cells_percentage = 0.5f;
 
     /// <summary>
-    /// 
     /// </summary>
     IntVector3 RandomCoordinates {
       get {
@@ -107,7 +94,6 @@ namespace SceneAssets.GridWorlds.Scripts {
     }
 
     /// <summary>
-    /// 
     /// </summary>
     /// <param name="xs"></param>
     /// <param name="ys"></param>
@@ -127,7 +113,6 @@ namespace SceneAssets.GridWorlds.Scripts {
     }
 
     /// <summary>
-    /// 
     /// </summary>
     /// <param name="xs"></param>
     /// <param name="ys"></param>
@@ -172,7 +157,6 @@ namespace SceneAssets.GridWorlds.Scripts {
     }
 
     /// <summary>
-    /// 
     /// </summary>
     /// <param name="empty_cells_num"></param>
     /// <param name="grid"></param>

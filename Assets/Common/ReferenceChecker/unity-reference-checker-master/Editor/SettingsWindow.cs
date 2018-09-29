@@ -3,11 +3,10 @@ using UnityEngine;
 
 namespace Common.reference_checker.Editor {
   public class SettingsWindow : EditorWindow {
-    bool _check_on_compilation;
-    LogType _log_severity;
-    bool _colorful_logs;
-
     const string _check_after_compilation_info = "Checks all build scenes whenever Unity finishes compiling.";
+    bool _check_on_compilation;
+    bool _colorful_logs;
+    LogType _log_severity;
 
     [MenuItem("Window/UnityRefChecker")]
     public static void ShowWindow() { GetWindow(typeof(SettingsWindow)); }

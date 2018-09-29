@@ -8,54 +8,56 @@ namespace TextMesh_Pro.Scripts {
       Free
     }
 
-    Transform cameraTransform;
-    Transform dummyTarget;
-
-    public Transform CameraTarget;
-
-    public float FollowDistance = 30.0f;
-    public float MaxFollowDistance = 100.0f;
-    public float MinFollowDistance = 2.0f;
-
-    public float ElevationAngle = 30.0f;
-    public float MaxElevationAngle = 85.0f;
-    public float MinElevationAngle = 0f;
-
-    public float OrbitalAngle = 0f;
-
-    public CameraModes CameraMode = CameraModes.Follow;
-
-    public bool MovementSmoothing = true;
-    public bool RotationSmoothing = false;
-    bool previousSmoothing;
-
-    public float MovementSmoothingValue = 25f;
-    public float RotationSmoothingValue = 5.0f;
-
-    public float MoveSensitivity = 2.0f;
-
-    Vector3 currentVelocity = Vector3.zero;
-    Vector3 desiredPosition;
-    float mouseX;
-    float mouseY;
-    Vector3 moveVector;
-    float mouseWheel;
-
     // Controls for Touches on Mobile devices
     //private float prev_ZoomDelta;
 
     const string event_SmoothingValue = "Slider - Smoothing Value";
     const string event_FollowDistance = "Slider - Camera Zoom";
 
+    public CameraModes CameraMode = CameraModes.Follow;
+
+    public Transform CameraTarget;
+
+    Transform cameraTransform;
+
+    Vector3 currentVelocity = Vector3.zero;
+    Vector3 desiredPosition;
+    Transform dummyTarget;
+
+    public float ElevationAngle = 30.0f;
+
+    public float FollowDistance = 30.0f;
+    public float MaxElevationAngle = 85.0f;
+    public float MaxFollowDistance = 100.0f;
+    public float MinElevationAngle;
+    public float MinFollowDistance = 2.0f;
+    float mouseWheel;
+    float mouseX;
+    float mouseY;
+
+    public bool MovementSmoothing = true;
+
+    public float MovementSmoothingValue = 25f;
+
+    public float MoveSensitivity = 2.0f;
+    Vector3 moveVector;
+
+    public float OrbitalAngle;
+    bool previousSmoothing;
+    public bool RotationSmoothing;
+    public float RotationSmoothingValue = 5.0f;
+
     void Awake() {
-      if (QualitySettings.vSyncCount > 0)
+      if (QualitySettings.vSyncCount > 0) {
         Application.targetFrameRate = 60;
-      else
+      } else {
         Application.targetFrameRate = -1;
+      }
 
       if (Application.platform == RuntimePlatform.IPhonePlayer
-          || Application.platform == RuntimePlatform.Android)
+          || Application.platform == RuntimePlatform.Android) {
         Input.simulateMouseWithTouches = false;
+      }
 
       this.cameraTransform = this.transform;
       this.previousSmoothing = this.MovementSmoothing;
@@ -84,12 +86,10 @@ namespace TextMesh_Pro.Scripts {
           this.desiredPosition = this.CameraTarget.position
                                  + this.CameraTarget.TransformDirection(
                                      Quaternion.Euler(this.ElevationAngle, this.OrbitalAngle, 0f)
-                                     * (new Vector3(0, 0, -this.FollowDistance)));
-        } else {
-          // Free Camera implementation
+                                     * new Vector3(0, 0, -this.FollowDistance));
         }
 
-        if (this.MovementSmoothing == true) {
+        if (this.MovementSmoothing) {
           // Using Smoothing
           this.cameraTransform.position = Vector3.SmoothDamp(
               this.cameraTransform.position,
@@ -102,12 +102,12 @@ namespace TextMesh_Pro.Scripts {
           this.cameraTransform.position = this.desiredPosition;
         }
 
-        if (this.RotationSmoothing == true)
+        if (this.RotationSmoothing) {
           this.cameraTransform.rotation = Quaternion.Lerp(
               this.cameraTransform.rotation,
               Quaternion.LookRotation(this.CameraTarget.position - this.cameraTransform.position),
               this.RotationSmoothingValue * Time.deltaTime);
-        else {
+        } else {
           this.cameraTransform.LookAt(this.CameraTarget);
         }
       }
@@ -124,11 +124,17 @@ namespace TextMesh_Pro.Scripts {
       if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) || touchCount > 0) {
         this.mouseWheel *= 10;
 
-        if (Input.GetKeyDown(KeyCode.I)) this.CameraMode = CameraModes.Isometric;
+        if (Input.GetKeyDown(KeyCode.I)) {
+          this.CameraMode = CameraModes.Isometric;
+        }
 
-        if (Input.GetKeyDown(KeyCode.F)) this.CameraMode = CameraModes.Follow;
+        if (Input.GetKeyDown(KeyCode.F)) {
+          this.CameraMode = CameraModes.Follow;
+        }
 
-        if (Input.GetKeyDown(KeyCode.S)) this.MovementSmoothing = !this.MovementSmoothing;
+        if (Input.GetKeyDown(KeyCode.S)) {
+          this.MovementSmoothing = !this.MovementSmoothing;
+        }
 
         // Check for right mouse button to change camera follow and elevation angle
         if (Input.GetMouseButton(1)) {
@@ -146,8 +152,13 @@ namespace TextMesh_Pro.Scripts {
 
           if (this.mouseX > 0.01f || this.mouseX < -0.01f) {
             this.OrbitalAngle += this.mouseX * this.MoveSensitivity;
-            if (this.OrbitalAngle > 360) this.OrbitalAngle -= 360;
-            if (this.OrbitalAngle < 0) this.OrbitalAngle += 360;
+            if (this.OrbitalAngle > 360) {
+              this.OrbitalAngle -= 360;
+            }
+
+            if (this.OrbitalAngle < 0) {
+              this.OrbitalAngle += 360;
+            }
           }
         }
 
@@ -168,8 +179,13 @@ namespace TextMesh_Pro.Scripts {
           // Handle left & right 
           if (deltaPosition.x > 0.01f || deltaPosition.x < -0.01f) {
             this.OrbitalAngle += deltaPosition.x * 0.1f;
-            if (this.OrbitalAngle > 360) this.OrbitalAngle -= 360;
-            if (this.OrbitalAngle < 0) this.OrbitalAngle += 360;
+            if (this.OrbitalAngle > 360) {
+              this.OrbitalAngle -= 360;
+            }
+
+            if (this.OrbitalAngle < 0) {
+              this.OrbitalAngle += 360;
+            }
           }
         }
 
@@ -177,7 +193,7 @@ namespace TextMesh_Pro.Scripts {
         if (Input.GetMouseButton(0)) {
           RaycastHit hit;
           var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-          if (Physics.Raycast(ray, out hit, 300, 1 << 10 | 1 << 11 | 1 << 12 | 1 << 14)) {
+          if (Physics.Raycast(ray, out hit, 300, (1 << 10) | (1 << 11) | (1 << 12) | (1 << 14))) {
             if (hit.transform == this.CameraTarget) {
               // Reset Follow Position
               this.OrbitalAngle = 0;

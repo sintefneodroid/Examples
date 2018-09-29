@@ -5,13 +5,13 @@ namespace Common.EffectExamples.Shared.Scripts {
   /// <summary>
   /// </summary>
   public class GunAim : MonoBehaviour {
+    public int _BorderBottom;
     public int _BorderLeft;
     public int _BorderRight;
     public int _BorderTop;
-    public int _BorderBottom;
+    bool _is_out_of_bounds;
 
     Camera _parent_camera;
-    bool _is_out_of_bounds;
 
     void Start() { this._parent_camera = this.GetComponentInParent<Camera>(); }
 

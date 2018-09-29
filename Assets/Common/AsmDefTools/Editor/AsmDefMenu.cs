@@ -51,9 +51,9 @@ namespace Common.AsmDefTools.Editor {
       if (enable == !path.IsHidden()) {
         Debug.LogWarning("the path already has the requested state, ignored");
         return false;
-      } else {
-        File.Move(path, path.Toggle(enable));
       }
+
+      File.Move(path, path.Toggle(enable));
 
       return true;
     }

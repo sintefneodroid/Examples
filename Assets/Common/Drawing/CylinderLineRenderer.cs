@@ -2,21 +2,20 @@
 
 namespace Common.Drawing {
   public class CylinderLineRenderer : MonoBehaviour {
+    // Fill in this with the default Unity Cylinder mesh
+    // We will account for the cylinder pivot/origin being in the middle.
+    /// <summary>
+    /// </summary>
+    public Mesh _CylinderMesh;
+
     // Material used for the connecting lines
     public Material _LineMat;
-
-    public float _Radius = 0.05f;
 
     // Connect all of the `points` to the `mainPoint`
     public GameObject _MainPoint;
     public GameObject[] _Points;
 
-    // Fill in this with the default Unity Cylinder mesh
-    // We will account for the cylinder pivot/origin being in the middle.
-    /// <summary>
-    /// 
-    /// </summary>
-    public Mesh _CylinderMesh;
+    public float _Radius = 0.05f;
 
     GameObject[] _ring_game_objects;
 
@@ -74,18 +73,18 @@ namespace Common.Drawing {
   /// <summary>
   /// </summary>
   public class ConnectPointsWithCubeMesh : MonoBehaviour {
+    // Fill in this with the default Unity Cube mesh
+    // We will account for the cube pivot/origin being in the middle.
+    public Mesh _CubeMesh;
+
     // Material used for the connecting lines
     public Material _LineMat;
-
-    public float _Radius = 0.05f;
 
     // Connect all of the `points` to the `mainPoint`
     public GameObject _MainPoint;
     public GameObject[] _Points;
 
-    // Fill in this with the default Unity Cube mesh
-    // We will account for the cube pivot/origin being in the middle.
-    public Mesh _CubeMesh;
+    public float _Radius = 0.05f;
 
     GameObject[] _ring_game_objects;
 

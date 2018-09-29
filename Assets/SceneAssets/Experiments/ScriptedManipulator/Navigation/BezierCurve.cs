@@ -11,7 +11,8 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Navigation {
   ///   GetCubicPoint,
   ///   GetQuadraticPoint, and GetLinearPoint)
   /// </summary>
-  [ExecuteInEditMode, Serializable]
+  [ExecuteInEditMode]
+  [Serializable]
   public class BezierCurve : MonoBehaviour {
     #region PrivateVariables
 

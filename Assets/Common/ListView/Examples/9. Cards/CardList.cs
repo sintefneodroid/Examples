@@ -9,15 +9,15 @@ using Random = System.Random;
 
 namespace Common.ListView.Examples._9._Cards {
   public class CardList : ListViewController<CardData, Card> {
+    public bool _AutoScroll;
     public string _DefaultTemplate = "Card";
     public float _Interpolate = 15f;
-    public float _RecycleDuration = 0.3f;
-    public bool _AutoScroll;
-    public float _ScrollSpeed = 1;
     public Transform _LeftDeck, _RightDeck;
+    float _m_last_scroll_offset;
 
     float _m_scroll_return = float.MaxValue;
-    float _m_last_scroll_offset;
+    public float _RecycleDuration = 0.3f;
+    public float _ScrollSpeed = 1;
 
     protected override void Setup() {
       base.Setup();

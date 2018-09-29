@@ -2,16 +2,15 @@
 
 namespace Common.ListView.Examples._0._Simple {
   public class SimpleListView : MonoBehaviour {
-    public GameObject _Prefab;
+    public string[] _Data;
     public int _DataOffset;
 
     public float _ItemHeight = 1;
-    public int _Range = 5;
-
-    public string[] _Data;
-    public GUISkin _Skin;
 
     TextMesh[] _m_items;
+    public GameObject _Prefab;
+    public int _Range = 5;
+    public GUISkin _Skin;
 
     void Start() {
       this._m_items = new TextMesh[this._Range];

@@ -7,15 +7,15 @@ using UnityEngine;
 
 namespace Common.ListView.Examples._10._Card_Game {
   public class CardGameHand : ListViewController<CardData, Card> {
-    public float _Radius = 0.25f;
-    public float _Interpolate = 15f;
-    public float _StackOffset = 0.01f;
-    public int _HandSize = 5;
-    public float _IndicatorTime = 0.5f;
     public CardGameList _Controller;
+    public int _HandSize = 5;
     public Renderer _Indicator;
+    public float _IndicatorTime = 0.5f;
+    public float _Interpolate = 15f;
 
     float _m_card_degrees, _m_cards_offset;
+    public float _Radius = 0.25f;
+    public float _StackOffset = 0.01f;
 
     new Vector3 ItemSize { get { return this._Controller.ItemSize; } }
 

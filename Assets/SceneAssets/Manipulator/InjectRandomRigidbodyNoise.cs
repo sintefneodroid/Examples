@@ -5,8 +5,8 @@ namespace SceneAssets.Manipulator {
   /// <summary>
   /// </summary>
   public class InjectRandomRigidbodyNoise : MonoBehaviour {
-    Rigidbody _rigidbody;
     [SerializeField] float _magnitude = 1;
+    Rigidbody _rigidbody;
 
     void Start() { this._rigidbody = this.GetComponent<Rigidbody>(); }
 

@@ -13,28 +13,23 @@ namespace Common.Tools {
   [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
   [ExecuteInEditMode]
   public class ProceduralCapsule : MonoBehaviour {
-    #if UNITY_EDITOR
     /// <summary>
-    /// 
-    /// </summary>
-    [ContextMenu("Generate Procedural Capsule")]
-    public void GenerateProceduralCapsule() { this.CreateMesh(); }
-    #endif
-
-    /// <summary>
-    /// 
     /// </summary>
     public float _Height = 2f;
 
     /// <summary>
-    /// 
     /// </summary>
     public float _Radius = 0.5f;
 
     /// <summary>
-    /// 
     /// </summary>
     public int _Segments = 24;
+    #if UNITY_EDITOR
+    /// <summary>
+    /// </summary>
+    [ContextMenu("Generate Procedural Capsule")]
+    public void GenerateProceduralCapsule() { this.CreateMesh(); }
+    #endif
 
     void Start() {
       var mesh_filter = this.GetComponent<MeshFilter>();
@@ -42,15 +37,10 @@ namespace Common.Tools {
           || mesh_filter.sharedMesh.vertexCount == 0
           || mesh_filter.sharedMesh.name != "ProceduralCapsule") {
         this.CreateMesh();
-      } else {
-        //mesh_filter.sharedMesh.RecalculateBounds();
-        //mesh_filter.sharedMesh.RecalculateNormals();
-        //mesh_filter.sharedMesh.RecalculateTangents();
       }
     }
 
     /// <summary>
-    /// 
     /// </summary>
     public void CreateMesh() {
       // make segments an even number
@@ -88,7 +78,7 @@ namespace Common.Tools {
 
       // Y-offset is half the height minus the diameter
       // float yOff = ( height - ( radius * 2f ) ) * 0.5f;
-      var y_off = (this._Height - (this._Radius)) * 0.5f;
+      var y_off = (this._Height - this._Radius) * 0.5f;
       if (y_off < 0) {
         y_off = 0;
       }
@@ -105,8 +95,8 @@ namespace Common.Tools {
           vertices[ind] = new Vector3(p_x[x] * p_r[y], p_y[y], p_z[x] * p_r[y]) * this._Radius;
           vertices[ind].y = y_off + vertices[ind].y;
 
-          uv_x = 1f - (step_x * x);
-          uv_y = (vertices[ind].y + (this._Height * 0.5f)) / this._Height;
+          uv_x = 1f - step_x * x;
+          uv_y = (vertices[ind].y + this._Height * 0.5f) / this._Height;
           uvs[ind] = new Vector2(uv_x, uv_y);
 
           ind++;
@@ -121,8 +111,8 @@ namespace Common.Tools {
           vertices[ind] = new Vector3(p_x[x] * p_r[y], p_y[y], p_z[x] * p_r[y]) * this._Radius;
           vertices[ind].y = -y_off + vertices[ind].y;
 
-          uv_x = 1f - (step_x * x);
-          uv_y = (vertices[ind].y + (this._Height * 0.5f)) / this._Height;
+          uv_x = 1f - step_x * x;
+          uv_y = (vertices[ind].y + this._Height * 0.5f) / this._Height;
           uvs[ind] = new Vector2(uv_x, uv_y);
 
           ind++;
@@ -131,17 +121,17 @@ namespace Common.Tools {
 
       // - Triangles -
 
-      var triangles = new int[(this._Segments * (this._Segments + 1) * 2 * 3)];
+      var triangles = new int[this._Segments * (this._Segments + 1) * 2 * 3];
 
       for (int y = 0, t = 0; y < this._Segments + 1; y++) {
         for (var x = 0; x < this._Segments; x++, t += 6) {
-          triangles[t + 0] = ((y + 0) * (this._Segments + 1)) + x + 0;
-          triangles[t + 1] = ((y + 1) * (this._Segments + 1)) + x + 0;
-          triangles[t + 2] = ((y + 1) * (this._Segments + 1)) + x + 1;
+          triangles[t + 0] = (y + 0) * (this._Segments + 1) + x + 0;
+          triangles[t + 1] = (y + 1) * (this._Segments + 1) + x + 0;
+          triangles[t + 2] = (y + 1) * (this._Segments + 1) + x + 1;
 
-          triangles[t + 3] = ((y + 0) * (this._Segments + 1)) + x + 1;
-          triangles[t + 4] = ((y + 0) * (this._Segments + 1)) + x + 0;
-          triangles[t + 5] = ((y + 1) * (this._Segments + 1)) + x + 1;
+          triangles[t + 3] = (y + 0) * (this._Segments + 1) + x + 1;
+          triangles[t + 4] = (y + 0) * (this._Segments + 1) + x + 0;
+          triangles[t + 5] = (y + 1) * (this._Segments + 1) + x + 1;
         }
       }
 

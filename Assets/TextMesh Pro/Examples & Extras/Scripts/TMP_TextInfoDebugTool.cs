@@ -1,20 +1,20 @@
 ﻿using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 namespace TextMesh_Pro.Scripts {
   [ExecuteInEditMode]
   public class TMP_TextInfoDebugTool : MonoBehaviour {
-    public bool ShowCharacters;
-    public bool ShowWords;
-    public bool ShowLinks;
-    public bool ShowLines;
-    public bool ShowMeshBounds;
-    public bool ShowTextBounds;
-    [Space(10)] [TextArea(2, 2)] public string ObjectStats;
-
     TMP_Text m_TextComponent;
 
     Transform m_Transform;
+    [Space(10)] [TextArea(2, 2)] public string ObjectStats;
+    public bool ShowCharacters;
+    public bool ShowLines;
+    public bool ShowLinks;
+    public bool ShowMeshBounds;
+    public bool ShowTextBounds;
+    public bool ShowWords;
 
 // Since this script is used for visual debugging, we exclude most of it in builds.
     #if UNITY_EDITOR
@@ -22,7 +22,9 @@ namespace TextMesh_Pro.Scripts {
     void OnEnable() {
       this.m_TextComponent = this.gameObject.GetComponent<TMP_Text>();
 
-      if (this.m_Transform == null) this.m_Transform = this.gameObject.GetComponent<Transform>();
+      if (this.m_Transform == null) {
+        this.m_Transform = this.gameObject.GetComponent<Transform>();
+      }
     }
 
     void OnDrawGizmos() {
@@ -48,7 +50,9 @@ namespace TextMesh_Pro.Scripts {
 
       #region Draw Characters
 
-      if (this.ShowCharacters) this.DrawCharactersBounds();
+      if (this.ShowCharacters) {
+        this.DrawCharactersBounds();
+      }
 
       #endregion
 
@@ -56,7 +60,9 @@ namespace TextMesh_Pro.Scripts {
 
       #region Draw Words
 
-      if (this.ShowWords) this.DrawWordBounds();
+      if (this.ShowWords) {
+        this.DrawWordBounds();
+      }
 
       #endregion
 
@@ -64,7 +70,9 @@ namespace TextMesh_Pro.Scripts {
 
       #region Draw Links
 
-      if (this.ShowLinks) this.DrawLinkBounds();
+      if (this.ShowLinks) {
+        this.DrawLinkBounds();
+      }
 
       #endregion
 
@@ -72,7 +80,9 @@ namespace TextMesh_Pro.Scripts {
 
       #region Draw Lines
 
-      if (this.ShowLines) this.DrawLineBounds();
+      if (this.ShowLines) {
+        this.DrawLineBounds();
+      }
 
       #endregion
 
@@ -80,7 +90,9 @@ namespace TextMesh_Pro.Scripts {
 
       #region Draw Bounds
 
-      if (this.ShowMeshBounds) this.DrawBounds();
+      if (this.ShowMeshBounds) {
+        this.DrawBounds();
+      }
 
       #endregion
 
@@ -88,13 +100,15 @@ namespace TextMesh_Pro.Scripts {
 
       #region Draw Text Bounds
 
-      if (this.ShowTextBounds) this.DrawTextBounds();
+      if (this.ShowTextBounds) {
+        this.DrawTextBounds();
+      }
 
       #endregion
     }
 
     /// <summary>
-    /// Method to draw a rectangle around each character.
+    ///   Method to draw a rectangle around each character.
     /// </summary>
     /// <param name="text"></param>
     void DrawCharactersBounds() {
@@ -106,12 +120,14 @@ namespace TextMesh_Pro.Scripts {
 
         var isCharacterVisible = i >= this.m_TextComponent.maxVisibleCharacters
                                  || cInfo.lineNumber >= this.m_TextComponent.maxVisibleLines
-                                 || (this.m_TextComponent.overflowMode == TextOverflowModes.Page
-                                     && cInfo.pageNumber + 1 != this.m_TextComponent.pageToDisplay)
+                                 || this.m_TextComponent.overflowMode == TextOverflowModes.Page
+                                 && cInfo.pageNumber + 1 != this.m_TextComponent.pageToDisplay
                                      ? false
                                      : true;
 
-        if (!isCharacterVisible) continue;
+        if (!isCharacterVisible) {
+          continue;
+        }
 
         // Get Bottom Left and Top Right position of the current character
         var bottomLeft = this.m_Transform.TransformPoint(cInfo.bottomLeft);
@@ -183,7 +199,7 @@ namespace TextMesh_Pro.Scripts {
     }
 
     /// <summary>
-    /// Method to draw rectangles around each word of the text.
+    ///   Method to draw rectangles around each word of the text.
     /// </summary>
     /// <param name="text"></param>
     void DrawWordBounds() {
@@ -212,9 +228,8 @@ namespace TextMesh_Pro.Scripts {
 
           var isCharacterVisible = characterIndex > this.m_TextComponent.maxVisibleCharacters
                                    || currentCharInfo.lineNumber > this.m_TextComponent.maxVisibleLines
-                                   || (this.m_TextComponent.overflowMode == TextOverflowModes.Page
-                                       && currentCharInfo.pageNumber + 1
-                                       != this.m_TextComponent.pageToDisplay)
+                                   || this.m_TextComponent.overflowMode == TextOverflowModes.Page
+                                   && currentCharInfo.pageNumber + 1 != this.m_TextComponent.pageToDisplay
                                        ? false
                                        : true;
 
@@ -288,7 +303,7 @@ namespace TextMesh_Pro.Scripts {
     }
 
     /// <summary>
-    /// Draw rectangle around each of the links contained in the text.
+    ///   Draw rectangle around each of the links contained in the text.
     /// </summary>
     /// <param name="text"></param>
     void DrawLinkBounds() {
@@ -317,9 +332,8 @@ namespace TextMesh_Pro.Scripts {
 
           var isCharacterVisible = characterIndex > this.m_TextComponent.maxVisibleCharacters
                                    || currentCharInfo.lineNumber > this.m_TextComponent.maxVisibleLines
-                                   || (this.m_TextComponent.overflowMode == TextOverflowModes.Page
-                                       && currentCharInfo.pageNumber + 1
-                                       != this.m_TextComponent.pageToDisplay)
+                                   || this.m_TextComponent.overflowMode == TextOverflowModes.Page
+                                   && currentCharInfo.pageNumber + 1 != this.m_TextComponent.pageToDisplay
                                        ? false
                                        : true;
 
@@ -394,7 +408,7 @@ namespace TextMesh_Pro.Scripts {
     }
 
     /// <summary>
-    /// Draw Rectangles around each lines of the text.
+    ///   Draw Rectangles around each lines of the text.
     /// </summary>
     /// <param name="text"></param>
     void DrawLineBounds() {
@@ -404,16 +418,18 @@ namespace TextMesh_Pro.Scripts {
         var lineInfo = textInfo.lineInfo[i];
 
         var isLineVisible =
-            (lineInfo.characterCount == 1
-             && textInfo.characterInfo[lineInfo.firstCharacterIndex].character == 10)
+            lineInfo.characterCount == 1
+            && textInfo.characterInfo[lineInfo.firstCharacterIndex].character == 10
             || i > this.m_TextComponent.maxVisibleLines
-            || (this.m_TextComponent.overflowMode == TextOverflowModes.Page
-                && textInfo.characterInfo[lineInfo.firstCharacterIndex].pageNumber + 1
-                != this.m_TextComponent.pageToDisplay)
+            || this.m_TextComponent.overflowMode == TextOverflowModes.Page
+            && textInfo.characterInfo[lineInfo.firstCharacterIndex].pageNumber + 1
+            != this.m_TextComponent.pageToDisplay
                 ? false
                 : true;
 
-        if (!isLineVisible) continue;
+        if (!isLineVisible) {
+          continue;
+        }
 
         //if (!ShowLinesOnlyVisibleCharacters)
         //{
@@ -487,7 +503,7 @@ namespace TextMesh_Pro.Scripts {
     }
 
     /// <summary>
-    /// Draw Rectangle around the bounds of the text object.
+    ///   Draw Rectangle around the bounds of the text object.
     /// </summary>
     void DrawBounds() {
       var meshBounds = this.m_TextComponent.bounds;
@@ -532,12 +548,12 @@ namespace TextMesh_Pro.Scripts {
     void DrawDottedRectangle(Vector3 bl, Vector3 tl, Vector3 tr, Vector3 br, Color color) {
       var cam = Camera.current;
       var dotSpacing = (cam.WorldToScreenPoint(br).x - cam.WorldToScreenPoint(bl).x) / 75f;
-      UnityEditor.Handles.color = color;
+      Handles.color = color;
 
-      UnityEditor.Handles.DrawDottedLine(bl, tl, dotSpacing);
-      UnityEditor.Handles.DrawDottedLine(tl, tr, dotSpacing);
-      UnityEditor.Handles.DrawDottedLine(tr, br, dotSpacing);
-      UnityEditor.Handles.DrawDottedLine(br, bl, dotSpacing);
+      Handles.DrawDottedLine(bl, tl, dotSpacing);
+      Handles.DrawDottedLine(tl, tr, dotSpacing);
+      Handles.DrawDottedLine(tr, br, dotSpacing);
+      Handles.DrawDottedLine(br, bl, dotSpacing);
     }
 
     #endif

@@ -5,12 +5,12 @@ using UnityEngine;
 namespace TextMesh_Pro.Scripts {
   public class VertexShakeA : MonoBehaviour {
     public float AngleMultiplier = 1.0f;
-    public float SpeedMultiplier = 1.0f;
-    public float ScaleMultiplier = 1.0f;
-    public float RotationMultiplier = 1.0f;
+    bool hasTextChanged;
 
     TMP_Text m_TextComponent;
-    bool hasTextChanged;
+    public float RotationMultiplier = 1.0f;
+    public float ScaleMultiplier = 1.0f;
+    public float SpeedMultiplier = 1.0f;
 
     void Awake() { this.m_TextComponent = this.GetComponent<TMP_Text>(); }
 
@@ -24,11 +24,13 @@ namespace TextMesh_Pro.Scripts {
     void Start() { this.StartCoroutine(this.AnimateVertexColors()); }
 
     void ON_TEXT_CHANGED(Object obj) {
-      if (obj = this.m_TextComponent) this.hasTextChanged = true;
+      if (obj = this.m_TextComponent) {
+        this.hasTextChanged = true;
+      }
     }
 
     /// <summary>
-    /// Method to animate vertex colors of a TMP Text object.
+    ///   Method to animate vertex colors of a TMP Text object.
     /// </summary>
     /// <returns></returns>
     IEnumerator AnimateVertexColors() {
@@ -46,8 +48,9 @@ namespace TextMesh_Pro.Scripts {
       while (true) {
         // Allocate new vertices 
         if (this.hasTextChanged) {
-          if (copyOfVertices.Length < textInfo.meshInfo.Length)
+          if (copyOfVertices.Length < textInfo.meshInfo.Length) {
             copyOfVertices = new Vector3[textInfo.meshInfo.Length][];
+          }
 
           for (var i = 0; i < textInfo.meshInfo.Length; i++) {
             var length = textInfo.meshInfo[i].vertices.Length;
@@ -80,8 +83,9 @@ namespace TextMesh_Pro.Scripts {
           // Iterate through each character of the line.
           for (var j = first; j <= last; j++) {
             // Skip characters that are not visible and thus have no geometry to manipulate.
-            if (!textInfo.characterInfo[j].isVisible)
+            if (!textInfo.characterInfo[j].isVisible) {
               continue;
+            }
 
             // Get the index of the material used by the current character.
             var materialIndex = textInfo.characterInfo[j].materialReferenceIndex;

@@ -3,9 +3,9 @@
 namespace SceneAssets.Experiments.ScriptedManipulator.Grasps {
   [ExecuteInEditMode]
   public class Grasp : MonoBehaviour {
+    [SerializeField] bool _draw_ray_cast;
     [SerializeField] float _obstruction_cast_length = 0.1f;
     [SerializeField] float _obstruction_cast_radius = 0.1f;
-    [SerializeField] bool _draw_ray_cast;
 
     void Update() {
       var color = Color.white;

@@ -1,14 +1,14 @@
 ﻿using Neodroid.Runtime.Prototyping.Internals;
-using Neodroid.Runtime.Utilities.Misc.Drawing;
-using Neodroid.Runtime.Utilities.Misc.Grasping;
+using Neodroid.Runtime.Utilities.Misc;
 using UnityEngine;
-using NeodroidUtilities = Neodroid.Runtime.Utilities.Misc.NeodroidUtilities;
 
 namespace SceneAssets.Walker {
   /// <inheritdoc />
   /// <summary>
   /// </summary>
-  [ExecuteInEditMode, RequireComponent(typeof(Light)), RequireComponent(typeof(ParticleSystem))]
+  [ExecuteInEditMode]
+  [RequireComponent(typeof(Light))]
+  [RequireComponent(typeof(ParticleSystem))]
   public class DaylightSimulator : Resetable {
     [SerializeField] float _day_atmosphere_thickness = 0.88f;
 
@@ -16,6 +16,7 @@ namespace SceneAssets.Walker {
 
     [SerializeField] Gradient _fog_gradient;
     [SerializeField] float _fog_scale = 0.2f;
+    [SerializeField] Light _light;
 
     [SerializeField] Gradient _light_gradient;
 
@@ -28,16 +29,20 @@ namespace SceneAssets.Walker {
     [SerializeField] float _min_point = -0.2f;
     [SerializeField] float _night_atmosphere_thickness = 1.03f;
 
-    [SerializeField] Vector3 _rotation = new Vector3(1f, 0f, 1f);
-    [SerializeField] float _speed_multiplier = 1f;
-
-    [SerializeField] Quaternion _start_rotation = Quaternion.identity;
-    [SerializeField] Light _light;
-
     [SerializeField] ParticleSystem _particle_system;
     [SerializeField] ParticleSystem.Particle[] _particles;
 
+    [SerializeField] Vector3 _rotation = new Vector3(1f, 0f, 1f);
+
     [SerializeField] Material _sky_mat;
+    [SerializeField] float _speed_multiplier = 1f;
+
+    [SerializeField] Quaternion _start_rotation = Quaternion.identity;
+
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    public override string PrototypingTypeName { get { return "DaylightSimulator"; } }
 
     /// <inheritdoc />
     /// <summary>
@@ -109,10 +114,5 @@ namespace SceneAssets.Walker {
     /// <summary>
     /// </summary>
     public override void EnvironmentReset() { }
-
-    /// <inheritdoc />
-    /// <summary>
-    /// </summary>
-    public override string PrototypingTypeName { get { return "DaylightSimulator"; } }
   }
 }

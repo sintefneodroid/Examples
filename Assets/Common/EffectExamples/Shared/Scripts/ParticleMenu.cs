@@ -3,28 +3,28 @@ using UnityEngine.UI;
 
 namespace Common.EffectExamples.Shared.Scripts {
   /// <summary>
-  /// 
   /// </summary>
   public class ParticleMenu : MonoBehaviour {
-    // our ParticleExamples class being turned into an array of things that can be referenced
-    public ParticleExamples[] _ParticleSystems;
+    // the currently shown prefab game object
+    GameObject _current_go;
+
+    // a private integer to store the current position in the array
+    int _current_index;
+    public Text _Description;
 
     // the gun GameObject
     public GameObject _GunGameObject;
 
-    // a private integer to store the current position in the array
-    int _current_index;
+    public Text _NavigationDetails;
 
-    // the currently shown prefab game object
-    GameObject _current_go;
+    // our ParticleExamples class being turned into an array of things that can be referenced
+    public ParticleExamples[] _ParticleSystems;
 
     // where to spawn prefabs 
     public Transform _SpawnLocation;
 
     // references to the UI Text components
     public Text _Title;
-    public Text _Description;
-    public Text _NavigationDetails;
 
     // setting up the first menu item and resetting the currentIndex to ensure it's at zero
     void Start() {

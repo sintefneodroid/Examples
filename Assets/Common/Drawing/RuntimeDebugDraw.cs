@@ -28,28 +28,53 @@ Important Notes:
 
   namespace RuntimeDebugDraw {
     /// <summary>
-    /// 
     /// </summary>
     public static class Draw {
+      #region Editor
+
+      #if UNITY_EDITOR
+      /// <summary>
+      /// </summary>
+      [InitializeOnLoad]
+      public static class DrawEditor {
+        static DrawEditor() {
+          //	set a low execution order
+          var name = typeof(RuntimeDebugDraw.Internal.RuntimeDebugDraw).Name;
+          foreach (var mono_script in MonoImporter.GetAllRuntimeMonoScripts()) {
+            if (name != mono_script.name) {
+              continue;
+            }
+
+            if (MonoImporter.GetExecutionOrder(mono_script) != 9990) {
+              MonoImporter.SetExecutionOrder(mono_script, 9990);
+              return;
+            }
+          }
+        }
+      }
+      #endif
+
+      #endregion
+
       #region Main Functions
 
       /// <summary>
-      /// Which layer the lines will be drawn on.
+      ///   Which layer the lines will be drawn on.
       /// </summary>
       public const int _DrawLineLayer = 4;
 
       /// <summary>
-      /// Default font size for DrawText.
+      ///   Default font size for DrawText.
       /// </summary>
       public const int _DrawTextDefaultSize = 12;
 
       /// <summary>
-      /// Default color for Draws.
+      ///   Default color for Draws.
       /// </summary>
       public static Color _DrawDefaultColor = Color.white;
 
       /// <summary>
-      ///	Which camera to use for line drawing and texts coordinate calculation.
+      ///   Which camera to use for line drawing and texts coordinate calculation.
       /// </summary>
       /// <returns>Camera to debug draw on, returns null will mute debug drawing.</returns>
       public static Camera GetDebugDrawCamera() { return Camera.main; }
@@ -57,7 +82,7 @@ Important Notes:
       const string _conditional_flag = "NEODROID_DEBUG";
 
       /// <summary>
-      ///	Draw a line from <paramref name="start"/> to <paramref name="end"/> with <paramref name="color"/>.
+      ///   Draw a line from <paramref name="start" /> to <paramref name="end" /> with <paramref name="color" />.
       /// </summary>
       /// <param name="start">Point in world space where the line should start.</param>
       /// <param name="end">Point in world space where the line should end.</param>
@@ -71,7 +96,7 @@ Important Notes:
       }
 
       /// <summary>
-      /// Draws a line from start to start + dir in world coordinates.
+      ///   Draws a line from start to start + dir in world coordinates.
       /// </summary>
       /// <param name="start">Point in world space where the ray should start.</param>
       /// <param name="dir">Direction and length of the ray.</param>
@@ -85,14 +110,17 @@ Important Notes:
       }
 
       /// <summary>
-      /// Draw a text at given position.
+      ///   Draw a text at given position.
       /// </summary>
       /// <param name="pos">Position</param>
       /// <param name="text">String of the text.</param>
       /// <param name="color">Color for the text.</param>
       /// <param name="size">Font size for the text.</param>
       /// <param name="duration">How long the text should be visible for.</param>
-      /// <param name="pop_up">Set to true to let the text moving up, so multiple texts at the same position can be visible.</param>
+      /// <param name="pop_up">
+      ///   Set to true to let the text moving up, so multiple texts at the same position can be
+      ///   visible.
+      /// </param>
       [Conditional(_conditional_flag)]
       public static void DrawText(
           Vector3 pos,
@@ -106,7 +134,7 @@ Important Notes:
       }
 
       /// <summary>
-      /// Attach text to a transform.
+      ///   Attach text to a transform.
       /// </summary>
       /// <param name="transform">Target transform to attach text to.</param>
       /// <param name="str_func">Function will be called on every frame to get a string as attached text. </param>
@@ -129,12 +157,12 @@ Important Notes:
       #region Internal
 
       /// <summary>
-      /// Singleton RuntimeDebugDraw component that is needed to call Unity APIs.
+      ///   Singleton RuntimeDebugDraw component that is needed to call Unity APIs.
       /// </summary>
       static RuntimeDebugDraw.Internal.RuntimeDebugDraw _rt_draw;
 
       /// <summary>
-      /// Check and build 
+      ///   Check and build
       /// </summary>
       const string _hidden_go_name = "________HIDDEN_C4F6A87F298241078E21C0D7C1D87A76_";
 
@@ -163,33 +191,6 @@ Important Notes:
       }
 
       #endregion
-
-      #region Editor
-
-      #if UNITY_EDITOR
-      /// <summary>
-      /// 
-      /// </summary>
-      [InitializeOnLoad]
-      public static class DrawEditor {
-        static DrawEditor() {
-          //	set a low execution order
-          var name = typeof(RuntimeDebugDraw.Internal.RuntimeDebugDraw).Name;
-          foreach (var mono_script in MonoImporter.GetAllRuntimeMonoScripts()) {
-            if (name != mono_script.name) {
-              continue;
-            }
-
-            if (MonoImporter.GetExecutionOrder(mono_script) != 9990) {
-              MonoImporter.SetExecutionOrder(mono_script, 9990);
-              return;
-            }
-          }
-        }
-      }
-      #endif
-
-      #endregion
     }
 
     namespace RuntimeDebugDraw.Internal {
@@ -204,8 +205,8 @@ Important Notes:
           //	earlier than this and at that moment it's not initialized. check and init on every public
           //	member
           if (this._draw_text_entries == null) {
-            this._z_test_batch = new BatchedLineDraw(depth_test : true);
-            this._always_batch = new BatchedLineDraw(depth_test : false);
+            this._z_test_batch = new BatchedLineDraw(true);
+            this._always_batch = new BatchedLineDraw(false);
             this._line_entries = new List<DrawLineEntry>(16);
 
             this._text_style = new GUIStyle {alignment = TextAnchor.UpperLeft};
@@ -243,30 +244,28 @@ Important Notes:
         #region Draw Lines
 
         /// <summary>
-        /// 
         /// </summary>
         class DrawLineEntry {
+          public Color _Color;
+          public Vector3 _End;
+          public bool _NoZTest;
           public bool _Occupied;
           public Vector3 _Start;
-          public Vector3 _End;
-          public Color _Color;
           public float _Timer;
-          public bool _NoZTest;
         }
 
         List<DrawLineEntry> _line_entries;
 
         //	helper class for batching
         /// <summary>
-        /// 
         /// </summary>
         class BatchedLineDraw : IDisposable {
-          public Mesh _Mesh;
-          public Material _Mat;
-
-          List<Vector3> _vertices;
           List<Color> _colors;
           List<int> _indices;
+          public Material _Mat;
+          public Mesh _Mesh;
+
+          List<Vector3> _vertices;
 
           public BatchedLineDraw(bool depth_test) {
             this._Mesh = new Mesh();
@@ -284,6 +283,11 @@ Important Notes:
             this._vertices = new List<Vector3>();
             this._colors = new List<Color>();
             this._indices = new List<int>();
+          }
+
+          public void Dispose() {
+            DestroyImmediate(this._Mesh);
+            DestroyImmediate(this._Mat);
           }
 
           public void AddLine(Vector3 from, Vector3 to, Color color) {
@@ -310,11 +314,6 @@ Important Notes:
                 this._indices.ToArray(),
                 MeshTopology.Lines,
                 0); // cant get rid of this alloc for now
-          }
-
-          public void Dispose() {
-            DestroyImmediate(this._Mesh);
-            DestroyImmediate(this._Mat);
           }
         }
 
@@ -380,22 +379,22 @@ Important Notes:
               Quaternion.identity,
               this._always_batch._Mat,
               Draw._DrawLineLayer,
-              camera : null,
-              submeshIndex : 0,
-              properties : null,
-              castShadows : false,
-              receiveShadows : false);
+              null,
+              0,
+              null,
+              false,
+              false);
           Graphics.DrawMesh(
               this._z_test_batch._Mesh,
               Vector3.zero,
               Quaternion.identity,
               this._z_test_batch._Mat,
               Draw._DrawLineLayer,
-              camera : null,
-              submeshIndex : 0,
-              properties : null,
-              castShadows : false,
-              receiveShadows : false);
+              null,
+              0,
+              null,
+              false,
+              false);
 
           //	update timer late so every added entry can be drawed for at least one frame
           foreach (var entry in this._line_entries) {
@@ -424,36 +423,35 @@ Important Notes:
         }
 
         class DrawTextEntry {
-          public bool _Occupied;
-          public GUIContent _Content;
           public Vector3 _Anchor;
-          public int _Size;
           public Color _Color;
-          public float _Timer;
-          public bool _PopUp;
+          public GUIContent _Content;
           public float _Duration;
 
           //	Text entries needs to be draw in both OnGUI/OnDrawGizmos, need flags for mark
           //	has been visited by both
           public DrawFlag _Flag = DrawFlag.None_;
+          public bool _Occupied;
+          public bool _PopUp;
+          public int _Size;
+          public float _Timer;
 
           public DrawTextEntry() { this._Content = new GUIContent(); }
         }
 
         /// <summary>
-        /// 
         /// </summary>
         class AttachTextEntry {
-          public bool _Occupied;
-          public GUIContent _Content;
-          public Vector3 _Offset;
-          public int _Size;
           public Color _Color;
-
-          public Transform _Transform;
-          public Func<string> _StrFunc;
+          public GUIContent _Content;
 
           public DrawFlag _Flag = DrawFlag.None_;
+          public bool _Occupied;
+          public Vector3 _Offset;
+          public int _Size;
+          public Func<string> _StrFunc;
+
+          public Transform _Transform;
 
           public AttachTextEntry() { this._Content = new GUIContent(); }
         }

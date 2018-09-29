@@ -5,20 +5,11 @@ using UnityEngine;
 namespace TextMesh_Pro.Scripts {
   public class VertexJitter : MonoBehaviour {
     public float AngleMultiplier = 1.0f;
-    public float SpeedMultiplier = 1.0f;
     public float CurveScale = 1.0f;
-
-    TMP_Text m_TextComponent;
     bool hasTextChanged;
 
-    /// <summary>
-    /// Structure to hold pre-computed animation data.
-    /// </summary>
-    struct VertexAnim {
-      public float angleRange;
-      public float angle;
-      public float speed;
-    }
+    TMP_Text m_TextComponent;
+    public float SpeedMultiplier = 1.0f;
 
     void Awake() { this.m_TextComponent = this.GetComponent<TMP_Text>(); }
 
@@ -32,11 +23,13 @@ namespace TextMesh_Pro.Scripts {
     void Start() { this.StartCoroutine(this.AnimateVertexColors()); }
 
     void ON_TEXT_CHANGED(Object obj) {
-      if (obj == this.m_TextComponent) this.hasTextChanged = true;
+      if (obj == this.m_TextComponent) {
+        this.hasTextChanged = true;
+      }
     }
 
     /// <summary>
-    /// Method to animate vertex colors of a TMP Text object.
+    ///   Method to animate vertex colors of a TMP Text object.
     /// </summary>
     /// <returns></returns>
     IEnumerator AnimateVertexColors() {
@@ -82,8 +75,9 @@ namespace TextMesh_Pro.Scripts {
           var charInfo = textInfo.characterInfo[i];
 
           // Skip characters that are not visible and thus have no geometry to manipulate.
-          if (!charInfo.isVisible)
+          if (!charInfo.isVisible) {
             continue;
+          }
 
           // Retrieve the pre-computed animation data for the given character.
           var vertAnim = vertexAnim[i];
@@ -151,6 +145,15 @@ namespace TextMesh_Pro.Scripts {
 
         yield return new WaitForSeconds(0.1f);
       }
+    }
+
+    /// <summary>
+    ///   Structure to hold pre-computed animation data.
+    /// </summary>
+    struct VertexAnim {
+      public float angleRange;
+      public float angle;
+      public float speed;
     }
   }
 }

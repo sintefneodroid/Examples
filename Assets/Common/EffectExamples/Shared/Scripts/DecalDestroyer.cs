@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Common.EffectExamples.Shared.Scripts {
   /// <summary>
-  /// 
   /// </summary>
   public class DecalDestroyer : MonoBehaviour {
     public float _LifeTime = 5.0f;

@@ -8,7 +8,8 @@ namespace Common.ReadMe.ScriptableObjects.Editor {
   /// <inheritdoc />
   /// <summary>
   /// </summary>
-  [CustomEditor(typeof(ReadMe)), InitializeOnLoad]
+  [CustomEditor(typeof(ReadMe))]
+  [InitializeOnLoad]
   public class ReadMeEditor : UnityEditor.Editor {
     const string _showed_readme_session_state_name = "ReadMeEditor.showedReadMe";
 
@@ -16,6 +17,20 @@ namespace Common.ReadMe.ScriptableObjects.Editor {
     public const string _NewAssetPath = "Assets/";
 
     const string _scriptable_object_menu_path = "Tools/ReadMe/";
+    [SerializeField] GUIStyle _body_style = new GUIStyle(EditorStyles.label) {wordWrap = true, fontSize = 14};
+    [SerializeField] GUIStyle _heading_style;
+    [SerializeField] GUIStyle _link_style;
+
+    bool _m_initialized;
+    [SerializeField] GUIStyle _title_style;
+
+    GUIStyle LinkStyle { get { return this._link_style; } }
+
+    GUIStyle TitleStyle { get { return this._title_style; } }
+
+    GUIStyle HeadingStyle { get { return this._heading_style; } }
+
+    GUIStyle BodyStyle { get { return this._body_style; } }
 
     static void SelectReadmeAutomatically() {
       if (!SessionState.GetBool(_showed_readme_session_state_name, false)) {
@@ -56,7 +71,6 @@ namespace Common.ReadMe.ScriptableObjects.Editor {
     }
 
     /// <summary>
-    /// 
     /// </summary>
     [MenuItem(_scriptable_object_menu_path + "Create new ReadMe")]
     public static void CreateReadMeAsset() {
@@ -71,7 +85,6 @@ namespace Common.ReadMe.ScriptableObjects.Editor {
     }
 
     /// <summary>
-    /// 
     /// </summary>
     protected override void OnHeaderGUI() {
       var readme = (ReadMe)this.target;
@@ -114,20 +127,6 @@ namespace Common.ReadMe.ScriptableObjects.Editor {
         }
       }
     }
-
-    bool _m_initialized;
-
-    GUIStyle LinkStyle { get { return this._link_style; } }
-    [SerializeField] GUIStyle _link_style;
-
-    GUIStyle TitleStyle { get { return this._title_style; } }
-    [SerializeField] GUIStyle _title_style;
-
-    GUIStyle HeadingStyle { get { return this._heading_style; } }
-    [SerializeField] GUIStyle _heading_style;
-
-    GUIStyle BodyStyle { get { return this._body_style; } }
-    [SerializeField] GUIStyle _body_style = new GUIStyle(EditorStyles.label) {wordWrap = true, fontSize = 14};
 
     void Init() {
       if (this._m_initialized) {

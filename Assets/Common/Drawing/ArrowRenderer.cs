@@ -15,27 +15,25 @@ namespace Common.Drawing {
     // Choose the Unlit/Color shader in the Material Settings
     // You can change that color, to change the color of the connecting lines
     /// <summary>
-    /// 
     /// </summary>
     [SerializeField]
     Material _line_mat;
 
     /// <summary>
-    /// 
     /// </summary>
     [SerializeField]
     GameObject _main_point;
 
+    [SerializeField] float _offset = 0.3f;
+
     /// <summary>
-    /// 
     /// </summary>
     [SerializeField]
     GameObject[] _points;
 
-    [SerializeField] Vector3[] _vec3_points;
-    [SerializeField] float _offset = 0.3f;
-
     Tuple<Vector3, Vector3>[] _vec_pairs;
+
+    [SerializeField] Vector3[] _vec3_points;
 
     // Connect all of the `points` to the `main_point_pos`
     void DrawConnectingLines(IReadOnlyCollection<Tuple<Vector3, Vector3>> vec_pairs) {

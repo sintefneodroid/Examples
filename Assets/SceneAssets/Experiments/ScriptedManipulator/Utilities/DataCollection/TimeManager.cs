@@ -2,8 +2,8 @@
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
   public class TimeManager : MonoBehaviour {
-    [Range(0.0f, 10.0f), SerializeField] float _time_scale = 1f;
     float _interval_size = 0.02f;
+    [Range(0.0f, 10.0f)] [SerializeField] float _time_scale = 1f;
 
     // Use this for initialization
     void Start() {

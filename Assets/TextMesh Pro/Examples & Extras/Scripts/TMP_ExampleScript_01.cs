@@ -6,25 +6,26 @@ namespace TextMesh_Pro.Scripts {
     public enum objectType {
       TextMeshPro = 0,
       TextMeshProUGUI = 1
-    };
-
-    public objectType ObjectType;
-    public bool isStatic;
-
-    TMP_Text m_text;
+    }
 
     //private TMP_InputField m_inputfield;
 
     const string k_label = "The count is <#0080ff>{0}</color>";
     int count;
+    public bool isStatic;
+
+    TMP_Text m_text;
+
+    public objectType ObjectType;
 
     void Awake() {
       // Get a reference to the TMP text component if one already exists otherwise add one.
       // This example show the convenience of having both TMP components derive from TMP_Text. 
-      if (this.ObjectType == 0)
+      if (this.ObjectType == 0) {
         this.m_text = this.GetComponent<TextMeshPro>() ?? this.gameObject.AddComponent<TextMeshPro>();
-      else
+      } else {
         this.m_text = this.GetComponent<TextMeshProUGUI>() ?? this.gameObject.AddComponent<TextMeshProUGUI>();
+      }
 
       // Load a new font asset and assign it to the text object.
       this.m_text.font = Resources.Load<TMP_FontAsset>("Fonts & Materials/Anton SDF");

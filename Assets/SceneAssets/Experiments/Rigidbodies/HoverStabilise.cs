@@ -6,11 +6,11 @@ namespace SceneAssets.Experiments.Rigidbodies {
   /// </summary>
   public class HoverStabilise : MonoBehaviour {
     Rigidbody _rb;
+    [SerializeField] float _return_to_start_speed = 0.6f;
     [SerializeField] float _stability = 0.3f;
     [SerializeField] float _stability_speed = 2.0f;
 
     [SerializeField] Vector3 _start_position;
-    [SerializeField] float _return_to_start_speed = 0.6f;
 
     void Awake() {
       this._rb = this.GetComponent<Rigidbody>();
