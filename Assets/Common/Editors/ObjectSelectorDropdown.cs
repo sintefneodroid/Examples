@@ -12,6 +12,12 @@ namespace Common.Editors {
   public class ObjectSelectorDropdown : PropertyDrawer {
     List<Object> _m_list = new List<Object>();
 
+    /// <summary>
+    ///
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="property"></param>
+    /// <param name="label"></param>
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
       var e = Event.current;
       if (property.propertyType == SerializedPropertyType.ObjectReference) {
@@ -90,7 +96,15 @@ namespace Common.Editors {
     }
   }
 
+  /// <summary>
+  ///
+  /// </summary>
   public static class SerializedPropertyExt {
+    /// <summary>
+    ///
+    /// </summary>
+    /// <param name="a_property"></param>
+    /// <returns></returns>
     public static FieldInfo GetPropertyReferenceType(this SerializedProperty a_property) {
       var current_type = a_property.serializedObject.targetObject.GetType();
       FieldInfo fi = null;

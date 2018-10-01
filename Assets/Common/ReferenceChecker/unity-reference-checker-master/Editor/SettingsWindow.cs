@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Common.reference_checker.Editor {
+namespace Common.ReferenceChecker.Editor {
   public class SettingsWindow : EditorWindow {
     const string _check_after_compilation_info = "Checks all build scenes whenever Unity finishes compiling.";
     bool _check_on_compilation;

@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Common.reference_checker.Editor {
+namespace Common.ReferenceChecker.Editor {
   /// <summary>
   /// </summary>
   public class ColorfulLogBuilder {

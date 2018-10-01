@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Common.reference_checker {
+namespace Common.ReferenceChecker {
   public class IgnoreRefCheckerAttribute : Attribute {
     //
   }

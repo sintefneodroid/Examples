@@ -6,7 +6,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Common.reference_checker.Editor {
+namespace Common.ReferenceChecker.Editor {
   public static class Commands {
     static bool _was_error_in_check;
     static bool _running_after_compilation;

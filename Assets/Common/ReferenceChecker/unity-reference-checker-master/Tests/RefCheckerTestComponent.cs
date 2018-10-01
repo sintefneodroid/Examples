@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Common.reference_checker.Tests {
+namespace Common.ReferenceChecker.Tests {
   /// <inheritdoc />
   /// <summary>
   /// </summary>

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Excluded.Hide.SharpShadowLight.Scripts.Utilities {
+namespace Common.Tools {
   /// <inheritdoc />
   /// <summary>
   /// </summary>

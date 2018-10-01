@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Common.reference_checker.Editor {
+namespace Common.ReferenceChecker.Editor {
   /// <summary>
   /// </summary>
   public static class Settings {
