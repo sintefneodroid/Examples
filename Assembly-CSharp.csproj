@@ -467,6 +467,9 @@
     <Compile Include="Assets\Neodroid\Runtime\Utilities\NeodroidCamera\IgnoreLightSource.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\NeodroidCamera\InfraredLightSource.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\NeodroidCamera\ReplacementShaderEffect.cs" />
+    <Compile Include="Assets\Neodroid\Runtime\Utilities\NeodroidCamera\Segmentation\ChangeMaterialOnRenderByInstance.cs" />
+    <Compile Include="Assets\Neodroid\Runtime\Utilities\NeodroidCamera\Segmentation\ChangeMaterialOnRenderByTag.cs" />
+    <Compile Include="Assets\Neodroid\Runtime\Utilities\NeodroidCamera\Segmentation\Segmenter.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\NeodroidCamera\SynchroniseCameraProperties.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\Noise\ProjectileSpammer.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\Noise\SelfDestruct.cs" />
@@ -479,9 +482,6 @@
     <Compile Include="Assets\Neodroid\Runtime\Utilities\ScriptableObjects\PlayerMotions.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\ScriptableObjects\Segmentation.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\ScriptableObjects\SimulatorConfiguration.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Segmentation\ChangeMaterialOnRenderByInstance.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Segmentation\ChangeMaterialOnRenderByTag.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Segmentation\Segmenter.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\Sensors\ChildColliderSensor.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\SerialisableDictionary\Example.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\SerialisableDictionary\SerializableDictionary.cs" />
@@ -607,6 +607,7 @@
     <None Include="Assets\Excluded\ProceduralToolkit\Shaders\SDF.cginc" />
     <None Include="Assets\Neodroid\Runtime\Shaders\Normal.shader" />
     <None Include="Assets\Excluded\Move\Environments\DeepMindHumanoid\Xml\unity_dm_humanoid.xml" />
+    <None Include="Assets\Neodroid\Runtime\Shaders\Segmentation\Outlined.shader" />
     <None Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Shaders\Experimental\CompositeAdd.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
     <None Include="Assets\Excluded\ProceduralToolkit\Shaders\VertexColor\Unlit Vertex Color.shader" />
@@ -627,7 +628,7 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\Excluded\ProceduralToolkit\Shaders\Easing.cginc" />
     <None Include="Assets\Neodroid\Gizmos\Icons\readme.txt" />
-    <None Include="Assets\Neodroid\Runtime\Shaders\Segmentation.shader" />
+    <None Include="Assets\Neodroid\Runtime\Shaders\Segmentation\Flat.shader" />
     <None Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Shaders\Experimental\OverDraw.shader" />
     <None Include="Assets\SceneAssets\UnityHexapodSimulator\ProjectSettings\ProjectVersion.txt" />
     <None Include="Assets\Common\ListView\README.txt" />

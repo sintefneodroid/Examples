@@ -942,7 +942,10 @@
               <e p="FlatColor.shader" t="Include" />
               <e p="Normal.shader" t="Include" />
               <e p="ScreenSpaceFlow.shader" t="Include" />
-              <e p="Segmentation.shader" t="Include" />
+              <e p="Segmentation" t="Include">
+                <e p="Flat.shader" t="Include" />
+                <e p="Outlined.shader" t="Include" />
+              </e>
             </e>
             <e p="Utilities" t="Include">
               <e p="BoundingBoxes" t="Include">
@@ -1008,6 +1011,11 @@
                 <e p="IgnoreLightSource.cs" t="Include" />
                 <e p="InfraredLightSource.cs" t="Include" />
                 <e p="ReplacementShaderEffect.cs" t="Include" />
+                <e p="Segmentation" t="Include">
+                  <e p="ChangeMaterialOnRenderByInstance.cs" t="Include" />
+                  <e p="ChangeMaterialOnRenderByTag.cs" t="Include" />
+                  <e p="Segmenter.cs" t="Include" />
+                </e>
                 <e p="SynchroniseCameraProperties.cs" t="Include" />
               </e>
               <e p="Noise" t="Include">
@@ -1027,11 +1035,6 @@
                 <e p="PlayerMotions.cs" t="Include" />
                 <e p="Segmentation.cs" t="Include" />
                 <e p="SimulatorConfiguration.cs" t="Include" />
-              </e>
-              <e p="Segmentation" t="Include">
-                <e p="ChangeMaterialOnRenderByInstance.cs" t="Include" />
-                <e p="ChangeMaterialOnRenderByTag.cs" t="Include" />
-                <e p="Segmenter.cs" t="Include" />
               </e>
               <e p="Sensors" t="Include">
                 <e p="ChildColliderSensor.cs" t="Include" />
