@@ -568,7 +568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224701342121933384, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 405
+      value: 299
       objectReference: {fileID: 0}
     - target: {fileID: 224219095199356408, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
       propertyPath: m_AnchorMax.x
@@ -628,6 +628,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224219095199356408, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
       propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224582703667719680, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
+      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -1042,10 +1046,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Custom_Name: 
-  _Use_Custom_Name: 0
+  _debugging: 0
   _disables_children: 0
   _editor_reregistering: 1
-  _debugging: 0
+  _Use_Custom_Name: 0
   _relative_to_existing_value: 0
   _direction: {x: -0.015881147, y: 0.009075678, z: 0.9998327}
   _position: {x: -13.898895, y: 2.147082, z: 14.282138}
@@ -1101,18 +1105,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Custom_Name: 
-  _Use_Custom_Name: 0
+  _debugging: 0
   _disables_children: 0
   _editor_reregistering: 1
-  _debugging: 0
+  _Use_Custom_Name: 0
+  _current_frame_number: 0
+  _Energy_Spent: 0
   _episode_length: 1000
   _Lastest_Reset_Time: 0
-  _Energy_Spent: 0
-  _Terminated: 0
-  _Terminable: 1
   _LastTermination_Reason: None
   _Resetting: 0
-  _current_frame_number: 0
+  _Terminable: 1
+  _Terminated: 0
   _objective_function: {fileID: 0}
   _coordinate_reference_point: {fileID: 0}
   _track_only_children: 1
@@ -1120,6 +1124,7 @@ MonoBehaviour:
   _playable_area: {fileID: 903194210}
   _reset_i: 0
   _initials_saved_flag: 0
+  _update_observations_with_every_tick: 0
 --- !u!114 &903194205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1139,6 +1144,7 @@ MonoBehaviour:
   _syncing_environments: 0
   _awaiting_reply: 0
   _step: 0
+  _last_simulation_time: 0
   _has_stepped: 0
   _allow_in_editor_blockage: 0
 --- !u!4 &903194206
@@ -1181,10 +1187,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1c2f6fda1324e1dbb824ee2e6e7321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Manager: {fileID: 903194205}
   _debugging: 0
-  _player_motions: {fileID: 11400000, guid: 6933863fa391246018c9224647f1ad1f, type: 2}
+  _Manager: {fileID: 903194205}
   _auto_reset: 1
+  _player_motions: {fileID: 11400000, guid: 6933863fa391246018c9224647f1ad1f, type: 2}
 --- !u!114 &903194209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1198,21 +1204,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Custom_Name: 
-  _Use_Custom_Name: 0
+  _debugging: 0
   _disables_children: 0
   _editor_reregistering: 1
-  _debugging: 0
+  _Use_Custom_Name: 0
   _Episode_Return: 0
   _environment: {fileID: 903194204}
   _solved_threshold: 0
   _last_signal: 0
-  _resting_time: 3
   _actor: {fileID: 206429976}
   _area: {fileID: 675183322}
   _is_resting: 0
   _obstructions: []
   _overlapping: 1
   _playable_area: {fileID: 903194210}
+  _resting_time: 3
   _sparse: 0
 --- !u!114 &903194210
 MonoBehaviour:
@@ -1258,10 +1264,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Custom_Name: 
-  _Use_Custom_Name: 0
+  _debugging: 0
   _disables_children: 0
   _editor_reregistering: 1
-  _debugging: 0
+  _Use_Custom_Name: 0
   _Actor: {fileID: 206429976}
   _Broken_Object_Prefab: {fileID: 1524659847642198, guid: 78319db9524e54cb6b3f01bea4245a2f, type: 3}
   _Explosion_Force: 90
@@ -1422,12 +1428,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Custom_Name: 
-  _Use_Custom_Name: 0
+  _debugging: 0
   _disables_children: 0
   _editor_reregistering: 1
-  _debugging: 0
+  _Use_Custom_Name: 0
   _normalise_observation: 0
-  _space: 2
+  _direction: {x: -0.015881147, y: 0.009075678, z: 0.9998327}
+  _direction_space:
+    _Decimal_Granularity: 10
+    _Min_Values: {x: -100, y: -100, z: -100}
+    _Max_Values: {x: 100, y: 100, z: 100}
   _position: {x: -13.843416, y: -0.3521912, z: 14.305706}
   _position_space:
     _Decimal_Granularity: 10
@@ -1438,11 +1448,7 @@ MonoBehaviour:
     _Decimal_Granularity: 10
     _Min_Values: {x: -100, y: -100, z: -100}
     _Max_Values: {x: 100, y: 100, z: 100}
-  _direction: {x: -0.015881147, y: 0.009075678, z: 0.9998327}
-  _direction_space:
-    _Decimal_Granularity: 10
-    _Min_Values: {x: -100, y: -100, z: -100}
-    _Max_Values: {x: 100, y: 100, z: 100}
+  _space: 2
 --- !u!114 &1388707922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1455,26 +1461,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5f73ed10ef42709ef975f07e9b1a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _apply_resolution_settings: 0
-  _full_screen: 0
-  _width: 500
-  _height: 500
-  _quality_level: 1
-  _frame_finishes: 3
-  _reset_iterations: 1
-  _frame_skips: 0
-  _simulation_type: 0
-  _step_execution_phase: 1
-  _time_scale: 1
-  _target_frame_rate: -1
-  _ip_address: localhost
-  _port: 6969
   _always_serialise_unobservables: 0
-  _always_serialise_indidual_observables: 0
-  _update_fixed_time_scale: 0
+  _always_serialise_individual_observables: 0
+  _apply_resolution_settings: 0
+  _frame_finishes: 3
+  _frame_skips: 0
+  _full_screen: 0
+  _height: 500
+  _ip_address: localhost
   _max_reply_interval: 0
   _num_of_environments: 0
+  _port: 6969
+  _quality_level: 1
   _replay_reaction_in_skips: 0
+  _reset_iterations: 1
+  _simulation_type: 0
+  _step_execution_phase: 1
+  _target_frame_rate: -1
+  _time_scale: 1
+  _update_fixed_time_scale: 0
+  _width: 500
 --- !u!1 &1793550270 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1190758182245004, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
@@ -1492,19 +1498,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d210b7b3a3a8cea468d3dbe25e1391bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _manager: {fileID: 903194205}
-  _environment: {fileID: 903194204}
-  _evaluation_function: {fileID: 903194209}
-  _environment_text: {fileID: 0}
-  _environment_frame: {fileID: 0}
-  _environment_obs: {fileID: 0}
-  _signal: {fileID: 0}
-  _terminated: {fileID: 0}
-  _status_text: {fileID: 0}
-  _testing_toggle: {fileID: 0}
-  _reset_button: {fileID: 0}
   _clean_empty_no_target_events: 1
   _debugging: 0
+  _environment: {fileID: 903194204}
+  _environment_frame: {fileID: 0}
+  _environment_obs: {fileID: 0}
+  _environment_text: {fileID: 0}
+  _evaluation_function: {fileID: 903194209}
+  _manager: {fileID: 903194205}
+  _reset_button: {fileID: 0}
+  _signal: {fileID: 0}
+  _status_text: {fileID: 0}
+  _terminated: {fileID: 0}
+  _testing_toggle: {fileID: 0}
   _unity_event_call_state: 2
 --- !u!1 &1935888378
 GameObject:

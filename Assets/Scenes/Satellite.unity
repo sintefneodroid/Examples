@@ -681,8 +681,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba1c74cb7e8c456c8de2b06b4dd9566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _on_awake: 1
   _force: {x: 0, y: 0, z: 0}
+  _on_awake: 1
   _rb: {fileID: 0}
   _relative: 1
   _torque: 1
@@ -847,10 +847,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Custom_Name: 
-  _Use_Custom_Name: 0
+  _debugging: 0
   _disables_children: 0
   _editor_reregistering: 1
-  _debugging: 0
+  _Use_Custom_Name: 0
   _bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
@@ -868,20 +868,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Custom_Name: 
-  _Use_Custom_Name: 0
+  _debugging: 0
   _disables_children: 0
   _editor_reregistering: 1
-  _debugging: 0
+  _Use_Custom_Name: 0
   _motion_value_space:
     _Decimal_Granularity: 0
     _Min_Value: -10
     _Max_Value: 10
   _energy_spend_since_reset: 0
   _energy_cost: 1
+  _Angular_Motors: 1
+  _ForceMode: 0
   _Relative_To: 1
   _Rigidbody: {fileID: 965130052}
-  _ForceMode: 0
-  _Angular_Motors: 1
 --- !u!54 &965130052
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -922,8 +922,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba1c74cb7e8c456c8de2b06b4dd9566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _on_awake: 1
   _force: {x: 3, y: 5, z: 2}
+  _on_awake: 1
   _rb: {fileID: 965130052}
   _relative: 1
   _torque: 1
@@ -940,18 +940,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Custom_Name: 
-  _Use_Custom_Name: 0
+  _debugging: 0
   _disables_children: 0
   _editor_reregistering: 1
-  _debugging: 0
+  _Use_Custom_Name: 0
   _relative_to_existing_value: 0
-  _velocity: {x: 0, y: 0, z: 0}
-  _velocity_space:
+  _angular_velocity: {x: 0, y: 0, z: 0}
+  _angular_velocity_space:
     _Decimal_Granularity: 0
     _Min_Values: {x: 0, y: 0, z: 0}
     _Max_Values: {x: 0, y: 0, z: 0}
-  _angular_velocity: {x: 0, y: 0, z: 0}
-  _angular_velocity_space:
+  _velocity: {x: 0, y: 0, z: 0}
+  _velocity_space:
     _Decimal_Granularity: 0
     _Min_Values: {x: 0, y: 0, z: 0}
     _Max_Values: {x: 0, y: 0, z: 0}
@@ -968,21 +968,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Custom_Name: 
-  _Use_Custom_Name: 0
+  _debugging: 0
   _disables_children: 0
   _editor_reregistering: 1
-  _debugging: 0
+  _Use_Custom_Name: 0
   _normalise_observation: 0
-  _angular_velocity: {x: 0, y: 0, z: 0}
-  _velocity: {x: 0, y: 0, z: 0}
-  _last_update_time: 0
-  _rigidbody: {fileID: 965130052}
-  _differential: 0
-  _velocity_space:
+  _angular_space:
     _Decimal_Granularity: 10
     _Min_Values: {x: -100, y: -100, z: -100}
     _Max_Values: {x: 100, y: 100, z: 100}
-  _angular_space:
+  _angular_velocity: {x: 0, y: 0, z: 0}
+  _differential: 0
+  _last_update_time: 0
+  _rigidbody: {fileID: 965130052}
+  _velocity: {x: 0, y: 0, z: 0}
+  _velocity_space:
     _Decimal_Granularity: 10
     _Min_Values: {x: -100, y: -100, z: -100}
     _Max_Values: {x: 100, y: 100, z: 100}
@@ -1245,7 +1245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224701342121933384, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 405
+      value: 299.72147
       objectReference: {fileID: 0}
     - target: {fileID: 224219095199356408, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1269,7 +1269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 16.499985
+      value: 16.47623
       objectReference: {fileID: 0}
     - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1317,6 +1317,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224015848551928794, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224582703667719680, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224219095199356408, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1367,8 +1375,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba1c74cb7e8c456c8de2b06b4dd9566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _on_awake: 1
   _force: {x: 0, y: 0.02, z: 0}
+  _on_awake: 1
   _rb: {fileID: 0}
   _relative: 1
   _torque: 1
@@ -1622,18 +1630,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Custom_Name: 
-  _Use_Custom_Name: 0
+  _debugging: 0
   _disables_children: 0
   _editor_reregistering: 1
-  _debugging: 0
+  _Use_Custom_Name: 0
+  _current_frame_number: 0
+  _Energy_Spent: 0
   _episode_length: 800
   _Lastest_Reset_Time: 0
-  _Energy_Spent: 0
-  _Terminated: 0
-  _Terminable: 1
   _LastTermination_Reason: None
   _Resetting: 0
-  _current_frame_number: 0
+  _Terminable: 1
+  _Terminated: 0
   _objective_function: {fileID: 1620948095}
   _coordinate_reference_point: {fileID: 0}
   _track_only_children: 1
@@ -1641,6 +1649,7 @@ MonoBehaviour:
   _playable_area: {fileID: 0}
   _reset_i: 0
   _initials_saved_flag: 0
+  _update_observations_with_every_tick: 0
 --- !u!4 &1620948093
 Transform:
   m_ObjectHideFlags: 0
@@ -1675,6 +1684,7 @@ MonoBehaviour:
   _syncing_environments: 0
   _awaiting_reply: 0
   _step: 0
+  _last_simulation_time: 0
   _has_stepped: 0
   _allow_in_editor_blockage: 0
 --- !u!114 &1620948095
@@ -1690,10 +1700,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Custom_Name: 
-  _Use_Custom_Name: 0
+  _debugging: 0
   _disables_children: 0
   _editor_reregistering: 1
-  _debugging: 0
+  _Use_Custom_Name: 0
   _Episode_Return: 0
   _environment: {fileID: 1620948092}
   _solved_threshold: 0
@@ -1712,10 +1722,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1c2f6fda1324e1dbb824ee2e6e7321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Manager: {fileID: 1620948094}
   _debugging: 0
-  _player_motions: {fileID: 11400000, guid: 43eb035cfbe4d4253b215ce70a5e5d58, type: 2}
+  _Manager: {fileID: 1620948094}
   _auto_reset: 1
+  _player_motions: {fileID: 11400000, guid: 43eb035cfbe4d4253b215ce70a5e5d58, type: 2}
 --- !u!114 &1620948097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1729,10 +1739,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Custom_Name: 
-  _Use_Custom_Name: 0
+  _debugging: 0
   _disables_children: 0
   _editor_reregistering: 1
-  _debugging: 0
+  _Use_Custom_Name: 0
   _relative_to_existing_value: 0
 --- !u!1001 &1628582664
 PrefabInstance:
