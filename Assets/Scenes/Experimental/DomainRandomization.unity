@@ -801,6 +801,7 @@ MonoBehaviour:
   _editor_reregistering: 1
   _Use_Custom_Name: 0
   _relative_to_existing_value: 0
+  _camera: {fileID: 1929522510}
 --- !u!114 &616152668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1765,6 +1766,28 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 1874594484}
+--- !u!21 &1173833223
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Unlit/Color
+  m_Shader: {fileID: 10755, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1245433183
 GameObject:
   m_ObjectHideFlags: 0
@@ -1780,6 +1803,8 @@ GameObject:
   - component: {fileID: 1245433188}
   - component: {fileID: 1245433189}
   - component: {fileID: 1245433190}
+  - component: {fileID: 1245433192}
+  - component: {fileID: 1245433191}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Goal
@@ -1877,8 +1902,8 @@ MonoBehaviour:
   _editor_reregistering: 1
   _Use_Custom_Name: 0
   _normalise_observation: 0
-  _observation_value: {x: 0.29960513, y: 0.5}
-  _observation_value3: {x: 0.29960513, y: 0.5, z: 4}
+  _observation_value: {x: 0.29960516, y: 0.5}
+  _observation_value3: {x: 0.29960516, y: 0.5, z: 4}
   _observation_space2_d:
     _Decimal_Granularity: 4
     _Min_Values: {x: 0, y: 0}
@@ -1921,6 +1946,42 @@ MonoBehaviour:
   _editor_reregistering: 1
   _Use_Custom_Name: 0
   _relative_to_existing_value: 0
+--- !u!114 &1245433191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245433183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88e1e351c3ae4685b904ce1555d7c1bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Custom_Name: 
+  _debugging: 1
+  _disables_children: 0
+  _editor_reregistering: 1
+  _Use_Custom_Name: 0
+  _normalise_observation: 0
+  _camera: {fileID: 1943874646}
+--- !u!114 &1245433192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245433183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e918915125b4fdfb1a4025246b5ea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _BasedOn: 0
+  _FreezeAfterFirstCalculation: 0
+  _Include_Children: 1
+  _Line_Color: {r: 1, g: 0.36, b: 0.38, a: 0.74}
+  _Setup_On_Awake: 0
 --- !u!1 &1266111566
 GameObject:
   m_ObjectHideFlags: 0
@@ -2614,6 +2675,8 @@ GameObject:
   - component: {fileID: 1542936571}
   - component: {fileID: 1542936572}
   - component: {fileID: 1542936573}
+  - component: {fileID: 1542936575}
+  - component: {fileID: 1542936574}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Obstruction
@@ -2755,6 +2818,42 @@ MonoBehaviour:
   _editor_reregistering: 1
   _Use_Custom_Name: 0
   _relative_to_existing_value: 0
+--- !u!114 &1542936574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542936566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88e1e351c3ae4685b904ce1555d7c1bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Custom_Name: 
+  _debugging: 0
+  _disables_children: 0
+  _editor_reregistering: 1
+  _Use_Custom_Name: 0
+  _normalise_observation: 0
+  _camera: {fileID: 1943874646}
+--- !u!114 &1542936575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542936566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e918915125b4fdfb1a4025246b5ea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _BasedOn: 0
+  _FreezeAfterFirstCalculation: 0
+  _Include_Children: 1
+  _Line_Color: {r: 1, g: 0.36, b: 0.38, a: 0.74}
+  _Setup_On_Awake: 0
 --- !u!1001 &1555672182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2959,7 +3058,7 @@ PrefabInstance:
     - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 16.499998
+      value: 16.499985
       objectReference: {fileID: 0}
     - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 3}
@@ -3024,7 +3123,7 @@ PrefabInstance:
     - target: {fileID: 224701342121933384, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 178
+      value: 192.50003
       objectReference: {fileID: 0}
     - target: {fileID: 224110368661715722, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 3}
@@ -3038,6 +3137,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
+--- !u!1 &1625775001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1866968490669790, guid: 9e9875463c1ed451bb25878f63e0cdc7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1943874644}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1625775002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625775001}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca86a049480449c4a13c8b7ba0a822f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _draw_label: 1
+--- !u!114 &1625775005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625775001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef1e70b0e1574993a2c4d202ea421f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _line_material: {fileID: 1173833223}
+  _draw_label: 1
 --- !u!43 &1709634657
 Mesh:
   m_ObjectHideFlags: 0
@@ -3856,6 +3988,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!20 &1929522510 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 20713194616804364, guid: 9e9875463c1ed451bb25878f63e0cdc7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1943874644}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1943874644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4205,6 +4343,8 @@ GameObject:
   - component: {fileID: 1975287006}
   - component: {fileID: 1975287010}
   - component: {fileID: 1975287011}
+  - component: {fileID: 1975287013}
+  - component: {fileID: 1975287012}
   m_Layer: 0
   m_Name: Quad
   m_TagString: Untagged
@@ -4323,6 +4463,43 @@ MonoBehaviour:
   _editor_reregistering: 1
   _Use_Custom_Name: 0
   _relative_to_existing_value: 0
+  _camera: {fileID: 1943874646}
+--- !u!114 &1975287012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975287005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88e1e351c3ae4685b904ce1555d7c1bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Custom_Name: 
+  _debugging: 0
+  _disables_children: 0
+  _editor_reregistering: 1
+  _Use_Custom_Name: 0
+  _normalise_observation: 0
+  _camera: {fileID: 1943874646}
+--- !u!114 &1975287013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975287005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e918915125b4fdfb1a4025246b5ea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _BasedOn: 0
+  _FreezeAfterFirstCalculation: 0
+  _Include_Children: 1
+  _Line_Color: {r: 1, g: 0.36, b: 0.38, a: 0.74}
+  _Setup_On_Awake: 0
 --- !u!43 &2012891996
 Mesh:
   m_ObjectHideFlags: 0
@@ -4733,7 +4910,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1943874644}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1625775001}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c744374d5f2e04a94a851a941320bce1, type: 3}
