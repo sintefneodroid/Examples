@@ -37,7 +37,8 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
     [SerializeField]
     float _scaling_factor;
 
-    [Header("Cube")] [SerializeField] bool _spawn_cubes = true;
+    [Header("Cube")]
+    [SerializeField] bool _spawn_cubes = true;
 
     /// <summary>
     /// </summary>
