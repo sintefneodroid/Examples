@@ -1,3 +1,159 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:29927b498af2b9028f8f4bbb18c4f28024e6e4776943fd71000deb5a5349c1cb
-size 9692
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.79.0</authoring_tool>
+    </contributor>
+    <created>2018-05-05T22:08:47</created>
+    <modified>2018-05-05T22:08:47</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_cameras>
+    <camera id="Camera-camera" name="Camera">
+      <optics>
+        <technique_common>
+          <perspective>
+            <xfov sid="xfov">49.13434</xfov>
+            <aspect_ratio>1.777778</aspect_ratio>
+            <znear sid="znear">0.1</znear>
+            <zfar sid="zfar">100</zfar>
+          </perspective>
+        </technique_common>
+      </optics>
+      <extra>
+        <technique profile="blender">
+          <shiftx sid="shiftx" type="float">0</shiftx>
+          <shifty sid="shifty" type="float">0</shifty>
+          <YF_dofdist sid="YF_dofdist" type="float">0</YF_dofdist>
+        </technique>
+      </extra>
+    </camera>
+  </library_cameras>
+  <library_lights>
+    <light id="Lamp-light" name="Lamp">
+      <technique_common>
+        <point>
+          <color sid="color">1 1 1</color>
+          <constant_attenuation>1</constant_attenuation>
+          <linear_attenuation>0</linear_attenuation>
+          <quadratic_attenuation>0.00111109</quadratic_attenuation>
+        </point>
+      </technique_common>
+      <extra>
+        <technique profile="blender">
+          <type sid="type" type="int">0</type>
+          <flag sid="flag" type="int">0</flag>
+          <mode sid="mode" type="int">8192</mode>
+          <gamma sid="blender_gamma" type="float">1</gamma>
+          <red sid="red" type="float">1</red>
+          <green sid="green" type="float">1</green>
+          <blue sid="blue" type="float">1</blue>
+          <shadow_r sid="blender_shadow_r" type="float">0</shadow_r>
+          <shadow_g sid="blender_shadow_g" type="float">0</shadow_g>
+          <shadow_b sid="blender_shadow_b" type="float">0</shadow_b>
+          <energy sid="blender_energy" type="float">1</energy>
+          <dist sid="blender_dist" type="float">29.99998</dist>
+          <spotsize sid="spotsize" type="float">75</spotsize>
+          <spotblend sid="spotblend" type="float">0.15</spotblend>
+          <halo_intensity sid="blnder_halo_intensity" type="float">1</halo_intensity>
+          <att1 sid="att1" type="float">0</att1>
+          <att2 sid="att2" type="float">1</att2>
+          <falloff_type sid="falloff_type" type="int">2</falloff_type>
+          <clipsta sid="clipsta" type="float">1.000799</clipsta>
+          <clipend sid="clipend" type="float">30.002</clipend>
+          <bias sid="bias" type="float">1</bias>
+          <soft sid="soft" type="float">3</soft>
+          <compressthresh sid="compressthresh" type="float">0.04999995</compressthresh>
+          <bufsize sid="bufsize" type="int">2880</bufsize>
+          <samp sid="samp" type="int">3</samp>
+          <buffers sid="buffers" type="int">1</buffers>
+          <filtertype sid="filtertype" type="int">0</filtertype>
+          <bufflag sid="bufflag" type="int">0</bufflag>
+          <buftype sid="buftype" type="int">2</buftype>
+          <ray_samp sid="ray_samp" type="int">1</ray_samp>
+          <ray_sampy sid="ray_sampy" type="int">1</ray_sampy>
+          <ray_sampz sid="ray_sampz" type="int">1</ray_sampz>
+          <ray_samp_type sid="ray_samp_type" type="int">0</ray_samp_type>
+          <area_shape sid="area_shape" type="int">1</area_shape>
+          <area_size sid="area_size" type="float">0.1</area_size>
+          <area_sizey sid="area_sizey" type="float">0.1</area_sizey>
+          <area_sizez sid="area_sizez" type="float">1</area_sizez>
+          <adapt_thresh sid="adapt_thresh" type="float">0.000999987</adapt_thresh>
+          <ray_samp_method sid="ray_samp_method" type="int">1</ray_samp_method>
+          <shadhalostep sid="shadhalostep" type="int">0</shadhalostep>
+          <sun_effect_type sid="sun_effect_type" type="int">0</sun_effect_type>
+          <skyblendtype sid="skyblendtype" type="int">1</skyblendtype>
+          <horizon_brightness sid="horizon_brightness" type="float">1</horizon_brightness>
+          <spread sid="spread" type="float">1</spread>
+          <sun_brightness sid="sun_brightness" type="float">1</sun_brightness>
+          <sun_size sid="sun_size" type="float">1</sun_size>
+          <backscattered_light sid="backscattered_light" type="float">1</backscattered_light>
+          <sun_intensity sid="sun_intensity" type="float">1</sun_intensity>
+          <atm_turbidity sid="atm_turbidity" type="float">2</atm_turbidity>
+          <atm_extinction_factor sid="atm_extinction_factor" type="float">1</atm_extinction_factor>
+          <atm_distance_factor sid="atm_distance_factor" type="float">1</atm_distance_factor>
+          <skyblendfac sid="skyblendfac" type="float">1</skyblendfac>
+          <sky_exposure sid="sky_exposure" type="float">1</sky_exposure>
+          <sky_colorspace sid="sky_colorspace" type="int">0</sky_colorspace>
+        </technique>
+      </extra>
+    </light>
+  </library_lights>
+  <library_images/>
+  <library_geometries>
+    <geometry id="Finger-mesh" name="Finger">
+      <mesh>
+        <source id="Finger-mesh-positions">
+          <float_array id="Finger-mesh-positions-array" count="54">0.01035994 0.02640336 1.54629e-4 0.01044857 0.002583265 1.46801e-4 -0.01038718 0.002534151 1.31696e-4 -0.01047945 0.01610153 0.01898813 -0.01040124 0.02630937 1.6651e-4 -0.01038885 0.02522027 0.01918756 -0.008730351 -2.35252e-5 0.03616482 0.01040047 0.02525341 0.01903659 0.005839824 0.01427423 0.05380344 0.00861603 0.01398867 0.05132788 0.01049476 0.01510262 0.01843553 0.008692741 -1.32643e-4 0.05016618 -0.008622884 -5.68019e-5 0.05095279 -0.005481362 -9.11208e-5 0.0537247 -0.005277872 0.01429307 0.05384898 -0.007778346 0.01421821 0.05236589 -0.008841156 0.01391756 0.05058932 0.006137967 -2.06026e-5 0.0535776</float_array>
+          <technique_common>
+            <accessor source="#Finger-mesh-positions-array" count="18" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Finger-mesh-normals">
+          <float_array id="Finger-mesh-normals-array" count="96">7.24165e-4 3.31308e-4 -0.9999998 -0.9999899 -5.85782e-4 -0.004471719 -0.9999502 0.009908735 0.001220047 0.00240302 -0.9974796 -0.07091367 6.68274e-4 0.9535564 0.3012138 -5.789e-4 0.00146389 -0.9999988 0.9983441 0.005891561 0.0572229 0.9981852 -0.05083799 0.03227919 0.9983711 7.29252e-4 0.05704963 -0.8712866 -0.4907467 0.005227029 0.03627115 -0.9979403 -0.05291277 -0.003722846 -0.9999881 -0.003160536 0.9999088 0.009841918 -0.009263098 0.9999912 0.003722846 -0.001918554 -0.001149475 0.9981498 0.06079262 0.002845585 0.9538455 0.3002843 -0.2189237 0.9208735 0.3225902 -0.6614248 -0.03503131 0.749193 -0.9981688 -0.05131226 0.03203523 0.3777174 0.867563 0.3235183 -0.004486143 0.9983546 0.05716848 -0.998589 0.008776068 0.05237567 -0.6659508 0.6908513 0.2814854 0.01275044 -0.01552879 0.9997981 0.004085004 -0.00870043 0.9999538 0.006541967 -0.9992671 0.03771805 0.798906 -0.04500067 0.5997703 -0.008996069 -0.9999572 -0.002184748 -0.5101437 -2.16662e-4 0.8600892 -0.9986077 -0.01427447 0.05078357 0.6656482 0.002095937 0.7462629 -0.8581588 -4.90786e-5 0.5133844</float_array>
+          <technique_common>
+            <accessor source="#Finger-mesh-normals-array" count="32" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Finger-mesh-vertices">
+          <input semantic="POSITION" source="#Finger-mesh-positions"/>
+        </vertices>
+        <triangles count="32">
+          <input semantic="VERTEX" source="#Finger-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Finger-mesh-normals" offset="1"/>
+          <p>0 0 1 0 2 0 2 1 3 1 4 1 4 2 3 2 5 2 1 3 6 3 2 3 7 4 5 4 8 4 2 5 4 5 0 5 9 6 10 6 7 6 10 7 11 7 1 7 9 8 11 8 10 8 12 9 2 9 6 9 1 10 11 10 6 10 11 11 13 11 6 11 7 12 10 12 1 12 7 13 1 13 0 13 7 14 0 14 5 14 5 15 14 15 8 15 15 16 14 16 5 16 12 17 13 17 15 17 2 18 12 18 3 18 7 19 8 19 9 19 0 20 4 20 5 20 3 21 16 21 5 21 16 22 15 22 5 22 8 23 13 23 17 23 14 24 13 24 8 24 11 25 17 25 13 25 17 26 11 26 9 26 13 27 12 27 6 27 15 28 13 28 14 28 12 29 16 29 3 29 17 30 9 30 8 30 15 31 16 31 12 31</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers/>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="Camera" name="Camera" type="NODE">
+        <matrix sid="transform">0.6859207 -0.3240135 0.6515582 7.481132 0.7276763 0.3054208 -0.6141704 -6.50764 0 0.8953956 0.4452714 5.343665 0 0 0 1</matrix>
+        <instance_camera url="#Camera-camera"/>
+      </node>
+      <node id="Lamp" name="Lamp" type="NODE">
+        <matrix sid="transform">-0.2908646 -0.7711008 0.5663932 4.076245 0.9551712 -0.1998834 0.2183912 1.005454 -0.05518906 0.6045247 0.7946723 5.903862 0 0 0 1</matrix>
+        <instance_light url="#Lamp-light"/>
+      </node>
+      <node id="Finger" name="Finger" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_geometry url="#Finger-mesh" name="Finger"/>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

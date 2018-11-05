@@ -156,6 +156,7 @@
     <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\DifficultyConfigurable.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\EulerTransformConfigurable.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\Experimental\LightConfigurable.cs" />
+    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\Experimental\MeshConfigurable.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\Experimental\ScreenSpaceOcclusionConfigurable.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\Experimental\StandardShaderMaterialConfigurable.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\Experimental\TextureConfigurable.cs" />
@@ -258,6 +259,7 @@
     <Compile Include="Assets\Neodroid\Runtime\Utilities\BoundingBoxes\Experimental\BoundingBoxUtilities.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\BoundingBoxes\Experimental\Corners.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\BoundingBoxes\Experimental\DrawBoundingBoxes.cs" />
+    <Compile Include="Assets\Neodroid\Runtime\Utilities\Debugging\DebugPrinting.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\Enums\Axis.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\Enums\CoordinateSystem.cs" />
     <Compile Include="Assets\Neodroid\Runtime\Utilities\Enums\DimensionCombination.cs" />
@@ -399,6 +401,8 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\Common\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
     <None Include="Assets\Neodroid\Runtime\Shaders\Depth.shader" />
+    <None Include="Assets\Neodroid\Runtime\Shaders\ObjectSpace.shader" />
+    <None Include="Assets\Neodroid\Runtime\Shaders\Tangents.shader" />
     <None Include="Assets\Neodroid\Runtime\Utilities\Plotting\ValueRangePlotter.shader" />
     <None Include="Assets\Neodroid\TUTORIAL.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
@@ -425,6 +429,7 @@
     <None Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Shaders\Experimental\OverDraw.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\Neodroid\Runtime\Shaders\UVs.shader" />
     <None Include="Assets\gmcs.rsp" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Neodroid\Libaries\NetMQ.4.0.0.175-pre\lib\net40\NetMQ.xml" />

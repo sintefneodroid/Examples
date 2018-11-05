@@ -197,33 +197,23 @@ namespace TextMesh_Pro.Scripts {
     }
 
     void SendOnCharacterSelection(char character, int characterIndex) {
-      if (this.onCharacterSelection != null) {
-        this.onCharacterSelection.Invoke(character, characterIndex);
-      }
+      this.onCharacterSelection?.Invoke(character, characterIndex);
     }
 
     void SendOnSpriteSelection(char character, int characterIndex) {
-      if (this.onSpriteSelection != null) {
-        this.onSpriteSelection.Invoke(character, characterIndex);
-      }
+      this.onSpriteSelection?.Invoke(character, characterIndex);
     }
 
     void SendOnWordSelection(string word, int charIndex, int length) {
-      if (this.onWordSelection != null) {
-        this.onWordSelection.Invoke(word, charIndex, length);
-      }
+      this.onWordSelection?.Invoke(word, charIndex, length);
     }
 
     void SendOnLineSelection(string line, int charIndex, int length) {
-      if (this.onLineSelection != null) {
-        this.onLineSelection.Invoke(line, charIndex, length);
-      }
+      this.onLineSelection?.Invoke(line, charIndex, length);
     }
 
     void SendOnLinkSelection(string linkID, string linkText, int linkIndex) {
-      if (this.onLinkSelection != null) {
-        this.onLinkSelection.Invoke(linkID, linkText, linkIndex);
-      }
+      this.onLinkSelection?.Invoke(linkID, linkText, linkIndex);
     }
 
     [Serializable] public class CharacterSelectionEvent : UnityEvent<char, int> { }

@@ -9,11 +9,11 @@ public class FloatAboveSurface : MonoBehaviour {
 
   Rigidbody rb;
 
-  void Start() { rb = GetComponent<Rigidbody>(); }
+  void Start() { this.rb = this.GetComponent<Rigidbody>(); }
 
   float RaycastDownwards() {
     RaycastHit rch;
-    if (Physics.Raycast(transform.position, -transform.up, out rch, MaxDistance)) {
+    if (Physics.Raycast(this.transform.position, -this.transform.up, out rch, this.MaxDistance)) {
       return rch.distance;
     }
 
@@ -21,13 +21,13 @@ public class FloatAboveSurface : MonoBehaviour {
   }
 
   void FixedUpdate() {
-    float distance = RaycastDownwards();
+    float distance = this.RaycastDownwards();
 
-    float fractionalPosition = (MaxDistance - distance) / (MaxDistance - MinDistance);
+    float fractionalPosition = (this.MaxDistance - distance) / (this.MaxDistance - this.MinDistance);
     if (fractionalPosition < 0) fractionalPosition = 0;
     if (fractionalPosition > 1) fractionalPosition = 1;
-    float force = fractionalPosition * MaxForce;
+    float force = fractionalPosition * this.MaxForce;
 
-    rb.AddForceAtPosition(Vector3.up * force, transform.position);
+    this.rb.AddForceAtPosition(Vector3.up * force, this.transform.position);
   }
 }
