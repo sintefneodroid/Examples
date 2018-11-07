@@ -20,8 +20,8 @@ namespace SceneAssets.Games.Creatures2 {
 
       //var direction = Vector3.Reflect(rb.velocity.normalized, contact_point.normal);
 
-      var speed = laser.oldVelocity.magnitude * this._reflection_factor;
-      var direction = Vector3.Reflect(laser.oldVelocity.normalized, contact_point.normal);
+      var speed = laser._OldVelocity.magnitude * this._reflection_factor;
+      var direction = Vector3.Reflect(laser._OldVelocity.normalized, contact_point.normal);
 
       var reflection = direction * speed;
 

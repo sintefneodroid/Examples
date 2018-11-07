@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace SceneAssets.Games.Creatures2 {
   [RequireComponent(typeof(Rigidbody))]
@@ -16,13 +17,13 @@ namespace SceneAssets.Games.Creatures2 {
 
     // we want to store the laser's velocity every frame
     // so we can use this data during collisions to reflect
-    public Vector3 oldVelocity;
+    [FormerlySerializedAs("oldVelocity")] public Vector3 _OldVelocity;
 
     Rigidbody _rb;
 
     void FixedUpdate() {
       // because we want the velocity after physics, we put this in fixed update
-      this.oldVelocity = this._rb.velocity;
+      this._OldVelocity = this._rb.velocity;
     }
 
     // when a collision happens
