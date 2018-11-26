@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿/*using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
@@ -53,14 +53,16 @@ namespace Common.AsmDefTools.Editor {
         return false;
       }
 
-      File.Move(path, path.Toggle(enable));
+      if (path != null) {
+        File.Move(path, path.Toggle(enable));
+      }
 
       return true;
     }
 
     #region Menu
 
-    const string _menu_path = "Tools/";
+    const string _menu_path = "Neodroid/Tools/";
 
     [MenuItem(_menu_path + "AsmDef/Toggle AsmDef")]
     static void ToggleAsmDef() {
@@ -149,3 +151,4 @@ namespace Common.AsmDefTools.Editor {
     #endregion
   }
 }
+*/
