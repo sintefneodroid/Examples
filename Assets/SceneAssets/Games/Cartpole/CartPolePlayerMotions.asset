@@ -9,6 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 11500000, guid: 1aa96101fe55749209a8963174b3defa, type: 3}
   m_Name: CartPolePlayerMotions
   m_EditorClassIdentifier: 
@@ -16,11 +17,11 @@ MonoBehaviour:
   - _Key: 97
     _Actor: ActorActor
     _Motor: ActorRigidbodyX_
-    _Strength: 20
+    _Strength: 50
   - _Key: 100
     _Actor: ActorActor
     _Motor: ActorRigidbodyX_
-    _Strength: -20
+    _Strength: -50
   - _Key: 114
     _Actor: Environment
     _Motor: Reset
