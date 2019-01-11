@@ -10,10 +10,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{81D05F9D-C0D5-0BBE-1300-78CA32C5AF3A}</ProjectGuid>
+    <ProjectGuid>{23CAF9BE-2C7C-FB99-5A88-0A5928A76079}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>ProceduralToolkit</AssemblyName>
+    <AssemblyName>Neodroid.Editor</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -27,7 +27,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -36,7 +36,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <NoConfig>true</NoConfig>
@@ -54,52 +54,48 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\ArrayE.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\CellularAutomaton.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\ColorE.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\ColorHSV.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\CompoundMeshDraft.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\DebugE.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Directions.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Draw.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\DrawRaster.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Circle.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Closest2D.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Closest3D.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Distance2D.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Distance3D.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Geometry.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersect2D.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersect3D.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionCircleCircle.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionLineCircle.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionLineLine2.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionLineRay2.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionLineSegment2.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionLineSphere.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionRayCircle.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionRayRay2.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionRaySegment2.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionRaySphere.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionSegmentCircle.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionSegmentSegment2.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionSegmentSphere.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\IntersectionType.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Line2.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Line3.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Segment2.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Segment3.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Sphere.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\GizmosE.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\GLE.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\MeshDraft.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\MeshDraftPrimitives.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\MeshE.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\PTUtils.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\RandomE.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\TextureE.cs" />
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\VectorE.cs" />
-    <None Include="Assets\Excluded\ProceduralToolkit\Scripts\ProceduralToolkit.asmdef" />
+    <Compile Include="Assets\Neodroid\Editor\GameObjects\EditorGameObjectMenuPath.cs" />
+    <Compile Include="Assets\Neodroid\Editor\GameObjects\GeneralSpawner.cs" />
+    <Compile Include="Assets\Neodroid\Editor\GameObjects\MotorSpawner.cs" />
+    <Compile Include="Assets\Neodroid\Editor\GameObjects\ObserverSpawner.cs" />
+    <Compile Include="Assets\Neodroid\Editor\GameObjects\PrebuiltSpawner.cs" />
+    <Compile Include="Assets\Neodroid\Editor\GameObjects\PrefabSpawnerPopup.cs" />
+    <Compile Include="Assets\Neodroid\Editor\ScriptableObjects\Curriculum.cs" />
+    <Compile Include="Assets\Neodroid\Editor\ScriptableObjects\EditorScriptableObjectMenuPath.cs" />
+    <Compile Include="Assets\Neodroid\Editor\ScriptableObjects\NeodroidSettings.cs" />
+    <Compile Include="Assets\Neodroid\Editor\ScriptableObjects\NeodroidTask.cs" />
+    <Compile Include="Assets\Neodroid\Editor\ScriptableObjects\PlayerMotions.cs" />
+    <Compile Include="Assets\Neodroid\Editor\ScriptableObjects\Segmentations.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Utilities\ExecutionOrderManager.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Utilities\MeshSaver.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Utilities\MissingReferencesFinder.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Utilities\NeodroidEditorUtilities.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Utilities\NeodroidPackageImporterWindow.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Utilities\NoteUtilities\NoteEditor.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Utilities\NoteUtilities\NoteType.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Utilities\ObjectDropdownAttribute.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Utilities\ObjectSelectorDropdown.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Utilities\ScenePreview.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Utilities\SceneReference.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Utilities\SceneReferenceEditor.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Utilities\ScriptableObjects\Editor\ReadMeEditor.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Utilities\ScriptableObjects\ReadMe.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Utilities\ScriptExecutionOrderAttribute.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Utilities\SearchableEnum\SearchableEnumDrawer.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Utilities\SearchableEnum\SearchablePopup.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Windows\CameraSynchronisationWindow.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Windows\DebugWindow.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Windows\DemonstrationWindow.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Windows\EditorWindowMenuPath.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Windows\EnvironmentsWindow.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Windows\PreferenceWindow.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Windows\RenderTextureConfiguratorWindow.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Windows\SegmentationWindow.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Windows\SimulationWindow.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Windows\TaskWindow.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Windows\UnityDebug\FindMissingScripts.cs" />
+    <Compile Include="Assets\Neodroid\Editor\Windows\WindowManager.cs" />
+    <None Include="Assets\Neodroid\Editor\Neodroid.Editor.asmdef" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
@@ -703,6 +699,12 @@
     <Reference Include="Boo.Lang">
       <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Neodroid.Runtime.csproj">
+      <Project>{110E8825-2816-19B4-764E-D4FECF0A5BBE}</Project>
+      <Name>Neodroid.Runtime</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
