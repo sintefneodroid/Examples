@@ -24,14 +24,6 @@
             <e p="RuntimeDebugDraw.cs" t="Include" />
             <e p="RuntimeDebugDrawExample.cs" t="Include" />
           </e>
-          <e p="Editors" t="Include">
-            <e p="ExecutionOrderManager.cs" t="Include" />
-            <e p="MissingReferencesFinder.cs" t="Include" />
-            <e p="NeodroidPackageImporterWindow.cs" t="Include" />
-            <e p="ObjectDropdownAttribute.cs" t="Include" />
-            <e p="ObjectSelectorDropdown.cs" t="Include" />
-            <e p="ScriptExecutionOrderAttribute.cs" t="Include" />
-          </e>
           <e p="EffectExamples" t="Include">
             <e p="Shared" t="Include">
               <e p="Scripts" t="Include">
@@ -46,14 +38,6 @@
               <e p="Shaders" t="Include">
                 <e p="SurfaceShader_VC.shader" t="Include" />
               </e>
-            </e>
-          </e>
-          <e p="ReadMe" t="Include">
-            <e p="ScriptableObjects" t="Include">
-              <e p="Editor" t="Include">
-                <e p="ReadMeEditor.cs" t="Include" />
-              </e>
-              <e p="ReadMe.cs" t="Include" />
             </e>
           </e>
           <e p="ReferenceChecker" t="Include">
@@ -78,6 +62,22 @@
             <e p="ProceduralCapsule.cs" t="Include" />
             <e p="Rotate.cs" t="Include" />
           </e>
+          <e p="unity-test-packge" t="Include">
+            <e p="Editor" t="Include">
+              <e p="NewBehaviourScript.cs" t="Include" />
+              <e p="UnityTestPackage.Editor.asmdef" t="Include" />
+            </e>
+            <e p="Runtime" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="SimpleRotation.cs" t="Include" />
+              </e>
+              <e p="UnityTestPackage.Runtime.asmdef" t="Include" />
+            </e>
+            <e p="Tests" t="Include">
+              <e p="NewTestScript.cs" t="Include" />
+              <e p="UnityTestPackage.Tests.asmdef" t="Include" />
+            </e>
+          </e>
         </e>
         <e p="Neodroid" t="Include">
           <e p="Editor" t="Include">
@@ -89,6 +89,11 @@
               <e p="PrebuiltSpawner.cs" t="Include" />
               <e p="PrefabSpawnerPopup.cs" t="Include" />
             </e>
+            <e p="Neodroid.Editor.asmdef" t="Include" />
+            <e p="Resources" t="Include">
+              <e p="GithubExtension.uss" t="Include" />
+              <e p="GithubExtension.uxml" t="Include" />
+            </e>
             <e p="ScriptableObjects" t="Include">
               <e p="Curriculum.cs" t="Include" />
               <e p="EditorScriptableObjectMenuPath.cs" t="Include" />
@@ -98,15 +103,31 @@
               <e p="Segmentations.cs" t="Include" />
             </e>
             <e p="Utilities" t="Include">
+              <e p="ExecutionOrderManager.cs" t="Include" />
+              <e p="Git" t="Include">
+                <e p="GithubExtension.cs" t="Include" />
+                <e p="GithubExtensionUserInterface.cs" t="Include" />
+              </e>
               <e p="MeshSaver.cs" t="Include" />
+              <e p="MissingReferencesFinder.cs" t="Include" />
               <e p="NeodroidEditorUtilities.cs" t="Include" />
+              <e p="NeodroidPackageImporterWindow.cs" t="Include" />
               <e p="NoteUtilities" t="Include">
                 <e p="NoteEditor.cs" t="Include" />
                 <e p="NoteType.cs" t="Include" />
               </e>
+              <e p="ObjectDropdownAttribute.cs" t="Include" />
+              <e p="ObjectSelectorDropdown.cs" t="Include" />
               <e p="ScenePreview.cs" t="Include" />
               <e p="SceneReference.cs" t="Include" />
               <e p="SceneReferenceEditor.cs" t="Include" />
+              <e p="ScriptExecutionOrderAttribute.cs" t="Include" />
+              <e p="ScriptableObjects" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="ReadMeEditor.cs" t="Include" />
+                </e>
+                <e p="ReadMe.cs" t="Include" />
+              </e>
               <e p="SearchableEnum" t="Include">
                 <e p="SearchableEnumDrawer.cs" t="Include" />
                 <e p="SearchablePopup.cs" t="Include" />
@@ -244,6 +265,7 @@
                 <e p="Unobservables.cs" t="Include" />
               </e>
             </e>
+            <e p="Neodroid.Runtime.asmdef" t="Include" />
             <e p="NeodroidInfo.cs" t="Include" />
             <e p="Properties" t="Include">
               <e p="AssemblyInfo.cs" t="Include" />
@@ -431,7 +453,7 @@
             <e p="Utilities" t="Include">
               <e p="BoundingBoxes" t="Include">
                 <e p="BoundingBox.cs" t="Include" />
-                <e p="Draw3dBoundingBox.cs" t="Include" />
+                <e p="Draw3DBoundingBox.cs" t="Include" />
                 <e p="DrawScreenSpaceBoundingBox.cs" t="Include" />
                 <e p="Experimental" t="Include">
                   <e p="BoundingBoxUtilities.cs" t="Include" />
@@ -452,6 +474,7 @@
               </e>
               <e p="EventRecipients" t="Include">
                 <e p="DataPoller.cs" t="Include" />
+                <e p="InputFieldUpdater.cs" t="Include" />
                 <e p="TextUpdater.cs" t="Include" />
                 <e p="ToggleUpdater.cs" t="Include" />
               </e>
@@ -562,6 +585,8 @@
           <e p="TUTORIAL.txt" t="Include" />
           <e p="Tests" t="Include">
             <e p="Editor" t="Include">
+              <e p="GithubExtensionTests.cs" t="Include" />
+              <e p="Neodroid.EditorTests.asmdef" t="Include" />
               <e p="NeodroidTestsNewTestScript.cs" t="Include" />
             </e>
             <e p="Runtime" t="Include">
@@ -736,9 +761,16 @@
       </e>
       <e p="Examples.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />
-      <e p="ProceduralToolkit.Editor.csproj" t="IncludeRecursive" />
-      <e p="ProceduralToolkit.csproj" t="IncludeRecursive" />
-      <e p="Temp" t="ExcludeRecursive" />
+      <e p="Neodroid.Editor.csproj" t="IncludeRecursive" />
+      <e p="Neodroid.EditorTests.csproj" t="IncludeRecursive" />
+      <e p="Neodroid.Runtime.csproj" t="IncludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+      <e p="UnityTestPackage.Editor.csproj" t="IncludeRecursive" />
+      <e p="UnityTestPackage.Runtime.csproj" t="IncludeRecursive" />
+      <e p="UnityTestPackage.Tests.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
     </e>
   </component>
 </project>
