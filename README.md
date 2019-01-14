@@ -30,10 +30,9 @@ Requires a version of Unity >= 2018.2.0f2 (Due to a unity package manager functi
 <!--    ├  └  ─  │   -->
     sintefneodroid/Examples      # This repository
     │
-    ├── Packages
-    │   └── droid          # ^
     │
     ├── Assets              # Prebuilt Neodroid environments
+    │   ├── Neodroid    # Droid implementation
     │   ├── SceneAssets            # All scene-specific assets for the prebuilt environments
     │   └── Scenes        # All prebuilt environment scenes
     │

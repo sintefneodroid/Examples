@@ -1040,9 +1040,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370c0da467475bc4589f2ee7aa3e97d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Height: 1
-  _Radius: 1
-  _Segments: 16
 --- !u!33 &673126033
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1468,9 +1465,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370c0da467475bc4589f2ee7aa3e97d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Height: 1
-  _Radius: 1
-  _Segments: 16
 --- !u!33 &836918748
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1810,9 +1804,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370c0da467475bc4589f2ee7aa3e97d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Height: 1
-  _Radius: 1
-  _Segments: 16
 --- !u!33 &1068807162
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1936,9 +1927,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370c0da467475bc4589f2ee7aa3e97d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Height: 1
-  _Radius: 1
-  _Segments: 16
 --- !u!33 &1108542742
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2294,8 +2282,8 @@ MonoBehaviour:
   _editor_reregistering: 1
   _Use_Custom_Name: 0
   _normalise_observation: 0
-  _observation_value: {x: 0.29960516, y: 0.5}
-  _observation_value3: {x: 0.29960516, y: 0.5, z: 4}
+  _observation_value: {x: 0.29960513, y: 0.5}
+  _observation_value3: {x: 0.29960513, y: 0.5, z: 4}
   _observation_space2_d:
     _Decimal_Granularity: 4
     _Min_Values: {x: 0, y: 0}
@@ -2478,9 +2466,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370c0da467475bc4589f2ee7aa3e97d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Height: 1
-  _Radius: 1
-  _Segments: 16
 --- !u!33 &1266111569
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3652,7 +3637,7 @@ PrefabInstance:
     - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 3}
@@ -3694,6 +3679,21 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 311707894}
+    - target: {fileID: 114543584020609536, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114543584020609536, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114543584020609536, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetTesting
+      objectReference: {fileID: 0}
     - target: {fileID: 114152215923272706, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3702,7 +3702,7 @@ PrefabInstance:
     - target: {fileID: 224701342121933384, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -493.50064
+      value: -686.0005
       objectReference: {fileID: 0}
     - target: {fileID: 224219095199356408, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 3}
@@ -3809,6 +3809,22 @@ PrefabInstance:
       propertyPath: _poll_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 311707894}
+    - target: {fileID: 1748858491772888, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563356267366460, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1477631225134320, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1761075696505018, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
 --- !u!1 &1625775001 stripped
@@ -4042,9 +4058,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370c0da467475bc4589f2ee7aa3e97d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Height: 1
-  _Radius: 1
-  _Segments: 16
 --- !u!33 &1836904812
 MeshFilter:
   m_ObjectHideFlags: 0
