@@ -15,9 +15,10 @@
 
 Requires a version of Unity >= 2018.2.0f2 (Due to a unity package manager functionality)
 
-1. ```git clone https://github.com/sintefneodroid/droid```
-2. ```git submodule init && git submodule update && cd Assets/droid && git-lfs pull```
-3. Open the repo folder as an Unity project
+<!-- 1. ```git clone https://github.com/sintefneodroid/droid```
+2. ```git submodule init && git submodule update && cd Assets/droid && git-lfs pull``` -->
+1. ```git clone --recursive https://github.com/sintefneodroid/droid.git```
+2. Open the repo folder as an Unity project
 
 ## Demo
 <!--![droid](.github/images/neodroid.png)
