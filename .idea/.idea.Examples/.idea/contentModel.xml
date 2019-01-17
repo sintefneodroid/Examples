@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$APPLICATION_CONFIG_DIR$/consoles/db" t="IncludeRecursive" />
-    <e p="$APPLICATION_CONFIG_DIR$/extensions" t="IncludeRecursive" />
-    <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
     <e p="$USER_HOME$/.Rider2018.3/system/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/.Rider2018.3/system/resharper-host/local/Transient/ReSharperHost/v183/SolutionCaches/_Examples.-1048537334.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
@@ -61,6 +58,69 @@
           <e p="Tools" t="Include">
             <e p="ProceduralCapsule.cs" t="Include" />
             <e p="Rotate.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Excluded" t="Include">
+          <e p="ProceduralToolkit" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="ArrayE.cs" t="Include" />
+              <e p="CellularAutomaton.cs" t="Include" />
+              <e p="ColorE.cs" t="Include" />
+              <e p="ColorHSV.cs" t="Include" />
+              <e p="CompoundMeshDraft.cs" t="Include" />
+              <e p="DebugE.cs" t="Include" />
+              <e p="Directions.cs" t="Include" />
+              <e p="Draw.cs" t="Include" />
+              <e p="DrawRaster.cs" t="Include" />
+              <e p="Editor" t="Include">
+                <e p="ColorHsvDrawer.cs" t="Include" />
+                <e p="MeshFilterExtension.cs" t="Include" />
+                <e p="ProceduralToolkit.Editor.asmdef" t="Include" />
+                <e p="ProceduralToolkitMenu.cs" t="Include" />
+                <e p="RulesetDrawer.cs" t="Include" />
+              </e>
+              <e p="GLE.cs" t="Include" />
+              <e p="Geometry" t="Include">
+                <e p="Circle.cs" t="Include" />
+                <e p="Closest2D.cs" t="Include" />
+                <e p="Closest3D.cs" t="Include" />
+                <e p="Distance2D.cs" t="Include" />
+                <e p="Distance3D.cs" t="Include" />
+                <e p="Geometry.cs" t="Include" />
+                <e p="Intersect2D.cs" t="Include" />
+                <e p="Intersect3D.cs" t="Include" />
+                <e p="IntersectionType.cs" t="Include" />
+                <e p="Intersections" t="Include">
+                  <e p="IntersectionCircleCircle.cs" t="Include" />
+                  <e p="IntersectionLineCircle.cs" t="Include" />
+                  <e p="IntersectionLineLine2.cs" t="Include" />
+                  <e p="IntersectionLineRay2.cs" t="Include" />
+                  <e p="IntersectionLineSegment2.cs" t="Include" />
+                  <e p="IntersectionLineSphere.cs" t="Include" />
+                  <e p="IntersectionRayCircle.cs" t="Include" />
+                  <e p="IntersectionRayRay2.cs" t="Include" />
+                  <e p="IntersectionRaySegment2.cs" t="Include" />
+                  <e p="IntersectionRaySphere.cs" t="Include" />
+                  <e p="IntersectionSegmentCircle.cs" t="Include" />
+                  <e p="IntersectionSegmentSegment2.cs" t="Include" />
+                  <e p="IntersectionSegmentSphere.cs" t="Include" />
+                </e>
+                <e p="Line2.cs" t="Include" />
+                <e p="Line3.cs" t="Include" />
+                <e p="Segment2.cs" t="Include" />
+                <e p="Segment3.cs" t="Include" />
+                <e p="Sphere.cs" t="Include" />
+              </e>
+              <e p="GizmosE.cs" t="Include" />
+              <e p="MeshDraft.cs" t="Include" />
+              <e p="MeshDraftPrimitives.cs" t="Include" />
+              <e p="MeshE.cs" t="Include" />
+              <e p="PTUtils.cs" t="Include" />
+              <e p="ProceduralToolkit.asmdef" t="Include" />
+              <e p="RandomE.cs" t="Include" />
+              <e p="TextureE.cs" t="Include" />
+              <e p="VectorE.cs" t="Include" />
+            </e>
           </e>
         </e>
         <e p="Neodroid" t="Include">
@@ -568,11 +628,6 @@
           </e>
           <e p="TUTORIAL.txt" t="Include" />
           <e p="Tests" t="Include">
-            <e p="Editor" t="Include">
-              <e p="GithubExtensionTests.cs" t="Include" />
-              <e p="Neodroid.EditorTests.asmdef" t="Include" />
-              <e p="NeodroidTestsNewTestScript.cs" t="Include" />
-            </e>
             <e p="Runtime" t="Include">
               <e p="SimulatorTests.cs" t="Include" />
             </e>
@@ -746,8 +801,9 @@
       <e p="Examples.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />
       <e p="Neodroid.Editor.csproj" t="IncludeRecursive" />
-      <e p="Neodroid.EditorTests.csproj" t="IncludeRecursive" />
       <e p="Neodroid.Runtime.csproj" t="IncludeRecursive" />
+      <e p="ProceduralToolkit.Editor.csproj" t="IncludeRecursive" />
+      <e p="ProceduralToolkit.csproj" t="IncludeRecursive" />
       <e p="Temp" t="ExcludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
       </e>
