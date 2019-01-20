@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Neodroid.Runtime.Utilities.Misc;
-using Neodroid.Runtime.Utilities.Misc.Extensions;
-using Neodroid.Runtime.Utilities.Misc.Grasping;
+using droid.Runtime.Utilities.Misc;
+using droid.Runtime.Utilities.Misc.Extensions;
+using droid.Runtime.Utilities.Misc.Grasping;
 using SceneAssets.Experiments.ScriptedManipulator.Grasps;
 using SceneAssets.Experiments.ScriptedManipulator.Navigation;
 using SceneAssets.Experiments.ScriptedManipulator.Utilities;
@@ -15,7 +15,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
   /// </summary>
   public class ScriptedGripper : MonoBehaviour {
     /*
-       *  
+       *
       public GraspableObject TargetGameObject
       {
         get { return _target_game_object; }
@@ -39,8 +39,8 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
         }
       }
 
-       * 
-       * 
+       *
+       *
     public void respawn_obstructions(GripperState state) {
       ObstacleSpawner obstacles_spawner = FindObjectOfType<ObstacleSpawner>();
       obstacles_spawner.SpawnObstacles(obstacles_spawner.number_of_cubes, obstacles_spawner.number_of_spheres);

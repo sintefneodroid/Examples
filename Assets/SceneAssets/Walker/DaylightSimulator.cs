@@ -1,5 +1,5 @@
-﻿using Neodroid.Runtime.Prototyping.Internals;
-using Neodroid.Runtime.Utilities.Misc;
+﻿using droid.Runtime.Prototyping.Internals;
+using droid.Runtime.Utilities.Misc;
 using UnityEngine;
 
 namespace SceneAssets.Walker {

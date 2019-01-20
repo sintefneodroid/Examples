@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Neodroid.Runtime.Utilities.Structs;
+using droid.Runtime.Utilities.Structs;
 using UnityEngine;
 
 namespace SceneAssets.Catch {

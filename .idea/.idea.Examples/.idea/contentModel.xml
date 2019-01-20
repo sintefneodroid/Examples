@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+    <e p="$APPLICATION_CONFIG_DIR$/consoles/db" t="IncludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/extensions" t="IncludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
     <e p="$USER_HOME$/.Rider2018.3/system/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/.Rider2018.3/system/resharper-host/local/Transient/ReSharperHost/v183/SolutionCaches/_Examples.-1048537334.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
@@ -60,70 +63,96 @@
             <e p="Rotate.cs" t="Include" />
           </e>
         </e>
-        <e p="Excluded" t="Include">
-          <e p="ProceduralToolkit" t="Include">
-            <e p="Scripts" t="Include">
-              <e p="ArrayE.cs" t="Include" />
-              <e p="CellularAutomaton.cs" t="Include" />
-              <e p="ColorE.cs" t="Include" />
-              <e p="ColorHSV.cs" t="Include" />
-              <e p="CompoundMeshDraft.cs" t="Include" />
-              <e p="DebugE.cs" t="Include" />
-              <e p="Directions.cs" t="Include" />
-              <e p="Draw.cs" t="Include" />
-              <e p="DrawRaster.cs" t="Include" />
-              <e p="Editor" t="Include">
-                <e p="ColorHsvDrawer.cs" t="Include" />
-                <e p="MeshFilterExtension.cs" t="Include" />
-                <e p="ProceduralToolkit.Editor.asmdef" t="Include" />
-                <e p="ProceduralToolkitMenu.cs" t="Include" />
-                <e p="RulesetDrawer.cs" t="Include" />
+        <e p="SceneAssets" t="Include">
+          <e p="Catch" t="Include">
+            <e p="DropSpawner.cs" t="Include" />
+          </e>
+          <e p="Experiments" t="Include">
+            <e p="ScriptedManipulator" t="Include">
+              <e p="Grasps" t="Include">
+                <e p="Grasp.cs" t="Include" />
+                <e p="VRGrip.cs" t="Include" />
               </e>
-              <e p="GLE.cs" t="Include" />
-              <e p="Geometry" t="Include">
-                <e p="Circle.cs" t="Include" />
-                <e p="Closest2D.cs" t="Include" />
-                <e p="Closest3D.cs" t="Include" />
-                <e p="Distance2D.cs" t="Include" />
-                <e p="Distance3D.cs" t="Include" />
-                <e p="Geometry.cs" t="Include" />
-                <e p="Intersect2D.cs" t="Include" />
-                <e p="Intersect3D.cs" t="Include" />
-                <e p="IntersectionType.cs" t="Include" />
-                <e p="Intersections" t="Include">
-                  <e p="IntersectionCircleCircle.cs" t="Include" />
-                  <e p="IntersectionLineCircle.cs" t="Include" />
-                  <e p="IntersectionLineLine2.cs" t="Include" />
-                  <e p="IntersectionLineRay2.cs" t="Include" />
-                  <e p="IntersectionLineSegment2.cs" t="Include" />
-                  <e p="IntersectionLineSphere.cs" t="Include" />
-                  <e p="IntersectionRayCircle.cs" t="Include" />
-                  <e p="IntersectionRayRay2.cs" t="Include" />
-                  <e p="IntersectionRaySegment2.cs" t="Include" />
-                  <e p="IntersectionRaySphere.cs" t="Include" />
-                  <e p="IntersectionSegmentCircle.cs" t="Include" />
-                  <e p="IntersectionSegmentSegment2.cs" t="Include" />
-                  <e p="IntersectionSegmentSphere.cs" t="Include" />
+              <e p="Navigation" t="Include">
+                <e p="BezierCurve.cs" t="Include" />
+                <e p="BezierPoint.cs" t="Include" />
+                <e p="Path.cs" t="Include" />
+                <e p="PathFinding.cs" t="Include" />
+              </e>
+              <e p="QuickGlow.cs" t="Include" />
+              <e p="Scripts" t="Include">
+                <e p="GraspableObject.cs" t="Include" />
+                <e p="ObstacleSpawner.cs" t="Include" />
+                <e p="ScriptedGripper.cs" t="Include" />
+              </e>
+              <e p="Shaders" t="Include">
+                <e p="Experimental" t="Include">
+                  <e p="CompositeAdd.shader" t="Include" />
+                  <e p="DepthDeprecated.shader" t="Include" />
+                  <e p="OverDraw.shader" t="Include" />
+                  <e p="QuickBlur.shader" t="Include" />
+                  <e p="Shadow.shader" t="Include" />
                 </e>
-                <e p="Line2.cs" t="Include" />
-                <e p="Line3.cs" t="Include" />
-                <e p="Segment2.cs" t="Include" />
-                <e p="Segment3.cs" t="Include" />
-                <e p="Sphere.cs" t="Include" />
+                <e p="IgnoreZ.shader" t="Include" />
               </e>
-              <e p="GizmosE.cs" t="Include" />
-              <e p="MeshDraft.cs" t="Include" />
-              <e p="MeshDraftPrimitives.cs" t="Include" />
-              <e p="MeshE.cs" t="Include" />
-              <e p="PTUtils.cs" t="Include" />
-              <e p="ProceduralToolkit.asmdef" t="Include" />
-              <e p="RandomE.cs" t="Include" />
-              <e p="TextureE.cs" t="Include" />
-              <e p="VectorE.cs" t="Include" />
+              <e p="SimpleBlur.cs" t="Include" />
+              <e p="Utilities" t="Include">
+                <e p="DataCollection" t="Include">
+                  <e p="BlitToMaterial.cs" t="Include" />
+                  <e p="DataCollector.cs" t="Include" />
+                  <e p="Experimental" t="Include">
+                    <e p="ImageRecorder.cs" t="Include" />
+                  </e>
+                  <e p="GUIControl.cs" t="Include" />
+                  <e p="GraspTimedRespawn.cs" t="Include" />
+                  <e p="TimeManager.cs" t="Include" />
+                  <e p="VerticalGameObjectSpawner.cs" t="Include" />
+                </e>
+                <e p="IgnoreCollision.cs" t="Include" />
+                <e p="States.cs" t="Include" />
+              </e>
             </e>
           </e>
+          <e p="Games" t="Include">
+            <e p="Creatures2" t="Include">
+              <e p="FloatAboveSurface.cs" t="Include" />
+              <e p="LaserBehaviour.cs" t="Include" />
+              <e p="NormalBounce.cs" t="Include" />
+            </e>
+          </e>
+          <e p="GridWorlds" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="EnsureReachablity.cs" t="Include" />
+              <e p="GridWorldEnvironment.cs" t="Include" />
+            </e>
+          </e>
+          <e p="ImagePuzzler" t="Include">
+            <e p="Block.cs" t="Include" />
+            <e p="ImageSlicer.cs" t="Include" />
+            <e p="Puzzle.cs" t="Include" />
+          </e>
+          <e p="LunarLander" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="CollisionExplosion.cs" t="Include" />
+              <e p="ConnectedLine.cs" t="Include" />
+              <e p="LowerGravity.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Manipulator" t="Include">
+            <e p="InjectRandomRigidbodyNoise.cs" t="Include" />
+          </e>
+          <e p="Satellite" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="BodyWithMass.cs" t="Include" />
+              <e p="InitialForce.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Walker" t="Include">
+            <e p="DaylightSimulator.cs" t="Include" />
+          </e>
         </e>
-        <e p="Neodroid" t="Include">
+        <e p="csc.rsp" t="Include" />
+        <e p="droid" t="Include">
           <e p="Editor" t="Include">
             <e p="GameObjects" t="Include">
               <e p="EditorGameObjectMenuPath.cs" t="Include" />
@@ -134,6 +163,7 @@
               <e p="PrefabSpawnerPopup.cs" t="Include" />
             </e>
             <e p="Neodroid.Editor.asmdef" t="Include" />
+            <e p="NeodroidEditorInfo.cs" t="Include" />
             <e p="Resources" t="Include">
               <e p="GithubExtension.uss" t="Include" />
               <e p="GithubExtension.uxml" t="Include" />
@@ -176,6 +206,9 @@
                 <e p="SearchableEnumDrawer.cs" t="Include" />
                 <e p="SearchablePopup.cs" t="Include" />
               </e>
+              <e p="UnityDebug" t="Include">
+                <e p="FindMissingScripts.cs" t="Include" />
+              </e>
             </e>
             <e p="Windows" t="Include">
               <e p="CameraSynchronisationWindow.cs" t="Include" />
@@ -188,9 +221,6 @@
               <e p="SegmentationWindow.cs" t="Include" />
               <e p="SimulationWindow.cs" t="Include" />
               <e p="TaskWindow.cs" t="Include" />
-              <e p="UnityDebug" t="Include">
-                <e p="FindMissingScripts.cs" t="Include" />
-              </e>
               <e p="WindowManager.cs" t="Include" />
             </e>
           </e>
@@ -310,7 +340,6 @@
               </e>
             </e>
             <e p="Neodroid.Runtime.asmdef" t="Include" />
-            <e p="NeodroidInfo.cs" t="Include" />
             <e p="Properties" t="Include">
               <e p="AssemblyInfo.cs" t="Include" />
             </e>
@@ -377,6 +406,7 @@
               </e>
               <e p="Evaluation" t="Include">
                 <e p="AngularVelocityEvaluation.cs" t="Include" />
+                <e p="AvoidCollisionEvaluation.cs" t="Include" />
                 <e p="EuclideanDistance.cs" t="Include" />
                 <e p="EvaluationComponentMenuPath.cs" t="Include" />
                 <e p="ObjectiveFunction.cs" t="Include" />
@@ -626,8 +656,12 @@
               <e p="TextBarPlotDisplayer.cs" t="Include" />
             </e>
           </e>
-          <e p="TUTORIAL.txt" t="Include" />
           <e p="Tests" t="Include">
+            <e p="Editor" t="Include">
+              <e p="GithubExtensionTests.cs" t="Include" />
+              <e p="Neodroid.EditorTests.asmdef" t="Include" />
+              <e p="NeodroidTestsNewTestScript.cs" t="Include" />
+            </e>
             <e p="Runtime" t="Include">
               <e p="SimulatorTests.cs" t="Include" />
             </e>
@@ -637,163 +671,6 @@
           <e p="mcs.rsp" t="Include" />
           <e p="smcs.rsp" t="Include" />
         </e>
-        <e p="SceneAssets" t="Include">
-          <e p="Catch" t="Include">
-            <e p="DropSpawner.cs" t="Include" />
-          </e>
-          <e p="Experiments" t="Include">
-            <e p="ScriptedManipulator" t="Include">
-              <e p="Grasps" t="Include">
-                <e p="Grasp.cs" t="Include" />
-                <e p="VRGrip.cs" t="Include" />
-              </e>
-              <e p="Navigation" t="Include">
-                <e p="BezierCurve.cs" t="Include" />
-                <e p="BezierPoint.cs" t="Include" />
-                <e p="Path.cs" t="Include" />
-                <e p="PathFinding.cs" t="Include" />
-              </e>
-              <e p="QuickGlow.cs" t="Include" />
-              <e p="Scripts" t="Include">
-                <e p="GraspableObject.cs" t="Include" />
-                <e p="ObstacleSpawner.cs" t="Include" />
-                <e p="ScriptedGripper.cs" t="Include" />
-              </e>
-              <e p="Shaders" t="Include">
-                <e p="Experimental" t="Include">
-                  <e p="CompositeAdd.shader" t="Include" />
-                  <e p="DepthDeprecated.shader" t="Include" />
-                  <e p="OverDraw.shader" t="Include" />
-                  <e p="QuickBlur.shader" t="Include" />
-                  <e p="Shadow.shader" t="Include" />
-                </e>
-                <e p="IgnoreZ.shader" t="Include" />
-              </e>
-              <e p="SimpleBlur.cs" t="Include" />
-              <e p="Utilities" t="Include">
-                <e p="DataCollection" t="Include">
-                  <e p="BlitToMaterial.cs" t="Include" />
-                  <e p="DataCollector.cs" t="Include" />
-                  <e p="Experimental" t="Include">
-                    <e p="ImageRecorder.cs" t="Include" />
-                  </e>
-                  <e p="GUIControl.cs" t="Include" />
-                  <e p="GraspTimedRespawn.cs" t="Include" />
-                  <e p="TimeManager.cs" t="Include" />
-                  <e p="VerticalGameObjectSpawner.cs" t="Include" />
-                </e>
-                <e p="IgnoreCollision.cs" t="Include" />
-                <e p="States.cs" t="Include" />
-              </e>
-            </e>
-          </e>
-          <e p="Games" t="Include">
-            <e p="Creatures2" t="Include">
-              <e p="FloatAboveSurface.cs" t="Include" />
-              <e p="LaserBehaviour.cs" t="Include" />
-              <e p="NormalBounce.cs" t="Include" />
-            </e>
-          </e>
-          <e p="GridWorlds" t="Include">
-            <e p="Scripts" t="Include">
-              <e p="EnsureReachablity.cs" t="Include" />
-              <e p="GridWorldEnvironment.cs" t="Include" />
-            </e>
-          </e>
-          <e p="ImagePuzzler" t="Include">
-            <e p="Block.cs" t="Include" />
-            <e p="ImageSlicer.cs" t="Include" />
-            <e p="Puzzle.cs" t="Include" />
-          </e>
-          <e p="LunarLander" t="Include">
-            <e p="Scripts" t="Include">
-              <e p="CollisionExplosion.cs" t="Include" />
-              <e p="ConnectedLine.cs" t="Include" />
-              <e p="LowerGravity.cs" t="Include" />
-            </e>
-          </e>
-          <e p="Manipulator" t="Include">
-            <e p="InjectRandomRigidbodyNoise.cs" t="Include" />
-          </e>
-          <e p="Satellite" t="Include">
-            <e p="Scripts" t="Include">
-              <e p="BodyWithMass.cs" t="Include" />
-              <e p="InitialForce.cs" t="Include" />
-            </e>
-          </e>
-          <e p="Walker" t="Include">
-            <e p="DaylightSimulator.cs" t="Include" />
-          </e>
-        </e>
-        <e p="TextMesh Pro" t="Include">
-          <e p="Examples &amp; Extras" t="Include">
-            <e p="Fonts" t="Include">
-              <e p="Anton OFL.txt" t="Include" />
-              <e p="Bangers - OFL.txt" t="Include" />
-              <e p="LiberationSans - OFL.txt" t="Include" />
-              <e p="Oswald-Bold - OFL.txt" t="Include" />
-            </e>
-            <e p="Scripts" t="Include">
-              <e p="Benchmark01.cs" t="Include" />
-              <e p="Benchmark01_UGUI.cs" t="Include" />
-              <e p="Benchmark02.cs" t="Include" />
-              <e p="Benchmark03.cs" t="Include" />
-              <e p="Benchmark04.cs" t="Include" />
-              <e p="CameraController.cs" t="Include" />
-              <e p="ChatController.cs" t="Include" />
-              <e p="EnvMapAnimator.cs" t="Include" />
-              <e p="ObjectSpin.cs" t="Include" />
-              <e p="ShaderPropAnimator.cs" t="Include" />
-              <e p="SimpleScript.cs" t="Include" />
-              <e p="SkewTextExample.cs" t="Include" />
-              <e p="TMP_DigitValidator.cs" t="Include" />
-              <e p="TMP_ExampleScript_01.cs" t="Include" />
-              <e p="TMP_FrameRateCounter.cs" t="Include" />
-              <e p="TMP_PhoneNumberValidator.cs" t="Include" />
-              <e p="TMP_TextEventCheck.cs" t="Include" />
-              <e p="TMP_TextEventHandler.cs" t="Include" />
-              <e p="TMP_TextInfoDebugTool.cs" t="Include" />
-              <e p="TMP_TextSelector_A.cs" t="Include" />
-              <e p="TMP_TextSelector_B.cs" t="Include" />
-              <e p="TMP_UiFrameRateCounter.cs" t="Include" />
-              <e p="TMPro_InstructionOverlay.cs" t="Include" />
-              <e p="TeleType.cs" t="Include" />
-              <e p="TextConsoleSimulator.cs" t="Include" />
-              <e p="TextMeshProFloatingText.cs" t="Include" />
-              <e p="TextMeshSpawner.cs" t="Include" />
-              <e p="VertexColorCycler.cs" t="Include" />
-              <e p="VertexJitter.cs" t="Include" />
-              <e p="VertexShakeA.cs" t="Include" />
-              <e p="VertexShakeB.cs" t="Include" />
-              <e p="VertexZoom.cs" t="Include" />
-              <e p="WarpTextExample.cs" t="Include" />
-            </e>
-          </e>
-          <e p="Resources" t="Include">
-            <e p="LineBreaking Following Characters.txt" t="Include" />
-            <e p="LineBreaking Leading Characters.txt" t="Include" />
-            <e p="Shaders" t="Include">
-              <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
-              <e p="TMP_Bitmap-Mobile.shader" t="Include" />
-              <e p="TMP_Bitmap.shader" t="Include" />
-              <e p="TMP_SDF Overlay.shader" t="Include" />
-              <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
-              <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
-              <e p="TMP_SDF-Mobile.shader" t="Include" />
-              <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
-              <e p="TMP_SDF-Surface.shader" t="Include" />
-              <e p="TMP_SDF.shader" t="Include" />
-              <e p="TMP_Sprite.shader" t="Include" />
-              <e p="TMPro.cginc" t="Include" />
-              <e p="TMPro_Properties.cginc" t="Include" />
-              <e p="TMPro_Surface.cginc" t="Include" />
-            </e>
-          </e>
-          <e p="Sprites" t="Include">
-            <e p="EmojiOne Attribution.txt" t="Include" />
-          </e>
-        </e>
-        <e p="csc.rsp" t="Include" />
         <e p="gmcs.rsp" t="Include" />
         <e p="mcs.rsp" t="Include" />
         <e p="smcs.rsp" t="Include" />
@@ -801,9 +678,8 @@
       <e p="Examples.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />
       <e p="Neodroid.Editor.csproj" t="IncludeRecursive" />
+      <e p="Neodroid.EditorTests.csproj" t="IncludeRecursive" />
       <e p="Neodroid.Runtime.csproj" t="IncludeRecursive" />
-      <e p="ProceduralToolkit.Editor.csproj" t="IncludeRecursive" />
-      <e p="ProceduralToolkit.csproj" t="IncludeRecursive" />
       <e p="Temp" t="ExcludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
       </e>

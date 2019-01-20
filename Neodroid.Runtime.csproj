@@ -2,6 +2,8 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
+    <CscToolPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Tools/RoslynScripts</CscToolPath>
+    <CscToolExe>unity_csc.sh</CscToolExe>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <DisableHandlePackageFileConflicts>true</DisableHandlePackageFileConflicts>
     <_TargetFrameworkDirectories>non_empty_path_generated_by_rider_editor_plugin</_TargetFrameworkDirectories>
@@ -17,7 +19,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Neodroid.Runtime</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
   </PropertyGroup>
@@ -26,11 +28,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-<<<<<<< Updated upstream
-    <DefineConstants>DEBUG;TRACE;UNITY_2019_1_0;UNITY_2019_1;UNITY_2019;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2019_1_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_LINUX;PLATFORM_STANDALONE;UNITY_STANDALONE_LINUX;UNITY_STANDALONE;UNITY_STANDALONE_LINUX_API;PLAYERPREFS_SERIALIZE_TO_XML;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_SCRIPTING_GC_WBARRIERS;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_SPATIALTRACKING;ENABLE_MODULAR_UNITYENGINE_ASSEMBLIES;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_LINUX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;NEODROID;NEODROID_EXISTS;GH_IN_PROJECT;UNITY_POST_PROCESSING_STACK_V2;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;NEODROID_DEBUG;UNITY_EDITOR_NOT;RECORDER_EXISTS_NOT;TEXT_MESH_PRO_EXISTS_NOT;ECS_EXISTS_NOT;BIOIK_EXISTS</DefineConstants>
-=======
-    <DefineConstants>DEBUG;TRACE;UNITY_2019_1_0;UNITY_2019_1;UNITY_2019;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2019_1_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_LINUX;PLATFORM_STANDALONE;UNITY_STANDALONE_LINUX;UNITY_STANDALONE;UNITY_STANDALONE_LINUX_API;PLAYERPREFS_SERIALIZE_TO_XML;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_SCRIPTING_GC_WBARRIERS;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_SPATIALTRACKING;ENABLE_MODULAR_UNITYENGINE_ASSEMBLIES;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_LINUX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;NEODROID;NEODROID_EXISTS;UNITY_POST_PROCESSING_STACK_V2;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;NEODROID_DEBUG;UNITY_EDITOR_NOT;RECORDER_EXISTS_NOT;TEXT_MESH_PRO_EXISTS_NOT;ECS_EXISTS_NOT;BIOIK_EXISTS</DefineConstants>
->>>>>>> Stashed changes
+    <DefineConstants>DEBUG;TRACE;UNITY_2019_1_0;UNITY_2019_1;UNITY_2019;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2019_1_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_LINUX;PLATFORM_STANDALONE;UNITY_STANDALONE_LINUX;UNITY_STANDALONE;UNITY_STANDALONE_LINUX_API;PLAYERPREFS_SERIALIZE_TO_XML;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_SCRIPTING_GC_WBARRIERS;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_SPATIALTRACKING;ENABLE_MODULAR_UNITYENGINE_ASSEMBLIES;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_LINUX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;NEODROID;NEODROID_EXISTS;GH_IN_PROJECT;UNITY_POST_PROCESSING_STACK_V2;NEODROID_ASSET_IMPORT;USE_GITHUB_EXTENSION;NEODROID_USE_GITHUB_EXTENSION;NEODROID_IMPORTED_ASSET;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;NEODROID_DEBUG;UNITY_EDITOR_NOT;RECORDER_EXISTS_NOT;TEXT_MESH_PRO_EXISTS_NOT;ECS_EXISTS_NOT;BIOIK_EXISTS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -54,503 +52,496 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Microsoft.CSharp.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Microsoft.CSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Neodroid\Runtime\Environments\Experimental\ImitationEnvironment.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Environments\NeodroidEnvironment.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Environments\PrototypingEnvironment.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Environments\RandomisedEnvironment.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Environments\ScriptedEnviroment.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IActor.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IConfigurable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IConfigurableConfiguration.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IDisplayer.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IEnvironment.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IEnvironmentListener.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IHasArray.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IHasByteArray.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IHasDouble.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IHasEulerTransform.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IHasFloatEnumerable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IHasQuadruple.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IHasQuaternionTransform.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IHasRegister.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IHasRigidbody.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IHasSingle.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IHasString.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IHasTriple.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IManager.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IMaterialManipulator.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IMotor.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IMotorMotion.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IObjective.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IPrototypingEnvironment.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\IResetable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Interfaces\ISimulatorConfiguration.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\InternalReactions\KeyEventEnabler.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\InternalReactions\PlayerReactions.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\InternalReactions\ScriptedReactions.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Managers\Experimental\CurriculumManager.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Managers\Experimental\ThinManager.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Managers\NeodroidManager.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Managers\PausableManager.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\FBS\CustomFlatBufferImplementation.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\FBS\FBSReactionUtilities.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\FBS\FBSStateUtilities.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\FBS\NeodroidFBSObservation.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\FBS\NeodroidFBSReaction.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\FBS\NeodroidFBSReactions.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\FBS\NeodroidFBSShared.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\FBS\NeodroidFBSState.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\FBS\NeodroidFBSStates.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\FBS\NeodroidFBSTypes.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\Messages\Body.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\Messages\Configuration.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\Messages\Displayables\Displayable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\Messages\Displayables\DisplayableFloat.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\Messages\Displayables\DisplayableString.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\Messages\Displayables\DisplayableValuedVector3s.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\Messages\Displayables\DisplayableValues.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\Messages\Displayables\DisplayableVector3s.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\Messages\EnvironmentDescription.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\Messages\EnvironmentState.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\Messages\MotorMotion.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\Messages\Reaction.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\Messages\ReactionParameters.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\Messages\Reactions.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\Messages\SimulatorConfigurationMessage.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\Messages\Unobservables.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Messaging\MessageServer.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\NeodroidInfo.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Properties\AssemblyInfo.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Actors\Actor.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Actors\ActorComponentMenuPath.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Actors\KillableActor.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\ColorConfigurable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\Configurable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\ConfigurableComponentMenuPath.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\DifficultyConfigurable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\EulerTransformConfigurable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\Experimental\ExternalMeshConfigurable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\Experimental\ExternalTextureConfigurable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\Experimental\LightConfigurable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\Experimental\MeshConfigurable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\Experimental\ScreenSpaceOcclusionConfigurable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\Experimental\StandardShaderMaterialConfigurable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\Experimental\TextureConfigurable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\FrictionConfigurable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\ObjectSpawnerConfigurable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\PositionConfigurable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\QuaternionTransformConfigurable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\RigidbodyConfigurable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\ScreenSpacePositionConfigurable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\SimulationConfigurable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\SizeConfigurable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Configurables\TransformConfigurable1Dof.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Displayers\Canvas\CanvasBarDisplayer.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Displayers\Canvas\CanvasTextDisplayer.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Displayers\Canvas\DistributionDisplayer.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Displayers\Cells\HexCellDisplayer.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Displayers\Cells\QuadCellDisplayer.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Displayers\Displayer.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Displayers\DisplayerComponentMenuPath.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Displayers\Experimental\ECS\ECSDisplayer.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Displayers\Experimental\ECS\ECSScatterPlotDisplayer.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Displayers\GridWorld\GridWorldVectorFieldDisplayer.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Displayers\ScatterPlots\GameObjectScatterPlotDisplayer.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Displayers\ScatterPlots\IndexedScatterPlotDisplayer.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Displayers\ScatterPlots\ScatterPlotDisplayer.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Displayers\ScatterPlots\TextScatterPlotDisplayer.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Displayers\ScatterPlots\VectorFieldDisplayer.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Displayers\TextMeshDisplayer.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Evaluation\AngularVelocityEvaluation.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Evaluation\EuclideanDistance.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Evaluation\EvaluationComponentMenuPath.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Evaluation\ObjectiveFunction.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Evaluation\PoseDeviance.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Evaluation\PunishmentFunction.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Evaluation\ReachArea.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Evaluation\ReachGoal.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Evaluation\RestInArea.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Evaluation\SeekAndAvoidEvaluation.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Evaluation\Tasks\TaskSequence.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Evaluation\Terms\CollidersPunishmentTerm.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Evaluation\Terms\CollsionsPunishmentTerm.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Evaluation\Terms\RushTerm.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Evaluation\Terms\Term.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Evaluation\Terms\TermComponentMenuPath.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Evaluation\VelocityEvaluation.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Internals\ActionCounter.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Internals\EnvironmentListener.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Internals\Resetable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Internals\ResetableComponentMenuPath.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Internals\StateValidation\EnsureValidState.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Internals\TransformResetable.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Motors\BanditArmMotor.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Motors\EulerTransformMotor.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Motors\EulerTransformMotor1Dof.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Motors\EulerTransformMotor3Dof.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Motors\IndexedMotionMotor.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Motors\Motor.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Motors\MotorComponentMenuPath.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Motors\Particles\RocketMotor.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Motors\RigidbodyMotor.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Motors\RigidbodyMotor1Dof.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Motors\RigidbodyMotor3Dof.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Motors\TargetRigidbodyMotor.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Motors\WheelColliderMotor\SteeringMotor.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Motors\WheelColliderMotor\TorqueMotor.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\BoundingBox\BoundingBoxObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\BoundingBox\ScreenSpaceBoundingBoxObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Camera\CameraObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Camera\FloatArrayCameraObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Camera\Segmentation\SegmentationCameraObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Camera\Segmentation\SegmentationObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Camera\StringAugmentedCameraObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\CategoricalObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\CompassObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Grid\GoalCellObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Grid\GridPositionObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Observer.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\ObserverComponentMenuPath.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Rays\AdjacencyObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Rays\FixedLidarObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Rays\LineOfSightObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Rays\NearestByTagObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Rays\RaycastObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Rigidbody\AngularVelocityObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Rigidbody\RigidbodyObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Rigidbody\VelocityObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\StringObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\TargetRigidbodyObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Transform\EulerTransformObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Transform\PositionObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Transform\PositionObserver2D.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Transform\QuaternionTransformObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Transform\RotationObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\Transform\SingleAxisTransformObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\TwoDimensionalScreenSpaceObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\Observers\ValueObserver.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Prototyping\PrototypingComponentMenuPath.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\BoundingBoxes\BoundingBox.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\BoundingBoxes\Draw3DBoundingBox.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\BoundingBoxes\DrawScreenSpaceBoundingBox.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\BoundingBoxes\Experimental\BoundingBoxUtilities.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\BoundingBoxes\Experimental\Corners.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\BoundingBoxes\Experimental\DrawBoundingBoxes.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Debugging\DebugPrinting.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Enums\Axis.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Enums\CoordinateSystem.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Enums\DimensionCombination.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Enums\FrameFinishes.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Enums\SimulationType.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Enums\WaitOn.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\EventRecipients\DataPoller.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\EventRecipients\InputFieldUpdater.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\EventRecipients\TextUpdater.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\EventRecipients\ToggleUpdater.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\GameObjects\PrototypingGameObject.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Drawing\DrawString.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Drawing\GuiDraw.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Drawing\NeodroidDrawingUtilities.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Extensions\JointFix.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Extensions\Obstruction.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Extensions\OnCollision.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Extensions\ParticleController.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Grasping\GraspingUtilities.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Grid\GridCell.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\NeodroidUtilities.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Note.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Orientation\FollowTarget.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Orientation\FollowTargetRotation.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Orientation\MotionTracker.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Orientation\PointInDirection.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Perlin.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Procedural\GameObjectCloner.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\Procedural\SnakeSpaceFilling.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Misc\SearchableEnum\SearchableEnumAttribute.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\NeodroidCamera\CameraObservationTextureController.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\NeodroidCamera\DisparityCameraBehaviour.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\NeodroidCamera\FlowCameraBehaviour.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\NeodroidCamera\IgnoreLightSource.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\NeodroidCamera\InfraredLightSource.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\NeodroidCamera\ReplacementShaderEffect.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\NeodroidCamera\Segmentation\ChangeMaterialOnRenderByInstance.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\NeodroidCamera\Segmentation\ChangeMaterialOnRenderByTag.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\NeodroidCamera\Segmentation\Segmenter.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\NeodroidCamera\SynchroniseCameraProperties.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Noise\ProjectileSpammer.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Noise\SelfDestruct.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Plotting\DrawSpaces.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Plotting\Meshes.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Plotting\PlotFunctions.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Plotting\ValueRangePlotter.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\ScriptableObjects\Curriculum.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\ScriptableObjects\NeodroidTask.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\ScriptableObjects\PlayerMotions.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\ScriptableObjects\Segmentation.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\ScriptableObjects\SimulatorConfiguration.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Sensors\ChildColliderSensor.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\SerialisableDictionary\Example.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\SerialisableDictionary\SerializableDictionary.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\SerialisableDictionary\SerializableDictionaryDrawer.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\SerialisableDictionary\SerializableDictionaryDrawerImplementations.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\SerialisableDictionary\SerializableDictionaryImplementations.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\SerialisableDictionary\SerializedPropertyExtension.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\StatusDisplayer\AutoSetupStatusDisplayer.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Structs\DoubleVector3.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Structs\IntVector3.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Structs\Points.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Structs\SegmentationColor.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Structs\Space2.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Structs\Space3.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Structs\Space4.cs" />
-    <Compile Include="Assets\Neodroid\Runtime\Utilities\Structs\ValueSpace.cs" />
-    <None Include="Assets\Neodroid\Runtime\Shaders\Depth.shader" />
-    <None Include="Assets\Neodroid\Runtime\Shaders\ObjectSpace.shader" />
-    <None Include="Assets\Neodroid\Runtime\Shaders\Tangents.shader" />
-    <None Include="Assets\Neodroid\Runtime\Utilities\Plotting\ValueRangePlotter.shader" />
-    <None Include="Assets\Neodroid\Runtime\Shaders\FlatColor.shader" />
-    <None Include="Assets\Neodroid\Runtime\Shaders\Normal.shader" />
-    <None Include="Assets\Neodroid\Runtime\Shaders\Segmentation\Outlined.shader" />
-    <None Include="Assets\Neodroid\Runtime\Neodroid.Runtime.asmdef" />
-    <None Include="Assets\Neodroid\Runtime\Shaders\Experimental\OpticalFlow.shader" />
-    <None Include="Assets\Neodroid\Runtime\Shaders\Segmentation\Flat.shader" />
-    <None Include="Assets\Neodroid\Runtime\Shaders\UVs.shader" />
-    <None Include="Assets\Neodroid\Runtime\Shaders\ScreenSpaceFlow.shader" />
-    <None Include="Assets\Neodroid\Runtime\Shaders\Experimental\UltimateOutline.shader" />
+    <Compile Include="Assets\droid\Runtime\Environments\Experimental\ImitationEnvironment.cs" />
+    <Compile Include="Assets\droid\Runtime\Environments\NeodroidEnvironment.cs" />
+    <Compile Include="Assets\droid\Runtime\Environments\PrototypingEnvironment.cs" />
+    <Compile Include="Assets\droid\Runtime\Environments\RandomisedEnvironment.cs" />
+    <Compile Include="Assets\droid\Runtime\Environments\ScriptedEnviroment.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IActor.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IConfigurable.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IConfigurableConfiguration.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IDisplayer.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IEnvironment.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IEnvironmentListener.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IHasArray.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IHasByteArray.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IHasDouble.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IHasEulerTransform.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IHasFloatEnumerable.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IHasQuadruple.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IHasQuaternionTransform.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IHasRegister.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IHasRigidbody.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IHasSingle.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IHasString.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IHasTriple.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IManager.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IMaterialManipulator.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IMotor.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IMotorMotion.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IObjective.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IPrototypingEnvironment.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IResetable.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\ISimulatorConfiguration.cs" />
+    <Compile Include="Assets\droid\Runtime\InternalReactions\KeyEventEnabler.cs" />
+    <Compile Include="Assets\droid\Runtime\InternalReactions\PlayerReactions.cs" />
+    <Compile Include="Assets\droid\Runtime\InternalReactions\ScriptedReactions.cs" />
+    <Compile Include="Assets\droid\Runtime\Managers\Experimental\CurriculumManager.cs" />
+    <Compile Include="Assets\droid\Runtime\Managers\Experimental\ThinManager.cs" />
+    <Compile Include="Assets\droid\Runtime\Managers\NeodroidManager.cs" />
+    <Compile Include="Assets\droid\Runtime\Managers\PausableManager.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\FBS\CustomFlatBufferImplementation.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\FBS\FBSReactionUtilities.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\FBS\FBSStateUtilities.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\FBS\NeodroidFBSObservation.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\FBS\NeodroidFBSReaction.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\FBS\NeodroidFBSReactions.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\FBS\NeodroidFBSShared.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\FBS\NeodroidFBSState.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\FBS\NeodroidFBSStates.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\FBS\NeodroidFBSTypes.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\Messages\Body.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\Messages\Configuration.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\Messages\Displayables\Displayable.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\Messages\Displayables\DisplayableFloat.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\Messages\Displayables\DisplayableString.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\Messages\Displayables\DisplayableValuedVector3s.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\Messages\Displayables\DisplayableValues.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\Messages\Displayables\DisplayableVector3s.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\Messages\EnvironmentDescription.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\Messages\EnvironmentState.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\Messages\MotorMotion.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\Messages\Reaction.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\Messages\ReactionParameters.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\Messages\Reactions.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\Messages\SimulatorConfigurationMessage.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\Messages\Unobservables.cs" />
+    <Compile Include="Assets\droid\Runtime\Messaging\MessageServer.cs" />
+    <Compile Include="Assets\droid\Runtime\Properties\AssemblyInfo.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Actors\Actor.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Actors\ActorComponentMenuPath.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Actors\KillableActor.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\ColorConfigurable.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\Configurable.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\ConfigurableComponentMenuPath.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\DifficultyConfigurable.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\EulerTransformConfigurable.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\Experimental\ExternalMeshConfigurable.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\Experimental\ExternalTextureConfigurable.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\Experimental\LightConfigurable.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\Experimental\MeshConfigurable.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\Experimental\ScreenSpaceOcclusionConfigurable.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\Experimental\StandardShaderMaterialConfigurable.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\Experimental\TextureConfigurable.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\FrictionConfigurable.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\ObjectSpawnerConfigurable.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\PositionConfigurable.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\QuaternionTransformConfigurable.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\RigidbodyConfigurable.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\ScreenSpacePositionConfigurable.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\SimulationConfigurable.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\SizeConfigurable.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\TransformConfigurable1Dof.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Displayers\Canvas\CanvasBarDisplayer.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Displayers\Canvas\CanvasTextDisplayer.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Displayers\Canvas\DistributionDisplayer.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Displayers\Cells\HexCellDisplayer.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Displayers\Cells\QuadCellDisplayer.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Displayers\Displayer.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Displayers\DisplayerComponentMenuPath.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Displayers\Experimental\ECS\ECSDisplayer.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Displayers\Experimental\ECS\ECSScatterPlotDisplayer.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Displayers\GridWorld\GridWorldVectorFieldDisplayer.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Displayers\ScatterPlots\GameObjectScatterPlotDisplayer.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Displayers\ScatterPlots\IndexedScatterPlotDisplayer.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Displayers\ScatterPlots\ScatterPlotDisplayer.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Displayers\ScatterPlots\TextScatterPlotDisplayer.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Displayers\ScatterPlots\VectorFieldDisplayer.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Displayers\TextMeshDisplayer.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Evaluation\AngularVelocityEvaluation.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Evaluation\AvoidCollisionEvaluation.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Evaluation\EuclideanDistance.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Evaluation\EvaluationComponentMenuPath.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Evaluation\ObjectiveFunction.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Evaluation\PoseDeviance.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Evaluation\PunishmentFunction.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Evaluation\ReachArea.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Evaluation\ReachGoal.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Evaluation\RestInArea.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Evaluation\SeekAndAvoidEvaluation.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Evaluation\Tasks\TaskSequence.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Evaluation\Terms\CollidersPunishmentTerm.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Evaluation\Terms\CollsionsPunishmentTerm.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Evaluation\Terms\RushTerm.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Evaluation\Terms\Term.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Evaluation\Terms\TermComponentMenuPath.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Evaluation\VelocityEvaluation.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Internals\ActionCounter.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Internals\EnvironmentListener.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Internals\Resetable.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Internals\ResetableComponentMenuPath.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Internals\StateValidation\EnsureValidState.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Internals\TransformResetable.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Motors\BanditArmMotor.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Motors\EulerTransformMotor.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Motors\EulerTransformMotor1Dof.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Motors\EulerTransformMotor3Dof.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Motors\IndexedMotionMotor.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Motors\Motor.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Motors\MotorComponentMenuPath.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Motors\Particles\RocketMotor.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Motors\RigidbodyMotor.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Motors\RigidbodyMotor1Dof.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Motors\RigidbodyMotor3Dof.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Motors\TargetRigidbodyMotor.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Motors\WheelColliderMotor\SteeringMotor.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Motors\WheelColliderMotor\TorqueMotor.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\BoundingBox\BoundingBoxObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\BoundingBox\ScreenSpaceBoundingBoxObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\Camera\CameraObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\Camera\FloatArrayCameraObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\Camera\Segmentation\SegmentationCameraObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\Camera\Segmentation\SegmentationObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\Camera\StringAugmentedCameraObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\CategoricalObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\CompassObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\Grid\GoalCellObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\Grid\GridPositionObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\Observer.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\ObserverComponentMenuPath.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\Rays\AdjacencyObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\Rays\FixedLidarObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\Rays\LineOfSightObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\Rays\NearestByTagObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\Rays\RaycastObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\Rigidbody\AngularVelocityObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\Rigidbody\RigidbodyObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\Rigidbody\VelocityObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\StringObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\TargetRigidbodyObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\Transform\EulerTransformObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\Transform\PositionObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\Transform\PositionObserver2D.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\Transform\QuaternionTransformObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\Transform\RotationObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\Transform\SingleAxisTransformObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\TwoDimensionalScreenSpaceObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Observers\ValueObserver.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\PrototypingComponentMenuPath.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\BoundingBoxes\BoundingBox.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\BoundingBoxes\Draw3DBoundingBox.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\BoundingBoxes\DrawScreenSpaceBoundingBox.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\BoundingBoxes\Experimental\BoundingBoxUtilities.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\BoundingBoxes\Experimental\Corners.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\BoundingBoxes\Experimental\DrawBoundingBoxes.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Debugging\DebugPrinting.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Enums\Axis.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Enums\CoordinateSystem.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Enums\DimensionCombination.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Enums\FrameFinishes.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Enums\SimulationType.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Enums\WaitOn.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\EventRecipients\DataPoller.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\EventRecipients\InputFieldUpdater.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\EventRecipients\TextUpdater.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\EventRecipients\ToggleUpdater.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\GameObjects\PrototypingGameObject.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Misc\Drawing\DrawString.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Misc\Drawing\GuiDraw.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Misc\Drawing\NeodroidDrawingUtilities.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Misc\Extensions\JointFix.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Misc\Extensions\Obstruction.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Misc\Extensions\OnCollision.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Misc\Extensions\ParticleController.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Misc\Grasping\GraspingUtilities.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Misc\Grid\GridCell.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Misc\NeodroidUtilities.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Misc\Note.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Misc\Orientation\FollowTarget.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Misc\Orientation\FollowTargetRotation.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Misc\Orientation\MotionTracker.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Misc\Orientation\PointInDirection.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Misc\Perlin.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Misc\Procedural\GameObjectCloner.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Misc\Procedural\SnakeSpaceFilling.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Misc\SearchableEnum\SearchableEnumAttribute.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\CameraObservationTextureController.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\DisparityCameraBehaviour.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\FlowCameraBehaviour.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\IgnoreLightSource.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\InfraredLightSource.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\ReplacementShaderEffect.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\Segmentation\ChangeMaterialOnRenderByInstance.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\Segmentation\ChangeMaterialOnRenderByTag.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\Segmentation\Segmenter.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\SynchroniseCameraProperties.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Noise\ProjectileSpammer.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Noise\SelfDestruct.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Plotting\DrawSpaces.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Plotting\Meshes.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Plotting\PlotFunctions.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Plotting\ValueRangePlotter.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\ScriptableObjects\Curriculum.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\ScriptableObjects\NeodroidTask.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\ScriptableObjects\PlayerMotions.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\ScriptableObjects\Segmentation.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\ScriptableObjects\SimulatorConfiguration.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Sensors\ChildColliderSensor.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\SerialisableDictionary\Example.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\SerialisableDictionary\SerializableDictionary.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\SerialisableDictionary\SerializableDictionaryDrawer.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\SerialisableDictionary\SerializableDictionaryDrawerImplementations.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\SerialisableDictionary\SerializableDictionaryImplementations.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\SerialisableDictionary\SerializedPropertyExtension.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\StatusDisplayer\AutoSetupStatusDisplayer.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Structs\DoubleVector3.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Structs\IntVector3.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Structs\Points.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Structs\SegmentationColor.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Structs\Space2.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Structs\Space3.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Structs\Space4.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Structs\ValueSpace.cs" />
+    <None Include="Assets\droid\Runtime\Shaders\Depth.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\ObjectSpace.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Tangents.shader" />
+    <None Include="Assets\droid\Runtime\Utilities\Plotting\ValueRangePlotter.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\FlatColor.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Normal.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Segmentation\Outlined.shader" />
+    <None Include="Assets\droid\Runtime\Neodroid.Runtime.asmdef" />
+    <None Include="Assets\droid\Runtime\Shaders\Experimental\OpticalFlow.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Segmentation\Flat.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\UVs.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\ScreenSpaceFlow.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Experimental\UltimateOutline.shader" />
     <Reference Include="UnityEngine.AIModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ARModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.ARModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.ARModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AccessibilityModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.AccessibilityModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.AccessibilityModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AnimationModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.AnimationModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.AnimationModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AssetBundleModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.AssetBundleModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.AssetBundleModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AudioModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.AudioModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.AudioModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ClothModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.ClothModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.ClothModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ClusterInputModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterInputModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterInputModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ClusterRendererModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CrashReportingModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.CrashReportingModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.CrashReportingModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.DirectorModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.DirectorModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.DirectorModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.FileSystemHttpModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.FileSystemHttpModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.FileSystemHttpModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.GameCenterModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.GameCenterModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.GameCenterModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.GridModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.GridModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.GridModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.HotReloadModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.HotReloadModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.HotReloadModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.IMGUIModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.IMGUIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ImageConversionModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.ImageConversionModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.ImageConversionModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.InputModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.InputModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.InputModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.JSONSerializeModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.JSONSerializeModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.JSONSerializeModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.LocalizationModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.LocalizationModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.LocalizationModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ParticleSystemModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.PerformanceReportingModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.PhysicsModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.PhysicsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Physics2DModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.Physics2DModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.Physics2DModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ProfilerModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.ProfilerModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.ProfilerModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ScreenCaptureModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.ScreenCaptureModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.ScreenCaptureModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SharedInternalsModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.SharedInternalsModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.SharedInternalsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpriteMaskModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpriteShapeModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteShapeModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteShapeModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.StreamingModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.StreamingModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.StreamingModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.StyleSheetsModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.StyleSheetsModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.StyleSheetsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SubstanceModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.SubstanceModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.SubstanceModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TLSModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.TLSModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.TLSModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TerrainModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TerrainPhysicsModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainPhysicsModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainPhysicsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TextCoreModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.TextCoreModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.TextCoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.TextRenderingModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.TextRenderingModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TilemapModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.TilemapModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.TilemapModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UIModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.UIModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.UIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UIElementsModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.UIElementsModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.UIElementsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UNETModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.UNETModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.UNETModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UmbraModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.UmbraModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.UmbraModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityAnalyticsModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.UnityAnalyticsModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.UnityAnalyticsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityConnectModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.UnityConnectModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.UnityConnectModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityTestProtocolModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.UnityTestProtocolModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.UnityTestProtocolModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestAudioModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestTextureModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UnityWebRequestWWWModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VFXModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.VFXModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.VFXModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VRModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.VRModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.VRModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VehiclesModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.VehiclesModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.VehiclesModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VideoModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.VideoModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.VideoModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.WindModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XRModule">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Locator">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/Unity.Locator.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/Unity.Locator.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.Networking">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.VR">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Graphs">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.LinuxStandalone.Extensions">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Neodroid-FlatBuffers">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libaries/Neodroid-FlatBuffers.1.0.0/lib/net45/Neodroid-FlatBuffers.dll</HintPath>
+    </Reference>
+    <Reference Include="NetMQ">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libaries/NetMQ.4.0.0.175-pre/lib/net40/NetMQ.dll</HintPath>
+    </Reference>
+    <Reference Include="Priority Queue">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libaries/OptimizedPriorityQueue.4.1.1/lib/net45/Priority Queue.dll</HintPath>
+    </Reference>
+    <Reference Include="AsyncIO">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libaries/AsyncIO.0.1.61/lib/net40/AsyncIO.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libaries/Newtonsoft.Json.11.0.2/lib/net45/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="JetBrains.Rider.Unity.Editor.Plugin.Repacked">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll</HintPath>
     </Reference>
-    <Reference Include="Neodroid-FlatBuffers">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/Neodroid/Libaries/Neodroid-FlatBuffers.1.0.0/lib/net45/Neodroid-FlatBuffers.dll</HintPath>
-    </Reference>
-    <Reference Include="NetMQ">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/Neodroid/Libaries/NetMQ.4.0.0.175-pre/lib/net40/NetMQ.dll</HintPath>
-    </Reference>
-    <Reference Include="Priority Queue">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/Neodroid/Libaries/OptimizedPriorityQueue.4.1.1/lib/net45/Priority Queue.dll</HintPath>
-    </Reference>
-    <Reference Include="AsyncIO">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/Neodroid/Libaries/AsyncIO.0.1.61/lib/net40/AsyncIO.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/Neodroid/Libaries/Newtonsoft.Json.11.0.2/lib/net45/Newtonsoft.Json.dll</HintPath>
-    </Reference>
-<<<<<<< Updated upstream
     <Reference Include="Microsoft.CSharp">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Library/PackageCache/com.unity.code-analysis@0.0.1-preview.3/Plugins/Microsoft.CSharp.dll</HintPath>
     </Reference>
@@ -602,8 +593,6 @@
     <Reference Include="Unity.APIComparison.Framework">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Library/PackageCache/com.unity.package-validation-suite@0.4.0-preview.12/Lib/Editor/Unity.APIComparison.Framework.dll</HintPath>
     </Reference>
-=======
->>>>>>> Stashed changes
     <Reference Include="ProBuilderEditor">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Library/PackageCache/com.unity.probuilder@3.0.9/ProBuilder/Editor/ProBuilderEditor.dll</HintPath>
     </Reference>
@@ -625,368 +614,359 @@
     <Reference Include="Poly2Tri">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Library/PackageCache/com.unity.probuilder@3.0.9/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
     </Reference>
-<<<<<<< Updated upstream
-=======
-    <Reference Include="Unity.APIComparison.Framework">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/PackageCache/com.unity.package-validation-suite@0.4.0-preview.12/Lib/Editor/Unity.APIComparison.Framework.dll</HintPath>
-    </Reference>
-    <Reference Include="log4net">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/PackageCache/com.unity.package-validation-suite@0.4.0-preview.12/Lib/Editor/log4net.dll</HintPath>
-    </Reference>
->>>>>>> Stashed changes
     <Reference Include="mscorlib">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
     </Reference>
     <Reference Include="System">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.dll</HintPath>
     </Reference>
     <Reference Include="System.Core">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Core.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Core.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Runtime.Serialization.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Runtime.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Xml.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Xml.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Xml.Linq.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Xml.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System.Numerics">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Numerics.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Numerics.dll</HintPath>
     </Reference>
     <Reference Include="System.Numerics.Vectors">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Numerics.Vectors.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Numerics.Vectors.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Net.Http.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Net.Http.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Microsoft.CSharp.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Microsoft.CSharp.dll</HintPath>
     </Reference>
     <Reference Include="System.Data">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Data.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Data.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Win32.Primitives">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/Microsoft.Win32.Primitives.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/Microsoft.Win32.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.AppContext">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.AppContext.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.AppContext.dll</HintPath>
     </Reference>
     <Reference Include="System.Collections.Concurrent">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Collections.Concurrent.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Collections.Concurrent.dll</HintPath>
     </Reference>
     <Reference Include="System.Collections.NonGeneric">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Collections.NonGeneric.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Collections.NonGeneric.dll</HintPath>
     </Reference>
     <Reference Include="System.Collections.Specialized">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Collections.Specialized.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Collections.Specialized.dll</HintPath>
     </Reference>
     <Reference Include="System.Collections">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Collections.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Collections.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Annotations">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ComponentModel.Annotations.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ComponentModel.Annotations.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.EventBasedAsync">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ComponentModel.EventBasedAsync.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ComponentModel.EventBasedAsync.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Primitives">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ComponentModel.Primitives.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ComponentModel.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.TypeConverter">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ComponentModel.TypeConverter.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ComponentModel.TypeConverter.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ComponentModel.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ComponentModel.dll</HintPath>
     </Reference>
     <Reference Include="System.Console">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Console.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Console.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Common">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Data.Common.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Data.Common.dll</HintPath>
     </Reference>
     <Reference Include="System.Diagnostics.Contracts">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.Contracts.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.Contracts.dll</HintPath>
     </Reference>
     <Reference Include="System.Diagnostics.Debug">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.Debug.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.Debug.dll</HintPath>
     </Reference>
     <Reference Include="System.Diagnostics.FileVersionInfo">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.FileVersionInfo.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.FileVersionInfo.dll</HintPath>
     </Reference>
     <Reference Include="System.Diagnostics.Process">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.Process.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.Process.dll</HintPath>
     </Reference>
     <Reference Include="System.Diagnostics.StackTrace">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.StackTrace.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.StackTrace.dll</HintPath>
     </Reference>
     <Reference Include="System.Diagnostics.TextWriterTraceListener">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.TextWriterTraceListener.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.TextWriterTraceListener.dll</HintPath>
     </Reference>
     <Reference Include="System.Diagnostics.Tools">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.Tools.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.Tools.dll</HintPath>
     </Reference>
     <Reference Include="System.Diagnostics.TraceSource">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.TraceSource.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.TraceSource.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing.Primitives">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Drawing.Primitives.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Drawing.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.Dynamic.Runtime">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Dynamic.Runtime.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Dynamic.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="System.Globalization.Calendars">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Globalization.Calendars.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Globalization.Calendars.dll</HintPath>
     </Reference>
     <Reference Include="System.Globalization.Extensions">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Globalization.Extensions.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Globalization.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Globalization">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Globalization.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Globalization.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.Compression.ZipFile">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.Compression.ZipFile.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.Compression.ZipFile.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.FileSystem.DriveInfo">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.FileSystem.DriveInfo.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.FileSystem.DriveInfo.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.FileSystem.Primitives">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.FileSystem.Primitives.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.FileSystem.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.FileSystem.Watcher">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.FileSystem.Watcher.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.FileSystem.Watcher.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.FileSystem">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.FileSystem.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.FileSystem.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.IsolatedStorage">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.IsolatedStorage.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.IsolatedStorage.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.MemoryMappedFiles">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.MemoryMappedFiles.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.MemoryMappedFiles.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.Pipes">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.Pipes.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.Pipes.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.UnmanagedMemoryStream">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.UnmanagedMemoryStream.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.UnmanagedMemoryStream.dll</HintPath>
     </Reference>
     <Reference Include="System.IO">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.dll</HintPath>
     </Reference>
     <Reference Include="System.Linq.Expressions">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Linq.Expressions.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Linq.Expressions.dll</HintPath>
     </Reference>
     <Reference Include="System.Linq.Parallel">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Linq.Parallel.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Linq.Parallel.dll</HintPath>
     </Reference>
     <Reference Include="System.Linq.Queryable">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Linq.Queryable.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Linq.Queryable.dll</HintPath>
     </Reference>
     <Reference Include="System.Linq">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Linq.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.Rtc">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.Http.Rtc.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.Http.Rtc.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.NameResolution">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.NameResolution.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.NameResolution.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.NetworkInformation">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.NetworkInformation.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.NetworkInformation.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Ping">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.Ping.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.Ping.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Primitives">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.Primitives.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Requests">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.Requests.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.Requests.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Security">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.Security.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.Security.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Sockets">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.Sockets.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.Sockets.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.WebHeaderCollection">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.WebHeaderCollection.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.WebHeaderCollection.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.WebSockets.Client">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.WebSockets.Client.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.WebSockets.Client.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.WebSockets">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.WebSockets.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.WebSockets.dll</HintPath>
     </Reference>
     <Reference Include="System.ObjectModel">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ObjectModel.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ObjectModel.dll</HintPath>
     </Reference>
     <Reference Include="System.Reflection.Emit.ILGeneration">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Reflection.Emit.ILGeneration.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Reflection.Emit.ILGeneration.dll</HintPath>
     </Reference>
     <Reference Include="System.Reflection.Emit.Lightweight">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Reflection.Emit.Lightweight.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Reflection.Emit.Lightweight.dll</HintPath>
     </Reference>
     <Reference Include="System.Reflection.Emit">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Reflection.Emit.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Reflection.Emit.dll</HintPath>
     </Reference>
     <Reference Include="System.Reflection.Extensions">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Reflection.Extensions.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Reflection.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Reflection.Primitives">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Reflection.Primitives.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Reflection.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.Reflection">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Reflection.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Reflection.dll</HintPath>
     </Reference>
     <Reference Include="System.Resources.Reader">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Resources.Reader.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Resources.Reader.dll</HintPath>
     </Reference>
     <Reference Include="System.Resources.ResourceManager">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Resources.ResourceManager.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Resources.ResourceManager.dll</HintPath>
     </Reference>
     <Reference Include="System.Resources.Writer">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Resources.Writer.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Resources.Writer.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.VisualC">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.CompilerServices.VisualC.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.CompilerServices.VisualC.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Extensions">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Extensions.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Handles">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Handles.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Handles.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.InteropServices.WindowsRuntime">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.InteropServices.WindowsRuntime.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.InteropServices.WindowsRuntime.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.InteropServices">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.InteropServices.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.InteropServices.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Numerics">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Numerics.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Numerics.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization.Formatters">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Serialization.Formatters.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Serialization.Formatters.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization.Json">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Serialization.Json.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Serialization.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization.Primitives">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Serialization.Primitives.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Serialization.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization.Xml">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Serialization.Xml.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Serialization.Xml.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="System.Security.Claims">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Claims.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Claims.dll</HintPath>
     </Reference>
     <Reference Include="System.Security.Cryptography.Algorithms">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Cryptography.Algorithms.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Cryptography.Algorithms.dll</HintPath>
     </Reference>
     <Reference Include="System.Security.Cryptography.Csp">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Cryptography.Csp.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Cryptography.Csp.dll</HintPath>
     </Reference>
     <Reference Include="System.Security.Cryptography.Encoding">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Cryptography.Encoding.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Cryptography.Encoding.dll</HintPath>
     </Reference>
     <Reference Include="System.Security.Cryptography.Primitives">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Cryptography.Primitives.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Cryptography.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.Security.Cryptography.X509Certificates">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Cryptography.X509Certificates.dll</HintPath>
     </Reference>
     <Reference Include="System.Security.Principal">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Principal.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Principal.dll</HintPath>
     </Reference>
     <Reference Include="System.Security.SecureString">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.SecureString.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.SecureString.dll</HintPath>
     </Reference>
     <Reference Include="System.ServiceModel.Duplex">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ServiceModel.Duplex.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ServiceModel.Duplex.dll</HintPath>
     </Reference>
     <Reference Include="System.ServiceModel.Http">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ServiceModel.Http.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ServiceModel.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.ServiceModel.NetTcp">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ServiceModel.NetTcp.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ServiceModel.NetTcp.dll</HintPath>
     </Reference>
     <Reference Include="System.ServiceModel.Primitives">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ServiceModel.Primitives.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ServiceModel.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.ServiceModel.Security">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ServiceModel.Security.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ServiceModel.Security.dll</HintPath>
     </Reference>
     <Reference Include="System.Text.Encoding.Extensions">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Text.Encoding.Extensions.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Text.Encoding.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Text.Encoding">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Text.Encoding.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Text.Encoding.dll</HintPath>
     </Reference>
     <Reference Include="System.Text.RegularExpressions">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Text.RegularExpressions.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Text.RegularExpressions.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Overlapped">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.Overlapped.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.Overlapped.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks.Parallel">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.Tasks.Parallel.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.Tasks.Parallel.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.Tasks.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.Tasks.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Thread">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.Thread.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.Thread.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.ThreadPool">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.ThreadPool.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.ThreadPool.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Timer">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.Timer.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.Timer.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.dll</HintPath>
     </Reference>
     <Reference Include="System.ValueTuple">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ValueTuple.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.ReaderWriter">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.ReaderWriter.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.ReaderWriter.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.XDocument">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XDocument.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XDocument.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.XPath.XDocument">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XPath.XDocument.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.XPath">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XPath.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XPath.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.XmlDocument">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XmlDocument.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XmlDocument.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.XmlSerializer">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XmlSerializer.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XmlSerializer.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/netstandard.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/netstandard.dll</HintPath>
     </Reference>
     <Reference Include="UnityScript">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/UnityScript.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/UnityScript.dll</HintPath>
     </Reference>
     <Reference Include="UnityScript.Lang">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/UnityScript.Lang.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/UnityScript.Lang.dll</HintPath>
     </Reference>
     <Reference Include="Boo.Lang">
-      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a11/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
+      <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0a14/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

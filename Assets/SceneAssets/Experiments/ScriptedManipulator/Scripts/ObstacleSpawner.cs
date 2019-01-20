@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Neodroid.Runtime.Utilities.Misc.Grasping;
+using droid.Runtime.Utilities.Misc.Grasping;
 using UnityEngine;
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
