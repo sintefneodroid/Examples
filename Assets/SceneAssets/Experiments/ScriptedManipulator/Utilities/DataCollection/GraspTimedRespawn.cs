@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using droid.Runtime.Utilities.Misc;
+using droid.Runtime.Utilities.Sensors;
 using SceneAssets.Experiments.ScriptedManipulator.Grasps;
 using SceneAssets.Experiments.ScriptedManipulator.Scripts;
 using UnityEngine;
@@ -29,10 +30,11 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
       this._grasp = this._graspable_object.GetOptimalGrasp(this._gripper).Item1;
       this._rigid_body = this._grasp.GetComponentInParent<Rigidbody>();
       this._rigid_bodies = this._graspable_object.GetComponentsInChildren<Rigidbody>();
-      this._initial_position = this._rigid_body.transform.position;
-      this._initial_rotation = this._rigid_body.transform.rotation;
+      var transform1 = this._rigid_body.transform;
+      this._initial_position = transform1.position;
+      this._initial_rotation = transform1.rotation;
 
-      NeodroidUtilities.RegisterCollisionTriggerCallbacksOnChildren(
+      NeodroidUtilities.RegisterCollisionTriggerCallbacksOnChildren<ChildCollider3DSensor,Collider,Collision>(
           this,
           this.transform,
           this.OnCollisionEnterChild,

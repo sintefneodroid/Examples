@@ -1,0 +1,3510 @@
+Package Update Delta Evaluation
+-------------------------------
+
+Package Name: com.unity.probuilder
+Package Version: 4.0.2
+Compared to Version: 3.0.9
+
+New in package:
+    \.gitlab-ci.yml
+    \documentation.meta
+    \probuilder.meta
+
+Removed from package:
+    \addons.meta
+    \assetidremaputility.meta
+    \build.sh
+    \build.sh.meta
+    \content.meta
+    \contributing.md
+    \contributing.md.meta
+    \editor.meta
+    \external.meta
+    \probuilder.sublime-project
+    \probuilder.sublime-project.meta
+    \runtime.meta
+    \settings.meta
+    \third party notices.md
+    \third party notices.md.meta
+    \addons\fbx.cs
+    \addons\fbx.cs.meta
+    \addons\readme.md
+    \addons\readme.md.meta
+    \addons\unity.probuilder.addons.editor.asmdef
+    \addons\unity.probuilder.addons.editor.asmdef.meta
+    \assetidremaputility\editor.meta
+    \assetidremaputility\editor\assemblyinfo.cs
+    \assetidremaputility\editor\assemblyinfo.cs.meta
+    \assetidremaputility\editor\assetid.cs
+    \assetidremaputility\editor\assetid.cs.meta
+    \assetidremaputility\editor\assetidremapbuildereditor.cs
+    \assetidremaputility\editor\assetidremapbuildereditor.cs.meta
+    \assetidremaputility\editor\assetidremapbuildertreeview.cs
+    \assetidremaputility\editor\assetidremapbuildertreeview.cs.meta
+    \assetidremaputility\editor\assetidremapeditor.cs
+    \assetidremaputility\editor\assetidremapeditor.cs.meta
+    \assetidremaputility\editor\assettreeview.cs
+    \assetidremaputility\editor\assettreeview.cs.meta
+    \assetidremaputility\editor\packageimporter.cs
+    \assetidremaputility\editor\packageimporter.cs.meta
+    \assetidremaputility\editor\unity.probuilder.assetidremaputility.asmdef
+    \assetidremaputility\editor\unity.probuilder.assetidremaputility.asmdef.meta
+    \content\about.meta
+    \content\font.meta
+    \content\icons.meta
+    \content\material.meta
+    \content\resources.meta
+    \content\shader.meta
+    \content\upgrade.meta
+    \content\about\images.meta
+    \content\about\images\banner.png
+    \content\about\images\banner.png.meta
+    \content\about\images\banner_hover.png
+    \content\about\images\banner_hover.png.meta
+    \content\about\images\banner_normal.png
+    \content\about\images\banner_normal.png.meta
+    \content\about\images\downloadpb_hover.png
+    \content\about\images\downloadpb_hover.png.meta
+    \content\about\images\downloadpb_normal.png
+    \content\about\images\downloadpb_normal.png.meta
+    \content\about\images\scrollbackground_light.png
+    \content\about\images\scrollbackground_light.png.meta
+    \content\about\images\scrollbackground_pro.png
+    \content\about\images\scrollbackground_pro.png.meta
+    \content\font\asap-medium.otf
+    \content\font\asap-medium.otf.meta
+    \content\font\asap-regular.otf
+    \content\font\asap-regular.otf.meta
+    \content\font\sil open font license.txt
+    \content\font\sil open font license.txt.meta
+    \content\icons\modes.meta
+    \content\icons\scene.meta
+    \content\icons\toolbar.meta
+    \content\icons\uveditor.meta
+    \content\icons\modes\mode_edge.png
+    \content\icons\modes\mode_edge.png.meta
+    \content\icons\modes\mode_edge_light.png
+    \content\icons\modes\mode_edge_light.png.meta
+    \content\icons\modes\mode_face.png
+    \content\icons\modes\mode_face.png.meta
+    \content\icons\modes\mode_face_light.png
+    \content\icons\modes\mode_face_light.png.meta
+    \content\icons\modes\mode_object.png
+    \content\icons\modes\mode_object.png.meta
+    \content\icons\modes\mode_object_light.png
+    \content\icons\modes\mode_object_light.png.meta
+    \content\icons\modes\mode_vertex.png
+    \content\icons\modes\mode_vertex.png.meta
+    \content\icons\modes\mode_vertex_light.png
+    \content\icons\modes\mode_vertex_light.png.meta
+    \content\icons\scene\selectionrect.png
+    \content\icons\scene\selectionrect.png.meta
+    \content\icons\scene\selectionrect@2x.png
+    \content\icons\scene\selectionrect@2x.png.meta
+    \content\icons\scene\textbackground.png
+    \content\icons\scene\textbackground.png.meta
+    \content\icons\toolbar\altbutton_hover.png
+    \content\icons\toolbar\altbutton_hover.png.meta
+    \content\icons\toolbar\altbutton_normal.png
+    \content\icons\toolbar\altbutton_normal.png.meta
+    \content\icons\toolbar\altbutton_pressed.png
+    \content\icons\toolbar\altbutton_pressed.png.meta
+    \content\icons\toolbar\background.meta
+    \content\icons\toolbar\bezier_aligned.png
+    \content\icons\toolbar\bezier_aligned.png.meta
+    \content\icons\toolbar\bezier_free.png
+    \content\icons\toolbar\bezier_free.png.meta
+    \content\icons\toolbar\bezier_mirrored.png
+    \content\icons\toolbar\bezier_mirrored.png.meta
+    \content\icons\toolbar\button_hover.png
+    \content\icons\toolbar\button_hover.png.meta
+    \content\icons\toolbar\button_hover_horizontal.png
+    \content\icons\toolbar\button_hover_horizontal.png.meta
+    \content\icons\toolbar\button_normal.png
+    \content\icons\toolbar\button_normal.png.meta
+    \content\icons\toolbar\button_normal_horizontal.png
+    \content\icons\toolbar\button_normal_horizontal.png.meta
+    \content\icons\toolbar\button_pressed.png
+    \content\icons\toolbar\button_pressed.png.meta
+    \content\icons\toolbar\button_pressed_horizontal.png
+    \content\icons\toolbar\button_pressed_horizontal.png.meta
+    \content\icons\toolbar\edge_bevel.png
+    \content\icons\toolbar\edge_bevel.png.meta
+    \content\icons\toolbar\edge_bevel_disabled.png
+    \content\icons\toolbar\edge_bevel_disabled.png.meta
+    \content\icons\toolbar\edge_bridge.png
+    \content\icons\toolbar\edge_bridge.png.meta
+    \content\icons\toolbar\edge_bridge_disabled.png
+    \content\icons\toolbar\edge_bridge_disabled.png.meta
+    \content\icons\toolbar\edge_connect.png
+    \content\icons\toolbar\edge_connect.png.meta
+    \content\icons\toolbar\edge_connect_disabled.png
+    \content\icons\toolbar\edge_connect_disabled.png.meta
+    \content\icons\toolbar\edge_extrude.png
+    \content\icons\toolbar\edge_extrude.png.meta
+    \content\icons\toolbar\edge_extrude_disabled.png
+    \content\icons\toolbar\edge_extrude_disabled.png.meta
+    \content\icons\toolbar\edge_fillhole.png
+    \content\icons\toolbar\edge_fillhole.png.meta
+    \content\icons\toolbar\edge_fillhole_disabled.png
+    \content\icons\toolbar\edge_fillhole_disabled.png.meta
+    \content\icons\toolbar\edge_insertloop.png
+    \content\icons\toolbar\edge_insertloop.png.meta
+    \content\icons\toolbar\edge_insertloop_disabled.png
+    \content\icons\toolbar\edge_insertloop_disabled.png.meta
+    \content\icons\toolbar\edge_subdivide.png
+    \content\icons\toolbar\edge_subdivide.png.meta
+    \content\icons\toolbar\edge_subdivide_disabled.png
+    \content\icons\toolbar\edge_subdivide_disabled.png.meta
+    \content\icons\toolbar\extrudeface_facenormals.png
+    \content\icons\toolbar\extrudeface_facenormals.png.meta
+    \content\icons\toolbar\extrudeface_facenormals_disabled.png
+    \content\icons\toolbar\extrudeface_facenormals_disabled.png.meta
+    \content\icons\toolbar\extrudeface_individual.png
+    \content\icons\toolbar\extrudeface_individual.png.meta
+    \content\icons\toolbar\extrudeface_individual_disabled.png
+    \content\icons\toolbar\extrudeface_individual_disabled.png.meta
+    \content\icons\toolbar\extrudeface_vertexnormals.png
+    \content\icons\toolbar\extrudeface_vertexnormals.png.meta
+    \content\icons\toolbar\extrudeface_vertexnormals_disabled.png
+    \content\icons\toolbar\extrudeface_vertexnormals_disabled.png.meta
+    \content\icons\toolbar\eye_off.png
+    \content\icons\toolbar\eye_off.png.meta
+    \content\icons\toolbar\eye_off_light.png
+    \content\icons\toolbar\eye_off_light.png.meta
+    \content\icons\toolbar\eye_on.png
+    \content\icons\toolbar\eye_on.png.meta
+    \content\icons\toolbar\eye_on_light.png
+    \content\icons\toolbar\eye_on_light.png.meta
+    \content\icons\toolbar\face_breaksmoothing.png
+    \content\icons\toolbar\face_breaksmoothing.png.meta
+    \content\icons\toolbar\face_conformnormals.png
+    \content\icons\toolbar\face_conformnormals.png.meta
+    \content\icons\toolbar\face_conformnormals_disabled.png
+    \content\icons\toolbar\face_conformnormals_disabled.png.meta
+    \content\icons\toolbar\face_delete.png
+    \content\icons\toolbar\face_delete.png.meta
+    \content\icons\toolbar\face_delete_disabled.png
+    \content\icons\toolbar\face_delete_disabled.png.meta
+    \content\icons\toolbar\face_detach.png
+    \content\icons\toolbar\face_detach.png.meta
+    \content\icons\toolbar\face_detach_disabled.png
+    \content\icons\toolbar\face_detach_disabled.png.meta
+    \content\icons\toolbar\face_flipnormals.png
+    \content\icons\toolbar\face_flipnormals.png.meta
+    \content\icons\toolbar\face_flipnormals_3d.png
+    \content\icons\toolbar\face_flipnormals_3d.png.meta
+    \content\icons\toolbar\face_flipnormals_disabled.png
+    \content\icons\toolbar\face_flipnormals_disabled.png.meta
+    \content\icons\toolbar\face_fliptri.png
+    \content\icons\toolbar\face_fliptri.png.meta
+    \content\icons\toolbar\face_fliptri_disabled.png
+    \content\icons\toolbar\face_fliptri_disabled.png.meta
+    \content\icons\toolbar\face_merge.png
+    \content\icons\toolbar\face_merge.png.meta
+    \content\icons\toolbar\face_merge_disabled.png
+    \content\icons\toolbar\face_merge_disabled.png.meta
+    \content\icons\toolbar\face_subdivide.png
+    \content\icons\toolbar\face_subdivide.png.meta
+    \content\icons\toolbar\face_subdivide_disabled.png
+    \content\icons\toolbar\face_subdivide_disabled.png.meta
+    \content\icons\toolbar\face_triangulate.png
+    \content\icons\toolbar\face_triangulate.png.meta
+    \content\icons\toolbar\face_triangulate_disabled.png
+    \content\icons\toolbar\face_triangulate_disabled.png.meta
+    \content\icons\toolbar\handlealign_custom.png
+    \content\icons\toolbar\handlealign_custom.png.meta
+    \content\icons\toolbar\handlealign_local.png
+    \content\icons\toolbar\handlealign_local.png.meta
+    \content\icons\toolbar\handlealign_plane.png
+    \content\icons\toolbar\handlealign_plane.png.meta
+    \content\icons\toolbar\handlealign_world.png
+    \content\icons\toolbar\handlealign_world.png.meta
+    \content\icons\toolbar\help.png
+    \content\icons\toolbar\help.png.meta
+    \content\icons\toolbar\help_light.png
+    \content\icons\toolbar\help_light.png.meta
+    \content\icons\toolbar\mode_edge.png
+    \content\icons\toolbar\mode_edge.png.meta
+    \content\icons\toolbar\mode_face.png
+    \content\icons\toolbar\mode_face.png.meta
+    \content\icons\toolbar\mode_object.png
+    \content\icons\toolbar\mode_object.png.meta
+    \content\icons\toolbar\mode_vert.png
+    \content\icons\toolbar\mode_vert.png.meta
+    \content\icons\toolbar\newbezierspline.png
+    \content\icons\toolbar\newbezierspline.png.meta
+    \content\icons\toolbar\newpolyshape.png
+    \content\icons\toolbar\newpolyshape.png.meta
+    \content\icons\toolbar\null.png
+    \content\icons\toolbar\null.png.meta
+    \content\icons\toolbar\object_conformnormals.png
+    \content\icons\toolbar\object_conformnormals.png.meta
+    \content\icons\toolbar\object_conformnormals_disabled.png
+    \content\icons\toolbar\object_conformnormals_disabled.png.meta
+    \content\icons\toolbar\object_export.png
+    \content\icons\toolbar\object_export.png.meta
+    \content\icons\toolbar\object_export_disabled.png
+    \content\icons\toolbar\object_export_disabled.png.meta
+    \content\icons\toolbar\object_flipnormals.png
+    \content\icons\toolbar\object_flipnormals.png.meta
+    \content\icons\toolbar\object_flipnormals_disabled.png
+    \content\icons\toolbar\object_flipnormals_disabled.png.meta
+    \content\icons\toolbar\object_generateuv2.png
+    \content\icons\toolbar\object_generateuv2.png.meta
+    \content\icons\toolbar\object_generateuv2_disabled.png
+    \content\icons\toolbar\object_generateuv2_disabled.png.meta
+    \content\icons\toolbar\object_merge.png
+    \content\icons\toolbar\object_merge.png.meta
+    \content\icons\toolbar\object_merge_disabled.png
+    \content\icons\toolbar\object_merge_disabled.png.meta
+    \content\icons\toolbar\object_mirror.png
+    \content\icons\toolbar\object_mirror.png.meta
+    \content\icons\toolbar\object_mirror_disabled.png
+    \content\icons\toolbar\object_mirror_disabled.png.meta
+    \content\icons\toolbar\object_probuilderize.png
+    \content\icons\toolbar\object_probuilderize.png.meta
+    \content\icons\toolbar\object_probuilderize_disabled.png
+    \content\icons\toolbar\object_probuilderize_disabled.png.meta
+    \content\icons\toolbar\object_subdivide.png
+    \content\icons\toolbar\object_subdivide.png.meta
+    \content\icons\toolbar\object_subdivide_disabled.png
+    \content\icons\toolbar\object_subdivide_disabled.png.meta
+    \content\icons\toolbar\object_triangulate.png
+    \content\icons\toolbar\object_triangulate.png.meta
+    \content\icons\toolbar\object_triangulate_disabled.png
+    \content\icons\toolbar\object_triangulate_disabled.png.meta
+    \content\icons\toolbar\options.png
+    \content\icons\toolbar\options.png.meta
+    \content\icons\toolbar\panel_boolean.png
+    \content\icons\toolbar\panel_boolean.png.meta
+    \content\icons\toolbar\panel_geodrawing.png
+    \content\icons\toolbar\panel_geodrawing.png.meta
+    \content\icons\toolbar\panel_materials.png
+    \content\icons\toolbar\panel_materials.png.meta
+    \content\icons\toolbar\panel_shapes.png
+    \content\icons\toolbar\panel_shapes.png.meta
+    \content\icons\toolbar\panel_smoothing.png
+    \content\icons\toolbar\panel_smoothing.png.meta
+    \content\icons\toolbar\panel_uveditor.png
+    \content\icons\toolbar\panel_uveditor.png.meta
+    \content\icons\toolbar\panel_vertcolors.png
+    \content\icons\toolbar\panel_vertcolors.png.meta
+    \content\icons\toolbar\pivot_centeronelements.png
+    \content\icons\toolbar\pivot_centeronelements.png.meta
+    \content\icons\toolbar\pivot_centeronelements_disabled.png
+    \content\icons\toolbar\pivot_centeronelements_disabled.png.meta
+    \content\icons\toolbar\pivot_centeronobject.png
+    \content\icons\toolbar\pivot_centeronobject.png.meta
+    \content\icons\toolbar\pivot_centeronobject_disabled.png
+    \content\icons\toolbar\pivot_centeronobject_disabled.png.meta
+    \content\icons\toolbar\pivot_directedit.png
+    \content\icons\toolbar\pivot_directedit.png.meta
+    \content\icons\toolbar\pivot_reset.png
+    \content\icons\toolbar\pivot_reset.png.meta
+    \content\icons\toolbar\pivot_reset_disabled.png
+    \content\icons\toolbar\pivot_reset_disabled.png.meta
+    \content\icons\toolbar\proonly.png
+    \content\icons\toolbar\proonly.png.meta
+    \content\icons\toolbar\roundedborder.png
+    \content\icons\toolbar\roundedborder.png.meta
+    \content\icons\toolbar\selection_grow.png
+    \content\icons\toolbar\selection_grow.png.meta
+    \content\icons\toolbar\selection_grow_disabled.png
+    \content\icons\toolbar\selection_grow_disabled.png.meta
+    \content\icons\toolbar\selection_invert.png
+    \content\icons\toolbar\selection_invert.png.meta
+    \content\icons\toolbar\selection_invert_disabled.png
+    \content\icons\toolbar\selection_invert_disabled.png.meta
+    \content\icons\toolbar\selection_loop.png
+    \content\icons\toolbar\selection_loop.png.meta
+    \content\icons\toolbar\selection_loop_disabled.png
+    \content\icons\toolbar\selection_loop_disabled.png.meta
+    \content\icons\toolbar\selection_loop_face.png
+    \content\icons\toolbar\selection_loop_face.png.meta
+    \content\icons\toolbar\selection_rect_complete.png
+    \content\icons\toolbar\selection_rect_complete.png.meta
+    \content\icons\toolbar\selection_rect_intersect.png
+    \content\icons\toolbar\selection_rect_intersect.png.meta
+    \content\icons\toolbar\selection_ring.png
+    \content\icons\toolbar\selection_ring.png.meta
+    \content\icons\toolbar\selection_ring_disabled.png
+    \content\icons\toolbar\selection_ring_disabled.png.meta
+    \content\icons\toolbar\selection_ring_face.png
+    \content\icons\toolbar\selection_ring_face.png.meta
+    \content\icons\toolbar\selection_selectbymaterial.png
+    \content\icons\toolbar\selection_selectbymaterial.png.meta
+    \content\icons\toolbar\selection_selectbymaterial_disabled.png
+    \content\icons\toolbar\selection_selectbymaterial_disabled.png.meta
+    \content\icons\toolbar\selection_selectbysmoothinggroup.png
+    \content\icons\toolbar\selection_selectbysmoothinggroup.png.meta
+    \content\icons\toolbar\selection_selectbysmoothinggroup_disabled.png
+    \content\icons\toolbar\selection_selectbysmoothinggroup_disabled.png.meta
+    \content\icons\toolbar\selection_selectbyvertexcolor.png
+    \content\icons\toolbar\selection_selectbyvertexcolor.png.meta
+    \content\icons\toolbar\selection_selectbyvertexcolor_disabled.png
+    \content\icons\toolbar\selection_selectbyvertexcolor_disabled.png.meta
+    \content\icons\toolbar\selection_selecthidden-off.png
+    \content\icons\toolbar\selection_selecthidden-off.png.meta
+    \content\icons\toolbar\selection_selecthidden-on.png
+    \content\icons\toolbar\selection_selecthidden-on.png.meta
+    \content\icons\toolbar\selection_selecthole.png
+    \content\icons\toolbar\selection_selecthole.png.meta
+    \content\icons\toolbar\selection_shiftadd.png
+    \content\icons\toolbar\selection_shiftadd.png.meta
+    \content\icons\toolbar\selection_shiftdifference.png
+    \content\icons\toolbar\selection_shiftdifference.png.meta
+    \content\icons\toolbar\selection_shiftsubtract.png
+    \content\icons\toolbar\selection_shiftsubtract.png.meta
+    \content\icons\toolbar\selection_shrink.png
+    \content\icons\toolbar\selection_shrink.png.meta
+    \content\icons\toolbar\selection_shrink_disabled.png
+    \content\icons\toolbar\selection_shrink_disabled.png.meta
+    \content\icons\toolbar\shownextpage_down.png
+    \content\icons\toolbar\shownextpage_down.png.meta
+    \content\icons\toolbar\shownextpage_down_light.png
+    \content\icons\toolbar\shownextpage_down_light.png.meta
+    \content\icons\toolbar\shownextpage_left.png
+    \content\icons\toolbar\shownextpage_left.png.meta
+    \content\icons\toolbar\shownextpage_left_light.png
+    \content\icons\toolbar\shownextpage_left_light.png.meta
+    \content\icons\toolbar\shownextpage_right.png
+    \content\icons\toolbar\shownextpage_right.png.meta
+    \content\icons\toolbar\shownextpage_right_light.png
+    \content\icons\toolbar\shownextpage_right_light.png.meta
+    \content\icons\toolbar\shownextpage_up.png
+    \content\icons\toolbar\shownextpage_up.png.meta
+    \content\icons\toolbar\shownextpage_up_light.png
+    \content\icons\toolbar\shownextpage_up_light.png.meta
+    \content\icons\toolbar\texturing_paintbrush.png
+    \content\icons\toolbar\texturing_paintbrush.png.meta
+    \content\icons\toolbar\vert_collapse.png
+    \content\icons\toolbar\vert_collapse.png.meta
+    \content\icons\toolbar\vert_collapse_disabled.png
+    \content\icons\toolbar\vert_collapse_disabled.png.meta
+    \content\icons\toolbar\vert_connect.png
+    \content\icons\toolbar\vert_connect.png.meta
+    \content\icons\toolbar\vert_connect_disabled.png
+    \content\icons\toolbar\vert_connect_disabled.png.meta
+    \content\icons\toolbar\vert_split.png
+    \content\icons\toolbar\vert_split.png.meta
+    \content\icons\toolbar\vert_split_disabled.png
+    \content\icons\toolbar\vert_split_disabled.png.meta
+    \content\icons\toolbar\vert_weld.png
+    \content\icons\toolbar\vert_weld.png.meta
+    \content\icons\toolbar\vert_weld_disabled.png
+    \content\icons\toolbar\vert_weld_disabled.png.meta
+    \content\icons\toolbar\background\accentbar_bottom.png
+    \content\icons\toolbar\background\accentbar_bottom.png.meta
+    \content\icons\toolbar\background\circle-22px_hover.png
+    \content\icons\toolbar\background\circle-22px_hover.png.meta
+    \content\icons\toolbar\background\circle-22px_hover_light.png
+    \content\icons\toolbar\background\circle-22px_hover_light.png.meta
+    \content\icons\toolbar\background\circle-22px_normal.png
+    \content\icons\toolbar\background\circle-22px_normal.png.meta
+    \content\icons\toolbar\background\circle-22px_normal_light.png
+    \content\icons\toolbar\background\circle-22px_normal_light.png.meta
+    \content\icons\toolbar\background\circle-22px_pressed.png
+    \content\icons\toolbar\background\circle-22px_pressed.png.meta
+    \content\icons\toolbar\background\circle-22px_pressed_light.png
+    \content\icons\toolbar\background\circle-22px_pressed_light.png.meta
+    \content\icons\toolbar\background\geo_hover_horizontal.png
+    \content\icons\toolbar\background\geo_hover_horizontal.png.meta
+    \content\icons\toolbar\background\geo_hover_horizontal_light.png
+    \content\icons\toolbar\background\geo_hover_horizontal_light.png.meta
+    \content\icons\toolbar\background\geo_hover_vertical.png
+    \content\icons\toolbar\background\geo_hover_vertical.png.meta
+    \content\icons\toolbar\background\geo_hover_vertical_light.png
+    \content\icons\toolbar\background\geo_hover_vertical_light.png.meta
+    \content\icons\toolbar\background\geo_normal_horizontal.png
+    \content\icons\toolbar\background\geo_normal_horizontal.png.meta
+    \content\icons\toolbar\background\geo_normal_horizontal_light.png
+    \content\icons\toolbar\background\geo_normal_horizontal_light.png.meta
+    \content\icons\toolbar\background\geo_normal_vertical.png
+    \content\icons\toolbar\background\geo_normal_vertical.png.meta
+    \content\icons\toolbar\background\geo_normal_vertical_light.png
+    \content\icons\toolbar\background\geo_normal_vertical_light.png.meta
+    \content\icons\toolbar\background\geo_pressed_horizontal.png
+    \content\icons\toolbar\background\geo_pressed_horizontal.png.meta
+    \content\icons\toolbar\background\geo_pressed_horizontal_light.png
+    \content\icons\toolbar\background\geo_pressed_horizontal_light.png.meta
+    \content\icons\toolbar\background\geo_pressed_vertical.png
+    \content\icons\toolbar\background\geo_pressed_vertical.png.meta
+    \content\icons\toolbar\background\geo_pressed_vertical_light.png
+    \content\icons\toolbar\background\geo_pressed_vertical_light.png.meta
+    \content\icons\toolbar\background\object_hover_horizontal.png
+    \content\icons\toolbar\background\object_hover_horizontal.png.meta
+    \content\icons\toolbar\background\object_hover_horizontal_light.png
+    \content\icons\toolbar\background\object_hover_horizontal_light.png.meta
+    \content\icons\toolbar\background\object_hover_vertical.png
+    \content\icons\toolbar\background\object_hover_vertical.png.meta
+    \content\icons\toolbar\background\object_hover_vertical_light.png
+    \content\icons\toolbar\background\object_hover_vertical_light.png.meta
+    \content\icons\toolbar\background\object_normal_horizontal.png
+    \content\icons\toolbar\background\object_normal_horizontal.png.meta
+    \content\icons\toolbar\background\object_normal_horizontal_light.png
+    \content\icons\toolbar\background\object_normal_horizontal_light.png.meta
+    \content\icons\toolbar\background\object_normal_vertical.png
+    \content\icons\toolbar\background\object_normal_vertical.png.meta
+    \content\icons\toolbar\background\object_normal_vertical_light.png
+    \content\icons\toolbar\background\object_normal_vertical_light.png.meta
+    \content\icons\toolbar\background\object_pressed_horizontal.png
+    \content\icons\toolbar\background\object_pressed_horizontal.png.meta
+    \content\icons\toolbar\background\object_pressed_horizontal_light.png
+    \content\icons\toolbar\background\object_pressed_horizontal_light.png.meta
+    \content\icons\toolbar\background\object_pressed_vertical.png
+    \content\icons\toolbar\background\object_pressed_vertical.png.meta
+    \content\icons\toolbar\background\object_pressed_vertical_light.png
+    \content\icons\toolbar\background\object_pressed_vertical_light.png.meta
+    \content\icons\toolbar\background\roundedrect_hover.png
+    \content\icons\toolbar\background\roundedrect_hover.png.meta
+    \content\icons\toolbar\background\roundedrect_hover_blue.png
+    \content\icons\toolbar\background\roundedrect_hover_blue.png.meta
+    \content\icons\toolbar\background\roundedrect_hover_bluesteel.png
+    \content\icons\toolbar\background\roundedrect_hover_bluesteel.png.meta
+    \content\icons\toolbar\background\roundedrect_hover_light.png
+    \content\icons\toolbar\background\roundedrect_hover_light.png.meta
+    \content\icons\toolbar\background\roundedrect_hover_orange.png
+    \content\icons\toolbar\background\roundedrect_hover_orange.png.meta
+    \content\icons\toolbar\background\roundedrect_normal.png
+    \content\icons\toolbar\background\roundedrect_normal.png.meta
+    \content\icons\toolbar\background\roundedrect_normal_blue.png
+    \content\icons\toolbar\background\roundedrect_normal_blue.png.meta
+    \content\icons\toolbar\background\roundedrect_normal_bluesteel.png
+    \content\icons\toolbar\background\roundedrect_normal_bluesteel.png.meta
+    \content\icons\toolbar\background\roundedrect_normal_light.png
+    \content\icons\toolbar\background\roundedrect_normal_light.png.meta
+    \content\icons\toolbar\background\roundedrect_normal_orange.png
+    \content\icons\toolbar\background\roundedrect_normal_orange.png.meta
+    \content\icons\toolbar\background\roundedrect_pressed.png
+    \content\icons\toolbar\background\roundedrect_pressed.png.meta
+    \content\icons\toolbar\background\roundedrect_pressed_blue.png
+    \content\icons\toolbar\background\roundedrect_pressed_blue.png.meta
+    \content\icons\toolbar\background\roundedrect_pressed_bluesteel.png
+    \content\icons\toolbar\background\roundedrect_pressed_bluesteel.png.meta
+    \content\icons\toolbar\background\roundedrect_pressed_light.png
+    \content\icons\toolbar\background\roundedrect_pressed_light.png.meta
+    \content\icons\toolbar\background\roundedrect_pressed_orange.png
+    \content\icons\toolbar\background\roundedrect_pressed_orange.png.meta
+    \content\icons\toolbar\background\selection_hover_horizontal.png
+    \content\icons\toolbar\background\selection_hover_horizontal.png.meta
+    \content\icons\toolbar\background\selection_hover_horizontal_light.png
+    \content\icons\toolbar\background\selection_hover_horizontal_light.png.meta
+    \content\icons\toolbar\background\selection_hover_vertical.png
+    \content\icons\toolbar\background\selection_hover_vertical.png.meta
+    \content\icons\toolbar\background\selection_hover_vertical_light.png
+    \content\icons\toolbar\background\selection_hover_vertical_light.png.meta
+    \content\icons\toolbar\background\selection_normal_horizontal.png
+    \content\icons\toolbar\background\selection_normal_horizontal.png.meta
+    \content\icons\toolbar\background\selection_normal_horizontal_light.png
+    \content\icons\toolbar\background\selection_normal_horizontal_light.png.meta
+    \content\icons\toolbar\background\selection_normal_vertical.png
+    \content\icons\toolbar\background\selection_normal_vertical.png.meta
+    \content\icons\toolbar\background\selection_normal_vertical_light.png
+    \content\icons\toolbar\background\selection_normal_vertical_light.png.meta
+    \content\icons\toolbar\background\selection_pressed_horizontal.png
+    \content\icons\toolbar\background\selection_pressed_horizontal.png.meta
+    \content\icons\toolbar\background\selection_pressed_horizontal_light.png
+    \content\icons\toolbar\background\selection_pressed_horizontal_light.png.meta
+    \content\icons\toolbar\background\selection_pressed_vertical.png
+    \content\icons\toolbar\background\selection_pressed_vertical.png.meta
+    \content\icons\toolbar\background\selection_pressed_vertical_light.png
+    \content\icons\toolbar\background\selection_pressed_vertical_light.png.meta
+    \content\icons\toolbar\background\tool_hover_horizontal.png
+    \content\icons\toolbar\background\tool_hover_horizontal.png.meta
+    \content\icons\toolbar\background\tool_hover_horizontal_light.png
+    \content\icons\toolbar\background\tool_hover_horizontal_light.png.meta
+    \content\icons\toolbar\background\tool_hover_vertical.png
+    \content\icons\toolbar\background\tool_hover_vertical.png.meta
+    \content\icons\toolbar\background\tool_hover_vertical_light.png
+    \content\icons\toolbar\background\tool_hover_vertical_light.png.meta
+    \content\icons\toolbar\background\tool_normal_horizontal.png
+    \content\icons\toolbar\background\tool_normal_horizontal.png.meta
+    \content\icons\toolbar\background\tool_normal_horizontal_light.png
+    \content\icons\toolbar\background\tool_normal_horizontal_light.png.meta
+    \content\icons\toolbar\background\tool_normal_vertical.png
+    \content\icons\toolbar\background\tool_normal_vertical.png.meta
+    \content\icons\toolbar\background\tool_normal_vertical_light.png
+    \content\icons\toolbar\background\tool_normal_vertical_light.png.meta
+    \content\icons\toolbar\background\tool_pressed_horizontal.png
+    \content\icons\toolbar\background\tool_pressed_horizontal.png.meta
+    \content\icons\toolbar\background\tool_pressed_horizontal_light.png
+    \content\icons\toolbar\background\tool_pressed_horizontal_light.png.meta
+    \content\icons\toolbar\background\tool_pressed_vertical.png
+    \content\icons\toolbar\background\tool_pressed_vertical.png.meta
+    \content\icons\toolbar\background\tool_pressed_vertical_light.png
+    \content\icons\toolbar\background\tool_pressed_vertical_light.png.meta
+    \content\icons\uveditor\camera-64x64.png
+    \content\icons\uveditor\camera-64x64.png.meta
+    \content\icons\uveditor\camera-64x64_light.png
+    \content\icons\uveditor\camera-64x64_light.png.meta
+    \content\icons\uveditor\probuildergui_uv_manip_off.png
+    \content\icons\uveditor\probuildergui_uv_manip_off.png.meta
+    \content\icons\uveditor\probuildergui_uv_manip_on.png
+    \content\icons\uveditor\probuildergui_uv_manip_on.png.meta
+    \content\icons\uveditor\probuildergui_uv_showtexture_off.png
+    \content\icons\uveditor\probuildergui_uv_showtexture_off.png.meta
+    \content\icons\uveditor\probuildergui_uv_showtexture_on.png
+    \content\icons\uveditor\probuildergui_uv_showtexture_on.png.meta
+    \content\material\checker.mat
+    \content\material\checker.mat.meta
+    \content\material\textures.meta
+    \content\material\textures\checker.png
+    \content\material\textures\checker.png.meta
+    \content\material\textures\gridbox_collider.png
+    \content\material\textures\gridbox_collider.png.meta
+    \content\material\textures\gridbox_nodraw.png
+    \content\material\textures\gridbox_nodraw.png.meta
+    \content\material\textures\gridbox_trigger.png
+    \content\material\textures\gridbox_trigger.png.meta
+    \content\resources\materials.meta
+    \content\resources\textures.meta
+    \content\resources\materials\collider.mat
+    \content\resources\materials\collider.mat.meta
+    \content\resources\materials\edgepicker.mat
+    \content\resources\materials\edgepicker.mat.meta
+    \content\resources\materials\facepicker.mat
+    \content\resources\materials\facepicker.mat.meta
+    \content\resources\materials\invisibleface.mat
+    \content\resources\materials\invisibleface.mat.meta
+    \content\resources\materials\nodraw.mat
+    \content\resources\materials\nodraw.mat.meta
+    \content\resources\materials\probuilderdefault.mat
+    \content\resources\materials\probuilderdefault.mat.meta
+    \content\resources\materials\trigger.mat
+    \content\resources\materials\trigger.mat.meta
+    \content\resources\materials\unlitvertexcolor.mat
+    \content\resources\materials\unlitvertexcolor.mat.meta
+    \content\resources\materials\vertexpicker.mat
+    \content\resources\materials\vertexpicker.mat.meta
+    \content\resources\textures\gridbox_default.png
+    \content\resources\textures\gridbox_default.png.meta
+    \content\shader\diffusetextureblend.shader
+    \content\shader\diffusetextureblend.shader.meta
+    \content\shader\diffusevertexcolor.shader
+    \content\shader\diffusevertexcolor.shader.meta
+    \content\shader\edgepicker.shader
+    \content\shader\edgepicker.shader.meta
+    \content\shader\facehighlight.shader
+    \content\shader\facehighlight.shader.meta
+    \content\shader\facepicker.shader
+    \content\shader\facepicker.shader.meta
+    \content\shader\hidevertices.shader
+    \content\shader\hidevertices.shader.meta
+    \content\shader\linebillboard.shader
+    \content\shader\linebillboard.shader.meta
+    \content\shader\normalpreview.shader
+    \content\shader\normalpreview.shader.meta
+    \content\shader\pointbillboard.shader
+    \content\shader\pointbillboard.shader.meta
+    \content\shader\referenceunlit.shader
+    \content\shader\referenceunlit.shader.meta
+    \content\shader\scrollhighlight.shader
+    \content\shader\scrollhighlight.shader.meta
+    \content\shader\selectionpicker.shader
+    \content\shader\selectionpicker.shader.meta
+    \content\shader\smoothingpreview.shader
+    \content\shader\smoothingpreview.shader.meta
+    \content\shader\standardvertexcolor.shader
+    \content\shader\standardvertexcolor.shader.meta
+    \content\shader\transparentoverlay.shader
+    \content\shader\transparentoverlay.shader.meta
+    \content\shader\unlitsolidcolor.shader
+    \content\shader\unlitsolidcolor.shader.meta
+    \content\shader\unlitvertexcolor.shader
+    \content\shader\unlitvertexcolor.shader.meta
+    \content\shader\vertexpicker.shader
+    \content\shader\vertexpicker.shader.meta
+    \content\shader\vertexshader.shader
+    \content\shader\vertexshader.shader.meta
+    \content\upgrade\assetidremap-4_0_0.json
+    \content\upgrade\assetidremap-4_0_0.json.meta
+    \documentation~\api.md
+    \documentation~\arch.md
+    \documentation~\auto-uvs-actions.md
+    \documentation~\bezier.md
+    \documentation~\boolean.md
+    \documentation~\centerpivot.md
+    \documentation~\cone.md
+    \documentation~\cube.md
+    \documentation~\custom.md
+    \documentation~\customizing.md
+    \documentation~\cylinder.md
+    \documentation~\door.md
+    \documentation~\edge.md
+    \documentation~\edge_bevel.md
+    \documentation~\edge_bridge.md
+    \documentation~\edge_connect.md
+    \documentation~\edge_extrude.md
+    \documentation~\edge_fillhole.md
+    \documentation~\edge_insertloop.md
+    \documentation~\edge_setpivot.md
+    \documentation~\edge_subdivide.md
+    \documentation~\edit-mode-toolbar.md
+    \documentation~\entity_trigger.md
+    \documentation~\experimental.md
+    \documentation~\face.md
+    \documentation~\face_bevel.md
+    \documentation~\face_conformnormals.md
+    \documentation~\face_delete.md
+    \documentation~\face_detach.md
+    \documentation~\face_extrude.md
+    \documentation~\face_flipnormals.md
+    \documentation~\face_fliptri.md
+    \documentation~\face_inset.md
+    \documentation~\face_merge.md
+    \documentation~\face_setpivot.md
+    \documentation~\face_subdivide.md
+    \documentation~\face_triangulate.md
+    \documentation~\faq.md
+    \documentation~\handlealign.md
+    \documentation~\hotkeys.md
+    \documentation~\index.md
+    \documentation~\installing.md
+    \documentation~\lightmap-uv.md
+    \documentation~\links.md
+    \documentation~\manual-uvs-actions.md
+    \documentation~\material-tools.md
+    \documentation~\menu-actions.md
+    \documentation~\menu-debug.md
+    \documentation~\menu-dimover.md
+    \documentation~\menu-editors.md
+    \documentation~\menu-experimental.md
+    \documentation~\menu-export.md
+    \documentation~\menu-geometry.md
+    \documentation~\menu-interaction.md
+    \documentation~\menu-materials.md
+    \documentation~\menu-object.md
+    \documentation~\menu-open.md
+    \documentation~\menu-repair.md
+    \documentation~\menu-selection.md
+    \documentation~\menu-vertexcolors.md
+    \documentation~\menu.md
+    \documentation~\modes.md
+    \documentation~\object-actions.md
+    \documentation~\object_conformnormals.md
+    \documentation~\object_export.md
+    \documentation~\object_flipnormals.md
+    \documentation~\object_lightmapuvs.md
+    \documentation~\object_merge.md
+    \documentation~\object_mirror.md
+    \documentation~\object_probuilderize.md
+    \documentation~\object_subdivide.md
+    \documentation~\object_triangulate.md
+    \documentation~\overview-ui.md
+    \documentation~\overview.md
+    \documentation~\pipe.md
+    \documentation~\pivot_reset.md
+    \documentation~\plane.md
+    \documentation~\polyshape.md
+    \documentation~\preferences.md
+    \documentation~\prism.md
+    \documentation~\probuildermesh.md
+    \documentation~\ref_tools.md
+    \documentation~\ref_windows.md
+    \documentation~\selection-tools.md
+    \documentation~\selection_grow.md
+    \documentation~\selection_invert.md
+    \documentation~\selection_loop_edge.md
+    \documentation~\selection_loop_face.md
+    \documentation~\selection_rect_intersect.md
+    \documentation~\selection_ring_edge.md
+    \documentation~\selection_ring_face.md
+    \documentation~\selection_selectbymaterial.md
+    \documentation~\selection_selectbyvertexcolor.md
+    \documentation~\selection_selecthidden.md
+    \documentation~\selection_selecthole.md
+    \documentation~\selection_shift.md
+    \documentation~\selection_shrink.md
+    \documentation~\selection_smoothinggroup.md
+    \documentation~\shape-tool.md
+    \documentation~\smoothing-groups.md
+    \documentation~\sphere.md
+    \documentation~\sprite.md
+    \documentation~\stair.md
+    \documentation~\tableofcontents.md
+    \documentation~\tool-panels.md
+    \documentation~\toolbar.md
+    \documentation~\torus.md
+    \documentation~\uv-editor-toolbar.md
+    \documentation~\uv-editor.md
+    \documentation~\uv_dropdown.md
+    \documentation~\vertex-colors.md
+    \documentation~\vertex-positions.md
+    \documentation~\vertex.md
+    \documentation~\vert_collapse.md
+    \documentation~\vert_connect.md
+    \documentation~\vert_fillhole.md
+    \documentation~\vert_setpivot.md
+    \documentation~\vert_split.md
+    \documentation~\vert_weld.md
+    \documentation~\workflow-create-bezier.md
+    \documentation~\workflow-create-polyshape.md
+    \documentation~\workflow-create-predefined.md
+    \documentation~\workflow-create.md
+    \documentation~\workflow-edit-smoothing.md
+    \documentation~\workflow-edit-tasks.md
+    \documentation~\workflow-edit-tips.md
+    \documentation~\workflow-edit.md
+    \documentation~\workflow-exporting.md
+    \documentation~\workflow-materials.md
+    \documentation~\workflow-texture-mapping.md
+    \documentation~\workflow-uvs.md
+    \documentation~\workflow-vertexcolors.md
+    \documentation~\workflow-walkthroughs.md
+    \documentation~\workflows.md
+    \documentation~\images\badlightmapuvs.png
+    \documentation~\images\beveledges_example.png
+    \documentation~\images\bevelface_example.png
+    \documentation~\images\beziershape_headerimage.png
+    \documentation~\images\bezier_aligned.png
+    \documentation~\images\bezier_curveprops.png
+    \documentation~\images\bezier_free.png
+    \documentation~\images\bezier_mirrored.png
+    \documentation~\images\bezier_shapeprops.png
+    \documentation~\images\boolean_intersection.png
+    \documentation~\images\boolean_subtraction.png
+    \documentation~\images\boolean_union.png
+    \documentation~\images\boxproject_example.png
+    \documentation~\images\bridgeedges_example.png
+    \documentation~\images\centerpivot_example.png
+    \documentation~\images\collapseverts_example.png
+    \documentation~\images\connectedges_example.png
+    \documentation~\images\connectverts_example.png
+    \documentation~\images\curvedstair.png
+    \documentation~\images\custom_vtx_order.png
+    \documentation~\images\cus_switchmodes.png
+    \documentation~\images\cus_switchwindows.png
+    \documentation~\images\deleteface_example.png
+    \documentation~\images\detachface_example.png
+    \documentation~\images\dimoverlay.png
+    \documentation~\images\dragrect_example.png
+    \documentation~\images\edge_bevel_props.png
+    \documentation~\images\edge_extrude_props.png
+    \documentation~\images\edge_setpivot.png
+    \documentation~\images\edge_subdivide_props.png
+    \documentation~\images\exampleimage_objectandelementeditingmodes.png
+    \documentation~\images\exampleimage_toolbar_colorcategories.png
+    \documentation~\images\example_floatingverts.png
+    \documentation~\images\example_levelbuilding.png
+    \documentation~\images\example_materialsonlevel.png
+    \documentation~\images\example_selectbymaterial.png
+    \documentation~\images\example_selectbyvertexcolor.png
+    \documentation~\images\example_selecthole.png
+    \documentation~\images\example_shapetoolswithcurvedstair.png
+    \documentation~\images\example_t-junction.png
+    \documentation~\images\experimental_bezierinspector.png
+    \documentation~\images\experimental_booleanwindow.png
+    \documentation~\images\experimental_polyshapeinspector.png
+    \documentation~\images\experimental_preferences.png
+    \documentation~\images\extrudeedges_example.png
+    \documentation~\images\extrudeface_example.png
+    \documentation~\images\face_conformnormals.png
+    \documentation~\images\face_detach_props.png
+    \documentation~\images\face_extrude_props.png
+    \documentation~\images\face_setpivot.png
+    \documentation~\images\faq-norender.png
+    \documentation~\images\faq_black.png
+    \documentation~\images\fillhole_example.png
+    \documentation~\images\fillhole_props.png
+    \documentation~\images\flipfacenormals_example.png
+    \documentation~\images\flipobjectnormals_example.png
+    \documentation~\images\fliptri_example.png
+    \documentation~\images\growselection_example.png
+    \documentation~\images\handlealign_exampleswithtextandicons.png
+    \documentation~\images\info_overlay.png
+    \documentation~\images\insertedgeloop_example.png
+    \documentation~\images\insetface_example.png
+    \documentation~\images\invertselection_example.png
+    \documentation~\images\lettercircle_a.png
+    \documentation~\images\lettercircle_b.png
+    \documentation~\images\lettercircle_c.png
+    \documentation~\images\lettercircle_d.png
+    \documentation~\images\lettercircle_e.png
+    \documentation~\images\lettercircle_f.png
+    \documentation~\images\lettercircle_g.png
+    \documentation~\images\lettercircle_h.png
+    \documentation~\images\lettercircle_i.png
+    \documentation~\images\lightmap-uv.png
+    \documentation~\images\material-tools-palette.png
+    \documentation~\images\material-tools-quick.png
+    \documentation~\images\material-tools.png
+    \documentation~\images\materialtools_withexample.png
+    \documentation~\images\menu-actions.png
+    \documentation~\images\menu-debug.png
+    \documentation~\images\menu-dimover.png
+    \documentation~\images\menu-editors.png
+    \documentation~\images\menu-experimental.png
+    \documentation~\images\menu-export.png
+    \documentation~\images\menu-geometry.png
+    \documentation~\images\menu-interaction.png
+    \documentation~\images\menu-materials.png
+    \documentation~\images\menu-object.png
+    \documentation~\images\menu-open.png
+    \documentation~\images\menu-repair.png
+    \documentation~\images\menu-selection.png
+    \documentation~\images\menu-vertexcolors.png
+    \documentation~\images\mergefaces_example.png
+    \documentation~\images\mirror_example.png
+    \documentation~\images\object_conformnormals.png
+    \documentation~\images\object_export_props.png
+    \documentation~\images\object_export_propsasset.png
+    \documentation~\images\object_export_propsobj.png
+    \documentation~\images\object_export_propsply.png
+    \documentation~\images\object_export_propsstl.png
+    \documentation~\images\object_mirror_props.png
+    \documentation~\images\object_probuilderize_props.png
+    \documentation~\images\overview-ui.png
+    \documentation~\images\pbvsunitymeshes.png
+    \documentation~\images\pb_comp.png
+    \documentation~\images\pb_editors.png
+    \documentation~\images\pb_hotkeys.png
+    \documentation~\images\pb_menu.png
+    \documentation~\images\pb_options.png
+    \documentation~\images\pb_transform.png
+    \documentation~\images\planarproject_example.png
+    \documentation~\images\polyshape_draw1.png
+    \documentation~\images\polyshape_draw2.png
+    \documentation~\images\polyshape_draw3.png
+    \documentation~\images\polyshape_headerimage.png
+    \documentation~\images\preferences.png
+    \documentation~\images\prefs_editing.png
+    \documentation~\images\prefs_experimental.png
+    \documentation~\images\prefs_general.png
+    \documentation~\images\prefs_graphics.png
+    \documentation~\images\prefs_settings.png
+    \documentation~\images\prefs_shortcuts.png
+    \documentation~\images\prefs_toolbar.png
+    \documentation~\images\prefs_uvs.png
+    \documentation~\images\probuildermesh-lightmapuvs.png
+    \documentation~\images\probuildermesh.png
+    \documentation~\images\probuildertoolbar_geoactionsarea.png
+    \documentation~\images\probuilder_unitylogo.png
+    \documentation~\images\renderuvspanel.png
+    \documentation~\images\selectfaceloop_example.png
+    \documentation~\images\selectfacering_example.png
+    \documentation~\images\selecthidden_example.png
+    \documentation~\images\selection_grow_props.png
+    \documentation~\images\selection_loopexample.png
+    \documentation~\images\selection_ringexample.png
+    \documentation~\images\selection_selectbymaterial.png
+    \documentation~\images\selection_selectbymaterial_props.png
+    \documentation~\images\selection_selectbyvertexcolor_props.png
+    \documentation~\images\shape-tool.png
+    \documentation~\images\shape-tool_arch-props.png
+    \documentation~\images\shape-tool_arch.png
+    \documentation~\images\shape-tool_cone-props.png
+    \documentation~\images\shape-tool_cone.png
+    \documentation~\images\shape-tool_cube-props.png
+    \documentation~\images\shape-tool_cube.png
+    \documentation~\images\shape-tool_cylinder-props.png
+    \documentation~\images\shape-tool_cylinder.png
+    \documentation~\images\shape-tool_door-props.png
+    \documentation~\images\shape-tool_door.png
+    \documentation~\images\shape-tool_pipe-props.png
+    \documentation~\images\shape-tool_pipe.png
+    \documentation~\images\shape-tool_plane-props.png
+    \documentation~\images\shape-tool_plane.png
+    \documentation~\images\shape-tool_preview.png
+    \documentation~\images\shape-tool_prism-props.png
+    \documentation~\images\shape-tool_prism.png
+    \documentation~\images\shape-tool_sphere-props.png
+    \documentation~\images\shape-tool_sphere.png
+    \documentation~\images\shape-tool_sprite-props.png
+    \documentation~\images\shape-tool_sprite.png
+    \documentation~\images\shape-tool_stair-props.png
+    \documentation~\images\shape-tool_stair.png
+    \documentation~\images\shape-tool_torus-props.png
+    \documentation~\images\shape-tool_torus.png
+    \documentation~\images\shapetooltypes.png
+    \documentation~\images\shiftmodifier_example.png
+    \documentation~\images\showtexturepreview_example.png
+    \documentation~\images\shrinkselection_example.png
+    \documentation~\images\smoothing_editor.png
+    \documentation~\images\smoothing_editor_props-btnblue.png
+    \documentation~\images\smoothing_editor_props-btngray.png
+    \documentation~\images\smoothing_editor_props-btnwhite.png
+    \documentation~\images\smoothing_editor_props-btnyellow.png
+    \documentation~\images\smoothing_editor_props-pnlmain.png
+    \documentation~\images\smoothing_editor_props-pnlnormals.png
+    \documentation~\images\smoothing_editor_props-pnloverlay.png
+    \documentation~\images\smoothing_editor_props-pnlquickref.png
+    \documentation~\images\smoothing_editor_props.png
+    \documentation~\images\splitverts_example.png
+    \documentation~\images\subdivideedge_example.png
+    \documentation~\images\subdivideface_example.png
+    \documentation~\images\subdivideobject_example.png
+    \documentation~\images\texmat-create.png
+    \documentation~\images\toolbar_editmode.png
+    \documentation~\images\toolbar_main.png
+    \documentation~\images\toolbar_resizingexample.png
+    \documentation~\images\toolbar_text_v_icon.png
+    \documentation~\images\tool_edges.png
+    \documentation~\images\tool_faces.png
+    \documentation~\images\tool_objects.png
+    \documentation~\images\tool_panels.png
+    \documentation~\images\tool_selection.png
+    \documentation~\images\tool_vertices.png
+    \documentation~\images\triangulateobject_example.png
+    \documentation~\images\uveditor_example-123.png
+    \documentation~\images\uveditor_example-beforeafter.png
+    \documentation~\images\uvexamples_collapseuvs.png
+    \documentation~\images\uvexamples_fituvs.png
+    \documentation~\images\uvexamples_fliphorizontal.png
+    \documentation~\images\uvexamples_flipvertical.png
+    \documentation~\images\uvexamples_rotate.png
+    \documentation~\images\uvexamples_scale.png
+    \documentation~\images\uvexamples_selectface.png
+    \documentation~\images\uvexamples_selectisland.png
+    \documentation~\images\uvexamples_splituvs.png
+    \documentation~\images\uvexamples_template.png
+    \documentation~\images\uvexamples_texturegroups.png
+    \documentation~\images\uvexamples_translate.png
+    \documentation~\images\uvexamples_welduvs.png
+    \documentation~\images\uvgenerationparams.png
+    \documentation~\images\uvpanel_actionpanel_noselection.png
+    \documentation~\images\uvpanel_fullwindow_letters.png
+    \documentation~\images\uvpanel_manualactions.png
+    \documentation~\images\uvpanel_mixedmode.png
+    \documentation~\images\uvtoolbar.png
+    \documentation~\images\uv_autoactions-anchor.png
+    \documentation~\images\uv_autoactions.png
+    \documentation~\images\uv_fillmodes.png
+    \documentation~\images\uv_inscenecontrols.png
+    \documentation~\images\vertex-positions.png
+    \documentation~\images\vertex-positions_example.png
+    \documentation~\images\vertexcolors.png
+    \documentation~\images\vertexcolors_bymodes.png
+    \documentation~\images\vertexcolor_withlevelexample.png
+    \documentation~\images\vert_collapse_props.png
+    \documentation~\images\vert_setpivot.png
+    \documentation~\images\vert_weld_props.png
+    \documentation~\images\weldverts_example.png
+    \documentation~\images\icons\centerpivot.png
+    \documentation~\images\icons\edge_bevel.png
+    \documentation~\images\icons\edge_bridge.png
+    \documentation~\images\icons\edge_connect.png
+    \documentation~\images\icons\edge_extrude.png
+    \documentation~\images\icons\edge_insertloop.png
+    \documentation~\images\icons\edge_subdivide.png
+    \documentation~\images\icons\editmodes_edge.png
+    \documentation~\images\icons\editmodes_face.png
+    \documentation~\images\icons\editmodes_object.png
+    \documentation~\images\icons\editmodes_vertex.png
+    \documentation~\images\icons\entity_trigger.png
+    \documentation~\images\icons\extrudeface_facenormals.png
+    \documentation~\images\icons\extrudeface_individual.png
+    \documentation~\images\icons\extrudeface_vertexnormals.png
+    \documentation~\images\icons\face_breaksmoothing.png
+    \documentation~\images\icons\face_conformnormals.png
+    \documentation~\images\icons\face_delete.png
+    \documentation~\images\icons\face_detach.png
+    \documentation~\images\icons\face_extrude.png
+    \documentation~\images\icons\face_flipnormals.png
+    \documentation~\images\icons\face_fliptri.png
+    \documentation~\images\icons\face_merge.png
+    \documentation~\images\icons\face_subdivide.png
+    \documentation~\images\icons\face_triangulate.png
+    \documentation~\images\icons\fillhole.png
+    \documentation~\images\icons\handlealign_local.png
+    \documentation~\images\icons\handlealign_plane.png
+    \documentation~\images\icons\handlealign_world.png
+    \documentation~\images\icons\newbezierspline.png
+    \documentation~\images\icons\newpolyshape.png
+    \documentation~\images\icons\object_conformnormals.png
+    \documentation~\images\icons\object_export.png
+    \documentation~\images\icons\object_flipnormals.png
+    \documentation~\images\icons\object_lightmapuvs.png
+    \documentation~\images\icons\object_merge.png
+    \documentation~\images\icons\object_mirror.png
+    \documentation~\images\icons\object_probuilderize.png
+    \documentation~\images\icons\object_subdivide.png
+    \documentation~\images\icons\object_triangulate.png
+    \documentation~\images\icons\options.png
+    \documentation~\images\icons\panel_materials.png
+    \documentation~\images\icons\panel_shapes.png
+    \documentation~\images\icons\panel_smoothing.png
+    \documentation~\images\icons\panel_uveditor.png
+    \documentation~\images\icons\panel_vertcolors.png
+    \documentation~\images\icons\pivot_reset.png
+    \documentation~\images\icons\probuildergui_uv_manip_off.png
+    \documentation~\images\icons\probuildergui_uv_manip_on.png
+    \documentation~\images\icons\probuildergui_uv_renderuvtemplate.png
+    \documentation~\images\icons\probuildergui_uv_showtexture_off.png
+    \documentation~\images\icons\probuildergui_uv_showtexture_on.png
+    \documentation~\images\icons\selection_grow.png
+    \documentation~\images\icons\selection_invert.png
+    \documentation~\images\icons\selection_loop.png
+    \documentation~\images\icons\selection_loop_face.png
+    \documentation~\images\icons\selection_rect_complete.png
+    \documentation~\images\icons\selection_rect_intersect.png
+    \documentation~\images\icons\selection_ring.png
+    \documentation~\images\icons\selection_ring_face.png
+    \documentation~\images\icons\selection_selectbymaterial.png
+    \documentation~\images\icons\selection_selectbysmoothinggroup.png
+    \documentation~\images\icons\selection_selectbyvertexcolor.png
+    \documentation~\images\icons\selection_selecthidden-off.png
+    \documentation~\images\icons\selection_selecthidden-on.png
+    \documentation~\images\icons\selection_selecthole.png
+    \documentation~\images\icons\selection_shiftadd.png
+    \documentation~\images\icons\selection_shiftdifference.png
+    \documentation~\images\icons\selection_shiftsubtract.png
+    \documentation~\images\icons\selection_shrink.png
+    \documentation~\images\icons\setpivot.png
+    \documentation~\images\icons\vert_collapse.png
+    \documentation~\images\icons\vert_connect.png
+    \documentation~\images\icons\vert_split.png
+    \documentation~\images\icons\vert_weld.png
+    \editor\editorcore.meta
+    \editor\menuactions.meta
+    \editor\unity.probuilder.editor.asmdef
+    \editor\unity.probuilder.editor.asmdef.meta
+    \editor\editorcore\assemblyinfo.cs
+    \editor\editorcore\assemblyinfo.cs.meta
+    \editor\editorcore\autouveditor.cs
+    \editor\editorcore\autouveditor.cs.meta
+    \editor\editorcore\beziersplineeditor.cs
+    \editor\editorcore\beziersplineeditor.cs.meta
+    \editor\editorcore\booleaneditor.cs
+    \editor\editorcore\booleaneditor.cs.meta
+    \editor\editorcore\configurablewindow.cs
+    \editor\editorcore\configurablewindow.cs.meta
+    \editor\editorcore\destroylistener.cs
+    \editor\editorcore\destroylistener.cs.meta
+    \editor\editorcore\dimensionseditor.cs
+    \editor\editorcore\dimensionseditor.cs.meta
+    \editor\editorcore\editorenum.cs
+    \editor\editorcore\editorenum.cs.meta
+    \editor\editorcore\editorguilayout.cs
+    \editor\editorcore\editorguilayout.cs.meta
+    \editor\editorcore\editorguiutility.cs
+    \editor\editorcore\editorguiutility.cs.meta
+    \editor\editorcore\editorhandleutility.cs
+    \editor\editorcore\editorhandleutility.cs.meta
+    \editor\editorcore\editormeshhandles.cs
+    \editor\editorcore\editormeshhandles.cs.meta
+    \editor\editorcore\editormeshutility.cs
+    \editor\editorcore\editormeshutility.cs.meta
+    \editor\editorcore\editorsceneviewpicker.cs
+    \editor\editorcore\editorsceneviewpicker.cs.meta
+    \editor\editorcore\editorstyles.cs
+    \editor\editorcore\editorstyles.cs.meta
+    \editor\editorcore\editortoolbar.cs
+    \editor\editorcore\editortoolbar.cs.meta
+    \editor\editorcore\editortoolbarloader.cs
+    \editor\editorcore\editortoolbarloader.cs.meta
+    \editor\editorcore\editortoolbarmenuitems.cs
+    \editor\editorcore\editortoolbarmenuitems.cs.meta
+    \editor\editorcore\editorutility.cs
+    \editor\editorcore\editorutility.cs.meta
+    \editor\editorcore\entityeditor.cs
+    \editor\editorcore\entityeditor.cs.meta
+    \editor\editorcore\entityutility.cs
+    \editor\editorcore\entityutility.cs.meta
+    \editor\editorcore\entityvisibility.cs
+    \editor\editorcore\entityvisibility.cs.meta
+    \editor\editorcore\experimental.cs
+    \editor\editorcore\experimental.cs.meta
+    \editor\editorcore\fileutility.cs
+    \editor\editorcore\fileutility.cs.meta
+    \editor\editorcore\handlegui.cs
+    \editor\editorcore\handlegui.cs.meta
+    \editor\editorcore\hierarchylistener.cs
+    \editor\editorcore\hierarchylistener.cs.meta
+    \editor\editorcore\iconimporter.cs
+    \editor\editorcore\iconimporter.cs.meta
+    \editor\editorcore\iconutility.cs
+    \editor\editorcore\iconutility.cs.meta
+    \editor\editorcore\ihaspreferences.cs
+    \editor\editorcore\ihaspreferences.cs.meta
+    \editor\editorcore\licenseeditor.cs
+    \editor\editorcore\licenseeditor.cs.meta
+    \editor\editorcore\lightmapping.cs
+    \editor\editorcore\lightmapping.cs.meta
+    \editor\editorcore\lightmapuveditor.cs
+    \editor\editorcore\lightmapuveditor.cs.meta
+    \editor\editorcore\logeditor.cs
+    \editor\editorcore\logeditor.cs.meta
+    \editor\editorcore\materialeditor.cs
+    \editor\editorcore\materialeditor.cs.meta
+    \editor\editorcore\materialpalette.cs
+    \editor\editorcore\materialpalette.cs.meta
+    \editor\editorcore\menuaction.cs
+    \editor\editorcore\menuaction.cs.meta
+    \editor\editorcore\menuactionstyles.cs
+    \editor\editorcore\menuactionstyles.cs.meta
+    \editor\editorcore\menuitems.cs
+    \editor\editorcore\menuitems.cs.meta
+    \editor\editorcore\menuoption.cs
+    \editor\editorcore\menuoption.cs.meta
+    \editor\editorcore\meshandelementselection.cs
+    \editor\editorcore\meshandelementselection.cs.meta
+    \editor\editorcore\meshselection.cs
+    \editor\editorcore\meshselection.cs.meta
+    \editor\editorcore\model.cs
+    \editor\editorcore\model.cs.meta
+    \editor\editorcore\objexporter.cs
+    \editor\editorcore\objexporter.cs.meta
+    \editor\editorcore\pb_objectarray.cs
+    \editor\editorcore\pb_objectarray.cs.meta
+    \editor\editorcore\plyexporter.cs
+    \editor\editorcore\plyexporter.cs.meta
+    \editor\editorcore\polyshapeeditor.cs
+    \editor\editorcore\polyshapeeditor.cs.meta
+    \editor\editorcore\positionmovetool.cs
+    \editor\editorcore\positionmovetool.cs.meta
+    \editor\editorcore\positionrotatetool.cs
+    \editor\editorcore\positionrotatetool.cs.meta
+    \editor\editorcore\positionscaletool.cs
+    \editor\editorcore\positionscaletool.cs.meta
+    \editor\editorcore\positiontool.cs
+    \editor\editorcore\positiontool.cs.meta
+    \editor\editorcore\pref.cs
+    \editor\editorcore\pref.cs.meta
+    \editor\editorcore\preferencedictionaryeditor.cs
+    \editor\editorcore\preferencedictionaryeditor.cs.meta
+    \editor\editorcore\preferences.cs
+    \editor\editorcore\preferences.cs.meta
+    \editor\editorcore\preferencesinternal.cs
+    \editor\editorcore\preferencesinternal.cs.meta
+    \editor\editorcore\preferencesupdater.cs
+    \editor\editorcore\preferencesupdater.cs.meta
+    \editor\editorcore\probuildereditor.cs
+    \editor\editorcore\probuildereditor.cs.meta
+    \editor\editorcore\probuildermenuactionattribute.cs
+    \editor\editorcore\probuildermenuactionattribute.cs.meta
+    \editor\editorcore\probuildermesheditor.cs
+    \editor\editorcore\probuildermesheditor.cs.meta
+    \editor\editorcore\probuildersettings.cs
+    \editor\editorcore\probuildersettings.cs.meta
+    \editor\editorcore\probuildersettingsprovider.cs
+    \editor\editorcore\probuildersettingsprovider.cs.meta
+    \editor\editorcore\progridsinterface.cs
+    \editor\editorcore\progridsinterface.cs.meta
+    \editor\editorcore\reflectionutility.cs
+    \editor\editorcore\reflectionutility.cs.meta
+    \editor\editorcore\repairactions.cs
+    \editor\editorcore\repairactions.cs.meta
+    \editor\editorcore\scenedraganddroplistener.cs
+    \editor\editorcore\scenedraganddroplistener.cs.meta
+    \editor\editorcore\scriptingsymbolmanager.cs
+    \editor\editorcore\scriptingsymbolmanager.cs.meta
+    \editor\editorcore\selectionutility.cs
+    \editor\editorcore\selectionutility.cs.meta
+    \editor\editorcore\shapeeditor.cs
+    \editor\editorcore\shapeeditor.cs.meta
+    \editor\editorcore\shortcutmanager.cs
+    \editor\editorcore\shortcutmanager.cs.meta
+    \editor\editorcore\smoothgroupeditor.cs
+    \editor\editorcore\smoothgroupeditor.cs.meta
+    \editor\editorcore\staticeditormeshhandles.cs
+    \editor\editorcore\staticeditormeshhandles.cs.meta
+    \editor\editorcore\stripprobuilderscripts.cs
+    \editor\editorcore\stripprobuilderscripts.cs.meta
+    \editor\editorcore\texturemovetool.cs
+    \editor\editorcore\texturemovetool.cs.meta
+    \editor\editorcore\texturerotatetool.cs
+    \editor\editorcore\texturerotatetool.cs.meta
+    \editor\editorcore\texturescaletool.cs
+    \editor\editorcore\texturescaletool.cs.meta
+    \editor\editorcore\texturetool.cs
+    \editor\editorcore\texturetool.cs.meta
+    \editor\editorcore\toolbargroup.cs
+    \editor\editorcore\toolbargroup.cs.meta
+    \editor\editorcore\tooltipcontent.cs
+    \editor\editorcore\tooltipcontent.cs.meta
+    \editor\editorcore\tooltipeditor.cs
+    \editor\editorcore\tooltipeditor.cs.meta
+    \editor\editorcore\undoutility.cs
+    \editor\editorcore\undoutility.cs.meta
+    \editor\editorcore\unityscenepostprocessor.cs
+    \editor\editorcore\unityscenepostprocessor.cs.meta
+    \editor\editorcore\unwrapparameterseditor.cs
+    \editor\editorcore\unwrapparameterseditor.cs.meta
+    \editor\editorcore\uveditor.cs
+    \editor\editorcore\uveditor.cs.meta
+    \editor\editorcore\uvrenderoptions.cs
+    \editor\editorcore\uvrenderoptions.cs.meta
+    \editor\editorcore\versionvalidator.cs
+    \editor\editorcore\versionvalidator.cs.meta
+    \editor\editorcore\vertexcolorpalette.cs
+    \editor\editorcore\vertexcolorpalette.cs.meta
+    \editor\editorcore\vertexmanipulationtool.cs
+    \editor\editorcore\vertexmanipulationtool.cs.meta
+    \editor\editorcore\vertexmanipulationtoolsettings.cs
+    \editor\editorcore\vertexmanipulationtoolsettings.cs.meta
+    \editor\editorcore\vertexpositioneditor.cs
+    \editor\editorcore\vertexpositioneditor.cs.meta
+    \editor\menuactions\editors.meta
+    \editor\menuactions\export.meta
+    \editor\menuactions\geometry.meta
+    \editor\menuactions\interaction.meta
+    \editor\menuactions\object.meta
+    \editor\menuactions\selection.meta
+    \editor\menuactions\editors\newbeziershape.cs
+    \editor\menuactions\editors\newbeziershape.cs.meta
+    \editor\menuactions\editors\newpolyshape.cs
+    \editor\menuactions\editors\newpolyshape.cs.meta
+    \editor\menuactions\editors\openlightmapuveditor.cs
+    \editor\menuactions\editors\openlightmapuveditor.cs.meta
+    \editor\menuactions\editors\openmaterialeditor.cs
+    \editor\menuactions\editors\openmaterialeditor.cs.meta
+    \editor\menuactions\editors\openshapeeditor.cs
+    \editor\menuactions\editors\openshapeeditor.cs.meta
+    \editor\menuactions\editors\openshapeeditormenuitem.cs
+    \editor\menuactions\editors\openshapeeditormenuitem.cs.meta
+    \editor\menuactions\editors\opensmoothingeditor.cs
+    \editor\menuactions\editors\opensmoothingeditor.cs.meta
+    \editor\menuactions\editors\openuveditor.cs
+    \editor\menuactions\editors\openuveditor.cs.meta
+    \editor\menuactions\editors\openvertexcoloreditor.cs
+    \editor\menuactions\editors\openvertexcoloreditor.cs.meta
+    \editor\menuactions\editors\openvertexpositioneditor.cs
+    \editor\menuactions\editors\openvertexpositioneditor.cs.meta
+    \editor\menuactions\export\export.cs
+    \editor\menuactions\export\export.cs.meta
+    \editor\menuactions\export\exportasset.cs
+    \editor\menuactions\export\exportasset.cs.meta
+    \editor\menuactions\export\exportobj.cs
+    \editor\menuactions\export\exportobj.cs.meta
+    \editor\menuactions\export\exportply.cs
+    \editor\menuactions\export\exportply.cs.meta
+    \editor\menuactions\export\exportstlascii.cs
+    \editor\menuactions\export\exportstlascii.cs.meta
+    \editor\menuactions\export\exportstlbinary.cs
+    \editor\menuactions\export\exportstlbinary.cs.meta
+    \editor\menuactions\geometry\beveledges.cs
+    \editor\menuactions\geometry\beveledges.cs.meta
+    \editor\menuactions\geometry\bridgeedges.cs
+    \editor\menuactions\geometry\bridgeedges.cs.meta
+    \editor\menuactions\geometry\collapsevertices.cs
+    \editor\menuactions\geometry\collapsevertices.cs.meta
+    \editor\menuactions\geometry\conformfacenormals.cs
+    \editor\menuactions\geometry\conformfacenormals.cs.meta
+    \editor\menuactions\geometry\connectedges.cs
+    \editor\menuactions\geometry\connectedges.cs.meta
+    \editor\menuactions\geometry\connectvertices.cs
+    \editor\menuactions\geometry\connectvertices.cs.meta
+    \editor\menuactions\geometry\deletefaces.cs
+    \editor\menuactions\geometry\deletefaces.cs.meta
+    \editor\menuactions\geometry\detachfaces.cs
+    \editor\menuactions\geometry\detachfaces.cs.meta
+    \editor\menuactions\geometry\extrude.cs
+    \editor\menuactions\geometry\extrude.cs.meta
+    \editor\menuactions\geometry\extrudeedges.cs
+    \editor\menuactions\geometry\extrudeedges.cs.meta
+    \editor\menuactions\geometry\extrudefaces.cs
+    \editor\menuactions\geometry\extrudefaces.cs.meta
+    \editor\menuactions\geometry\fillhole.cs
+    \editor\menuactions\geometry\fillhole.cs.meta
+    \editor\menuactions\geometry\flipfaceedge.cs
+    \editor\menuactions\geometry\flipfaceedge.cs.meta
+    \editor\menuactions\geometry\flipfacenormals.cs
+    \editor\menuactions\geometry\flipfacenormals.cs.meta
+    \editor\menuactions\geometry\insertedgeloop.cs
+    \editor\menuactions\geometry\insertedgeloop.cs.meta
+    \editor\menuactions\geometry\mergefaces.cs
+    \editor\menuactions\geometry\mergefaces.cs.meta
+    \editor\menuactions\geometry\setpivottoselection.cs
+    \editor\menuactions\geometry\setpivottoselection.cs.meta
+    \editor\menuactions\geometry\smartconnect.cs
+    \editor\menuactions\geometry\smartconnect.cs.meta
+    \editor\menuactions\geometry\smartsubdivide.cs
+    \editor\menuactions\geometry\smartsubdivide.cs.meta
+    \editor\menuactions\geometry\splitvertices.cs
+    \editor\menuactions\geometry\splitvertices.cs.meta
+    \editor\menuactions\geometry\subdivideedges.cs
+    \editor\menuactions\geometry\subdivideedges.cs.meta
+    \editor\menuactions\geometry\subdividefaces.cs
+    \editor\menuactions\geometry\subdividefaces.cs.meta
+    \editor\menuactions\geometry\triangulatefaces.cs
+    \editor\menuactions\geometry\triangulatefaces.cs.meta
+    \editor\menuactions\geometry\weldvertices.cs
+    \editor\menuactions\geometry\weldvertices.cs.meta
+    \editor\menuactions\interaction\toggledragrectmode.cs
+    \editor\menuactions\interaction\toggledragrectmode.cs.meta
+    \editor\menuactions\interaction\toggledragselectionmode.cs
+    \editor\menuactions\interaction\toggledragselectionmode.cs.meta
+    \editor\menuactions\interaction\togglehandleorientation.cs
+    \editor\menuactions\interaction\togglehandleorientation.cs.meta
+    \editor\menuactions\interaction\togglehandlepivotpoint.cs
+    \editor\menuactions\interaction\togglehandlepivotpoint.cs.meta
+    \editor\menuactions\interaction\toggleselectbackfaces.cs
+    \editor\menuactions\interaction\toggleselectbackfaces.cs.meta
+    \editor\menuactions\object\centerpivot.cs
+    \editor\menuactions\object\centerpivot.cs.meta
+    \editor\menuactions\object\conformobjectnormals.cs
+    \editor\menuactions\object\conformobjectnormals.cs.meta
+    \editor\menuactions\object\flipobjectnormals.cs
+    \editor\menuactions\object\flipobjectnormals.cs.meta
+    \editor\menuactions\object\freezetransform.cs
+    \editor\menuactions\object\freezetransform.cs.meta
+    \editor\menuactions\object\generateuv2.cs
+    \editor\menuactions\object\generateuv2.cs.meta
+    \editor\menuactions\object\mergeobjects.cs
+    \editor\menuactions\object\mergeobjects.cs.meta
+    \editor\menuactions\object\mirrorobjects.cs
+    \editor\menuactions\object\mirrorobjects.cs.meta
+    \editor\menuactions\object\probuilderize.cs
+    \editor\menuactions\object\probuilderize.cs.meta
+    \editor\menuactions\object\setcollider.cs
+    \editor\menuactions\object\setcollider.cs.meta
+    \editor\menuactions\object\settrigger.cs
+    \editor\menuactions\object\settrigger.cs.meta
+    \editor\menuactions\object\subdivideobject.cs
+    \editor\menuactions\object\subdivideobject.cs.meta
+    \editor\menuactions\object\triangulateobject.cs
+    \editor\menuactions\object\triangulateobject.cs.meta
+    \editor\menuactions\selection\growselection.cs
+    \editor\menuactions\selection\growselection.cs.meta
+    \editor\menuactions\selection\invertselection.cs
+    \editor\menuactions\selection\invertselection.cs.meta
+    \editor\menuactions\selection\selectedgeloop.cs
+    \editor\menuactions\selection\selectedgeloop.cs.meta
+    \editor\menuactions\selection\selectedgering.cs
+    \editor\menuactions\selection\selectedgering.cs.meta
+    \editor\menuactions\selection\selectfaceloop.cs
+    \editor\menuactions\selection\selectfaceloop.cs.meta
+    \editor\menuactions\selection\selectfacering.cs
+    \editor\menuactions\selection\selectfacering.cs.meta
+    \editor\menuactions\selection\selecthole.cs
+    \editor\menuactions\selection\selecthole.cs.meta
+    \editor\menuactions\selection\selectloop.cs
+    \editor\menuactions\selection\selectloop.cs.meta
+    \editor\menuactions\selection\selectmaterial.cs
+    \editor\menuactions\selection\selectmaterial.cs.meta
+    \editor\menuactions\selection\selectring.cs
+    \editor\menuactions\selection\selectring.cs.meta
+    \editor\menuactions\selection\selectsmoothinggroup.cs
+    \editor\menuactions\selection\selectsmoothinggroup.cs.meta
+    \editor\menuactions\selection\selectvertexcolor.cs
+    \editor\menuactions\selection\selectvertexcolor.cs.meta
+    \editor\menuactions\selection\shrinkselection.cs
+    \editor\menuactions\selection\shrinkselection.cs.meta
+    \external\kdtree.meta
+    \external\poly2tri.meta
+    \external\stlexporter.meta
+    \external\kdtree\kdtreelib.meta
+    \external\kdtree\license.md
+    \external\kdtree\license.md.meta
+    \external\kdtree\readme.md
+    \external\kdtree\readme.md.meta
+    \external\kdtree\unity.probuilder.kdtree.asmdef
+    \external\kdtree\unity.probuilder.kdtree.asmdef.meta
+    \external\kdtree\kdtreelib\assemblyinfo.cs
+    \external\kdtree\kdtreelib\assemblyinfo.cs.meta
+    \external\kdtree\kdtreelib\hyperrect.cs
+    \external\kdtree\kdtreelib\hyperrect.cs.meta
+    \external\kdtree\kdtreelib\ikdtree.cs
+    \external\kdtree\kdtreelib\ikdtree.cs.meta
+    \external\kdtree\kdtreelib\ipriorityqueue.cs
+    \external\kdtree\kdtreelib\ipriorityqueue.cs.meta
+    \external\kdtree\kdtreelib\kdtree.cs
+    \external\kdtree\kdtreelib\kdtree.cs.meta
+    \external\kdtree\kdtreelib\kdtreenode.cs
+    \external\kdtree\kdtreelib\kdtreenode.cs.meta
+    \external\kdtree\kdtreelib\math.meta
+    \external\kdtree\kdtreelib\nearestneighbourlist.cs
+    \external\kdtree\kdtreelib\nearestneighbourlist.cs.meta
+    \external\kdtree\kdtreelib\priorityqueue.cs
+    \external\kdtree\kdtreelib\priorityqueue.cs.meta
+    \external\kdtree\kdtreelib\math\doublemath.cs
+    \external\kdtree\kdtreelib\math\doublemath.cs.meta
+    \external\kdtree\kdtreelib\math\floatmath.cs
+    \external\kdtree\kdtreelib\math\floatmath.cs.meta
+    \external\kdtree\kdtreelib\math\itypemath.cs
+    \external\kdtree\kdtreelib\math\itypemath.cs.meta
+    \external\kdtree\kdtreelib\math\typemath.cs
+    \external\kdtree\kdtreelib\math\typemath.cs.meta
+    \external\poly2tri\assemblyinfo.cs
+    \external\poly2tri\assemblyinfo.cs.meta
+    \external\poly2tri\authors.txt~
+    \external\poly2tri\license.txt~
+    \external\poly2tri\p2t.cs
+    \external\poly2tri\p2t.cs.meta
+    \external\poly2tri\polygon.meta
+    \external\poly2tri\readme.txt~
+    \external\poly2tri\triangulation.meta
+    \external\poly2tri\unity.probuilder.poly2tri.asmdef
+    \external\poly2tri\unity.probuilder.poly2tri.asmdef.meta
+    \external\poly2tri\utility.meta
+    \external\poly2tri\polygon\polygon.cs
+    \external\poly2tri\polygon\polygon.cs.meta
+    \external\poly2tri\polygon\polygonpoint.cs
+    \external\poly2tri\polygon\polygonpoint.cs.meta
+    \external\poly2tri\polygon\polygonset.cs
+    \external\poly2tri\polygon\polygonset.cs.meta
+    \external\poly2tri\triangulation\delaunay.meta
+    \external\poly2tri\triangulation\itriangulatable.cs
+    \external\poly2tri\triangulation\itriangulatable.cs.meta
+    \external\poly2tri\triangulation\orientation.cs
+    \external\poly2tri\triangulation\orientation.cs.meta
+    \external\poly2tri\triangulation\sets.meta
+    \external\poly2tri\triangulation\triangulationalgorithm.cs
+    \external\poly2tri\triangulation\triangulationalgorithm.cs.meta
+    \external\poly2tri\triangulation\triangulationconstraint.cs
+    \external\poly2tri\triangulation\triangulationconstraint.cs.meta
+    \external\poly2tri\triangulation\triangulationcontext.cs
+    \external\poly2tri\triangulation\triangulationcontext.cs.meta
+    \external\poly2tri\triangulation\triangulationdebugcontext.cs
+    \external\poly2tri\triangulation\triangulationdebugcontext.cs.meta
+    \external\poly2tri\triangulation\triangulationmode.cs
+    \external\poly2tri\triangulation\triangulationmode.cs.meta
+    \external\poly2tri\triangulation\triangulationpoint.cs
+    \external\poly2tri\triangulation\triangulationpoint.cs.meta
+    \external\poly2tri\triangulation\triangulationutil.cs
+    \external\poly2tri\triangulation\triangulationutil.cs.meta
+    \external\poly2tri\triangulation\util.meta
+    \external\poly2tri\triangulation\delaunay\delaunaytriangle.cs
+    \external\poly2tri\triangulation\delaunay\delaunaytriangle.cs.meta
+    \external\poly2tri\triangulation\delaunay\sweep.meta
+    \external\poly2tri\triangulation\delaunay\sweep\advancingfront.cs
+    \external\poly2tri\triangulation\delaunay\sweep\advancingfront.cs.meta
+    \external\poly2tri\triangulation\delaunay\sweep\advancingfrontnode.cs
+    \external\poly2tri\triangulation\delaunay\sweep\advancingfrontnode.cs.meta
+    \external\poly2tri\triangulation\delaunay\sweep\dtsweep.cs
+    \external\poly2tri\triangulation\delaunay\sweep\dtsweep.cs.meta
+    \external\poly2tri\triangulation\delaunay\sweep\dtsweepbasin.cs
+    \external\poly2tri\triangulation\delaunay\sweep\dtsweepbasin.cs.meta
+    \external\poly2tri\triangulation\delaunay\sweep\dtsweepconstraint.cs
+    \external\poly2tri\triangulation\delaunay\sweep\dtsweepconstraint.cs.meta
+    \external\poly2tri\triangulation\delaunay\sweep\dtsweepcontext.cs
+    \external\poly2tri\triangulation\delaunay\sweep\dtsweepcontext.cs.meta
+    \external\poly2tri\triangulation\delaunay\sweep\dtsweepdebugcontext.cs
+    \external\poly2tri\triangulation\delaunay\sweep\dtsweepdebugcontext.cs.meta
+    \external\poly2tri\triangulation\delaunay\sweep\dtsweepedgeevent.cs
+    \external\poly2tri\triangulation\delaunay\sweep\dtsweepedgeevent.cs.meta
+    \external\poly2tri\triangulation\delaunay\sweep\dtsweeppointcomparator.cs
+    \external\poly2tri\triangulation\delaunay\sweep\dtsweeppointcomparator.cs.meta
+    \external\poly2tri\triangulation\delaunay\sweep\pointonedgeexception.cs
+    \external\poly2tri\triangulation\delaunay\sweep\pointonedgeexception.cs.meta
+    \external\poly2tri\triangulation\sets\constrainedpointset.cs
+    \external\poly2tri\triangulation\sets\constrainedpointset.cs.meta
+    \external\poly2tri\triangulation\sets\pointset.cs
+    \external\poly2tri\triangulation\sets\pointset.cs.meta
+    \external\poly2tri\triangulation\util\pointgenerator.cs
+    \external\poly2tri\triangulation\util\pointgenerator.cs.meta
+    \external\poly2tri\triangulation\util\polygongenerator.cs
+    \external\poly2tri\triangulation\util\polygongenerator.cs.meta
+    \external\poly2tri\utility\fixedarray3.cs
+    \external\poly2tri\utility\fixedarray3.cs.meta
+    \external\poly2tri\utility\fixedbitarray3.cs
+    \external\poly2tri\utility\fixedbitarray3.cs.meta
+    \external\stlexporter\assemblyinfo.cs
+    \external\stlexporter\assemblyinfo.cs.meta
+    \external\stlexporter\code.meta
+    \external\stlexporter\license.txt~
+    \external\stlexporter\readme.md~
+    \external\stlexporter\unity.probuilder.stl.asmdef
+    \external\stlexporter\unity.probuilder.stl.asmdef.meta
+    \external\stlexporter\code\pb_stl.cs
+    \external\stlexporter\code\pb_stl.cs.meta
+    \external\stlexporter\code\pb_stl_exporter.cs
+    \external\stlexporter\code\pb_stl_exporter.cs.meta
+    \external\stlexporter\code\pb_stl_importer.cs
+    \external\stlexporter\code\pb_stl_importer.cs.meta
+    \runtime\core.meta
+    \runtime\meshoperations.meta
+    \runtime\unity.probuilder.asmdef
+    \runtime\unity.probuilder.asmdef.meta
+    \runtime\core\actionresult.cs
+    \runtime\core\actionresult.cs.meta
+    \runtime\core\arrayutility.cs
+    \runtime\core\arrayutility.cs.meta
+    \runtime\core\assemblyinfo.cs
+    \runtime\core\assemblyinfo.cs.meta
+    \runtime\core\autounwrapsettings.cs
+    \runtime\core\autounwrapsettings.cs.meta
+    \runtime\core\bezierpoint.cs
+    \runtime\core\bezierpoint.cs.meta
+    \runtime\core\beziershape.cs
+    \runtime\core\beziershape.cs.meta
+    \runtime\core\bounds2d.cs
+    \runtime\core\bounds2d.cs.meta
+    \runtime\core\builtinmaterials.cs
+    \runtime\core\builtinmaterials.cs.meta
+    \runtime\core\changelog.cs
+    \runtime\core\changelog.cs.meta
+    \runtime\core\clipping.cs
+    \runtime\core\clipping.cs.meta
+    \runtime\core\colliderbehaviour.cs
+    \runtime\core\colliderbehaviour.cs.meta
+    \runtime\core\colorpalette.cs
+    \runtime\core\colorpalette.cs.meta
+    \runtime\core\colorutility.cs
+    \runtime\core\colorutility.cs.meta
+    \runtime\core\edge.cs
+    \runtime\core\edge.cs.meta
+    \runtime\core\edgelookup.cs
+    \runtime\core\edgelookup.cs.meta
+    \runtime\core\edgeutility.cs
+    \runtime\core\edgeutility.cs.meta
+    \runtime\core\entity.cs
+    \runtime\core\entity.cs.meta
+    \runtime\core\entitybehaviour.cs
+    \runtime\core\entitybehaviour.cs.meta
+    \runtime\core\face.cs
+    \runtime\core\face.cs.meta
+    \runtime\core\facerebuilddata.cs
+    \runtime\core\facerebuilddata.cs.meta
+    \runtime\core\handleconstraint2d.cs
+    \runtime\core\handleconstraint2d.cs.meta
+    \runtime\core\handleorientation.cs
+    \runtime\core\handleorientation.cs.meta
+    \runtime\core\handleutility.cs
+    \runtime\core\handleutility.cs.meta
+    \runtime\core\ihasdefault.cs
+    \runtime\core\ihasdefault.cs.meta
+    \runtime\core\internalutility.cs
+    \runtime\core\internalutility.cs.meta
+    \runtime\core\intvec3.cs
+    \runtime\core\intvec3.cs.meta
+    \runtime\core\log.cs
+    \runtime\core\log.cs.meta
+    \runtime\core\math.cs
+    \runtime\core\math.cs.meta
+    \runtime\core\meshhandle.cs
+    \runtime\core\meshhandle.cs.meta
+    \runtime\core\meshhandles.cs
+    \runtime\core\meshhandles.cs.meta
+    \runtime\core\meshutility.cs
+    \runtime\core\meshutility.cs.meta
+    \runtime\core\normal.cs
+    \runtime\core\normal.cs.meta
+    \runtime\core\normals.cs
+    \runtime\core\normals.cs.meta
+    \runtime\core\objectpool.cs
+    \runtime\core\objectpool.cs.meta
+    \runtime\core\pivotpoint.cs
+    \runtime\core\pivotpoint.cs.meta
+    \runtime\core\polyshape.cs
+    \runtime\core\polyshape.cs.meta
+    \runtime\core\preferencedictionary.cs
+    \runtime\core\preferencedictionary.cs.meta
+    \runtime\core\preferencekeys.cs
+    \runtime\core\preferencekeys.cs.meta
+    \runtime\core\probuilderenum.cs
+    \runtime\core\probuilderenum.cs.meta
+    \runtime\core\probuildermesh.cs
+    \runtime\core\probuildermesh.cs.meta
+    \runtime\core\probuildermeshfunction.cs
+    \runtime\core\probuildermeshfunction.cs.meta
+    \runtime\core\probuildermeshselection.cs
+    \runtime\core\probuildermeshselection.cs.meta
+    \runtime\core\progridsignoresnap.cs
+    \runtime\core\progridsignoresnap.cs.meta
+    \runtime\core\projection.cs
+    \runtime\core\projection.cs.meta
+    \runtime\core\raycasthit.cs
+    \runtime\core\raycasthit.cs.meta
+    \runtime\core\selectionmodifierbehaviour.cs
+    \runtime\core\selectionmodifierbehaviour.cs.meta
+    \runtime\core\selectionpicker.cs
+    \runtime\core\selectionpicker.cs.meta
+    \runtime\core\selectionpickerrenderer.cs
+    \runtime\core\selectionpickerrenderer.cs.meta
+    \runtime\core\selectionpickersettings.cs
+    \runtime\core\selectionpickersettings.cs.meta
+    \runtime\core\semver.cs
+    \runtime\core\semver.cs.meta
+    \runtime\core\shapegenerator.cs
+    \runtime\core\shapegenerator.cs.meta
+    \runtime\core\sharedvertex.cs
+    \runtime\core\sharedvertex.cs.meta
+    \runtime\core\shortcut.cs
+    \runtime\core\shortcut.cs.meta
+    \runtime\core\simpletuple.cs
+    \runtime\core\simpletuple.cs.meta
+    \runtime\core\smoothing.cs
+    \runtime\core\smoothing.cs.meta
+    \runtime\core\snapping.cs
+    \runtime\core\snapping.cs.meta
+    \runtime\core\spline.cs
+    \runtime\core\spline.cs.meta
+    \runtime\core\submesh.cs
+    \runtime\core\submesh.cs.meta
+    \runtime\core\transform2d.cs
+    \runtime\core\transform2d.cs.meta
+    \runtime\core\transformutility.cs
+    \runtime\core\transformutility.cs.meta
+    \runtime\core\triggerbehaviour.cs
+    \runtime\core\triggerbehaviour.cs.meta
+    \runtime\core\unwrapparameters.cs
+    \runtime\core\unwrapparameters.cs.meta
+    \runtime\core\unwrappingutility.cs
+    \runtime\core\unwrappingutility.cs.meta
+    \runtime\core\vectorhash.cs
+    \runtime\core\vectorhash.cs.meta
+    \runtime\core\vectormask.cs
+    \runtime\core\vectormask.cs.meta
+    \runtime\core\version.cs
+    \runtime\core\version.cs.meta
+    \runtime\core\vertex.cs
+    \runtime\core\vertex.cs.meta
+    \runtime\core\vertexpositioning.cs
+    \runtime\core\vertexpositioning.cs.meta
+    \runtime\core\wingededge.cs
+    \runtime\core\wingededge.cs.meta
+    \runtime\core\wingededgeenumerator.cs
+    \runtime\core\wingededgeenumerator.cs.meta
+    \runtime\meshoperations\appendelements.cs
+    \runtime\meshoperations\appendelements.cs.meta
+    \runtime\meshoperations\assemblyinfo.cs
+    \runtime\meshoperations\assemblyinfo.cs.meta
+    \runtime\meshoperations\bevel.cs
+    \runtime\meshoperations\bevel.cs.meta
+    \runtime\meshoperations\connectelements.cs
+    \runtime\meshoperations\connectelements.cs.meta
+    \runtime\meshoperations\csg.meta
+    \runtime\meshoperations\deleteelements.cs
+    \runtime\meshoperations\deleteelements.cs.meta
+    \runtime\meshoperations\elementselection.cs
+    \runtime\meshoperations\elementselection.cs.meta
+    \runtime\meshoperations\extrudeelements.cs
+    \runtime\meshoperations\extrudeelements.cs.meta
+    \runtime\meshoperations\internalmeshutility.cs
+    \runtime\meshoperations\internalmeshutility.cs.meta
+    \runtime\meshoperations\mergeelements.cs
+    \runtime\meshoperations\mergeelements.cs.meta
+    \runtime\meshoperations\meshimporter.cs
+    \runtime\meshoperations\meshimporter.cs.meta
+    \runtime\meshoperations\meshtransform.cs
+    \runtime\meshoperations\meshtransform.cs.meta
+    \runtime\meshoperations\subdivision.cs
+    \runtime\meshoperations\subdivision.cs.meta
+    \runtime\meshoperations\surfacetopology.cs
+    \runtime\meshoperations\surfacetopology.cs.meta
+    \runtime\meshoperations\triangulation.cs
+    \runtime\meshoperations\triangulation.cs.meta
+    \runtime\meshoperations\uvediting.cs
+    \runtime\meshoperations\uvediting.cs.meta
+    \runtime\meshoperations\vertexediting.cs
+    \runtime\meshoperations\vertexediting.cs.meta
+    \runtime\meshoperations\csg\classes.meta
+    \runtime\meshoperations\csg\csg.cs
+    \runtime\meshoperations\csg\csg.cs.meta
+    \runtime\meshoperations\csg\classes\csg_model.cs
+    \runtime\meshoperations\csg\classes\csg_model.cs.meta
+    \runtime\meshoperations\csg\classes\csg_node.cs
+    \runtime\meshoperations\csg\classes\csg_node.cs.meta
+    \runtime\meshoperations\csg\classes\csg_plane.cs
+    \runtime\meshoperations\csg\classes\csg_plane.cs.meta
+    \runtime\meshoperations\csg\classes\csg_polygon.cs
+    \runtime\meshoperations\csg\classes\csg_polygon.cs.meta
+    \runtime\meshoperations\csg\classes\csg_vertex.cs
+    \runtime\meshoperations\csg\classes\csg_vertex.cs.meta
+    \settings\content.meta
+    \settings\editor.meta
+    \settings\content\options.png
+    \settings\content\options.png.meta
+    \settings\editor\attributes.cs
+    \settings\editor\attributes.cs.meta
+    \settings\editor\isettingsrepository.cs
+    \settings\editor\isettingsrepository.cs.meta
+    \settings\editor\projectsettingsrepository.cs
+    \settings\editor\projectsettingsrepository.cs.meta
+    \settings\editor\settings.cs
+    \settings\editor\settings.cs.meta
+    \settings\editor\settingsdictionary.cs
+    \settings\editor\settingsdictionary.cs.meta
+    \settings\editor\settingsguilayout.cs
+    \settings\editor\settingsguilayout.cs.meta
+    \settings\editor\unity.probuilder.settings.editor.asmdef
+    \settings\editor\unity.probuilder.settings.editor.asmdef.meta
+    \settings\editor\usersetting.cs
+    \settings\editor\usersetting.cs.meta
+    \settings\editor\usersettings.cs
+    \settings\editor\usersettings.cs.meta
+    \settings\editor\usersettingsprovider.cs
+    \settings\editor\usersettingsprovider.cs.meta
+    \settings\editor\usersettingsrepository.cs
+    \settings\editor\usersettingsrepository.cs.meta
+    \settings\editor\valuewrapper.cs
+    \settings\editor\valuewrapper.cs.meta
+
+Modified:
+    \changelog.md
+    \license.md
+    \package.json
+    \readme.md
+
+
+Package Tree
+------------
+
+<com.unity.probuilder>
+    addons.meta  --REMOVED--
+    assetidremaputility.meta  --REMOVED--
+    build.sh  --REMOVED--
+    build.sh.meta  --REMOVED--
+    changelog.md  (MODIFIED)
+    changelog.md.meta
+    content.meta  --REMOVED--
+    contributing.md  --REMOVED--
+    contributing.md.meta  --REMOVED--
+    editor.meta  --REMOVED--
+    external.meta  --REMOVED--
+    license.md  (MODIFIED)
+    license.md.meta
+    package.json  (MODIFIED)
+    package.json.meta
+    probuilder.sublime-project  --REMOVED--
+    probuilder.sublime-project.meta  --REMOVED--
+    readme.md  (MODIFIED)
+    readme.md.meta
+    runtime.meta  --REMOVED--
+    settings.meta  --REMOVED--
+    third party notices.md  --REMOVED--
+    third party notices.md.meta  --REMOVED--
+    .gitlab-ci.yml  ++ADDED++
+    documentation.meta  ++ADDED++
+    probuilder.meta  ++ADDED++
+    <addons>  --REMOVED--
+        fbx.cs  --REMOVED--
+        fbx.cs.meta  --REMOVED--
+        readme.md  --REMOVED--
+        readme.md.meta  --REMOVED--
+        unity.probuilder.addons.editor.asmdef  --REMOVED--
+        unity.probuilder.addons.editor.asmdef.meta  --REMOVED--
+    <assetidremaputility>  --REMOVED--
+        editor.meta  --REMOVED--
+        <editor>  --REMOVED--
+            assemblyinfo.cs  --REMOVED--
+            assemblyinfo.cs.meta  --REMOVED--
+            assetid.cs  --REMOVED--
+            assetid.cs.meta  --REMOVED--
+            assetidremapbuildereditor.cs  --REMOVED--
+            assetidremapbuildereditor.cs.meta  --REMOVED--
+            assetidremapbuildertreeview.cs  --REMOVED--
+            assetidremapbuildertreeview.cs.meta  --REMOVED--
+            assetidremapeditor.cs  --REMOVED--
+            assetidremapeditor.cs.meta  --REMOVED--
+            assettreeview.cs  --REMOVED--
+            assettreeview.cs.meta  --REMOVED--
+            packageimporter.cs  --REMOVED--
+            packageimporter.cs.meta  --REMOVED--
+            unity.probuilder.assetidremaputility.asmdef  --REMOVED--
+            unity.probuilder.assetidremaputility.asmdef.meta  --REMOVED--
+    <content>  --REMOVED--
+        about.meta  --REMOVED--
+        font.meta  --REMOVED--
+        icons.meta  --REMOVED--
+        material.meta  --REMOVED--
+        resources.meta  --REMOVED--
+        shader.meta  --REMOVED--
+        upgrade.meta  --REMOVED--
+        <about>  --REMOVED--
+            images.meta  --REMOVED--
+            <images>  --REMOVED--
+                banner.png  --REMOVED--
+                banner.png.meta  --REMOVED--
+                banner_hover.png  --REMOVED--
+                banner_hover.png.meta  --REMOVED--
+                banner_normal.png  --REMOVED--
+                banner_normal.png.meta  --REMOVED--
+                downloadpb_hover.png  --REMOVED--
+                downloadpb_hover.png.meta  --REMOVED--
+                downloadpb_normal.png  --REMOVED--
+                downloadpb_normal.png.meta  --REMOVED--
+                scrollbackground_light.png  --REMOVED--
+                scrollbackground_light.png.meta  --REMOVED--
+                scrollbackground_pro.png  --REMOVED--
+                scrollbackground_pro.png.meta  --REMOVED--
+        <font>  --REMOVED--
+            asap-medium.otf  --REMOVED--
+            asap-medium.otf.meta  --REMOVED--
+            asap-regular.otf  --REMOVED--
+            asap-regular.otf.meta  --REMOVED--
+            sil open font license.txt  --REMOVED--
+            sil open font license.txt.meta  --REMOVED--
+        <icons>  --REMOVED--
+            modes.meta  --REMOVED--
+            scene.meta  --REMOVED--
+            toolbar.meta  --REMOVED--
+            uveditor.meta  --REMOVED--
+            <modes>  --REMOVED--
+                mode_edge.png  --REMOVED--
+                mode_edge.png.meta  --REMOVED--
+                mode_edge_light.png  --REMOVED--
+                mode_edge_light.png.meta  --REMOVED--
+                mode_face.png  --REMOVED--
+                mode_face.png.meta  --REMOVED--
+                mode_face_light.png  --REMOVED--
+                mode_face_light.png.meta  --REMOVED--
+                mode_object.png  --REMOVED--
+                mode_object.png.meta  --REMOVED--
+                mode_object_light.png  --REMOVED--
+                mode_object_light.png.meta  --REMOVED--
+                mode_vertex.png  --REMOVED--
+                mode_vertex.png.meta  --REMOVED--
+                mode_vertex_light.png  --REMOVED--
+                mode_vertex_light.png.meta  --REMOVED--
+            <scene>  --REMOVED--
+                selectionrect.png  --REMOVED--
+                selectionrect.png.meta  --REMOVED--
+                selectionrect@2x.png  --REMOVED--
+                selectionrect@2x.png.meta  --REMOVED--
+                textbackground.png  --REMOVED--
+                textbackground.png.meta  --REMOVED--
+            <toolbar>  --REMOVED--
+                altbutton_hover.png  --REMOVED--
+                altbutton_hover.png.meta  --REMOVED--
+                altbutton_normal.png  --REMOVED--
+                altbutton_normal.png.meta  --REMOVED--
+                altbutton_pressed.png  --REMOVED--
+                altbutton_pressed.png.meta  --REMOVED--
+                background.meta  --REMOVED--
+                bezier_aligned.png  --REMOVED--
+                bezier_aligned.png.meta  --REMOVED--
+                bezier_free.png  --REMOVED--
+                bezier_free.png.meta  --REMOVED--
+                bezier_mirrored.png  --REMOVED--
+                bezier_mirrored.png.meta  --REMOVED--
+                button_hover.png  --REMOVED--
+                button_hover.png.meta  --REMOVED--
+                button_hover_horizontal.png  --REMOVED--
+                button_hover_horizontal.png.meta  --REMOVED--
+                button_normal.png  --REMOVED--
+                button_normal.png.meta  --REMOVED--
+                button_normal_horizontal.png  --REMOVED--
+                button_normal_horizontal.png.meta  --REMOVED--
+                button_pressed.png  --REMOVED--
+                button_pressed.png.meta  --REMOVED--
+                button_pressed_horizontal.png  --REMOVED--
+                button_pressed_horizontal.png.meta  --REMOVED--
+                edge_bevel.png  --REMOVED--
+                edge_bevel.png.meta  --REMOVED--
+                edge_bevel_disabled.png  --REMOVED--
+                edge_bevel_disabled.png.meta  --REMOVED--
+                edge_bridge.png  --REMOVED--
+                edge_bridge.png.meta  --REMOVED--
+                edge_bridge_disabled.png  --REMOVED--
+                edge_bridge_disabled.png.meta  --REMOVED--
+                edge_connect.png  --REMOVED--
+                edge_connect.png.meta  --REMOVED--
+                edge_connect_disabled.png  --REMOVED--
+                edge_connect_disabled.png.meta  --REMOVED--
+                edge_extrude.png  --REMOVED--
+                edge_extrude.png.meta  --REMOVED--
+                edge_extrude_disabled.png  --REMOVED--
+                edge_extrude_disabled.png.meta  --REMOVED--
+                edge_fillhole.png  --REMOVED--
+                edge_fillhole.png.meta  --REMOVED--
+                edge_fillhole_disabled.png  --REMOVED--
+                edge_fillhole_disabled.png.meta  --REMOVED--
+                edge_insertloop.png  --REMOVED--
+                edge_insertloop.png.meta  --REMOVED--
+                edge_insertloop_disabled.png  --REMOVED--
+                edge_insertloop_disabled.png.meta  --REMOVED--
+                edge_subdivide.png  --REMOVED--
+                edge_subdivide.png.meta  --REMOVED--
+                edge_subdivide_disabled.png  --REMOVED--
+                edge_subdivide_disabled.png.meta  --REMOVED--
+                extrudeface_facenormals.png  --REMOVED--
+                extrudeface_facenormals.png.meta  --REMOVED--
+                extrudeface_facenormals_disabled.png  --REMOVED--
+                extrudeface_facenormals_disabled.png.meta  --REMOVED--
+                extrudeface_individual.png  --REMOVED--
+                extrudeface_individual.png.meta  --REMOVED--
+                extrudeface_individual_disabled.png  --REMOVED--
+                extrudeface_individual_disabled.png.meta  --REMOVED--
+                extrudeface_vertexnormals.png  --REMOVED--
+                extrudeface_vertexnormals.png.meta  --REMOVED--
+                extrudeface_vertexnormals_disabled.png  --REMOVED--
+                extrudeface_vertexnormals_disabled.png.meta  --REMOVED--
+                eye_off.png  --REMOVED--
+                eye_off.png.meta  --REMOVED--
+                eye_off_light.png  --REMOVED--
+                eye_off_light.png.meta  --REMOVED--
+                eye_on.png  --REMOVED--
+                eye_on.png.meta  --REMOVED--
+                eye_on_light.png  --REMOVED--
+                eye_on_light.png.meta  --REMOVED--
+                face_breaksmoothing.png  --REMOVED--
+                face_breaksmoothing.png.meta  --REMOVED--
+                face_conformnormals.png  --REMOVED--
+                face_conformnormals.png.meta  --REMOVED--
+                face_conformnormals_disabled.png  --REMOVED--
+                face_conformnormals_disabled.png.meta  --REMOVED--
+                face_delete.png  --REMOVED--
+                face_delete.png.meta  --REMOVED--
+                face_delete_disabled.png  --REMOVED--
+                face_delete_disabled.png.meta  --REMOVED--
+                face_detach.png  --REMOVED--
+                face_detach.png.meta  --REMOVED--
+                face_detach_disabled.png  --REMOVED--
+                face_detach_disabled.png.meta  --REMOVED--
+                face_flipnormals.png  --REMOVED--
+                face_flipnormals.png.meta  --REMOVED--
+                face_flipnormals_3d.png  --REMOVED--
+                face_flipnormals_3d.png.meta  --REMOVED--
+                face_flipnormals_disabled.png  --REMOVED--
+                face_flipnormals_disabled.png.meta  --REMOVED--
+                face_fliptri.png  --REMOVED--
+                face_fliptri.png.meta  --REMOVED--
+                face_fliptri_disabled.png  --REMOVED--
+                face_fliptri_disabled.png.meta  --REMOVED--
+                face_merge.png  --REMOVED--
+                face_merge.png.meta  --REMOVED--
+                face_merge_disabled.png  --REMOVED--
+                face_merge_disabled.png.meta  --REMOVED--
+                face_subdivide.png  --REMOVED--
+                face_subdivide.png.meta  --REMOVED--
+                face_subdivide_disabled.png  --REMOVED--
+                face_subdivide_disabled.png.meta  --REMOVED--
+                face_triangulate.png  --REMOVED--
+                face_triangulate.png.meta  --REMOVED--
+                face_triangulate_disabled.png  --REMOVED--
+                face_triangulate_disabled.png.meta  --REMOVED--
+                handlealign_custom.png  --REMOVED--
+                handlealign_custom.png.meta  --REMOVED--
+                handlealign_local.png  --REMOVED--
+                handlealign_local.png.meta  --REMOVED--
+                handlealign_plane.png  --REMOVED--
+                handlealign_plane.png.meta  --REMOVED--
+                handlealign_world.png  --REMOVED--
+                handlealign_world.png.meta  --REMOVED--
+                help.png  --REMOVED--
+                help.png.meta  --REMOVED--
+                help_light.png  --REMOVED--
+                help_light.png.meta  --REMOVED--
+                mode_edge.png  --REMOVED--
+                mode_edge.png.meta  --REMOVED--
+                mode_face.png  --REMOVED--
+                mode_face.png.meta  --REMOVED--
+                mode_object.png  --REMOVED--
+                mode_object.png.meta  --REMOVED--
+                mode_vert.png  --REMOVED--
+                mode_vert.png.meta  --REMOVED--
+                newbezierspline.png  --REMOVED--
+                newbezierspline.png.meta  --REMOVED--
+                newpolyshape.png  --REMOVED--
+                newpolyshape.png.meta  --REMOVED--
+                null.png  --REMOVED--
+                null.png.meta  --REMOVED--
+                object_conformnormals.png  --REMOVED--
+                object_conformnormals.png.meta  --REMOVED--
+                object_conformnormals_disabled.png  --REMOVED--
+                object_conformnormals_disabled.png.meta  --REMOVED--
+                object_export.png  --REMOVED--
+                object_export.png.meta  --REMOVED--
+                object_export_disabled.png  --REMOVED--
+                object_export_disabled.png.meta  --REMOVED--
+                object_flipnormals.png  --REMOVED--
+                object_flipnormals.png.meta  --REMOVED--
+                object_flipnormals_disabled.png  --REMOVED--
+                object_flipnormals_disabled.png.meta  --REMOVED--
+                object_generateuv2.png  --REMOVED--
+                object_generateuv2.png.meta  --REMOVED--
+                object_generateuv2_disabled.png  --REMOVED--
+                object_generateuv2_disabled.png.meta  --REMOVED--
+                object_merge.png  --REMOVED--
+                object_merge.png.meta  --REMOVED--
+                object_merge_disabled.png  --REMOVED--
+                object_merge_disabled.png.meta  --REMOVED--
+                object_mirror.png  --REMOVED--
+                object_mirror.png.meta  --REMOVED--
+                object_mirror_disabled.png  --REMOVED--
+                object_mirror_disabled.png.meta  --REMOVED--
+                object_probuilderize.png  --REMOVED--
+                object_probuilderize.png.meta  --REMOVED--
+                object_probuilderize_disabled.png  --REMOVED--
+                object_probuilderize_disabled.png.meta  --REMOVED--
+                object_subdivide.png  --REMOVED--
+                object_subdivide.png.meta  --REMOVED--
+                object_subdivide_disabled.png  --REMOVED--
+                object_subdivide_disabled.png.meta  --REMOVED--
+                object_triangulate.png  --REMOVED--
+                object_triangulate.png.meta  --REMOVED--
+                object_triangulate_disabled.png  --REMOVED--
+                object_triangulate_disabled.png.meta  --REMOVED--
+                options.png  --REMOVED--
+                options.png.meta  --REMOVED--
+                panel_boolean.png  --REMOVED--
+                panel_boolean.png.meta  --REMOVED--
+                panel_geodrawing.png  --REMOVED--
+                panel_geodrawing.png.meta  --REMOVED--
+                panel_materials.png  --REMOVED--
+                panel_materials.png.meta  --REMOVED--
+                panel_shapes.png  --REMOVED--
+                panel_shapes.png.meta  --REMOVED--
+                panel_smoothing.png  --REMOVED--
+                panel_smoothing.png.meta  --REMOVED--
+                panel_uveditor.png  --REMOVED--
+                panel_uveditor.png.meta  --REMOVED--
+                panel_vertcolors.png  --REMOVED--
+                panel_vertcolors.png.meta  --REMOVED--
+                pivot_centeronelements.png  --REMOVED--
+                pivot_centeronelements.png.meta  --REMOVED--
+                pivot_centeronelements_disabled.png  --REMOVED--
+                pivot_centeronelements_disabled.png.meta  --REMOVED--
+                pivot_centeronobject.png  --REMOVED--
+                pivot_centeronobject.png.meta  --REMOVED--
+                pivot_centeronobject_disabled.png  --REMOVED--
+                pivot_centeronobject_disabled.png.meta  --REMOVED--
+                pivot_directedit.png  --REMOVED--
+                pivot_directedit.png.meta  --REMOVED--
+                pivot_reset.png  --REMOVED--
+                pivot_reset.png.meta  --REMOVED--
+                pivot_reset_disabled.png  --REMOVED--
+                pivot_reset_disabled.png.meta  --REMOVED--
+                proonly.png  --REMOVED--
+                proonly.png.meta  --REMOVED--
+                roundedborder.png  --REMOVED--
+                roundedborder.png.meta  --REMOVED--
+                selection_grow.png  --REMOVED--
+                selection_grow.png.meta  --REMOVED--
+                selection_grow_disabled.png  --REMOVED--
+                selection_grow_disabled.png.meta  --REMOVED--
+                selection_invert.png  --REMOVED--
+                selection_invert.png.meta  --REMOVED--
+                selection_invert_disabled.png  --REMOVED--
+                selection_invert_disabled.png.meta  --REMOVED--
+                selection_loop.png  --REMOVED--
+                selection_loop.png.meta  --REMOVED--
+                selection_loop_disabled.png  --REMOVED--
+                selection_loop_disabled.png.meta  --REMOVED--
+                selection_loop_face.png  --REMOVED--
+                selection_loop_face.png.meta  --REMOVED--
+                selection_rect_complete.png  --REMOVED--
+                selection_rect_complete.png.meta  --REMOVED--
+                selection_rect_intersect.png  --REMOVED--
+                selection_rect_intersect.png.meta  --REMOVED--
+                selection_ring.png  --REMOVED--
+                selection_ring.png.meta  --REMOVED--
+                selection_ring_disabled.png  --REMOVED--
+                selection_ring_disabled.png.meta  --REMOVED--
+                selection_ring_face.png  --REMOVED--
+                selection_ring_face.png.meta  --REMOVED--
+                selection_selectbymaterial.png  --REMOVED--
+                selection_selectbymaterial.png.meta  --REMOVED--
+                selection_selectbymaterial_disabled.png  --REMOVED--
+                selection_selectbymaterial_disabled.png.meta  --REMOVED--
+                selection_selectbysmoothinggroup.png  --REMOVED--
+                selection_selectbysmoothinggroup.png.meta  --REMOVED--
+                selection_selectbysmoothinggroup_disabled.png  --REMOVED--
+                selection_selectbysmoothinggroup_disabled.png.meta  --REMOVED--
+                selection_selectbyvertexcolor.png  --REMOVED--
+                selection_selectbyvertexcolor.png.meta  --REMOVED--
+                selection_selectbyvertexcolor_disabled.png  --REMOVED--
+                selection_selectbyvertexcolor_disabled.png.meta  --REMOVED--
+                selection_selecthidden-off.png  --REMOVED--
+                selection_selecthidden-off.png.meta  --REMOVED--
+                selection_selecthidden-on.png  --REMOVED--
+                selection_selecthidden-on.png.meta  --REMOVED--
+                selection_selecthole.png  --REMOVED--
+                selection_selecthole.png.meta  --REMOVED--
+                selection_shiftadd.png  --REMOVED--
+                selection_shiftadd.png.meta  --REMOVED--
+                selection_shiftdifference.png  --REMOVED--
+                selection_shiftdifference.png.meta  --REMOVED--
+                selection_shiftsubtract.png  --REMOVED--
+                selection_shiftsubtract.png.meta  --REMOVED--
+                selection_shrink.png  --REMOVED--
+                selection_shrink.png.meta  --REMOVED--
+                selection_shrink_disabled.png  --REMOVED--
+                selection_shrink_disabled.png.meta  --REMOVED--
+                shownextpage_down.png  --REMOVED--
+                shownextpage_down.png.meta  --REMOVED--
+                shownextpage_down_light.png  --REMOVED--
+                shownextpage_down_light.png.meta  --REMOVED--
+                shownextpage_left.png  --REMOVED--
+                shownextpage_left.png.meta  --REMOVED--
+                shownextpage_left_light.png  --REMOVED--
+                shownextpage_left_light.png.meta  --REMOVED--
+                shownextpage_right.png  --REMOVED--
+                shownextpage_right.png.meta  --REMOVED--
+                shownextpage_right_light.png  --REMOVED--
+                shownextpage_right_light.png.meta  --REMOVED--
+                shownextpage_up.png  --REMOVED--
+                shownextpage_up.png.meta  --REMOVED--
+                shownextpage_up_light.png  --REMOVED--
+                shownextpage_up_light.png.meta  --REMOVED--
+                texturing_paintbrush.png  --REMOVED--
+                texturing_paintbrush.png.meta  --REMOVED--
+                vert_collapse.png  --REMOVED--
+                vert_collapse.png.meta  --REMOVED--
+                vert_collapse_disabled.png  --REMOVED--
+                vert_collapse_disabled.png.meta  --REMOVED--
+                vert_connect.png  --REMOVED--
+                vert_connect.png.meta  --REMOVED--
+                vert_connect_disabled.png  --REMOVED--
+                vert_connect_disabled.png.meta  --REMOVED--
+                vert_split.png  --REMOVED--
+                vert_split.png.meta  --REMOVED--
+                vert_split_disabled.png  --REMOVED--
+                vert_split_disabled.png.meta  --REMOVED--
+                vert_weld.png  --REMOVED--
+                vert_weld.png.meta  --REMOVED--
+                vert_weld_disabled.png  --REMOVED--
+                vert_weld_disabled.png.meta  --REMOVED--
+                <background>  --REMOVED--
+                    accentbar_bottom.png  --REMOVED--
+                    accentbar_bottom.png.meta  --REMOVED--
+                    circle-22px_hover.png  --REMOVED--
+                    circle-22px_hover.png.meta  --REMOVED--
+                    circle-22px_hover_light.png  --REMOVED--
+                    circle-22px_hover_light.png.meta  --REMOVED--
+                    circle-22px_normal.png  --REMOVED--
+                    circle-22px_normal.png.meta  --REMOVED--
+                    circle-22px_normal_light.png  --REMOVED--
+                    circle-22px_normal_light.png.meta  --REMOVED--
+                    circle-22px_pressed.png  --REMOVED--
+                    circle-22px_pressed.png.meta  --REMOVED--
+                    circle-22px_pressed_light.png  --REMOVED--
+                    circle-22px_pressed_light.png.meta  --REMOVED--
+                    geo_hover_horizontal.png  --REMOVED--
+                    geo_hover_horizontal.png.meta  --REMOVED--
+                    geo_hover_horizontal_light.png  --REMOVED--
+                    geo_hover_horizontal_light.png.meta  --REMOVED--
+                    geo_hover_vertical.png  --REMOVED--
+                    geo_hover_vertical.png.meta  --REMOVED--
+                    geo_hover_vertical_light.png  --REMOVED--
+                    geo_hover_vertical_light.png.meta  --REMOVED--
+                    geo_normal_horizontal.png  --REMOVED--
+                    geo_normal_horizontal.png.meta  --REMOVED--
+                    geo_normal_horizontal_light.png  --REMOVED--
+                    geo_normal_horizontal_light.png.meta  --REMOVED--
+                    geo_normal_vertical.png  --REMOVED--
+                    geo_normal_vertical.png.meta  --REMOVED--
+                    geo_normal_vertical_light.png  --REMOVED--
+                    geo_normal_vertical_light.png.meta  --REMOVED--
+                    geo_pressed_horizontal.png  --REMOVED--
+                    geo_pressed_horizontal.png.meta  --REMOVED--
+                    geo_pressed_horizontal_light.png  --REMOVED--
+                    geo_pressed_horizontal_light.png.meta  --REMOVED--
+                    geo_pressed_vertical.png  --REMOVED--
+                    geo_pressed_vertical.png.meta  --REMOVED--
+                    geo_pressed_vertical_light.png  --REMOVED--
+                    geo_pressed_vertical_light.png.meta  --REMOVED--
+                    object_hover_horizontal.png  --REMOVED--
+                    object_hover_horizontal.png.meta  --REMOVED--
+                    object_hover_horizontal_light.png  --REMOVED--
+                    object_hover_horizontal_light.png.meta  --REMOVED--
+                    object_hover_vertical.png  --REMOVED--
+                    object_hover_vertical.png.meta  --REMOVED--
+                    object_hover_vertical_light.png  --REMOVED--
+                    object_hover_vertical_light.png.meta  --REMOVED--
+                    object_normal_horizontal.png  --REMOVED--
+                    object_normal_horizontal.png.meta  --REMOVED--
+                    object_normal_horizontal_light.png  --REMOVED--
+                    object_normal_horizontal_light.png.meta  --REMOVED--
+                    object_normal_vertical.png  --REMOVED--
+                    object_normal_vertical.png.meta  --REMOVED--
+                    object_normal_vertical_light.png  --REMOVED--
+                    object_normal_vertical_light.png.meta  --REMOVED--
+                    object_pressed_horizontal.png  --REMOVED--
+                    object_pressed_horizontal.png.meta  --REMOVED--
+                    object_pressed_horizontal_light.png  --REMOVED--
+                    object_pressed_horizontal_light.png.meta  --REMOVED--
+                    object_pressed_vertical.png  --REMOVED--
+                    object_pressed_vertical.png.meta  --REMOVED--
+                    object_pressed_vertical_light.png  --REMOVED--
+                    object_pressed_vertical_light.png.meta  --REMOVED--
+                    roundedrect_hover.png  --REMOVED--
+                    roundedrect_hover.png.meta  --REMOVED--
+                    roundedrect_hover_blue.png  --REMOVED--
+                    roundedrect_hover_blue.png.meta  --REMOVED--
+                    roundedrect_hover_bluesteel.png  --REMOVED--
+                    roundedrect_hover_bluesteel.png.meta  --REMOVED--
+                    roundedrect_hover_light.png  --REMOVED--
+                    roundedrect_hover_light.png.meta  --REMOVED--
+                    roundedrect_hover_orange.png  --REMOVED--
+                    roundedrect_hover_orange.png.meta  --REMOVED--
+                    roundedrect_normal.png  --REMOVED--
+                    roundedrect_normal.png.meta  --REMOVED--
+                    roundedrect_normal_blue.png  --REMOVED--
+                    roundedrect_normal_blue.png.meta  --REMOVED--
+                    roundedrect_normal_bluesteel.png  --REMOVED--
+                    roundedrect_normal_bluesteel.png.meta  --REMOVED--
+                    roundedrect_normal_light.png  --REMOVED--
+                    roundedrect_normal_light.png.meta  --REMOVED--
+                    roundedrect_normal_orange.png  --REMOVED--
+                    roundedrect_normal_orange.png.meta  --REMOVED--
+                    roundedrect_pressed.png  --REMOVED--
+                    roundedrect_pressed.png.meta  --REMOVED--
+                    roundedrect_pressed_blue.png  --REMOVED--
+                    roundedrect_pressed_blue.png.meta  --REMOVED--
+                    roundedrect_pressed_bluesteel.png  --REMOVED--
+                    roundedrect_pressed_bluesteel.png.meta  --REMOVED--
+                    roundedrect_pressed_light.png  --REMOVED--
+                    roundedrect_pressed_light.png.meta  --REMOVED--
+                    roundedrect_pressed_orange.png  --REMOVED--
+                    roundedrect_pressed_orange.png.meta  --REMOVED--
+                    selection_hover_horizontal.png  --REMOVED--
+                    selection_hover_horizontal.png.meta  --REMOVED--
+                    selection_hover_horizontal_light.png  --REMOVED--
+                    selection_hover_horizontal_light.png.meta  --REMOVED--
+                    selection_hover_vertical.png  --REMOVED--
+                    selection_hover_vertical.png.meta  --REMOVED--
+                    selection_hover_vertical_light.png  --REMOVED--
+                    selection_hover_vertical_light.png.meta  --REMOVED--
+                    selection_normal_horizontal.png  --REMOVED--
+                    selection_normal_horizontal.png.meta  --REMOVED--
+                    selection_normal_horizontal_light.png  --REMOVED--
+                    selection_normal_horizontal_light.png.meta  --REMOVED--
+                    selection_normal_vertical.png  --REMOVED--
+                    selection_normal_vertical.png.meta  --REMOVED--
+                    selection_normal_vertical_light.png  --REMOVED--
+                    selection_normal_vertical_light.png.meta  --REMOVED--
+                    selection_pressed_horizontal.png  --REMOVED--
+                    selection_pressed_horizontal.png.meta  --REMOVED--
+                    selection_pressed_horizontal_light.png  --REMOVED--
+                    selection_pressed_horizontal_light.png.meta  --REMOVED--
+                    selection_pressed_vertical.png  --REMOVED--
+                    selection_pressed_vertical.png.meta  --REMOVED--
+                    selection_pressed_vertical_light.png  --REMOVED--
+                    selection_pressed_vertical_light.png.meta  --REMOVED--
+                    tool_hover_horizontal.png  --REMOVED--
+                    tool_hover_horizontal.png.meta  --REMOVED--
+                    tool_hover_horizontal_light.png  --REMOVED--
+                    tool_hover_horizontal_light.png.meta  --REMOVED--
+                    tool_hover_vertical.png  --REMOVED--
+                    tool_hover_vertical.png.meta  --REMOVED--
+                    tool_hover_vertical_light.png  --REMOVED--
+                    tool_hover_vertical_light.png.meta  --REMOVED--
+                    tool_normal_horizontal.png  --REMOVED--
+                    tool_normal_horizontal.png.meta  --REMOVED--
+                    tool_normal_horizontal_light.png  --REMOVED--
+                    tool_normal_horizontal_light.png.meta  --REMOVED--
+                    tool_normal_vertical.png  --REMOVED--
+                    tool_normal_vertical.png.meta  --REMOVED--
+                    tool_normal_vertical_light.png  --REMOVED--
+                    tool_normal_vertical_light.png.meta  --REMOVED--
+                    tool_pressed_horizontal.png  --REMOVED--
+                    tool_pressed_horizontal.png.meta  --REMOVED--
+                    tool_pressed_horizontal_light.png  --REMOVED--
+                    tool_pressed_horizontal_light.png.meta  --REMOVED--
+                    tool_pressed_vertical.png  --REMOVED--
+                    tool_pressed_vertical.png.meta  --REMOVED--
+                    tool_pressed_vertical_light.png  --REMOVED--
+                    tool_pressed_vertical_light.png.meta  --REMOVED--
+            <uveditor>  --REMOVED--
+                camera-64x64.png  --REMOVED--
+                camera-64x64.png.meta  --REMOVED--
+                camera-64x64_light.png  --REMOVED--
+                camera-64x64_light.png.meta  --REMOVED--
+                probuildergui_uv_manip_off.png  --REMOVED--
+                probuildergui_uv_manip_off.png.meta  --REMOVED--
+                probuildergui_uv_manip_on.png  --REMOVED--
+                probuildergui_uv_manip_on.png.meta  --REMOVED--
+                probuildergui_uv_showtexture_off.png  --REMOVED--
+                probuildergui_uv_showtexture_off.png.meta  --REMOVED--
+                probuildergui_uv_showtexture_on.png  --REMOVED--
+                probuildergui_uv_showtexture_on.png.meta  --REMOVED--
+        <material>  --REMOVED--
+            checker.mat  --REMOVED--
+            checker.mat.meta  --REMOVED--
+            textures.meta  --REMOVED--
+            <textures>  --REMOVED--
+                checker.png  --REMOVED--
+                checker.png.meta  --REMOVED--
+                gridbox_collider.png  --REMOVED--
+                gridbox_collider.png.meta  --REMOVED--
+                gridbox_nodraw.png  --REMOVED--
+                gridbox_nodraw.png.meta  --REMOVED--
+                gridbox_trigger.png  --REMOVED--
+                gridbox_trigger.png.meta  --REMOVED--
+        <resources>  --REMOVED--
+            materials.meta  --REMOVED--
+            textures.meta  --REMOVED--
+            <materials>  --REMOVED--
+                collider.mat  --REMOVED--
+                collider.mat.meta  --REMOVED--
+                edgepicker.mat  --REMOVED--
+                edgepicker.mat.meta  --REMOVED--
+                facepicker.mat  --REMOVED--
+                facepicker.mat.meta  --REMOVED--
+                invisibleface.mat  --REMOVED--
+                invisibleface.mat.meta  --REMOVED--
+                nodraw.mat  --REMOVED--
+                nodraw.mat.meta  --REMOVED--
+                probuilderdefault.mat  --REMOVED--
+                probuilderdefault.mat.meta  --REMOVED--
+                trigger.mat  --REMOVED--
+                trigger.mat.meta  --REMOVED--
+                unlitvertexcolor.mat  --REMOVED--
+                unlitvertexcolor.mat.meta  --REMOVED--
+                vertexpicker.mat  --REMOVED--
+                vertexpicker.mat.meta  --REMOVED--
+            <textures>  --REMOVED--
+                gridbox_default.png  --REMOVED--
+                gridbox_default.png.meta  --REMOVED--
+        <shader>  --REMOVED--
+            diffusetextureblend.shader  --REMOVED--
+            diffusetextureblend.shader.meta  --REMOVED--
+            diffusevertexcolor.shader  --REMOVED--
+            diffusevertexcolor.shader.meta  --REMOVED--
+            edgepicker.shader  --REMOVED--
+            edgepicker.shader.meta  --REMOVED--
+            facehighlight.shader  --REMOVED--
+            facehighlight.shader.meta  --REMOVED--
+            facepicker.shader  --REMOVED--
+            facepicker.shader.meta  --REMOVED--
+            hidevertices.shader  --REMOVED--
+            hidevertices.shader.meta  --REMOVED--
+            linebillboard.shader  --REMOVED--
+            linebillboard.shader.meta  --REMOVED--
+            normalpreview.shader  --REMOVED--
+            normalpreview.shader.meta  --REMOVED--
+            pointbillboard.shader  --REMOVED--
+            pointbillboard.shader.meta  --REMOVED--
+            referenceunlit.shader  --REMOVED--
+            referenceunlit.shader.meta  --REMOVED--
+            scrollhighlight.shader  --REMOVED--
+            scrollhighlight.shader.meta  --REMOVED--
+            selectionpicker.shader  --REMOVED--
+            selectionpicker.shader.meta  --REMOVED--
+            smoothingpreview.shader  --REMOVED--
+            smoothingpreview.shader.meta  --REMOVED--
+            standardvertexcolor.shader  --REMOVED--
+            standardvertexcolor.shader.meta  --REMOVED--
+            transparentoverlay.shader  --REMOVED--
+            transparentoverlay.shader.meta  --REMOVED--
+            unlitsolidcolor.shader  --REMOVED--
+            unlitsolidcolor.shader.meta  --REMOVED--
+            unlitvertexcolor.shader  --REMOVED--
+            unlitvertexcolor.shader.meta  --REMOVED--
+            vertexpicker.shader  --REMOVED--
+            vertexpicker.shader.meta  --REMOVED--
+            vertexshader.shader  --REMOVED--
+            vertexshader.shader.meta  --REMOVED--
+        <upgrade>  --REMOVED--
+            assetidremap-4_0_0.json  --REMOVED--
+            assetidremap-4_0_0.json.meta  --REMOVED--
+    <documentation~>  --REMOVED--
+        api.md  --REMOVED--
+        arch.md  --REMOVED--
+        auto-uvs-actions.md  --REMOVED--
+        bezier.md  --REMOVED--
+        boolean.md  --REMOVED--
+        centerpivot.md  --REMOVED--
+        cone.md  --REMOVED--
+        cube.md  --REMOVED--
+        custom.md  --REMOVED--
+        customizing.md  --REMOVED--
+        cylinder.md  --REMOVED--
+        door.md  --REMOVED--
+        edge.md  --REMOVED--
+        edge_bevel.md  --REMOVED--
+        edge_bridge.md  --REMOVED--
+        edge_connect.md  --REMOVED--
+        edge_extrude.md  --REMOVED--
+        edge_fillhole.md  --REMOVED--
+        edge_insertloop.md  --REMOVED--
+        edge_setpivot.md  --REMOVED--
+        edge_subdivide.md  --REMOVED--
+        edit-mode-toolbar.md  --REMOVED--
+        entity_trigger.md  --REMOVED--
+        experimental.md  --REMOVED--
+        face.md  --REMOVED--
+        face_bevel.md  --REMOVED--
+        face_conformnormals.md  --REMOVED--
+        face_delete.md  --REMOVED--
+        face_detach.md  --REMOVED--
+        face_extrude.md  --REMOVED--
+        face_flipnormals.md  --REMOVED--
+        face_fliptri.md  --REMOVED--
+        face_inset.md  --REMOVED--
+        face_merge.md  --REMOVED--
+        face_setpivot.md  --REMOVED--
+        face_subdivide.md  --REMOVED--
+        face_triangulate.md  --REMOVED--
+        faq.md  --REMOVED--
+        handlealign.md  --REMOVED--
+        hotkeys.md  --REMOVED--
+        index.md  --REMOVED--
+        installing.md  --REMOVED--
+        lightmap-uv.md  --REMOVED--
+        links.md  --REMOVED--
+        manual-uvs-actions.md  --REMOVED--
+        material-tools.md  --REMOVED--
+        menu-actions.md  --REMOVED--
+        menu-debug.md  --REMOVED--
+        menu-dimover.md  --REMOVED--
+        menu-editors.md  --REMOVED--
+        menu-experimental.md  --REMOVED--
+        menu-export.md  --REMOVED--
+        menu-geometry.md  --REMOVED--
+        menu-interaction.md  --REMOVED--
+        menu-materials.md  --REMOVED--
+        menu-object.md  --REMOVED--
+        menu-open.md  --REMOVED--
+        menu-repair.md  --REMOVED--
+        menu-selection.md  --REMOVED--
+        menu-vertexcolors.md  --REMOVED--
+        menu.md  --REMOVED--
+        modes.md  --REMOVED--
+        object-actions.md  --REMOVED--
+        object_conformnormals.md  --REMOVED--
+        object_export.md  --REMOVED--
+        object_flipnormals.md  --REMOVED--
+        object_lightmapuvs.md  --REMOVED--
+        object_merge.md  --REMOVED--
+        object_mirror.md  --REMOVED--
+        object_probuilderize.md  --REMOVED--
+        object_subdivide.md  --REMOVED--
+        object_triangulate.md  --REMOVED--
+        overview-ui.md  --REMOVED--
+        overview.md  --REMOVED--
+        pipe.md  --REMOVED--
+        pivot_reset.md  --REMOVED--
+        plane.md  --REMOVED--
+        polyshape.md  --REMOVED--
+        preferences.md  --REMOVED--
+        prism.md  --REMOVED--
+        probuildermesh.md  --REMOVED--
+        ref_tools.md  --REMOVED--
+        ref_windows.md  --REMOVED--
+        selection-tools.md  --REMOVED--
+        selection_grow.md  --REMOVED--
+        selection_invert.md  --REMOVED--
+        selection_loop_edge.md  --REMOVED--
+        selection_loop_face.md  --REMOVED--
+        selection_rect_intersect.md  --REMOVED--
+        selection_ring_edge.md  --REMOVED--
+        selection_ring_face.md  --REMOVED--
+        selection_selectbymaterial.md  --REMOVED--
+        selection_selectbyvertexcolor.md  --REMOVED--
+        selection_selecthidden.md  --REMOVED--
+        selection_selecthole.md  --REMOVED--
+        selection_shift.md  --REMOVED--
+        selection_shrink.md  --REMOVED--
+        selection_smoothinggroup.md  --REMOVED--
+        shape-tool.md  --REMOVED--
+        smoothing-groups.md  --REMOVED--
+        sphere.md  --REMOVED--
+        sprite.md  --REMOVED--
+        stair.md  --REMOVED--
+        tableofcontents.md  --REMOVED--
+        tool-panels.md  --REMOVED--
+        toolbar.md  --REMOVED--
+        torus.md  --REMOVED--
+        uv-editor-toolbar.md  --REMOVED--
+        uv-editor.md  --REMOVED--
+        uv_dropdown.md  --REMOVED--
+        vertex-colors.md  --REMOVED--
+        vertex-positions.md  --REMOVED--
+        vertex.md  --REMOVED--
+        vert_collapse.md  --REMOVED--
+        vert_connect.md  --REMOVED--
+        vert_fillhole.md  --REMOVED--
+        vert_setpivot.md  --REMOVED--
+        vert_split.md  --REMOVED--
+        vert_weld.md  --REMOVED--
+        workflow-create-bezier.md  --REMOVED--
+        workflow-create-polyshape.md  --REMOVED--
+        workflow-create-predefined.md  --REMOVED--
+        workflow-create.md  --REMOVED--
+        workflow-edit-smoothing.md  --REMOVED--
+        workflow-edit-tasks.md  --REMOVED--
+        workflow-edit-tips.md  --REMOVED--
+        workflow-edit.md  --REMOVED--
+        workflow-exporting.md  --REMOVED--
+        workflow-materials.md  --REMOVED--
+        workflow-texture-mapping.md  --REMOVED--
+        workflow-uvs.md  --REMOVED--
+        workflow-vertexcolors.md  --REMOVED--
+        workflow-walkthroughs.md  --REMOVED--
+        workflows.md  --REMOVED--
+        <images>  --REMOVED--
+            badlightmapuvs.png  --REMOVED--
+            beveledges_example.png  --REMOVED--
+            bevelface_example.png  --REMOVED--
+            beziershape_headerimage.png  --REMOVED--
+            bezier_aligned.png  --REMOVED--
+            bezier_curveprops.png  --REMOVED--
+            bezier_free.png  --REMOVED--
+            bezier_mirrored.png  --REMOVED--
+            bezier_shapeprops.png  --REMOVED--
+            boolean_intersection.png  --REMOVED--
+            boolean_subtraction.png  --REMOVED--
+            boolean_union.png  --REMOVED--
+            boxproject_example.png  --REMOVED--
+            bridgeedges_example.png  --REMOVED--
+            centerpivot_example.png  --REMOVED--
+            collapseverts_example.png  --REMOVED--
+            connectedges_example.png  --REMOVED--
+            connectverts_example.png  --REMOVED--
+            curvedstair.png  --REMOVED--
+            custom_vtx_order.png  --REMOVED--
+            cus_switchmodes.png  --REMOVED--
+            cus_switchwindows.png  --REMOVED--
+            deleteface_example.png  --REMOVED--
+            detachface_example.png  --REMOVED--
+            dimoverlay.png  --REMOVED--
+            dragrect_example.png  --REMOVED--
+            edge_bevel_props.png  --REMOVED--
+            edge_extrude_props.png  --REMOVED--
+            edge_setpivot.png  --REMOVED--
+            edge_subdivide_props.png  --REMOVED--
+            exampleimage_objectandelementeditingmodes.png  --REMOVED--
+            exampleimage_toolbar_colorcategories.png  --REMOVED--
+            example_floatingverts.png  --REMOVED--
+            example_levelbuilding.png  --REMOVED--
+            example_materialsonlevel.png  --REMOVED--
+            example_selectbymaterial.png  --REMOVED--
+            example_selectbyvertexcolor.png  --REMOVED--
+            example_selecthole.png  --REMOVED--
+            example_shapetoolswithcurvedstair.png  --REMOVED--
+            example_t-junction.png  --REMOVED--
+            experimental_bezierinspector.png  --REMOVED--
+            experimental_booleanwindow.png  --REMOVED--
+            experimental_polyshapeinspector.png  --REMOVED--
+            experimental_preferences.png  --REMOVED--
+            extrudeedges_example.png  --REMOVED--
+            extrudeface_example.png  --REMOVED--
+            face_conformnormals.png  --REMOVED--
+            face_detach_props.png  --REMOVED--
+            face_extrude_props.png  --REMOVED--
+            face_setpivot.png  --REMOVED--
+            faq-norender.png  --REMOVED--
+            faq_black.png  --REMOVED--
+            fillhole_example.png  --REMOVED--
+            fillhole_props.png  --REMOVED--
+            flipfacenormals_example.png  --REMOVED--
+            flipobjectnormals_example.png  --REMOVED--
+            fliptri_example.png  --REMOVED--
+            growselection_example.png  --REMOVED--
+            handlealign_exampleswithtextandicons.png  --REMOVED--
+            info_overlay.png  --REMOVED--
+            insertedgeloop_example.png  --REMOVED--
+            insetface_example.png  --REMOVED--
+            invertselection_example.png  --REMOVED--
+            lettercircle_a.png  --REMOVED--
+            lettercircle_b.png  --REMOVED--
+            lettercircle_c.png  --REMOVED--
+            lettercircle_d.png  --REMOVED--
+            lettercircle_e.png  --REMOVED--
+            lettercircle_f.png  --REMOVED--
+            lettercircle_g.png  --REMOVED--
+            lettercircle_h.png  --REMOVED--
+            lettercircle_i.png  --REMOVED--
+            lightmap-uv.png  --REMOVED--
+            material-tools-palette.png  --REMOVED--
+            material-tools-quick.png  --REMOVED--
+            material-tools.png  --REMOVED--
+            materialtools_withexample.png  --REMOVED--
+            menu-actions.png  --REMOVED--
+            menu-debug.png  --REMOVED--
+            menu-dimover.png  --REMOVED--
+            menu-editors.png  --REMOVED--
+            menu-experimental.png  --REMOVED--
+            menu-export.png  --REMOVED--
+            menu-geometry.png  --REMOVED--
+            menu-interaction.png  --REMOVED--
+            menu-materials.png  --REMOVED--
+            menu-object.png  --REMOVED--
+            menu-open.png  --REMOVED--
+            menu-repair.png  --REMOVED--
+            menu-selection.png  --REMOVED--
+            menu-vertexcolors.png  --REMOVED--
+            mergefaces_example.png  --REMOVED--
+            mirror_example.png  --REMOVED--
+            object_conformnormals.png  --REMOVED--
+            object_export_props.png  --REMOVED--
+            object_export_propsasset.png  --REMOVED--
+            object_export_propsobj.png  --REMOVED--
+            object_export_propsply.png  --REMOVED--
+            object_export_propsstl.png  --REMOVED--
+            object_mirror_props.png  --REMOVED--
+            object_probuilderize_props.png  --REMOVED--
+            overview-ui.png  --REMOVED--
+            pbvsunitymeshes.png  --REMOVED--
+            pb_comp.png  --REMOVED--
+            pb_editors.png  --REMOVED--
+            pb_hotkeys.png  --REMOVED--
+            pb_menu.png  --REMOVED--
+            pb_options.png  --REMOVED--
+            pb_transform.png  --REMOVED--
+            planarproject_example.png  --REMOVED--
+            polyshape_draw1.png  --REMOVED--
+            polyshape_draw2.png  --REMOVED--
+            polyshape_draw3.png  --REMOVED--
+            polyshape_headerimage.png  --REMOVED--
+            preferences.png  --REMOVED--
+            prefs_editing.png  --REMOVED--
+            prefs_experimental.png  --REMOVED--
+            prefs_general.png  --REMOVED--
+            prefs_graphics.png  --REMOVED--
+            prefs_settings.png  --REMOVED--
+            prefs_shortcuts.png  --REMOVED--
+            prefs_toolbar.png  --REMOVED--
+            prefs_uvs.png  --REMOVED--
+            probuildermesh-lightmapuvs.png  --REMOVED--
+            probuildermesh.png  --REMOVED--
+            probuildertoolbar_geoactionsarea.png  --REMOVED--
+            probuilder_unitylogo.png  --REMOVED--
+            renderuvspanel.png  --REMOVED--
+            selectfaceloop_example.png  --REMOVED--
+            selectfacering_example.png  --REMOVED--
+            selecthidden_example.png  --REMOVED--
+            selection_grow_props.png  --REMOVED--
+            selection_loopexample.png  --REMOVED--
+            selection_ringexample.png  --REMOVED--
+            selection_selectbymaterial.png  --REMOVED--
+            selection_selectbymaterial_props.png  --REMOVED--
+            selection_selectbyvertexcolor_props.png  --REMOVED--
+            shape-tool.png  --REMOVED--
+            shape-tool_arch-props.png  --REMOVED--
+            shape-tool_arch.png  --REMOVED--
+            shape-tool_cone-props.png  --REMOVED--
+            shape-tool_cone.png  --REMOVED--
+            shape-tool_cube-props.png  --REMOVED--
+            shape-tool_cube.png  --REMOVED--
+            shape-tool_cylinder-props.png  --REMOVED--
+            shape-tool_cylinder.png  --REMOVED--
+            shape-tool_door-props.png  --REMOVED--
+            shape-tool_door.png  --REMOVED--
+            shape-tool_pipe-props.png  --REMOVED--
+            shape-tool_pipe.png  --REMOVED--
+            shape-tool_plane-props.png  --REMOVED--
+            shape-tool_plane.png  --REMOVED--
+            shape-tool_preview.png  --REMOVED--
+            shape-tool_prism-props.png  --REMOVED--
+            shape-tool_prism.png  --REMOVED--
+            shape-tool_sphere-props.png  --REMOVED--
+            shape-tool_sphere.png  --REMOVED--
+            shape-tool_sprite-props.png  --REMOVED--
+            shape-tool_sprite.png  --REMOVED--
+            shape-tool_stair-props.png  --REMOVED--
+            shape-tool_stair.png  --REMOVED--
+            shape-tool_torus-props.png  --REMOVED--
+            shape-tool_torus.png  --REMOVED--
+            shapetooltypes.png  --REMOVED--
+            shiftmodifier_example.png  --REMOVED--
+            showtexturepreview_example.png  --REMOVED--
+            shrinkselection_example.png  --REMOVED--
+            smoothing_editor.png  --REMOVED--
+            smoothing_editor_props-btnblue.png  --REMOVED--
+            smoothing_editor_props-btngray.png  --REMOVED--
+            smoothing_editor_props-btnwhite.png  --REMOVED--
+            smoothing_editor_props-btnyellow.png  --REMOVED--
+            smoothing_editor_props-pnlmain.png  --REMOVED--
+            smoothing_editor_props-pnlnormals.png  --REMOVED--
+            smoothing_editor_props-pnloverlay.png  --REMOVED--
+            smoothing_editor_props-pnlquickref.png  --REMOVED--
+            smoothing_editor_props.png  --REMOVED--
+            splitverts_example.png  --REMOVED--
+            subdivideedge_example.png  --REMOVED--
+            subdivideface_example.png  --REMOVED--
+            subdivideobject_example.png  --REMOVED--
+            texmat-create.png  --REMOVED--
+            toolbar_editmode.png  --REMOVED--
+            toolbar_main.png  --REMOVED--
+            toolbar_resizingexample.png  --REMOVED--
+            toolbar_text_v_icon.png  --REMOVED--
+            tool_edges.png  --REMOVED--
+            tool_faces.png  --REMOVED--
+            tool_objects.png  --REMOVED--
+            tool_panels.png  --REMOVED--
+            tool_selection.png  --REMOVED--
+            tool_vertices.png  --REMOVED--
+            triangulateobject_example.png  --REMOVED--
+            uveditor_example-123.png  --REMOVED--
+            uveditor_example-beforeafter.png  --REMOVED--
+            uvexamples_collapseuvs.png  --REMOVED--
+            uvexamples_fituvs.png  --REMOVED--
+            uvexamples_fliphorizontal.png  --REMOVED--
+            uvexamples_flipvertical.png  --REMOVED--
+            uvexamples_rotate.png  --REMOVED--
+            uvexamples_scale.png  --REMOVED--
+            uvexamples_selectface.png  --REMOVED--
+            uvexamples_selectisland.png  --REMOVED--
+            uvexamples_splituvs.png  --REMOVED--
+            uvexamples_template.png  --REMOVED--
+            uvexamples_texturegroups.png  --REMOVED--
+            uvexamples_translate.png  --REMOVED--
+            uvexamples_welduvs.png  --REMOVED--
+            uvgenerationparams.png  --REMOVED--
+            uvpanel_actionpanel_noselection.png  --REMOVED--
+            uvpanel_fullwindow_letters.png  --REMOVED--
+            uvpanel_manualactions.png  --REMOVED--
+            uvpanel_mixedmode.png  --REMOVED--
+            uvtoolbar.png  --REMOVED--
+            uv_autoactions-anchor.png  --REMOVED--
+            uv_autoactions.png  --REMOVED--
+            uv_fillmodes.png  --REMOVED--
+            uv_inscenecontrols.png  --REMOVED--
+            vertex-positions.png  --REMOVED--
+            vertex-positions_example.png  --REMOVED--
+            vertexcolors.png  --REMOVED--
+            vertexcolors_bymodes.png  --REMOVED--
+            vertexcolor_withlevelexample.png  --REMOVED--
+            vert_collapse_props.png  --REMOVED--
+            vert_setpivot.png  --REMOVED--
+            vert_weld_props.png  --REMOVED--
+            weldverts_example.png  --REMOVED--
+            <icons>  --REMOVED--
+                centerpivot.png  --REMOVED--
+                edge_bevel.png  --REMOVED--
+                edge_bridge.png  --REMOVED--
+                edge_connect.png  --REMOVED--
+                edge_extrude.png  --REMOVED--
+                edge_insertloop.png  --REMOVED--
+                edge_subdivide.png  --REMOVED--
+                editmodes_edge.png  --REMOVED--
+                editmodes_face.png  --REMOVED--
+                editmodes_object.png  --REMOVED--
+                editmodes_vertex.png  --REMOVED--
+                entity_trigger.png  --REMOVED--
+                extrudeface_facenormals.png  --REMOVED--
+                extrudeface_individual.png  --REMOVED--
+                extrudeface_vertexnormals.png  --REMOVED--
+                face_breaksmoothing.png  --REMOVED--
+                face_conformnormals.png  --REMOVED--
+                face_delete.png  --REMOVED--
+                face_detach.png  --REMOVED--
+                face_extrude.png  --REMOVED--
+                face_flipnormals.png  --REMOVED--
+                face_fliptri.png  --REMOVED--
+                face_merge.png  --REMOVED--
+                face_subdivide.png  --REMOVED--
+                face_triangulate.png  --REMOVED--
+                fillhole.png  --REMOVED--
+                handlealign_local.png  --REMOVED--
+                handlealign_plane.png  --REMOVED--
+                handlealign_world.png  --REMOVED--
+                newbezierspline.png  --REMOVED--
+                newpolyshape.png  --REMOVED--
+                object_conformnormals.png  --REMOVED--
+                object_export.png  --REMOVED--
+                object_flipnormals.png  --REMOVED--
+                object_lightmapuvs.png  --REMOVED--
+                object_merge.png  --REMOVED--
+                object_mirror.png  --REMOVED--
+                object_probuilderize.png  --REMOVED--
+                object_subdivide.png  --REMOVED--
+                object_triangulate.png  --REMOVED--
+                options.png  --REMOVED--
+                panel_materials.png  --REMOVED--
+                panel_shapes.png  --REMOVED--
+                panel_smoothing.png  --REMOVED--
+                panel_uveditor.png  --REMOVED--
+                panel_vertcolors.png  --REMOVED--
+                pivot_reset.png  --REMOVED--
+                probuildergui_uv_manip_off.png  --REMOVED--
+                probuildergui_uv_manip_on.png  --REMOVED--
+                probuildergui_uv_renderuvtemplate.png  --REMOVED--
+                probuildergui_uv_showtexture_off.png  --REMOVED--
+                probuildergui_uv_showtexture_on.png  --REMOVED--
+                selection_grow.png  --REMOVED--
+                selection_invert.png  --REMOVED--
+                selection_loop.png  --REMOVED--
+                selection_loop_face.png  --REMOVED--
+                selection_rect_complete.png  --REMOVED--
+                selection_rect_intersect.png  --REMOVED--
+                selection_ring.png  --REMOVED--
+                selection_ring_face.png  --REMOVED--
+                selection_selectbymaterial.png  --REMOVED--
+                selection_selectbysmoothinggroup.png  --REMOVED--
+                selection_selectbyvertexcolor.png  --REMOVED--
+                selection_selecthidden-off.png  --REMOVED--
+                selection_selecthidden-on.png  --REMOVED--
+                selection_selecthole.png  --REMOVED--
+                selection_shiftadd.png  --REMOVED--
+                selection_shiftdifference.png  --REMOVED--
+                selection_shiftsubtract.png  --REMOVED--
+                selection_shrink.png  --REMOVED--
+                setpivot.png  --REMOVED--
+                vert_collapse.png  --REMOVED--
+                vert_connect.png  --REMOVED--
+                vert_split.png  --REMOVED--
+                vert_weld.png  --REMOVED--
+    <editor>  --REMOVED--
+        editorcore.meta  --REMOVED--
+        menuactions.meta  --REMOVED--
+        unity.probuilder.editor.asmdef  --REMOVED--
+        unity.probuilder.editor.asmdef.meta  --REMOVED--
+        <editorcore>  --REMOVED--
+            assemblyinfo.cs  --REMOVED--
+            assemblyinfo.cs.meta  --REMOVED--
+            autouveditor.cs  --REMOVED--
+            autouveditor.cs.meta  --REMOVED--
+            beziersplineeditor.cs  --REMOVED--
+            beziersplineeditor.cs.meta  --REMOVED--
+            booleaneditor.cs  --REMOVED--
+            booleaneditor.cs.meta  --REMOVED--
+            configurablewindow.cs  --REMOVED--
+            configurablewindow.cs.meta  --REMOVED--
+            destroylistener.cs  --REMOVED--
+            destroylistener.cs.meta  --REMOVED--
+            dimensionseditor.cs  --REMOVED--
+            dimensionseditor.cs.meta  --REMOVED--
+            editorenum.cs  --REMOVED--
+            editorenum.cs.meta  --REMOVED--
+            editorguilayout.cs  --REMOVED--
+            editorguilayout.cs.meta  --REMOVED--
+            editorguiutility.cs  --REMOVED--
+            editorguiutility.cs.meta  --REMOVED--
+            editorhandleutility.cs  --REMOVED--
+            editorhandleutility.cs.meta  --REMOVED--
+            editormeshhandles.cs  --REMOVED--
+            editormeshhandles.cs.meta  --REMOVED--
+            editormeshutility.cs  --REMOVED--
+            editormeshutility.cs.meta  --REMOVED--
+            editorsceneviewpicker.cs  --REMOVED--
+            editorsceneviewpicker.cs.meta  --REMOVED--
+            editorstyles.cs  --REMOVED--
+            editorstyles.cs.meta  --REMOVED--
+            editortoolbar.cs  --REMOVED--
+            editortoolbar.cs.meta  --REMOVED--
+            editortoolbarloader.cs  --REMOVED--
+            editortoolbarloader.cs.meta  --REMOVED--
+            editortoolbarmenuitems.cs  --REMOVED--
+            editortoolbarmenuitems.cs.meta  --REMOVED--
+            editorutility.cs  --REMOVED--
+            editorutility.cs.meta  --REMOVED--
+            entityeditor.cs  --REMOVED--
+            entityeditor.cs.meta  --REMOVED--
+            entityutility.cs  --REMOVED--
+            entityutility.cs.meta  --REMOVED--
+            entityvisibility.cs  --REMOVED--
+            entityvisibility.cs.meta  --REMOVED--
+            experimental.cs  --REMOVED--
+            experimental.cs.meta  --REMOVED--
+            fileutility.cs  --REMOVED--
+            fileutility.cs.meta  --REMOVED--
+            handlegui.cs  --REMOVED--
+            handlegui.cs.meta  --REMOVED--
+            hierarchylistener.cs  --REMOVED--
+            hierarchylistener.cs.meta  --REMOVED--
+            iconimporter.cs  --REMOVED--
+            iconimporter.cs.meta  --REMOVED--
+            iconutility.cs  --REMOVED--
+            iconutility.cs.meta  --REMOVED--
+            ihaspreferences.cs  --REMOVED--
+            ihaspreferences.cs.meta  --REMOVED--
+            licenseeditor.cs  --REMOVED--
+            licenseeditor.cs.meta  --REMOVED--
+            lightmapping.cs  --REMOVED--
+            lightmapping.cs.meta  --REMOVED--
+            lightmapuveditor.cs  --REMOVED--
+            lightmapuveditor.cs.meta  --REMOVED--
+            logeditor.cs  --REMOVED--
+            logeditor.cs.meta  --REMOVED--
+            materialeditor.cs  --REMOVED--
+            materialeditor.cs.meta  --REMOVED--
+            materialpalette.cs  --REMOVED--
+            materialpalette.cs.meta  --REMOVED--
+            menuaction.cs  --REMOVED--
+            menuaction.cs.meta  --REMOVED--
+            menuactionstyles.cs  --REMOVED--
+            menuactionstyles.cs.meta  --REMOVED--
+            menuitems.cs  --REMOVED--
+            menuitems.cs.meta  --REMOVED--
+            menuoption.cs  --REMOVED--
+            menuoption.cs.meta  --REMOVED--
+            meshandelementselection.cs  --REMOVED--
+            meshandelementselection.cs.meta  --REMOVED--
+            meshselection.cs  --REMOVED--
+            meshselection.cs.meta  --REMOVED--
+            model.cs  --REMOVED--
+            model.cs.meta  --REMOVED--
+            objexporter.cs  --REMOVED--
+            objexporter.cs.meta  --REMOVED--
+            pb_objectarray.cs  --REMOVED--
+            pb_objectarray.cs.meta  --REMOVED--
+            plyexporter.cs  --REMOVED--
+            plyexporter.cs.meta  --REMOVED--
+            polyshapeeditor.cs  --REMOVED--
+            polyshapeeditor.cs.meta  --REMOVED--
+            positionmovetool.cs  --REMOVED--
+            positionmovetool.cs.meta  --REMOVED--
+            positionrotatetool.cs  --REMOVED--
+            positionrotatetool.cs.meta  --REMOVED--
+            positionscaletool.cs  --REMOVED--
+            positionscaletool.cs.meta  --REMOVED--
+            positiontool.cs  --REMOVED--
+            positiontool.cs.meta  --REMOVED--
+            pref.cs  --REMOVED--
+            pref.cs.meta  --REMOVED--
+            preferencedictionaryeditor.cs  --REMOVED--
+            preferencedictionaryeditor.cs.meta  --REMOVED--
+            preferences.cs  --REMOVED--
+            preferences.cs.meta  --REMOVED--
+            preferencesinternal.cs  --REMOVED--
+            preferencesinternal.cs.meta  --REMOVED--
+            preferencesupdater.cs  --REMOVED--
+            preferencesupdater.cs.meta  --REMOVED--
+            probuildereditor.cs  --REMOVED--
+            probuildereditor.cs.meta  --REMOVED--
+            probuildermenuactionattribute.cs  --REMOVED--
+            probuildermenuactionattribute.cs.meta  --REMOVED--
+            probuildermesheditor.cs  --REMOVED--
+            probuildermesheditor.cs.meta  --REMOVED--
+            probuildersettings.cs  --REMOVED--
+            probuildersettings.cs.meta  --REMOVED--
+            probuildersettingsprovider.cs  --REMOVED--
+            probuildersettingsprovider.cs.meta  --REMOVED--
+            progridsinterface.cs  --REMOVED--
+            progridsinterface.cs.meta  --REMOVED--
+            reflectionutility.cs  --REMOVED--
+            reflectionutility.cs.meta  --REMOVED--
+            repairactions.cs  --REMOVED--
+            repairactions.cs.meta  --REMOVED--
+            scenedraganddroplistener.cs  --REMOVED--
+            scenedraganddroplistener.cs.meta  --REMOVED--
+            scriptingsymbolmanager.cs  --REMOVED--
+            scriptingsymbolmanager.cs.meta  --REMOVED--
+            selectionutility.cs  --REMOVED--
+            selectionutility.cs.meta  --REMOVED--
+            shapeeditor.cs  --REMOVED--
+            shapeeditor.cs.meta  --REMOVED--
+            shortcutmanager.cs  --REMOVED--
+            shortcutmanager.cs.meta  --REMOVED--
+            smoothgroupeditor.cs  --REMOVED--
+            smoothgroupeditor.cs.meta  --REMOVED--
+            staticeditormeshhandles.cs  --REMOVED--
+            staticeditormeshhandles.cs.meta  --REMOVED--
+            stripprobuilderscripts.cs  --REMOVED--
+            stripprobuilderscripts.cs.meta  --REMOVED--
+            texturemovetool.cs  --REMOVED--
+            texturemovetool.cs.meta  --REMOVED--
+            texturerotatetool.cs  --REMOVED--
+            texturerotatetool.cs.meta  --REMOVED--
+            texturescaletool.cs  --REMOVED--
+            texturescaletool.cs.meta  --REMOVED--
+            texturetool.cs  --REMOVED--
+            texturetool.cs.meta  --REMOVED--
+            toolbargroup.cs  --REMOVED--
+            toolbargroup.cs.meta  --REMOVED--
+            tooltipcontent.cs  --REMOVED--
+            tooltipcontent.cs.meta  --REMOVED--
+            tooltipeditor.cs  --REMOVED--
+            tooltipeditor.cs.meta  --REMOVED--
+            undoutility.cs  --REMOVED--
+            undoutility.cs.meta  --REMOVED--
+            unityscenepostprocessor.cs  --REMOVED--
+            unityscenepostprocessor.cs.meta  --REMOVED--
+            unwrapparameterseditor.cs  --REMOVED--
+            unwrapparameterseditor.cs.meta  --REMOVED--
+            uveditor.cs  --REMOVED--
+            uveditor.cs.meta  --REMOVED--
+            uvrenderoptions.cs  --REMOVED--
+            uvrenderoptions.cs.meta  --REMOVED--
+            versionvalidator.cs  --REMOVED--
+            versionvalidator.cs.meta  --REMOVED--
+            vertexcolorpalette.cs  --REMOVED--
+            vertexcolorpalette.cs.meta  --REMOVED--
+            vertexmanipulationtool.cs  --REMOVED--
+            vertexmanipulationtool.cs.meta  --REMOVED--
+            vertexmanipulationtoolsettings.cs  --REMOVED--
+            vertexmanipulationtoolsettings.cs.meta  --REMOVED--
+            vertexpositioneditor.cs  --REMOVED--
+            vertexpositioneditor.cs.meta  --REMOVED--
+        <menuactions>  --REMOVED--
+            editors.meta  --REMOVED--
+            export.meta  --REMOVED--
+            geometry.meta  --REMOVED--
+            interaction.meta  --REMOVED--
+            object.meta  --REMOVED--
+            selection.meta  --REMOVED--
+            <editors>  --REMOVED--
+                newbeziershape.cs  --REMOVED--
+                newbeziershape.cs.meta  --REMOVED--
+                newpolyshape.cs  --REMOVED--
+                newpolyshape.cs.meta  --REMOVED--
+                openlightmapuveditor.cs  --REMOVED--
+                openlightmapuveditor.cs.meta  --REMOVED--
+                openmaterialeditor.cs  --REMOVED--
+                openmaterialeditor.cs.meta  --REMOVED--
+                openshapeeditor.cs  --REMOVED--
+                openshapeeditor.cs.meta  --REMOVED--
+                openshapeeditormenuitem.cs  --REMOVED--
+                openshapeeditormenuitem.cs.meta  --REMOVED--
+                opensmoothingeditor.cs  --REMOVED--
+                opensmoothingeditor.cs.meta  --REMOVED--
+                openuveditor.cs  --REMOVED--
+                openuveditor.cs.meta  --REMOVED--
+                openvertexcoloreditor.cs  --REMOVED--
+                openvertexcoloreditor.cs.meta  --REMOVED--
+                openvertexpositioneditor.cs  --REMOVED--
+                openvertexpositioneditor.cs.meta  --REMOVED--
+            <export>  --REMOVED--
+                export.cs  --REMOVED--
+                export.cs.meta  --REMOVED--
+                exportasset.cs  --REMOVED--
+                exportasset.cs.meta  --REMOVED--
+                exportobj.cs  --REMOVED--
+                exportobj.cs.meta  --REMOVED--
+                exportply.cs  --REMOVED--
+                exportply.cs.meta  --REMOVED--
+                exportstlascii.cs  --REMOVED--
+                exportstlascii.cs.meta  --REMOVED--
+                exportstlbinary.cs  --REMOVED--
+                exportstlbinary.cs.meta  --REMOVED--
+            <geometry>  --REMOVED--
+                beveledges.cs  --REMOVED--
+                beveledges.cs.meta  --REMOVED--
+                bridgeedges.cs  --REMOVED--
+                bridgeedges.cs.meta  --REMOVED--
+                collapsevertices.cs  --REMOVED--
+                collapsevertices.cs.meta  --REMOVED--
+                conformfacenormals.cs  --REMOVED--
+                conformfacenormals.cs.meta  --REMOVED--
+                connectedges.cs  --REMOVED--
+                connectedges.cs.meta  --REMOVED--
+                connectvertices.cs  --REMOVED--
+                connectvertices.cs.meta  --REMOVED--
+                deletefaces.cs  --REMOVED--
+                deletefaces.cs.meta  --REMOVED--
+                detachfaces.cs  --REMOVED--
+                detachfaces.cs.meta  --REMOVED--
+                extrude.cs  --REMOVED--
+                extrude.cs.meta  --REMOVED--
+                extrudeedges.cs  --REMOVED--
+                extrudeedges.cs.meta  --REMOVED--
+                extrudefaces.cs  --REMOVED--
+                extrudefaces.cs.meta  --REMOVED--
+                fillhole.cs  --REMOVED--
+                fillhole.cs.meta  --REMOVED--
+                flipfaceedge.cs  --REMOVED--
+                flipfaceedge.cs.meta  --REMOVED--
+                flipfacenormals.cs  --REMOVED--
+                flipfacenormals.cs.meta  --REMOVED--
+                insertedgeloop.cs  --REMOVED--
+                insertedgeloop.cs.meta  --REMOVED--
+                mergefaces.cs  --REMOVED--
+                mergefaces.cs.meta  --REMOVED--
+                setpivottoselection.cs  --REMOVED--
+                setpivottoselection.cs.meta  --REMOVED--
+                smartconnect.cs  --REMOVED--
+                smartconnect.cs.meta  --REMOVED--
+                smartsubdivide.cs  --REMOVED--
+                smartsubdivide.cs.meta  --REMOVED--
+                splitvertices.cs  --REMOVED--
+                splitvertices.cs.meta  --REMOVED--
+                subdivideedges.cs  --REMOVED--
+                subdivideedges.cs.meta  --REMOVED--
+                subdividefaces.cs  --REMOVED--
+                subdividefaces.cs.meta  --REMOVED--
+                triangulatefaces.cs  --REMOVED--
+                triangulatefaces.cs.meta  --REMOVED--
+                weldvertices.cs  --REMOVED--
+                weldvertices.cs.meta  --REMOVED--
+            <interaction>  --REMOVED--
+                toggledragrectmode.cs  --REMOVED--
+                toggledragrectmode.cs.meta  --REMOVED--
+                toggledragselectionmode.cs  --REMOVED--
+                toggledragselectionmode.cs.meta  --REMOVED--
+                togglehandleorientation.cs  --REMOVED--
+                togglehandleorientation.cs.meta  --REMOVED--
+                togglehandlepivotpoint.cs  --REMOVED--
+                togglehandlepivotpoint.cs.meta  --REMOVED--
+                toggleselectbackfaces.cs  --REMOVED--
+                toggleselectbackfaces.cs.meta  --REMOVED--
+            <object>  --REMOVED--
+                centerpivot.cs  --REMOVED--
+                centerpivot.cs.meta  --REMOVED--
+                conformobjectnormals.cs  --REMOVED--
+                conformobjectnormals.cs.meta  --REMOVED--
+                flipobjectnormals.cs  --REMOVED--
+                flipobjectnormals.cs.meta  --REMOVED--
+                freezetransform.cs  --REMOVED--
+                freezetransform.cs.meta  --REMOVED--
+                generateuv2.cs  --REMOVED--
+                generateuv2.cs.meta  --REMOVED--
+                mergeobjects.cs  --REMOVED--
+                mergeobjects.cs.meta  --REMOVED--
+                mirrorobjects.cs  --REMOVED--
+                mirrorobjects.cs.meta  --REMOVED--
+                probuilderize.cs  --REMOVED--
+                probuilderize.cs.meta  --REMOVED--
+                setcollider.cs  --REMOVED--
+                setcollider.cs.meta  --REMOVED--
+                settrigger.cs  --REMOVED--
+                settrigger.cs.meta  --REMOVED--
+                subdivideobject.cs  --REMOVED--
+                subdivideobject.cs.meta  --REMOVED--
+                triangulateobject.cs  --REMOVED--
+                triangulateobject.cs.meta  --REMOVED--
+            <selection>  --REMOVED--
+                growselection.cs  --REMOVED--
+                growselection.cs.meta  --REMOVED--
+                invertselection.cs  --REMOVED--
+                invertselection.cs.meta  --REMOVED--
+                selectedgeloop.cs  --REMOVED--
+                selectedgeloop.cs.meta  --REMOVED--
+                selectedgering.cs  --REMOVED--
+                selectedgering.cs.meta  --REMOVED--
+                selectfaceloop.cs  --REMOVED--
+                selectfaceloop.cs.meta  --REMOVED--
+                selectfacering.cs  --REMOVED--
+                selectfacering.cs.meta  --REMOVED--
+                selecthole.cs  --REMOVED--
+                selecthole.cs.meta  --REMOVED--
+                selectloop.cs  --REMOVED--
+                selectloop.cs.meta  --REMOVED--
+                selectmaterial.cs  --REMOVED--
+                selectmaterial.cs.meta  --REMOVED--
+                selectring.cs  --REMOVED--
+                selectring.cs.meta  --REMOVED--
+                selectsmoothinggroup.cs  --REMOVED--
+                selectsmoothinggroup.cs.meta  --REMOVED--
+                selectvertexcolor.cs  --REMOVED--
+                selectvertexcolor.cs.meta  --REMOVED--
+                shrinkselection.cs  --REMOVED--
+                shrinkselection.cs.meta  --REMOVED--
+    <external>  --REMOVED--
+        kdtree.meta  --REMOVED--
+        poly2tri.meta  --REMOVED--
+        stlexporter.meta  --REMOVED--
+        <kdtree>  --REMOVED--
+            kdtreelib.meta  --REMOVED--
+            license.md  --REMOVED--
+            license.md.meta  --REMOVED--
+            readme.md  --REMOVED--
+            readme.md.meta  --REMOVED--
+            unity.probuilder.kdtree.asmdef  --REMOVED--
+            unity.probuilder.kdtree.asmdef.meta  --REMOVED--
+            <kdtreelib>  --REMOVED--
+                assemblyinfo.cs  --REMOVED--
+                assemblyinfo.cs.meta  --REMOVED--
+                hyperrect.cs  --REMOVED--
+                hyperrect.cs.meta  --REMOVED--
+                ikdtree.cs  --REMOVED--
+                ikdtree.cs.meta  --REMOVED--
+                ipriorityqueue.cs  --REMOVED--
+                ipriorityqueue.cs.meta  --REMOVED--
+                kdtree.cs  --REMOVED--
+                kdtree.cs.meta  --REMOVED--
+                kdtreenode.cs  --REMOVED--
+                kdtreenode.cs.meta  --REMOVED--
+                math.meta  --REMOVED--
+                nearestneighbourlist.cs  --REMOVED--
+                nearestneighbourlist.cs.meta  --REMOVED--
+                priorityqueue.cs  --REMOVED--
+                priorityqueue.cs.meta  --REMOVED--
+                <math>  --REMOVED--
+                    doublemath.cs  --REMOVED--
+                    doublemath.cs.meta  --REMOVED--
+                    floatmath.cs  --REMOVED--
+                    floatmath.cs.meta  --REMOVED--
+                    itypemath.cs  --REMOVED--
+                    itypemath.cs.meta  --REMOVED--
+                    typemath.cs  --REMOVED--
+                    typemath.cs.meta  --REMOVED--
+        <poly2tri>  --REMOVED--
+            assemblyinfo.cs  --REMOVED--
+            assemblyinfo.cs.meta  --REMOVED--
+            authors.txt~  --REMOVED--
+            license.txt~  --REMOVED--
+            p2t.cs  --REMOVED--
+            p2t.cs.meta  --REMOVED--
+            polygon.meta  --REMOVED--
+            readme.txt~  --REMOVED--
+            triangulation.meta  --REMOVED--
+            unity.probuilder.poly2tri.asmdef  --REMOVED--
+            unity.probuilder.poly2tri.asmdef.meta  --REMOVED--
+            utility.meta  --REMOVED--
+            <polygon>  --REMOVED--
+                polygon.cs  --REMOVED--
+                polygon.cs.meta  --REMOVED--
+                polygonpoint.cs  --REMOVED--
+                polygonpoint.cs.meta  --REMOVED--
+                polygonset.cs  --REMOVED--
+                polygonset.cs.meta  --REMOVED--
+            <triangulation>  --REMOVED--
+                delaunay.meta  --REMOVED--
+                itriangulatable.cs  --REMOVED--
+                itriangulatable.cs.meta  --REMOVED--
+                orientation.cs  --REMOVED--
+                orientation.cs.meta  --REMOVED--
+                sets.meta  --REMOVED--
+                triangulationalgorithm.cs  --REMOVED--
+                triangulationalgorithm.cs.meta  --REMOVED--
+                triangulationconstraint.cs  --REMOVED--
+                triangulationconstraint.cs.meta  --REMOVED--
+                triangulationcontext.cs  --REMOVED--
+                triangulationcontext.cs.meta  --REMOVED--
+                triangulationdebugcontext.cs  --REMOVED--
+                triangulationdebugcontext.cs.meta  --REMOVED--
+                triangulationmode.cs  --REMOVED--
+                triangulationmode.cs.meta  --REMOVED--
+                triangulationpoint.cs  --REMOVED--
+                triangulationpoint.cs.meta  --REMOVED--
+                triangulationutil.cs  --REMOVED--
+                triangulationutil.cs.meta  --REMOVED--
+                util.meta  --REMOVED--
+                <delaunay>  --REMOVED--
+                    delaunaytriangle.cs  --REMOVED--
+                    delaunaytriangle.cs.meta  --REMOVED--
+                    sweep.meta  --REMOVED--
+                    <sweep>  --REMOVED--
+                        advancingfront.cs  --REMOVED--
+                        advancingfront.cs.meta  --REMOVED--
+                        advancingfrontnode.cs  --REMOVED--
+                        advancingfrontnode.cs.meta  --REMOVED--
+                        dtsweep.cs  --REMOVED--
+                        dtsweep.cs.meta  --REMOVED--
+                        dtsweepbasin.cs  --REMOVED--
+                        dtsweepbasin.cs.meta  --REMOVED--
+                        dtsweepconstraint.cs  --REMOVED--
+                        dtsweepconstraint.cs.meta  --REMOVED--
+                        dtsweepcontext.cs  --REMOVED--
+                        dtsweepcontext.cs.meta  --REMOVED--
+                        dtsweepdebugcontext.cs  --REMOVED--
+                        dtsweepdebugcontext.cs.meta  --REMOVED--
+                        dtsweepedgeevent.cs  --REMOVED--
+                        dtsweepedgeevent.cs.meta  --REMOVED--
+                        dtsweeppointcomparator.cs  --REMOVED--
+                        dtsweeppointcomparator.cs.meta  --REMOVED--
+                        pointonedgeexception.cs  --REMOVED--
+                        pointonedgeexception.cs.meta  --REMOVED--
+                <sets>  --REMOVED--
+                    constrainedpointset.cs  --REMOVED--
+                    constrainedpointset.cs.meta  --REMOVED--
+                    pointset.cs  --REMOVED--
+                    pointset.cs.meta  --REMOVED--
+                <util>  --REMOVED--
+                    pointgenerator.cs  --REMOVED--
+                    pointgenerator.cs.meta  --REMOVED--
+                    polygongenerator.cs  --REMOVED--
+                    polygongenerator.cs.meta  --REMOVED--
+            <utility>  --REMOVED--
+                fixedarray3.cs  --REMOVED--
+                fixedarray3.cs.meta  --REMOVED--
+                fixedbitarray3.cs  --REMOVED--
+                fixedbitarray3.cs.meta  --REMOVED--
+        <stlexporter>  --REMOVED--
+            assemblyinfo.cs  --REMOVED--
+            assemblyinfo.cs.meta  --REMOVED--
+            code.meta  --REMOVED--
+            license.txt~  --REMOVED--
+            readme.md~  --REMOVED--
+            unity.probuilder.stl.asmdef  --REMOVED--
+            unity.probuilder.stl.asmdef.meta  --REMOVED--
+            <code>  --REMOVED--
+                pb_stl.cs  --REMOVED--
+                pb_stl.cs.meta  --REMOVED--
+                pb_stl_exporter.cs  --REMOVED--
+                pb_stl_exporter.cs.meta  --REMOVED--
+                pb_stl_importer.cs  --REMOVED--
+                pb_stl_importer.cs.meta  --REMOVED--
+    <runtime>  --REMOVED--
+        core.meta  --REMOVED--
+        meshoperations.meta  --REMOVED--
+        unity.probuilder.asmdef  --REMOVED--
+        unity.probuilder.asmdef.meta  --REMOVED--
+        <core>  --REMOVED--
+            actionresult.cs  --REMOVED--
+            actionresult.cs.meta  --REMOVED--
+            arrayutility.cs  --REMOVED--
+            arrayutility.cs.meta  --REMOVED--
+            assemblyinfo.cs  --REMOVED--
+            assemblyinfo.cs.meta  --REMOVED--
+            autounwrapsettings.cs  --REMOVED--
+            autounwrapsettings.cs.meta  --REMOVED--
+            bezierpoint.cs  --REMOVED--
+            bezierpoint.cs.meta  --REMOVED--
+            beziershape.cs  --REMOVED--
+            beziershape.cs.meta  --REMOVED--
+            bounds2d.cs  --REMOVED--
+            bounds2d.cs.meta  --REMOVED--
+            builtinmaterials.cs  --REMOVED--
+            builtinmaterials.cs.meta  --REMOVED--
+            changelog.cs  --REMOVED--
+            changelog.cs.meta  --REMOVED--
+            clipping.cs  --REMOVED--
+            clipping.cs.meta  --REMOVED--
+            colliderbehaviour.cs  --REMOVED--
+            colliderbehaviour.cs.meta  --REMOVED--
+            colorpalette.cs  --REMOVED--
+            colorpalette.cs.meta  --REMOVED--
+            colorutility.cs  --REMOVED--
+            colorutility.cs.meta  --REMOVED--
+            edge.cs  --REMOVED--
+            edge.cs.meta  --REMOVED--
+            edgelookup.cs  --REMOVED--
+            edgelookup.cs.meta  --REMOVED--
+            edgeutility.cs  --REMOVED--
+            edgeutility.cs.meta  --REMOVED--
+            entity.cs  --REMOVED--
+            entity.cs.meta  --REMOVED--
+            entitybehaviour.cs  --REMOVED--
+            entitybehaviour.cs.meta  --REMOVED--
+            face.cs  --REMOVED--
+            face.cs.meta  --REMOVED--
+            facerebuilddata.cs  --REMOVED--
+            facerebuilddata.cs.meta  --REMOVED--
+            handleconstraint2d.cs  --REMOVED--
+            handleconstraint2d.cs.meta  --REMOVED--
+            handleorientation.cs  --REMOVED--
+            handleorientation.cs.meta  --REMOVED--
+            handleutility.cs  --REMOVED--
+            handleutility.cs.meta  --REMOVED--
+            ihasdefault.cs  --REMOVED--
+            ihasdefault.cs.meta  --REMOVED--
+            internalutility.cs  --REMOVED--
+            internalutility.cs.meta  --REMOVED--
+            intvec3.cs  --REMOVED--
+            intvec3.cs.meta  --REMOVED--
+            log.cs  --REMOVED--
+            log.cs.meta  --REMOVED--
+            math.cs  --REMOVED--
+            math.cs.meta  --REMOVED--
+            meshhandle.cs  --REMOVED--
+            meshhandle.cs.meta  --REMOVED--
+            meshhandles.cs  --REMOVED--
+            meshhandles.cs.meta  --REMOVED--
+            meshutility.cs  --REMOVED--
+            meshutility.cs.meta  --REMOVED--
+            normal.cs  --REMOVED--
+            normal.cs.meta  --REMOVED--
+            normals.cs  --REMOVED--
+            normals.cs.meta  --REMOVED--
+            objectpool.cs  --REMOVED--
+            objectpool.cs.meta  --REMOVED--
+            pivotpoint.cs  --REMOVED--
+            pivotpoint.cs.meta  --REMOVED--
+            polyshape.cs  --REMOVED--
+            polyshape.cs.meta  --REMOVED--
+            preferencedictionary.cs  --REMOVED--
+            preferencedictionary.cs.meta  --REMOVED--
+            preferencekeys.cs  --REMOVED--
+            preferencekeys.cs.meta  --REMOVED--
+            probuilderenum.cs  --REMOVED--
+            probuilderenum.cs.meta  --REMOVED--
+            probuildermesh.cs  --REMOVED--
+            probuildermesh.cs.meta  --REMOVED--
+            probuildermeshfunction.cs  --REMOVED--
+            probuildermeshfunction.cs.meta  --REMOVED--
+            probuildermeshselection.cs  --REMOVED--
+            probuildermeshselection.cs.meta  --REMOVED--
+            progridsignoresnap.cs  --REMOVED--
+            progridsignoresnap.cs.meta  --REMOVED--
+            projection.cs  --REMOVED--
+            projection.cs.meta  --REMOVED--
+            raycasthit.cs  --REMOVED--
+            raycasthit.cs.meta  --REMOVED--
+            selectionmodifierbehaviour.cs  --REMOVED--
+            selectionmodifierbehaviour.cs.meta  --REMOVED--
+            selectionpicker.cs  --REMOVED--
+            selectionpicker.cs.meta  --REMOVED--
+            selectionpickerrenderer.cs  --REMOVED--
+            selectionpickerrenderer.cs.meta  --REMOVED--
+            selectionpickersettings.cs  --REMOVED--
+            selectionpickersettings.cs.meta  --REMOVED--
+            semver.cs  --REMOVED--
+            semver.cs.meta  --REMOVED--
+            shapegenerator.cs  --REMOVED--
+            shapegenerator.cs.meta  --REMOVED--
+            sharedvertex.cs  --REMOVED--
+            sharedvertex.cs.meta  --REMOVED--
+            shortcut.cs  --REMOVED--
+            shortcut.cs.meta  --REMOVED--
+            simpletuple.cs  --REMOVED--
+            simpletuple.cs.meta  --REMOVED--
+            smoothing.cs  --REMOVED--
+            smoothing.cs.meta  --REMOVED--
+            snapping.cs  --REMOVED--
+            snapping.cs.meta  --REMOVED--
+            spline.cs  --REMOVED--
+            spline.cs.meta  --REMOVED--
+            submesh.cs  --REMOVED--
+            submesh.cs.meta  --REMOVED--
+            transform2d.cs  --REMOVED--
+            transform2d.cs.meta  --REMOVED--
+            transformutility.cs  --REMOVED--
+            transformutility.cs.meta  --REMOVED--
+            triggerbehaviour.cs  --REMOVED--
+            triggerbehaviour.cs.meta  --REMOVED--
+            unwrapparameters.cs  --REMOVED--
+            unwrapparameters.cs.meta  --REMOVED--
+            unwrappingutility.cs  --REMOVED--
+            unwrappingutility.cs.meta  --REMOVED--
+            vectorhash.cs  --REMOVED--
+            vectorhash.cs.meta  --REMOVED--
+            vectormask.cs  --REMOVED--
+            vectormask.cs.meta  --REMOVED--
+            version.cs  --REMOVED--
+            version.cs.meta  --REMOVED--
+            vertex.cs  --REMOVED--
+            vertex.cs.meta  --REMOVED--
+            vertexpositioning.cs  --REMOVED--
+            vertexpositioning.cs.meta  --REMOVED--
+            wingededge.cs  --REMOVED--
+            wingededge.cs.meta  --REMOVED--
+            wingededgeenumerator.cs  --REMOVED--
+            wingededgeenumerator.cs.meta  --REMOVED--
+        <meshoperations>  --REMOVED--
+            appendelements.cs  --REMOVED--
+            appendelements.cs.meta  --REMOVED--
+            assemblyinfo.cs  --REMOVED--
+            assemblyinfo.cs.meta  --REMOVED--
+            bevel.cs  --REMOVED--
+            bevel.cs.meta  --REMOVED--
+            connectelements.cs  --REMOVED--
+            connectelements.cs.meta  --REMOVED--
+            csg.meta  --REMOVED--
+            deleteelements.cs  --REMOVED--
+            deleteelements.cs.meta  --REMOVED--
+            elementselection.cs  --REMOVED--
+            elementselection.cs.meta  --REMOVED--
+            extrudeelements.cs  --REMOVED--
+            extrudeelements.cs.meta  --REMOVED--
+            internalmeshutility.cs  --REMOVED--
+            internalmeshutility.cs.meta  --REMOVED--
+            mergeelements.cs  --REMOVED--
+            mergeelements.cs.meta  --REMOVED--
+            meshimporter.cs  --REMOVED--
+            meshimporter.cs.meta  --REMOVED--
+            meshtransform.cs  --REMOVED--
+            meshtransform.cs.meta  --REMOVED--
+            subdivision.cs  --REMOVED--
+            subdivision.cs.meta  --REMOVED--
+            surfacetopology.cs  --REMOVED--
+            surfacetopology.cs.meta  --REMOVED--
+            triangulation.cs  --REMOVED--
+            triangulation.cs.meta  --REMOVED--
+            uvediting.cs  --REMOVED--
+            uvediting.cs.meta  --REMOVED--
+            vertexediting.cs  --REMOVED--
+            vertexediting.cs.meta  --REMOVED--
+            <csg>  --REMOVED--
+                classes.meta  --REMOVED--
+                csg.cs  --REMOVED--
+                csg.cs.meta  --REMOVED--
+                <classes>  --REMOVED--
+                    csg_model.cs  --REMOVED--
+                    csg_model.cs.meta  --REMOVED--
+                    csg_node.cs  --REMOVED--
+                    csg_node.cs.meta  --REMOVED--
+                    csg_plane.cs  --REMOVED--
+                    csg_plane.cs.meta  --REMOVED--
+                    csg_polygon.cs  --REMOVED--
+                    csg_polygon.cs.meta  --REMOVED--
+                    csg_vertex.cs  --REMOVED--
+                    csg_vertex.cs.meta  --REMOVED--
+    <settings>  --REMOVED--
+        content.meta  --REMOVED--
+        editor.meta  --REMOVED--
+        <content>  --REMOVED--
+            options.png  --REMOVED--
+            options.png.meta  --REMOVED--
+        <editor>  --REMOVED--
+            attributes.cs  --REMOVED--
+            attributes.cs.meta  --REMOVED--
+            isettingsrepository.cs  --REMOVED--
+            isettingsrepository.cs.meta  --REMOVED--
+            projectsettingsrepository.cs  --REMOVED--
+            projectsettingsrepository.cs.meta  --REMOVED--
+            settings.cs  --REMOVED--
+            settings.cs.meta  --REMOVED--
+            settingsdictionary.cs  --REMOVED--
+            settingsdictionary.cs.meta  --REMOVED--
+            settingsguilayout.cs  --REMOVED--
+            settingsguilayout.cs.meta  --REMOVED--
+            unity.probuilder.settings.editor.asmdef  --REMOVED--
+            unity.probuilder.settings.editor.asmdef.meta  --REMOVED--
+            usersetting.cs  --REMOVED--
+            usersetting.cs.meta  --REMOVED--
+            usersettings.cs  --REMOVED--
+            usersettings.cs.meta  --REMOVED--
+            usersettingsprovider.cs  --REMOVED--
+            usersettingsprovider.cs.meta  --REMOVED--
+            usersettingsrepository.cs  --REMOVED--
+            usersettingsrepository.cs.meta  --REMOVED--
+            valuewrapper.cs  --REMOVED--
+            valuewrapper.cs.meta  --REMOVED--

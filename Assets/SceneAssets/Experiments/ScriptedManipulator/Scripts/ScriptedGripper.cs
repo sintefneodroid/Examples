@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using droid.Runtime.Utilities.Misc;
 using droid.Runtime.Utilities.Misc.Extensions;
 using droid.Runtime.Utilities.Misc.Grasping;
+using droid.Runtime.Utilities.Sensors;
 using SceneAssets.Experiments.ScriptedManipulator.Grasps;
 using SceneAssets.Experiments.ScriptedManipulator.Navigation;
 using SceneAssets.Experiments.ScriptedManipulator.Utilities;
@@ -236,7 +237,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
     }
 
     void SetupEnvironment() {
-      NeodroidUtilities.RegisterCollisionTriggerCallbacksOnChildren(
+      NeodroidUtilities.RegisterCollisionTriggerCallbacksOnChildren<ChildCollider3DSensor,Collider,Collision>(
           this,
           this.transform,
           this.OnCollisionEnterChild,
