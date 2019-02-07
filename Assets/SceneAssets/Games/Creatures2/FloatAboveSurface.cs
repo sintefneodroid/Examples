@@ -21,12 +21,12 @@ namespace SceneAssets.Games.Creatures2 {
     }
 
     void FixedUpdate() {
-      float distance = this.RaycastDownwards();
+      var distance = this.RaycastDownwards();
 
-      float fractional_position = (this._MaxDistance - distance) / (this._MaxDistance - this._MinDistance);
+      var fractional_position = (this._MaxDistance - distance) / (this._MaxDistance - this._MinDistance);
       if (fractional_position < 0) fractional_position = 0;
       if (fractional_position > 1) fractional_position = 1;
-      float force = fractional_position * this._MaxForce;
+      var force = fractional_position * this._MaxForce;
 
       this._rb.AddForceAtPosition(Vector3.up * force, this.transform.position);
     }

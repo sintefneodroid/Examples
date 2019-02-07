@@ -1,4 +1,4 @@
-﻿Shader "Custom/IgnoreZ"{ //Draws objects with shader on top always
+﻿Shader "IgnoreZ"{ //Draws objects with shader on top always
   Properties{
     _Color("Color", Color) = (1,1,1,1)
     _Color2("Color2", Color) = (1,1,1,1)
