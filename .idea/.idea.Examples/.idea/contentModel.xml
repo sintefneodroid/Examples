@@ -759,6 +759,10 @@
             </e>
           </e>
           <e p="Runtime" t="Include">
+            <e p="EcsPrototyping" t="Include">
+              <e p="HelloRotationSpeedComponent.cs" t="Include" />
+              <e p="HelloRotationSpeedSystem.cs" t="Include" />
+            </e>
             <e p="Environments" t="Include">
               <e p="Experimental" t="Include">
                 <e p="ImitationEnvironment.cs" t="Include" />
@@ -1192,9 +1196,7 @@
       <e p="Neodroid.Runtime.csproj" t="IncludeRecursive" />
       <e p="ProceduralToolkit.Editor.csproj" t="IncludeRecursive" />
       <e p="ProceduralToolkit.csproj" t="IncludeRecursive" />
-      <e p="Temp" t="ExcludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-      </e>
+      <e p="Temp/bin" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
     </e>
   </component>
