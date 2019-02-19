@@ -70,6 +70,7 @@
     <Compile Include="Assets\droid\Runtime\Environments\RandomisedEnvironment.cs" />
     <Compile Include="Assets\droid\Runtime\Environments\ScriptedEnviroment.cs" />
     <Compile Include="Assets\droid\Runtime\Interfaces\IActor.cs" />
+    <Compile Include="Assets\droid\Runtime\Interfaces\IColorProvider.cs" />
     <Compile Include="Assets\droid\Runtime\Interfaces\IConfigurable.cs" />
     <Compile Include="Assets\droid\Runtime\Interfaces\IConfigurableConfiguration.cs" />
     <Compile Include="Assets\droid\Runtime\Interfaces\IDisplayer.cs" />
@@ -88,7 +89,6 @@
     <Compile Include="Assets\droid\Runtime\Interfaces\IHasString.cs" />
     <Compile Include="Assets\droid\Runtime\Interfaces\IHasTriple.cs" />
     <Compile Include="Assets\droid\Runtime\Interfaces\IManager.cs" />
-    <Compile Include="Assets\droid\Runtime\Interfaces\IMaterialManipulator.cs" />
     <Compile Include="Assets\droid\Runtime\Interfaces\IMotor.cs" />
     <Compile Include="Assets\droid\Runtime\Interfaces\IMotorMotion.cs" />
     <Compile Include="Assets\droid\Runtime\Interfaces\IObjective.cs" />
@@ -279,15 +279,19 @@
     <Compile Include="Assets\droid\Runtime\Utilities\Misc\Procedural\SnakeSpaceFilling.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\Misc\SearchableEnum\SearchableEnumAttribute.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\CameraObservationTextureController.cs" />
-    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\DisparityCameraBehaviour.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\Experimental\DisparityCameraBehaviour.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\FlowCameraBehaviour.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\IgnoreLightSource.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\InfraredLightSource.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\ReplacementShaderEffect.cs" />
-    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\Segmentation\ChangeMaterialOnRenderByInstance.cs" />
-    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\Segmentation\ChangeMaterialOnRenderByTag.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\Segmentation\ChangeMaterialOnRenderByObjectId.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\Segmentation\Obsolete\ChangeMaterialOnRenderByInstance.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\Segmentation\Obsolete\ChangeMaterialOnRenderByTag.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\Segmentation\Obsolete\ObsoleteSegmenter.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\Segmentation\Segmenter.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\SynchroniseCameraProperties.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\Synthesis\ColorEncoding.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\Synthesis\SynthesisUtils.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\Noise\ProjectileSpammer.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\Noise\SelfDestruct.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\Plotting\DrawSpaces.cs" />
@@ -317,38 +321,24 @@
     <Compile Include="Assets\droid\Runtime\Utilities\Structs\Space3.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\Structs\Space4.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\Structs\ValueSpace.cs" />
-    <None Include="Assets\droid\Runtime\Shaders\Depth.shader" />
-    <None Include="Assets\droid\Runtime\Shaders\WorldSpace.shader" />
-    <None Include="Assets\droid\Runtime\Shaders\Tangents.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Spaces\Depth.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Spaces\WorldSpace.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Model\Tangents.shader" />
     <None Include="Assets\droid\Runtime\Utilities\Plotting\ValueRangePlotter.shader" />
     <None Include="Assets\droid\Runtime\Shaders\FlatColor.shader" />
-    <None Include="Assets\droid\Runtime\Shaders\Normal.shader" />
-    <None Include="Assets\droid\Runtime\Shaders\Segmentation\Outlined.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Model\Normal.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Segmentation\OutlinedSegmentation.shader" />
     <None Include="Assets\droid\Runtime\Neodroid.Runtime.asmdef" />
     <None Include="Assets\droid\Runtime\Shaders\Experimental\OpticalFlow.shader" />
-    <None Include="Assets\droid\Runtime\Shaders\ObjectSpace.shader" />
-    <None Include="Assets\droid\Runtime\Shaders\Segmentation\Flat.shader" />
-    <None Include="Assets\droid\Runtime\Shaders\UVs.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Spaces\ObjectSpace.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Segmentation\FlatSegmentation.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Segmentation\SimpleSegmentation.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Model\UVs.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Experimental\AllShader.shader" />
     <None Include="Assets\droid\Runtime\Shaders\ScreenSpaceFlow.shader" />
-    <None Include="Assets\droid\Runtime\Shaders\Experimental\UltimateOutline.shader" />
-    <Reference Include="Unity.Entities">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.Entities.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Entities.Hybrid">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.Entities.Hybrid.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Transforms">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.Transforms.dll</HintPath>
-    </Reference>
+    <None Include="Assets\droid\Runtime\Shaders\Experimental\Outline.shader" />
     <Reference Include="Unity.Collections">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.Collections.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Jobs">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.Jobs.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
@@ -551,38 +541,26 @@
     <Reference Include="UnityEditor.LinuxStandalone.Extensions">
       <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0b1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Neodroid-FlatBuffers">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/Neodroid-FlatBuffers.1.0.0/lib/net45/Neodroid-FlatBuffers.dll</HintPath>
+    </Reference>
+    <Reference Include="NetMQ">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/NetMQ.4.0.0.175-pre/lib/net40/NetMQ.dll</HintPath>
+    </Reference>
+    <Reference Include="Priority Queue">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/OptimizedPriorityQueue.4.1.1/lib/net45/Priority Queue.dll</HintPath>
+    </Reference>
+    <Reference Include="AsyncIO">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/AsyncIO.0.1.61/lib/net40/AsyncIO.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/Newtonsoft.Json.11.0.2/lib/net45/Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="JetBrains.Rider.Unity.Editor.Plugin.Repacked">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll</HintPath>
     </Reference>
-    <Reference Include="Priority Queue">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libaries/OptimizedPriorityQueue.4.1.1/lib/net45/Priority Queue.dll</HintPath>
-    </Reference>
-    <Reference Include="Neodroid-FlatBuffers">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libaries/Neodroid-FlatBuffers.1.0.0/lib/net45/Neodroid-FlatBuffers.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libaries/Newtonsoft.Json.11.0.2/lib/net45/Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="NetMQ">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libaries/NetMQ.4.0.0.175-pre/lib/net40/NetMQ.dll</HintPath>
-    </Reference>
-    <Reference Include="AsyncIO">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libaries/AsyncIO.0.1.61/lib/net40/AsyncIO.dll</HintPath>
-    </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/PackageCache/com.unity.collections@0.0.9-preview.11/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Cecil.Mdb">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/PackageCache/com.unity.properties@0.2.11-preview/Editor/Serialization/External/Cecil/Mono.Cecil.Mdb.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Cecil">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/PackageCache/com.unity.properties@0.2.11-preview/Editor/Serialization/External/Cecil/Mono.Cecil.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Cecil.Pdb">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/PackageCache/com.unity.properties@0.2.11-preview/Editor/Serialization/External/Cecil/Mono.Cecil.Pdb.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Cecil.Rocks">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/PackageCache/com.unity.properties@0.2.11-preview/Editor/Serialization/External/Cecil/Mono.Cecil.Rocks.dll</HintPath>
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/PackageCache/com.unity.collections@0.0.9-preview.12/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0b1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
