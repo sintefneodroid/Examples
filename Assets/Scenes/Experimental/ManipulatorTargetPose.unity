@@ -1003,7 +1003,7 @@ PrefabInstance:
     - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 16.500038
+      value: 31.499012
       objectReference: {fileID: 0}
     - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 3}
@@ -1053,7 +1053,7 @@ PrefabInstance:
     - target: {fileID: 224701342121933384, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -975.5858
+      value: -1151.0146
       objectReference: {fileID: 0}
     - target: {fileID: 224219095199356408, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 3}
@@ -2029,9 +2029,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 161ac42450dca427bb6882aac47c8619, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Connection_To: {fileID: 1400114136}
-  _offset: {x: 0, y: 1, z: 0}
-  _use_local_transforms: 0
 --- !u!120 &707711853
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -3097,6 +3094,28 @@ Transform:
   m_Father: {fileID: 1745608749}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1009631909
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Unlit/Color
+  m_Shader: {fileID: 10755, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1012461742 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4811217852342500, guid: 2f410eb45bece4325bc6610c3cfe23e7,
@@ -3889,28 +3908,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165437920}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!21 &1187503231
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Unlit/Color
-  m_Shader: {fileID: 10755, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1259858083
 GameObject:
   m_ObjectHideFlags: 0
@@ -3978,12 +3975,6 @@ Transform:
   m_Father: {fileID: 1259858084}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1400114136 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4331612275810624, guid: 9e9875463c1ed451bb25878f63e0cdc7,
-    type: 3}
-  m_PrefabInstance: {fileID: 211183539}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1426208517
 GameObject:
   m_ObjectHideFlags: 0

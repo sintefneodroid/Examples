@@ -1043,9 +1043,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370c0da467475bc4589f2ee7aa3e97d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Height: 1
-  _Radius: 1
-  _Segments: 16
 --- !u!33 &673126033
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1634,9 +1631,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370c0da467475bc4589f2ee7aa3e97d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Height: 1
-  _Radius: 1
-  _Segments: 16
 --- !u!33 &836918748
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1954,9 +1948,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370c0da467475bc4589f2ee7aa3e97d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Height: 1
-  _Radius: 1
-  _Segments: 16
 --- !u!33 &1068807162
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2080,9 +2071,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370c0da467475bc4589f2ee7aa3e97d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Height: 1
-  _Radius: 1
-  _Segments: 16
 --- !u!33 &1108542742
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2518,8 +2506,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basedOn: 0
-  freezeAfterFirstCalculation: 1
-  includeChildren: 0
+  freezeAfterFirstCalculation: 0
+  includeChildren: 1
   editorPreviewLineColor: {r: 1, g: 0.36, b: 0.38, a: 0.74}
   setupOnAwake: 0
   cacheChildren: 1
@@ -2623,9 +2611,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370c0da467475bc4589f2ee7aa3e97d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Height: 1
-  _Radius: 1
-  _Segments: 16
 --- !u!33 &1266111569
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3302,8 +3287,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basedOn: 0
-  freezeAfterFirstCalculation: 1
-  includeChildren: 0
+  freezeAfterFirstCalculation: 0
+  includeChildren: 1
   editorPreviewLineColor: {r: 1, g: 0.36, b: 0.38, a: 0.74}
   setupOnAwake: 0
   cacheChildren: 1
@@ -3478,7 +3463,12 @@ PrefabInstance:
     - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 16.5
+      value: 31.49903
+      objectReference: {fileID: 0}
+    - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224015848551928794, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 3}
@@ -3523,7 +3513,7 @@ PrefabInstance:
     - target: {fileID: 224701342121933384, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 319.2
+      value: 364.8
       objectReference: {fileID: 0}
     - target: {fileID: 224219095199356408, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 3}
@@ -3816,9 +3806,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370c0da467475bc4589f2ee7aa3e97d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Height: 1
-  _Radius: 1
-  _Segments: 16
 --- !u!33 &1836904812
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4375,34 +4362,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114100763809553962, guid: 9e9875463c1ed451bb25878f63e0cdc7,
         type: 3}
-      propertyPath: _lights_to_ignore.Array.data[9]
+      propertyPath: _lights_to_ignore.Array.data[0]
       value: 
       objectReference: {fileID: 1805941113}
+    - target: {fileID: 114100763809553962, guid: 9e9875463c1ed451bb25878f63e0cdc7,
+        type: 3}
+      propertyPath: _lights_to_ignore.Array.data[1]
+      value: 
+      objectReference: {fileID: 656814257}
     - target: {fileID: 1625775002, guid: 9e9875463c1ed451bb25878f63e0cdc7, type: 3}
       propertyPath: _line_material
       value: 
       objectReference: {fileID: 557485122}
-    - target: {fileID: 4725180884745084, guid: 9e9875463c1ed451bb25878f63e0cdc7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4725180884745084, guid: 9e9875463c1ed451bb25878f63e0cdc7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4725180884745084, guid: 9e9875463c1ed451bb25878f63e0cdc7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4725180884745084, guid: 9e9875463c1ed451bb25878f63e0cdc7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4614691972182028737, guid: 9e9875463c1ed451bb25878f63e0cdc7,
-        type: 3}
-      propertyPath: m_TargetTexture
-      value: 
-      objectReference: {fileID: 8400000, guid: 7ce5d7425e7fa3af69f9bdd316de2208, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e9875463c1ed451bb25878f63e0cdc7, type: 3}
 --- !u!4 &1943874645 stripped
@@ -4589,8 +4560,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basedOn: 0
-  freezeAfterFirstCalculation: 1
-  includeChildren: 0
+  freezeAfterFirstCalculation: 0
+  includeChildren: 1
   editorPreviewLineColor: {r: 1, g: 0.36, b: 0.38, a: 0.74}
   setupOnAwake: 0
   cacheChildren: 1

@@ -6,6 +6,7 @@
     <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
     <e p="$USER_HOME$/.Rider2018.3/system/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/.Rider2018.3/system/resharper-host/local/Transient/ReSharperHost/v183/SolutionCaches/_Examples.-1048537334.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/Android/Sdk/platforms/android-28/data/res" t="IncludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
@@ -220,8 +221,7 @@
               <e p="readme.txt" t="Include" />
             </e>
           </e>
-          <e p="Libaries" t="ExcludeRecursive" />
-          <e p="Libraries" t="Include">
+          <e p="Libraries" t="ExcludeRecursive">
             <e p="NetMQ.4.0.0.175-pre" t="Include">
               <e p="lib" t="Include">
                 <e p="net40" t="Include">
@@ -508,12 +508,16 @@
                 <e p="AllShader.shader" t="Include" />
                 <e p="OpticalFlow.shader" t="Include" />
                 <e p="Outline.shader" t="Include" />
+                <e p="StereoEyeIndexColor.shader" t="Include" />
+                <e p="XR.shader" t="Include" />
               </e>
               <e p="FlatColor.shader" t="Include" />
               <e p="Model" t="Include">
                 <e p="Normal.shader" t="Include" />
                 <e p="Tangents.shader" t="Include" />
                 <e p="UVs.shader" t="Include" />
+                <e p="Us.shader" t="Include" />
+                <e p="Vs.shader" t="Include" />
               </e>
               <e p="ScreenSpaceFlow.shader" t="Include" />
               <e p="Segmentation" t="Include">
@@ -603,6 +607,7 @@
                 <e p="InfraredLightSource.cs" t="Include" />
                 <e p="ReplacementShaderEffect.cs" t="Include" />
                 <e p="Segmentation" t="Include">
+                  <e p="ChangeMaterialOnRenderByMaterialId.cs" t="Include" />
                   <e p="ChangeMaterialOnRenderByObjectId.cs" t="Include" />
                   <e p="Obsolete" t="Include">
                     <e p="ChangeMaterialOnRenderByInstance.cs" t="Include" />

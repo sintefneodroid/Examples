@@ -1,1 +1,187 @@
-{"TestResult":"Failed", "StartTime":"1/28/2019 1:15:40 AM", "EndTime":"1/28/2019 1:15:42 AM", "Elapsed":2442, "Tests":[{"TestName":"API Validation","TestDescription":"Checks public API for style and changest that conflict with Semantic Versioning.","TestResult":"NotRun","TestOutput":["Previous package binaries must be present on artifactory to do API diff."],"StartTime":"1/28/2019 1:15:40 AM","EndTime":"1/28/2019 1:15:40 AM","Elpased":303},{"TestName":"Assembly Definition Validation","TestDescription":"Validate Presence and Contents of Assembly Definition Files.","TestResult":"Succeeded","TestOutput":["Checking: {Package-Root}\\Addons\\Unity.ProBuilder.AddOns.Editor.asmdef","Checking: {Package-Root}\\AssetIdRemapUtility\\Editor\\Unity.ProBuilder.AssetIdRemapUtility.asmdef","Checking: {Package-Root}\\Editor\\Unity.ProBuilder.Editor.asmdef","Checking: {Package-Root}\\External\\KdTree\\Unity.ProBuilder.KdTree.asmdef","Checking: {Package-Root}\\External\\Poly2Tri\\Unity.ProBuilder.Poly2Tri.asmdef","Checking: {Package-Root}\\External\\StlExporter\\Unity.ProBuilder.Stl.asmdef","Checking: {Package-Root}\\Runtime\\Unity.ProBuilder.asmdef","Checking: {Package-Root}\\Settings\\Editor\\Unity.ProBuilder.Settings.Editor.asmdef"],"StartTime":"1/28/2019 1:15:40 AM","EndTime":"1/28/2019 1:15:40 AM","Elpased":49},{"TestName":"ChangeLog Validation","TestDescription":"Validate Changelog contains entry for given package.","TestResult":"Succeeded","TestOutput":[],"StartTime":"1/28/2019 1:15:40 AM","EndTime":"1/28/2019 1:15:40 AM","Elpased":21},{"TestName":"Dependency Validation","TestDescription":"Verify that dependencies of this package make sense.","TestResult":"Succeeded","TestOutput":[],"StartTime":"1/28/2019 1:15:40 AM","EndTime":"1/28/2019 1:15:40 AM","Elpased":1},{"TestName":"Package Diff Evaluation","TestDescription":"Produces a report of what's been changed in this version of the package.","TestResult":"Succeeded","TestOutput":[],"StartTime":"1/28/2019 1:15:40 AM","EndTime":"1/28/2019 1:15:41 AM","Elpased":216},{"TestName":"Folder Structure Validation","TestDescription":"Verify that the folder structure meets expectations.","TestResult":"NotImplementedYet","TestOutput":[],"StartTime":"1/28/2019 1:15:41 AM","EndTime":"1/28/2019 1:15:41 AM","Elpased":1},{"TestName":"License Validation","TestDescription":"Verify there is a license, and that its valid.","TestResult":"NotImplementedYet","TestOutput":[],"StartTime":"1/28/2019 1:15:41 AM","EndTime":"1/28/2019 1:15:41 AM","Elpased":1},{"TestName":"Documentation Validation","TestDescription":"Make sure the package has local documentation. It is required for a verified package and recommended for a preview package","TestResult":"Succeeded","TestOutput":[],"StartTime":"1/28/2019 1:15:41 AM","EndTime":"1/28/2019 1:15:41 AM","Elpased":23},{"TestName":"Manifest Validation","TestDescription":"Validate that the information found in the manifest is well formatted.","TestResult":"Succeeded","TestOutput":[],"StartTime":"1/28/2019 1:15:41 AM","EndTime":"1/28/2019 1:15:41 AM","Elpased":2},{"TestName":"Meta Files Validation","TestDescription":"Validate that metafiles are present for all package files.","TestResult":"Succeeded","TestOutput":[],"StartTime":"1/28/2019 1:15:41 AM","EndTime":"1/28/2019 1:15:41 AM","Elpased":327},{"TestName":"Project Template Validation","TestDescription":"Verify that the content of a project template meets expectations.","TestResult":"NotRun","TestOutput":["com.unity.probuilder is not a project template."],"StartTime":"1/28/2019 1:15:41 AM","EndTime":"1/28/2019 1:15:41 AM","Elpased":1},{"TestName":"Required File Type Validation","TestDescription":"Make sure required file types are included with this package.","TestResult":"Succeeded","TestOutput":[],"StartTime":"1/28/2019 1:15:41 AM","EndTime":"1/28/2019 1:15:41 AM","Elpased":1},{"TestName":"Restricted File Type Validation","TestDescription":"Make sure no restricted file types are included with this package.","TestResult":"Succeeded","TestOutput":[],"StartTime":"1/28/2019 1:15:41 AM","EndTime":"1/28/2019 1:15:42 AM","Elpased":1366},{"TestName":"Samples Validation","TestDescription":"Verify that samples meet expectation, if the package has samples.","TestResult":"NotRun","TestOutput":["No samples found. Skipping Samples Validation."],"StartTime":"1/28/2019 1:15:42 AM","EndTime":"1/28/2019 1:15:42 AM","Elpased":1},{"TestName":"Signature Validation","TestDescription":"Verify that the package has a valid signature associated with it.","TestResult":"NotImplementedYet","TestOutput":[],"StartTime":"1/28/2019 1:15:42 AM","EndTime":"1/28/2019 1:15:42 AM","Elpased":1},{"TestName":"Tests Validation","TestDescription":"Verify that the package has tests, and that test coverage is good.","TestResult":"Failed","TestOutput":["Error: Preview and Production quality packages must include test for automated testing."],"StartTime":"1/28/2019 1:15:42 AM","EndTime":"1/28/2019 1:15:42 AM","Elpased":124},{"TestName":"Unity Version Validation","TestDescription":"Validate that the package was developed on the right version of Unity.","TestResult":"Succeeded","TestOutput":[],"StartTime":"1/28/2019 1:15:42 AM","EndTime":"1/28/2019 1:15:42 AM","Elpased":1},{"TestName":"Package Update Validation","TestDescription":"If this is an update, validate that the package's metadata is correct.","TestResult":"Succeeded","TestOutput":[],"StartTime":"1/28/2019 1:15:42 AM","EndTime":"1/28/2019 1:15:42 AM","Elpased":1}]}
+{
+  "TestResult": "Failed",
+  "StartTime": "1/28/2019 1:15:40 AM",
+  "EndTime": "1/28/2019 1:15:42 AM",
+  "Elapsed": 2442,
+  "Tests": [
+    {
+      "TestName": "API Validation",
+      "TestDescription": "Checks public API for style and changest that conflict with Semantic Versioning.",
+      "TestResult": "NotRun",
+      "TestOutput": [
+        "Previous package binaries must be present on artifactory to do API diff."
+      ],
+      "StartTime": "1/28/2019 1:15:40 AM",
+      "EndTime": "1/28/2019 1:15:40 AM",
+      "Elpased": 303
+    },
+    {
+      "TestName": "Assembly Definition Validation",
+      "TestDescription": "Validate Presence and Contents of Assembly Definition Files.",
+      "TestResult": "Succeeded",
+      "TestOutput": [
+        "Checking: {Package-Root}\\Addons\\Unity.ProBuilder.AddOns.Editor.asmdef",
+        "Checking: {Package-Root}\\AssetIdRemapUtility\\Editor\\Unity.ProBuilder.AssetIdRemapUtility.asmdef",
+        "Checking: {Package-Root}\\Editor\\Unity.ProBuilder.Editor.asmdef",
+        "Checking: {Package-Root}\\External\\KdTree\\Unity.ProBuilder.KdTree.asmdef",
+        "Checking: {Package-Root}\\External\\Poly2Tri\\Unity.ProBuilder.Poly2Tri.asmdef",
+        "Checking: {Package-Root}\\External\\StlExporter\\Unity.ProBuilder.Stl.asmdef",
+        "Checking: {Package-Root}\\Runtime\\Unity.ProBuilder.asmdef",
+        "Checking: {Package-Root}\\Settings\\Editor\\Unity.ProBuilder.Settings.Editor.asmdef"
+      ],
+      "StartTime": "1/28/2019 1:15:40 AM",
+      "EndTime": "1/28/2019 1:15:40 AM",
+      "Elpased": 49
+    },
+    {
+      "TestName": "ChangeLog Validation",
+      "TestDescription": "Validate Changelog contains entry for given package.",
+      "TestResult": "Succeeded",
+      "TestOutput": [],
+      "StartTime": "1/28/2019 1:15:40 AM",
+      "EndTime": "1/28/2019 1:15:40 AM",
+      "Elpased": 21
+    },
+    {
+      "TestName": "Dependency Validation",
+      "TestDescription": "Verify that dependencies of this package make sense.",
+      "TestResult": "Succeeded",
+      "TestOutput": [],
+      "StartTime": "1/28/2019 1:15:40 AM",
+      "EndTime": "1/28/2019 1:15:40 AM",
+      "Elpased": 1
+    },
+    {
+      "TestName": "Package Diff Evaluation",
+      "TestDescription": "Produces a report of what's been changed in this version of the package.",
+      "TestResult": "Succeeded",
+      "TestOutput": [],
+      "StartTime": "1/28/2019 1:15:40 AM",
+      "EndTime": "1/28/2019 1:15:41 AM",
+      "Elpased": 216
+    },
+    {
+      "TestName": "Folder Structure Validation",
+      "TestDescription": "Verify that the folder structure meets expectations.",
+      "TestResult": "NotImplementedYet",
+      "TestOutput": [],
+      "StartTime": "1/28/2019 1:15:41 AM",
+      "EndTime": "1/28/2019 1:15:41 AM",
+      "Elpased": 1
+    },
+    {
+      "TestName": "License Validation",
+      "TestDescription": "Verify there is a license, and that its valid.",
+      "TestResult": "NotImplementedYet",
+      "TestOutput": [],
+      "StartTime": "1/28/2019 1:15:41 AM",
+      "EndTime": "1/28/2019 1:15:41 AM",
+      "Elpased": 1
+    },
+    {
+      "TestName": "Documentation Validation",
+      "TestDescription": "Make sure the package has local documentation. It is required for a verified package and recommended for a preview package",
+      "TestResult": "Succeeded",
+      "TestOutput": [],
+      "StartTime": "1/28/2019 1:15:41 AM",
+      "EndTime": "1/28/2019 1:15:41 AM",
+      "Elpased": 23
+    },
+    {
+      "TestName": "Manifest Validation",
+      "TestDescription": "Validate that the information found in the manifest is well formatted.",
+      "TestResult": "Succeeded",
+      "TestOutput": [],
+      "StartTime": "1/28/2019 1:15:41 AM",
+      "EndTime": "1/28/2019 1:15:41 AM",
+      "Elpased": 2
+    },
+    {
+      "TestName": "Meta Files Validation",
+      "TestDescription": "Validate that metafiles are present for all package files.",
+      "TestResult": "Succeeded",
+      "TestOutput": [],
+      "StartTime": "1/28/2019 1:15:41 AM",
+      "EndTime": "1/28/2019 1:15:41 AM",
+      "Elpased": 327
+    },
+    {
+      "TestName": "Project Template Validation",
+      "TestDescription": "Verify that the content of a project template meets expectations.",
+      "TestResult": "NotRun",
+      "TestOutput": [
+        "com.unity.probuilder is not a project template."
+      ],
+      "StartTime": "1/28/2019 1:15:41 AM",
+      "EndTime": "1/28/2019 1:15:41 AM",
+      "Elpased": 1
+    },
+    {
+      "TestName": "Required File Type Validation",
+      "TestDescription": "Make sure required file types are included with this package.",
+      "TestResult": "Succeeded",
+      "TestOutput": [],
+      "StartTime": "1/28/2019 1:15:41 AM",
+      "EndTime": "1/28/2019 1:15:41 AM",
+      "Elpased": 1
+    },
+    {
+      "TestName": "Restricted File Type Validation",
+      "TestDescription": "Make sure no restricted file types are included with this package.",
+      "TestResult": "Succeeded",
+      "TestOutput": [],
+      "StartTime": "1/28/2019 1:15:41 AM",
+      "EndTime": "1/28/2019 1:15:42 AM",
+      "Elpased": 1366
+    },
+    {
+      "TestName": "Samples Validation",
+      "TestDescription": "Verify that samples meet expectation, if the package has samples.",
+      "TestResult": "NotRun",
+      "TestOutput": [
+        "No samples found. Skipping Samples Validation."
+      ],
+      "StartTime": "1/28/2019 1:15:42 AM",
+      "EndTime": "1/28/2019 1:15:42 AM",
+      "Elpased": 1
+    },
+    {
+      "TestName": "Signature Validation",
+      "TestDescription": "Verify that the package has a valid signature associated with it.",
+      "TestResult": "NotImplementedYet",
+      "TestOutput": [],
+      "StartTime": "1/28/2019 1:15:42 AM",
+      "EndTime": "1/28/2019 1:15:42 AM",
+      "Elpased": 1
+    },
+    {
+      "TestName": "Tests Validation",
+      "TestDescription": "Verify that the package has tests, and that test coverage is good.",
+      "TestResult": "Failed",
+      "TestOutput": [
+        "Error: Preview and Production quality packages must include test for automated testing."
+      ],
+      "StartTime": "1/28/2019 1:15:42 AM",
+      "EndTime": "1/28/2019 1:15:42 AM",
+      "Elpased": 124
+    },
+    {
+      "TestName": "Unity Version Validation",
+      "TestDescription": "Validate that the package was developed on the right version of Unity.",
+      "TestResult": "Succeeded",
+      "TestOutput": [],
+      "StartTime": "1/28/2019 1:15:42 AM",
+      "EndTime": "1/28/2019 1:15:42 AM",
+      "Elpased": 1
+    },
+    {
+      "TestName": "Package Update Validation",
+      "TestDescription": "If this is an update, validate that the package's metadata is correct.",
+      "TestResult": "Succeeded",
+      "TestOutput": [],
+      "StartTime": "1/28/2019 1:15:42 AM",
+      "EndTime": "1/28/2019 1:15:42 AM",
+      "Elpased": 1
+    }
+  ]
+}

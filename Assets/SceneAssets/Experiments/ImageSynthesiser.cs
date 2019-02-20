@@ -47,29 +47,15 @@ namespace SceneAssets.Experiments {
     }
 
     void Start() {
-      this._camera = this.GetComponent<Camera>();
-
-      SynthesisUtils.Setup(this._camera);
-      SynthesisUtils.OnCameraChangeFull(this._camera,
-                                        this.segmentationShader,
-                                        this.opticalFlowShader,
-                                        this._optical_flow_material,
-                                        this.opticalFlowSensitivity);
-      OnSceneChange();
+      this.OnSceneChange();
     }
 
     void LateUpdate() {
       #if UNITY_EDITOR
       if (this.DetectPotentialSceneChangeInEditor()) {
-        OnSceneChange();
+        this.OnSceneChange();
       }
       #endif // UNITY_EDITOR
-
-      SynthesisUtils.OnCameraChangeFull(this._camera,
-                                        this.segmentationShader,
-                                        this.opticalFlowShader,
-                                        this._optical_flow_material,
-                                        this.opticalFlowSensitivity);
     }
 
 
@@ -77,7 +63,7 @@ namespace SceneAssets.Experiments {
     /// <summary>
     ///
     /// </summary>
-    public static void OnSceneChange() {
+    public void OnSceneChange() {
       var renderers = FindObjectsOfType<Renderer>();
       var mpb = new MaterialPropertyBlock();
       foreach (var r in renderers) {
@@ -90,6 +76,13 @@ namespace SceneAssets.Experiments {
         mpb.SetColor("_CategoryColor", ColorEncoding.EncodeLayerAsColor(layer));
         r.SetPropertyBlock(mpb);
       }
+      this._camera = this.GetComponent<Camera>();
+      SynthesisUtils.SetupCapturePassesFull(this._camera,
+                                            this.segmentationShader,
+                                            this.opticalFlowShader,
+                                            this._optical_flow_material,
+                                            this.opticalFlowSensitivity,
+                                            ref SynthesisUtils.default_capture_passes);
     }
 
     public void Save(string filename, int width = -1, int height = -1, string path = "") {
@@ -123,7 +116,7 @@ namespace SceneAssets.Experiments {
     }
 
     void Save(string filename_without_extension, string filename_extension, int width, int height) {
-      foreach (var pass in SynthesisUtils.capture_passes) {
+      foreach (var pass in SynthesisUtils.default_capture_passes) {
         this.Save(pass._Camera,
                   filename_without_extension + pass._Name + filename_extension,
                   width,
