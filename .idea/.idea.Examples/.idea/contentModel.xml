@@ -506,9 +506,12 @@
             <e p="Shaders" t="Include">
               <e p="Experimental" t="Include">
                 <e p="AllShader.shader" t="Include" />
+                <e p="FlatSegmentation.shader" t="Include" />
+                <e p="MultiMode.shader" t="Include" />
                 <e p="OpticalFlow.shader" t="Include" />
                 <e p="Outline.shader" t="Include" />
                 <e p="StereoEyeIndexColor.shader" t="Include" />
+                <e p="ValueRangePlotter.shader" t="Include" />
                 <e p="XR.shader" t="Include" />
               </e>
               <e p="FlatColor.shader" t="Include" />
@@ -521,9 +524,14 @@
               </e>
               <e p="ScreenSpaceFlow.shader" t="Include" />
               <e p="Segmentation" t="Include">
-                <e p="FlatSegmentation.shader" t="Include" />
+                <e p="CategorySegmentation.shader" t="Include" />
+                <e p="Individual" t="Include">
+                  <e p="LayerSegmentation.shader" t="Include" />
+                  <e p="MaterialIdSegmentation.shader" t="Include" />
+                  <e p="ObjectIdSegmentation.shader" t="Include" />
+                  <e p="TagSegmentation.shader" t="Include" />
+                </e>
                 <e p="OutlinedSegmentation.shader" t="Include" />
-                <e p="SimpleSegmentation.shader" t="Include" />
               </e>
               <e p="Spaces" t="Include">
                 <e p="Depth.shader" t="Include" />
@@ -607,8 +615,9 @@
                 <e p="InfraredLightSource.cs" t="Include" />
                 <e p="ReplacementShaderEffect.cs" t="Include" />
                 <e p="Segmentation" t="Include">
-                  <e p="ChangeMaterialOnRenderByMaterialId.cs" t="Include" />
-                  <e p="ChangeMaterialOnRenderByObjectId.cs" t="Include" />
+                  <e p="CategorySegmenter.cs" t="Include" />
+                  <e p="MaterialIdSegmenter.cs" t="Include" />
+                  <e p="ObjectIdSegmenter.cs" t="Include" />
                   <e p="Obsolete" t="Include">
                     <e p="ChangeMaterialOnRenderByInstance.cs" t="Include" />
                     <e p="ChangeMaterialOnRenderByTag.cs" t="Include" />
@@ -631,7 +640,6 @@
                 <e p="Meshes.cs" t="Include" />
                 <e p="PlotFunctions.cs" t="Include" />
                 <e p="ValueRangePlotter.cs" t="Include" />
-                <e p="ValueRangePlotter.shader" t="Include" />
               </e>
               <e p="ScriptableObjects" t="Include">
                 <e p="Curriculum.cs" t="Include" />

@@ -284,8 +284,9 @@
     <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\IgnoreLightSource.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\InfraredLightSource.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\ReplacementShaderEffect.cs" />
-    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\Segmentation\ChangeMaterialOnRenderByMaterialId.cs" />
-    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\Segmentation\ChangeMaterialOnRenderByObjectId.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\Segmentation\CategorySegmenter.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\Segmentation\MaterialIdSegmenter.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\Segmentation\ObjectIdSegmenter.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\Segmentation\Obsolete\ChangeMaterialOnRenderByInstance.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\Segmentation\Obsolete\ChangeMaterialOnRenderByTag.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\Segmentation\Obsolete\ObsoleteSegmenter.cs" />
@@ -325,23 +326,28 @@
     <None Include="Assets\droid\Runtime\Shaders\Spaces\Depth.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Spaces\WorldSpace.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Model\Tangents.shader" />
-    <None Include="Assets\droid\Runtime\Utilities\Plotting\ValueRangePlotter.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Segmentation\Individual\MaterialIdSegmentation.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Experimental\ValueRangePlotter.shader" />
     <None Include="Assets\droid\Runtime\Shaders\FlatColor.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Segmentation\CategorySegmentation.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Model\Vs.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Model\Normal.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Model\Us.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Segmentation\OutlinedSegmentation.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Segmentation\Individual\TagSegmentation.shader" />
     <None Include="Assets\droid\Runtime\Neodroid.Runtime.asmdef" />
+    <None Include="Assets\droid\Runtime\Shaders\Segmentation\Individual\ObjectIdSegmentation.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Experimental\OpticalFlow.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Spaces\ObjectSpace.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Experimental\XR.shader" />
-    <None Include="Assets\droid\Runtime\Shaders\Segmentation\FlatSegmentation.shader" />
-    <None Include="Assets\droid\Runtime\Shaders\Segmentation\SimpleSegmentation.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Experimental\FlatSegmentation.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Experimental\MultiMode.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Model\UVs.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Experimental\StereoEyeIndexColor.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Experimental\AllShader.shader" />
     <None Include="Assets\droid\Runtime\Shaders\ScreenSpaceFlow.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Experimental\Outline.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Segmentation\Individual\LayerSegmentation.shader" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0b1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>

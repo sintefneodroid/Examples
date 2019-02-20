@@ -82,7 +82,7 @@ namespace SceneAssets.Experiments {
                                             this.opticalFlowShader,
                                             this._optical_flow_material,
                                             this.opticalFlowSensitivity,
-                                            ref SynthesisUtils.default_capture_passes);
+                                            ref SynthesisUtils._Default_Capture_Passes);
     }
 
     public void Save(string filename, int width = -1, int height = -1, string path = "") {
@@ -116,7 +116,7 @@ namespace SceneAssets.Experiments {
     }
 
     void Save(string filename_without_extension, string filename_extension, int width, int height) {
-      foreach (var pass in SynthesisUtils.default_capture_passes) {
+      foreach (var pass in SynthesisUtils._Default_Capture_Passes) {
         this.Save(pass._Camera,
                   filename_without_extension + pass._Name + filename_extension,
                   width,
