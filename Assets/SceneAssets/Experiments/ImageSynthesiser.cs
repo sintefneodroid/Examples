@@ -77,12 +77,12 @@ namespace SceneAssets.Experiments {
         r.SetPropertyBlock(mpb);
       }
       this._camera = this.GetComponent<Camera>();
-      SynthesisUtils.SetupCapturePassesFull(this._camera,
+      SynthesisUtilities.SetupCapturePassesFull(this._camera,
                                             this.segmentationShader,
                                             this.opticalFlowShader,
                                             this._optical_flow_material,
                                             this.opticalFlowSensitivity,
-                                            ref SynthesisUtils._Default_Capture_Passes);
+                                            ref SynthesisUtilities._Default_Capture_Passes);
     }
 
     public void Save(string filename, int width = -1, int height = -1, string path = "") {
@@ -116,7 +116,7 @@ namespace SceneAssets.Experiments {
     }
 
     void Save(string filename_without_extension, string filename_extension, int width, int height) {
-      foreach (var pass in SynthesisUtils._Default_Capture_Passes) {
+      foreach (var pass in SynthesisUtilities._Default_Capture_Passes) {
         this.Save(pass._Camera,
                   filename_without_extension + pass._Name + filename_extension,
                   width,
@@ -199,7 +199,7 @@ namespace SceneAssets.Experiments {
         var go = Selection.activeGameObject;
         // check if layer or tag of a selected object have changed since the last frame
         var potential_change_happened =
-            this._last_selected_go_layer != go.layer || this._last_selected_go_tag != go.tag;
+            this._last_selected_go_layer != go.layer || !go.CompareTag(this._last_selected_go_tag);
         if (go == this._last_selected_go && potential_change_happened) {
           change = true;
         }
