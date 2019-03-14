@@ -12,8 +12,6 @@ namespace SceneAssets.Experiments {
   ///  </summary>
   [RequireComponent(typeof(Camera))]
   public class ImageSynthesiser : MonoBehaviour {
-
-
     /// <summary>
     ///
     /// </summary>
@@ -46,9 +44,7 @@ namespace SceneAssets.Experiments {
       }
     }
 
-    void Start() {
-      this.OnSceneChange();
-    }
+    void Start() { this.OnSceneChange(); }
 
     void LateUpdate() {
       #if UNITY_EDITOR
@@ -57,8 +53,6 @@ namespace SceneAssets.Experiments {
       }
       #endif // UNITY_EDITOR
     }
-
-
 
     /// <summary>
     ///
@@ -70,19 +64,20 @@ namespace SceneAssets.Experiments {
         GameObject game_object;
         var id = (game_object = r.gameObject).GetInstanceID();
         var layer = game_object.layer;
-        var tag_ = game_object.tag;
+        var tag = game_object.tag;
 
         mpb.SetColor("_ObjectColor", ColorEncoding.EncodeIdAsColor(id));
         mpb.SetColor("_CategoryColor", ColorEncoding.EncodeLayerAsColor(layer));
         r.SetPropertyBlock(mpb);
       }
+
       this._camera = this.GetComponent<Camera>();
       SynthesisUtilities.SetupCapturePassesFull(this._camera,
-                                            this.segmentationShader,
-                                            this.opticalFlowShader,
-                                            this._optical_flow_material,
-                                            this.opticalFlowSensitivity,
-                                            ref SynthesisUtilities._Default_Capture_Passes);
+                                                this.segmentationShader,
+                                                this.opticalFlowShader,
+                                                this._optical_flow_material,
+                                                this.opticalFlowSensitivity,
+                                                ref SynthesisUtilities._Default_Capture_Passes);
     }
 
     public void Save(string filename, int width = -1, int height = -1, string path = "") {
@@ -198,8 +193,8 @@ namespace SceneAssets.Experiments {
       } else if (Selection.activeGameObject) {
         var go = Selection.activeGameObject;
         // check if layer or tag of a selected object have changed since the last frame
-        var potential_change_happened =
-            this._last_selected_go_layer != go.layer || !go.CompareTag(this._last_selected_go_tag);
+        var potential_change_happened = this._last_selected_go_layer != go.layer
+                                        || !go.CompareTag(this._last_selected_go_tag);
         if (go == this._last_selected_go && potential_change_happened) {
           change = true;
         }

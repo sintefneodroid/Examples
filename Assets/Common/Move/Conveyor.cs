@@ -48,15 +48,22 @@ namespace Common.Move {
       // (transform.forward is a built in Vector3
       // which is used to get the forward facing direction)
       // * Remember Vector3's can used for position AND direction AND rotation
-      this._direction = this._direction * this.speed;
+      var direction = this._direction * this.speed;
 
       // Add a WORLD force to the other objects
       // Ignore the mass of the other objects so they all go the same speed (ForceMode.Acceleration)
       //other_thing.rigidbody.AddForce(-this.transform.forward*this.speed, ForceMode
       //.VelocityChange);
-      other_thing.rigidbody.velocity = -this.transform.forward * this.speed;
+      var force = -this.transform.TransformDirection(direction) * this.speed;
+      //other_thing.rigidbody.velocity = force;
+      foreach (var c in other_thing.contacts) {
+        other_thing.rigidbody.AddForceAtPosition(force*(1/(c.separation+1)),c.normal);
+      }
+
       var copy = -other_thing.rigidbody.angularVelocity;
       other_thing.rigidbody.AddTorque(copy * this._dampening);
+      var copy2 = -other_thing.rigidbody.velocity;
+      other_thing.rigidbody.AddForce(copy2 * this._dampening);
     }
   }
 }

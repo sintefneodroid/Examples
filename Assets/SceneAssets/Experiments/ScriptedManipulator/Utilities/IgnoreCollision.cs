@@ -1,27 +1,26 @@
 ﻿using UnityEngine;
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Utilities {
+  /// <summary>
+  ///
+  /// </summary>
   public class IgnoreCollision : MonoBehaviour {
-    // Use this for initialization
-    void Start() { }
-
-    // Update is called once per frame
-    void Update() { }
+    string a_tag = "ignored_by_sub_collider_fish";
 
     void OnCollisionEnter(Collision collision) {
-      if (collision.gameObject.tag == "ignored_by_sub_collider_fish") {
+      if (collision.gameObject.CompareTag(a_tag)) {
         Physics.IgnoreCollision(this.GetComponent<Collider>(), collision.collider);
       }
     }
 
     void OnCollisionExit(Collision collision) {
-      if (collision.gameObject.tag == "ignored_by_sub_collider_fish") {
+      if (collision.gameObject.CompareTag(a_tag)) {
         Physics.IgnoreCollision(this.GetComponent<Collider>(), collision.collider);
       }
     }
 
     void OnCollisionStay(Collision collision) {
-      if (collision.gameObject.tag == "ignored_by_sub_collider_fish") {
+      if (collision.gameObject.CompareTag(a_tag)) {
         Physics.IgnoreCollision(this.GetComponent<Collider>(), collision.collider);
       }
     }

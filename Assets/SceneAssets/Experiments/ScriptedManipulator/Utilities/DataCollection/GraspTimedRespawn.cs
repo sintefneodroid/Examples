@@ -10,7 +10,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
     [SerializeField] bool _debugging;
     [SerializeField] Grasp _grasp;
     [SerializeField] GraspableObject _graspable_object;
-    [SerializeField] ScriptedGripper _gripper;
+    [SerializeField] ScriptedGrasping _grasping;
     [SerializeField] Vector3 _initial_position;
     [SerializeField] Quaternion _initial_rotation;
     [SerializeField] Rigidbody[] _rigid_bodies;
@@ -23,27 +23,35 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
         this._graspable_object = this.GetComponent<GraspableObject>();
       }
 
-      if (!this._gripper) {
-        this._gripper = FindObjectOfType<ScriptedGripper>();
+      if (!this._grasping) {
+        this._grasping = FindObjectOfType<ScriptedGrasping>();
       }
 
-      this._grasp = this._graspable_object.GetOptimalGrasp(this._gripper).Item1;
+      this._grasp = this._graspable_object.GetOptimalGrasp(this._grasping).Item1;
       this._rigid_body = this._grasp.GetComponentInParent<Rigidbody>();
       this._rigid_bodies = this._graspable_object.GetComponentsInChildren<Rigidbody>();
       var transform1 = this._rigid_body.transform;
       this._initial_position = transform1.position;
       this._initial_rotation = transform1.rotation;
 
-      NeodroidUtilities.RegisterCollisionTriggerCallbacksOnChildren<ChildCollider3DSensor,Collider,Collision>(
-          this,
-          this.transform,
-          this.OnCollisionEnterChild,
-          this.OnTriggerEnterChild,
-          this.OnCollisionExitChild,
-          this.OnTriggerExitChild,
-          this.OnCollisionStayChild,
-          this.OnTriggerStayChild,
-          this._debugging);
+      NeodroidUtilities
+          .RegisterCollisionTriggerCallbacksOnChildren<ChildCollider3DSensor, Collider, Collision>(this,
+                                                                                                   this
+                                                                                                       .transform,
+                                                                                                   this
+                                                                                                       .OnCollisionEnterChild,
+                                                                                                   this
+                                                                                                       .OnTriggerEnterChild,
+                                                                                                   this
+                                                                                                       .OnCollisionExitChild,
+                                                                                                   this
+                                                                                                       .OnTriggerExitChild,
+                                                                                                   this
+                                                                                                       .OnCollisionStayChild,
+                                                                                                   this
+                                                                                                       .OnTriggerStayChild,
+                                                                                                   this
+                                                                                                       ._debugging);
     }
 
     void OnTriggerStayChild(GameObject child_game_object, Collider col) { }
@@ -61,8 +69,9 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
       yield return this._wait_for_seconds;
       this.StopCoroutine(nameof(this.MakeObjectVisible));
       this._graspable_object.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
-      this._rigid_body.transform.position = this._initial_position;
-      this._rigid_body.transform.rotation = this._initial_rotation;
+      var transform1 = this._rigid_body.transform;
+      transform1.position = this._initial_position;
+      transform1.rotation = this._initial_rotation;
       this.MakeRigidBodiesSleep();
       this.StartCoroutine(nameof(this.MakeObjectVisible));
     }
@@ -93,8 +102,9 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
 
     IEnumerator MakeObjectVisible() {
       yield return this._wait_for_seconds;
-      this._rigid_body.transform.position = this._initial_position;
-      this._rigid_body.transform.rotation = this._initial_rotation;
+      var transform1 = this._rigid_body.transform;
+      transform1.position = this._initial_position;
+      transform1.rotation = this._initial_rotation;
       this.WakeUpRigidBodies();
       this._graspable_object.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
     }

@@ -37,8 +37,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
     [SerializeField]
     float _scaling_factor;
 
-    [Header("Cube")]
-    [SerializeField] bool _spawn_cubes = true;
+    [Header("Cube")] [SerializeField] bool _spawn_cubes = true;
 
     /// <summary>
     /// </summary>
@@ -118,12 +117,11 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
 
     void Update() {
       if (this._visualize_grid) {
-        GraspingUtilities.DrawRect(
-            this._x_size,
-            this._y_size,
-            this._z_size,
-            this.transform.position,
-            Color.red);
+        GraspingUtilities.DrawRect(this._x_size,
+                                   this._y_size,
+                                   this._z_size,
+                                   this.transform.position,
+                                   Color.red);
       }
     }
 
@@ -134,15 +132,13 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
         for (var i = 0; i < cube_num; i++) {
           var temp = Random.Range(-this._scaling_factor, this._scaling_factor);
           //spawn_pos = new Vector3(Random.Range(x_min, x_max), Random.Range(y_min, y_max), Random.Range(z_min, z_max));
-          var spawn_pos = new Vector3(
-              Random.Range(-this._x_size / 2, this._x_size / 2),
-              Random.Range(-this._y_size / 2 + this._y_center_point, this._y_size / 2 + this._y_center_point),
-              Random.Range(-this._z_size / 2, this._z_size / 2));
+          var spawn_pos = new Vector3(Random.Range(-this._x_size / 2, this._x_size / 2),
+                                      Random.Range(-this._y_size / 2 + this._y_center_point,
+                                                   this._y_size / 2 + this._y_center_point),
+                                      Random.Range(-this._z_size / 2, this._z_size / 2));
           var cube_clone = Instantiate(this._cube, spawn_pos, Quaternion.identity, this.transform);
-          cube_clone.transform.localScale = new Vector3(
-              this._sphere_size + temp,
-              this._sphere_size + temp,
-              this._sphere_size + temp);
+          cube_clone.transform.localScale =
+              new Vector3(this._sphere_size + temp, this._sphere_size + temp, this._sphere_size + temp);
           cube_clone.SetActive(true);
           cube_clone.tag = "Obstruction";
 
@@ -157,15 +153,13 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
         for (var i = 0; i < sphere_num; i++) {
           var temp = Random.Range(-this._scaling_factor, this._scaling_factor);
           //spawn_pos = new Vector3(Random.Range(x_min, x_max), Random.Range(y_min, y_max), Random.Range(z_min, z_max));
-          var spawn_pos = new Vector3(
-              Random.Range(-this._x_size / 2, this._x_size / 2),
-              Random.Range(-this._y_size / 2 + this._y_center_point, this._y_size / 2 + this._y_center_point),
-              Random.Range(-this._z_size / 2, this._z_size / 2));
+          var spawn_pos = new Vector3(Random.Range(-this._x_size / 2, this._x_size / 2),
+                                      Random.Range(-this._y_size / 2 + this._y_center_point,
+                                                   this._y_size / 2 + this._y_center_point),
+                                      Random.Range(-this._z_size / 2, this._z_size / 2));
           var sphere_clone = Instantiate(this._sphere, spawn_pos, Quaternion.identity, this.transform);
-          sphere_clone.transform.localScale = new Vector3(
-              this._sphere_size + temp,
-              this._sphere_size + temp,
-              this._sphere_size + temp);
+          sphere_clone.transform.localScale =
+              new Vector3(this._sphere_size + temp, this._sphere_size + temp, this._sphere_size + temp);
           sphere_clone.SetActive(true);
           sphere_clone.tag = "Obstruction";
 

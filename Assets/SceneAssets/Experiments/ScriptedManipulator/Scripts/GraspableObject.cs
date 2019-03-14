@@ -71,7 +71,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
 
     //Main function
     //return grip vector/transform with highest score
-    public Tuple<Grasp, float> GetOptimalGrasp(ScriptedGripper gripper) {
+    public Tuple<Grasp, float> GetOptimalGrasp(ScriptedGrasping grasping) {
       var grasps = this.GetGrasps();
       var unobstructed_grasps = new List<Grasp>();
 
@@ -87,7 +87,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
       Grasp optimal_grasp = null;
       var shortest_distance = float.MaxValue;
       foreach (var grasp in unobstructed_grasps) {
-        var distance = Vector3.Distance(grasp.transform.position, gripper.transform.position);
+        var distance = Vector3.Distance(grasp.transform.position, grasping.transform.position);
         if (distance <= shortest_distance) {
           shortest_distance = distance;
           optimal_grasp = grasp;
@@ -173,9 +173,8 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
   }
   */
     //Distance from hand - Score
-    Dictionary<GameObject, float> DistanceToHandScore(
-        GameObject hand,
-        Dictionary<GameObject, float> grab_dict) {
+    Dictionary<GameObject, float> DistanceToHandScore(GameObject hand,
+                                                      Dictionary<GameObject, float> grab_dict) {
       foreach (var pair in grab_dict) {
         var distance = Vector3.Distance(pair.Key.transform.position, hand.transform.position);
         grab_dict[pair.Key] += distance;

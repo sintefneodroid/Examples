@@ -81,35 +81,40 @@
     <Compile Include="Assets\Common\Scripts\UnityMainThreadDispatcher.cs" />
     <Compile Include="Assets\Common\Tools\ProceduralCapsule.cs" />
     <Compile Include="Assets\Common\Tools\Rotate.cs" />
+    <Compile Include="Assets\droid\Samples\MultiArmedBandit\MultiArmedBanditActuator.cs" />
     <Compile Include="Assets\droid\Samples\MultiArmedBandit\MultiArmedBanditEvaluation.cs" />
-    <Compile Include="Assets\droid\Samples\MultiArmedBandit\MultiArmedBanditMotor.cs" />
-    <Compile Include="Assets\droid\Samples\MultiArmedBandit\RestlessMultiArmedBanditMotor.cs" />
+    <Compile Include="Assets\droid\Samples\MultiArmedBandit\RestlessMultiArmedBanditActuator.cs" />
     <Compile Include="Assets\droid\Samples\MultiArmedBandit\TextBarPlotDisplayer.cs" />
     <Compile Include="Assets\droid\Tests\Runtime\SimulatorTests.cs" />
+    <Compile Include="Assets\Exclude\MathGeoLib\MathGeoLib.Managed.App\MathGeoLib\Line3.cs" />
+    <Compile Include="Assets\Exclude\MathGeoLib\MathGeoLib.Managed.App\MathGeoLib\Matrix3X4.cs" />
+    <Compile Include="Assets\Exclude\MathGeoLib\MathGeoLib.Managed.App\MathGeoLib\OrientedBoundingBox.cs" />
+    <Compile Include="Assets\Exclude\MathGeoLib\MathGeoLib.Managed.App\MathGeoLib\Plane.cs" />
+    <Compile Include="Assets\Exclude\MathGeoLib\MathGeoLib.Managed.App\MathGeoLib\Vector3.cs" />
+    <Compile Include="Assets\Exclude\MathGeoLib\MathGeoLib.Managed.App\Program.cs" />
+    <Compile Include="Assets\Exclude\MathGeoLib\MathGeoLib.Managed.App\Properties\AssemblyInfo.cs" />
     <Compile Include="Assets\SceneAssets\Catch\DropSpawner.cs" />
     <Compile Include="Assets\SceneAssets\Experiments\CaptureButtonOverlay.cs" />
     <Compile Include="Assets\SceneAssets\Experiments\ImageSynthesiser.cs" />
     <Compile Include="Assets\SceneAssets\Experiments\Projectile.cs" />
     <Compile Include="Assets\SceneAssets\Experiments\RigidbodyArrows.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Grasps\Grasp.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Grasps\VRGrip.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Navigation\BezierCurve.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Navigation\BezierPoint.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Navigation\Path.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Navigation\PathFinding.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\QuickGlow.cs" />
     <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Scripts\GraspableObject.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Scripts\Grasps\Grasp.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Scripts\Grasps\VRGrip.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Scripts\Navigation\BezierCurve.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Scripts\Navigation\BezierPoint.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Scripts\Navigation\Path.cs" />
     <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Scripts\ObstacleSpawner.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Scripts\ScriptedGripper.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\SimpleBlur.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Scripts\ScriptedGrasping.cs" />
     <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Utilities\DataCollection\BlitToMaterial.cs" />
     <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Utilities\DataCollection\DataCollector.cs" />
     <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Utilities\DataCollection\Experimental\ImageRecorder.cs" />
     <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Utilities\DataCollection\GraspTimedRespawn.cs" />
     <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Utilities\DataCollection\GUIControl.cs" />
-    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Utilities\DataCollection\TimeManager.cs" />
     <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Utilities\DataCollection\VerticalGameObjectSpawner.cs" />
     <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Utilities\IgnoreCollision.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Utilities\Pathfinding\Astar.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Utilities\QuickGlow.cs" />
     <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Utilities\States.cs" />
     <Compile Include="Assets\SceneAssets\Games\Creatures2\FloatAboveSurface.cs" />
     <Compile Include="Assets\SceneAssets\Games\Creatures2\LaserBehaviour.cs" />
@@ -140,6 +145,63 @@
     <None Include="Assets\droid\mcs.rsp" />
     <None Include="Assets\smcs.rsp" />
     <None Include="Assets\droid\gmcs.rsp" />
+    <Reference Include="Unity.ProGrids">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Collections">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProGrids.Editor">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityTestPackage.Editor">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/UnityTestPackage.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityTestPackage.Runtime">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/UnityTestPackage.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PackageManagerUI.Editor">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Editor">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.XR.LegacyInputHelpers">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AssetBundleBrowser.Editor">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.AssetBundleBrowser.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.SpatialTracking">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpatialTracking">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics.Editor">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.XR.LegacyInputHelpers">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0b1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>

@@ -9,7 +9,7 @@ namespace SceneAssets.Catch {
   public class DropSpawner : MonoBehaviour {
     [SerializeField] int _max_num_concurrent_objects = 4;
     [SerializeField] float _next_spawn_time;
-    [SerializeField] ValueSpace _spawn_delay_range = new ValueSpace {_Max_Value = 1f, _Min_Value = 0.1f};
+    [SerializeField] Space1 _spawn_delay_range = new Space1 {_Max_Value = 1f, _Min_Value = 0.1f};
 
     /// <summary>
     /// </summary>
@@ -46,7 +46,7 @@ namespace SceneAssets.Catch {
               pose = new Pose(trans.position, trans.rotation);
             } else {
               pose = new Pose(
-                  this._spawn_position_range.RandomVector3(),
+                  this._spawn_position_range.Sample(),
                   this._spawn_rotation_range.RandomQuaternion());
             }
 

@@ -2,7 +2,7 @@
 using System.Linq;
 using droid.Runtime.Environments;
 using droid.Runtime.Prototyping.Evaluation;
-using droid.Runtime.Prototyping.Observers.Grid;
+using droid.Runtime.Prototyping.Sensors.Grid;
 using droid.Runtime.Utilities.Misc.Grid;
 using droid.Runtime.Utilities.Structs;
 using UnityEngine;
@@ -69,7 +69,7 @@ namespace SceneAssets.GridWorlds.Scripts {
   /// <inheritdoc />
   /// <summary>
   /// </summary>
-  [RequireComponent(typeof(GoalCellObserver))]
+  [RequireComponent(typeof(GoalCellSensor))]
   public class GridWorldEnvironment : PrototypingEnvironment {
     [SerializeField] Camera _camera;
     [SerializeField] Material _empty_cell_material;
@@ -77,7 +77,7 @@ namespace SceneAssets.GridWorlds.Scripts {
 
     [SerializeField] Material _goal_cell_material;
 
-    [SerializeField] GoalCellObserver _goal_cell_observer;
+    [SerializeField] GoalCellSensor _goal_cell_observer;
     [SerializeField] GridCell[,,] _grid;
     [SerializeField] IntVector3 _grid_size = new IntVector3(Vector3.one * 20);
     [Range(0.0f, 0.999f)] [SerializeField] float _min_empty_cells_percentage = 0.5f;
@@ -254,7 +254,7 @@ namespace SceneAssets.GridWorlds.Scripts {
       var zs = this._grid_size.Z;
       this._grid = this.GenerateRandomGrid(xs, ys, zs, this._min_empty_cells_percentage);
 
-      this._goal_cell_observer = this.gameObject.GetComponent<GoalCellObserver>();
+      this._goal_cell_observer = this.gameObject.GetComponent<GoalCellSensor>();
 
       //this.Setup();
 

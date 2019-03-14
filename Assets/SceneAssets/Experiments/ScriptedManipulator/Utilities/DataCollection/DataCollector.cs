@@ -16,14 +16,14 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
     string _file_path = @"training_data/";
     string _file_path_gripper = @"gripper_position_rotation.csv";
     string _file_path_target = @"target_position_rotation.csv";
-    [SerializeField] ScriptedGripper _gripper;
+    [SerializeField] ScriptedGrasping _grasping;
 
     int _i;
     [SerializeField] Grasp _target;
 
     void Start() {
-      if (!this._gripper) {
-        this._gripper = FindObjectOfType<ScriptedGripper>();
+      if (!this._grasping) {
+        this._grasping = FindObjectOfType<ScriptedGrasping>();
       }
 
       if (!this._target) {
@@ -51,23 +51,23 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
         //Vector3 screenPoint = _depth_camera.WorldToViewportPoint (_target.transform.position);
         //if (screenPoint.z > 0 && screenPoint.x > 0.1 && screenPoint.x < 0.9 && screenPoint.y > 0.1 && screenPoint.y < 0.9) {
         var gripper_position_relative_to_camera =
-            this.transform.InverseTransformPoint(this._gripper.transform.position);
+            this.transform.InverseTransformPoint(this._grasping.transform.position);
         var gripper_direction_relative_to_camera =
-            this.transform.InverseTransformDirection(this._gripper.transform.eulerAngles);
-        var gripper_transform_output = this.GetTransformOutput(
-            this._i,
-            gripper_position_relative_to_camera,
-            gripper_direction_relative_to_camera);
+            this.transform.InverseTransformDirection(this._grasping.transform.eulerAngles);
+        var gripper_transform_output =
+            this.GetTransformOutput(this._i,
+                                    gripper_position_relative_to_camera,
+                                    gripper_direction_relative_to_camera);
         this.SaveToCsv(this._file_path + this._file_path_gripper, gripper_transform_output);
 
         var target_position_relative_to_camera =
             this.transform.InverseTransformPoint(this._target.transform.position);
         var target_direction_relative_to_camera =
             this.transform.InverseTransformDirection(this._target.transform.eulerAngles);
-        var target_transform_output = this.GetTransformOutput(
-            this._i,
-            target_position_relative_to_camera,
-            target_direction_relative_to_camera);
+        var target_transform_output =
+            this.GetTransformOutput(this._i,
+                                    target_position_relative_to_camera,
+                                    target_direction_relative_to_camera);
         this.SaveToCsv(this._file_path + this._file_path_target, target_transform_output);
 
         foreach (var input_camera in this._cameras) {
@@ -84,14 +84,14 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
 
     string[] GetTransformOutput(int id, Vector3 pos, Vector3 dir) {
       return new[] {
-          id.ToString(),
-          pos.x.ToString("0.000000"),
-          pos.y.ToString("0.000000"),
-          pos.z.ToString("0.000000"),
-          dir.x.ToString("0.000000"),
-          dir.y.ToString("0.000000"),
-          dir.z.ToString("0.000000")
-      };
+                       id.ToString(),
+                       pos.x.ToString("0.000000"),
+                       pos.y.ToString("0.000000"),
+                       pos.z.ToString("0.000000"),
+                       dir.x.ToString("0.000000"),
+                       dir.y.ToString("0.000000"),
+                       dir.z.ToString("0.000000")
+                   };
     }
 
     void SaveBytesToFile(byte[] bytes, string filename) { File.WriteAllBytes(filename, bytes); }
@@ -125,11 +125,9 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
       var current_render_texture = RenderTexture.active;
       RenderTexture.active = input_camera.targetTexture;
       input_camera.Render();
-      var image = new Texture2D(input_camera.targetTexture.width, input_camera.targetTexture.height);
-      image.ReadPixels(
-          new Rect(0, 0, input_camera.targetTexture.width, input_camera.targetTexture.height),
-          0,
-          0);
+      var target_texture = input_camera.targetTexture;
+      var image = new Texture2D(target_texture.width, target_texture.height);
+      image.ReadPixels(new Rect(0, 0, target_texture.width, target_texture.height), 0, 0);
       image.Apply();
       RenderTexture.active = current_render_texture;
       return image;
