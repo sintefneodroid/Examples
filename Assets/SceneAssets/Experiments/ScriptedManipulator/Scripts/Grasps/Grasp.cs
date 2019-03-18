@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SceneAssets.Experiments.ScriptedManipulator.Grasps {
+namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps {
   [ExecuteInEditMode]
   public class Grasp : MonoBehaviour {
     [SerializeField] bool _draw_ray_cast;
@@ -14,18 +14,26 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Grasps {
       }
 
       if (this._draw_ray_cast) {
-        Debug.DrawLine(this.transform.position,
-                       this.transform.position - this.transform.forward * this._obstruction_cast_length,
+        var transform1 = this.transform;
+        var position = transform1.position;
+        Debug.DrawLine(position,
+                       position - transform1.forward * this._obstruction_cast_length,
                        color);
-        Debug.DrawLine(this.transform.position - this.transform.up * this._obstruction_cast_radius,
-                       this.transform.position + this.transform.up * this._obstruction_cast_radius,
+        var up = transform1.up;
+        Debug.DrawLine(this.transform.position - up * this._obstruction_cast_radius,
+                       position + up * this._obstruction_cast_radius,
                        color);
-        Debug.DrawLine(this.transform.position - this.transform.right * this._obstruction_cast_radius,
-                       this.transform.position + this.transform.right * this._obstruction_cast_radius,
+        var right = transform1.right;
+        Debug.DrawLine(position - right * this._obstruction_cast_radius,
+                       position + right * this._obstruction_cast_radius,
                        color);
       }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public bool IsObstructed() {
       RaycastHit hit;
       if (Physics.Linecast(this.transform.position,
@@ -43,9 +51,12 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Grasps {
         return true;
       }
 
+      var transform1 = this.transform;
+      var position = transform1.position;
+      var forward = transform1.forward;
       return Physics
-             .OverlapCapsule(this.transform.position - this.transform.forward * this._obstruction_cast_radius,
-                             this.transform.position - this.transform.forward * this._obstruction_cast_length,
+             .OverlapCapsule(position - forward * this._obstruction_cast_radius,
+                             position - forward * this._obstruction_cast_length,
                              this._obstruction_cast_radius,
                              LayerMask.GetMask("Obstruction")).Length
              > 0;

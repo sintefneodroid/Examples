@@ -74,25 +74,16 @@
     <Compile Include="Assets\Common\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
     <Compile Include="Assets\Common\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
     <Compile Include="Assets\Common\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
-    <Compile Include="Assets\Common\Move\Conveyor.cs" />
     <Compile Include="Assets\Common\ReferenceChecker\unity-reference-checker-master\IgnoreRefCheckerAttribute.cs" />
     <Compile Include="Assets\Common\ReferenceChecker\unity-reference-checker-master\Tests\RefCheckerTestComponent.cs" />
     <Compile Include="Assets\Common\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Common\Scripts\UnityMainThreadDispatcher.cs" />
     <Compile Include="Assets\Common\Tools\ProceduralCapsule.cs" />
-    <Compile Include="Assets\Common\Tools\Rotate.cs" />
     <Compile Include="Assets\droid\Samples\MultiArmedBandit\MultiArmedBanditActuator.cs" />
     <Compile Include="Assets\droid\Samples\MultiArmedBandit\MultiArmedBanditEvaluation.cs" />
     <Compile Include="Assets\droid\Samples\MultiArmedBandit\RestlessMultiArmedBanditActuator.cs" />
     <Compile Include="Assets\droid\Samples\MultiArmedBandit\TextBarPlotDisplayer.cs" />
     <Compile Include="Assets\droid\Tests\Runtime\SimulatorTests.cs" />
-    <Compile Include="Assets\Exclude\MathGeoLib\MathGeoLib.Managed.App\MathGeoLib\Line3.cs" />
-    <Compile Include="Assets\Exclude\MathGeoLib\MathGeoLib.Managed.App\MathGeoLib\Matrix3X4.cs" />
-    <Compile Include="Assets\Exclude\MathGeoLib\MathGeoLib.Managed.App\MathGeoLib\OrientedBoundingBox.cs" />
-    <Compile Include="Assets\Exclude\MathGeoLib\MathGeoLib.Managed.App\MathGeoLib\Plane.cs" />
-    <Compile Include="Assets\Exclude\MathGeoLib\MathGeoLib.Managed.App\MathGeoLib\Vector3.cs" />
-    <Compile Include="Assets\Exclude\MathGeoLib\MathGeoLib.Managed.App\Program.cs" />
-    <Compile Include="Assets\Exclude\MathGeoLib\MathGeoLib.Managed.App\Properties\AssemblyInfo.cs" />
     <Compile Include="Assets\SceneAssets\Catch\DropSpawner.cs" />
     <Compile Include="Assets\SceneAssets\Experiments\CaptureButtonOverlay.cs" />
     <Compile Include="Assets\SceneAssets\Experiments\ImageSynthesiser.cs" />
@@ -125,21 +116,27 @@
     <Compile Include="Assets\SceneAssets\ImagePuzzler\ImageSlicer.cs" />
     <Compile Include="Assets\SceneAssets\ImagePuzzler\Puzzle.cs" />
     <Compile Include="Assets\SceneAssets\Manipulator\InjectRandomRigidbodyNoise.cs" />
+    <Compile Include="Assets\SceneAssets\Move\Conveyor.cs" />
+    <Compile Include="Assets\SceneAssets\Skyboxes\Test\Misc\CameraMove.cs" />
     <Compile Include="Assets\SceneAssets\Walker\DaylightSimulator.cs" />
     <None Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Shaders\Experimental\QuickBlur.shader" />
+    <None Include="Assets\SceneAssets\Skyboxes\Test\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\SeparableBlur.shader" />
     <None Include="Assets\Common\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
+    <None Include="Assets\SceneAssets\Skyboxes\Test\OpenfootageNET\Acknowledgement.txt" />
     <None Include="Assets\droid\Libraries\NetMQ.4.0.0.175-pre\lib\net40\NetMQ.xml" />
     <None Include="Assets\droid\Libraries\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.xml" />
     <None Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Shaders\IgnoreZ.shader" />
     <None Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Shaders\Experimental\CompositeAdd.shader" />
     <None Include="Assets\mcs.rsp" />
     <None Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Shaders\Experimental\DepthDeprecated.shader" />
+    <None Include="Assets\SceneAssets\Skyboxes\Test\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ChromaticAberrationShader.shader" />
     <None Include="Assets\csc.rsp" />
     <None Include="Assets\droid\csc.rsp" />
     <None Include="Assets\droid\Gizmos\Icons\readme.txt" />
     <None Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Shaders\Experimental\OverDraw.shader" />
     <None Include="Assets\droid\Libraries\OptimizedPriorityQueue.4.1.1\lib\net45\Priority Queue.xml" />
     <None Include="Assets\gmcs.rsp" />
+    <None Include="Assets\SceneAssets\Skyboxes\Test\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\VignettingShader.shader" />
     <None Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Shaders\Experimental\Shadow.shader" />
     <None Include="Assets\droid\smcs.rsp" />
     <None Include="Assets\droid\mcs.rsp" />
@@ -147,9 +144,6 @@
     <None Include="Assets\droid\gmcs.rsp" />
     <Reference Include="Unity.ProGrids">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Collections">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.Collections.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
@@ -399,9 +393,6 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/Newtonsoft.Json.11.0.2/lib/net45/Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/PackageCache/com.unity.collections@0.0.9-preview.12/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0b1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

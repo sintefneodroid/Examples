@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using droid.Runtime.Utilities.GameObjects.Sensors;
 using droid.Runtime.Utilities.Misc;
 using droid.Runtime.Utilities.Misc.Extensions;
 using droid.Runtime.Utilities.Misc.Grasping;
-using droid.Runtime.Utilities.Sensors;
-using SceneAssets.Experiments.ScriptedManipulator.Grasps;
-using SceneAssets.Experiments.ScriptedManipulator.Navigation;
-using SceneAssets.Experiments.ScriptedManipulator.Navigation.Pathfinding;
+using SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps;
+using SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation;
 using SceneAssets.Experiments.ScriptedManipulator.Utilities;
+using SceneAssets.Experiments.ScriptedManipulator.Utilities.Pathfinding;
 using UnityEngine;
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {

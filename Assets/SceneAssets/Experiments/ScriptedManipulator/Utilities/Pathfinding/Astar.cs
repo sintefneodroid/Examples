@@ -2,7 +2,7 @@
 using Priority_Queue;
 using UnityEngine;
 
-namespace SceneAssets.Experiments.ScriptedManipulator.Navigation.Pathfinding {
+namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.Pathfinding {
   /// <summary>
   ///
   /// </summary>

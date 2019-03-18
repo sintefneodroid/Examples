@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using droid.Runtime.Utilities.Misc.Orientation;
-using SceneAssets.Experiments.ScriptedManipulator.Grasps;
+using SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps;
 using UnityEngine;
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {

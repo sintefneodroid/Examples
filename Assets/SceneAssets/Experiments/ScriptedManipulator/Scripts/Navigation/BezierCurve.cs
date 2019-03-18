@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SceneAssets.Experiments.ScriptedManipulator.Navigation {
+namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
   /// <inheritdoc />
   /// <summary>
   ///   - Class for describing and drawing Bezier Curves

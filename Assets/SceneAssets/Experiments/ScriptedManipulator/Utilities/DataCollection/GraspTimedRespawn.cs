@@ -1,8 +1,8 @@
 ﻿using System.Collections;
+using droid.Runtime.Utilities.GameObjects.Sensors;
 using droid.Runtime.Utilities.Misc;
-using droid.Runtime.Utilities.Sensors;
-using SceneAssets.Experiments.ScriptedManipulator.Grasps;
 using SceneAssets.Experiments.ScriptedManipulator.Scripts;
+using SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps;
 using UnityEngine;
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {

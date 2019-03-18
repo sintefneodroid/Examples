@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SceneAssets.Experiments.ScriptedManipulator {
+namespace SceneAssets.Experiments.ScriptedManipulator.Utilities {
   [ExecuteInEditMode]
   public class QuickGlow : MonoBehaviour {
     [SerializeField] Material _add_material;

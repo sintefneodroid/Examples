@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace SceneAssets.Experiments.ScriptedManipulator.Navigation {
+namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
   [Serializable]
   class BezierCurvePath {
     BezierCurve _bezier_curve;

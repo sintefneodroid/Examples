@@ -41,9 +41,6 @@
               </e>
             </e>
           </e>
-          <e p="Move" t="Include">
-            <e p="Conveyor.cs" t="Include" />
-          </e>
           <e p="ReferenceChecker" t="Include">
             <e p="unity-reference-checker-master" t="Include">
               <e p="Editor" t="Include">
@@ -64,24 +61,6 @@
           </e>
           <e p="Tools" t="Include">
             <e p="ProceduralCapsule.cs" t="Include" />
-            <e p="Rotate.cs" t="Include" />
-          </e>
-        </e>
-        <e p="Exclude" t="Include">
-          <e p="MathGeoLib" t="Include">
-            <e p="MathGeoLib.Managed.App" t="Include">
-              <e p="MathGeoLib" t="Include">
-                <e p="Line3.cs" t="Include" />
-                <e p="Matrix3X4.cs" t="Include" />
-                <e p="OrientedBoundingBox.cs" t="Include" />
-                <e p="Plane.cs" t="Include" />
-                <e p="Vector3.cs" t="Include" />
-              </e>
-              <e p="Program.cs" t="Include" />
-              <e p="Properties" t="Include">
-                <e p="AssemblyInfo.cs" t="Include" />
-              </e>
-            </e>
           </e>
         </e>
         <e p="SceneAssets" t="Include">
@@ -159,6 +138,30 @@
           <e p="Manipulator" t="Include">
             <e p="InjectRandomRigidbodyNoise.cs" t="Include" />
           </e>
+          <e p="Move" t="Include">
+            <e p="Conveyor.cs" t="Include" />
+          </e>
+          <e p="Skyboxes" t="Include">
+            <e p="Test" t="Include">
+              <e p="Misc" t="Include">
+                <e p="CameraMove.cs" t="Include" />
+              </e>
+              <e p="OpenfootageNET" t="Include">
+                <e p="Acknowledgement.txt" t="Include" />
+              </e>
+              <e p="Standard Assets" t="Include">
+                <e p="Image Effects (Pro Only)" t="Include">
+                  <e p="_Sources" t="Include">
+                    <e p="Shaders" t="Include">
+                      <e p="ChromaticAberrationShader.shader" t="Include" />
+                      <e p="SeparableBlur.shader" t="Include" />
+                      <e p="VignettingShader.shader" t="Include" />
+                    </e>
+                  </e>
+                </e>
+              </e>
+            </e>
+          </e>
           <e p="Walker" t="Include">
             <e p="DaylightSimulator.cs" t="Include" />
           </e>
@@ -204,8 +207,10 @@
                 <e p="NoteEditor.cs" t="Include" />
                 <e p="NoteType.cs" t="Include" />
               </e>
-              <e p="ObjectDropdownAttribute.cs" t="Include" />
-              <e p="ObjectSelectorDropdown.cs" t="Include" />
+              <e p="ObjectDropdown" t="Include">
+                <e p="ObjectDropdownAttribute.cs" t="Include" />
+                <e p="ObjectSelectorDropdown.cs" t="Include" />
+              </e>
               <e p="SceneDescription.cs" t="Include" />
               <e p="ScenePreview.cs" t="Include" />
               <e p="SceneReference.cs" t="Include" />
@@ -310,6 +315,7 @@
               <e p="IPrototypingEnvironment.cs" t="Include" />
               <e p="IResetable.cs" t="Include" />
               <e p="ISimulatorConfiguration.cs" t="Include" />
+              <e p="ISpace.cs" t="Include" />
             </e>
             <e p="InternalReactions" t="Include">
               <e p="KeyEventEnabler.cs" t="Include" />
@@ -402,6 +408,7 @@
                   <e p="ExternalTextureConfigurable.cs" t="Include" />
                   <e p="LightConfigurable.cs" t="Include" />
                   <e p="MeshConfigurable.cs" t="Include" />
+                  <e p="NormalMapConfigurable.cs" t="Include" />
                   <e p="ScreenSpaceOcclusionConfigurable.cs" t="Include" />
                   <e p="StandardShaderMaterialConfigurable.cs" t="Include" />
                   <e p="TextureConfigurable.cs" t="Include" />
@@ -411,6 +418,7 @@
                 <e p="PositionConfigurable.cs" t="Include" />
                 <e p="QuaternionTransformConfigurable.cs" t="Include" />
                 <e p="RigidbodyConfigurable.cs" t="Include" />
+                <e p="RotationConfigurable.cs" t="Include" />
                 <e p="ScreenSpacePositionConfigurable.cs" t="Include" />
                 <e p="SimulationConfigurable.cs" t="Include" />
                 <e p="SizeConfigurable.cs" t="Include" />
@@ -504,6 +512,9 @@
                 </e>
                 <e p="Rays" t="Include">
                   <e p="AdjacencySensor.cs" t="Include" />
+                  <e p="Experimental" t="Include">
+                    <e p="Ray.cs" t="Include" />
+                  </e>
                   <e p="FixedLidarSensor.cs" t="Include" />
                   <e p="LineOfSightSensor.cs" t="Include" />
                   <e p="NearestByTagSensor.cs" t="Include" />
@@ -527,18 +538,36 @@
                   <e p="SingleAxisTransformSensor.cs" t="Include" />
                 </e>
                 <e p="TwoDimensionalScreenSpaceSensor.cs" t="Include" />
+                <e p="UberCameraSensor.cs" t="Include" />
                 <e p="ValueSensor.cs" t="Include" />
               </e>
             </e>
             <e p="Shaders" t="Include">
               <e p="Experimental" t="Include">
                 <e p="AllShader.shader" t="Include" />
+                <e p="CopyFrameBuffer.shader" t="Include" />
+                <e p="EdgeHighLight.shader" t="Include" />
                 <e p="FlatSegmentation.shader" t="Include" />
+                <e p="GrabPassInvert.shader" t="Include" />
                 <e p="MultiMode.shader" t="Include" />
+                <e p="NewComputeShader.compute" t="Include" />
                 <e p="OpticalFlow.shader" t="Include" />
                 <e p="Outline.shader" t="Include" />
+                <e p="Skybox Shaders" t="Include">
+                  <e p="Editor" t="Include">
+                    <e p="GradientSkyboxInspector.cs" t="Include" />
+                    <e p="HorizonWithSunSkyboxInspector.cs" t="Include" />
+                    <e p="RgbmCubedSkyboxInspector.cs" t="Include" />
+                  </e>
+                  <e p="Gradient Skybox.shader" t="Include" />
+                  <e p="Horizon With Sun Skybox.shader" t="Include" />
+                  <e p="Horizontal Skybox.shader" t="Include" />
+                  <e p="RGBM Cubed Skybox.shader" t="Include" />
+                  <e p="a.shader" t="Include" />
+                </e>
                 <e p="StereoEyeIndexColor.shader" t="Include" />
                 <e p="ValueRangePlotter.shader" t="Include" />
+                <e p="VerticalFlipper.shader" t="Include" />
                 <e p="XR.shader" t="Include" />
               </e>
               <e p="FlatColor.shader" t="Include" />
@@ -566,6 +595,19 @@
                 <e p="ObjectSpace.shader" t="Include" />
                 <e p="WorldSpace.shader" t="Include" />
               </e>
+              <e p="Wireframe" t="Include">
+                <e p="Resources" t="Include">
+                  <e p="Wireframe-Global.shader" t="Include" />
+                  <e p="WireframeShaded-Unlit-Global.shader" t="Include" />
+                  <e p="WireframeTransparent-Global.shader" t="Include" />
+                  <e p="WireframeTransparentCulled-Global.shader" t="Include" />
+                </e>
+                <e p="Wireframe.cginc" t="Include" />
+                <e p="Wireframe.shader" t="Include" />
+                <e p="WireframeShaded-Unlit.shader" t="Include" />
+                <e p="WireframeTransparent.shader" t="Include" />
+                <e p="WireframeTransparentCulled.shader" t="Include" />
+              </e>
             </e>
             <e p="Utilities" t="Include">
               <e p="BoundingBoxes" t="Include">
@@ -576,13 +618,18 @@
                   <e p="BoundingBoxUtilities.cs" t="Include" />
                   <e p="Corners.cs" t="Include" />
                   <e p="DrawBoundingBoxes.cs" t="Include" />
+                  <e p="Unused" t="Include">
+                    <e p="BoundingBoxUtilities.cs" t="Include" />
+                  </e>
+                  <e p="VectorSpace.cs" t="Include" />
                 </e>
-              </e>
-              <e p="Debugging" t="Include">
-                <e p="DebugPrinting.cs" t="Include" />
               </e>
               <e p="Enums" t="Include">
                 <e p="Axis.cs" t="Include" />
+                <e p="BoundingBox" t="Include">
+                  <e p="BasedOn.cs" t="Include" />
+                  <e p="BoundingBoxOrientation.cs" t="Include" />
+                </e>
                 <e p="CoordinateSystem.cs" t="Include" />
                 <e p="DimensionCombination.cs" t="Include" />
                 <e p="FrameFinishes.cs" t="Include" />
@@ -597,8 +644,18 @@
               </e>
               <e p="GameObjects" t="Include">
                 <e p="PrototypingGameObject.cs" t="Include" />
+                <e p="Sensors" t="Include">
+                  <e p="ChildCollider2DSensor.cs" t="Include" />
+                  <e p="ChildCollider3DSensor.cs" t="Include" />
+                  <e p="ChildColliderSensor.cs" t="Include" />
+                </e>
+                <e p="StatusDisplayer" t="Include">
+                  <e p="AutoSetupStatusDisplayer.cs" t="Include" />
+                  <e p="RenderTextureList.cs" t="Include" />
+                </e>
               </e>
               <e p="Misc" t="Include">
+                <e p="DebugPrinting.cs" t="Include" />
                 <e p="Drawing" t="Include">
                   <e p="DrawString.cs" t="Include" />
                   <e p="GuiDraw.cs" t="Include" />
@@ -624,7 +681,6 @@
                   <e p="MotionTracker.cs" t="Include" />
                   <e p="PointInDirection.cs" t="Include" />
                 </e>
-                <e p="Perlin.cs" t="Include" />
                 <e p="Procedural" t="Include">
                   <e p="GameObjectCloner.cs" t="Include" />
                   <e p="SnakeSpaceFilling.cs" t="Include" />
@@ -637,6 +693,8 @@
                 <e p="CameraObservationTextureController.cs" t="Include" />
                 <e p="Experimental" t="Include">
                   <e p="DisparityCameraBehaviour.cs" t="Include" />
+                  <e p="MultiPassCamera.cs" t="Include" />
+                  <e p="UberCamera.cs" t="Include" />
                 </e>
                 <e p="FlowCameraBehaviour.cs" t="Include" />
                 <e p="IgnoreLightSource.cs" t="Include" />
@@ -660,6 +718,7 @@
                 </e>
               </e>
               <e p="Noise" t="Include">
+                <e p="Perlin.cs" t="Include" />
                 <e p="ProjectileSpammer.cs" t="Include" />
                 <e p="SelfDestruct.cs" t="Include" />
               </e>
@@ -670,34 +729,28 @@
                 <e p="ValueRangePlotter.cs" t="Include" />
               </e>
               <e p="ScriptableObjects" t="Include">
-                <e p="Curriculum.cs" t="Include" />
-                <e p="NeodroidTask.cs" t="Include" />
                 <e p="PlayerMotions.cs" t="Include" />
+                <e p="ScriptableObjectMenuPath.cs" t="Include" />
                 <e p="Segmentation.cs" t="Include" />
-                <e p="SimulatorConfiguration.cs" t="Include" />
-              </e>
-              <e p="Sensors" t="Include">
-                <e p="ChildCollider2DSensor.cs" t="Include" />
-                <e p="ChildCollider3DSensor.cs" t="Include" />
-                <e p="ChildColliderSensor.cs" t="Include" />
-              </e>
-              <e p="SerialisableDictionary" t="Include">
-                <e p="Example.cs" t="Include" />
-                <e p="SerializableDictionary.cs" t="Include" />
-                <e p="SerializableDictionaryDrawer.cs" t="Include" />
-                <e p="SerializableDictionaryDrawerImplementations.cs" t="Include" />
-                <e p="SerializableDictionaryImplementations.cs" t="Include" />
-                <e p="SerializedPropertyExtension.cs" t="Include" />
-              </e>
-              <e p="StatusDisplayer" t="Include">
-                <e p="AutoSetupStatusDisplayer.cs" t="Include" />
-                <e p="RenderTextureList.cs" t="Include" />
+                <e p="SerialisableDictionary" t="Include">
+                  <e p="Example.cs" t="Include" />
+                  <e p="SerializableDictionary.cs" t="Include" />
+                  <e p="SerializableDictionaryDrawer.cs" t="Include" />
+                  <e p="SerializableDictionaryDrawerImplementations.cs" t="Include" />
+                  <e p="SerializableDictionaryImplementations.cs" t="Include" />
+                  <e p="SerializedPropertyExtension.cs" t="Include" />
+                </e>
+                <e p="Unused" t="Include">
+                  <e p="Curriculum.cs" t="Include" />
+                  <e p="NeodroidTask.cs" t="Include" />
+                </e>
               </e>
               <e p="Structs" t="Include">
                 <e p="DoubleVector3.cs" t="Include" />
                 <e p="IntVector3.cs" t="Include" />
                 <e p="Points.cs" t="Include" />
                 <e p="SegmentationColor.cs" t="Include" />
+                <e p="SimulatorConfiguration.cs" t="Include" />
                 <e p="Space1.cs" t="Include" />
                 <e p="Space2.cs" t="Include" />
                 <e p="Space3.cs" t="Include" />

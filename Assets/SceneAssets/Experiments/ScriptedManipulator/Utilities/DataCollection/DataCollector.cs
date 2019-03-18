@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Text;
-using SceneAssets.Experiments.ScriptedManipulator.Grasps;
 using SceneAssets.Experiments.ScriptedManipulator.Scripts;
+using SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps;
 using UnityEngine;
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
