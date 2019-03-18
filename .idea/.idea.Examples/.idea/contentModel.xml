@@ -63,6 +63,46 @@
             <e p="ProceduralCapsule.cs" t="Include" />
           </e>
         </e>
+        <e p="Exclude" t="Include">
+          <e p="BioIK" t="Include">
+            <e p="BioIK.cs" t="Include" />
+            <e p="Demo" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="CameraController.cs" t="Include" />
+                <e p="Demo.cs" t="Include" />
+                <e p="MouseDrag.cs" t="Include" />
+                <e p="Rotate.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Editor" t="Include">
+              <e p="BioIKEditor.cs" t="Include" />
+            </e>
+            <e p="Helpers" t="Include">
+              <e p="Enums.cs" t="Include" />
+              <e p="Evolution.cs" t="Include" />
+              <e p="Model.cs" t="Include" />
+              <e p="Utility.cs" t="Include" />
+            </e>
+            <e p="Setup" t="Include">
+              <e p="BioJoint.cs" t="Include" />
+              <e p="BioObjective.cs" t="Include" />
+              <e p="BioSegment.cs" t="Include" />
+              <e p="Objectives" t="Include">
+                <e p="Displacement.cs" t="Include" />
+                <e p="Distance.cs" t="Include" />
+                <e p="JointValue.cs" t="Include" />
+                <e p="LookAt.cs" t="Include" />
+                <e p="Orientation.cs" t="Include" />
+                <e p="Position.cs" t="Include" />
+                <e p="Projection.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="Excluded" t="Include">
+          <e p="EnablerConfigurableEditor.cs" t="Include" />
+          <e p="IkSolverEnablerConfigurable.cs" t="Include" />
+        </e>
         <e p="SceneAssets" t="Include">
           <e p="Catch" t="Include">
             <e p="DropSpawner.cs" t="Include" />
@@ -198,7 +238,6 @@
                 <e p="GithubExtensionUserInterface.cs" t="Include" />
               </e>
               <e p="MeshSaver.cs" t="Include" />
-              <e p="MissingReferencesFinder.cs" t="Include" />
               <e p="NeodroidEditorConstants.cs" t="Include" />
               <e p="NeodroidEditorUtilities.cs" t="Include" />
               <e p="NeodroidPackageImporterWindow.cs" t="Include" />
@@ -228,6 +267,7 @@
               </e>
               <e p="UnityDebug" t="Include">
                 <e p="FindMissingScripts.cs" t="Include" />
+                <e p="MissingReferencesFinder.cs" t="Include" />
               </e>
             </e>
             <e p="Windows" t="Include">
