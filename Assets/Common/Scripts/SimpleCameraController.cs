@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 namespace Common.Scripts {
+  /// <inheritdoc />
   /// <summary>
   /// </summary>
   public class SimpleCameraController : MonoBehaviour {
@@ -124,12 +125,14 @@ namespace Common.Scripts {
       public float _Z;
 
       public void SetFromTransform(Transform t) {
-        this._Pitch = t.eulerAngles.x;
-        this._Yaw = t.eulerAngles.y;
-        this._Roll = t.eulerAngles.z;
-        this._X = t.position.x;
-        this._Y = t.position.y;
-        this._Z = t.position.z;
+        var euler_angles = t.eulerAngles;
+        this._Pitch = euler_angles.x;
+        this._Yaw = euler_angles.y;
+        this._Roll = euler_angles.z;
+        var position = t.position;
+        this._X = position.x;
+        this._Y = position.y;
+        this._Z = position.z;
       }
 
       public void Translate(Vector3 translation) {

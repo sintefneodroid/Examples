@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Utilities {
   [ExecuteInEditMode]
@@ -13,14 +14,17 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities {
     [Range(0, 10)] public int _Iterations;
 
     [Range(0, 10)] public float _Size;
+    static readonly Int32 _size = Shader.PropertyToID("_Size");
+    static readonly Int32 _intensity = Shader.PropertyToID("_Intensity");
+    static readonly Int32 _blend_tex = Shader.PropertyToID("_BlendTex");
 
     void OnValidate() {
       if (this._blur_material != null) {
-        this._blur_material.SetFloat("_Size", this._Size);
+        this._blur_material.SetFloat(_size, this._Size);
       }
 
       if (this._add_material != null) {
-        this._add_material.SetFloat("_Intensity", this._Intensity);
+        this._add_material.SetFloat(_intensity, this._Intensity);
       }
     }
 
@@ -41,7 +45,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities {
         rt = rt2;
       }
 
-      this._add_material.SetTexture("_BlendTex", rt);
+      this._add_material.SetTexture(_blend_tex, rt);
       Graphics.Blit(composite, dst, this._add_material);
 
       RenderTexture.ReleaseTemporary(rt);

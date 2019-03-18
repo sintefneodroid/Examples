@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
 namespace SceneAssets.Experiments {
+  /// <inheritdoc />
   /// <summary>
-  /// 
   /// </summary>
   public class Projectile : MonoBehaviour {
     // launch variables
@@ -33,7 +33,7 @@ namespace SceneAssets.Experiments {
     bool _b_touching_ground;
 
     // cache
-    Rigidbody _rigid;
+    Rigidbody _rigidbody;
     Vector3 _initial_position;
     Quaternion _initial_rotation;
 
@@ -41,7 +41,7 @@ namespace SceneAssets.Experiments {
 
     // Use this for initialization
     void Start() {
-      this._rigid = this.GetComponent<Rigidbody>();
+      this._rigidbody = this.GetComponent<Rigidbody>();
       this._b_target_ready = false;
       this._b_touching_ground = true;
       var transform1 = this.transform;
@@ -51,7 +51,7 @@ namespace SceneAssets.Experiments {
 
     // resets the projectile to its initial position
     void ResetToInitialState() {
-      this._rigid.velocity = Vector3.zero;
+      this._rigidbody.velocity = Vector3.zero;
       this.transform.SetPositionAndRotation(this._initial_position, this._initial_rotation);
       this._b_touching_ground = true;
       this._b_target_ready = false;
@@ -74,7 +74,7 @@ namespace SceneAssets.Experiments {
 
       if (!this._b_touching_ground && !this._b_target_ready) {
         // update the rotation of the projectile during trajectory motion
-        this.transform.rotation = Quaternion.LookRotation(this._rigid.velocity) * this._initial_rotation;
+        this.transform.rotation = Quaternion.LookRotation(this._rigidbody.velocity) * this._initial_rotation;
       }
     }
 
@@ -140,7 +140,7 @@ namespace SceneAssets.Experiments {
       var global_velocity = this.transform.TransformDirection(local_velocity);
 
       // launch the object by setting its initial velocity and flipping its state
-      this._rigid.velocity = global_velocity;
+      this._rigidbody.velocity = global_velocity;
       this._b_target_ready = false;
     }
 

@@ -4,42 +4,117 @@ using droid.Runtime.Utilities.Misc.Orientation;
 namespace SceneAssets.Experiments.ScriptedManipulator.Utilities {
   #region Enums
 
+  /// <summary>
+  /// 
+  /// </summary>
   public enum MotionState {
+    /// <summary>
+    /// 
+    /// </summary>
     Is_at_rest_,
+    /// <summary>
+    /// 
+    /// </summary>
     Was_moving_,
+    /// <summary>
+    /// 
+    /// </summary>
     Is_moving_
   }
 
+  /// <summary>
+  /// 
+  /// </summary>
   public enum PathFindingState {
+    /// <summary>
+    /// 
+    /// </summary>
     Waiting_for_target_,
+    /// <summary>
+    /// 
+    /// </summary>
     Waiting_for_resting_environment_,
+    /// <summary>
+    /// 
+    /// </summary>
     Navigating_,
+    /// <summary>
+    /// 
+    /// </summary>
     Approaching_,
+    /// <summary>
+    /// 
+    /// </summary>
     Picking_up_target_,
+    /// <summary>
+    /// 
+    /// </summary>
     Returning_
   }
 
+  /// <summary>
+  /// 
+  /// </summary>
   public enum GripperState {
+    /// <summary>
+    /// 
+    /// </summary>
     Closed_,
+    /// <summary>
+    /// 
+    /// </summary>
     Open_,
+    /// <summary>
+    /// 
+    /// </summary>
     Closing_,
+    /// <summary>
+    /// 
+    /// </summary>
     Opening_
   }
 
+  /// <summary>
+  /// 
+  /// </summary>
   public enum ClawState {
+    /// <summary>
+    /// 
+    /// </summary>
     Touching_target_,
+    /// <summary>
+    /// 
+    /// </summary>
     Not_touching_target_
   }
 
+  /// <summary>
+  /// 
+  /// </summary>
   public enum TargetState {
+    /// <summary>
+    /// 
+    /// </summary>
     Grabbed_,
+    /// <summary>
+    /// 
+    /// </summary>
     Not_grabbed_,
+    /// <summary>
+    /// 
+    /// </summary>
     Outside_region_,
+    /// <summary>
+    /// 
+    /// </summary>
     Inside_region_
   }
 
   #endregion
 
+  /// <summary>
+  /// 
+  /// </summary>
   public class States {
     ClawState _current_claw_1_state, _current_claw_2_state;
 
