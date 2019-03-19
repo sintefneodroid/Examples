@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
     <CscToolPath>/home/heider/Unity/Hub/Editor/2019.1.0b1/Editor/Data/Tools/RoslynScripts</CscToolPath>
@@ -28,8 +28,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_2019_1_0;UNITY_2019_1;UNITY_2019;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2019_1_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_LINUX;PLATFORM_STANDALONE;UNITY_STANDALONE_LINUX;UNITY_STANDALONE;UNITY_STANDALONE_LINUX_API;PLAYERPREFS_SERIALIZE_TO_XML;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_SCRIPTING_GC_WBARRIERS;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_SPATIALTRACKING;ENABLE_MODULAR_UNITYENGINE_ASSEMBLIES;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_LINUX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;NEODROID;NEODROID_EXISTS;GH_IN_PROJECT;UNITY_POST_PROCESSING_STACK_V2;NEODROID_ASSET_IMPORT;USE_GITHUB_EXTENSION;NEODROID_IMPORTED_ASSET;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;NEODROID_DEBUG;UNITY_EDITOR_NOT;RECORDER_EXISTS_NOT;TEXT_MESH_PRO_EXISTS_NOT;ECS_EXISTS_NOT;BIOIK_EXISTS
-    </DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_2019_1_0;UNITY_2019_1;UNITY_2019;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2019_1_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_TEXTURE_STREAMING;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_VIDEO;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_LINUX;PLATFORM_STANDALONE;UNITY_STANDALONE_LINUX;UNITY_STANDALONE;UNITY_STANDALONE_LINUX_API;PLAYERPREFS_SERIALIZE_TO_XML;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_SCRIPTING_GC_WBARRIERS;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_SPATIALTRACKING;ENABLE_MODULAR_UNITYENGINE_ASSEMBLIES;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_LINUX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;NEODROID;NEODROID_EXISTS;GH_IN_PROJECT;UNITY_POST_PROCESSING_STACK_V2;NEODROID_ASSET_IMPORT;USE_GITHUB_EXTENSION;NEODROID_IMPORTED_ASSET;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;NEODROID_DEBUG_NOT;UNITY_EDITOR_NOT;RECORDER_EXISTS_NOT;TEXT_MESH_PRO_EXISTS_NOT;ECS_EXISTS_NOT;BIOIK_EXISTS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -63,52 +62,52 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\ArrayE.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\CellularAutomaton.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\ColorE.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\ColorHSV.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\CompoundMeshDraft.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\DebugE.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Directions.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Draw.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\DrawRaster.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Circle.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Closest2D.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Closest3D.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Distance2D.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Distance3D.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Geometry.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersect2D.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersect3D.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionCircleCircle.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionLineCircle.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionLineLine2.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionLineRay2.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionLineSegment2.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionLineSphere.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionRayCircle.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionRayRay2.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionRaySegment2.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionRaySphere.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionSegmentCircle.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionSegmentSegment2.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionSegmentSphere.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\IntersectionType.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Line2.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Line3.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Segment2.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Segment3.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Sphere.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\GizmosE.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\GLE.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\MeshDraft.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\MeshDraftPrimitives.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\MeshE.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\PTUtils.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\RandomE.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\TextureE.cs"/>
-    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\VectorE.cs"/>
-    <None Include="Assets\Excluded\ProceduralToolkit\Scripts\ProceduralToolkit.asmdef"/>
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\ArrayE.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\CellularAutomaton.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\ColorE.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\ColorHSV.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\CompoundMeshDraft.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\DebugE.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Directions.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Draw.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\DrawRaster.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Circle.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Closest2D.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Closest3D.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Distance2D.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Distance3D.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Geometry.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersect2D.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersect3D.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionCircleCircle.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionLineCircle.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionLineLine2.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionLineRay2.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionLineSegment2.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionLineSphere.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionRayCircle.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionRayRay2.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionRaySegment2.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionRaySphere.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionSegmentCircle.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionSegmentSegment2.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Intersections\IntersectionSegmentSphere.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\IntersectionType.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Line2.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Line3.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Segment2.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Segment3.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\Geometry\Sphere.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\GizmosE.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\GLE.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\MeshDraft.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\MeshDraftPrimitives.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\MeshE.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\PTUtils.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\RandomE.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\TextureE.cs" />
+    <Compile Include="Assets\Excluded\ProceduralToolkit\Scripts\VectorE.cs" />
+    <None Include="Assets\Excluded\ProceduralToolkit\Scripts\ProceduralToolkit.asmdef" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0b1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
@@ -311,34 +310,19 @@
       <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll</HintPath>
     </Reference>
     <Reference Include="Priority Queue">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libaries/OptimizedPriorityQueue.4.1.1/lib/net45/Priority Queue.dll</HintPath>
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/OptimizedPriorityQueue.4.1.1/lib/net45/Priority Queue.dll</HintPath>
     </Reference>
     <Reference Include="Neodroid-FlatBuffers">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libaries/Neodroid-FlatBuffers.1.0.0/lib/net45/Neodroid-FlatBuffers.dll</HintPath>
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/Neodroid-FlatBuffers.1.0.0/lib/net45/Neodroid-FlatBuffers.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libaries/Newtonsoft.Json.11.0.2/lib/net45/Newtonsoft.Json.dll</HintPath>
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/Newtonsoft.Json.11.0.2/lib/net45/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NetMQ">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libaries/NetMQ.4.0.0.175-pre/lib/net40/NetMQ.dll</HintPath>
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/NetMQ.4.0.0.175-pre/lib/net40/NetMQ.dll</HintPath>
     </Reference>
     <Reference Include="AsyncIO">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libaries/AsyncIO.0.1.61/lib/net40/AsyncIO.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/PackageCache/com.unity.collections@0.0.9-preview.11/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Cecil.Mdb">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/PackageCache/com.unity.properties@0.2.11-preview/Editor/Serialization/External/Cecil/Mono.Cecil.Mdb.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Cecil">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/PackageCache/com.unity.properties@0.2.11-preview/Editor/Serialization/External/Cecil/Mono.Cecil.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Cecil.Pdb">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/PackageCache/com.unity.properties@0.2.11-preview/Editor/Serialization/External/Cecil/Mono.Cecil.Pdb.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Cecil.Rocks">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/PackageCache/com.unity.properties@0.2.11-preview/Editor/Serialization/External/Cecil/Mono.Cecil.Rocks.dll</HintPath>
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/AsyncIO.0.1.61/lib/net40/AsyncIO.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0b1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -695,7 +679,7 @@
       <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0b1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
