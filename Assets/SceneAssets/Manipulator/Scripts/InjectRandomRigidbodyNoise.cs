@@ -5,14 +5,15 @@ namespace SceneAssets.Manipulator.Scripts {
   /// <summary>
   /// </summary>
   public class InjectRandomRigidbodyNoise : MonoBehaviour {
-    [SerializeField] float _magnitude = 1;
+    [SerializeField] float _magnitude = 0.1f;
+    [SerializeField] ForceMode _forceMode = ForceMode.Impulse;
     Rigidbody _rigidbody;
 
     void Start() { this._rigidbody = this.GetComponent<Rigidbody>(); }
 
     void Update() {
-      this._rigidbody.AddForce(Random.insideUnitSphere * this._magnitude);
-      this._rigidbody.AddTorque(Random.insideUnitSphere * this._magnitude);
+      this._rigidbody.AddForce(Random.insideUnitSphere * this._magnitude, this._forceMode);
+      this._rigidbody.AddTorque(Random.insideUnitSphere * this._magnitude, this._forceMode);
     }
   }
 }
