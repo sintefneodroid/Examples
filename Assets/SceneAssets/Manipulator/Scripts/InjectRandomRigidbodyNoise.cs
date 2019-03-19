@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SceneAssets.Manipulator {
+namespace SceneAssets.Manipulator.Scripts {
   /// <inheritdoc />
   /// <summary>
   /// </summary>
