@@ -352,41 +352,47 @@
     <None Include="Assets\droid\Runtime\Shaders\Wireframe\WireframeTransparentCulled.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Wireframe\Wireframe.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Wireframe\WireframeTransparent.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Experimental\VertexId.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Spaces\MultiChannelDepth.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Experimental\VerticalFlipper.shader" />
-    <None Include="Assets\droid\Runtime\Shaders\Spaces\WorldSpace.shader" />
-    <None Include="Assets\droid\Runtime\Shaders\Model\Tangents.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Spaces\Experimental\WorldSpace.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Spaces\Model\Tangents.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Experimental\NewComputeShader.compute" />
     <None Include="Assets\droid\Runtime\Shaders\Segmentation\Individual\MaterialIdSegmentation.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Experimental\ValueRangePlotter.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Experimental\CopyFrameBuffer.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Wireframe\WireframeShaded-Unlit.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Experimental\Uv21.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Experimental\GrabPassInvert.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Experimental\ScreenPosition.shader" />
     <None Include="Assets\droid\Runtime\Shaders\FlatColor.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Experimental\EdgeHighLight.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Segmentation\CategorySegmentation.shader" />
-    <None Include="Assets\droid\Runtime\Shaders\Model\Vs.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Spaces\Model\Vs.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Wireframe\Resources\WireframeTransparent-Global.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Spaces\CompressedDepth.shader" />
-    <None Include="Assets\droid\Runtime\Shaders\Model\Normal.shader" />
-    <None Include="Assets\droid\Runtime\Shaders\Model\Us.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Spaces\Model\Normal.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Spaces\Model\Us.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Segmentation\OutlinedSegmentation.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Segmentation\Individual\TagSegmentation.shader" />
     <None Include="Assets\droid\Runtime\Neodroid.Runtime.asmdef" />
     <None Include="Assets\droid\Runtime\Shaders\Segmentation\Individual\ObjectIdSegmentation.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Experimental\OpticalFlow.shader" />
-    <None Include="Assets\droid\Runtime\Shaders\Spaces\ObjectSpace.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Spaces\Experimental\ObjectSpace.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Experimental\XR.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Wireframe\Resources\WireframeShaded-Unlit-Global.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Experimental\FlatSegmentation.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Experimental\Skybox Shaders\Gradient Skybox.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Experimental\Skybox Shaders\Horizontal Skybox.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Experimental\MultiMode.shader" />
-    <None Include="Assets\droid\Runtime\Shaders\Model\UVs.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Spaces\Experimental\PositionShader.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Spaces\Model\UVs.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Experimental\Skybox Shaders\Horizon With Sun Skybox.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Experimental\StereoEyeIndexColor.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Experimental\Skybox Shaders\RGBM Cubed Skybox.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Experimental\FlatSurfaceShading.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Wireframe\Resources\Wireframe-Global.shader" />
+    <None Include="Assets\droid\Runtime\Shaders\Experimental\Uv2.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Experimental\Skybox Shaders\a.shader" />
     <None Include="Assets\droid\Runtime\Shaders\Experimental\AllShader.shader" />
     <None Include="Assets\droid\Runtime\Shaders\ScreenSpaceFlow.shader" />
@@ -590,23 +596,23 @@
     <Reference Include="UnityEditor.LinuxStandalone.Extensions">
       <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0b1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="Neodroid-FlatBuffers">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/Neodroid-FlatBuffers.1.0.0/lib/net45/Neodroid-FlatBuffers.dll</HintPath>
-    </Reference>
-    <Reference Include="NetMQ">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/NetMQ.4.0.0.175-pre/lib/net40/NetMQ.dll</HintPath>
+    <Reference Include="JetBrains.Rider.Unity.Editor.Plugin.Repacked">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll</HintPath>
     </Reference>
     <Reference Include="Priority Queue">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/OptimizedPriorityQueue.4.1.1/lib/net45/Priority Queue.dll</HintPath>
     </Reference>
-    <Reference Include="AsyncIO">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/AsyncIO.0.1.61/lib/net40/AsyncIO.dll</HintPath>
+    <Reference Include="Neodroid-FlatBuffers">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/Neodroid-FlatBuffers.1.0.0/lib/net45/Neodroid-FlatBuffers.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/Newtonsoft.Json.11.0.2/lib/net45/Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="JetBrains.Rider.Unity.Editor.Plugin.Repacked">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll</HintPath>
+    <Reference Include="NetMQ">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/NetMQ.4.0.0.175-pre/lib/net40/NetMQ.dll</HintPath>
+    </Reference>
+    <Reference Include="AsyncIO">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/AsyncIO.0.1.61/lib/net40/AsyncIO.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0b1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
