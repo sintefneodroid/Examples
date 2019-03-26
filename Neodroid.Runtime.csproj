@@ -221,6 +221,7 @@
     <Compile Include="Assets\droid\Runtime\Prototyping\PrototypingComponentMenuPath.cs" />
     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\BoundingBox\BoundingBoxSensor.cs" />
     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\BoundingBox\ScreenSpaceBoundingBoxSensor.cs" />
+    <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\BoundingBox\TwoDimensionalScreenSpaceSensor.cs" />
     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Camera\CameraSensor.cs" />
     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Camera\FloatArrayCameraSensor.cs" />
     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Camera\Segmentation\SegmentationCameraSensor.cs" />
@@ -249,7 +250,6 @@
     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Transform\QuaternionTransformSensor.cs" />
     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Transform\RotationSensor.cs" />
     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Transform\SingleAxisTransformSensor.cs" />
-    <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\TwoDimensionalScreenSpaceSensor.cs" />
     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\UberCameraSensor.cs" />
     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\ValueSensor.cs" />
     <Compile Include="Assets\droid\Runtime\Shaders\Experimental\Skybox Shaders\Editor\GradientSkyboxInspector.cs" />
@@ -300,6 +300,7 @@
     <Compile Include="Assets\droid\Runtime\Utilities\Misc\Procedural\GameObjectCloner.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\Misc\Procedural\SnakeSpaceFilling.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\Misc\SearchableEnum\SearchableEnumAttribute.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\CameraFitter.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\CameraObservationTextureController.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\ConfigurableSampleToggleList.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\NeodroidCamera\Experimental\DisparityCameraBehaviour.cs" />
@@ -340,6 +341,7 @@
     <Compile Include="Assets\droid\Runtime\Utilities\ScriptableObjects\Unused\NeodroidTask.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\Structs\DoubleVector3.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\Structs\IntVector3.cs" />
+    <Compile Include="Assets\droid\Runtime\Utilities\Structs\OutPose.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\Structs\Points.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\Structs\SegmentationColor.cs" />
     <Compile Include="Assets\droid\Runtime\Utilities\Structs\SimulatorConfiguration.cs" />
@@ -596,23 +598,23 @@
     <Reference Include="UnityEditor.LinuxStandalone.Extensions">
       <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0b1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="JetBrains.Rider.Unity.Editor.Plugin.Repacked">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll</HintPath>
-    </Reference>
-    <Reference Include="Priority Queue">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/OptimizedPriorityQueue.4.1.1/lib/net45/Priority Queue.dll</HintPath>
-    </Reference>
     <Reference Include="Neodroid-FlatBuffers">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/Neodroid-FlatBuffers.1.0.0/lib/net45/Neodroid-FlatBuffers.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/Newtonsoft.Json.11.0.2/lib/net45/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NetMQ">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/NetMQ.4.0.0.175-pre/lib/net40/NetMQ.dll</HintPath>
     </Reference>
+    <Reference Include="Priority Queue">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/OptimizedPriorityQueue.4.1.1/lib/net45/Priority Queue.dll</HintPath>
+    </Reference>
     <Reference Include="AsyncIO">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/AsyncIO.0.1.61/lib/net40/AsyncIO.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/droid/Libraries/Newtonsoft.Json.11.0.2/lib/net45/Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="JetBrains.Rider.Unity.Editor.Plugin.Repacked">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0b1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

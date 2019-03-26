@@ -314,7 +314,7 @@ namespace SceneAssets.GridWorlds.Scripts {
 
         if (this._Configure) {
           this._Configure = false;
-          this.Configure();
+          this.Reconfigure();
         }
       }
 
