@@ -18,11 +18,11 @@ namespace SceneAssets.Move {
     [SerializeField]
     float visualVelocity=1f;
 
-    [SerializeField] Vector3 _direction;
+    [SerializeField] Vector3 _direction=Vector3.zero;
     [SerializeField] float _dampening = 0.2f;
-    float _current_scroll;
-    Renderer _renderer;
-    Material _material;
+    float _current_scroll=0f;
+    Renderer _renderer=null;
+    Material _material=null;
     static readonly int _bump_map = Shader.PropertyToID("_BumpMap");
     [SerializeField] bool use_shared = true;
 

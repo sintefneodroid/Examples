@@ -46,13 +46,13 @@ namespace SceneAssets.GridWorlds.Scripts {
     /// <summary>
     /// </summary>
     static IntVector3[] _vectors = {
-        new IntVector3(0, 0, 1),
-        new IntVector3(1, 0, 0),
-        new IntVector3(0, 0, -1),
-        new IntVector3(-1, 0, 0),
-        new IntVector3(0, 1, 0),
-        new IntVector3(0, -1, 0)
-    };
+                                       new IntVector3(0, 0, 1),
+                                       new IntVector3(1, 0, 0),
+                                       new IntVector3(0, 0, -1),
+                                       new IntVector3(-1, 0, 0),
+                                       new IntVector3(0, 1, 0),
+                                       new IntVector3(0, -1, 0)
+                                   };
 
     /// <summary>
     /// </summary>
@@ -71,14 +71,14 @@ namespace SceneAssets.GridWorlds.Scripts {
   /// </summary>
   [RequireComponent(typeof(GoalCellSensor))]
   public class GridWorldEnvironment : PrototypingEnvironment {
-    [SerializeField] Camera _camera;
-    [SerializeField] Material _empty_cell_material;
-    [SerializeField] Material _filled_cell_material;
+    [SerializeField] Camera _camera = null;
+    [SerializeField] Material _empty_cell_material = null;
+    [SerializeField] Material _filled_cell_material = null;
 
-    [SerializeField] Material _goal_cell_material;
+    [SerializeField] Material _goal_cell_material = null;
 
-    [SerializeField] GoalCellSensor _goal_cell_observer;
-    [SerializeField] GridCell[,,] _grid;
+    [SerializeField] GoalCellSensor _goal_cell_observer = null;
+    [SerializeField] GridCell[,,] _grid = null;
     [SerializeField] IntVector3 _grid_size = new IntVector3(Vector3.one * 20);
     [Range(0.0f, 0.999f)] [SerializeField] float _min_empty_cells_percentage = 0.5f;
 
@@ -86,10 +86,9 @@ namespace SceneAssets.GridWorlds.Scripts {
     /// </summary>
     IntVector3 RandomCoordinates {
       get {
-        return new IntVector3(
-            Random.Range(0, this._grid_size.X),
-            Random.Range(0, this._grid_size.Y),
-            Random.Range(0, this._grid_size.Z));
+        return new IntVector3(Random.Range(0, this._grid_size.X),
+                              Random.Range(0, this._grid_size.Y),
+                              Random.Range(0, this._grid_size.Z));
       }
     }
 
@@ -127,14 +126,13 @@ namespace SceneAssets.GridWorlds.Scripts {
       while (percentage_empty_cells <= min_empty_cells_percentage) {
         var c = this.RandomCoordinates;
         var active_cells = new List<GridCell>();
-        this.DoFirstGenerationStep(
-            ref empty_cells_num,
-            ref new_grid,
-            ref active_cells,
-            c,
-            xs,
-            ys,
-            zs); // does not count
+        this.DoFirstGenerationStep(ref empty_cells_num,
+                                   ref new_grid,
+                                   ref active_cells,
+                                   c,
+                                   xs,
+                                   ys,
+                                   zs); // does not count
         while (active_cells.Count > 0) {
           this.DoNextGenerationStep(ref empty_cells_num, ref new_grid, ref active_cells, xs, ys, zs);
         }
@@ -165,14 +163,13 @@ namespace SceneAssets.GridWorlds.Scripts {
     /// <param name="xs"></param>
     /// <param name="ys"></param>
     /// <param name="zs"></param>
-    void DoFirstGenerationStep(
-        ref int empty_cells_num,
-        ref GridCell[,,] grid,
-        ref List<GridCell> active_cells,
-        IntVector3 c,
-        int xs,
-        int ys,
-        int zs) {
+    void DoFirstGenerationStep(ref int empty_cells_num,
+                               ref GridCell[,,] grid,
+                               ref List<GridCell> active_cells,
+                               IntVector3 c,
+                               int xs,
+                               int ys,
+                               int zs) {
       if (grid[c.X, c.Y, c.Z] == null) {
         grid[c.X, c.Y, c.Z] = this.CreateEmptyCell(c, xs, ys, zs);
         empty_cells_num += 1;
@@ -181,13 +178,12 @@ namespace SceneAssets.GridWorlds.Scripts {
       active_cells.Add(grid[c.X, c.Y, c.Z]);
     }
 
-    void DoNextGenerationStep(
-        ref int empty_cells_num,
-        ref GridCell[,,] grid,
-        ref List<GridCell> active_cells,
-        int xs,
-        int ys,
-        int zs) {
+    void DoNextGenerationStep(ref int empty_cells_num,
+                              ref GridCell[,,] grid,
+                              ref List<GridCell> active_cells,
+                              int xs,
+                              int ys,
+                              int zs) {
       var current_index = active_cells.Count - 1;
       var current_cell = active_cells[current_index];
       var direction = MazeDirections.RandomValue;
@@ -222,10 +218,8 @@ namespace SceneAssets.GridWorlds.Scripts {
     GridCell CreateEmptyCell(int x, int y, int z, int xs, int ys, int zs) {
       var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
       cube.transform.parent = this.transform;
-      cube.transform.localPosition = new Vector3(
-          x - xs * 0.5f + 0.5f,
-          y - ys * 0.5f + 0.5f,
-          z - zs * 0.5f + 0.5f);
+      cube.transform.localPosition =
+          new Vector3(x - xs * 0.5f + 0.5f, y - ys * 0.5f + 0.5f, z - zs * 0.5f + 0.5f);
       var new_cell = cube.AddComponent<EmptyCell>();
       var n = $"EmptyCell{x}{y}{z}";
       new_cell.Setup(n, this._empty_cell_material);
@@ -237,10 +231,8 @@ namespace SceneAssets.GridWorlds.Scripts {
       var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
       cube.transform.parent = this.transform;
-      cube.transform.localPosition = new Vector3(
-          x - xs * 0.5f + 0.5f,
-          y - ys * 0.5f + 0.5f,
-          z - zs * 0.5f + 0.5f);
+      cube.transform.localPosition =
+          new Vector3(x - xs * 0.5f + 0.5f, y - ys * 0.5f + 0.5f, z - zs * 0.5f + 0.5f);
       var new_cell = cube.AddComponent<FilledCell>();
       var n = $"FilledCell{x}{y}{z}";
       new_cell.Setup(n, this._filled_cell_material);

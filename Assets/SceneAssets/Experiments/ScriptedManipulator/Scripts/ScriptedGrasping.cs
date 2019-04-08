@@ -187,18 +187,18 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
     [Header("Game Objects")]
     [Tooltip("Game Object references")]
     [SerializeField]
-    GameObject _claw_motor;
+    GameObject _claw_motor=null;
 
-    [SerializeField] GameObject _grab_region;
-    [SerializeField] GameObject _begin_grab_region;
+    [SerializeField] GameObject _grab_region=null;
+    [SerializeField] GameObject _begin_grab_region=null;
 
-    [SerializeField] GameObject _claw_1;
-    [SerializeField] GameObject _claw_2;
+    [SerializeField] GameObject _claw_1=null;
+    [SerializeField] GameObject _claw_2=null;
 
-    [SerializeField] States _state;
-    [SerializeField] Transform _closed_motor_transform;
-    [SerializeField] ObstacleSpawner _obstacle_spawner;
-    [SerializeField] BezierCurve _bezier_curve_prefab;
+    [SerializeField] States _state=null;
+    [SerializeField] Transform _closed_motor_transform=null;
+    [SerializeField] ObstacleSpawner _obstacle_spawner=null;
+    [SerializeField] BezierCurve _bezier_curve_prefab=null;
 
     [Space(1)]
     [Header("Path Finding Parameters")]
@@ -211,12 +211,12 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
     [SerializeField] float _precision = 0.02f;
     [SerializeField] float _sensitivity = 0.2f;
     [SerializeField] float _approach_distance = 0.6f;
-    [SerializeField] bool _wait_for_resting_environment;
+    [SerializeField] bool _wait_for_resting_environment =false;
 
     [Space(1)]
     [Header("Show debug logs")]
     [SerializeField]
-    bool _debugging;
+    bool _debugging=false;
 
     [Space(1)]
     [Header("Draw Search Boundary")]

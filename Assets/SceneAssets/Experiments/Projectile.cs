@@ -6,36 +6,36 @@ namespace SceneAssets.Experiments {
   /// </summary>
   public class Projectile : MonoBehaviour {
     // launch variables
-    [SerializeField] Transform TargetTransform;
+    [SerializeField] Transform TargetTransform=null;
 
     /// <summary>
     /// 
     /// </summary>
     [Range(1.0f, 15.0f)]
-    public float TargetRadius;
+    public float TargetRadius=1f;
 
     /// <summary>
     /// 
     /// </summary>
     [Range(20.0f, 75.0f)]
-    public float LaunchAngle;
+    public float LaunchAngle=20f;
 
     /// <summary>
     /// 
     /// </summary>
     [Range(0.0f, 10.0f)]
-    public float TargetHeightOffsetFromGround;
+    public float TargetHeightOffsetFromGround=0f;
 
-    [SerializeField] bool RandomizeHeightOffset;
+    [SerializeField] bool RandomizeHeightOffset=true;
 
     // state
-    bool _b_target_ready;
-    bool _b_touching_ground;
+    bool _b_target_ready=false;
+    bool _b_touching_ground=false;
 
     // cache
-    Rigidbody _rigidbody;
-    Vector3 _initial_position;
-    Quaternion _initial_rotation;
+    Rigidbody _rigidbody=null;
+    Vector3 _initial_position=Vector3.zero;
+    Quaternion _initial_rotation=Quaternion.identity;
 
     //-----------------------------------------------------------------------------------------------
 

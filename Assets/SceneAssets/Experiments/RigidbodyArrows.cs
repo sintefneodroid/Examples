@@ -6,11 +6,10 @@ namespace SceneAssets.Experiments {
   /// <summary>
   /// </summary>
   public class RigidbodyArrows : MonoBehaviour {
-    [SerializeField] Transform arrowPrefab;
-    [SerializeField] Rigidbody rb;
-    [SerializeField] Transform velArrow;
-    [SerializeField] Transform angArrow;
-    [SerializeField] float divisor = 1;
+    [SerializeField] Transform arrowPrefab=null;
+    [SerializeField] Rigidbody rb=null;
+    [SerializeField] Transform velArrow=null;
+    [SerializeField] Transform angArrow=null;
 
     static readonly int _color = Shader.PropertyToID("_Color");
     static readonly int _color2 = Shader.PropertyToID("_Color2");

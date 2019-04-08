@@ -6,7 +6,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
   /// </summary>
   [ExecuteInEditMode]
   public class BlitToMaterial : MonoBehaviour {
-    [SerializeField] Material _material;
+    [SerializeField] Material _material = null;
 
     void OnRenderImage(RenderTexture source, RenderTexture destination) {
       Graphics.Blit(source, destination, this._material);

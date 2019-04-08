@@ -9,7 +9,7 @@ namespace SceneAssets.Walker {
   [ExecuteInEditMode]
   [RequireComponent(typeof(Light))]
   [RequireComponent(typeof(ParticleSystem))]
-  public class DaylightSimulator : Resetable {
+  public class DaylightSimulator : EnvironmentListener {
     [SerializeField] float _day_atmosphere_thickness = 0.88f;
 
     [SerializeField] AnimationCurve _fog_density_curve;

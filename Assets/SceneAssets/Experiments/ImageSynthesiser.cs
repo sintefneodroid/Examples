@@ -16,13 +16,13 @@ namespace SceneAssets.Experiments {
     ///
     /// </summary>
     [SerializeField]
-    Shader segmentationShader;
+    Shader segmentationShader=null;
 
     /// <summary>
     ///
     /// </summary>
     [SerializeField]
-    Shader opticalFlowShader;
+    Shader opticalFlowShader=null;
 
     /// <summary>
     ///
@@ -30,8 +30,8 @@ namespace SceneAssets.Experiments {
     [SerializeField]
     float opticalFlowSensitivity = 1.0f;
 
-    [SerializeField] Material _optical_flow_material;
-    [SerializeField] Camera _camera;
+    [SerializeField] Material _optical_flow_material=null;
+    [SerializeField] Camera _camera=null;
 
     void Awake() {
       // default fallbacks, if shaders are unspecified

@@ -8,10 +8,10 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
   /// <summary>
   /// </summary>
   public class ObstacleSpawner : MonoBehaviour {
-    [SerializeField] GameObject _cube;
-    [SerializeField] Material _material_cube;
+    [SerializeField] GameObject _cube=null;
+    [SerializeField] Material _material_cube=null;
 
-    [SerializeField] Material _material_sphere;
+    [SerializeField] Material _material_sphere=null;
 
     /// <summary>
     /// </summary>
@@ -25,17 +25,17 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
     [SerializeField]
     int _number_of_spheres = 1;
 
-    [SerializeField] GameObject[] _obstacles;
+    [SerializeField] GameObject[] _obstacles=null;
 
     [Header("Spawn random number of objects?")]
     [SerializeField]
-    bool _random_obj_num;
+    bool _random_obj_num=false;
 
     [Space]
     [Header("Random scaling of objects (0 = uniform scale)")]
     [Range(0.000f, 0.300f)]
     [SerializeField]
-    float _scaling_factor;
+    float _scaling_factor=0f;
 
     [Header("Cube")] [SerializeField] bool _spawn_cubes = true;
 
@@ -45,7 +45,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
     [SerializeField]
     bool _spawn_spheres = true;
 
-    [SerializeField] GameObject _sphere;
+    [SerializeField] GameObject _sphere=null;
 
     /// <summary>
     /// </summary>

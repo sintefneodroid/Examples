@@ -5,32 +5,34 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
-  public class GuiControl : MonoBehaviour {
-    [SerializeField] Text _claw1_state;
-    [SerializeField] Text _claw2_state;
-    [SerializeField] Text _env_state;
+  /// <inheritdoc />
+  /// <summary>
+  /// </summary>
+  public class GripperControl : MonoBehaviour {
+    [SerializeField] Text _claw1_state=null;
+    [SerializeField] Text _claw2_state=null;
+    [SerializeField] Text _env_state=null;
 
     [Space]
     [Header("State Panel")]
     [SerializeField]
-    Text _gripper_state;
+    Text _gripper_state=null;
 
     //float gripper_target_distance;
     //int iterations;
     //int obstacle_num;
-    [SerializeField] ScriptedGrasping _pf;
-    [SerializeField] Text _pf_state;
+    [SerializeField] ScriptedGrasping _pf=null;
+    [SerializeField] Text _pf_state=null;
 
-    [SerializeField] Slider _s_distance;
-    [SerializeField] Slider _s_obstacle;
+    [SerializeField] Slider _s_distance=null;
+    [SerializeField] Slider _s_obstacle=null;
 
-    [SerializeField] Text _t_gripper_target_distance;
-    [SerializeField] Text _t_iterations;
-    [SerializeField] Text _t_obstacle_num;
-    [SerializeField] Text _t_waiting;
+    [SerializeField] Text _t_gripper_target_distance=null;
+    [SerializeField] Text _t_obstacle_num=null;
+    [SerializeField] Text _t_waiting=null;
 
     [SerializeField] Targets _target;
-    [SerializeField] Text _target_state;
+    [SerializeField] Text _target_state=null;
 
     void Start() {
       this._pf = FindObjectOfType<ScriptedGrasping>();

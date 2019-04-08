@@ -3,7 +3,7 @@
 namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps {
   [ExecuteInEditMode]
   public class Grasp : MonoBehaviour {
-    [SerializeField] bool _draw_ray_cast;
+    [SerializeField] bool _draw_ray_cast=false;
     [SerializeField] float _obstruction_cast_length = 0.1f;
     [SerializeField] float _obstruction_cast_radius = 0.1f;
 

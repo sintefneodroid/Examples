@@ -3,18 +3,22 @@ using droid.Runtime.Utilities.GameObjects.Sensors;
 using droid.Runtime.Utilities.Misc;
 using SceneAssets.Experiments.ScriptedManipulator.Scripts;
 using SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
+  /// <summary>
+  ///
+  /// </summary>
   public class GraspTimedRespawn : MonoBehaviour {
-    [SerializeField] bool _debugging;
-    [SerializeField] Grasp _grasp;
-    [SerializeField] GraspableObject _graspable_object;
-    [SerializeField] ScriptedGrasping _grasping;
-    [SerializeField] Vector3 _initial_position;
-    [SerializeField] Quaternion _initial_rotation;
-    [SerializeField] Rigidbody[] _rigid_bodies;
-    [SerializeField] Rigidbody _rigid_body;
+    [SerializeField] bool _debugging=false;
+    [SerializeField] Grasp _grasp=null;
+    [SerializeField] GraspableObject _graspable_object=null;
+    [SerializeField] ScriptedGrasping _grasping=null;
+    [SerializeField] Vector3 _initial_position=Vector3.zero;
+    [SerializeField] Quaternion _initial_rotation=quaternion.identity;
+    [SerializeField] Rigidbody[] _rigid_bodies=null;
+    [SerializeField] Rigidbody _rigid_body=null;
     WaitForSeconds _wait_for_seconds = new WaitForSeconds(.5f);
 
     // Use this for initialization

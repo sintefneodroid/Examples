@@ -5,21 +5,23 @@ using SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps;
 using UnityEngine;
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
+  /// <summary>
+  ///
+  /// </summary>
   public class DataCollector : MonoBehaviour {
-    [SerializeField] Camera[] _cameras;
-    [SerializeField] int _current_episode_progress;
+    [SerializeField] Camera[] _cameras = null;
+    [SerializeField] int _current_episode_progress=0;
 
-    [SerializeField] bool _delete_file_content;
     [SerializeField] int _episode_length = 100;
 
     // Sampling rate
-    string _file_path = @"training_data/";
-    string _file_path_gripper = @"gripper_position_rotation.csv";
-    string _file_path_target = @"target_position_rotation.csv";
-    [SerializeField] ScriptedGrasping _grasping;
+    [SerializeField] string _file_path = @"training_data/";
+    [SerializeField] string _file_path_gripper = @"gripper_position_rotation.csv";
+    [SerializeField] string _file_path_target = @"target_position_rotation.csv";
+    [SerializeField] ScriptedGrasping _grasping=null;
 
-    int _i;
-    [SerializeField] Grasp _target;
+    [SerializeField] int _i=0;
+    [SerializeField] Grasp _target=null;
 
     void Start() {
       if (!this._grasping) {

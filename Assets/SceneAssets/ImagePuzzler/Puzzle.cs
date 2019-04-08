@@ -3,13 +3,13 @@ using UnityEngine;
 
 namespace SceneAssets.ImagePuzzler {
   public class Puzzle : MonoBehaviour {
-    bool _block_is_moving;
+    bool _block_is_moving=false;
     Block[,] _blocks;
     [SerializeField] float _default_move_duration = .2f;
     [SerializeField] Block _empty_block;
     [SerializeField] int _horisontal_divisions = 6;
 
-    [SerializeField] Texture2D _image;
+    [SerializeField] Texture2D _image=null;
     Queue<Block> _inputs;
     Vector2Int _prev_shuffle_offset;
     [SerializeField] int _shuffle_length = 20;

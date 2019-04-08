@@ -17,23 +17,21 @@ namespace Common.Drawing {
     /// <summary>
     /// </summary>
     [SerializeField]
-    Material _line_mat;
+    Material _line_mat=null;
 
     /// <summary>
     /// </summary>
     [SerializeField]
-    GameObject _main_point;
+    GameObject _main_point=null;
 
     [SerializeField] float _offset = 0.3f;
 
     /// <summary>
     /// </summary>
     [SerializeField]
-    GameObject[] _points;
+    GameObject[] _points=null;
 
-    Tuple<Vector3, Vector3>[] _vec_pairs;
-
-    [SerializeField] Vector3[] _vec3_points;
+    [SerializeField] Vector3[] _vec3_points=null;
 
     // Connect all of the `points` to the `main_point_pos`
     void DrawConnectingLines(IReadOnlyCollection<Tuple<Vector3, Vector3>> vec_pairs) {
