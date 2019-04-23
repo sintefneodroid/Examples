@@ -127,6 +127,7 @@
     <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Utilities\Pathfinding\Astar.cs" />
     <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Utilities\QuickGlow.cs" />
     <Compile Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Utilities\States.cs" />
+    <Compile Include="Assets\SceneAssets\Experiments\Walker2d\SpriteShadow.cs" />
     <Compile Include="Assets\SceneAssets\Games\Creatures2\FloatAboveSurface.cs" />
     <Compile Include="Assets\SceneAssets\Games\Creatures2\LaserBehaviour.cs" />
     <Compile Include="Assets\SceneAssets\Games\Creatures2\NormalBounce.cs" />
@@ -182,11 +183,20 @@
     <None Include="Assets\droid\gmcs.rsp" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
+    <Reference Include="Unity.2D.PixelPerfect.Editor">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.ProGrids">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VectorGraphics">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.VectorGraphics.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.SpriteShape.Editor">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProGrids.Editor">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
@@ -194,11 +204,20 @@
     <Reference Include="UnityTestPackage.Editor">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/UnityTestPackage.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.InternalAPIEditorBridge.003">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.003.dll</HintPath>
+    </Reference>
     <Reference Include="UnityTestPackage.Runtime">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/UnityTestPackage.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.IK.Editor">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.IK.Runtime">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
@@ -212,11 +231,29 @@
     <Reference Include="Unity.AssetBundleBrowser.Editor">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.AssetBundleBrowser.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VectorGraphics.Editor">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.VectorGraphics.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Mathematics">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.InternalAPIEngineBridge.001">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Common.Runtime">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.SpriteShape.Runtime">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.PixelPerfect">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PackageValidationSuite.Editor">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.PackageValidationSuite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
@@ -233,8 +270,17 @@
     <Reference Include="Unity.TextMeshPro">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Common.Editor">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
       <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InternalAPIEditorBridge.001">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.quicksearch">
+      <HintPath>/home/heider/Projects/Neodroid/Examples/Library/ScriptAssemblies/com.unity.quicksearch.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0f2/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
