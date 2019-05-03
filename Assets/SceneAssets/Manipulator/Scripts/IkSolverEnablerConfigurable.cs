@@ -5,6 +5,7 @@ using droid.Runtime.Interfaces;
 using droid.Runtime.Messaging.Messages;
 using droid.Runtime.Prototyping.Configurables;
 using droid.Runtime.Utilities.Structs;
+using Exclude.BioIK;
 using UnityEngine;
 namespace SceneAssets.Manipulator.Scripts {
   /// <inheritdoc />
@@ -13,7 +14,7 @@ namespace SceneAssets.Manipulator.Scripts {
   public class IkSolverEnablerConfigurable : Configurable {
     /// <summary>
     /// </summary>
-    public Excluded.BioIK.BioIK _Enablee;
+    public BioIK _Enablee;
 
     /// <summary>
     ///
@@ -34,7 +35,7 @@ namespace SceneAssets.Manipulator.Scripts {
     protected override void PreSetup() {
       base.PreSetup();
       if (!this._Enablee) {
-        this._Enablee = this.GetComponent<Excluded.BioIK.BioIK>();
+        this._Enablee = this.GetComponent<BioIK>();
       }
 
       if(this._disabled_by_default) {

@@ -5,10 +5,16 @@ namespace Common.Scripts {
   /// <summary>
   /// </summary>
   public class SimpleCameraController : MonoBehaviour {
+    /// <summary>
+    /// 
+    /// </summary>
     [Header("Movement Settings")]
     [Tooltip("Exponential boost factor on translation, controllable by mouse wheel.")]
     public float _Boost = 3.5f;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [Tooltip("Whether or not to invert our Y axis for mouse input to rotation.")]
     public bool _InvertY;
 
@@ -16,16 +22,25 @@ namespace Common.Scripts {
 
     CameraState _m_target_camera_state = new CameraState();
 
+    /// <summary>
+    /// 
+    /// </summary>
     [Header("Rotation Settings")]
     [Tooltip("X = Change in mouse position.\nY = Multiplicative factor for camera rotation.")]
     public AnimationCurve _MouseSensitivityCurve = new AnimationCurve(
         new Keyframe(0f, 0.5f, 0f, 5f),
         new Keyframe(1f, 2.5f, 0f, 0f));
 
+    /// <summary>
+    /// 
+    /// </summary>
     [Tooltip("Time it takes to interpolate camera position 99% of the way to the target.")]
     [Range(0.001f, 1f)]
     public float _PositionLerpTime = 0.2f;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [Tooltip("Time it takes to interpolate camera rotation 99% of the way to the target.")]
     [Range(0.001f, 1f)]
     public float _RotationLerpTime = 0.01f;
@@ -35,7 +50,7 @@ namespace Common.Scripts {
       this._m_interpolating_camera_state.SetFromTransform(this.transform);
     }
 
-    Vector3 GetInputTranslationDirection() {
+    static Vector3 GetInputTranslationDirection() {
       var direction = new Vector3();
       if (Input.GetKey(KeyCode.W)) {
         direction += Vector3.forward;
@@ -89,7 +104,7 @@ namespace Common.Scripts {
       }
 
       // Translation
-      var translation = this.GetInputTranslationDirection() * Time.deltaTime;
+      var translation = GetInputTranslationDirection() * Time.deltaTime;
 
       // Speed up movement when shift key held
       if (Input.GetKey(KeyCode.LeftShift)) {
