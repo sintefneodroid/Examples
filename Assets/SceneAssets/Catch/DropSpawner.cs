@@ -8,18 +8,18 @@ namespace SceneAssets.Catch {
   /// </summary>
   public class DropSpawner : MonoBehaviour {
     [SerializeField] int _max_num_concurrent_objects = 4;
-    [SerializeField] float _next_spawn_time=0f;
+    [SerializeField] float _next_spawn_time = 0f;
     [SerializeField] Space1 _spawn_delay_range = new Space1 {_Max_Value = 1f, _Min_Value = 0.1f};
 
     /// <summary>
     /// </summary>
     [SerializeField]
-    List<GameObject> _spawn_objects=null;
+    List<GameObject> _spawn_objects = null;
 
     /// <summary>
     /// </summary>
     [SerializeField]
-    List<Transform> _spawn_poses=null;
+    List<Transform> _spawn_poses = null;
 
     [SerializeField]
     Space3 _spawn_position_range =
@@ -28,9 +28,9 @@ namespace SceneAssets.Catch {
     [SerializeField]
     Space4 _spawn_rotation_range = new Space4 {_Max_Values = Vector4.one, _Min_Values = -Vector4.one};
 
-    [SerializeField] List<GameObject> _spawned_objects=null;
+    [SerializeField] List<GameObject> _spawned_objects = null;
 
-    [SerializeField] bool _use_predefined_spawn_locations=false;
+    [SerializeField] bool _use_predefined_spawn_locations = false;
 
     void Start() { this._next_spawn_time = 0; }
 
@@ -45,13 +45,12 @@ namespace SceneAssets.Catch {
               var trans = this._spawn_poses[position_selection];
               pose = new Pose(trans.position, trans.rotation);
             } else {
-              pose = new Pose(
-                  this._spawn_position_range.Sample(),
-                  this._spawn_rotation_range.RandomQuaternion());
+              pose = new Pose(this._spawn_position_range.Sample(),
+                              this._spawn_rotation_range.RandomQuaternion());
             }
 
             Instantiate(this._spawn_objects[object_selection], pose.position, pose.rotation);
-            var delay = this._spawn_delay_range.RandomValue();
+            var delay = this._spawn_delay_range.Sample();
             this._next_spawn_time = Time.time + delay;
           }
         }

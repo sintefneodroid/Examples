@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using droid.Runtime.Utilities.GameObjects.Sensors;
+using droid.Runtime.Utilities.GameObjects.ChildSensors;
 using droid.Runtime.Utilities.Misc;
 using droid.Runtime.Utilities.Misc.Extensions;
 using droid.Runtime.Utilities.Misc.Grasping;

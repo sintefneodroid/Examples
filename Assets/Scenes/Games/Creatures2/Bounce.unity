@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 42ce1fa18b9ac4ddc9392d6fb3b46fc8, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 4794529d8b748ac07b62fb6ebe8ca69a, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 252321083}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.8449165, g: 0.8449165, b: 0.8449165, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -51,10 +51,10 @@ LightmapSettings:
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 0
-    m_EnableBakedLightmaps: 1
+    m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 10
+    serializedVersion: 12
     m_Resolution: 2
     m_BakeResolution: 40
     m_AtlasSize: 1024
@@ -62,6 +62,7 @@ LightmapSettings:
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
+    m_ExtractAmbientOcclusion: 0
     m_Padding: 2
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
@@ -76,10 +77,16 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
+    m_PVREnvironmentSampleCount: 500
+    m_PVREnvironmentReferencePointCount: 2048
+    m_PVRFilteringMode: 2
+    m_PVRDenoiserTypeDirect: 0
+    m_PVRDenoiserTypeIndirect: 0
+    m_PVRDenoiserTypeAO: 0
     m_PVRFilterTypeDirect: 0
     m_PVRFilterTypeIndirect: 0
     m_PVRFilterTypeAO: 0
-    m_PVRFilteringMode: 1
+    m_PVREnvironmentMIS: 0
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
@@ -88,7 +95,9 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 0}
+    m_ExportTrainingData: 0
+  m_LightingDataAsset: {fileID: 112000000, guid: 898322605e5d31f2db2643a32c4af26b,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -228,12 +237,13 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 252321082}
   m_Enabled: 1
-  serializedVersion: 8
+  serializedVersion: 9
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
+  m_InnerSpotAngle: 21.802082
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -243,6 +253,24 @@ Light:
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
@@ -250,12 +278,15 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+  m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!4 &252321084
@@ -285,6 +316,7 @@ GameObject:
   - component: {fileID: 319175672}
   - component: {fileID: 319175671}
   - component: {fileID: 319175674}
+  - component: {fileID: 319175675}
   m_Layer: 0
   m_Name: Goal
   m_TagString: Untagged
@@ -374,6 +406,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00a8513f1d35246ad88d5fc538bc6346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _caller: {fileID: 847297633}
+--- !u!114 &319175675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319175669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac14dd0370c56774e91b517e351983e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _caller: {fileID: 847297633}
@@ -486,6 +531,7 @@ GameObject:
   - component: {fileID: 523276108}
   - component: {fileID: 523276109}
   - component: {fileID: 523276110}
+  - component: {fileID: 523276111}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Untagged
@@ -547,9 +593,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44b2f720efd11a6f190525f2bfc2db33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinDistance: 1.1
-  MaxDistance: 1.2
-  MaxForce: 32
+  _MinDistance: 1.1
+  _MaxDistance: 1.2
+  _MaxForce: 32
 --- !u!136 &523276105
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -625,13 +671,14 @@ MonoBehaviour:
   _debugging: 0
   _disables_children: 0
   _editor_reregistering: 1
-  _Use_Custom_Name: 0
+  _unregister_at_disable: 0
   _normalise_observation: 0
   _position: {x: 6.18, y: 6.24, z: 0}
   _position_space:
-    _Decimal_Granularity: 10
     _Min_Values: {x: -100, y: -100, z: -100}
     _Max_Values: {x: 100, y: 100, z: 100}
+    _decimal_granularity: 10
+    normalised: 0
   _space: 2
 --- !u!114 &523276109
 MonoBehaviour:
@@ -645,7 +692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff418ac9fa3e3962b1b3103bdc85266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oldVelocity: {x: 0, y: 0, z: 0}
+  _OldVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &523276110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -656,6 +703,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00a8513f1d35246ad88d5fc538bc6346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _caller: {fileID: 847297633}
+--- !u!114 &523276111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523276100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac14dd0370c56774e91b517e351983e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _caller: {fileID: 847297633}
@@ -692,11 +752,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e918915125b4fdfb1a4025246b5ea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _BasedOn: 0
-  _FreezeAfterFirstCalculation: 1
-  _Include_Children: 1
-  _Line_Color: {r: 1, g: 0.36, b: 0.38, a: 0.74}
-  _Setup_On_Awake: 0
+  _use_bb_transform: 0
+  _use_shared_mesh: 0
+  basedOn: 1
+  bb_margin: 0
+  BbAligning: 0
+  cacheChildren: 1
+  editorPreviewLineColor: {r: 1, g: 0.36, b: 0.38, a: 0.74}
+  freezeAfterFirstCalculation: 1
+  includeChildren: 0
+  _only_active_children: 1
+  includeSelf: 1
+  OnAwakeSetup: 0
+  RunInEditModeSetup: 0
 --- !u!65 &847297629
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -726,23 +794,21 @@ MonoBehaviour:
   _debugging: 0
   _disables_children: 0
   _editor_reregistering: 1
-  _Use_Custom_Name: 0
+  _unregister_at_disable: 0
   _current_frame_number: 0
   _Energy_Spent: 0
-  _episode_length: 200
   _Lastest_Reset_Time: 0
   _LastTermination_Reason: None
   _Resetting: 0
   _Terminable: 1
   _Terminated: 0
-  _objective_function: {fileID: 0}
+  _objective_function: {fileID: 847297633}
   _coordinate_reference_point: {fileID: 0}
   _track_only_children: 1
   _coordinate_system: 1
   _playable_area: {fileID: 847297628}
   _reset_i: 0
-  _initials_saved_flag: 0
-  _update_observations_with_every_tick: 0
+  updateObservationsWithEveryTick: 1
 --- !u!114 &847297631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -756,7 +822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _debugging: 0
-  _testing_motors: 0
+  _testing_Actuators: 0
   _configuration: {fileID: 11400000, guid: 6ab9ebed65ab2426f916a7e9e82a0dfa, type: 2}
   _skip_frame_i: 0
   _syncing_environments: 0
@@ -801,11 +867,15 @@ MonoBehaviour:
   _debugging: 0
   _disables_children: 0
   _editor_reregistering: 1
-  _Use_Custom_Name: 0
+  _unregister_at_disable: 0
+  _solved_reward: 1
+  _failed_reward: -1
+  _default_reward: -0.001
   _Episode_Return: 0
   _environment: {fileID: 847297630}
   _solved_threshold: 0
   _last_signal: 0
+  _episode_length: 1000
   _actor: {fileID: 523276105}
   _area: {fileID: 319175671}
   _based_on_tags: 0
@@ -851,9 +921,10 @@ Camera:
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_GateFitMode: 2
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -947,10 +1018,18 @@ MonoBehaviour:
   _debugging: 0
   _disables_children: 0
   _editor_reregistering: 1
-  _Use_Custom_Name: 0
+  _unregister_at_disable: 0
+  _environment: {fileID: 847297630}
   _relative_to_existing_value: 0
+  _sampleRandom: 0
+  on_tick: 0
   _position: {x: 1.71, y: -3, z: 0}
   _use_environments_space: 0
+  _triple_space:
+    _Min_Values: {x: 0, y: 0, z: 0}
+    _Max_Values: {x: 1, y: 1, z: 1}
+    _decimal_granularity: 1
+    normalised: 0
 --- !u!114 &1476116561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -967,23 +1046,26 @@ MonoBehaviour:
   _debugging: 0
   _disables_children: 0
   _editor_reregistering: 1
-  _Use_Custom_Name: 0
+  _unregister_at_disable: 0
   _normalise_observation: 0
   _direction: {x: 0, y: 0, z: 1}
   _direction_space:
-    _Decimal_Granularity: 10
     _Min_Values: {x: -100, y: -100, z: -100}
     _Max_Values: {x: 100, y: 100, z: 100}
+    _decimal_granularity: 10
+    normalised: 0
   _position: {x: 1.71, y: -3, z: 0}
   _position_space:
-    _Decimal_Granularity: 10
     _Min_Values: {x: -100, y: -100, z: -100}
     _Max_Values: {x: 100, y: 100, z: 100}
+    _decimal_granularity: 10
+    normalised: 0
   _rotation: {x: 0, y: 1, z: 0}
   _rotation_space:
-    _Decimal_Granularity: 10
     _Min_Values: {x: -100, y: -100, z: -100}
     _Max_Values: {x: 100, y: 100, z: 100}
+    _decimal_granularity: 10
+    normalised: 0
   _space: 2
 --- !u!114 &1476116562
 MonoBehaviour:
@@ -1028,7 +1110,7 @@ MonoBehaviour:
   _debugging: 0
   _disables_children: 0
   _editor_reregistering: 1
-  _Use_Custom_Name: 0
+  _unregister_at_disable: 0
   _bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}

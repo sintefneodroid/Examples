@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using droid.Runtime.Utilities.GameObjects.Sensors;
+using droid.Runtime.Utilities.GameObjects.ChildSensors;
 using droid.Runtime.Utilities.Misc;
 using SceneAssets.Experiments.ScriptedManipulator.Scripts;
 using SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps;

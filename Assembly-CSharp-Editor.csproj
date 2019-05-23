@@ -62,13 +62,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Common\AsmDefTools\Editor\AsmDefIgnore.cs" />
-    <Compile Include="Assets\Common\AsmDefTools\Editor\AsmDefMenu.cs" />
-    <Compile Include="Assets\Common\ReferenceChecker\unity-reference-checker-master\Editor\ColorfulLogBuilder.cs" />
-    <Compile Include="Assets\Common\ReferenceChecker\unity-reference-checker-master\Editor\Commands.cs" />
-    <Compile Include="Assets\Common\ReferenceChecker\unity-reference-checker-master\Editor\Settings.cs" />
-    <Compile Include="Assets\Common\ReferenceChecker\unity-reference-checker-master\Editor\SettingsWindow.cs" />
+    <Compile Include="Assets\Exclude\AsmDefTools\Editor\AsmDefIgnore.cs" />
+    <Compile Include="Assets\Exclude\AsmDefTools\Editor\AsmDefMenu.cs" />
     <Compile Include="Assets\Exclude\BioIK\Editor\BioIKEditor.cs" />
+    <Compile Include="Assets\Exclude\ProceduralToolkit\Examples\Buildings\Scripts\Editor\BuildingGeneratorConfiguratorEditor.cs" />
+    <Compile Include="Assets\Exclude\ProceduralToolkit\Examples\Chairs\Editor\ChairGeneratorConfiguratorEditor.cs" />
+    <Compile Include="Assets\Exclude\ProceduralToolkit\Examples\LowPolyTerrain\Editor\LowPolyTerrainGeneratorConfiguratorEditor.cs" />
+    <Compile Include="Assets\Exclude\ReferenceChecker\unity-reference-checker-master\Editor\ColorfulLogBuilder.cs" />
+    <Compile Include="Assets\Exclude\ReferenceChecker\unity-reference-checker-master\Editor\Commands.cs" />
+    <Compile Include="Assets\Exclude\ReferenceChecker\unity-reference-checker-master\Editor\Settings.cs" />
+    <Compile Include="Assets\Exclude\ReferenceChecker\unity-reference-checker-master\Editor\SettingsWindow.cs" />
     <Reference Include="Unity.2D.PixelPerfect.Editor">
       <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
     </Reference>
@@ -366,8 +369,8 @@
     <Reference Include="UnityEditor.LinuxStandalone.Extensions">
       <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0f2/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="Neodroid-FlatBuffers">
-      <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Assets/droid/Libraries/Neodroid-FlatBuffers.1.0.0/lib/net45/Neodroid-FlatBuffers.dll</HintPath>
+    <Reference Include="FlatBuffers">
+      <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Assets/droid/Libraries/Neodroid-FlatBuffers.1.0.0/lib/net45/FlatBuffers.dll</HintPath>
     </Reference>
     <Reference Include="NetMQ">
       <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Assets/droid/Libraries/NetMQ.4.0.0.175-pre/lib/net40/NetMQ.dll</HintPath>
@@ -757,9 +760,25 @@
       <Project>{23CAF9BE-2C7C-FB99-5A88-0A5928A76079}</Project>
       <Name>Neodroid.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="ProceduralToolkit.LibTessDotNet.csproj">
+      <Project>{357A6C5A-67AC-E9FC-D225-93D7DB522F09}</Project>
+      <Name>ProceduralToolkit.LibTessDotNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="ProceduralToolkit.ClipperLib.csproj">
+      <Project>{42719D9C-86CE-6430-D380-53B19654E008}</Project>
+      <Name>ProceduralToolkit.ClipperLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="ProceduralToolkit.csproj">
+      <Project>{81D05F9D-C0D5-0BBE-1300-78CA32C5AF3A}</Project>
+      <Name>ProceduralToolkit</Name>
+    </ProjectReference>
     <ProjectReference Include="Neodroid.Runtime.csproj">
       <Project>{110E8825-2816-19B4-764E-D4FECF0A5BBE}</Project>
       <Name>Neodroid.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="ProceduralToolkit.Editor.csproj">
+      <Project>{0B957477-8F07-B177-35AB-8B75CAD05115}</Project>
+      <Name>ProceduralToolkit.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

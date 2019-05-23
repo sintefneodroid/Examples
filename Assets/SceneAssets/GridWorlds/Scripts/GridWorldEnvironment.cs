@@ -70,7 +70,7 @@ namespace SceneAssets.GridWorlds.Scripts {
   /// <summary>
   /// </summary>
   [RequireComponent(typeof(GoalCellSensor))]
-  public class GridWorldEnvironment : PrototypingEnvironment {
+  public class GridWorldEnvironment : ActorisedPrototypingEnvironment {
     [SerializeField] Camera _camera = null;
     [SerializeField] Material _empty_cell_material = null;
     [SerializeField] Material _filled_cell_material = null;
@@ -240,6 +240,9 @@ namespace SceneAssets.GridWorlds.Scripts {
       return new_cell;
     }
 
+    /// <summary>
+    ///
+    /// </summary>
     protected override void PreSetup() {
       var xs = this._grid_size.X;
       var ys = this._grid_size.Y;
@@ -273,27 +276,35 @@ namespace SceneAssets.GridWorlds.Scripts {
       this._grid = this.GenerateRandomGrid(xs, ys, zs, this._min_empty_cells_percentage);
     }
 
+    /// <summary>
+    ///
+    /// </summary>
     protected override void Setup() {
       var empty_cells = FindObjectsOfType<EmptyCell>().ToList();
 
       var objective_function = this.ObjectiveFunction as ReachGoal;
 
-      foreach (var a in this.Actors) {
-        var idx = Random.Range(0, empty_cells.Count);
-        var empty_cell = empty_cells[idx];
-        a.Value.Transform.position = empty_cell.transform.position;
-        empty_cells.RemoveAt(idx);
-      }
+      if (empty_cells!=null && empty_cells.Count>0) {
+        foreach (var a in this.Actors) {
+          var idx = Random.Range(0, empty_cells.Count);
+          var empty_cell = empty_cells[idx];
+          a.Value.Transform.position = empty_cell.transform.position;
+          empty_cells.RemoveAt(idx);
+        }
 
-      if (objective_function != null) {
-        var idx = Random.Range(0, empty_cells.Count);
-        var empty_cell = empty_cells[idx];
-        empty_cell.SetAsGoal("Goal", this._goal_cell_material);
-        this._goal_cell_observer.CurrentGoal = empty_cell;
-        objective_function.SetGoal(empty_cell);
+        if (objective_function != null) {
+          var idx = Random.Range(0, empty_cells.Count);
+          var empty_cell = empty_cells[idx];
+          empty_cell.SetAsGoal("Goal", this._goal_cell_material);
+          this._goal_cell_observer.CurrentGoal = empty_cell;
+          objective_function.SetGoal(empty_cell);
+        }
       }
     }
 
+    /// <summary>
+    ///
+    /// </summary>
     public override void PostStep() {
       if (this._Terminated) {
         this._Terminated = false;
