@@ -16,37 +16,42 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
   /// <summary>
   /// </summary>
   public class ScriptedGrasping : MonoBehaviour {
-    /*
-       *
+
+
       public GraspableObject TargetGameObject
       {
-        get { return _target_game_object; }
+        get { return this._target_game_object; }
         set
         {
-          _target_game_object = value;
+          this._target_game_object = value;
 
-          StopCoroutine("gripper_movement");
-          StartCoroutine("gripper_movement", FollowPathToApproach1(_target_game_object.transform));
+          this.StopCoroutine("gripper_movement");
+          this.StartCoroutine("gripper_movement", this.FollowPathToApproach1(this._target_game_object.transform));
         }
       }
 
        IEnumerator FollowPathToApproach1(Transform trans){
         while (true){
-          if ((Vector3.Distance(this.transform.position, _intermediate_target) <= _precision)) {
-            _intermediate_target = _path.Next(1);
+          if ((Vector3.Distance(this.transform.position, this._intermediate_target) <= this._precision)) {
+            this._intermediate_target = this._path.Next(1);
           }
 
-          if (this.Debugging) Debug.DrawRay(_intermediate_target, this.transform.forward, Color.green);
-          transform.position = Vector3.MoveTowards(this.transform.position, _intermediate_target, 1);
+          if (this._debugging) Debug.DrawRay(this._intermediate_target, this.transform.forward, Color.green);
+          this.transform.position = Vector3.MoveTowards(this.transform.position, this._intermediate_target, 1);
         }
       }
 
-       *
-       *
+
+
+    /// <summary>
+    ///
+    /// </summary>
+    /// <param name="state"></param>
     public void respawn_obstructions(GripperState state) {
-      ObstacleSpawner obstacles_spawner = FindObjectOfType<ObstacleSpawner>();
-      obstacles_spawner.SpawnObstacles(obstacles_spawner.number_of_cubes, obstacles_spawner.number_of_spheres);
-    }*/
+      var obstacles_spawner = FindObjectOfType<ObstacleSpawner>();
+      //obstacles_spawner.SpawnObstacles(obstacles_spawner.number_of_cubes, obstacles_spawner.number_of_spheres);
+    }
+
     /// <summary>
     /// </summary>
     public States State { get { return this._state; } set { this._state = value; } }

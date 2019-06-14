@@ -2,18 +2,31 @@
 using UnityEngine.Serialization;
 
 namespace SceneAssets.Games.Creatures2 {
+  /// <summary>
+  ///
+  /// </summary>
   public class FloatAboveSurface : MonoBehaviour {
-    [FormerlySerializedAs("MinDistance")] public float _MinDistance = 1.1f;
-    [FormerlySerializedAs("MaxDistance")] public float _MaxDistance = 1.2f;
-    [FormerlySerializedAs("MaxForce")] public float _MaxForce = 32.0f;
+    /// <summary>
+    ///
+    /// </summary>
+    public float _MinDistance = 1.1f;
+
+    /// <summary>
+    ///
+    /// </summary>
+    public float _MaxDistance = 1.2f;
+
+    /// <summary>
+    ///
+    /// </summary>
+    public float _MaxForce = 32.0f;
 
     Rigidbody _rb;
 
     void Start() { this._rb = this.GetComponent<Rigidbody>(); }
 
     float RaycastDownwards() {
-      RaycastHit rch;
-      if (Physics.Raycast(this.transform.position, -this.transform.up, out rch, this._MaxDistance)) {
+      if (Physics.Raycast(this.transform.position, -this.transform.up, out var rch, this._MaxDistance)) {
         return rch.distance;
       }
 

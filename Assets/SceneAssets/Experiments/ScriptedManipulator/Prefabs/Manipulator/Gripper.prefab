@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d2f6748046ba74d37955e29fcb761cc3, type: 2}
+  - {fileID: 2100000, guid: 8dc84865c901dac7ab9684a70adb869d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -102,7 +102,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4508361959128508}
   - component: {fileID: 54666791647414876}
-  - component: {fileID: 114726107579869070}
   - component: {fileID: 1563049216}
   - component: {fileID: 8021374553347944432}
   m_Layer: 0
@@ -145,29 +144,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114726107579869070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1006605473164884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
-  m_Script: {fileID: 11500000, guid: b8b7c65bfbcfa4ac381370b0b8eef1bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Custom_Name: 
-  _debugging: 0
-  _disables_children: 0
-  _editor_reregistering: 1
-  _Use_Custom_Name: 0
-  _unregister_at_disable: 0
-  _bounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
-  _draw_bounds: 0
 --- !u!114 &1563049216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +153,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1006605473164884}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 11500000, guid: 68ce5bb2cd0b4c948c0487d79de52460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -185,12 +160,16 @@ MonoBehaviour:
   _debugging: 0
   _disables_children: 0
   _editor_reregistering: 1
-  _Use_Custom_Name: 0
   _unregister_at_disable: 0
   _motion_value_space:
     _Decimal_Granularity: 0
     _Min_Value: -1
     _Max_Value: 1
+    normalised: 0
+    _distribution_sampler:
+      _Direction: 0
+      _factor: 0
+      _de: 0
   _energy_spend_since_reset: 0
   _energy_cost: 0
   _Angular_Actuators: 0
@@ -206,15 +185,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1006605473164884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 11500000, guid: 7723aab3d989b479397a1242ef087ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _motor: {fileID: 0}
-  _grab_region: {fileID: 0}
-  _begin_grab_region: {fileID: 0}
-  _claw_1: {fileID: 0}
-  _claw_2: {fileID: 0}
+  _claw_motor: {fileID: 1924938196328370}
+  _grab_region: {fileID: 1006605473164884}
+  _begin_grab_region: {fileID: 1006605473164884}
+  _claw_1: {fileID: 1929160440932874}
+  _claw_2: {fileID: 1006068101295026}
   _closed_motor_transform: {fileID: 0}
   _obstacle_spawner: {fileID: 0}
   _bezier_curve_prefab: {fileID: 0}
@@ -285,7 +263,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d2f6748046ba74d37955e29fcb761cc3, type: 2}
+  - {fileID: 2100000, guid: 8dc84865c901dac7ab9684a70adb869d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -367,7 +345,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d2f6748046ba74d37955e29fcb761cc3, type: 2}
+  - {fileID: 2100000, guid: 8dc84865c901dac7ab9684a70adb869d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -521,7 +499,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1924938196328370}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 11500000, guid: 018acd81b45774d64bd3a9e0e7531815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -583,7 +560,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d2f6748046ba74d37955e29fcb761cc3, type: 2}
+  - {fileID: 2100000, guid: 8dc84865c901dac7ab9684a70adb869d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

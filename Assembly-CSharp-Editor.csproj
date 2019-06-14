@@ -72,8 +72,14 @@
     <Compile Include="Assets\Exclude\ReferenceChecker\unity-reference-checker-master\Editor\Commands.cs" />
     <Compile Include="Assets\Exclude\ReferenceChecker\unity-reference-checker-master\Editor\Settings.cs" />
     <Compile Include="Assets\Exclude\ReferenceChecker\unity-reference-checker-master\Editor\SettingsWindow.cs" />
+    <Compile Include="Assets\Exclude\Turbulence-Library\Editor\NoiseCreator.cs" />
+    <Compile Include="Assets\Exclude\Turbulence-Library\Editor\NoiseStrings2D.cs" />
+    <Compile Include="Assets\Exclude\Turbulence-Library\Editor\NoiseStrings3D.cs" />
     <Reference Include="Unity.2D.PixelPerfect.Editor">
       <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PackageValidationSuite.Editor">
+      <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.PackageValidationSuite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProGrids">
       <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
@@ -140,9 +146,6 @@
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect">
       <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PackageValidationSuite.Editor">
-      <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.PackageValidationSuite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
       <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
@@ -391,10 +394,10 @@
       <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/PackageCache/com.unity.2d.common@1.1.0-preview.2/Tests/Editor/Lib/NSubstitute/NSubstitute.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
-      <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/PackageCache/com.unity.package-validation-suite@0.4.0-preview.23/Lib/Editor/log4net.dll</HintPath>
+      <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/PackageCache/com.unity.package-validation-suite@0.5.2-preview/Lib/Editor/log4net.dll</HintPath>
     </Reference>
     <Reference Include="Unity.APIComparison.Framework">
-      <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/PackageCache/com.unity.package-validation-suite@0.4.0-preview.23/Lib/Editor/Unity.APIComparison.Framework.dll</HintPath>
+      <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/PackageCache/com.unity.package-validation-suite@0.5.2-preview/Lib/Editor/Unity.APIComparison.Framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>/home/heider/Unity/Hub/Editor/2019.1.0f2/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -763,6 +766,14 @@
     <ProjectReference Include="ProceduralToolkit.LibTessDotNet.csproj">
       <Project>{357A6C5A-67AC-E9FC-D225-93D7DB522F09}</Project>
       <Name>ProceduralToolkit.LibTessDotNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="Tayx.Graphy.Editor.csproj">
+      <Project>{69BBC445-BAA1-063E-31BA-95025805FB8A}</Project>
+      <Name>Tayx.Graphy.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Tayx.Graphy.csproj">
+      <Project>{B1233986-B7FD-91E0-44DB-0BC46FE033C5}</Project>
+      <Name>Tayx.Graphy</Name>
     </ProjectReference>
     <ProjectReference Include="ProceduralToolkit.ClipperLib.csproj">
       <Project>{42719D9C-86CE-6430-D380-53B19654E008}</Project>
