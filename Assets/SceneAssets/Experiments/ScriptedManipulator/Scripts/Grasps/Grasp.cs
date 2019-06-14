@@ -35,7 +35,6 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps {
     /// </summary>
     /// <returns></returns>
     public bool IsObstructed() {
-      RaycastHit hit;
       if (Physics.Linecast(this.transform.position,
                            this.transform.position - this.transform.forward * this._obstruction_cast_length,
                            LayerMask.GetMask("Obstruction"))) {
@@ -45,7 +44,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps {
       if (Physics.SphereCast(this.transform.position,
                              this._obstruction_cast_radius,
                              -this.transform.forward,
-                             out hit,
+                             out var hit,
                              this._obstruction_cast_length,
                              LayerMask.GetMask("Obstruction"))) {
         return true;

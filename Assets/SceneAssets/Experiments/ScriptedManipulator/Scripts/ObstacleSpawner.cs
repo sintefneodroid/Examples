@@ -88,6 +88,9 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
       }
     }
 
+    /// <summary>
+    ///
+    /// </summary>
     public void Setup() {
       this.TearDown();
       this._y_center_point = this.transform.position.y;

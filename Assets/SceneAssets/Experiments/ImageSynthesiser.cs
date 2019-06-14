@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.IO;
-using droid.Runtime.Utilities.NeodroidCamera.Synthesis;
+using droid.Runtime.Utilities.GameObjects.NeodroidCamera.Synthesis;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;

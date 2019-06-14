@@ -17,7 +17,7 @@ namespace SceneAssets.Games.Creatures2 {
 
     // we want to store the laser's velocity every frame
     // so we can use this data during collisions to reflect
-    [FormerlySerializedAs("oldVelocity")] public Vector3 _OldVelocity;
+    public Vector3 _OldVelocity;
 
     Rigidbody _rb;
 
