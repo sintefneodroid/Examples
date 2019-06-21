@@ -45,6 +45,8 @@ namespace SceneAssets.Manipulator.Scripts {
       }
     }
 
+    public override ISpace ConfigurableValueSpace { get; }
+
     /// <inheritdoc />
     /// <summary>
     /// </summary>

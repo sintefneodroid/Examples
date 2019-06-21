@@ -1,7 +1,17 @@
 ﻿using UnityEngine;
 
 namespace SceneAssets.ImagePuzzler {
+  /// <summary>
+  ///
+  /// </summary>
   public static class ImageSlicer {
+    /// <summary>
+    ///
+    /// </summary>
+    /// <param name="image"></param>
+    /// <param name="horisontal_divisions"></param>
+    /// <param name="vertical_divisions"></param>
+    /// <returns></returns>
     public static Texture2D[,] GetSlices(Texture2D image, int horisontal_divisions, int vertical_divisions) {
       var image_size = Mathf.Min(image.width, image.height);
 
