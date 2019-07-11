@@ -1,4 +1,6 @@
-﻿#if UNITY_EDITOR && BIOIK_EXISTS
+﻿
+using Exclude.BioIK;
+#if UNITY_EDITOR && BIOIK_EXISTS
 using System;
 using UnityEditor;
 using UnityEngine;
@@ -40,7 +42,7 @@ namespace SceneAssets.Manipulator.Scripts {
 
       EditorGUI.BeginChangeCheck();
       {
-        EditorGUILayout.ObjectField(this._enablee, typeof(BioIK.BioIK), new GUIContent("Enablee"));
+        EditorGUILayout.ObjectField(this._enablee, typeof(BioIK), new GUIContent("Enablee"));
         /* var e = this._enablee.objectReferenceValue as MonoBehaviour;
          if (e != null) {
            
@@ -88,7 +90,7 @@ namespace SceneAssets.Manipulator.Scripts {
 
       foreach (var o in this.targets) {
         var s = (IkSolverEnablerConfigurable)o;
-        s._Enablee = (BioIK.BioIK)this._enablee.objectReferenceValue;
+        s._Enablee = (BioIK)this._enablee.objectReferenceValue;
       }
     }
   }

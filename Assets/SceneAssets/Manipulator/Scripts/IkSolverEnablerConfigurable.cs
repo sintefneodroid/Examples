@@ -1,5 +1,8 @@
-﻿#if BIOIK_EXISTS
+﻿
 
+using droid.Runtime.Structs.Space;
+using Exclude.BioIK;
+#if BIOIK_EXISTS
 using System.Collections;
 using droid.Runtime.Interfaces;
 using droid.Runtime.Messaging.Messages;
@@ -13,7 +16,7 @@ namespace SceneAssets.Manipulator.Scripts {
   public class IkSolverEnablerConfigurable : Configurable {
     /// <summary>
     /// </summary>
-    public BioIK.BioIK _Enablee;
+    public BioIK _Enablee;
 
     /// <summary>
     ///
@@ -34,7 +37,7 @@ namespace SceneAssets.Manipulator.Scripts {
     protected override void PreSetup() {
       base.PreSetup();
       if (!this._Enablee) {
-        this._Enablee = this.GetComponent<BioIK.BioIK>();
+        this._Enablee = this.GetComponent<BioIK>();
       }
 
       if(this._disabled_by_default) {
