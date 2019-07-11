@@ -1,6 +1,7 @@
-﻿#if UNITY_EDITOR && BIOIK_EXISTS
-using System;
+﻿
 using Exclude.BioIK;
+#if UNITY_EDITOR && BIOIK_EXISTS
+using System;
 using UnityEditor;
 using UnityEngine;
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using droid.Runtime.Structs.Space;
 using droid.Runtime.Utilities.Structs;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ namespace SceneAssets.Catch {
   public class DropSpawner : MonoBehaviour {
     [SerializeField] int _max_num_concurrent_objects = 4;
     [SerializeField] float _next_spawn_time = 0f;
-    [SerializeField] Space1 _spawn_delay_range = new Space1 {_Max_Value = 1f, _Min_Value = 0.1f};
+    [SerializeField] Space1 _spawn_delay_range = new Space1 {MaxValue = 1f, MinValue = 0.1f};
 
     /// <summary>
     /// </summary>
@@ -23,10 +24,10 @@ namespace SceneAssets.Catch {
 
     [SerializeField]
     Space3 _spawn_position_range =
-        new Space3 {_Max_Values = new Vector3(5, 0), _Min_Values = new Vector3(-5, 0)};
+        new Space3 {MaxValues = new Vector3(5, 0), MinValues = new Vector3(-5, 0)};
 
     [SerializeField]
-    Space4 _spawn_rotation_range = new Space4 {_Max_Values = Vector4.one, _Min_Values = -Vector4.one};
+    Space4 _spawn_rotation_range = new Space4 {MaxValues = Vector4.one, MinValues = -Vector4.one};
 
     [SerializeField] List<GameObject> _spawned_objects = null;
 
