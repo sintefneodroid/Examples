@@ -22,7 +22,7 @@ namespace SceneAssets.Experiments {
       var v_c = new Color(0, 0, 1, (float).5);
 
       var transform1 = this.transform;
-      var position = transform1.position; // + Vector3.up+ Vector3.left;
+      var position = transform1.position; // + Vector3.up+ Vector3.right;
       this.velArrow = Instantiate(this.arrowPrefab, position, Quaternion.identity, transform1);
       var vel_mat = this.velArrow.GetComponent<Renderer>().material;
       vel_mat.shader = Shader.Find(_shader_name);

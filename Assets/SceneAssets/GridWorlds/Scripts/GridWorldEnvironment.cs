@@ -3,8 +3,8 @@ using System.Linq;
 using droid.Runtime.Environments;
 using droid.Runtime.Prototyping.Evaluation;
 using droid.Runtime.Prototyping.Sensors.Grid;
-using droid.Runtime.Utilities.Misc.Grid;
-using droid.Runtime.Utilities.Structs;
+using droid.Runtime.Structs.Vectors;
+using droid.Runtime.Utilities.Grid;
 using UnityEngine;
 
 namespace SceneAssets.GridWorlds.Scripts {

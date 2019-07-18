@@ -37,8 +37,14 @@ namespace SceneAssets.Games.Creatures2 {
       var distance = this.RaycastDownwards();
 
       var fractional_position = (this._MaxDistance - distance) / (this._MaxDistance - this._MinDistance);
-      if (fractional_position < 0) fractional_position = 0;
-      if (fractional_position > 1) fractional_position = 1;
+      if (fractional_position < 0) {
+        fractional_position = 0;
+      }
+
+      if (fractional_position > 1) {
+        fractional_position = 1;
+      }
+
       var force = fractional_position * this._MaxForce;
 
       this._rb.AddForceAtPosition(Vector3.up * force, this.transform.position);

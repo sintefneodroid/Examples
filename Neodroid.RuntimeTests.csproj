@@ -15,10 +15,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{69BBC445-BAA1-063E-31BA-95025805FB8A}</ProjectGuid>
+    <ProjectGuid>{A0F65959-A96F-2E68-05D1-C59A7FD0B521}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Tayx.Graphy.Editor</AssemblyName>
+    <AssemblyName>Neodroid.RuntimeTests</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -62,9 +62,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Exclude\Tayx\Graphy - Ultimate Stats Monitor\Scripts\Editor\GraphyDebuggerEditor.cs" />
-    <Compile Include="Assets\Exclude\Tayx\Graphy - Ultimate Stats Monitor\Scripts\Editor\GraphyManagerEditor.cs" />
-    <None Include="Assets\Exclude\Tayx\Graphy - Ultimate Stats Monitor\Scripts\Editor\Tayx.Graphy.Editor.asmdef" />
+    <Compile Include="Assets\droid\Tests\Runtime\RegistrationTests.cs" />
+    <Compile Include="Assets\droid\Tests\Runtime\SanityTests.cs" />
+    <Compile Include="Assets\droid\Tests\Runtime\SimulatorTests.cs" />
+    <None Include="Assets\droid\Tests\Runtime\Neodroid.RuntimeTests.asmdef" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/home/heider/Unity/Hub/Editor/2019.1.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
@@ -262,6 +263,45 @@
     </Reference>
     <Reference Include="UnityEditor.LinuxStandalone.Extensions">
       <HintPath>/home/heider/Unity/Hub/Editor/2019.1.7f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Interactive.Async">
+      <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Assets/Exclude/RemoteRender/Plugins/System.Interactive.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="MIConvexHull">
+      <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Assets/Exclude/RemoteRender/Plugins/MIConvexHull.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf">
+      <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Assets/Exclude/RemoteRender/Plugins/Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="Grpc.Core">
+      <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Assets/Exclude/RemoteRender/Plugins/Grpc.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FlatBuffers">
+      <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Assets/droid/Libraries/Neodroid-FlatBuffers.1.0.0/lib/net45/FlatBuffers.dll</HintPath>
+    </Reference>
+    <Reference Include="NetMQ">
+      <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Assets/droid/Libraries/NetMQ.4.0.0.175-pre/lib/net40/NetMQ.dll</HintPath>
+    </Reference>
+    <Reference Include="Priority Queue">
+      <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Assets/droid/Libraries/OptimizedPriorityQueue.4.1.1/lib/net45/Priority Queue.dll</HintPath>
+    </Reference>
+    <Reference Include="AsyncIO">
+      <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Assets/droid/Libraries/AsyncIO.0.1.61/lib/net40/AsyncIO.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Assets/droid/Libraries/Newtonsoft.Json.11.0.2/lib/net45/Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="JetBrains.Rider.Unity.Editor.Plugin.Repacked">
+      <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll</HintPath>
+    </Reference>
+    <Reference Include="NSubstitute">
+      <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/PackageCache/com.unity.2d.common@1.1.0-preview.2/Tests/Editor/Lib/NSubstitute/NSubstitute.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/PackageCache/com.unity.package-validation-suite@0.6.1-preview/Lib/Editor/log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.APIComparison.Framework">
+      <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/PackageCache/com.unity.package-validation-suite@0.6.1-preview/Lib/Editor/Unity.APIComparison.Framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>/home/heider/Unity/Hub/Editor/2019.1.7f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -619,9 +659,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Tayx.Graphy.csproj">
-      <Project>{B1233986-B7FD-91E0-44DB-0BC46FE033C5}</Project>
-      <Name>Tayx.Graphy</Name>
+    <ProjectReference Include="Neodroid.Runtime.csproj">
+      <Project>{110E8825-2816-19B4-764E-D4FECF0A5BBE}</Project>
+      <Name>Neodroid.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Neodroid.Editor.csproj">
+      <Project>{23CAF9BE-2C7C-FB99-5A88-0A5928A76079}</Project>
+      <Name>Neodroid.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using droid.Runtime.Utilities.GameObjects.ChildSensors;
-using droid.Runtime.Utilities.Misc;
-using droid.Runtime.Utilities.Misc.Extensions;
-using droid.Runtime.Utilities.Misc.Grasping;
+using droid.Runtime.GameObjects.ChildSensors;
+using droid.Runtime.Utilities;
+using droid.Runtime.Utilities.Extensions;
+using droid.Runtime.Utilities.Grasping;
 using SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps;
 using SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation;
 using SceneAssets.Experiments.ScriptedManipulator.Utilities;
 using SceneAssets.Experiments.ScriptedManipulator.Utilities.Pathfinding;
 using UnityEngine;
+using NeodroidUtilities = droid.Runtime.Utilities.Extensions.NeodroidUtilities;
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
   /// <inheritdoc />
@@ -36,7 +37,10 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
             this._intermediate_target = this._path.Next(1);
           }
 
-          if (this._debugging) Debug.DrawRay(this._intermediate_target, this.transform.forward, Color.green);
+          if (this._debugging) {
+            Debug.DrawRay(this._intermediate_target, this.transform.forward, Color.green);
+          }
+
           this.transform.position = Vector3.MoveTowards(this.transform.position, this._intermediate_target, 1);
         }
       }
@@ -243,8 +247,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
     }
 
     void SetupEnvironment() {
-      NeodroidUtilities
-          .RegisterCollisionTriggerCallbacksOnChildren<ChildCollider3DSensor, Collider, Collision>(this,
+      NeodroidRegistrationUtilities.RegisterCollisionTriggerCallbacksOnChildren<ChildCollider3DSensor, Collider, Collision>(this,
                                                                                                    this
                                                                                                        .transform,
                                                                                                    this

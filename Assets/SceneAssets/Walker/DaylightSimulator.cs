@@ -1,6 +1,7 @@
 ﻿using droid.Runtime.Prototyping.Internals;
-using droid.Runtime.Utilities.Misc;
+using droid.Runtime.Utilities;
 using UnityEngine;
+using NeodroidUtilities = droid.Runtime.Utilities.Extensions.NeodroidUtilities;
 
 namespace SceneAssets.Walker {
   /// <inheritdoc />
@@ -49,15 +50,15 @@ namespace SceneAssets.Walker {
     /// </summary>
     protected override void Setup() {
       if (this._fog_density_curve == null) {
-        this._fog_density_curve = NeodroidUtilities.DefaultAnimationCurve();
+        this._fog_density_curve = NeodroidDefaultsUtilities.DefaultAnimationCurve();
       }
 
       if (this._fog_gradient == null) {
-        this._fog_gradient = NeodroidUtilities.DefaultGradient();
+        this._fog_gradient = NeodroidDefaultsUtilities.DefaultGradient();
       }
 
       if (this._light_gradient == null) {
-        this._light_gradient = NeodroidUtilities.DefaultGradient();
+        this._light_gradient = NeodroidDefaultsUtilities.DefaultGradient();
       }
 
       this._light = this.GetComponent<Light>();

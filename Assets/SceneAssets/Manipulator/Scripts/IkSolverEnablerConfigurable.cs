@@ -7,7 +7,6 @@ using System.Collections;
 using droid.Runtime.Interfaces;
 using droid.Runtime.Messaging.Messages;
 using droid.Runtime.Prototyping.Configurables;
-using droid.Runtime.Utilities.Structs;
 using UnityEngine;
 namespace SceneAssets.Manipulator.Scripts {
   /// <inheritdoc />

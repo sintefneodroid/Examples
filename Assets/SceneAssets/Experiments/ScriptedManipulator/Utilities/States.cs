@@ -1,5 +1,5 @@
 ﻿using System;
-using droid.Runtime.Utilities.Misc.Orientation;
+using droid.Runtime.Utilities.Orientation;
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Utilities {
   #region Enums
