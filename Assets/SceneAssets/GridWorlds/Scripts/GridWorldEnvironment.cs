@@ -2,6 +2,7 @@
 using System.Linq;
 using droid.Runtime.Environments;
 using droid.Runtime.Prototyping.Evaluation;
+using droid.Runtime.Prototyping.Evaluation.Spatial;
 using droid.Runtime.Prototyping.Sensors.Grid;
 using droid.Runtime.Structs.Vectors;
 using droid.Runtime.Utilities.Grid;
@@ -322,7 +323,7 @@ namespace SceneAssets.GridWorlds.Scripts {
       }
 
       this.UpdateConfigurableValues();
-      this.UpdateObserversData();
+      this.UpdateSensorsData();
     }
   }
 }
