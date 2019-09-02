@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using droid.Runtime.Structs.Space;
+using droid.Runtime.Structs.Space.Sample;
 using UnityEngine;
 
 namespace SceneAssets.Catch {
@@ -9,7 +10,7 @@ namespace SceneAssets.Catch {
   public class DropSpawner : MonoBehaviour {
     [SerializeField] int _max_num_concurrent_objects = 4;
     [SerializeField] float _next_spawn_time = 0f;
-    [SerializeField] Space1 _spawn_delay_range = new Space1 {MaxValue = 1f, MinValue = 0.1f};
+    [SerializeField] SampleSpace1 _spawn_delay_range = new SampleSpace1{Space = new Space1 {Max = 1f, Min = 0.1f}};
 
     /// <summary>
     /// </summary>
@@ -22,11 +23,11 @@ namespace SceneAssets.Catch {
     List<Transform> _spawn_poses = null;
 
     [SerializeField]
-    Space3 _spawn_position_range =
-        new Space3 {MaxValues = new Vector3(5, 0), MinValues = new Vector3(-5, 0)};
+    SampleSpace3 _spawn_position_range =
+        new SampleSpace3() {Space = new Space3 {Max = new Vector3(5, 0), Min = new Vector3(-5, 0)}};
 
     [SerializeField]
-    Space4 _spawn_rotation_range = new Space4 {MaxValues = Vector4.one, MinValues = -Vector4.one};
+    SampleSpace4 _spawn_rotation_range = new SampleSpace4{Space = new Space4 {Max = Vector4.one, Min = -Vector4.one}};
 
     [SerializeField] List<GameObject> _spawned_objects = null;
 
@@ -46,7 +47,7 @@ namespace SceneAssets.Catch {
               pose = new Pose(trans.position, trans.rotation);
             } else {
               pose = new Pose(this._spawn_position_range.Sample(),
-                              this._spawn_rotation_range.RandomQuaternion());
+                              this._spawn_rotation_range.Sample());
             }
 
             Instantiate(this._spawn_objects[object_selection], pose.position, pose.rotation);

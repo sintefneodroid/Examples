@@ -1,6 +1,5 @@
-﻿
-
-using droid.Runtime.Structs.Space;
+﻿using droid.Runtime.Structs.Space;
+using droid.Runtime.Structs.Space.Sample;
 using Exclude.BioIK;
 #if BIOIK_EXISTS
 using System.Collections;
@@ -8,6 +7,7 @@ using droid.Runtime.Interfaces;
 using droid.Runtime.Messaging.Messages;
 using droid.Runtime.Prototyping.Configurables;
 using UnityEngine;
+
 namespace SceneAssets.Manipulator.Scripts {
   /// <inheritdoc />
   /// <summary>
@@ -20,15 +20,14 @@ namespace SceneAssets.Manipulator.Scripts {
     /// <summary>
     ///
     /// </summary>
-    public bool _disable_every_next_frame=false;
+    public bool _disable_every_next_frame = false;
+
     /// <summary>
     ///
     /// </summary>
-    public bool _disabled_by_default=false;
+    public bool _disabled_by_default = false;
 
     const float _tolerance = float.Epsilon;
-
-
 
     /// <inheritdoc />
     /// <summary>
@@ -39,14 +38,14 @@ namespace SceneAssets.Manipulator.Scripts {
         this._Enablee = this.GetComponent<BioIK>();
       }
 
-      if(this._disabled_by_default) {
+      if (this._disabled_by_default) {
         this.Disable();
       } else {
         this.Enable();
       }
     }
 
-    public override ISpace ConfigurableValueSpace { get; }
+    public override ISamplable ConfigurableValueSpace { get { return new SampleSpace1(); } }
 
     /// <inheritdoc />
     /// <summary>
@@ -91,7 +90,7 @@ namespace SceneAssets.Manipulator.Scripts {
     /// <param name="random_generator"></param>
     /// <returns></returns>
     public IConfigurableConfiguration SampleConfiguration(Random random_generator) {
-      return new Configuration(this.Identifier, Space1.DiscreteZeroOne.Sample());
+      return new Configuration(this.Identifier, this.ConfigurableValueSpace.Sample());
     }
 
     /// <summary>
