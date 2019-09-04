@@ -1,5 +1,6 @@
 ﻿using System;
 using droid.Runtime.Prototyping.Evaluation;
+using droid.Runtime.Prototyping.Evaluation.Spatial;
 
 namespace SceneAssets.BalanceBall {
   /// <summary>

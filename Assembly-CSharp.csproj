@@ -2,8 +2,9 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <CscToolPath>/home/heider/Unity/Hub/Editor/2019.3.0b1/Editor/Data/Tools/RoslynScripts</CscToolPath>
-    <CscToolExe>unity_csc.sh</CscToolExe>
+    <_TargetFrameworkDirectories>non_empty_path_generated_by_unity.rider.package</_TargetFrameworkDirectories>
+    <_FullFrameworkReferenceAssemblyPaths>non_empty_path_generated_by_unity.rider.package</_FullFrameworkReferenceAssemblyPaths>
+    <DisableHandlePackageFileConflicts>true</DisableHandlePackageFileConflicts>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -306,6 +307,9 @@
      <Compile Include="Assets\Exclude\Unsorted\TermsObjectiveFunction.cs" />
      <Compile Include="Assets\Exclude\Unsorted\UnityMainThreadDispatcher.cs" />
      <Compile Include="Assets\SceneAssets\BalanceBall\KeepRigidbodyAlive.cs" />
+     <Compile Include="Assets\SceneAssets\BalanceBall\LimitedEulerRotation2DofActuator.cs" />
+     <Compile Include="Assets\SceneAssets\BalanceBall\MouseGimbal.cs" />
+     <Compile Include="Assets\SceneAssets\BalanceBall\RotationClamping.cs" />
      <Compile Include="Assets\SceneAssets\BalanceBall\SparseStayInAreaObjectionFunction.cs" />
      <Compile Include="Assets\SceneAssets\Catch\DropSpawner.cs" />
      <Compile Include="Assets\SceneAssets\Experiments\Projectile.cs" />
@@ -369,7 +373,6 @@
      <None Include="Assets\Exclude\StandardAssets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
      <None Include="Assets\Exclude\SampleScenes\Shaders\Skybox-Procedural.shader" />
      <None Include="Assets\Exclude\ProceduralToolkit\Examples\Characters\names.txt" />
-     <None Include="Assets\Exclude\Turbulence-Library\Resources\shader.template" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\Exclude\StandardAssets\Vehicles\Car\CarGuidelines.txt" />
      <None Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Shaders\Experimental\DepthDeprecated.shader" />
