@@ -12,14 +12,11 @@ namespace SceneAssets.BalanceBall {
     [SerializeField] bool ClampToMaxRotationDegrees = true; // Disable for free rotation.
     [SerializeField] float rotationSpeed = 10.0f;
 
-
-
     void Update() {
       if (this.maxRotationDegrees > 0) {
         // Apply the 'pre-clamp' rotation (rotation-Z and rotation-X from X & Y of mouse, respectively).
         this.SimpleRotation(this.GetMouseInput());
       }
-
 
       if (this.ClampToMaxRotationDegrees) {
         // Clamp rotation to maxRotationDegrees.
@@ -27,7 +24,6 @@ namespace SceneAssets.BalanceBall {
                                                                  this.maxRotationDegrees,
                                                                  this.maxRotationDegrees);
       }
-
     }
 
     Vector2 GetMouseInput() {
@@ -43,6 +39,5 @@ namespace SceneAssets.BalanceBall {
       rotation.z = mouse_xy.x * Time.deltaTime * this.rotationSpeed;
       this.transform.Rotate(rotation, Space.Self);
     }
-
   }
 }

@@ -6,10 +6,10 @@ namespace SceneAssets.Experiments {
   /// <summary>
   /// </summary>
   public class RigidbodyArrows : MonoBehaviour {
-    [SerializeField] Transform arrowPrefab=null;
-    [SerializeField] Rigidbody rb=null;
-    [SerializeField] Transform velArrow=null;
-    [SerializeField] Transform angArrow=null;
+    [SerializeField] Transform arrowPrefab = null;
+    [SerializeField] Rigidbody rb = null;
+    [SerializeField] Transform velArrow = null;
+    [SerializeField] Transform angArrow = null;
 
     static readonly int _color = Shader.PropertyToID("_Color");
     static readonly int _color2 = Shader.PropertyToID("_Color2");
@@ -18,18 +18,30 @@ namespace SceneAssets.Experiments {
     void Awake() {
       this.rb = this.GetComponent<Rigidbody>();
 
-      var a_c = new Color(0, 1, 0, (float).5);
-      var v_c = new Color(0, 0, 1, (float).5);
+      var a_c = new Color(0,
+                          1,
+                          0,
+                          (float).5);
+      var v_c = new Color(0,
+                          0,
+                          1,
+                          (float).5);
 
       var transform1 = this.transform;
       var position = transform1.position; // + Vector3.up+ Vector3.right;
-      this.velArrow = Instantiate(this.arrowPrefab, position, Quaternion.identity, transform1);
+      this.velArrow = Instantiate(this.arrowPrefab,
+                                  position,
+                                  Quaternion.identity,
+                                  transform1);
       var vel_mat = this.velArrow.GetComponent<Renderer>().material;
       vel_mat.shader = Shader.Find(_shader_name);
       vel_mat.SetColor(_color, v_c);
       vel_mat.SetColor(_color2, v_c);
 
-      this.angArrow = Instantiate(this.arrowPrefab, position, Quaternion.identity, transform1);
+      this.angArrow = Instantiate(this.arrowPrefab,
+                                  position,
+                                  Quaternion.identity,
+                                  transform1);
       var ang_mat = this.angArrow.GetComponent<Renderer>().material;
       ang_mat.shader = Shader.Find(_shader_name);
       ang_mat.SetColor(_color, a_c);

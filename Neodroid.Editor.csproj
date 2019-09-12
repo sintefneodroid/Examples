@@ -80,6 +80,8 @@
      <Compile Include="Assets\droid\Editor\Utilities\NoteUtilities\NoteType.cs" />
      <Compile Include="Assets\droid\Editor\Utilities\ObjectDropdown\ObjectDropdownAttribute.cs" />
      <Compile Include="Assets\droid\Editor\Utilities\ObjectDropdown\ObjectSelectorDropdown.cs" />
+     <Compile Include="Assets\droid\Editor\Utilities\PostProcessing\FlipEditor.cs" />
+     <Compile Include="Assets\droid\Editor\Utilities\PostProcessing\GrayscaleEditor.cs" />
      <Compile Include="Assets\droid\Editor\Utilities\RuntimeDebugDraw.cs" />
      <Compile Include="Assets\droid\Editor\Utilities\SceneDescription.cs" />
      <Compile Include="Assets\droid\Editor\Utilities\ScenePreview.cs" />
@@ -106,6 +108,12 @@
      <None Include="Assets\droid\Editor\Neodroid.Editor.asmdef" />
      <None Include="Assets\droid\Editor\Resources\GithubExtension.uss" />
      <None Include="Assets\droid\Editor\Resources\GithubExtension.uxml" />
+ <Reference Include="Unity.Postprocessing.Editor">
+ <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Postprocessing.Runtime">
+ <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
@@ -300,6 +308,9 @@
  </Reference>
  <Reference Include="UnityEditor.LinuxStandalone.Extensions">
  <HintPath>/home/heider/Unity/Hub/Editor/2019.3.0b1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Android.Extensions">
+ <HintPath>/home/heider/Unity/Hub/Editor/2019.3.0b1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="System.Interactive.Async">
  <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Assets/Exclude/RemoteRender/Plugins/System.Interactive.Async.dll</HintPath>

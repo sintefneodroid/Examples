@@ -1,4 +1,4 @@
-﻿using droid.Runtime.Prototyping.Internals;
+﻿using droid.Runtime.Prototyping.Unobservables;
 using droid.Runtime.Utilities;
 using UnityEngine;
 using NeodroidUtilities = droid.Runtime.Utilities.Extensions.NeodroidUtilities;
@@ -10,7 +10,7 @@ namespace SceneAssets.Walker {
   [ExecuteInEditMode]
   [RequireComponent(typeof(Light))]
   [RequireComponent(typeof(ParticleSystem))]
-  public class DaylightSimulator : EnvironmentListener {
+  public class DaylightSimulator : Unobservable {
     [SerializeField] float _day_atmosphere_thickness = 0.88f;
 
     [SerializeField] AnimationCurve _fog_density_curve;
@@ -76,14 +76,17 @@ namespace SceneAssets.Walker {
 
     void Update() {
       var a = 1 - this._min_point;
-      var dot = Mathf.Clamp01(
-          (Vector3.Dot(this._light.transform.forward, Vector3.down) - this._min_point) / a);
+      var dot =
+          Mathf.Clamp01((Vector3.Dot(this._light.transform.forward, Vector3.down) - this._min_point) / a);
       var intensity = (this._max_intensity - this._min_intensity) * dot + this._min_intensity;
 
       this._light.intensity = intensity;
 
       var stars_intensity = this._min_intensity / intensity;
-      var particle_color = new Color(1f, 1f, 1f, stars_intensity);
+      var particle_color = new Color(1f,
+                                     1f,
+                                     1f,
+                                     stars_intensity);
 
       var num_alive_particles = this._particle_system.GetParticles(this._particles);
       for (var i = 0; i < num_alive_particles; i++) {
@@ -93,8 +96,8 @@ namespace SceneAssets.Walker {
       this._particle_system.SetParticles(this._particles, num_alive_particles);
 
       a = 1 - this._min_ambient_point;
-      dot = Mathf.Clamp01(
-          (Vector3.Dot(this._light.transform.forward, Vector3.down) - this._min_ambient_point) / a);
+      dot = Mathf.Clamp01((Vector3.Dot(this._light.transform.forward, Vector3.down) - this._min_ambient_point)
+                          / a);
       var ambient_intensity = (this._max_ambient - this._min_ambient) * dot + this._min_ambient;
       RenderSettings.ambientIntensity = ambient_intensity;
 

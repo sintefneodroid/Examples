@@ -19,6 +19,7 @@ namespace SceneAssets.ImagePuzzler {
     ///
     /// </summary>
     public event Action<Block> OnBlockPressed;
+
     /// <summary>
     ///
     /// </summary>

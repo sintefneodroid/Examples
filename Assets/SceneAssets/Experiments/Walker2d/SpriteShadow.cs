@@ -5,7 +5,7 @@ namespace SceneAssets.Experiments.Walker2d {
   /// <inheritdoc />
   /// <summary>
   /// </summary>
-  [RequireComponent(typeof(SpriteRenderer)),ExecuteAlways]
+  [RequireComponent(typeof(SpriteRenderer)), ExecuteAlways]
   public class SpriteShadow : MonoBehaviour {
     [SerializeField] bool receive_shadows = true;
     [SerializeField] ShadowCastingMode cast_shadows = ShadowCastingMode.On;

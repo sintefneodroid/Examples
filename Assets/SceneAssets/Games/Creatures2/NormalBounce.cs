@@ -25,7 +25,10 @@ namespace SceneAssets.Games.Creatures2 {
 
       var reflection = direction * speed;
 
-      Debug.DrawRay(contact_point.point, reflection, Color.white, 4.0f);
+      Debug.DrawRay(contact_point.point,
+                    reflection,
+                    Color.white,
+                    4.0f);
 
       rb.velocity = reflection;
       //rb.AddForceAtPosition(reflection, contact_point.point);

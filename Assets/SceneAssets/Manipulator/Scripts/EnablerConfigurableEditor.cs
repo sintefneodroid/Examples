@@ -1,5 +1,4 @@
-﻿
-using Exclude.BioIK;
+﻿using Exclude.BioIK;
 #if UNITY_EDITOR && BIOIK_EXISTS
 using System;
 using UnityEditor;
@@ -66,8 +65,11 @@ namespace SceneAssets.Manipulator.Scripts {
         //EditorGUIUtility.ShowObjectPicker<MonoBehaviour>(this._enablee.objectReferenceValue, true, "", 0);
       }
 
-      _IkSolverEnablerConfigurable._disable_every_next_frame = EditorGUILayout.Toggle("_disable_every_next_frame",_IkSolverEnablerConfigurable._disable_every_next_frame);
-      _IkSolverEnablerConfigurable._disabled_by_default = EditorGUILayout.Toggle("_disable_by_default",_IkSolverEnablerConfigurable._disabled_by_default);
+      _IkSolverEnablerConfigurable._disable_every_next_frame =
+          EditorGUILayout.Toggle("_disable_every_next_frame",
+                                 _IkSolverEnablerConfigurable._disable_every_next_frame);
+      _IkSolverEnablerConfigurable._disabled_by_default =
+          EditorGUILayout.Toggle("_disable_by_default", _IkSolverEnablerConfigurable._disabled_by_default);
 
       if (GUILayout.Button("Toggle")) {
         _IkSolverEnablerConfigurable.ActiveToggle();

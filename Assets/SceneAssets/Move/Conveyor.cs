@@ -16,19 +16,19 @@ namespace SceneAssets.Move {
     ///
     /// </summary>
     [SerializeField]
-    float visualVelocity=1f;
+    float visualVelocity = 1f;
 
-    [SerializeField] Vector3 _direction=Vector3.zero;
+    [SerializeField] Vector3 _direction = Vector3.zero;
     [SerializeField] float _dampening = 0.2f;
-    float _current_scroll=0f;
-    Renderer _renderer=null;
-    Material _material=null;
+    float _current_scroll = 0f;
+    Renderer _renderer = null;
+    Material _material = null;
     static readonly int _bump_map = Shader.PropertyToID("_BumpMap");
     [SerializeField] bool use_shared = true;
 
     void Start() {
       this._renderer = this.GetComponent<Renderer>();
-      if(this.use_shared) {
+      if (this.use_shared) {
         this._material = this._renderer.sharedMaterial;
       } else {
         this._material = this._renderer.material;
@@ -37,15 +37,13 @@ namespace SceneAssets.Move {
 
     void Update() {
       // Scroll texture to fake it moving
-      this._current_scroll =
-          this._current_scroll + Time.deltaTime * this.actualVelocity * this.visualVelocity % 1.0f;
+      this._current_scroll = this._current_scroll
+                             + Time.deltaTime * this.actualVelocity * this.visualVelocity % 1.0f;
       var offset = new Vector2(0, this._current_scroll);
 
       this._material.mainTextureOffset = offset;
       this._material.SetTextureOffset(_bump_map, offset);
     }
-
-
 
 // Anything that is touching will move
 // This function repeats as long as the object is touching
@@ -64,8 +62,9 @@ namespace SceneAssets.Move {
       //other_thing.rigidbody.velocity = force;
 
       foreach (var c in other_thing.contacts) {
-        other_thing.rigidbody.AddForceAtPosition((force-other_thing.rigidbody.velocity)*(1/(c.separation+1)
-        ),c.point + c.normal);
+        other_thing.rigidbody.AddForceAtPosition((force - other_thing.rigidbody.velocity)
+                                                 * (1 / (c.separation + 1)),
+                                                 c.point + c.normal);
       }
 
       /*foreach (var c in other_thing.contacts) {

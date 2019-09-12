@@ -881,24 +881,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1982337359}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17779581c4dd9621caa11533a37c9bfd, type: 3}
+  m_Script: {fileID: 11500000, guid: 405bb38db1f054b65915028d4f64e32b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _Custom_Name: 
   _debugging: 0
   _disables_children: 0
   _unregister_at_disable: 0
-  _solved_reward: 1
-  _failed_reward: -1
-  _default_reward: -0.001
+  _solved_reward: 0
+  _failed_reward: -300
+  _default_reward: 1
   _Episode_Return: 0
   _last_signal: 0
-  _episode_length: 1000
+  _episode_length: 300
   _signal_space:
-    _Decimal_Granularity: 8
-    _min_: 0
+    _Decimal_Granularity: 0
+    _min_: -300
     _max_: 0
     normalised: 0
   terminatingTransforms:
   - {fileID: 340563977}
   boundingBox: {fileID: 1982337362}
+  _g1: {fileID: 1388449835}
+  _g2: {fileID: 340563977}

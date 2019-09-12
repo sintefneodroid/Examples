@@ -12,14 +12,14 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
   ///
   /// </summary>
   public class GraspTimedRespawn : MonoBehaviour {
-    [SerializeField] bool _debugging=false;
-    [SerializeField] Grasp _grasp=null;
-    [SerializeField] GraspableObject _graspable_object=null;
-    [SerializeField] ScriptedGrasping _grasping=null;
-    [SerializeField] Vector3 _initial_position=Vector3.zero;
-    [SerializeField] Quaternion _initial_rotation=quaternion.identity;
-    [SerializeField] Rigidbody[] _rigid_bodies=null;
-    [SerializeField] Rigidbody _rigid_body=null;
+    [SerializeField] bool _debugging = false;
+    [SerializeField] Grasp _grasp = null;
+    [SerializeField] GraspableObject _graspable_object = null;
+    [SerializeField] ScriptedGrasping _grasping = null;
+    [SerializeField] Vector3 _initial_position = Vector3.zero;
+    [SerializeField] Quaternion _initial_rotation = quaternion.identity;
+    [SerializeField] Rigidbody[] _rigid_bodies = null;
+    [SerializeField] Rigidbody _rigid_body = null;
     WaitForSeconds _wait_for_seconds = new WaitForSeconds(.5f);
 
     // Use this for initialization

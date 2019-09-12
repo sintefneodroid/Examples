@@ -5,6 +5,7 @@ using droid.Runtime.Structs.Space;
 using droid.Runtime.Utilities;
 using UnityEditor;
 using UnityEngine;
+
 #if UNITY_EDITOR
 
 #endif
@@ -76,8 +77,8 @@ namespace SceneAssets.BalanceBall {
       }
 
       this.transform.rotation = RotationClamping.ClampRotation(this.transform.rotation.eulerAngles,
-                                     this.limits.Max.x,
-                                     this.limits.Max.x);
+                                                               this.limits.Max.x,
+                                                               this.limits.Max.x);
     }
 
     public override String[] InnerMotionNames { get; }
@@ -87,9 +88,17 @@ namespace SceneAssets.BalanceBall {
       if (this.enabled) {
         var position = this.transform.position;
 
-        Handles.DrawWireArc(this.transform.position, this.transform.right, -this.transform.forward, 180, 2);
+        Handles.DrawWireArc(this.transform.position,
+                            this.transform.right,
+                            -this.transform.forward,
+                            180,
+                            2);
 
-        Handles.DrawWireArc(this.transform.position, this.transform.forward, -this.transform.right, 180, 2);
+        Handles.DrawWireArc(this.transform.position,
+                            this.transform.forward,
+                            -this.transform.right,
+                            180,
+                            2);
       }
     }
 

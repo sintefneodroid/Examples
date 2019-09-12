@@ -9,30 +9,30 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
   /// <summary>
   /// </summary>
   public class GripperControl : MonoBehaviour {
-    [SerializeField] Text _claw1_state=null;
-    [SerializeField] Text _claw2_state=null;
-    [SerializeField] Text _env_state=null;
+    [SerializeField] Text _claw1_state = null;
+    [SerializeField] Text _claw2_state = null;
+    [SerializeField] Text _env_state = null;
 
     [Space]
     [Header("State Panel")]
     [SerializeField]
-    Text _gripper_state=null;
+    Text _gripper_state = null;
 
     //float gripper_target_distance;
     //int iterations;
     //int obstacle_num;
-    [SerializeField] ScriptedGrasping _pf=null;
-    [SerializeField] Text _pf_state=null;
+    [SerializeField] ScriptedGrasping _pf = null;
+    [SerializeField] Text _pf_state = null;
 
-    [SerializeField] Slider _s_distance=null;
-    [SerializeField] Slider _s_obstacle=null;
+    [SerializeField] Slider _s_distance = null;
+    [SerializeField] Slider _s_obstacle = null;
 
-    [SerializeField] Text _t_gripper_target_distance=null;
-    [SerializeField] Text _t_obstacle_num=null;
-    [SerializeField] Text _t_waiting=null;
+    [SerializeField] Text _t_gripper_target_distance = null;
+    [SerializeField] Text _t_obstacle_num = null;
+    [SerializeField] Text _t_waiting = null;
 
     [SerializeField] Targets _target;
-    [SerializeField] Text _target_state=null;
+    [SerializeField] Text _target_state = null;
 
     void Start() {
       this._pf = FindObjectOfType<ScriptedGrasping>();
