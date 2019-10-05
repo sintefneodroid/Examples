@@ -329,14 +329,24 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
 
       if (p1.Handle2 != Vector3.zero) {
         if (p2.Handle1 != Vector3.zero) {
-          return GetCubicCurvePoint(p1.Position, p1.GlobalHandle2, p2.GlobalHandle1, p2.Position, t);
+          return GetCubicCurvePoint(p1.Position,
+                                    p1.GlobalHandle2,
+                                    p2.GlobalHandle1,
+                                    p2.Position,
+                                    t);
         }
 
-        return GetQuadraticCurvePoint(p1.Position, p1.GlobalHandle2, p2.Position, t);
+        return GetQuadraticCurvePoint(p1.Position,
+                                      p1.GlobalHandle2,
+                                      p2.Position,
+                                      t);
       }
 
       if (p2.Handle1 != Vector3.zero) {
-        return GetQuadraticCurvePoint(p1.Position, p2.GlobalHandle1, p2.Position, t);
+        return GetQuadraticCurvePoint(p1.Position,
+                                      p2.GlobalHandle1,
+                                      p2.Position,
+                                      t);
       }
 
       return GetLinearPoint(p1.Position, p2.Position, t);

@@ -10,7 +10,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
   /// </summary>
   public class DataCollector : MonoBehaviour {
     [SerializeField] Camera[] _cameras = null;
-    [SerializeField] int _current_episode_progress=0;
+    [SerializeField] int _current_episode_progress = 0;
 
     [SerializeField] int _episode_length = 100;
 
@@ -18,10 +18,10 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
     [SerializeField] string _file_path = @"training_data/";
     [SerializeField] string _file_path_gripper = @"gripper_position_rotation.csv";
     [SerializeField] string _file_path_target = @"target_position_rotation.csv";
-    [SerializeField] ScriptedGrasping _grasping=null;
+    [SerializeField] ScriptedGrasping _grasping = null;
 
-    [SerializeField] int _i=0;
-    [SerializeField] Grasp _target=null;
+    [SerializeField] int _i = 0;
+    [SerializeField] Grasp _target = null;
 
     void Start() {
       if (!this._grasping) {
@@ -129,7 +129,12 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
       input_camera.Render();
       var target_texture = input_camera.targetTexture;
       var image = new Texture2D(target_texture.width, target_texture.height);
-      image.ReadPixels(new Rect(0, 0, target_texture.width, target_texture.height), 0, 0);
+      image.ReadPixels(new Rect(0,
+                                0,
+                                target_texture.width,
+                                target_texture.height),
+                       0,
+                       0);
       image.Apply();
       RenderTexture.active = current_render_texture;
       return image;

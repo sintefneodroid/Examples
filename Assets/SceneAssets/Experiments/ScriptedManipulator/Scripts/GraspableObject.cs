@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using droid.Runtime.Utilities.Misc.Orientation;
+using droid.Runtime.Utilities.Orientation;
 using SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps;
 using UnityEngine;
 

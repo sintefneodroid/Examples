@@ -1,24 +1,25 @@
 ﻿using System.Collections;
-using droid.Runtime.Utilities.GameObjects.ChildSensors;
-using droid.Runtime.Utilities.Misc;
+using droid.Runtime.GameObjects.ChildSensors;
+using droid.Runtime.Utilities;
 using SceneAssets.Experiments.ScriptedManipulator.Scripts;
 using SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps;
 using Unity.Mathematics;
 using UnityEngine;
+using NeodroidUtilities = droid.Runtime.Utilities.Extensions.NeodroidUtilities;
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
   /// <summary>
   ///
   /// </summary>
   public class GraspTimedRespawn : MonoBehaviour {
-    [SerializeField] bool _debugging=false;
-    [SerializeField] Grasp _grasp=null;
-    [SerializeField] GraspableObject _graspable_object=null;
-    [SerializeField] ScriptedGrasping _grasping=null;
-    [SerializeField] Vector3 _initial_position=Vector3.zero;
-    [SerializeField] Quaternion _initial_rotation=quaternion.identity;
-    [SerializeField] Rigidbody[] _rigid_bodies=null;
-    [SerializeField] Rigidbody _rigid_body=null;
+    [SerializeField] bool _debugging = false;
+    [SerializeField] Grasp _grasp = null;
+    [SerializeField] GraspableObject _graspable_object = null;
+    [SerializeField] ScriptedGrasping _grasping = null;
+    [SerializeField] Vector3 _initial_position = Vector3.zero;
+    [SerializeField] Quaternion _initial_rotation = quaternion.identity;
+    [SerializeField] Rigidbody[] _rigid_bodies = null;
+    [SerializeField] Rigidbody _rigid_body = null;
     WaitForSeconds _wait_for_seconds = new WaitForSeconds(.5f);
 
     // Use this for initialization
@@ -38,7 +39,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
       this._initial_position = transform1.position;
       this._initial_rotation = transform1.rotation;
 
-      NeodroidUtilities
+      NeodroidRegistrationUtilities
           .RegisterCollisionTriggerCallbacksOnChildren<ChildCollider3DSensor, Collider, Collision>(this,
                                                                                                    this
                                                                                                        .transform,

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using droid.Runtime.Utilities.Misc.Grasping;
+using droid.Runtime.Utilities.Grasping;
 using UnityEngine;
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
@@ -8,10 +8,10 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
   /// <summary>
   /// </summary>
   public class ObstacleSpawner : MonoBehaviour {
-    [SerializeField] GameObject _cube=null;
-    [SerializeField] Material _material_cube=null;
+    [SerializeField] GameObject _cube = null;
+    [SerializeField] Material _material_cube = null;
 
-    [SerializeField] Material _material_sphere=null;
+    [SerializeField] Material _material_sphere = null;
 
     /// <summary>
     /// </summary>
@@ -25,17 +25,17 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
     [SerializeField]
     int _number_of_spheres = 1;
 
-    [SerializeField] GameObject[] _obstacles=null;
+    [SerializeField] GameObject[] _obstacles = null;
 
     [Header("Spawn random number of objects?")]
     [SerializeField]
-    bool _random_obj_num=false;
+    bool _random_obj_num = false;
 
     [Space]
     [Header("Random scaling of objects (0 = uniform scale)")]
     [Range(0.000f, 0.300f)]
     [SerializeField]
-    float _scaling_factor=0f;
+    float _scaling_factor = 0f;
 
     [Header("Cube")] [SerializeField] bool _spawn_cubes = true;
 
@@ -45,7 +45,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
     [SerializeField]
     bool _spawn_spheres = true;
 
-    [SerializeField] GameObject _sphere=null;
+    [SerializeField] GameObject _sphere = null;
 
     /// <summary>
     /// </summary>
@@ -139,7 +139,10 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
                                       Random.Range(-this._y_size / 2 + this._y_center_point,
                                                    this._y_size / 2 + this._y_center_point),
                                       Random.Range(-this._z_size / 2, this._z_size / 2));
-          var cube_clone = Instantiate(this._cube, spawn_pos, Quaternion.identity, this.transform);
+          var cube_clone = Instantiate(this._cube,
+                                       spawn_pos,
+                                       Quaternion.identity,
+                                       this.transform);
           cube_clone.transform.localScale =
               new Vector3(this._sphere_size + temp, this._sphere_size + temp, this._sphere_size + temp);
           cube_clone.SetActive(true);
@@ -160,7 +163,10 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
                                       Random.Range(-this._y_size / 2 + this._y_center_point,
                                                    this._y_size / 2 + this._y_center_point),
                                       Random.Range(-this._z_size / 2, this._z_size / 2));
-          var sphere_clone = Instantiate(this._sphere, spawn_pos, Quaternion.identity, this.transform);
+          var sphere_clone = Instantiate(this._sphere,
+                                         spawn_pos,
+                                         Quaternion.identity,
+                                         this.transform);
           sphere_clone.transform.localScale =
               new Vector3(this._sphere_size + temp, this._sphere_size + temp, this._sphere_size + temp);
           sphere_clone.SetActive(true);

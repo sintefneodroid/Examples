@@ -1,47 +1,46 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using droid.Runtime.Utilities.GameObjects.ChildSensors;
-using droid.Runtime.Utilities.Misc;
-using droid.Runtime.Utilities.Misc.Extensions;
-using droid.Runtime.Utilities.Misc.Grasping;
+using droid.Runtime.GameObjects.ChildSensors;
+using droid.Runtime.Utilities;
+using droid.Runtime.Utilities.Extensions;
+using droid.Runtime.Utilities.Grasping;
 using SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps;
 using SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation;
 using SceneAssets.Experiments.ScriptedManipulator.Utilities;
 using SceneAssets.Experiments.ScriptedManipulator.Utilities.Pathfinding;
 using UnityEngine;
+using NeodroidUtilities = droid.Runtime.Utilities.Extensions.NeodroidUtilities;
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
   /// <inheritdoc />
   /// <summary>
   /// </summary>
   public class ScriptedGrasping : MonoBehaviour {
+    public GraspableObject TargetGameObject {
+      get { return this._target_game_object; }
+      set {
+        this._target_game_object = value;
 
-
-      public GraspableObject TargetGameObject
-      {
-        get { return this._target_game_object; }
-        set
-        {
-          this._target_game_object = value;
-
-          this.StopCoroutine("gripper_movement");
-          this.StartCoroutine("gripper_movement", this.FollowPathToApproach1(this._target_game_object.transform));
-        }
+        this.StopCoroutine("gripper_movement");
+        this.StartCoroutine("gripper_movement",
+                            this.FollowPathToApproach1(this._target_game_object.transform));
       }
+    }
 
-       IEnumerator FollowPathToApproach1(Transform trans){
-        while (true){
-          if ((Vector3.Distance(this.transform.position, this._intermediate_target) <= this._precision)) {
-            this._intermediate_target = this._path.Next(1);
-          }
-
-          if (this._debugging) Debug.DrawRay(this._intermediate_target, this.transform.forward, Color.green);
-          this.transform.position = Vector3.MoveTowards(this.transform.position, this._intermediate_target, 1);
+    IEnumerator FollowPathToApproach1(Transform trans) {
+      while (true) {
+        if ((Vector3.Distance(this.transform.position, this._intermediate_target) <= this._precision)) {
+          this._intermediate_target = this._path.Next(1);
         }
+
+        if (this._debugging) {
+          Debug.DrawRay(this._intermediate_target, this.transform.forward, Color.green);
+        }
+
+        this.transform.position = Vector3.MoveTowards(this.transform.position, this._intermediate_target, 1);
       }
-
-
+    }
 
     /// <summary>
     ///
@@ -192,18 +191,18 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
     [Header("Game Objects")]
     [Tooltip("Game Object references")]
     [SerializeField]
-    GameObject _claw_motor=null;
+    GameObject _claw_motor = null;
 
-    [SerializeField] GameObject _grab_region=null;
-    [SerializeField] GameObject _begin_grab_region=null;
+    [SerializeField] GameObject _grab_region = null;
+    [SerializeField] GameObject _begin_grab_region = null;
 
-    [SerializeField] GameObject _claw_1=null;
-    [SerializeField] GameObject _claw_2=null;
+    [SerializeField] GameObject _claw_1 = null;
+    [SerializeField] GameObject _claw_2 = null;
 
-    [SerializeField] States _state=null;
-    [SerializeField] Transform _closed_motor_transform=null;
-    [SerializeField] ObstacleSpawner _obstacle_spawner=null;
-    [SerializeField] BezierCurve _bezier_curve_prefab=null;
+    [SerializeField] States _state = null;
+    [SerializeField] Transform _closed_motor_transform = null;
+    [SerializeField] ObstacleSpawner _obstacle_spawner = null;
+    [SerializeField] BezierCurve _bezier_curve_prefab = null;
 
     [Space(1)]
     [Header("Path Finding Parameters")]
@@ -216,12 +215,12 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
     [SerializeField] float _precision = 0.02f;
     [SerializeField] float _sensitivity = 0.2f;
     [SerializeField] float _approach_distance = 0.6f;
-    [SerializeField] bool _wait_for_resting_environment =false;
+    [SerializeField] bool _wait_for_resting_environment = false;
 
     [Space(1)]
     [Header("Show debug logs")]
     [SerializeField]
-    bool _debugging=false;
+    bool _debugging = false;
 
     [Space(1)]
     [Header("Draw Search Boundary")]
@@ -243,7 +242,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
     }
 
     void SetupEnvironment() {
-      NeodroidUtilities
+      NeodroidRegistrationUtilities
           .RegisterCollisionTriggerCallbacksOnChildren<ChildCollider3DSensor, Collider, Collision>(this,
                                                                                                    this
                                                                                                        .transform,
@@ -568,7 +567,10 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
         path_list = new List<Vector3> {start_position, target_position};
       }
 
-      var path = new BezierCurvePath(start_position, target_position, this._bezier_curve, path_list);
+      var path = new BezierCurvePath(start_position,
+                                     target_position,
+                                     this._bezier_curve,
+                                     path_list);
       return path;
     }
 

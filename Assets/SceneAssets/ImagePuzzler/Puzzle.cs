@@ -3,13 +3,13 @@ using UnityEngine;
 
 namespace SceneAssets.ImagePuzzler {
   public class Puzzle : MonoBehaviour {
-    bool _block_is_moving=false;
+    bool _block_is_moving = false;
     Block[,] _blocks;
     [SerializeField] float _default_move_duration = .2f;
     [SerializeField] Block _empty_block;
     [SerializeField] int _horisontal_divisions = 6;
 
-    [SerializeField] Texture2D _image=null;
+    [SerializeField] Texture2D _image = null;
     Queue<Block> _inputs;
     Vector2Int _prev_shuffle_offset;
     [SerializeField] int _shuffle_length = 20;
@@ -31,10 +31,8 @@ namespace SceneAssets.ImagePuzzler {
       this._blocks = new Block[this._horisontal_divisions, this._vertical_divisions];
       var image_slices = new Texture2D[this._horisontal_divisions, this._vertical_divisions];
       if (this._image) {
-        image_slices = ImageSlicer.GetSlices(
-            this._image,
-            this._horisontal_divisions,
-            this._vertical_divisions);
+        image_slices =
+            ImageSlicer.GetSlices(this._image, this._horisontal_divisions, this._vertical_divisions);
       }
 
       var dominant_division = Mathf.Max(this._vertical_divisions, this._horisontal_divisions);
@@ -115,8 +113,11 @@ namespace SceneAssets.ImagePuzzler {
 
     void MakeNextShuffleMove() {
       Vector2Int[] offsets = {
-          new Vector2Int(1, 0), new Vector2Int(-1, 0), new Vector2Int(0, 1), new Vector2Int(0, -1)
-      };
+                                 new Vector2Int(1, 0),
+                                 new Vector2Int(-1, 0),
+                                 new Vector2Int(0, 1),
+                                 new Vector2Int(0, -1)
+                             };
       var random_index = Random.Range(0, offsets.Length);
 
       for (var i = 0; i < offsets.Length; i++) {

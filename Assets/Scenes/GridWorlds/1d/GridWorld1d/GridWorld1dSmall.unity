@@ -94,8 +94,9 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 9eac9fc6fcf615f43a1559ed27369db5,
     type: 2}
   m_UseShadowmask: 1
@@ -235,6 +236,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -246,6 +248,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -408,6 +411,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -419,6 +423,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -499,6 +504,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -510,6 +516,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -556,6 +563,7 @@ GameObject:
   - component: {fileID: 745076141}
   - component: {fileID: 745076140}
   - component: {fileID: 745076144}
+  - component: {fileID: 745076143}
   m_Layer: 2
   m_Name: Goal
   m_TagString: Goal
@@ -591,6 +599,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -602,6 +611,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -635,6 +645,31 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 745076138}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &745076143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745076138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d81f9004e53acfda8f0dff19d803e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Custom_Name: 
+  _debugging: 0
+  _disables_children: 0
+  _unregister_at_disable: 0
+  _environment: {fileID: 1943801937}
+  _observation_value: 0
+  _observation_value_space:
+    _Decimal_Granularity: 4
+    _min_: -0
+    _max_: 0
+    normalised: 1
+  _dim: 0
+  normalised_overwrite_space_if_env_bounds: 1
 --- !u!114 &745076144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -648,23 +683,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Custom_Name: 
+  _debugging: 0
   _disables_children: 0
-  _editor_reregistering: 1
   _unregister_at_disable: 0
   _environment: {fileID: 1943801937}
+  random_sampling_mode: 3
   _relative_to_existing_value: 0
-  _sampleRandom: 0
-  on_tick: 0
   _axis_of_configuration: 0
-  _bounding_box: {fileID: 0}
-  _use_bounding_box_for_range: 0
   _observation_value: -3
-  _use_environments_space: 0
+  _use_environments_space: 1
   _single_value_space:
-    _Decimal_Granularity: 0
-    _Min_Value: 0
-    _Max_Value: 0
-    normalised: 0
+    _space1:
+      _Decimal_Granularity: 0
+      _min_: -0
+      _max_: 0
+      normalised: 1
     _distribution_sampler:
       _Direction: 0
       _factor: 0
@@ -817,8 +850,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Custom_Name: 
+  _debugging: 0
   _disables_children: 0
-  _editor_reregistering: 1
   _unregister_at_disable: 0
   _RetainLastPlot: 1
   clean_all_children: 1
@@ -838,8 +871,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Custom_Name: 
+  _debugging: 0
   _disables_children: 0
-  _editor_reregistering: 1
   _unregister_at_disable: 0
   _RetainLastPlot: 1
   clean_all_children: 1
@@ -1025,6 +1058,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -1036,6 +1070,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -1120,6 +1155,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -1131,6 +1167,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -1177,22 +1214,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Custom_Name: 
+  _debugging: 0
   _disables_children: 0
-  _editor_reregistering: 1
   _unregister_at_disable: 0
   _environment: {fileID: 1943801937}
-  _normalise_observation: 1
-  _observation_value: 0.5
+  _observation_value: 0
   _observation_value_space:
-    _Decimal_Granularity: 2
-    _Min_Value: -3
-    _Max_Value: 3
+    _Decimal_Granularity: 4
+    _min_: -0
+    _max_: 0
     normalised: 1
-    _distribution_sampler:
-      _Direction: 0
-      _factor: 0
-      _de: 0
   _dim: 0
+  normalised_overwrite_space_if_env_bounds: 1
 --- !u!114 &1650564491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1206,14 +1239,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Custom_Name: Horizontal
+  _debugging: 0
   _disables_children: 0
-  _editor_reregistering: 1
   _unregister_at_disable: 0
   _motion_value_space:
-    _Decimal_Granularity: 0
-    _Min_Value: -1
-    _Max_Value: 1
-    normalised: 0
+    _space1:
+      _Decimal_Granularity: 0
+      _min_: -1
+      _max_: 1
+      normalised: 0
     _distribution_sampler:
       _Direction: 0
       _factor: 0
@@ -1237,8 +1271,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Custom_Name: Actor
+  _debugging: 0
   _disables_children: 0
-  _editor_reregistering: 1
   _unregister_at_disable: 0
   _bounds:
     m_Center: {x: -2, y: 0, z: 3}
@@ -1258,23 +1292,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Custom_Name: 
+  _debugging: 0
   _disables_children: 0
-  _editor_reregistering: 1
   _unregister_at_disable: 0
   _environment: {fileID: 1943801937}
+  random_sampling_mode: 3
   _relative_to_existing_value: 0
-  _sampleRandom: 0
-  on_tick: 0
   _axis_of_configuration: 0
-  _bounding_box: {fileID: 0}
-  _use_bounding_box_for_range: 0
   _observation_value: 0
-  _use_environments_space: 0
+  _use_environments_space: 1
   _single_value_space:
-    _Decimal_Granularity: 0
-    _Min_Value: -3
-    _Max_Value: 3
-    normalised: 0
+    _space1:
+      _Decimal_Granularity: 0
+      _min_: -0
+      _max_: 0
+      normalised: 1
     _distribution_sampler:
       _Direction: 0
       _factor: 0
@@ -1338,7 +1370,7 @@ PrefabInstance:
     - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 141.50005
+      value: 141.46866
       objectReference: {fileID: 0}
     - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 3}
@@ -1388,6 +1420,38 @@ PrefabInstance:
     - target: {fileID: 224219095199356408, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 3}
       propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
+      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114152215923272706, guid: 2e92782f81c5740819ca66bda35481ce,
@@ -1464,38 +1528,6 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
 --- !u!1 &1943801930
@@ -1547,7 +1579,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 3, z: 10}
+  m_Size: {x: 7, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1943801933
 MonoBehaviour:
@@ -1562,8 +1594,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Custom_Name: 
+  _debugging: 0
   _disables_children: 0
-  _editor_reregistering: 1
   _unregister_at_disable: 0
   _Parent_Environment: {fileID: 1943801937}
   _actor: {fileID: 1650564493}
@@ -1585,17 +1617,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Custom_Name: 
+  _debugging: 0
   _disables_children: 0
-  _editor_reregistering: 1
   _unregister_at_disable: 0
   _solved_reward: 1
   _failed_reward: -1
   _default_reward: 0
   _Episode_Return: 0
-  _environment: {fileID: 1943801937}
-  _solved_threshold: 0
   _last_signal: 0
   _episode_length: 10
+  _signal_space:
+    _Decimal_Granularity: 0
+    _min_: 0
+    _max_: 0
+    normalised: 0
+  terminatingTransforms: []
+  boundingBox: {fileID: 0}
   _peak_reward: 0
   _distance_base: 2
   _distance_nominator: 8.3
@@ -1652,8 +1689,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Custom_Name: 
+  _debugging: 0
   _disables_children: 0
-  _editor_reregistering: 1
   _unregister_at_disable: 0
   _Lastest_Reset_Time: 0
   _LastTermination_Reason: None

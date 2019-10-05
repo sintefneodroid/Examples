@@ -51,7 +51,10 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.Pathfinding {
       var return_set = new List<FastVector3>();
 
       foreach (var neighbour in neighbours) {
-        if (IsObstructed(neighbour, c, search_boundary, sphere_cast_radius)) {
+        if (IsObstructed(neighbour,
+                         c,
+                         search_boundary,
+                         sphere_cast_radius)) {
           continue; // do not add obstructed points to returned set
         }
 
@@ -128,8 +131,10 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.Pathfinding {
         }
 
         //Get neighboring points
-        var neighbours =
-            GetUnobstructedNeighbouringNodes(current_point.V, search_boundary, grid_granularity, agent_size);
+        var neighbours = GetUnobstructedNeighbouringNodes(current_point.V,
+                                                          search_boundary,
+                                                          grid_granularity,
+                                                          agent_size);
 
         //Calculate scores and add to frontier
         foreach (var neighbour in neighbours) {

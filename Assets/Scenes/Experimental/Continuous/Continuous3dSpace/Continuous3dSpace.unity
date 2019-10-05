@@ -1410,7 +1410,7 @@ PrefabInstance:
     - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 141.49911
+      value: 141.05232
       objectReference: {fileID: 0}
     - target: {fileID: 224267871597078786, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 3}
@@ -1512,22 +1512,6 @@ PrefabInstance:
       propertyPath: _poll_event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: IdentifierString
       objectReference: {fileID: 0}
-    - target: {fileID: 114088500222901950, guid: 2e92782f81c5740819ca66bda35481ce,
-        type: 3}
-      propertyPath: _poll_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1943801934}
-    - target: {fileID: 114088500222901950, guid: 2e92782f81c5740819ca66bda35481ce,
-        type: 3}
-      propertyPath: _poll_event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SignalString
-      objectReference: {fileID: 0}
-    - target: {fileID: 114088500222901950, guid: 2e92782f81c5740819ca66bda35481ce,
-        type: 3}
-      propertyPath: _poll_event.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: droid.Runtime.Utilities.GameObjects.StatusDisplayer.EventRecipients.droid.Neodroid.Utilities.Unsorted.DataPoller,
-        Neodroid.Runtime
-      objectReference: {fileID: 0}
     - target: {fileID: 114221796099513398, guid: 2e92782f81c5740819ca66bda35481ce,
         type: 3}
       propertyPath: _poll_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1592,6 +1576,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114088500222901950, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 3}
+      propertyPath: _poll_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1943801934}
+    - target: {fileID: 114088500222901950, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 3}
+      propertyPath: _poll_event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SignalString
+      objectReference: {fileID: 0}
+    - target: {fileID: 114088500222901950, guid: 2e92782f81c5740819ca66bda35481ce,
+        type: 3}
+      propertyPath: _poll_event.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: droid.Runtime.Utilities.GameObjects.StatusDisplayer.EventRecipients.droid.Neodroid.Utilities.Unsorted.DataPoller,
+        Neodroid.Runtime
       objectReference: {fileID: 0}
     - target: {fileID: 4635725927686626, guid: 2e92782f81c5740819ca66bda35481ce, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1725,8 +1725,7 @@ MonoBehaviour:
   _solved_reward: 1
   _failed_reward: -1
   _default_reward: 0
-  _Episode_Return: 3799.3594
-  _environment: {fileID: 1943801933}
+  _Episode_Return: 4581.674
   _last_signal: 3.032169
   _episode_length: 1000
   _signal_space:

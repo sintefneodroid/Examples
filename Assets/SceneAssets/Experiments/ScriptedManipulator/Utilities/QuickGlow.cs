@@ -4,16 +4,16 @@ using UnityEngine;
 namespace SceneAssets.Experiments.ScriptedManipulator.Utilities {
   [ExecuteInEditMode]
   public class QuickGlow : MonoBehaviour {
-    [SerializeField] Material _add_material=null;
-    [SerializeField] Material _blur_material=null;
+    [SerializeField] Material _add_material = null;
+    [SerializeField] Material _blur_material = null;
 
-    [Range(0, 4)] public int _Down_Res=0;
+    [Range(0, 4)] public int _Down_Res = 0;
 
-    [Range(0, 3)] public float _Intensity=0;
+    [Range(0, 3)] public float _Intensity = 0;
 
-    [Range(0, 10)] public int _Iterations=0;
+    [Range(0, 10)] public int _Iterations = 0;
 
-    [Range(0, 10)] public float _Size=0;
+    [Range(0, 10)] public float _Size = 0;
     static readonly Int32 _size = Shader.PropertyToID("_Size");
     static readonly Int32 _intensity = Shader.PropertyToID("_Intensity");
     static readonly Int32 _blend_tex = Shader.PropertyToID("_BlendTex");

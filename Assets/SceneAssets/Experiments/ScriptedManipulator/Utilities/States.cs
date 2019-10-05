@@ -1,5 +1,5 @@
 ﻿using System;
-using droid.Runtime.Utilities.Misc.Orientation;
+using droid.Runtime.Utilities.Orientation;
 
 namespace SceneAssets.Experiments.ScriptedManipulator.Utilities {
   #region Enums
@@ -12,10 +12,12 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities {
     /// 
     /// </summary>
     Is_at_rest_,
+
     /// <summary>
     /// 
     /// </summary>
     Was_moving_,
+
     /// <summary>
     /// 
     /// </summary>
@@ -30,22 +32,27 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities {
     /// 
     /// </summary>
     Waiting_for_target_,
+
     /// <summary>
     /// 
     /// </summary>
     Waiting_for_resting_environment_,
+
     /// <summary>
     /// 
     /// </summary>
     Navigating_,
+
     /// <summary>
     /// 
     /// </summary>
     Approaching_,
+
     /// <summary>
     /// 
     /// </summary>
     Picking_up_target_,
+
     /// <summary>
     /// 
     /// </summary>
@@ -60,14 +67,17 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities {
     /// 
     /// </summary>
     Closed_,
+
     /// <summary>
     /// 
     /// </summary>
     Open_,
+
     /// <summary>
     /// 
     /// </summary>
     Closing_,
+
     /// <summary>
     /// 
     /// </summary>
@@ -82,6 +92,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities {
     /// 
     /// </summary>
     Touching_target_,
+
     /// <summary>
     /// 
     /// </summary>
@@ -96,14 +107,17 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities {
     /// 
     /// </summary>
     Grabbed_,
+
     /// <summary>
     /// 
     /// </summary>
     Not_grabbed_,
+
     /// <summary>
     /// 
     /// </summary>
     Outside_region_,
+
     /// <summary>
     /// 
     /// </summary>

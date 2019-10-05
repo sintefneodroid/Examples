@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using droid.Runtime.Environments;
-using droid.Runtime.Prototyping.Evaluation;
+using droid.Runtime.Environments.Prototyping;
+using droid.Runtime.Prototyping.ObjectiveFunctions.Spatial;
 using droid.Runtime.Prototyping.Sensors.Grid;
-using droid.Runtime.Utilities.Misc.Grid;
-using droid.Runtime.Utilities.Structs;
+using droid.Runtime.Structs.Vectors;
+using droid.Runtime.Utilities.Grid;
 using UnityEngine;
 
 namespace SceneAssets.GridWorlds.Scripts {
@@ -103,7 +104,12 @@ namespace SceneAssets.GridWorlds.Scripts {
       for (var i = 0; i < xs; i++) {
         for (var j = 0; j < ys; j++) {
           for (var k = 0; k < zs; k++) {
-            new_grid[i, j, k] = this.CreateEmptyCell(i, j, k, xs, ys, zs);
+            new_grid[i, j, k] = this.CreateEmptyCell(i,
+                                                     j,
+                                                     k,
+                                                     xs,
+                                                     ys,
+                                                     zs);
           }
         }
       }
@@ -134,7 +140,12 @@ namespace SceneAssets.GridWorlds.Scripts {
                                    ys,
                                    zs); // does not count
         while (active_cells.Count > 0) {
-          this.DoNextGenerationStep(ref empty_cells_num, ref new_grid, ref active_cells, xs, ys, zs);
+          this.DoNextGenerationStep(ref empty_cells_num,
+                                    ref new_grid,
+                                    ref active_cells,
+                                    xs,
+                                    ys,
+                                    zs);
         }
 
         percentage_empty_cells = empty_cells_num / total_cells;
@@ -144,7 +155,12 @@ namespace SceneAssets.GridWorlds.Scripts {
         for (var j = 0; j < ys; j++) {
           for (var k = 0; k < zs; k++) {
             if (new_grid[i, j, k] == null) {
-              var new_cell = this.CreateFilledCell(i, j, k, xs, ys, zs);
+              var new_cell = this.CreateFilledCell(i,
+                                                   j,
+                                                   k,
+                                                   xs,
+                                                   ys,
+                                                   zs);
               new_grid[i, j, k] = new_cell;
             }
           }
@@ -171,7 +187,10 @@ namespace SceneAssets.GridWorlds.Scripts {
                                int ys,
                                int zs) {
       if (grid[c.X, c.Y, c.Z] == null) {
-        grid[c.X, c.Y, c.Z] = this.CreateEmptyCell(c, xs, ys, zs);
+        grid[c.X, c.Y, c.Z] = this.CreateEmptyCell(c,
+                                                   xs,
+                                                   ys,
+                                                   zs);
         empty_cells_num += 1;
       }
 
@@ -190,7 +209,10 @@ namespace SceneAssets.GridWorlds.Scripts {
       var c = current_cell.GridCoordinates + direction.ToIntVector3();
 
       if (this.ContainsCoordinates(c) && grid[c.X, c.Y, c.Z] == null) {
-        grid[c.X, c.Y, c.Z] = this.CreateEmptyCell(c, xs, ys, zs);
+        grid[c.X, c.Y, c.Z] = this.CreateEmptyCell(c,
+                                                   xs,
+                                                   ys,
+                                                   zs);
         active_cells.Add(grid[c.X, c.Y, c.Z]);
         empty_cells_num += 1;
       } else {
@@ -208,11 +230,21 @@ namespace SceneAssets.GridWorlds.Scripts {
     }
 
     GridCell CreateEmptyCell(IntVector3 c, IntVector3 size) {
-      return this.CreateEmptyCell(c.X, c.Y, c.Z, size.X, size.Y, size.Z);
+      return this.CreateEmptyCell(c.X,
+                                  c.Y,
+                                  c.Z,
+                                  size.X,
+                                  size.Y,
+                                  size.Z);
     }
 
     GridCell CreateEmptyCell(IntVector3 c, int xs, int ys, int zs) {
-      return this.CreateEmptyCell(c.X, c.Y, c.Z, xs, ys, zs);
+      return this.CreateEmptyCell(c.X,
+                                  c.Y,
+                                  c.Z,
+                                  xs,
+                                  ys,
+                                  zs);
     }
 
     GridCell CreateEmptyCell(int x, int y, int z, int xs, int ys, int zs) {
@@ -247,7 +279,10 @@ namespace SceneAssets.GridWorlds.Scripts {
       var xs = this._grid_size.X;
       var ys = this._grid_size.Y;
       var zs = this._grid_size.Z;
-      this._grid = this.GenerateRandomGrid(xs, ys, zs, this._min_empty_cells_percentage);
+      this._grid = this.GenerateRandomGrid(xs,
+                                           ys,
+                                           zs,
+                                           this._min_empty_cells_percentage);
 
       this._goal_cell_observer = this.gameObject.GetComponent<GoalCellSensor>();
 
@@ -273,7 +308,10 @@ namespace SceneAssets.GridWorlds.Scripts {
         }
       }
 
-      this._grid = this.GenerateRandomGrid(xs, ys, zs, this._min_empty_cells_percentage);
+      this._grid = this.GenerateRandomGrid(xs,
+                                           ys,
+                                           zs,
+                                           this._min_empty_cells_percentage);
     }
 
     /// <summary>
@@ -284,7 +322,7 @@ namespace SceneAssets.GridWorlds.Scripts {
 
       var objective_function = this.ObjectiveFunction as ReachGoal;
 
-      if (empty_cells!=null && empty_cells.Count>0) {
+      if (empty_cells != null && empty_cells.Count > 0) {
         foreach (var a in this.Actors) {
           var idx = Random.Range(0, empty_cells.Count);
           var empty_cell = empty_cells[idx];
@@ -322,7 +360,7 @@ namespace SceneAssets.GridWorlds.Scripts {
       }
 
       this.UpdateConfigurableValues();
-      this.UpdateObserversData();
+      this.UpdateSensorsData();
     }
   }
 }

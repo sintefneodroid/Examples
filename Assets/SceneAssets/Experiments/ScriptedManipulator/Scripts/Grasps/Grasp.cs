@@ -3,7 +3,7 @@
 namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps {
   [ExecuteInEditMode]
   public class Grasp : MonoBehaviour {
-    [SerializeField] bool _draw_ray_cast=false;
+    [SerializeField] bool _draw_ray_cast = false;
     [SerializeField] float _obstruction_cast_length = 0.1f;
     [SerializeField] float _obstruction_cast_radius = 0.1f;
 
@@ -16,9 +16,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps {
       if (this._draw_ray_cast) {
         var transform1 = this.transform;
         var position = transform1.position;
-        Debug.DrawLine(position,
-                       position - transform1.forward * this._obstruction_cast_length,
-                       color);
+        Debug.DrawLine(position, position - transform1.forward * this._obstruction_cast_length, color);
         var up = transform1.up;
         Debug.DrawLine(this.transform.position - up * this._obstruction_cast_radius,
                        position + up * this._obstruction_cast_radius,
@@ -53,11 +51,10 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps {
       var transform1 = this.transform;
       var position = transform1.position;
       var forward = transform1.forward;
-      return Physics
-             .OverlapCapsule(position - forward * this._obstruction_cast_radius,
-                             position - forward * this._obstruction_cast_length,
-                             this._obstruction_cast_radius,
-                             LayerMask.GetMask("Obstruction")).Length
+      return Physics.OverlapCapsule(position - forward * this._obstruction_cast_radius,
+                                    position - forward * this._obstruction_cast_length,
+                                    this._obstruction_cast_radius,
+                                    LayerMask.GetMask("Obstruction")).Length
              > 0;
     }
   }
