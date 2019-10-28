@@ -5,7 +5,7 @@ namespace SceneAssets.BalanceBall {
   /// <summary>
   ///
   /// </summary>
-  public class SparseStayInAreaObjectionFunction : SpatialObjectionFunction {
+  public class SparseStayInAreaObjectionFunction : SpatialObjective {
     /// <summary>
     ///
     /// </summary>

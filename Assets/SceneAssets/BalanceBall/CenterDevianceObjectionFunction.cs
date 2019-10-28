@@ -5,7 +5,7 @@ namespace SceneAssets.BalanceBall {
   /// <summary>
   ///
   /// </summary>
-  public class CenterDevianceObjectionFunction : SpatialObjectionFunction {
+  public class CenterDevianceObjectionFunction : SpatialObjective {
     /// <summary>
     ///
     /// </summary>

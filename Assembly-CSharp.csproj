@@ -2,9 +2,8 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <_TargetFrameworkDirectories>non_empty_path_generated_by_unity.rider.package</_TargetFrameworkDirectories>
-    <_FullFrameworkReferenceAssemblyPaths>non_empty_path_generated_by_unity.rider.package</_FullFrameworkReferenceAssemblyPaths>
-    <DisableHandlePackageFileConflicts>true</DisableHandlePackageFileConflicts>
+    <CscToolPath>/home/heider/Unity/Hub/Editor/2019.3.0b1/Editor/Data/Tools/RoslynScripts</CscToolPath>
+    <CscToolExe>unity_csc.sh</CscToolExe>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -346,26 +345,26 @@
      <Compile Include="Assets\SceneAssets\Manipulator\Scripts\IkSolverEnablerConfigurable.cs" />
      <Compile Include="Assets\SceneAssets\Manipulator\Scripts\InjectRandomRigidbodyNoise.cs" />
      <Compile Include="Assets\SceneAssets\Move\Conveyor.cs" />
-     <Compile Include="Assets\SceneAssets\Skyboxes\Test\Misc\CameraMove.cs" />
      <Compile Include="Assets\SceneAssets\Walker\DaylightSimulator.cs" />
+     <Compile Include="Assets\SceneAssets\Walker\Skyboxes\Test\Misc\CameraMove.cs" />
      <Compile Include="Assets\droid\Samples\MultiArmedBandit\Actuators\MultiArmedBanditActuator.cs" />
      <Compile Include="Assets\droid\Samples\MultiArmedBandit\Actuators\RestlessMultiArmedBanditActuator.cs" />
      <Compile Include="Assets\droid\Samples\MultiArmedBandit\Displayers\TextBarPlotDisplayer.cs" />
-     <Compile Include="Assets\droid\Samples\MultiArmedBandit\Evaluation\MultiArmedBanditEvaluation.cs" />
+     <Compile Include="Assets\droid\Samples\MultiArmedBandit\Evaluation\MultiArmedBanditObjective.cs" />
      <None Include="Assets\Exclude\StandardAssets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
      <None Include="Assets\Exclude\Move\ProcSpaceSkybox.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
-     <None Include="Assets\SceneAssets\Skyboxes\Test\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\SeparableBlur.shader" />
+     <None Include="Assets\SceneAssets\Walker\Skyboxes\Test\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\SeparableBlur.shader" />
      <None Include="Assets\Exclude\Water\Shaders\Water_Deferred.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Exclude\StandardAssets\Effects\Projectors\Shaders\ProjectorLight.shader" />
-     <None Include="Assets\SceneAssets\Skyboxes\Test\OpenfootageNET\Acknowledgement.txt" />
+     <None Include="Assets\SceneAssets\Walker\Skyboxes\Test\OpenfootageNET\Acknowledgement.txt" />
      <None Include="Assets\Exclude\StandardAssets\Effects\Projectors\Shaders\ProjectorMultiply.shader" />
      <None Include="Assets\droid\mcs.rsp" />
      <None Include="Assets\smcs.rsp" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
      <None Include="Assets\Exclude\Tayx\Graphy - Ultimate Stats Monitor\Changelog.txt" />
-     <None Include="Assets\SceneAssets\Skyboxes\Test\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\VignettingShader.shader" />
+     <None Include="Assets\SceneAssets\Walker\Skyboxes\Test\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\VignettingShader.shader" />
      <None Include="Assets\Exclude\StandardAssets\Effects\Projectors\Guidelines.txt" />
      <None Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Shaders\Experimental\OverDraw.shader" />
      <None Include="Assets\Exclude\ProceduralToolkit\Examples\SDF\DistanceOperations.shader" />
@@ -374,6 +373,7 @@
      <None Include="Assets\Exclude\StandardAssets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
      <None Include="Assets\Exclude\SampleScenes\Shaders\Skybox-Procedural.shader" />
      <None Include="Assets\Exclude\ProceduralToolkit\Examples\Characters\names.txt" />
+     <None Include="Assets\Exclude\Turbulence-Library\Resources\shader.template" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\Exclude\StandardAssets\Vehicles\Car\CarGuidelines.txt" />
      <None Include="Assets\SceneAssets\Experiments\ScriptedManipulator\Shaders\Experimental\DepthDeprecated.shader" />
@@ -410,7 +410,7 @@
      <None Include="Assets\droid\Libraries\NetMQ.4.0.0.175-pre\lib\net40\NetMQ.xml" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\droid\Libraries\OptimizedPriorityQueue.4.1.1\lib\net45\Priority Queue.xml" />
-     <None Include="Assets\SceneAssets\Skyboxes\Test\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ChromaticAberrationShader.shader" />
+     <None Include="Assets\SceneAssets\Walker\Skyboxes\Test\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ChromaticAberrationShader.shader" />
      <None Include="Assets\Exclude\RemoteRender\Resources\Shaders\Overlay.shader" />
      <None Include="Assets\droid\csc.rsp" />
      <None Include="Assets\Exclude\Tayx\Graphy - Ultimate Stats Monitor\Font\Roboto\LICENSE.txt" />
@@ -458,9 +458,6 @@
  <Reference Include="Unity.ProBuilder">
  <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
  </Reference>
- <Reference Include="Unity.VectorGraphics">
- <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.VectorGraphics.dll</HintPath>
- </Reference>
  <Reference Include="Unity.RemoteConfig.Editor">
  <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.RemoteConfig.Editor.dll</HintPath>
  </Reference>
@@ -478,9 +475,6 @@
  </Reference>
  <Reference Include="UnityTestPackage.Editor">
  <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/UnityTestPackage.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.InternalAPIEditorBridge.003">
- <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.003.dll</HintPath>
  </Reference>
  <Reference Include="UnityTestPackage.Runtime">
  <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/UnityTestPackage.Runtime.dll</HintPath>
@@ -511,9 +505,6 @@
  </Reference>
  <Reference Include="Unity.Rider.Editor">
  <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.VectorGraphics.Editor">
- <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.VectorGraphics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Mathematics">
  <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
@@ -547,9 +538,6 @@
  </Reference>
  <Reference Include="Unity.PackageValidationSuite.Editor.Extension">
  <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.PackageValidationSuite.Editor.Extension.dll</HintPath>
- </Reference>
- <Reference Include="Unity.InternalAPIEngineBridge.003">
- <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.003.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Mathematics.Editor">
  <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>

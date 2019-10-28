@@ -2,9 +2,8 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <_TargetFrameworkDirectories>non_empty_path_generated_by_unity.rider.package</_TargetFrameworkDirectories>
-    <_FullFrameworkReferenceAssemblyPaths>non_empty_path_generated_by_unity.rider.package</_FullFrameworkReferenceAssemblyPaths>
-    <DisableHandlePackageFileConflicts>true</DisableHandlePackageFileConflicts>
+    <CscToolPath>/home/heider/Unity/Hub/Editor/2019.3.0b1/Editor/Data/Tools/RoslynScripts</CscToolPath>
+    <CscToolExe>unity_csc.sh</CscToolExe>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -74,8 +73,8 @@
      <Compile Include="Assets\droid\Runtime\Enums\WaitOn.cs" />
      <Compile Include="Assets\droid\Runtime\Environments\Experimental\ImitationEnvironment.cs" />
      <Compile Include="Assets\droid\Runtime\Environments\NeodroidEnvironment.cs" />
+     <Compile Include="Assets\droid\Runtime\Environments\Prototyping\AbstractSpatialPrototypingEnvironment.cs" />
      <Compile Include="Assets\droid\Runtime\Environments\Prototyping\ActorisedPrototypingEnvironment.cs" />
-     <Compile Include="Assets\droid\Runtime\Environments\Prototyping\BaseSpatialPrototypingEnvironment.cs" />
      <Compile Include="Assets\droid\Runtime\Environments\Prototyping\PrototypingEnvironment.cs" />
      <Compile Include="Assets\droid\Runtime\Environments\RandomisedEnvironment.cs" />
      <Compile Include="Assets\droid\Runtime\Environments\ScriptedEnviroment.cs" />
@@ -134,6 +133,7 @@
      <Compile Include="Assets\droid\Runtime\Interfaces\IConfigurableConfiguration.cs" />
      <Compile Include="Assets\droid\Runtime\Interfaces\IDisplayer.cs" />
      <Compile Include="Assets\droid\Runtime\Interfaces\IEnvironment.cs" />
+     <Compile Include="Assets\droid\Runtime\Interfaces\IEpisodicObjectiveFunction.cs" />
      <Compile Include="Assets\droid\Runtime\Interfaces\IHasByteArray.cs" />
      <Compile Include="Assets\droid\Runtime\Interfaces\IHasDouble.cs" />
      <Compile Include="Assets\droid\Runtime\Interfaces\IHasDoubleArray.cs" />
@@ -187,7 +187,7 @@
      <Compile Include="Assets\droid\Runtime\Messaging\Messages\Displayables\DisplayableValues.cs" />
      <Compile Include="Assets\droid\Runtime\Messaging\Messages\Displayables\DisplayableVector3s.cs" />
      <Compile Include="Assets\droid\Runtime\Messaging\Messages\EnvironmentDescription.cs" />
-     <Compile Include="Assets\droid\Runtime\Messaging\Messages\EnvironmentState.cs" />
+     <Compile Include="Assets\droid\Runtime\Messaging\Messages\EnvironmentSnapshot.cs" />
      <Compile Include="Assets\droid\Runtime\Messaging\Messages\MotorMotion.cs" />
      <Compile Include="Assets\droid\Runtime\Messaging\Messages\Reaction.cs" />
      <Compile Include="Assets\droid\Runtime\Messaging\Messages\ReactionParameters.cs" />
@@ -203,11 +203,13 @@
      <Compile Include="Assets\droid\Runtime\Prototyping\Actuators\Actuator.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\Actuators\ActuatorComponentMenuPath.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\Actuators\BanditArmActuator.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Actuators\Discrete\DiscreteRigidbodyMotionRegister.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Actuators\Discrete\DiscreteTransformMotionRegister.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Actuators\Discrete\IndexedMotionActuator.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\Actuators\EulerTransform1DofActuator.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\Actuators\EulerTransform3DofActuator.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\Actuators\EulerTransformActuator.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\Actuators\Experimental\CarControllerActuactor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Actuators\IndexedMotionActuator.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\Actuators\Particles\RocketActuator.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\Actuators\Rigidbody1DofActuator.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\Actuators\Rigidbody3DofActuator.cs" />
@@ -244,6 +246,7 @@
      <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\Transforms\ScreenSpacePositionConfigurable.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\Transforms\SizeConfigurable.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\Transforms\SpatialConfigurable.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\Transforms\SphericalCoordinateConfigurable.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\Configurables\Transforms\TransformConfigurable1Dof.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\Displayers\Canvas\CanvasBarDisplayer.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\Displayers\Canvas\CanvasTextDisplayer.cs" />
@@ -259,59 +262,63 @@
      <Compile Include="Assets\droid\Runtime\Prototyping\Displayers\ScatterPlots\TextScatterPlotDisplayer.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\Displayers\ScatterPlots\VectorFieldDisplayer.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\Displayers\TextMeshDisplayer.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\EpisodicObjective.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\EvaluationComponentMenuPath.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\ObjectiveFunction.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\Spatial\AngularVelocityEvaluation.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\Spatial\AvoidCollisionEvaluation.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\Spatial\EuclideanDistance.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\Spatial\PoseDeviance.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\Spatial\PunishmentFunction.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\Spatial\ReachArea.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\Spatial\ReachGoal.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\Spatial\RestInArea.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\Spatial\SeekAndAvoidEvaluation.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\Spatial\SpatialObjectionFunction.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\Spatial\VelocityEvaluation.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\Objective.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\Spatial\AngularVelocityObjective.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\Spatial\AvoidanceObjective.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\Spatial\EuclideanDistanceObjective.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\Spatial\PoseDevianceObjective.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\Spatial\ReachAreaObjective.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\Spatial\ReachGoalObjective.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\Spatial\RestInAreaObjective.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\Spatial\SeekAndAvoidObjective.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\Spatial\SpatialObjective.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\Spatial\VelocityObjective.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\ObjectiveFunctions\Tasks\TaskSequence.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\PrototypingComponentMenuPath.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\BoundingBox\BoundingBoxSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\BoundingBox\ScreenSpaceBoundingBoxSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\BoundingBox\TwoDimensionalScreenSpaceSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Camera\ByteArrayCameraSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Camera\Deprecated\EncodedCameraSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Camera\Deprecated\FloatArrayCameraSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Camera\Deprecated\NativeColorFloatArrayCameraSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Camera\Deprecated\Segmentation\SegmentationEncodedCameraSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Camera\Deprecated\Segmentation\SegmentationSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Camera\Deprecated\StringAugmentedEncodedCameraSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Auditory\AudioSpectrumSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Auditory\AudioWaveformSensor.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Experimental\ByteArrayRawImageSensor.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Experimental\CategoricalSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Experimental\CompassSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Experimental\DistanceSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Experimental\TargetRigidbodySensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Experimental\ValueSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Grid\GoalCellSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Grid\GridPositionSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Occupancy\Occupancy3dSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Rays\Experimental\Ray.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Rays\Lidar\OmnidirectionalLidarSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Rays\Lidar\SingleSweepingRayLidarSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Rays\LineOfSightSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Rays\NearestByTagSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Rays\RaycastSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Rigidbody\AngularVelocitySensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Rigidbody\RigidbodySensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Rigidbody\VelocitySensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Experimental\SingleValueSensor.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Sensor.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\SensorComponentMenuPath.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\BoundingBox\BoundingBoxSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\BoundingBox\ScreenSpaceBoundingBoxSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\BoundingBox\TwoDimensionalScreenSpaceSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\EntityCentric\DistanceSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\EntityCentric\Rays\Experimental\Ray.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\EntityCentric\Rays\Lidar\PlanarLidarSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\EntityCentric\Rays\Lidar\StaticOmnidirectionalLidarSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\EntityCentric\Rays\Lidar\SweepingLidarSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\EntityCentric\Rays\LineOfSightSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\EntityCentric\Rays\NearestByTagSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\EntityCentric\Rays\RaycastSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\EntityCentric\TargetDirectionSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\EntityCentric\TargetRigidbodySensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\Grid\GoalCellSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\Grid\GridPositionSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\Occupancy\Occupancy3dSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\Rigidbody\AngularVelocitySensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\Rigidbody\RigidbodySensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\Rigidbody\VelocitySensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\Transform\EulerTransformSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\Transform\Position2DSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\Transform\PositionSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\Transform\QuaternionTransformSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\Transform\RotationSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\Transform\ScaleSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\Transform\SingleAxisTransformSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Spatial\Transform\SphericalCoordinateSensor.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Strings\StringSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Transform\EulerTransformSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Transform\Position2DSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Transform\PositionSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Transform\QuaternionTransformSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Transform\RotationSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Transform\ScaleSensor.cs" />
-     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Transform\SingleAxisTransformSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Visual\ByteArrayCameraSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Visual\Deprecated\EncodedCameraSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Visual\Deprecated\FloatArrayCameraSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Visual\Deprecated\NativeColorFloatArrayCameraSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Visual\Deprecated\Segmentation\SegmentationEncodedCameraSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Visual\Deprecated\Segmentation\SegmentationSensor.cs" />
+     <Compile Include="Assets\droid\Runtime\Prototyping\Sensors\Visual\Deprecated\StringAugmentedEncodedCameraSensor.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\Unobservables\ActionCounter.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\Unobservables\ObservablesComponentMenuPath.cs" />
      <Compile Include="Assets\droid\Runtime\Prototyping\Unobservables\StateValidation\EnsureValidState.cs" />
@@ -348,10 +355,12 @@
      <Compile Include="Assets\droid\Runtime\Structs\Space\Space2.cs" />
      <Compile Include="Assets\droid\Runtime\Structs\Space\Space3.cs" />
      <Compile Include="Assets\droid\Runtime\Structs\Space\Space4.cs" />
+     <Compile Include="Assets\droid\Runtime\Structs\Space\SphericalSpace.cs" />
      <Compile Include="Assets\droid\Runtime\Structs\Vectors\DoubleVector3.cs" />
      <Compile Include="Assets\droid\Runtime\Structs\Vectors\DoubleVector4.cs" />
      <Compile Include="Assets\droid\Runtime\Structs\Vectors\IntVector3.cs" />
      <Compile Include="Assets\droid\Runtime\Structs\Vectors\IntVector4.cs" />
+     <Compile Include="Assets\droid\Runtime\Utilities\CameraPivotRotation.cs" />
      <Compile Include="Assets\droid\Runtime\Utilities\DebugPrinting.cs" />
      <Compile Include="Assets\droid\Runtime\Utilities\Drawing\ArrowRenderer.cs" />
      <Compile Include="Assets\droid\Runtime\Utilities\Drawing\CylinderLineRenderer.cs" />
@@ -371,6 +380,7 @@
      <Compile Include="Assets\droid\Runtime\Utilities\InternalReactions\KeyEventEnabler.cs" />
      <Compile Include="Assets\droid\Runtime\Utilities\InternalReactions\PlayerReactions.cs" />
      <Compile Include="Assets\droid\Runtime\Utilities\InternalReactions\ScriptedReactions.cs" />
+     <Compile Include="Assets\droid\Runtime\Utilities\IntersectionUtilities.cs" />
      <Compile Include="Assets\droid\Runtime\Utilities\NeodroidConstants.cs" />
      <Compile Include="Assets\droid\Runtime\Utilities\NeodroidUtilities.cs" />
      <Compile Include="Assets\droid\Runtime\Utilities\Note.cs" />
@@ -390,6 +400,7 @@
      <None Include="Assets\droid\Runtime\Shaders\Experimental\MultiMode.shader" />
      <None Include="Assets\droid\Runtime\Shaders\Exclude\VertexColor\Standard Vertex Color.shader" />
      <None Include="Assets\droid\Runtime\Shaders\Experimental\XR.shader" />
+     <None Include="Assets\droid\Runtime\Shaders\Spaces\Position\ViewSpace.shader" />
      <None Include="Assets\droid\Runtime\Shaders\Wireframe\WireframeTransparent.shader" />
      <None Include="Assets\droid\Runtime\Shaders\Experimental\Normal-Diffuse-Offset.shader" />
      <None Include="Assets\droid\Runtime\Shaders\Spaces\Position\ObjectSpace.shader" />
@@ -399,6 +410,7 @@
      <None Include="Assets\droid\Runtime\Shaders\Experimental\FlatSegmentation.shader" />
      <None Include="Assets\droid\Runtime\Shaders\Experimental\Uv2.shader" />
      <None Include="Assets\droid\Runtime\Shaders\Spaces\Position\WorldSpace.shader" />
+     <None Include="Assets\droid\Runtime\Shaders\Exclude\Grass.shader" />
      <None Include="Assets\droid\Runtime\Shaders\Experimental\FlatSurfaceShading.shader" />
      <None Include="Assets\droid\Runtime\Shaders\Experimental\Skybox Shaders\RGBM Cubed Skybox.shader" />
      <None Include="Assets\droid\Runtime\Shaders\Experimental\VerticalFlipper.shader" />
@@ -415,6 +427,7 @@
      <None Include="Assets\droid\Runtime\Shaders\Segmentation\OutlinedSegmentation.shader" />
      <None Include="Assets\droid\Runtime\Shaders\Experimental\ScreenPosition.shader" />
      <None Include="Assets\droid\Runtime\Shaders\Experimental\Gamma.shader" />
+     <None Include="Assets\droid\Runtime\Shaders\Exclude\Gradient.shader" />
      <None Include="Assets\droid\Runtime\Shaders\Wireframe\WireframeTransparentCulled.shader" />
      <None Include="Assets\droid\Runtime\Shaders\Wireframe\Wireframe.cginc" />
      <None Include="Assets\droid\Runtime\Shaders\Exclude\Debug\Debug UV1.shader" />

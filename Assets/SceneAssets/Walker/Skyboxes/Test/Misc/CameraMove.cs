@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SceneAssets.Skyboxes.Test.Misc {
+namespace SceneAssets.Walker.Skyboxes.Test.Misc {
   public class CameraMove : MonoBehaviour {
     void Update() {
       this.transform.localRotation = Quaternion.AngleAxis(Time.time * 30.0f, Vector3.up)

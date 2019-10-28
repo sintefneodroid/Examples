@@ -30,7 +30,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
 
     IEnumerator FollowPathToApproach1(Transform trans) {
       while (true) {
-        if ((Vector3.Distance(this.transform.position, this._intermediate_target) <= this._precision)) {
+        if (Vector3.Distance(this.transform.position, this._intermediate_target) <= this._precision) {
           this._intermediate_target = this._path.Next(1);
         }
 

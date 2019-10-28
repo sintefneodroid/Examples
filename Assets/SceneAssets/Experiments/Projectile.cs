@@ -128,7 +128,7 @@ namespace SceneAssets.Experiments {
       var r = Vector3.Distance(projectile_xz_pos, target_xz_pos);
       var g = Physics.gravity.y;
       var tan_alpha = Mathf.Tan(this.LaunchAngle * Mathf.Deg2Rad);
-      var h = (position1.y + this.GetPlatformOffset()) - position.y;
+      var h = position1.y + this.GetPlatformOffset() - position.y;
 
       // calculate the local space components of the velocity 
       // required to land the projectile on the target object 
@@ -165,7 +165,7 @@ namespace SceneAssets.Experiments {
       // - Create an offset vector from the random height and add the offset vector to the random point on the plane
       var height_offset = (this.RandomizeHeightOffset ? Random.Range(0.2f, 1.0f) : 1.0f)
                           * this.TargetHeightOffsetFromGround;
-      var above_or_below_ground = (Random.Range(0.0f, 1.0f) > 0.5f ? 1.0f : -1.0f);
+      var above_or_below_ground = Random.Range(0.0f, 1.0f) > 0.5f ? 1.0f : -1.0f;
       var height_offset_vector = new Vector3(0, height_offset, 0) * above_or_below_ground;
       var random_point = random_vector_on_ground_plane * this.TargetRadius + height_offset_vector;
 

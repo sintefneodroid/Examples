@@ -26,7 +26,7 @@ namespace SceneAssets.Catch {
 
     [SerializeField]
     SampleSpace3 _spawn_position_range =
-        new SampleSpace3() {Space = new Space3 {Max = new Vector3(5, 0), Min = new Vector3(-5, 0)}};
+        new SampleSpace3 {Space = new Space3 {Max = new Vector3(5, 0), Min = new Vector3(-5, 0)}};
 
     [SerializeField]
     SampleSpace4 _spawn_rotation_range =

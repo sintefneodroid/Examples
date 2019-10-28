@@ -9,17 +9,17 @@ namespace SceneAssets.BalanceBall {
     static void DoNothing() { }
 
     static bool OkayHigh(float test, float high_limit) {
-      return (test >= _full_arc - high_limit && test <= _full_arc);
+      return test >= _full_arc - high_limit && test <= _full_arc;
     }
 
-    static bool OkayLow(float test, float low_limit) { return (test >= _null_arc && test <= low_limit); }
+    static bool OkayLow(float test, float low_limit) { return test >= _null_arc && test <= low_limit; }
 
     static bool BadHigh(float test, float high_limit) {
-      return (test > _half_arc && !OkayHigh(test, high_limit));
+      return test > _half_arc && !OkayHigh(test, high_limit);
     }
 
     static bool BadLow(float test, float low_limit) {
-      return (test < _half_arc && !OkayLow(test, low_limit));
+      return test < _half_arc && !OkayLow(test, low_limit);
     }
 
     public static Quaternion ClampRotation(Vector3 temp_eulers, float low, float high) {

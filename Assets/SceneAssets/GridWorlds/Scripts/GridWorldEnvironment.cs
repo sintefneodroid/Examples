@@ -3,7 +3,7 @@ using System.Linq;
 using droid.Runtime.Environments;
 using droid.Runtime.Environments.Prototyping;
 using droid.Runtime.Prototyping.ObjectiveFunctions.Spatial;
-using droid.Runtime.Prototyping.Sensors.Grid;
+using droid.Runtime.Prototyping.Sensors.Spatial.Grid;
 using droid.Runtime.Structs.Vectors;
 using droid.Runtime.Utilities.Grid;
 using UnityEngine;
@@ -275,7 +275,7 @@ namespace SceneAssets.GridWorlds.Scripts {
     /// <summary>
     ///
     /// </summary>
-    protected override void PreSetup() {
+    public override void PreSetup() {
       var xs = this._grid_size.X;
       var ys = this._grid_size.Y;
       var zs = this._grid_size.Z;
@@ -317,10 +317,10 @@ namespace SceneAssets.GridWorlds.Scripts {
     /// <summary>
     ///
     /// </summary>
-    protected override void Setup() {
+    public override void Setup() {
       var empty_cells = FindObjectsOfType<EmptyCell>().ToList();
 
-      var objective_function = this.ObjectiveFunction as ReachGoal;
+      var objective_function = this.ObjectiveFunction as ReachGoalObjective;
 
       if (empty_cells != null && empty_cells.Count > 0) {
         foreach (var a in this.Actors) {
@@ -344,23 +344,23 @@ namespace SceneAssets.GridWorlds.Scripts {
     ///
     /// </summary>
     public override void PostStep() {
-      if (this._Terminated) {
-        this._Terminated = false;
+      if (this.Terminated) {
+        this.Terminated = false;
 
         this.NewGridWorld();
 
-        this.EnvironmentReset();
+        this.PrototypingReset();
 
         //this.Setup();
 
-        if (this._Configure) {
-          this._Configure = false;
+        if (this.Configure) {
+          this.Configure = false;
           this.Reconfigure();
         }
       }
 
-      this.UpdateConfigurableValues();
-      this.UpdateSensorsData();
+      this.LoopConfigurables();
+      this.LoopSensors();
     }
   }
 }

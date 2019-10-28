@@ -32,7 +32,7 @@ namespace SceneAssets.Manipulator.Scripts {
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    protected override void PreSetup() {
+    public override void PreSetup() {
       base.PreSetup();
       if (!this._Enablee) {
         this._Enablee = this.GetComponent<BioIK>();

@@ -2,9 +2,8 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <_TargetFrameworkDirectories>non_empty_path_generated_by_unity.rider.package</_TargetFrameworkDirectories>
-    <_FullFrameworkReferenceAssemblyPaths>non_empty_path_generated_by_unity.rider.package</_FullFrameworkReferenceAssemblyPaths>
-    <DisableHandlePackageFileConflicts>true</DisableHandlePackageFileConflicts>
+    <CscToolPath>/home/heider/Unity/Hub/Editor/2019.3.0b1/Editor/Data/Tools/RoslynScripts</CscToolPath>
+    <CscToolExe>unity_csc.sh</CscToolExe>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -97,9 +96,6 @@
  <Reference Include="Unity.ProBuilder">
  <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
  </Reference>
- <Reference Include="Unity.VectorGraphics">
- <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.VectorGraphics.dll</HintPath>
- </Reference>
  <Reference Include="Unity.RemoteConfig.Editor">
  <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.RemoteConfig.Editor.dll</HintPath>
  </Reference>
@@ -117,9 +113,6 @@
  </Reference>
  <Reference Include="UnityTestPackage.Editor">
  <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/UnityTestPackage.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.InternalAPIEditorBridge.003">
- <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.003.dll</HintPath>
  </Reference>
  <Reference Include="UnityTestPackage.Runtime">
  <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/UnityTestPackage.Runtime.dll</HintPath>
@@ -150,9 +143,6 @@
  </Reference>
  <Reference Include="Unity.Rider.Editor">
  <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.VectorGraphics.Editor">
- <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.VectorGraphics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Mathematics">
  <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
@@ -186,9 +176,6 @@
  </Reference>
  <Reference Include="Unity.PackageValidationSuite.Editor.Extension">
  <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.PackageValidationSuite.Editor.Extension.dll</HintPath>
- </Reference>
- <Reference Include="Unity.InternalAPIEngineBridge.003">
- <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.003.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Mathematics.Editor">
  <HintPath>/home/heider/Projects/Neodroid/Unity/Examples/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>

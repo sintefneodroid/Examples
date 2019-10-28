@@ -1,4 +1,5 @@
-﻿using droid.Runtime.Prototyping.Unobservables;
+﻿using System;
+using droid.Runtime.Prototyping.Unobservables;
 using droid.Runtime.Utilities;
 using UnityEngine;
 using NeodroidUtilities = droid.Runtime.Utilities.Extensions.NeodroidUtilities;
@@ -39,6 +40,7 @@ namespace SceneAssets.Walker {
     [SerializeField] float _speed_multiplier = 1f;
 
     [SerializeField] Quaternion _start_rotation = Quaternion.identity;
+    static readonly Int32 _atmosphere_thickness = Shader.PropertyToID("_AtmosphereThickness");
 
     /// <inheritdoc />
     /// <summary>
@@ -48,7 +50,7 @@ namespace SceneAssets.Walker {
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    protected override void Setup() {
+    public override void Setup() {
       if (this._fog_density_curve == null) {
         this._fog_density_curve = NeodroidDefaultsUtilities.DefaultAnimationCurve();
       }
@@ -109,7 +111,7 @@ namespace SceneAssets.Walker {
 
       var atmosphere_thickness = (this._day_atmosphere_thickness - this._night_atmosphere_thickness) * dot
                                  + this._night_atmosphere_thickness;
-      this._sky_mat.SetFloat("_AtmosphereThickness", atmosphere_thickness);
+      this._sky_mat.SetFloat(_atmosphere_thickness, atmosphere_thickness);
 
       this.transform.Rotate(this._rotation * Time.deltaTime * this._speed_multiplier);
     }
@@ -117,6 +119,6 @@ namespace SceneAssets.Walker {
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    public override void EnvironmentReset() { }
+    public override void PrototypingReset() { }
   }
 }
