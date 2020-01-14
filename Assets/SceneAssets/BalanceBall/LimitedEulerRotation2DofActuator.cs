@@ -41,19 +41,19 @@ namespace SceneAssets.BalanceBall {
       this.Parent =
           NeodroidRegistrationUtilities.RegisterComponent((IHasRegister<IActuator>)this.Parent,
                                                           this,
-                                                          this._x);
+                                                          identifier : this._x);
       this.Parent =
           NeodroidRegistrationUtilities.RegisterComponent((IHasRegister<IActuator>)this.Parent,
                                                           this,
-                                                          this._z);
+                                                          identifier : this._z);
     }
 
     /// <summary>
     ///
     /// </summary>
     protected override void UnRegisterComponent() {
-      this.Parent?.UnRegister(this, this._x);
-      this.Parent?.UnRegister(this, this._z);
+      this.Parent?.UnRegister(this, obj : this._x);
+      this.Parent?.UnRegister(this, obj : this._z);
     }
 
     /// <inheritdoc />
@@ -71,14 +71,14 @@ namespace SceneAssets.BalanceBall {
       #endif
 
       if (motion.ActuatorName == this._x) {
-        this.transform.Rotate(Vector3.forward, m);
+        this.transform.Rotate(axis : Vector3.forward, angle : m);
       } else if (motion.ActuatorName == this._z) {
-        this.transform.Rotate(Vector3.right, m);
+        this.transform.Rotate(axis : Vector3.right, angle : m);
       }
 
-      this.transform.rotation = RotationClamping.ClampRotation(this.transform.rotation.eulerAngles,
-                                                               this.limits.Max.x,
-                                                               this.limits.Max.x);
+      this.transform.rotation = RotationClamping.ClampRotation(temp_eulers : this.transform.rotation.eulerAngles,
+                                                               low : this.limits.Max.x,
+                                                               high : this.limits.Max.x);
     }
 
     public override String[] InnerMotionNames { get; }
@@ -88,17 +88,17 @@ namespace SceneAssets.BalanceBall {
       if (this.enabled) {
         var position = this.transform.position;
 
-        Handles.DrawWireArc(this.transform.position,
-                            this.transform.right,
-                            -this.transform.forward,
-                            180,
-                            2);
+        Handles.DrawWireArc(center : this.transform.position,
+                            normal : this.transform.right,
+                            @from : -this.transform.forward,
+                            angle : 180,
+                            radius : 2);
 
-        Handles.DrawWireArc(this.transform.position,
-                            this.transform.forward,
-                            -this.transform.right,
-                            180,
-                            2);
+        Handles.DrawWireArc(center : this.transform.position,
+                            normal : this.transform.forward,
+                            @from : -this.transform.right,
+                            angle : 180,
+                            radius : 2);
       }
     }
 

@@ -26,33 +26,33 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
 
     void CurvifyPath() {
       for (var i = 0; i < this._bezier_curve.PointCount; i++) {
-        Object.Destroy(this._bezier_curve[i].gameObject);
+        Object.Destroy(obj : this._bezier_curve[index : i].gameObject);
       }
 
       this._bezier_curve.ClearPoints();
       foreach (var t in this._path_list) {
-        this._bezier_curve.AddPointAt(t);
+        this._bezier_curve.AddPointAt(position : t);
       }
 
-      this.SetHandlePosition(this._bezier_curve);
+      this.SetHandlePosition(bc : this._bezier_curve);
     }
 
     void SetHandlePosition(BezierCurve bc) {
       for (var i = 0; i < bc.PointCount; i++) {
-        bc[i]._Style = BezierPoint.HandleStyle.Broken_;
+        bc[index : i]._Style = BezierPoint.HandleStyle.Broken_;
 
         if (i != 0 && i + 1 != bc.PointCount) {
-          var curr_point = bc[i].Position;
+          var curr_point = bc[index : i].Position;
           var prev_point = bc[i - 1].Position;
           var next_point = bc[i + 1].Position;
           var direction_forward = (next_point - prev_point).normalized;
           var direction_back = (prev_point - next_point).normalized;
           var handle_scalar = 0.33f;
-          var distance_previous = Vector3.Distance(prev_point, curr_point);
-          var distance_next = Vector3.Distance(curr_point, next_point);
+          var distance_previous = Vector3.Distance(a : prev_point, b : curr_point);
+          var distance_next = Vector3.Distance(a : curr_point, b : next_point);
 
-          bc[i].GlobalHandle1 += direction_back.normalized * distance_previous * handle_scalar;
-          bc[i].GlobalHandle2 += direction_forward.normalized * distance_next * handle_scalar;
+          bc[index : i].GlobalHandle1 += direction_back.normalized * distance_previous * handle_scalar;
+          bc[index : i].GlobalHandle2 += direction_forward.normalized * distance_next * handle_scalar;
 
           //if (this.Debugging) Debug.DrawLine(bc[i].globalHandle1, bc[i].globalHandle2, Color.blue, 5);
         }
@@ -61,7 +61,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
 
     public Vector3 Next(float step_size) {
       this._progress += step_size;
-      return this._bezier_curve.GetPointAt(this._progress);
+      return this._bezier_curve.GetPointAt(t : this._progress);
     }
   }
 }

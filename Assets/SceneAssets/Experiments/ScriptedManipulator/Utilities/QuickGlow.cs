@@ -20,36 +20,36 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities {
 
     void OnValidate() {
       if (this._blur_material != null) {
-        this._blur_material.SetFloat(_size, this._Size);
+        this._blur_material.SetFloat(nameID : _size, value : this._Size);
       }
 
       if (this._add_material != null) {
-        this._add_material.SetFloat(_intensity, this._Intensity);
+        this._add_material.SetFloat(nameID : _intensity, value : this._Intensity);
       }
     }
 
     void OnRenderImage(RenderTexture src, RenderTexture dst) {
-      var composite = RenderTexture.GetTemporary(src.width, src.height);
-      Graphics.Blit(src, composite);
+      var composite = RenderTexture.GetTemporary(width : src.width, height : src.height);
+      Graphics.Blit(source : src, dest : composite);
 
       var width = src.width >> this._Down_Res;
       var height = src.height >> this._Down_Res;
 
-      var rt = RenderTexture.GetTemporary(width, height);
-      Graphics.Blit(src, rt);
+      var rt = RenderTexture.GetTemporary(width : width, height : height);
+      Graphics.Blit(source : src, dest : rt);
 
       for (var i = 0; i < this._Iterations; i++) {
-        var rt2 = RenderTexture.GetTemporary(width, height);
-        Graphics.Blit(rt, rt2, this._blur_material);
-        RenderTexture.ReleaseTemporary(rt);
+        var rt2 = RenderTexture.GetTemporary(width : width, height : height);
+        Graphics.Blit(source : rt, dest : rt2, mat : this._blur_material);
+        RenderTexture.ReleaseTemporary(temp : rt);
         rt = rt2;
       }
 
-      this._add_material.SetTexture(_blend_tex, rt);
-      Graphics.Blit(composite, dst, this._add_material);
+      this._add_material.SetTexture(nameID : _blend_tex, value : rt);
+      Graphics.Blit(source : composite, dest : dst, mat : this._add_material);
 
-      RenderTexture.ReleaseTemporary(rt);
-      RenderTexture.ReleaseTemporary(composite);
+      RenderTexture.ReleaseTemporary(temp : rt);
+      RenderTexture.ReleaseTemporary(temp : composite);
     }
   }
 }

@@ -16,16 +16,16 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection.E
     }
 
     void Update() {
-      this.SaveRenderTextureToImage(this._i, this._camera, this._file_path);
+      this.SaveRenderTextureToImage(id : this._i, cam : this._camera, file_name_dd : this._file_path);
 
       this._i++;
     }
 
     public void SaveRenderTextureToImage(int id, Camera cam, string file_name_dd) {
-      var texture2_d = RenderTextureImage(cam);
+      var texture2_d = RenderTextureImage(camera : cam);
       var data = texture2_d.EncodeToPNG();
       var file_name = file_name_dd + id + ".png";
-      File.WriteAllBytes(file_name, data);
+      File.WriteAllBytes(path : file_name, bytes : data);
     }
 
     public static Texture2D RenderTextureImage(Camera camera) {
@@ -33,11 +33,11 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection.E
       var current_render_texture = RenderTexture.active;
       RenderTexture.active = camera.targetTexture;
       camera.Render();
-      var image = new Texture2D(camera.targetTexture.width, camera.targetTexture.height);
+      var image = new Texture2D(width : camera.targetTexture.width, height : camera.targetTexture.height);
       image.ReadPixels(new Rect(0,
                                 0,
-                                camera.targetTexture.width,
-                                camera.targetTexture.height),
+                                width : camera.targetTexture.width,
+                                height : camera.targetTexture.height),
                        0,
                        0);
       image.Apply();

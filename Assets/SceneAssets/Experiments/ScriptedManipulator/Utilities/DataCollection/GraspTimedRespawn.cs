@@ -32,7 +32,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
         this._grasping = FindObjectOfType<ScriptedGrasping>();
       }
 
-      this._grasp = this._graspable_object.GetOptimalGrasp(this._grasping).Item1;
+      this._grasp = this._graspable_object.GetOptimalGrasp(grasping : this._grasping).Item1;
       this._rigid_body = this._grasp.GetComponentInParent<Rigidbody>();
       this._rigid_bodies = this._graspable_object.GetComponentsInChildren<Rigidbody>();
       var transform1 = this._rigid_body.transform;
@@ -41,21 +41,21 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
 
       NeodroidRegistrationUtilities
           .RegisterCollisionTriggerCallbacksOnChildren<ChildCollider3DSensor, Collider, Collision>(this,
-                                                                                                   this
+                                                                                                   parent : this
                                                                                                        .transform,
-                                                                                                   this
+                                                                                                   on_collision_enter_child : this
                                                                                                        .OnCollisionEnterChild,
-                                                                                                   this
+                                                                                                   on_trigger_enter_child : this
                                                                                                        .OnTriggerEnterChild,
-                                                                                                   this
+                                                                                                   on_collision_exit_child : this
                                                                                                        .OnCollisionExitChild,
-                                                                                                   this
+                                                                                                   on_trigger_exit_child : this
                                                                                                        .OnTriggerExitChild,
-                                                                                                   this
+                                                                                                   on_collision_stay_child : this
                                                                                                        .OnCollisionStayChild,
-                                                                                                   this
+                                                                                                   on_trigger_stay_child : this
                                                                                                        .OnTriggerStayChild,
-                                                                                                   this
+                                                                                                   debug : this
                                                                                                        ._debugging);
     }
 

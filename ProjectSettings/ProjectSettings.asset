@@ -3,7 +3,7 @@
 --- !u!129 &1
 PlayerSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 19
+  serializedVersion: 20
   productGUID: fb4d2c37784b309a8a2f6410c132bbe5
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
@@ -94,7 +94,6 @@ PlayerSettings:
   xboxEnableFitness: 0
   visibleInBackground: 1
   allowFullscreenSwitch: 0
-  graphicsJobMode: 0
   fullscreenMode: 3
   xboxSpeechDB: 0
   xboxEnableHeadOrientation: 0
@@ -114,6 +113,7 @@ PlayerSettings:
   switchNVNShaderPoolsGranularity: 33554432
   switchNVNDefaultPoolsGranularity: 16777216
   switchNVNOtherPoolsGranularity: 16777216
+  vulkanNumSwapchainBuffers: 3
   vulkanEnableSetSRGBWrite: 0
   m_SupportedAspectRatios:
     4:3: 1
@@ -313,12 +313,16 @@ PlayerSettings:
     m_GraphicsJobs: 0
   - m_BuildTarget: WebGLSupport
     m_GraphicsJobs: 0
+  m_BuildTargetGraphicsJobMode:
+  - m_BuildTarget: PS4Player
+    m_GraphicsJobMode: 0
+  - m_BuildTarget: XboxOnePlayer
+    m_GraphicsJobMode: 0
   m_BuildTargetGraphicsAPIs: []
   m_BuildTargetVRSettings: []
   openGLRequireES31: 0
   openGLRequireES31AEP: 0
   openGLRequireES32: 0
-  vuforiaEnabled: 0
   m_TemplateCustomTags: {}
   mobileMTRendering:
     Android: 1
@@ -434,6 +438,7 @@ PlayerSettings:
   switchRatingsInt_9: 0
   switchRatingsInt_10: 0
   switchRatingsInt_11: 0
+  switchRatingsInt_12: 0
   switchLocalCommunicationIds_0: 
   switchLocalCommunicationIds_1: 
   switchLocalCommunicationIds_2: 
@@ -533,6 +538,7 @@ PlayerSettings:
   ps4contentSearchFeaturesUsed: 0
   ps4attribEyeToEyeDistanceSettingVR: 0
   ps4IncludedModules: []
+  ps4attribVROutputEnabled: 0
   monoEnv: 
   splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid: 5c0fa87a9ee9948a2b3a0403f9d259b7,
     type: 3}

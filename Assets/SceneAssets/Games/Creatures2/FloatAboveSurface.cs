@@ -26,10 +26,10 @@ namespace SceneAssets.Games.Creatures2 {
     void Start() { this._rb = this.GetComponent<Rigidbody>(); }
 
     float RaycastDownwards() {
-      if (Physics.Raycast(this.transform.position,
-                          -this.transform.up,
-                          out var rch,
-                          this._MaxDistance)) {
+      if (Physics.Raycast(origin : this.transform.position,
+                          direction : -this.transform.up,
+                          hitInfo : out var rch,
+                          maxDistance : this._MaxDistance)) {
         return rch.distance;
       }
 
@@ -50,7 +50,7 @@ namespace SceneAssets.Games.Creatures2 {
 
       var force = fractional_position * this._MaxForce;
 
-      this._rb.AddForceAtPosition(Vector3.up * force, this.transform.position);
+      this._rb.AddForceAtPosition(Vector3.up * force, position : this.transform.position);
     }
   }
 }

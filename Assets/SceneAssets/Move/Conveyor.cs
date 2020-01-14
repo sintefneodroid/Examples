@@ -39,10 +39,10 @@ namespace SceneAssets.Move {
       // Scroll texture to fake it moving
       this._current_scroll = this._current_scroll
                              + Time.deltaTime * this.actualVelocity * this.visualVelocity % 1.0f;
-      var offset = new Vector2(0, this._current_scroll);
+      var offset = new Vector2(0, y : this._current_scroll);
 
       this._material.mainTextureOffset = offset;
-      this._material.SetTextureOffset(_bump_map, offset);
+      this._material.SetTextureOffset(nameID : _bump_map, value : offset);
     }
 
 // Anything that is touching will move
@@ -58,7 +58,7 @@ namespace SceneAssets.Move {
       // Ignore the mass of the other objects so they all go the same speed (ForceMode.Acceleration)
       //other_thing.rigidbody.AddForce(-this.transform.forward*this.speed, ForceMode
       //.VelocityChange);
-      var force = -this.transform.TransformDirection(direction) * this.actualVelocity;
+      var force = -this.transform.TransformDirection(direction : direction) * this.actualVelocity;
       //other_thing.rigidbody.velocity = force;
 
       foreach (var c in other_thing.contacts) {

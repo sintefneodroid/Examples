@@ -16,15 +16,15 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps {
       if (this._draw_ray_cast) {
         var transform1 = this.transform;
         var position = transform1.position;
-        Debug.DrawLine(position, position - transform1.forward * this._obstruction_cast_length, color);
+        Debug.DrawLine(start : position, end : position - transform1.forward * this._obstruction_cast_length, color : color);
         var up = transform1.up;
         Debug.DrawLine(this.transform.position - up * this._obstruction_cast_radius,
                        position + up * this._obstruction_cast_radius,
-                       color);
+                       color : color);
         var right = transform1.right;
         Debug.DrawLine(position - right * this._obstruction_cast_radius,
                        position + right * this._obstruction_cast_radius,
-                       color);
+                       color : color);
       }
     }
 
@@ -33,18 +33,18 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps {
     /// </summary>
     /// <returns></returns>
     public bool IsObstructed() {
-      if (Physics.Linecast(this.transform.position,
-                           this.transform.position - this.transform.forward * this._obstruction_cast_length,
-                           LayerMask.GetMask("Obstruction"))) {
+      if (Physics.Linecast(start : this.transform.position,
+                           end : this.transform.position - this.transform.forward * this._obstruction_cast_length,
+                           layerMask : LayerMask.GetMask("Obstruction"))) {
         return true;
       }
 
-      if (Physics.SphereCast(this.transform.position,
-                             this._obstruction_cast_radius,
-                             -this.transform.forward,
-                             out var hit,
-                             this._obstruction_cast_length,
-                             LayerMask.GetMask("Obstruction"))) {
+      if (Physics.SphereCast(origin : this.transform.position,
+                             radius : this._obstruction_cast_radius,
+                             direction : -this.transform.forward,
+                             hitInfo : out var hit,
+                             maxDistance : this._obstruction_cast_length,
+                             layerMask : LayerMask.GetMask("Obstruction"))) {
         return true;
       }
 
@@ -53,8 +53,8 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps {
       var forward = transform1.forward;
       return Physics.OverlapCapsule(position - forward * this._obstruction_cast_radius,
                                     position - forward * this._obstruction_cast_length,
-                                    this._obstruction_cast_radius,
-                                    LayerMask.GetMask("Obstruction")).Length
+                                    radius : this._obstruction_cast_radius,
+                                    layerMask : LayerMask.GetMask("Obstruction")).Length
              > 0;
     }
   }

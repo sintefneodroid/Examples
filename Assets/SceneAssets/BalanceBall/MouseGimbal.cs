@@ -20,9 +20,9 @@ namespace SceneAssets.BalanceBall {
 
       if (this.ClampToMaxRotationDegrees) {
         // Clamp rotation to maxRotationDegrees.
-        this.transform.rotation = RotationClamping.ClampRotation(this.transform.rotation.eulerAngles,
-                                                                 this.maxRotationDegrees,
-                                                                 this.maxRotationDegrees);
+        this.transform.rotation = RotationClamping.ClampRotation(temp_eulers : this.transform.rotation.eulerAngles,
+                                                                 low : this.maxRotationDegrees,
+                                                                 high : this.maxRotationDegrees);
       }
     }
 
@@ -37,7 +37,7 @@ namespace SceneAssets.BalanceBall {
       var rotation = Vector3.zero;
       rotation.x = mouse_xy.y * Time.deltaTime * this.rotationSpeed;
       rotation.z = mouse_xy.x * Time.deltaTime * this.rotationSpeed;
-      this.transform.Rotate(rotation, Space.Self);
+      this.transform.Rotate(eulers : rotation, relativeTo : Space.Self);
     }
   }
 }

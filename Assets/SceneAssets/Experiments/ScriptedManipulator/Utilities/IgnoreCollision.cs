@@ -8,20 +8,20 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities {
     string _a_tag = "ignored_by_sub_collider_fish";
 
     void OnCollisionEnter(Collision collision) {
-      if (collision.gameObject.CompareTag(this._a_tag)) {
-        Physics.IgnoreCollision(this.GetComponent<Collider>(), collision.collider);
+      if (collision.gameObject.CompareTag(tag : this._a_tag)) {
+        Physics.IgnoreCollision(this.GetComponent<Collider>(), collider2 : collision.collider);
       }
     }
 
     void OnCollisionExit(Collision collision) {
-      if (collision.gameObject.CompareTag(this._a_tag)) {
-        Physics.IgnoreCollision(this.GetComponent<Collider>(), collision.collider);
+      if (collision.gameObject.CompareTag(tag : this._a_tag)) {
+        Physics.IgnoreCollision(this.GetComponent<Collider>(), collider2 : collision.collider);
       }
     }
 
     void OnCollisionStay(Collision collision) {
-      if (collision.gameObject.CompareTag(this._a_tag)) {
-        Physics.IgnoreCollision(this.GetComponent<Collider>(), collision.collider);
+      if (collision.gameObject.CompareTag(tag : this._a_tag)) {
+        Physics.IgnoreCollision(this.GetComponent<Collider>(), collider2 : collision.collider);
       }
     }
   }

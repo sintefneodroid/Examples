@@ -1,5 +1,5 @@
 ﻿using System;
-using droid.Runtime.Prototyping.Unobservables;
+using droid.Runtime.Prototyping.EnvironmentListener;
 using droid.Runtime.Utilities;
 using UnityEngine;
 using NeodroidUtilities = droid.Runtime.Utilities.Extensions.NeodroidUtilities;
@@ -11,7 +11,7 @@ namespace SceneAssets.Walker {
   [ExecuteInEditMode]
   [RequireComponent(typeof(Light))]
   [RequireComponent(typeof(ParticleSystem))]
-  public class DaylightSimulator : Unobservable {
+  public class DaylightSimulator : EnvironmentListener {
     [SerializeField] float _day_atmosphere_thickness = 0.88f;
 
     [SerializeField] AnimationCurve _fog_density_curve;
@@ -79,7 +79,7 @@ namespace SceneAssets.Walker {
     void Update() {
       var a = 1 - this._min_point;
       var dot =
-          Mathf.Clamp01((Vector3.Dot(this._light.transform.forward, Vector3.down) - this._min_point) / a);
+          Mathf.Clamp01((Vector3.Dot(lhs : this._light.transform.forward, rhs : Vector3.down) - this._min_point) / a);
       var intensity = (this._max_intensity - this._min_intensity) * dot + this._min_intensity;
 
       this._light.intensity = intensity;
@@ -88,30 +88,30 @@ namespace SceneAssets.Walker {
       var particle_color = new Color(1f,
                                      1f,
                                      1f,
-                                     stars_intensity);
+                                     a : stars_intensity);
 
-      var num_alive_particles = this._particle_system.GetParticles(this._particles);
+      var num_alive_particles = this._particle_system.GetParticles(particles : this._particles);
       for (var i = 0; i < num_alive_particles; i++) {
         this._particles[i].startColor = particle_color;
       }
 
-      this._particle_system.SetParticles(this._particles, num_alive_particles);
+      this._particle_system.SetParticles(particles : this._particles, size : num_alive_particles);
 
       a = 1 - this._min_ambient_point;
-      dot = Mathf.Clamp01((Vector3.Dot(this._light.transform.forward, Vector3.down) - this._min_ambient_point)
+      dot = Mathf.Clamp01((Vector3.Dot(lhs : this._light.transform.forward, rhs : Vector3.down) - this._min_ambient_point)
                           / a);
       var ambient_intensity = (this._max_ambient - this._min_ambient) * dot + this._min_ambient;
       RenderSettings.ambientIntensity = ambient_intensity;
 
-      this._light.color = this._light_gradient.Evaluate(dot);
+      this._light.color = this._light_gradient.Evaluate(time : dot);
       RenderSettings.ambientLight = this._light.color;
 
-      RenderSettings.fogColor = this._fog_gradient.Evaluate(dot);
-      RenderSettings.fogDensity = this._fog_density_curve.Evaluate(dot) * this._fog_scale;
+      RenderSettings.fogColor = this._fog_gradient.Evaluate(time : dot);
+      RenderSettings.fogDensity = this._fog_density_curve.Evaluate(time : dot) * this._fog_scale;
 
       var atmosphere_thickness = (this._day_atmosphere_thickness - this._night_atmosphere_thickness) * dot
                                  + this._night_atmosphere_thickness;
-      this._sky_mat.SetFloat(_atmosphere_thickness, atmosphere_thickness);
+      this._sky_mat.SetFloat(nameID : _atmosphere_thickness, value : atmosphere_thickness);
 
       this.transform.Rotate(this._rotation * Time.deltaTime * this._speed_multiplier);
     }

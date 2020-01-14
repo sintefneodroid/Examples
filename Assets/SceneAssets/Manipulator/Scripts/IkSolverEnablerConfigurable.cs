@@ -1,6 +1,7 @@
 ﻿using droid.Runtime.Structs.Space;
 using droid.Runtime.Structs.Space.Sample;
 using Exclude.BioIK;
+using Object = System.Object;
 #if BIOIK_EXISTS
 using System.Collections;
 using droid.Runtime.Interfaces;
@@ -27,6 +28,8 @@ namespace SceneAssets.Manipulator.Scripts {
     /// </summary>
     public bool _disabled_by_default = false;
 
+    [SerializeField] SampleSpace1 ConfigurableValueSpace;
+
     const float _tolerance = float.Epsilon;
 
     /// <inheritdoc />
@@ -45,14 +48,14 @@ namespace SceneAssets.Manipulator.Scripts {
       }
     }
 
-    public override ISamplable ConfigurableValueSpace { get { return new SampleSpace1(); } }
+    public override void UpdateCurrentConfiguration() {  }
 
     /// <inheritdoc />
     /// <summary>
     /// </summary>
     /// <param name="obj"></param>
     public override void ApplyConfiguration(IConfigurableConfiguration obj) {
-      if (Mathf.Abs(obj.ConfigurableValue) < _tolerance) {
+      if (Mathf.Abs(f : obj.ConfigurableValue) < _tolerance) {
         this.Disable();
       } else {
         this.Enable();
@@ -61,6 +64,9 @@ namespace SceneAssets.Manipulator.Scripts {
         }
       }
     }
+
+    public override Configuration[] SampleConfigurations() { return new[] {new Configuration(configurable_name : this.Identifier,configurable_value : this
+    .ConfigurableValueSpace.Sample())};}
 
     IEnumerator DisableNextFrame() {
       yield return new WaitForEndOfFrame();
@@ -85,13 +91,6 @@ namespace SceneAssets.Manipulator.Scripts {
       }
     }
 
-    /// <summary>
-    /// </summary>
-    /// <param name="random_generator"></param>
-    /// <returns></returns>
-    public IConfigurableConfiguration SampleConfiguration(Random random_generator) {
-      return new Configuration(this.Identifier, this.ConfigurableValueSpace.Sample());
-    }
 
     /// <summary>
     /// </summary>
@@ -104,9 +103,8 @@ namespace SceneAssets.Manipulator.Scripts {
     /// <summary>
     /// </summary>
     public void Activate() {
-      var conf = new Configuration(this.Identifier, 1);
-
-      this.ApplyConfiguration(conf);
+      var conf = new Configuration(configurable_name : this.Identifier, configurable_value : 1);
+      this.ApplyConfiguration(obj : conf);
     }
   }
 }

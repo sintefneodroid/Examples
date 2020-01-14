@@ -53,27 +53,27 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
         //Vector3 screenPoint = _depth_camera.WorldToViewportPoint (_target.transform.position);
         //if (screenPoint.z > 0 && screenPoint.x > 0.1 && screenPoint.x < 0.9 && screenPoint.y > 0.1 && screenPoint.y < 0.9) {
         var gripper_position_relative_to_camera =
-            this.transform.InverseTransformPoint(this._grasping.transform.position);
+            this.transform.InverseTransformPoint(position : this._grasping.transform.position);
         var gripper_direction_relative_to_camera =
-            this.transform.InverseTransformDirection(this._grasping.transform.eulerAngles);
+            this.transform.InverseTransformDirection(direction : this._grasping.transform.eulerAngles);
         var gripper_transform_output =
-            this.GetTransformOutput(this._i,
-                                    gripper_position_relative_to_camera,
-                                    gripper_direction_relative_to_camera);
-        this.SaveToCsv(this._file_path + this._file_path_gripper, gripper_transform_output);
+            this.GetTransformOutput(id : this._i,
+                                    pos : gripper_position_relative_to_camera,
+                                    dir : gripper_direction_relative_to_camera);
+        this.SaveToCsv(this._file_path + this._file_path_gripper, output : gripper_transform_output);
 
         var target_position_relative_to_camera =
-            this.transform.InverseTransformPoint(this._target.transform.position);
+            this.transform.InverseTransformPoint(position : this._target.transform.position);
         var target_direction_relative_to_camera =
-            this.transform.InverseTransformDirection(this._target.transform.eulerAngles);
+            this.transform.InverseTransformDirection(direction : this._target.transform.eulerAngles);
         var target_transform_output =
-            this.GetTransformOutput(this._i,
-                                    target_position_relative_to_camera,
-                                    target_direction_relative_to_camera);
-        this.SaveToCsv(this._file_path + this._file_path_target, target_transform_output);
+            this.GetTransformOutput(id : this._i,
+                                    pos : target_position_relative_to_camera,
+                                    dir : target_direction_relative_to_camera);
+        this.SaveToCsv(this._file_path + this._file_path_target, output : target_transform_output);
 
         foreach (var input_camera in this._cameras) {
-          this.SaveRenderTextureToImage(this._i, input_camera, input_camera.name + "/");
+          this.SaveRenderTextureToImage(id : this._i, input_camera : input_camera, file_name_dd : input_camera.name + "/");
         }
 
         this._i++;
@@ -96,7 +96,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
                    };
     }
 
-    void SaveBytesToFile(byte[] bytes, string filename) { File.WriteAllBytes(filename, bytes); }
+    void SaveBytesToFile(byte[] bytes, string filename) { File.WriteAllBytes(path : filename, bytes : bytes); }
 
     //Writes to file in the format: pos x, pos y, pos z, rot x, rot y, rot z
     void SaveToCsv(string file_path, string[] output) {
@@ -104,9 +104,9 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
 
       var sb = new StringBuilder();
 
-      sb.AppendLine(string.Join(delimiter, output));
+      sb.AppendLine(string.Join(separator : delimiter, value : output));
 
-      File.AppendAllText(file_path, sb.ToString());
+      File.AppendAllText(path : file_path, contents : sb.ToString());
 
       //using UnityEngine; using UnityEditor; using (StreamWriter sw = File.AppendText(filePath)) {
       //  sw.WriteLine(sb.ToString());
@@ -114,11 +114,11 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
     }
 
     public void SaveRenderTextureToImage(int id, Camera input_camera, string file_name_dd) {
-      var texture2_d = RenderTextureImage(input_camera);
+      var texture2_d = RenderTextureImage(input_camera : input_camera);
       var data = texture2_d.EncodeToPNG();
       var file_name = this._file_path + file_name_dd + id;
       //SaveTextureAsArray (camera, texture2d, file_name+".ssv");
-      this.SaveBytesToFile(data, file_name + ".png");
+      this.SaveBytesToFile(bytes : data, filename : file_name + ".png");
       //return data;
     }
 
@@ -128,11 +128,11 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
       RenderTexture.active = input_camera.targetTexture;
       input_camera.Render();
       var target_texture = input_camera.targetTexture;
-      var image = new Texture2D(target_texture.width, target_texture.height);
+      var image = new Texture2D(width : target_texture.width, height : target_texture.height);
       image.ReadPixels(new Rect(0,
                                 0,
-                                target_texture.width,
-                                target_texture.height),
+                                width : target_texture.width,
+                                height : target_texture.height),
                        0,
                        0);
       image.Apply();
@@ -154,7 +154,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
         str_array[iss] = str;
       }
 
-      File.WriteAllLines(path, str_array);
+      File.WriteAllLines(path : path, contents : str_array);
     }
   }
 }

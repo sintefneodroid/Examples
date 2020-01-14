@@ -29,23 +29,23 @@ namespace SceneAssets.Experiments {
 
       var transform1 = this.transform;
       var position = transform1.position; // + Vector3.up+ Vector3.right;
-      this.velArrow = Instantiate(this.arrowPrefab,
-                                  position,
-                                  Quaternion.identity,
-                                  transform1);
+      this.velArrow = Instantiate(original : this.arrowPrefab,
+                                  position : position,
+                                  rotation : Quaternion.identity,
+                                  parent : transform1);
       var vel_mat = this.velArrow.GetComponent<Renderer>().material;
-      vel_mat.shader = Shader.Find(_shader_name);
-      vel_mat.SetColor(_color, v_c);
-      vel_mat.SetColor(_color2, v_c);
+      vel_mat.shader = Shader.Find(name : _shader_name);
+      vel_mat.SetColor(nameID : _color, value : v_c);
+      vel_mat.SetColor(nameID : _color2, value : v_c);
 
-      this.angArrow = Instantiate(this.arrowPrefab,
-                                  position,
-                                  Quaternion.identity,
-                                  transform1);
+      this.angArrow = Instantiate(original : this.arrowPrefab,
+                                  position : position,
+                                  rotation : Quaternion.identity,
+                                  parent : transform1);
       var ang_mat = this.angArrow.GetComponent<Renderer>().material;
-      ang_mat.shader = Shader.Find(_shader_name);
-      ang_mat.SetColor(_color, a_c);
-      ang_mat.SetColor(_color2, a_c);
+      ang_mat.shader = Shader.Find(name : _shader_name);
+      ang_mat.SetColor(nameID : _color, value : a_c);
+      ang_mat.SetColor(nameID : _color2, value : a_c);
     }
 
     void FixedUpdate() {
