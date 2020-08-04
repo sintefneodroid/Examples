@@ -8,9 +8,9 @@ namespace SceneAssets.Manipulator.Scripts {
   /// <inheritdoc />
   /// <summary>
   /// </summary>
-  [CustomEditor(typeof(IkSolverEnablerConfigurable))]
+  [CustomEditor(inspectedType : typeof(IkSolverEnablerConfigurable))]
   [CanEditMultipleObjects]
-  public class EnablerConfigurableEditor : UnityEditor.Editor {
+  public class EnablerConfigurableEditor : Editor {
     /// <summary>
     /// </summary>
     internal static IkSolverEnablerConfigurable _IkSolverEnablerConfigurable;

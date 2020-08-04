@@ -60,7 +60,7 @@ namespace SceneAssets.Manipulator.Scripts {
       } else {
         this.Enable();
         if (this._disable_every_next_frame) {
-          this.StartCoroutine(this.DisableNextFrame());
+          this.StartCoroutine(routine : this.DisableNextFrame());
         }
       }
     }

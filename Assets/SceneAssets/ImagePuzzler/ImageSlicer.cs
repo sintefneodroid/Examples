@@ -25,10 +25,10 @@ namespace SceneAssets.ImagePuzzler {
       for (var y = 0; y < vertical_divisions; y++) {
         for (var x = 0; x < horisontal_divisions; x++) {
           var block = new Texture2D(width : block_size, height : block_size) {wrapMode = TextureWrapMode.Clamp};
-          block.SetPixels(image.GetPixels(x * block_size,
-                                          y * block_size,
-                                          blockWidth : block_size,
-                                          blockHeight : block_size));
+          block.SetPixels(colors : image.GetPixels(x : x * block_size,
+                                                   y : y * block_size,
+                                                   blockWidth : block_size,
+                                                   blockHeight : block_size));
           block.Apply();
           blocks[x, y] = block;
         }

@@ -112,7 +112,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
       }
 
       if (this._random_obj_num) {
-        this.SpawnObstacles(Random.Range(1, max : this._number_of_cubes), Random.Range(1, max : this._number_of_spheres));
+        this.SpawnObstacles(cube_num : Random.Range(1, max : this._number_of_cubes), sphere_num : Random.Range(1, max : this._number_of_spheres));
       } else {
         this.SpawnObstacles(cube_num : this._number_of_cubes, sphere_num : this._number_of_spheres);
       }
@@ -135,16 +135,16 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
         for (var i = 0; i < cube_num; i++) {
           var temp = Random.Range(min : -this._scaling_factor, max : this._scaling_factor);
           //spawn_pos = new Vector3(Random.Range(x_min, x_max), Random.Range(y_min, y_max), Random.Range(z_min, z_max));
-          var spawn_pos = new Vector3(Random.Range(-this._x_size / 2, this._x_size / 2),
-                                      Random.Range(-this._y_size / 2 + this._y_center_point,
-                                                   this._y_size / 2 + this._y_center_point),
-                                      Random.Range(-this._z_size / 2, this._z_size / 2));
+          var spawn_pos = new Vector3(x : Random.Range(min : -this._x_size / 2, max : this._x_size / 2),
+                                      y : Random.Range(min : -this._y_size / 2 + this._y_center_point,
+                                                       max : this._y_size / 2 + this._y_center_point),
+                                      z : Random.Range(min : -this._z_size / 2, max : this._z_size / 2));
           var cube_clone = Instantiate(original : this._cube,
                                        position : spawn_pos,
                                        rotation : Quaternion.identity,
                                        parent : this.transform);
           cube_clone.transform.localScale =
-              new Vector3(this._sphere_size + temp, this._sphere_size + temp, this._sphere_size + temp);
+              new Vector3(x : this._sphere_size + temp, y : this._sphere_size + temp, z : this._sphere_size + temp);
           cube_clone.SetActive(true);
           cube_clone.tag = "Obstruction";
 
@@ -159,16 +159,16 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
         for (var i = 0; i < sphere_num; i++) {
           var temp = Random.Range(min : -this._scaling_factor, max : this._scaling_factor);
           //spawn_pos = new Vector3(Random.Range(x_min, x_max), Random.Range(y_min, y_max), Random.Range(z_min, z_max));
-          var spawn_pos = new Vector3(Random.Range(-this._x_size / 2, this._x_size / 2),
-                                      Random.Range(-this._y_size / 2 + this._y_center_point,
-                                                   this._y_size / 2 + this._y_center_point),
-                                      Random.Range(-this._z_size / 2, this._z_size / 2));
+          var spawn_pos = new Vector3(x : Random.Range(min : -this._x_size / 2, max : this._x_size / 2),
+                                      y : Random.Range(min : -this._y_size / 2 + this._y_center_point,
+                                                       max : this._y_size / 2 + this._y_center_point),
+                                      z : Random.Range(min : -this._z_size / 2, max : this._z_size / 2));
           var sphere_clone = Instantiate(original : this._sphere,
                                          position : spawn_pos,
                                          rotation : Quaternion.identity,
                                          parent : this.transform);
           sphere_clone.transform.localScale =
-              new Vector3(this._sphere_size + temp, this._sphere_size + temp, this._sphere_size + temp);
+              new Vector3(x : this._sphere_size + temp, y : this._sphere_size + temp, z : this._sphere_size + temp);
           sphere_clone.SetActive(true);
           sphere_clone.tag = "Obstruction";
 

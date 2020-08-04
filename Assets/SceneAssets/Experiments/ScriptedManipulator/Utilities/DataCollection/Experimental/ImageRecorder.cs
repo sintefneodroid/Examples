@@ -34,12 +34,12 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection.E
       RenderTexture.active = camera.targetTexture;
       camera.Render();
       var image = new Texture2D(width : camera.targetTexture.width, height : camera.targetTexture.height);
-      image.ReadPixels(new Rect(0,
-                                0,
-                                width : camera.targetTexture.width,
-                                height : camera.targetTexture.height),
-                       0,
-                       0);
+      image.ReadPixels(source : new Rect(0,
+                                         0,
+                                         width : camera.targetTexture.width,
+                                         height : camera.targetTexture.height),
+                       destX : 0,
+                       destY : 0);
       image.Apply();
       RenderTexture.active = current_render_texture;
       return image;

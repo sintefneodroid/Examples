@@ -18,12 +18,12 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps {
         var position = transform1.position;
         Debug.DrawLine(start : position, end : position - transform1.forward * this._obstruction_cast_length, color : color);
         var up = transform1.up;
-        Debug.DrawLine(this.transform.position - up * this._obstruction_cast_radius,
-                       position + up * this._obstruction_cast_radius,
+        Debug.DrawLine(start : this.transform.position - up * this._obstruction_cast_radius,
+                       end : position + up * this._obstruction_cast_radius,
                        color : color);
         var right = transform1.right;
-        Debug.DrawLine(position - right * this._obstruction_cast_radius,
-                       position + right * this._obstruction_cast_radius,
+        Debug.DrawLine(start : position - right * this._obstruction_cast_radius,
+                       end : position + right * this._obstruction_cast_radius,
                        color : color);
       }
     }
@@ -51,8 +51,8 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps {
       var transform1 = this.transform;
       var position = transform1.position;
       var forward = transform1.forward;
-      return Physics.OverlapCapsule(position - forward * this._obstruction_cast_radius,
-                                    position - forward * this._obstruction_cast_length,
+      return Physics.OverlapCapsule(point0 : position - forward * this._obstruction_cast_radius,
+                                    point1 : position - forward * this._obstruction_cast_length,
                                     radius : this._obstruction_cast_radius,
                                     layerMask : LayerMask.GetMask("Obstruction")).Length
              > 0;

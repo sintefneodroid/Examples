@@ -9,8 +9,8 @@ namespace SceneAssets.Walker {
   /// <summary>
   /// </summary>
   [ExecuteInEditMode]
-  [RequireComponent(typeof(Light))]
-  [RequireComponent(typeof(ParticleSystem))]
+  [RequireComponent(requiredComponent : typeof(Light))]
+  [RequireComponent(requiredComponent : typeof(ParticleSystem))]
   public class DaylightSimulator : EnvironmentListener {
     [SerializeField] float _day_atmosphere_thickness = 0.88f;
 
@@ -79,7 +79,7 @@ namespace SceneAssets.Walker {
     void Update() {
       var a = 1 - this._min_point;
       var dot =
-          Mathf.Clamp01((Vector3.Dot(lhs : this._light.transform.forward, rhs : Vector3.down) - this._min_point) / a);
+          Mathf.Clamp01(value : (Vector3.Dot(lhs : this._light.transform.forward, rhs : Vector3.down) - this._min_point) / a);
       var intensity = (this._max_intensity - this._min_intensity) * dot + this._min_intensity;
 
       this._light.intensity = intensity;
@@ -98,8 +98,8 @@ namespace SceneAssets.Walker {
       this._particle_system.SetParticles(particles : this._particles, size : num_alive_particles);
 
       a = 1 - this._min_ambient_point;
-      dot = Mathf.Clamp01((Vector3.Dot(lhs : this._light.transform.forward, rhs : Vector3.down) - this._min_ambient_point)
-                          / a);
+      dot = Mathf.Clamp01(value : (Vector3.Dot(lhs : this._light.transform.forward, rhs : Vector3.down) - this._min_ambient_point)
+                                  / a);
       var ambient_intensity = (this._max_ambient - this._min_ambient) * dot + this._min_ambient;
       RenderSettings.ambientIntensity = ambient_intensity;
 
@@ -113,7 +113,7 @@ namespace SceneAssets.Walker {
                                  + this._night_atmosphere_thickness;
       this._sky_mat.SetFloat(nameID : _atmosphere_thickness, value : atmosphere_thickness);
 
-      this.transform.Rotate(this._rotation * Time.deltaTime * this._speed_multiplier);
+      this.transform.Rotate(eulers : this._rotation * Time.deltaTime * this._speed_multiplier);
     }
 
     /// <inheritdoc />

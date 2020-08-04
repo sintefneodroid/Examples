@@ -43,8 +43,8 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
 
         if (i != 0 && i + 1 != bc.PointCount) {
           var curr_point = bc[index : i].Position;
-          var prev_point = bc[i - 1].Position;
-          var next_point = bc[i + 1].Position;
+          var prev_point = bc[index : i - 1].Position;
+          var next_point = bc[index : i + 1].Position;
           var direction_forward = (next_point - prev_point).normalized;
           var direction_back = (prev_point - next_point).normalized;
           var handle_scalar = 0.33f;

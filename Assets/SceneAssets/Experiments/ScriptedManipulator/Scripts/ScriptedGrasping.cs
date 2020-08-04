@@ -24,7 +24,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
 
         this.StopCoroutine("gripper_movement");
         this.StartCoroutine("gripper_movement",
-                            this.FollowPathToApproach1(trans : this._target_game_object.transform));
+                            value : this.FollowPathToApproach1(trans : this._target_game_object.transform));
       }
     }
 
@@ -243,7 +243,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
 
     void SetupEnvironment() {
       NeodroidRegistrationUtilities
-          .RegisterCollisionTriggerCallbacksOnChildren<ChildCollider3DSensor, Collider, Collision>(this,
+          .RegisterCollisionTriggerCallbacksOnChildren<ChildCollider3DSensor, Collider, Collision>(caller : this,
                                                                                                    parent : this
                                                                                                        .transform,
                                                                                                    on_collision_enter_child : this
@@ -290,10 +290,10 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
       }
 
       this._state.ObstructionMotionState =
-          this._state.GetMotionState(FindObjectsOfType<Obstruction>(),
+          this._state.GetMotionState(objects : FindObjectsOfType<Obstruction>(),
                                      previous_state : this._state.ObstructionMotionState,
                                      sensitivity : this._sensitivity);
-      this._state.TargetMotionState = this._state.GetMotionState(FindObjectsOfType<GraspableObject>(),
+      this._state.TargetMotionState = this._state.GetMotionState(objects : FindObjectsOfType<GraspableObject>(),
                                                                  previous_state : this._state.TargetMotionState,
                                                                  sensitivity : this._sensitivity);
 
@@ -398,7 +398,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
         if (child_game_object == this._grab_region.gameObject
             && other_maybe_graspable.gameObject == this._target_game_object.gameObject) {
           if (this._debugging) {
-            Debug.Log($"Target {other_maybe_graspable.name} is inside region");
+            Debug.Log(message : $"Target {other_maybe_graspable.name} is inside region");
           }
 
           this._state.TargetIsInsideRegion();
@@ -408,7 +408,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
             && other_maybe_graspable.gameObject == this._target_game_object.gameObject
             && !this._state.IsTargetGrabbed()) {
           if (this._debugging) {
-            Debug.Log($"Picking up target {other_maybe_graspable.name}");
+            Debug.Log(message : $"Picking up target {other_maybe_graspable.name}");
           }
 
           this._state.PickUpTarget();
@@ -432,7 +432,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
         if (child_game_object == this._claw_1.gameObject
             && other_maybe_graspable.gameObject == this._target_game_object.gameObject) {
           if (this._debugging) {
-            Debug.Log($"Target {other_maybe_graspable.name} is touching {child_game_object.name}");
+            Debug.Log(message : $"Target {other_maybe_graspable.name} is touching {child_game_object.name}");
           }
 
           this._state.Claw1IsTouchingTarget();
@@ -441,7 +441,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
         if (child_game_object == this._claw_2.gameObject
             && other_maybe_graspable.gameObject == this._target_game_object.gameObject) {
           if (this._debugging) {
-            Debug.Log($"Target {other_maybe_graspable.name} is touching {child_game_object.name}");
+            Debug.Log(message : $"Target {other_maybe_graspable.name} is touching {child_game_object.name}");
           }
 
           this._state.Claw2IsTouchingTarget();
@@ -515,7 +515,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
       GraspableObject optimal_target = null;
       Grasp optimal_grasp = null;
       foreach (var target in targets) {
-        var pair = target.GetOptimalGrasp(this);
+        var pair = target.GetOptimalGrasp(grasping : this);
         if (pair == null || pair.Item1 == null || pair.Item1.IsObstructed()) {
           continue;
         }

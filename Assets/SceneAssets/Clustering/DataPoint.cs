@@ -7,7 +7,7 @@ namespace SceneAssets.Clustering {
     [SerializeField] protected float gizmo_radius = 0.1f;
 
     void OnDrawGizmosSelected() {
-      Gizmos.DrawSphere(this.transform.position,this.gizmo_radius);
+      Gizmos.DrawSphere(center : this.transform.position,radius : this.gizmo_radius);
     }
   }
 }

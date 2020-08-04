@@ -9,19 +9,19 @@ namespace SceneAssets.Experiments {
     [SerializeField] Transform TargetTransform = null;
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     [Range(1.0f, 15.0f)]
     public float TargetRadius = 1f;
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     [Range(20.0f, 75.0f)]
     public float LaunchAngle = 20f;
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     [Range(0.0f, 10.0f)]
     public float TargetHeightOffsetFromGround = 0f;
@@ -29,8 +29,8 @@ namespace SceneAssets.Experiments {
     [SerializeField] bool RandomizeHeightOffset = true;
 
     // state
-    bool _b_target_ready = false;
-    bool _b_touching_ground = false;
+    bool _target_ready = false;
+    bool _touching_ground = false;
 
     // cache
     Rigidbody _rigidbody = null;
@@ -42,8 +42,8 @@ namespace SceneAssets.Experiments {
     // Use this for initialization
     void Start() {
       this._rigidbody = this.GetComponent<Rigidbody>();
-      this._b_target_ready = false;
-      this._b_touching_ground = true;
+      this._target_ready = false;
+      this._touching_ground = true;
       var transform1 = this.transform;
       this._initial_position = transform1.position;
       this._initial_rotation = transform1.rotation;
@@ -53,14 +53,14 @@ namespace SceneAssets.Experiments {
     void ResetToInitialState() {
       this._rigidbody.velocity = Vector3.zero;
       this.transform.SetPositionAndRotation(position : this._initial_position, rotation : this._initial_rotation);
-      this._b_touching_ground = true;
-      this._b_target_ready = false;
+      this._touching_ground = true;
+      this._target_ready = false;
     }
 
     // Update is called once per frame
     void Update() {
       if (Input.GetKeyDown(key : KeyCode.Space)) {
-        if (this._b_target_ready) {
+        if (this._target_ready) {
           this.Launch();
         } else {
           this.ResetToInitialState();
@@ -72,15 +72,15 @@ namespace SceneAssets.Experiments {
         this.ResetToInitialState();
       }
 
-      if (!this._b_touching_ground && !this._b_target_ready) {
+      if (!this._touching_ground && !this._target_ready) {
         // update the rotation of the projectile during trajectory motion
         this.transform.rotation = Quaternion.LookRotation(forward : this._rigidbody.velocity) * this._initial_rotation;
       }
     }
 
-    void OnCollisionEnter() { this._b_touching_ground = true; }
+    void OnCollisionEnter() { this._touching_ground = true; }
 
-    void OnCollisionExit() { this._b_touching_ground = false; }
+    void OnCollisionExit() { this._touching_ground = false; }
 
     // returns the distance between the red dot and the TargetObject's y-position
     // this is a very little offset considered the ranges in this demo so it shouldn't make a big difference.
@@ -88,7 +88,7 @@ namespace SceneAssets.Experiments {
     // to be technically accurate, consider using this offset together with the target platform's y-position.
     float GetPlatformOffset() {
       var platform_offset = 0.0f;
-      // 
+      //
       //          (SIDE VIEW OF THE PLATFORM)
       //
       //                   +------------------------- Mark (Sprite)
@@ -99,7 +99,7 @@ namespace SceneAssets.Experiments {
       //    +----------------------------+
       //
 
-      // we're iterating through Mark (Sprite) and Platform (Cube) Transforms. 
+      // we're iterating through Mark (Sprite) and Platform (Cube) Transforms.
       foreach (var child_transform in this.TargetTransform.GetComponentsInChildren<Transform>()) {
         // take into account the y-offset of the Mark gameobject, which essentially
         // is (y-offset + y-scale/2) of the Platform as we've set earlier through the editor.
@@ -114,7 +114,7 @@ namespace SceneAssets.Experiments {
 
     // launches the object towards the TargetObject with a given LaunchAngle
     void Launch() {
-      // think of it as top-down view of vectors: 
+      // think of it as top-down view of vectors:
       //   we don't care about the y-component(height) of the initial and target position.
       var position = this.transform.position;
       var projectile_xz_pos = new Vector3(x : position.x, y : 0.0f, z : position.z);
@@ -127,12 +127,12 @@ namespace SceneAssets.Experiments {
       // shorthands for the formula
       var r = Vector3.Distance(a : projectile_xz_pos, b : target_xz_pos);
       var g = Physics.gravity.y;
-      var tan_alpha = Mathf.Tan(this.LaunchAngle * Mathf.Deg2Rad);
+      var tan_alpha = Mathf.Tan(f : this.LaunchAngle * Mathf.Deg2Rad);
       var h = position1.y + this.GetPlatformOffset() - position.y;
 
-      // calculate the local space components of the velocity 
-      // required to land the projectile on the target object 
-      var vz = Mathf.Sqrt(g * r * r / (2.0f * (h - r * tan_alpha)));
+      // calculate the local space components of the velocity
+      // required to land the projectile on the target object
+      var vz = Mathf.Sqrt(f : g * r * r / (2.0f * (h - r * tan_alpha)));
       var vy = tan_alpha * vz;
 
       // create the velocity vector in local space and get it in global space
@@ -141,7 +141,7 @@ namespace SceneAssets.Experiments {
 
       // launch the object by setting its initial velocity and flipping its state
       this._rigidbody.velocity = global_velocity;
-      this._b_target_ready = false;
+      this._target_ready = false;
     }
 
     // Sets a random target around the object based on the TargetRadius
@@ -171,7 +171,7 @@ namespace SceneAssets.Experiments {
 
       //  - finally, we'll set the target object's position and update our state.
       this.TargetTransform.SetPositionAndRotation(position : random_point, rotation : this.TargetTransform.rotation);
-      this._b_target_ready = true;
+      this._target_ready = true;
     }
   }
 }

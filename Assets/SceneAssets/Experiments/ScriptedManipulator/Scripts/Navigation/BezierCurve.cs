@@ -104,12 +104,12 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
         if (this.Dirty) {
           this._length = 0;
           for (var i = 0; i < this._points.Length - 1; i++) {
-            this._length += ApproximateLength(this._points[i], this._points[i + 1], resolution : this._resolution);
+            this._length += ApproximateLength(p1 : this._points[i], p2 : this._points[i + 1], resolution : this._resolution);
           }
 
           if (this.Close) {
-            this._length += ApproximateLength(this._points[this._points.Length - 1],
-                                              this._points[0],
+            this._length += ApproximateLength(p1 : this._points[this._points.Length - 1],
+                                              p2 : this._points[0],
                                               resolution : this._resolution);
           }
 
@@ -135,11 +135,11 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
 
         if (this._points.Length > 1) {
           for (var i = 0; i < this._points.Length - 1; i++) {
-            DrawCurve(this._points[i], this._points[i + 1], resolution : this._resolution);
+            DrawCurve(p1 : this._points[i], p2 : this._points[i + 1], resolution : this._resolution);
           }
 
           if (this.Close) {
-            DrawCurve(this._points[this._points.Length - 1], this._points[0], resolution : this._resolution);
+            DrawCurve(p1 : this._points[this._points.Length - 1], p2 : this._points[0], resolution : this._resolution);
           }
         }
       }
@@ -173,7 +173,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     ///   - Where to add the point
     /// </param>
     public BezierPoint AddPointAt(Vector3 position) {
-      var point_object = new GameObject("Point " + this.PointCount);
+      var point_object = new GameObject(name : "Point " + this.PointCount);
       point_object.transform.parent = this.transform;
       point_object.transform.position = position;
 
@@ -231,7 +231,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
       BezierPoint p2 = null;
 
       for (var i = 0; i < this._points.Length - 1; i++) {
-        curve_percent = ApproximateLength(this._points[i], this._points[i + 1]) / this.Length;
+        curve_percent = ApproximateLength(p1 : this._points[i], p2 : this._points[i + 1]) / this.Length;
         if (total_percent + curve_percent > t) {
           p1 = this._points[i];
           p2 = this._points[i + 1];
@@ -376,8 +376,8 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     public static Vector3 GetCubicCurvePoint(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, float t) {
       t = Mathf.Clamp01(value : t);
 
-      var part1 = Mathf.Pow(1 - t, 3) * p1;
-      var part2 = 3 * Mathf.Pow(1 - t, 2) * t * p2;
+      var part1 = Mathf.Pow(f : 1 - t, p : 3) * p1;
+      var part2 = 3 * Mathf.Pow(f : 1 - t, p : 2) * t * p2;
       var part3 = 3 * (1 - t) * Mathf.Pow(f : t, p : 2) * p3;
       var part4 = Mathf.Pow(f : t, p : 3) * p4;
 
@@ -405,7 +405,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     public static Vector3 GetQuadraticCurvePoint(Vector3 p1, Vector3 p2, Vector3 p3, float t) {
       t = Mathf.Clamp01(value : t);
 
-      var part1 = Mathf.Pow(1 - t, 2) * p1;
+      var part1 = Mathf.Pow(f : 1 - t, p : 2) * p1;
       var part2 = 2 * (1 - t) * t * p2;
       var part3 = Mathf.Pow(f : t, p : 2) * p3;
 
@@ -450,7 +450,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
 
       for (var i = 0; i < points.Length; i++) {
         var vector_to_add = points[points.Length - i - 1]
-                            * (BinomialCoefficient(i : i, n : order) * Mathf.Pow(f : t, p : order - i) * Mathf.Pow(1 - t, p : i));
+                            * (BinomialCoefficient(i : i, n : order) * Mathf.Pow(f : t, p : order - i) * Mathf.Pow(f : 1 - t, p : i));
         point += vector_to_add;
       }
 
@@ -490,7 +490,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
 
     #region UtilityFunctions
 
-    static int BinomialCoefficient(int i, int n) { return Factoral(i : n) / (Factoral(i : i) * Factoral(n - i)); }
+    static int BinomialCoefficient(int i, int n) { return Factoral(i : n) / (Factoral(i : i) * Factoral(i : n - i)); }
 
     static int Factoral(int i) {
       if (i == 0) {

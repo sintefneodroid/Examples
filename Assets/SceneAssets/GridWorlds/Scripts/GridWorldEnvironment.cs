@@ -70,7 +70,7 @@ namespace SceneAssets.GridWorlds.Scripts {
   /// <inheritdoc />
   /// <summary>
   /// </summary>
-  [RequireComponent(typeof(GoalCellSensor))]
+  [RequireComponent(requiredComponent : typeof(GoalCellSensor))]
   public class GridWorldEnvironment : ActorisedPrototypingEnvironment {
     [SerializeField] Camera _camera = null;
     [SerializeField] Material _empty_cell_material = null;
@@ -80,16 +80,16 @@ namespace SceneAssets.GridWorlds.Scripts {
 
     [SerializeField] GoalCellSensor _goal_cell_observer = null;
     [SerializeField] GridCell[,,] _grid = null;
-    [SerializeField] IntVector3 _grid_size = new IntVector3(Vector3.one * 20);
+    [SerializeField] IntVector3 _grid_size = new IntVector3(vec3 : Vector3.one * 20);
     [Range(0.0f, 0.999f)] [SerializeField] float _min_empty_cells_percentage = 0.5f;
 
     /// <summary>
     /// </summary>
     IntVector3 RandomCoordinates {
       get {
-        return new IntVector3(Random.Range(0, max : this._grid_size.X),
-                              Random.Range(0, max : this._grid_size.Y),
-                              Random.Range(0, max : this._grid_size.Z));
+        return new IntVector3(x : Random.Range(0, max : this._grid_size.X),
+                              y : Random.Range(0, max : this._grid_size.Y),
+                              z : Random.Range(0, max : this._grid_size.Z));
       }
     }
 
@@ -194,7 +194,7 @@ namespace SceneAssets.GridWorlds.Scripts {
         empty_cells_num += 1;
       }
 
-      active_cells.Add(grid[c.X, c.Y, c.Z]);
+      active_cells.Add(item : grid[c.X, c.Y, c.Z]);
     }
 
     void DoNextGenerationStep(ref int empty_cells_num,
@@ -213,7 +213,7 @@ namespace SceneAssets.GridWorlds.Scripts {
                                                    xs : xs,
                                                    ys : ys,
                                                    zs : zs);
-        active_cells.Add(grid[c.X, c.Y, c.Z]);
+        active_cells.Add(item : grid[c.X, c.Y, c.Z]);
         empty_cells_num += 1;
       } else {
         active_cells.RemoveAt(index : current_index);
@@ -251,7 +251,7 @@ namespace SceneAssets.GridWorlds.Scripts {
       var cube = GameObject.CreatePrimitive(type : PrimitiveType.Cube);
       cube.transform.parent = this.transform;
       cube.transform.localPosition =
-          new Vector3(x - xs * 0.5f + 0.5f, y - ys * 0.5f + 0.5f, z - zs * 0.5f + 0.5f);
+          new Vector3(x : x - xs * 0.5f + 0.5f, y : y - ys * 0.5f + 0.5f, z : z - zs * 0.5f + 0.5f);
       var new_cell = cube.AddComponent<EmptyCell>();
       var n = $"EmptyCell{x}{y}{z}";
       new_cell.Setup(n : n, mat : this._empty_cell_material);
@@ -264,7 +264,7 @@ namespace SceneAssets.GridWorlds.Scripts {
 
       cube.transform.parent = this.transform;
       cube.transform.localPosition =
-          new Vector3(x - xs * 0.5f + 0.5f, y - ys * 0.5f + 0.5f, z - zs * 0.5f + 0.5f);
+          new Vector3(x : x - xs * 0.5f + 0.5f, y : y - ys * 0.5f + 0.5f, z : z - zs * 0.5f + 0.5f);
       var new_cell = cube.AddComponent<FilledCell>();
       var n = $"FilledCell{x}{y}{z}";
       new_cell.Setup(n : n, mat : this._filled_cell_material);
@@ -290,7 +290,7 @@ namespace SceneAssets.GridWorlds.Scripts {
 
       var dominant_dimension = Mathf.Max(xs, ys, zs);
       this._camera.orthographicSize = dominant_dimension / 2f + 1f;
-      this._camera.transform.position = new Vector3(0, ys / 2f + 1f, 0);
+      this._camera.transform.position = new Vector3(0, y : ys / 2f + 1f, z : 0);
     }
 
     void NewGridWorld() {
@@ -326,7 +326,7 @@ namespace SceneAssets.GridWorlds.Scripts {
         foreach (var a in this.Actors) {
           var idx = Random.Range(0, max : empty_cells.Count);
           var empty_cell = empty_cells[index : idx];
-          a.Value.Transform.position = empty_cell.transform.position;
+          a.Value.CachedTransform.position = empty_cell.transform.position;
           empty_cells.RemoveAt(index : idx);
         }
 
@@ -353,8 +353,8 @@ namespace SceneAssets.GridWorlds.Scripts {
 
         //this.Setup();
 
-        if (this.Configure) {
-          this.Configure = false;
+        if (this.ShouldConfigure) {
+          this.ShouldConfigure = false;
           this.Reconfigure();
         }
       }

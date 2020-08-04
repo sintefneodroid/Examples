@@ -20,24 +20,24 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.Pathfinding {
       var g = grid_granularity;
 
       var neighbours = new[] {
-                                 new Vector3(c.x + g, y : c.y, z : c.z),
-                                 new Vector3(c.x + g, c.y + g, z : c.z),
-                                 new Vector3(c.x + g, c.y - g, z : c.z),
-                                 new Vector3(c.x + g, y : c.y, z : c.z + g),
-                                 new Vector3(c.x + g, y : c.y, z : c.z - g),
-                                 new Vector3(c.x + g, c.y + g, c.z + g),
-                                 new Vector3(c.x + g, c.y + g, c.z - g),
-                                 new Vector3(c.x + g, c.y - g, c.z + g),
-                                 new Vector3(c.x + g, c.y - g, c.z - g),
-                                 new Vector3(c.x - g, y : c.y, z : c.z),
-                                 new Vector3(c.x - g, c.y + g, z : c.z),
-                                 new Vector3(c.x - g, c.y - g, z : c.z),
-                                 new Vector3(c.x - g, y : c.y, z : c.z + g),
-                                 new Vector3(c.x - g, y : c.y, z : c.z - g),
-                                 new Vector3(c.x - g, c.y + g, c.z + g),
-                                 new Vector3(c.x - g, c.y + g, c.z - g),
-                                 new Vector3(c.x - g, c.y - g, c.z + g),
-                                 new Vector3(c.x - g, c.y - g, c.z - g),
+                                 new Vector3(x : c.x + g, y : c.y, z : c.z),
+                                 new Vector3(x : c.x + g, y : c.y + g, z : c.z),
+                                 new Vector3(x : c.x + g, y : c.y - g, z : c.z),
+                                 new Vector3(x : c.x + g, y : c.y, z : c.z + g),
+                                 new Vector3(x : c.x + g, y : c.y, z : c.z - g),
+                                 new Vector3(x : c.x + g, y : c.y + g, z : c.z + g),
+                                 new Vector3(x : c.x + g, y : c.y + g, z : c.z - g),
+                                 new Vector3(x : c.x + g, y : c.y - g, z : c.z + g),
+                                 new Vector3(x : c.x + g, y : c.y - g, z : c.z - g),
+                                 new Vector3(x : c.x - g, y : c.y, z : c.z),
+                                 new Vector3(x : c.x - g, y : c.y + g, z : c.z),
+                                 new Vector3(x : c.x - g, y : c.y - g, z : c.z),
+                                 new Vector3(x : c.x - g, y : c.y, z : c.z + g),
+                                 new Vector3(x : c.x - g, y : c.y, z : c.z - g),
+                                 new Vector3(x : c.x - g, y : c.y + g, z : c.z + g),
+                                 new Vector3(x : c.x - g, y : c.y + g, z : c.z - g),
+                                 new Vector3(x : c.x - g, y : c.y - g, z : c.z + g),
+                                 new Vector3(x : c.x - g, y : c.y - g, z : c.z - g),
                                  new Vector3(x : c.x, y : c.y, z : c.z + g),
                                  new Vector3(x : c.x, y : c.y, z : c.z - g),
                                  new Vector3(x : c.x, y : c.y + g, z : c.z),
@@ -58,7 +58,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.Pathfinding {
           continue; // do not add obstructed points to returned set
         }
 
-        return_set.Add(new FastVector3(v : neighbour));
+        return_set.Add(item : new FastVector3(v : neighbour));
       }
 
       return return_set;
@@ -191,8 +191,8 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.Pathfinding {
 
       while (path.Count > 0) {
         var last_point =
-            smooth_path[smooth_path.Count - 1]; // will be drawing from last point in smoothed path
-        var new_point = path[path.Count - 1]; // next unsmoothed path point is the last in reversed array
+            smooth_path[index : smooth_path.Count - 1]; // will be drawing from last point in smoothed path
+        var new_point = path[index : path.Count - 1]; // next unsmoothed path point is the last in reversed array
         foreach (var point in path) {
           var ray = new Ray(origin : last_point, direction : (point - last_point).normalized);
           if (Physics.SphereCast(ray : ray, radius : sphere_cast_radius, maxDistance : Vector3.Distance(a : point, b : last_point))) {

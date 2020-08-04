@@ -76,7 +76,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
           break;
       }
 
-      Debug.Log("Target = " + this._target);
+      Debug.Log(message : "Target = " + this._target);
     }
 
     enum Targets {

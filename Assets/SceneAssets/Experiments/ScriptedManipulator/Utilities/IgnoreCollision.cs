@@ -9,19 +9,19 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities {
 
     void OnCollisionEnter(Collision collision) {
       if (collision.gameObject.CompareTag(tag : this._a_tag)) {
-        Physics.IgnoreCollision(this.GetComponent<Collider>(), collider2 : collision.collider);
+        Physics.IgnoreCollision(collider1 : this.GetComponent<Collider>(), collider2 : collision.collider);
       }
     }
 
     void OnCollisionExit(Collision collision) {
       if (collision.gameObject.CompareTag(tag : this._a_tag)) {
-        Physics.IgnoreCollision(this.GetComponent<Collider>(), collider2 : collision.collider);
+        Physics.IgnoreCollision(collider1 : this.GetComponent<Collider>(), collider2 : collision.collider);
       }
     }
 
     void OnCollisionStay(Collision collision) {
       if (collision.gameObject.CompareTag(tag : this._a_tag)) {
-        Physics.IgnoreCollision(this.GetComponent<Collider>(), collider2 : collision.collider);
+        Physics.IgnoreCollision(collider1 : this.GetComponent<Collider>(), collider2 : collision.collider);
       }
     }
   }

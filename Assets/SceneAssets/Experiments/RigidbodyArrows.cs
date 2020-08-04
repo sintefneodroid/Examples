@@ -21,11 +21,11 @@ namespace SceneAssets.Experiments {
       var a_c = new Color(0,
                           1,
                           0,
-                          (float).5);
+                          a : (float).5);
       var v_c = new Color(0,
                           0,
                           1,
-                          (float).5);
+                          a : (float).5);
 
       var transform1 = this.transform;
       var position = transform1.position; // + Vector3.up+ Vector3.right;
@@ -50,13 +50,13 @@ namespace SceneAssets.Experiments {
 
     void FixedUpdate() {
       var vel = this.rb.velocity;
-      this.velArrow.LookAt(this.velArrow.position + vel.normalized);
+      this.velArrow.LookAt(worldPosition : this.velArrow.position + vel.normalized);
       var v_scale = this.velArrow.localScale;
       v_scale.z = vel.magnitude;
       this.velArrow.localScale = v_scale;
 
       var ang = this.rb.angularVelocity;
-      this.angArrow.LookAt(this.angArrow.position + ang.normalized);
+      this.angArrow.LookAt(worldPosition : this.angArrow.position + ang.normalized);
       var a_scale = this.angArrow.localScale;
       a_scale.z = ang.magnitude;
       this.angArrow.localScale = a_scale;

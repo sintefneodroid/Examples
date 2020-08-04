@@ -49,10 +49,10 @@ namespace SceneAssets.Catch {
               var trans = this._spawn_poses[index : position_selection];
               pose = new Pose(position : trans.position, rotation : trans.rotation);
             } else {
-              pose = new Pose(this._spawn_position_range.Sample(), this._spawn_rotation_range.Sample());
+              pose = new Pose(position : this._spawn_position_range.Sample(), rotation : this._spawn_rotation_range.Sample());
             }
 
-            Instantiate(this._spawn_objects[index : object_selection], position : pose.position, rotation : pose.rotation);
+            Instantiate(original : this._spawn_objects[index : object_selection], position : pose.position, rotation : pose.rotation);
             var delay = this._spawn_delay_range.Sample();
             this._next_spawn_time = Time.time + delay;
           }

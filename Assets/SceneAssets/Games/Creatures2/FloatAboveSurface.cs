@@ -50,7 +50,7 @@ namespace SceneAssets.Games.Creatures2 {
 
       var force = fractional_position * this._MaxForce;
 
-      this._rb.AddForceAtPosition(Vector3.up * force, position : this.transform.position);
+      this._rb.AddForceAtPosition(force : Vector3.up * force, position : this.transform.position);
     }
   }
 }

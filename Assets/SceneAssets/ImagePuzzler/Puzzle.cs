@@ -47,7 +47,7 @@ namespace SceneAssets.ImagePuzzler {
           var block = block_object.AddComponent<Block>();
           block.OnBlockPressed += this.PlayerMoveBlockInput;
           block.OnFinishedMoving += this.OnBlockFinishedMoving;
-          block.Init(new Vector2Int(x : x, y : y), image_slices[x, y]);
+          block.Init(starting_coord : new Vector2Int(x : x, y : y), image : image_slices[x, y]);
           this._blocks[x, y] = block;
 
           if (y == 0 && x == dominant_division - 1) {
@@ -69,7 +69,7 @@ namespace SceneAssets.ImagePuzzler {
 
     void MakeNextPlayerMove() {
       while (this._inputs.Count > 0 && !this._block_is_moving) {
-        this.MoveBlock(this._inputs.Dequeue(), duration : this._default_move_duration);
+        this.MoveBlock(block_to_move : this._inputs.Dequeue(), duration : this._default_move_duration);
       }
     }
 
@@ -129,7 +129,7 @@ namespace SceneAssets.ImagePuzzler {
               && move_block_coord.x < this._horisontal_divisions
               && move_block_coord.y >= 0
               && move_block_coord.y < this._vertical_divisions) {
-            this.MoveBlock(this._blocks[move_block_coord.x, move_block_coord.y], duration : this._shuffle_move_duration);
+            this.MoveBlock(block_to_move : this._blocks[move_block_coord.x, move_block_coord.y], duration : this._shuffle_move_duration);
             this._shuffle_moves_remaining--;
             this._prev_shuffle_offset = offset;
             break;

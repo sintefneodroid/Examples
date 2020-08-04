@@ -15,7 +15,7 @@ namespace SceneAssets.BalanceBall {
     void Update() {
       if (this.maxRotationDegrees > 0) {
         // Apply the 'pre-clamp' rotation (rotation-Z and rotation-X from X & Y of mouse, respectively).
-        this.SimpleRotation(this.GetMouseInput());
+        this.SimpleRotation(mouse_xy : this.GetMouseInput());
       }
 
       if (this.ClampToMaxRotationDegrees) {

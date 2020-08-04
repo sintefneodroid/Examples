@@ -4,7 +4,7 @@ namespace SceneAssets.Move {
   /// <inheritdoc />
   /// <summary>
   /// </summary>
-  [RequireComponent(typeof(Renderer))]
+  [RequireComponent(requiredComponent : typeof(Renderer))]
   public class Conveyor : MonoBehaviour {
     /// <summary>
     ///
@@ -62,9 +62,9 @@ namespace SceneAssets.Move {
       //other_thing.rigidbody.velocity = force;
 
       foreach (var c in other_thing.contacts) {
-        other_thing.rigidbody.AddForceAtPosition((force - other_thing.rigidbody.velocity)
-                                                 * (1 / (c.separation + 1)),
-                                                 c.point + c.normal);
+        other_thing.rigidbody.AddForceAtPosition(force : (force - other_thing.rigidbody.velocity)
+                                                         * (1 / (c.separation + 1)),
+                                                 position : c.point + c.normal);
       }
 
       /*foreach (var c in other_thing.contacts) {
@@ -73,9 +73,9 @@ namespace SceneAssets.Move {
       }*/
 
       var copy = -other_thing.rigidbody.angularVelocity;
-      other_thing.rigidbody.AddTorque(copy * this._dampening);
+      other_thing.rigidbody.AddTorque(torque : copy * this._dampening);
       var copy2 = -other_thing.rigidbody.velocity;
-      other_thing.rigidbody.AddForce(copy2 * this._dampening);
+      other_thing.rigidbody.AddForce(force : copy2 * this._dampening);
     }
   }
 }

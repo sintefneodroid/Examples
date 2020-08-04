@@ -60,11 +60,11 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
       get { return this._curve; }
       set {
         if (this._curve) {
-          this._curve.RemovePoint(this);
+          this._curve.RemovePoint(point : this);
         }
 
         this._curve = value;
-        this._curve.AddPoint(this);
+        this._curve.AddPoint(point : this);
       }
     }
 

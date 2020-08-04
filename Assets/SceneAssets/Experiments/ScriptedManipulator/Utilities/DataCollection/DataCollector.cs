@@ -35,8 +35,8 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
       //print ("GPU supports depth format: " + SystemInfo.SupportsRenderTextureFormat (RenderTextureFormat.Depth));
       //print ("GPU supports shadowmap format: " + SystemInfo.SupportsRenderTextureFormat (RenderTextureFormat.Shadowmap));
 
-      File.WriteAllText(this._file_path + this._file_path_gripper, "frame, x, y, z, rot_x, rot_y, rot_z\n");
-      File.WriteAllText(this._file_path + this._file_path_target, "frame, x, y, z, rot_x, rot_y, rot_z\n");
+      File.WriteAllText(path : this._file_path + this._file_path_gripper, contents : "frame, x, y, z, rot_x, rot_y, rot_z\n");
+      File.WriteAllText(path : this._file_path + this._file_path_target, contents : "frame, x, y, z, rot_x, rot_y, rot_z\n");
 
       /*if (!File.Exists(_file_path + _file_path_pos_rot)) {
       Debug.Log("Created file/path: " + _file_path + _file_path_pos_rot);
@@ -60,7 +60,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
             this.GetTransformOutput(id : this._i,
                                     pos : gripper_position_relative_to_camera,
                                     dir : gripper_direction_relative_to_camera);
-        this.SaveToCsv(this._file_path + this._file_path_gripper, output : gripper_transform_output);
+        this.SaveToCsv(file_path : this._file_path + this._file_path_gripper, output : gripper_transform_output);
 
         var target_position_relative_to_camera =
             this.transform.InverseTransformPoint(position : this._target.transform.position);
@@ -70,7 +70,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
             this.GetTransformOutput(id : this._i,
                                     pos : target_position_relative_to_camera,
                                     dir : target_direction_relative_to_camera);
-        this.SaveToCsv(this._file_path + this._file_path_target, output : target_transform_output);
+        this.SaveToCsv(file_path : this._file_path + this._file_path_target, output : target_transform_output);
 
         foreach (var input_camera in this._cameras) {
           this.SaveRenderTextureToImage(id : this._i, input_camera : input_camera, file_name_dd : input_camera.name + "/");
@@ -104,7 +104,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
 
       var sb = new StringBuilder();
 
-      sb.AppendLine(string.Join(separator : delimiter, value : output));
+      sb.AppendLine(value : string.Join(separator : delimiter, value : output));
 
       File.AppendAllText(path : file_path, contents : sb.ToString());
 
@@ -129,12 +129,12 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
       input_camera.Render();
       var target_texture = input_camera.targetTexture;
       var image = new Texture2D(width : target_texture.width, height : target_texture.height);
-      image.ReadPixels(new Rect(0,
-                                0,
-                                width : target_texture.width,
-                                height : target_texture.height),
-                       0,
-                       0);
+      image.ReadPixels(source : new Rect(0,
+                                         0,
+                                         width : target_texture.width,
+                                         height : target_texture.height),
+                       destX : 0,
+                       destY : 0);
       image.Apply();
       RenderTexture.active = current_render_texture;
       return image;

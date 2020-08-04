@@ -12,13 +12,13 @@ using UnityEngine;
 
 namespace SceneAssets.BalanceBall {
   /// <inheritdoc />
-  [AddComponentMenu(ActuatorComponentMenuPath._ComponentMenuPath
-                    + "LimitedEulerRotationActuator2Dof"
-                    + ActuatorComponentMenuPath._Postfix)]
+  [AddComponentMenu(menuName : ActuatorComponentMenuPath._ComponentMenuPath
+                               + "LimitedEulerRotationActuator2Dof"
+                               + ActuatorComponentMenuPath._Postfix)]
   public class LimitedEulerRotation2DofActuator : Actuator {
-    /// <summary>
-    ///
-    /// </summary>
+    /// <inheritdoc />
+    ///  <summary>
+    ///  </summary>
     public override string PrototypingTypeName { get { return "EulerRotation"; } }
 
     /// <summary>
@@ -39,21 +39,21 @@ namespace SceneAssets.BalanceBall {
       this._z = this.Identifier + "RotZ_";
 
       this.Parent =
-          NeodroidRegistrationUtilities.RegisterComponent((IHasRegister<IActuator>)this.Parent,
-                                                          this,
+          NeodroidRegistrationUtilities.RegisterComponent(r : (IHasRegister<IActuator>)this.Parent,
+                                                          c : this,
                                                           identifier : this._x);
       this.Parent =
-          NeodroidRegistrationUtilities.RegisterComponent((IHasRegister<IActuator>)this.Parent,
-                                                          this,
+          NeodroidRegistrationUtilities.RegisterComponent(r : (IHasRegister<IActuator>)this.Parent,
+                                                          c : this,
                                                           identifier : this._z);
     }
 
-    /// <summary>
-    ///
-    /// </summary>
+    /// <inheritdoc />
+    ///  <summary>
+    ///  </summary>
     protected override void UnRegisterComponent() {
-      this.Parent?.UnRegister(this, obj : this._x);
-      this.Parent?.UnRegister(this, obj : this._z);
+      this.Parent?.UnRegister(t : this, obj : this._x);
+      this.Parent?.UnRegister(t : this, obj : this._z);
     }
 
     /// <inheritdoc />
@@ -65,8 +65,8 @@ namespace SceneAssets.BalanceBall {
       var m = motion.Strength;
       #if NEODROID_DEBUG
       if (this.Debugging) {
-        Debug.Log($"Inner Applying {m} To {this.name}");
-        Debug.Log($"Current rotation of {this.name} is {this.transform.rotation}");
+        Debug.Log(message : $"Inner Applying {m} To {this.name}");
+        Debug.Log(message : $"Current rotation of {this.name} is {this.transform.rotation}");
       }
       #endif
 
