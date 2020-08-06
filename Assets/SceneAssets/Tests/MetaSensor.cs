@@ -4,7 +4,7 @@ using droid.Runtime.Prototyping.Sensors.Experimental;
 
 namespace SceneAssets.Tests {
   public class MetaSensor : SingleValueSensor {
-    public override IEnumerable<Single> FloatEnumerable { get { yield return this.ParentEnvironment.StepI;
+    public override IEnumerable<float> FloatEnumerable { get { yield return this.ParentEnvironment.StepI;
       yield return this.ParentEnvironment.Sensors.Count;
       yield return this.ParentEnvironment.Listeners.Count;
     } }

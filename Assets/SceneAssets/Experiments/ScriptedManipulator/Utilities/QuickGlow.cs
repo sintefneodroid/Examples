@@ -14,9 +14,9 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities {
     [Range(0, 10)] public int _Iterations = 0;
 
     [Range(0, 10)] public float _Size = 0;
-    static readonly Int32 _size = Shader.PropertyToID("_Size");
-    static readonly Int32 _intensity = Shader.PropertyToID("_Intensity");
-    static readonly Int32 _blend_tex = Shader.PropertyToID("_BlendTex");
+    static readonly int _size = Shader.PropertyToID("_Size");
+    static readonly int _intensity = Shader.PropertyToID("_Intensity");
+    static readonly int _blend_tex = Shader.PropertyToID("_BlendTex");
 
     void OnValidate() {
       if (this._blur_material != null) {

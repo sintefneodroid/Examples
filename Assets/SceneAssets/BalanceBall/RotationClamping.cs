@@ -27,7 +27,7 @@ namespace SceneAssets.BalanceBall {
       temp_eulers.z = ClampPlane(plane : temp_eulers.z, low : low, high : high);
       temp_eulers.y = _null_arc; // ClampPlane(tempEulers.y); // *See GIST note below...
       return Quaternion.Euler(euler : temp_eulers);
-      ///Debug.Log(tempEulers);
+      //Debug.Log(tempEulers);
     }
 
     static float ClampPlane(float plane, float low, float high) {

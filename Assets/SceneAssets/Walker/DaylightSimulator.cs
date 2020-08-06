@@ -40,7 +40,7 @@ namespace SceneAssets.Walker {
     [SerializeField] float _speed_multiplier = 1f;
 
     [SerializeField] Quaternion _start_rotation = Quaternion.identity;
-    static readonly Int32 _atmosphere_thickness = Shader.PropertyToID("_AtmosphereThickness");
+    static readonly int _atmosphere_thickness = Shader.PropertyToID("_AtmosphereThickness");
 
     /// <inheritdoc />
     /// <summary>

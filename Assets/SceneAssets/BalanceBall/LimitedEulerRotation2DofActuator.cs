@@ -81,22 +81,25 @@ namespace SceneAssets.BalanceBall {
                                                                high : this.limits.Max.x);
     }
 
-    public override String[] InnerMotionNames { get; }
+    public override string[] InnerMotionNames { get; }
 
     #if UNITY_EDITOR
     void OnDrawGizmosSelected() {
       if (this.enabled) {
-        var position = this.transform.position;
-
-        Handles.DrawWireArc(center : this.transform.position,
-                            normal : this.transform.right,
-                            @from : -this.transform.forward,
+        var transform1 = this.transform;
+        var position = transform1.position;
+        var right = transform1.right;
+        var forward = transform1.forward;
+        
+        Handles.DrawWireArc(center : position,
+                            normal : right,
+                            @from : -forward,
                             angle : 180,
                             radius : 2);
 
-        Handles.DrawWireArc(center : this.transform.position,
-                            normal : this.transform.forward,
-                            @from : -this.transform.right,
+        Handles.DrawWireArc(center : position,
+                            normal : forward,
+                            @from : -right,
                             angle : 180,
                             radius : 2);
       }

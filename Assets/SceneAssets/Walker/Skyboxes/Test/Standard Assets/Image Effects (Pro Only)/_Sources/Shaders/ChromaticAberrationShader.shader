@@ -81,7 +81,7 @@ Shader "Hidden/ChromaticAberration" {
 		half2 uv = i.uv;
 		
 		// corner heuristic
-		coords = (coords - 0.5h) * 2.0h;		
+		coords = (coords - 0.5) * 2.0;		
 		half coordDot = dot (coords,coords);
 
 		half4 color = tex2D (_MainTex, uv);
@@ -94,14 +94,14 @@ Shader "Hidden/ChromaticAberration" {
 		// and if you do have a proper HDR setup, lerping .rb might yield better results than .g
 		// (see below)
 
-		half4 blurredTap = color * 0.1h;
+		half4 blurredTap = color * 0.1;
 		for(int l=0; l < SmallDiscKernelSamples; l++)
 		{
 			half2 sampleUV = uv + SmallDiscKernel[l].xy * _MainTex_TexelSize.xy * maxOfs;
 			half3 tap = tex2D(_MainTex, sampleUV).rgb;
 			blurredTap.rgb += tap;
 		}
-		blurredTap.rgb /= (float)SmallDiscKernelSamples + 0.2h;
+		blurredTap.rgb /= (float)SmallDiscKernelSamples + 0.2;
 
 		// debug:
 		//return blurredTap;

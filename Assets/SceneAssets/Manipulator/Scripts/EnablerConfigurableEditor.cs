@@ -1,8 +1,8 @@
-﻿using Exclude.BioIK;
-#if UNITY_EDITOR && BIOIK_EXISTS
+﻿#if UNITY_EDITOR && BIOIK_EXISTS
 using System;
 using UnityEditor;
 using UnityEngine;
+using Exclude.BioIK;
 
 namespace SceneAssets.Manipulator.Scripts {
   /// <inheritdoc />

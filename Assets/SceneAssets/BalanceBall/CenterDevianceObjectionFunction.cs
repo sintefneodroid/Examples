@@ -6,17 +6,17 @@ namespace SceneAssets.BalanceBall {
   ///
   /// </summary>
   public class CenterDevianceObjectionFunction : SpatialObjective {
-    /// <summary>
-    ///
-    /// </summary>
-    /// <returns></returns>
-    /// <exception cref="NotImplementedException"></exception>
-    public override Single InternalEvaluate() { return 0.1f; }
+    /// <inheritdoc />
+    ///  <summary>
+    ///  </summary>
+    ///  <returns></returns>
+    ///  <exception cref="T:System.NotImplementedException"></exception>
+    public override float InternalEvaluate() { return 0.1f; }
 
-    /// <summary>
-    ///
-    /// </summary>
-    /// <exception cref="NotImplementedException"></exception>
+    /// <inheritdoc />
+    ///  <summary>
+    ///  </summary>
+    ///  <exception cref="T:System.NotImplementedException"></exception>
     public override void InternalReset() { }
   }
 }

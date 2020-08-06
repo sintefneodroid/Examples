@@ -17,10 +17,10 @@ namespace SceneAssets.Clustering.Categorical {
 
     [SerializeField] int data_points_per_category = 2000;
 
-    [SerializeField] Dictionary<string, GameObject> categories = new Dictionary<String, GameObject>();
+    [SerializeField] Dictionary<string, GameObject> categories = new Dictionary<string, GameObject>();
 
     [SerializeField]
-    Dictionary<string, List<DataPoint>> data_points = new Dictionary<String, List<DataPoint>>();
+    Dictionary<string, List<DataPoint>> data_points = new Dictionary<string, List<DataPoint>>();
 
     /// <inheritdoc />
     /// <summary>
@@ -49,11 +49,11 @@ namespace SceneAssets.Clustering.Categorical {
 
     void ResampleDataPoints() {
       if (this.categories == null) {
-        this.categories = new Dictionary<String, GameObject>();
+        this.categories = new Dictionary<string, GameObject>();
       }
 
       if (this.data_points == null) {
-        this.data_points = new Dictionary<String, List<DataPoint>>();
+        this.data_points = new Dictionary<string, List<DataPoint>>();
       }
 
       foreach (var data_point in this.data_points) {
