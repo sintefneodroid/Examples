@@ -3,7 +3,7 @@ using System.Linq;
 using droid.Runtime.Environments;
 using droid.Runtime.Environments.Prototyping;
 using droid.Runtime.Prototyping.ObjectiveFunctions.Spatial;
-using droid.Runtime.Prototyping.Sensors.Grid;
+using droid.Runtime.Prototyping.Sensors.Spatial.Grid;
 using droid.Runtime.Structs.Vectors;
 using droid.Runtime.Utilities.Grid;
 using UnityEngine;
@@ -58,7 +58,7 @@ namespace SceneAssets.GridWorlds.Scripts {
     /// <summary>
     /// </summary>
 
-    public static MazeDirection RandomValue { get { return (MazeDirection)Random.Range(0, _Count); } }
+    public static MazeDirection RandomValue { get { return (MazeDirection)Random.Range(0, max : _Count); } }
 
     /// <summary>
     /// </summary>
@@ -70,7 +70,7 @@ namespace SceneAssets.GridWorlds.Scripts {
   /// <inheritdoc />
   /// <summary>
   /// </summary>
-  [RequireComponent(typeof(GoalCellSensor))]
+  [RequireComponent(requiredComponent : typeof(GoalCellSensor))]
   public class GridWorldEnvironment : ActorisedPrototypingEnvironment {
     [SerializeField] Camera _camera = null;
     [SerializeField] Material _empty_cell_material = null;
@@ -80,16 +80,16 @@ namespace SceneAssets.GridWorlds.Scripts {
 
     [SerializeField] GoalCellSensor _goal_cell_observer = null;
     [SerializeField] GridCell[,,] _grid = null;
-    [SerializeField] IntVector3 _grid_size = new IntVector3(Vector3.one * 20);
+    [SerializeField] IntVector3 _grid_size = new IntVector3(vec3 : Vector3.one * 20);
     [Range(0.0f, 0.999f)] [SerializeField] float _min_empty_cells_percentage = 0.5f;
 
     /// <summary>
     /// </summary>
     IntVector3 RandomCoordinates {
       get {
-        return new IntVector3(Random.Range(0, this._grid_size.X),
-                              Random.Range(0, this._grid_size.Y),
-                              Random.Range(0, this._grid_size.Z));
+        return new IntVector3(x : Random.Range(0, max : this._grid_size.X),
+                              y : Random.Range(0, max : this._grid_size.Y),
+                              z : Random.Range(0, max : this._grid_size.Z));
       }
     }
 
@@ -104,12 +104,12 @@ namespace SceneAssets.GridWorlds.Scripts {
       for (var i = 0; i < xs; i++) {
         for (var j = 0; j < ys; j++) {
           for (var k = 0; k < zs; k++) {
-            new_grid[i, j, k] = this.CreateEmptyCell(i,
-                                                     j,
-                                                     k,
-                                                     xs,
-                                                     ys,
-                                                     zs);
+            new_grid[i, j, k] = this.CreateEmptyCell(x : i,
+                                                     y : j,
+                                                     z : k,
+                                                     xs : xs,
+                                                     ys : ys,
+                                                     zs : zs);
           }
         }
       }
@@ -132,20 +132,20 @@ namespace SceneAssets.GridWorlds.Scripts {
       while (percentage_empty_cells <= min_empty_cells_percentage) {
         var c = this.RandomCoordinates;
         var active_cells = new List<GridCell>();
-        this.DoFirstGenerationStep(ref empty_cells_num,
-                                   ref new_grid,
-                                   ref active_cells,
-                                   c,
-                                   xs,
-                                   ys,
-                                   zs); // does not count
+        this.DoFirstGenerationStep(empty_cells_num : ref empty_cells_num,
+                                   grid : ref new_grid,
+                                   active_cells : ref active_cells,
+                                   c : c,
+                                   xs : xs,
+                                   ys : ys,
+                                   zs : zs); // does not count
         while (active_cells.Count > 0) {
-          this.DoNextGenerationStep(ref empty_cells_num,
-                                    ref new_grid,
-                                    ref active_cells,
-                                    xs,
-                                    ys,
-                                    zs);
+          this.DoNextGenerationStep(empty_cells_num : ref empty_cells_num,
+                                    grid : ref new_grid,
+                                    active_cells : ref active_cells,
+                                    xs : xs,
+                                    ys : ys,
+                                    zs : zs);
         }
 
         percentage_empty_cells = empty_cells_num / total_cells;
@@ -155,12 +155,12 @@ namespace SceneAssets.GridWorlds.Scripts {
         for (var j = 0; j < ys; j++) {
           for (var k = 0; k < zs; k++) {
             if (new_grid[i, j, k] == null) {
-              var new_cell = this.CreateFilledCell(i,
-                                                   j,
-                                                   k,
-                                                   xs,
-                                                   ys,
-                                                   zs);
+              var new_cell = this.CreateFilledCell(x : i,
+                                                   y : j,
+                                                   z : k,
+                                                   xs : xs,
+                                                   ys : ys,
+                                                   zs : zs);
               new_grid[i, j, k] = new_cell;
             }
           }
@@ -187,14 +187,14 @@ namespace SceneAssets.GridWorlds.Scripts {
                                int ys,
                                int zs) {
       if (grid[c.X, c.Y, c.Z] == null) {
-        grid[c.X, c.Y, c.Z] = this.CreateEmptyCell(c,
-                                                   xs,
-                                                   ys,
-                                                   zs);
+        grid[c.X, c.Y, c.Z] = this.CreateEmptyCell(c : c,
+                                                   xs : xs,
+                                                   ys : ys,
+                                                   zs : zs);
         empty_cells_num += 1;
       }
 
-      active_cells.Add(grid[c.X, c.Y, c.Z]);
+      active_cells.Add(item : grid[c.X, c.Y, c.Z]);
     }
 
     void DoNextGenerationStep(ref int empty_cells_num,
@@ -204,19 +204,19 @@ namespace SceneAssets.GridWorlds.Scripts {
                               int ys,
                               int zs) {
       var current_index = active_cells.Count - 1;
-      var current_cell = active_cells[current_index];
+      var current_cell = active_cells[index : current_index];
       var direction = MazeDirections.RandomValue;
       var c = current_cell.GridCoordinates + direction.ToIntVector3();
 
-      if (this.ContainsCoordinates(c) && grid[c.X, c.Y, c.Z] == null) {
-        grid[c.X, c.Y, c.Z] = this.CreateEmptyCell(c,
-                                                   xs,
-                                                   ys,
-                                                   zs);
-        active_cells.Add(grid[c.X, c.Y, c.Z]);
+      if (this.ContainsCoordinates(coordinate : c) && grid[c.X, c.Y, c.Z] == null) {
+        grid[c.X, c.Y, c.Z] = this.CreateEmptyCell(c : c,
+                                                   xs : xs,
+                                                   ys : ys,
+                                                   zs : zs);
+        active_cells.Add(item : grid[c.X, c.Y, c.Z]);
         empty_cells_num += 1;
       } else {
-        active_cells.RemoveAt(current_index);
+        active_cells.RemoveAt(index : current_index);
       }
     }
 
@@ -230,59 +230,59 @@ namespace SceneAssets.GridWorlds.Scripts {
     }
 
     GridCell CreateEmptyCell(IntVector3 c, IntVector3 size) {
-      return this.CreateEmptyCell(c.X,
-                                  c.Y,
-                                  c.Z,
-                                  size.X,
-                                  size.Y,
-                                  size.Z);
+      return this.CreateEmptyCell(x : c.X,
+                                  y : c.Y,
+                                  z : c.Z,
+                                  xs : size.X,
+                                  ys : size.Y,
+                                  zs : size.Z);
     }
 
     GridCell CreateEmptyCell(IntVector3 c, int xs, int ys, int zs) {
-      return this.CreateEmptyCell(c.X,
-                                  c.Y,
-                                  c.Z,
-                                  xs,
-                                  ys,
-                                  zs);
+      return this.CreateEmptyCell(x : c.X,
+                                  y : c.Y,
+                                  z : c.Z,
+                                  xs : xs,
+                                  ys : ys,
+                                  zs : zs);
     }
 
     GridCell CreateEmptyCell(int x, int y, int z, int xs, int ys, int zs) {
-      var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+      var cube = GameObject.CreatePrimitive(type : PrimitiveType.Cube);
       cube.transform.parent = this.transform;
       cube.transform.localPosition =
-          new Vector3(x - xs * 0.5f + 0.5f, y - ys * 0.5f + 0.5f, z - zs * 0.5f + 0.5f);
+          new Vector3(x : x - xs * 0.5f + 0.5f, y : y - ys * 0.5f + 0.5f, z : z - zs * 0.5f + 0.5f);
       var new_cell = cube.AddComponent<EmptyCell>();
       var n = $"EmptyCell{x}{y}{z}";
-      new_cell.Setup(n, this._empty_cell_material);
-      new_cell.GridCoordinates = new IntVector3(x, y, z);
+      new_cell.Setup(n : n, mat : this._empty_cell_material);
+      new_cell.GridCoordinates = new IntVector3(x : x, y : y, z : z);
       return new_cell;
     }
 
     GridCell CreateFilledCell(int x, int y, int z, int xs, int ys, int zs) {
-      var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+      var cube = GameObject.CreatePrimitive(type : PrimitiveType.Cube);
 
       cube.transform.parent = this.transform;
       cube.transform.localPosition =
-          new Vector3(x - xs * 0.5f + 0.5f, y - ys * 0.5f + 0.5f, z - zs * 0.5f + 0.5f);
+          new Vector3(x : x - xs * 0.5f + 0.5f, y : y - ys * 0.5f + 0.5f, z : z - zs * 0.5f + 0.5f);
       var new_cell = cube.AddComponent<FilledCell>();
       var n = $"FilledCell{x}{y}{z}";
-      new_cell.Setup(n, this._filled_cell_material);
-      new_cell.GridCoordinates = new IntVector3(x, y, z);
+      new_cell.Setup(n : n, mat : this._filled_cell_material);
+      new_cell.GridCoordinates = new IntVector3(x : x, y : y, z : z);
       return new_cell;
     }
 
     /// <summary>
     ///
     /// </summary>
-    protected override void PreSetup() {
+    public override void PreSetup() {
       var xs = this._grid_size.X;
       var ys = this._grid_size.Y;
       var zs = this._grid_size.Z;
-      this._grid = this.GenerateRandomGrid(xs,
-                                           ys,
-                                           zs,
-                                           this._min_empty_cells_percentage);
+      this._grid = this.GenerateRandomGrid(xs : xs,
+                                           ys : ys,
+                                           zs : zs,
+                                           min_empty_cells_percentage : this._min_empty_cells_percentage);
 
       this._goal_cell_observer = this.gameObject.GetComponent<GoalCellSensor>();
 
@@ -290,7 +290,7 @@ namespace SceneAssets.GridWorlds.Scripts {
 
       var dominant_dimension = Mathf.Max(xs, ys, zs);
       this._camera.orthographicSize = dominant_dimension / 2f + 1f;
-      this._camera.transform.position = new Vector3(0, ys / 2f + 1f, 0);
+      this._camera.transform.position = new Vector3(0, y : ys / 2f + 1f, z : 0);
     }
 
     void NewGridWorld() {
@@ -302,40 +302,40 @@ namespace SceneAssets.GridWorlds.Scripts {
         for (var j = 0; j < ys; j++) {
           for (var k = 0; k < zs; k++) {
             if (this._grid[i, j, k] != null) {
-              DestroyImmediate(this._grid[i, j, k].gameObject);
+              DestroyImmediate(obj : this._grid[i, j, k].gameObject);
             }
           }
         }
       }
 
-      this._grid = this.GenerateRandomGrid(xs,
-                                           ys,
-                                           zs,
-                                           this._min_empty_cells_percentage);
+      this._grid = this.GenerateRandomGrid(xs : xs,
+                                           ys : ys,
+                                           zs : zs,
+                                           min_empty_cells_percentage : this._min_empty_cells_percentage);
     }
 
     /// <summary>
     ///
     /// </summary>
-    protected override void Setup() {
+    public override void Setup() {
       var empty_cells = FindObjectsOfType<EmptyCell>().ToList();
 
-      var objective_function = this.ObjectiveFunction as ReachGoal;
+      var objective_function = this.ObjectiveFunction as ReachGoalObjective;
 
       if (empty_cells != null && empty_cells.Count > 0) {
         foreach (var a in this.Actors) {
-          var idx = Random.Range(0, empty_cells.Count);
-          var empty_cell = empty_cells[idx];
-          a.Value.Transform.position = empty_cell.transform.position;
-          empty_cells.RemoveAt(idx);
+          var idx = Random.Range(0, max : empty_cells.Count);
+          var empty_cell = empty_cells[index : idx];
+          a.Value.CachedTransform.position = empty_cell.transform.position;
+          empty_cells.RemoveAt(index : idx);
         }
 
         if (objective_function != null) {
-          var idx = Random.Range(0, empty_cells.Count);
-          var empty_cell = empty_cells[idx];
-          empty_cell.SetAsGoal("Goal", this._goal_cell_material);
+          var idx = Random.Range(0, max : empty_cells.Count);
+          var empty_cell = empty_cells[index : idx];
+          empty_cell.SetAsGoal("Goal", mat : this._goal_cell_material);
           this._goal_cell_observer.CurrentGoal = empty_cell;
-          objective_function.SetGoal(empty_cell);
+          objective_function.SetGoal(goal : empty_cell);
         }
       }
     }
@@ -344,23 +344,23 @@ namespace SceneAssets.GridWorlds.Scripts {
     ///
     /// </summary>
     public override void PostStep() {
-      if (this._Terminated) {
-        this._Terminated = false;
+      if (this.Terminated) {
+        this.Terminated = false;
 
         this.NewGridWorld();
 
-        this.EnvironmentReset();
+        this.PrototypingReset();
 
         //this.Setup();
 
-        if (this._Configure) {
-          this._Configure = false;
+        if (this.ShouldConfigure) {
+          this.ShouldConfigure = false;
           this.Reconfigure();
         }
       }
 
-      this.UpdateConfigurableValues();
-      this.UpdateSensorsData();
+      this.LoopConfigurables();
+      this.LoopSensors();
     }
   }
 }

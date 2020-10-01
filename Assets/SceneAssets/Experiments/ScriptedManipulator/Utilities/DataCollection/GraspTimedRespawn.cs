@@ -32,7 +32,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
         this._grasping = FindObjectOfType<ScriptedGrasping>();
       }
 
-      this._grasp = this._graspable_object.GetOptimalGrasp(this._grasping).Item1;
+      this._grasp = this._graspable_object.GetOptimalGrasp(grasping : this._grasping).Item1;
       this._rigid_body = this._grasp.GetComponentInParent<Rigidbody>();
       this._rigid_bodies = this._graspable_object.GetComponentsInChildren<Rigidbody>();
       var transform1 = this._rigid_body.transform;
@@ -40,22 +40,22 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
       this._initial_rotation = transform1.rotation;
 
       NeodroidRegistrationUtilities
-          .RegisterCollisionTriggerCallbacksOnChildren<ChildCollider3DSensor, Collider, Collision>(this,
-                                                                                                   this
+          .RegisterCollisionTriggerCallbacksOnChildren<ChildCollider3DSensor, Collider, Collision>(caller : this,
+                                                                                                   parent : this
                                                                                                        .transform,
-                                                                                                   this
+                                                                                                   on_collision_enter_child : this
                                                                                                        .OnCollisionEnterChild,
-                                                                                                   this
+                                                                                                   on_trigger_enter_child : this
                                                                                                        .OnTriggerEnterChild,
-                                                                                                   this
+                                                                                                   on_collision_exit_child : this
                                                                                                        .OnCollisionExitChild,
-                                                                                                   this
+                                                                                                   on_trigger_exit_child : this
                                                                                                        .OnTriggerExitChild,
-                                                                                                   this
+                                                                                                   on_collision_stay_child : this
                                                                                                        .OnCollisionStayChild,
-                                                                                                   this
+                                                                                                   on_trigger_stay_child : this
                                                                                                        .OnTriggerStayChild,
-                                                                                                   this
+                                                                                                   debug : this
                                                                                                        ._debugging);
     }
 
@@ -65,20 +65,20 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
 
     void OnCollisionEnterChild(GameObject child_game_object, Collision collision) {
       if (collision.gameObject.CompareTag("Floor")) {
-        this.StopCoroutine(nameof(this.RespawnObject));
-        this.StartCoroutine(nameof(this.RespawnObject));
+        this.StopCoroutine(methodName : nameof(this.RespawnObject));
+        this.StartCoroutine(methodName : nameof(this.RespawnObject));
       }
     }
 
     IEnumerator RespawnObject() {
       yield return this._wait_for_seconds;
-      this.StopCoroutine(nameof(this.MakeObjectVisible));
+      this.StopCoroutine(methodName : nameof(this.MakeObjectVisible));
       this._graspable_object.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
       var transform1 = this._rigid_body.transform;
       transform1.position = this._initial_position;
       transform1.rotation = this._initial_rotation;
       this.MakeRigidBodiesSleep();
-      this.StartCoroutine(nameof(this.MakeObjectVisible));
+      this.StartCoroutine(methodName : nameof(this.MakeObjectVisible));
     }
 
     void MakeRigidBodiesSleep() {
@@ -118,7 +118,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
 
     void OnCollisionExitChild(GameObject child_game_object, Collision collision) {
       if (collision.gameObject.CompareTag("Floor")) {
-        this.StopCoroutine(nameof(this.RespawnObject));
+        this.StopCoroutine(methodName : nameof(this.RespawnObject));
       }
     }
 

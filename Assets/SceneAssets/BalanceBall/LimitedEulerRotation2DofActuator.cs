@@ -12,13 +12,13 @@ using UnityEngine;
 
 namespace SceneAssets.BalanceBall {
   /// <inheritdoc />
-  [AddComponentMenu(ActuatorComponentMenuPath._ComponentMenuPath
-                    + "LimitedEulerRotationActuator2Dof"
-                    + ActuatorComponentMenuPath._Postfix)]
+  [AddComponentMenu(menuName : ActuatorComponentMenuPath._ComponentMenuPath
+                               + "LimitedEulerRotationActuator2Dof"
+                               + ActuatorComponentMenuPath._Postfix)]
   public class LimitedEulerRotation2DofActuator : Actuator {
-    /// <summary>
-    ///
-    /// </summary>
+    /// <inheritdoc />
+    ///  <summary>
+    ///  </summary>
     public override string PrototypingTypeName { get { return "EulerRotation"; } }
 
     /// <summary>
@@ -39,21 +39,21 @@ namespace SceneAssets.BalanceBall {
       this._z = this.Identifier + "RotZ_";
 
       this.Parent =
-          NeodroidRegistrationUtilities.RegisterComponent((IHasRegister<IActuator>)this.Parent,
-                                                          this,
-                                                          this._x);
+          NeodroidRegistrationUtilities.RegisterComponent(r : (IHasRegister<IActuator>)this.Parent,
+                                                          c : this,
+                                                          identifier : this._x);
       this.Parent =
-          NeodroidRegistrationUtilities.RegisterComponent((IHasRegister<IActuator>)this.Parent,
-                                                          this,
-                                                          this._z);
+          NeodroidRegistrationUtilities.RegisterComponent(r : (IHasRegister<IActuator>)this.Parent,
+                                                          c : this,
+                                                          identifier : this._z);
     }
 
-    /// <summary>
-    ///
-    /// </summary>
+    /// <inheritdoc />
+    ///  <summary>
+    ///  </summary>
     protected override void UnRegisterComponent() {
-      this.Parent?.UnRegister(this, this._x);
-      this.Parent?.UnRegister(this, this._z);
+      this.Parent?.UnRegister(t : this, obj : this._x);
+      this.Parent?.UnRegister(t : this, obj : this._z);
     }
 
     /// <inheritdoc />
@@ -65,40 +65,43 @@ namespace SceneAssets.BalanceBall {
       var m = motion.Strength;
       #if NEODROID_DEBUG
       if (this.Debugging) {
-        Debug.Log($"Inner Applying {m} To {this.name}");
-        Debug.Log($"Current rotation of {this.name} is {this.transform.rotation}");
+        Debug.Log(message : $"Inner Applying {m} To {this.name}");
+        Debug.Log(message : $"Current rotation of {this.name} is {this.transform.rotation}");
       }
       #endif
 
       if (motion.ActuatorName == this._x) {
-        this.transform.Rotate(Vector3.forward, m);
+        this.transform.Rotate(axis : Vector3.forward, angle : m);
       } else if (motion.ActuatorName == this._z) {
-        this.transform.Rotate(Vector3.right, m);
+        this.transform.Rotate(axis : Vector3.right, angle : m);
       }
 
-      this.transform.rotation = RotationClamping.ClampRotation(this.transform.rotation.eulerAngles,
-                                                               this.limits.Max.x,
-                                                               this.limits.Max.x);
+      this.transform.rotation = RotationClamping.ClampRotation(temp_eulers : this.transform.rotation.eulerAngles,
+                                                               low : this.limits.Max.x,
+                                                               high : this.limits.Max.x);
     }
 
-    public override String[] InnerMotionNames { get; }
+    public override string[] InnerMotionNames { get; }
 
     #if UNITY_EDITOR
     void OnDrawGizmosSelected() {
       if (this.enabled) {
-        var position = this.transform.position;
+        var transform1 = this.transform;
+        var position = transform1.position;
+        var right = transform1.right;
+        var forward = transform1.forward;
+        
+        Handles.DrawWireArc(center : position,
+                            normal : right,
+                            @from : -forward,
+                            angle : 180,
+                            radius : 2);
 
-        Handles.DrawWireArc(this.transform.position,
-                            this.transform.right,
-                            -this.transform.forward,
-                            180,
-                            2);
-
-        Handles.DrawWireArc(this.transform.position,
-                            this.transform.forward,
-                            -this.transform.right,
-                            180,
-                            2);
+        Handles.DrawWireArc(center : position,
+                            normal : forward,
+                            @from : -right,
+                            angle : 180,
+                            radius : 2);
       }
     }
 

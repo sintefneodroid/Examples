@@ -12,8 +12,8 @@ namespace SceneAssets.Manipulator.Scripts {
     void Start() { this._rigidbody = this.GetComponent<Rigidbody>(); }
 
     void Update() {
-      this._rigidbody.AddForce(Random.insideUnitSphere * this._magnitude, this._forceMode);
-      this._rigidbody.AddTorque(Random.insideUnitSphere * this._magnitude, this._forceMode);
+      this._rigidbody.AddForce(force : Random.insideUnitSphere * this._magnitude, mode : this._forceMode);
+      this._rigidbody.AddTorque(torque : Random.insideUnitSphere * this._magnitude, mode : this._forceMode);
     }
   }
 }

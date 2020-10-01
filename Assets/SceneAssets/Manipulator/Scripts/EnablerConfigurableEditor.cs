@@ -1,16 +1,16 @@
-﻿using Exclude.BioIK;
-#if UNITY_EDITOR && BIOIK_EXISTS
+﻿#if UNITY_EDITOR && BIOIK_EXISTS
 using System;
 using UnityEditor;
 using UnityEngine;
+using Exclude.BioIK;
 
 namespace SceneAssets.Manipulator.Scripts {
   /// <inheritdoc />
   /// <summary>
   /// </summary>
-  [CustomEditor(typeof(IkSolverEnablerConfigurable))]
+  [CustomEditor(inspectedType : typeof(IkSolverEnablerConfigurable))]
   [CanEditMultipleObjects]
-  public class EnablerConfigurableEditor : UnityEditor.Editor {
+  public class EnablerConfigurableEditor : Editor {
     /// <summary>
     /// </summary>
     internal static IkSolverEnablerConfigurable _IkSolverEnablerConfigurable;
@@ -41,7 +41,7 @@ namespace SceneAssets.Manipulator.Scripts {
 
       EditorGUI.BeginChangeCheck();
       {
-        EditorGUILayout.ObjectField(this._enablee, typeof(BioIK), new GUIContent("Enablee"));
+        EditorGUILayout.ObjectField(property : this._enablee, objType : typeof(BioIK), label : new GUIContent("Enablee"));
         /* var e = this._enablee.objectReferenceValue as MonoBehaviour;
          if (e != null) {
            
@@ -67,9 +67,9 @@ namespace SceneAssets.Manipulator.Scripts {
 
       _IkSolverEnablerConfigurable._disable_every_next_frame =
           EditorGUILayout.Toggle("_disable_every_next_frame",
-                                 _IkSolverEnablerConfigurable._disable_every_next_frame);
+                                 value : _IkSolverEnablerConfigurable._disable_every_next_frame);
       _IkSolverEnablerConfigurable._disabled_by_default =
-          EditorGUILayout.Toggle("_disable_by_default", _IkSolverEnablerConfigurable._disabled_by_default);
+          EditorGUILayout.Toggle("_disable_by_default", value : _IkSolverEnablerConfigurable._disabled_by_default);
 
       if (GUILayout.Button("Toggle")) {
         _IkSolverEnablerConfigurable.ActiveToggle();
@@ -80,7 +80,7 @@ namespace SceneAssets.Manipulator.Scripts {
       }
 
       if (EditorGUI.EndChangeCheck()) {
-        EditorUtility.SetDirty(this.target);
+        EditorUtility.SetDirty(target : this.target);
         this.ApplyChanges();
       }
     }
@@ -88,7 +88,7 @@ namespace SceneAssets.Manipulator.Scripts {
     /// <summary>
     /// </summary>
     void ApplyChanges() {
-      Undo.RecordObject(_IkSolverEnablerConfigurable, "Apply changes");
+      Undo.RecordObject(objectToUndo : _IkSolverEnablerConfigurable, name : "Apply changes");
 
       foreach (var o in this.targets) {
         var s = (IkSolverEnablerConfigurable)o;

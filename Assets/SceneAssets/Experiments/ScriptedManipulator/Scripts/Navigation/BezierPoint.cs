@@ -60,11 +60,11 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
       get { return this._curve; }
       set {
         if (this._curve) {
-          this._curve.RemovePoint(this);
+          this._curve.RemovePoint(point : this);
         }
 
         this._curve = value;
-        this._curve.AddPoint(this);
+        this._curve.AddPoint(point : this);
       }
     }
 
@@ -128,8 +128,8 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     ///   - This handle effects the curve generated from this point and the point proceeding it in curve.points
     /// </summary>
     public Vector3 GlobalHandle1 {
-      get { return this.transform.TransformPoint(this.Handle1); }
-      set { this.Handle1 = this.transform.InverseTransformPoint(value); }
+      get { return this.transform.TransformPoint(position : this.Handle1); }
+      set { this.Handle1 = this.transform.InverseTransformPoint(position : value); }
     }
 
     /// <summary>
@@ -165,8 +165,8 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     ///   - This handle effects the curve generated from this point and the point coming after it in curve.points
     /// </summary>
     public Vector3 GlobalHandle2 {
-      get { return this.transform.TransformPoint(this.Handle2); }
-      set { this.Handle2 = this.transform.InverseTransformPoint(value); }
+      get { return this.transform.TransformPoint(position : this.Handle2); }
+      set { this.Handle2 = this.transform.InverseTransformPoint(position : value); }
     }
 
     #endregion

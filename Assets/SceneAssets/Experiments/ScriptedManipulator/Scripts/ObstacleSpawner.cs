@@ -76,11 +76,11 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
 
     void TearDown() {
       if (this._cube) {
-        DestroyImmediate(this._cube);
+        DestroyImmediate(obj : this._cube);
       }
 
       if (this._sphere) {
-        DestroyImmediate(this._sphere);
+        DestroyImmediate(obj : this._sphere);
       }
 
       if (this._obstacles != null && this._obstacles.Length > 0) {
@@ -95,11 +95,11 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
       this.TearDown();
       this._y_center_point = this.transform.position.y;
       this._obstacles = new GameObject[this._number_of_cubes + this._number_of_spheres];
-      this._cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+      this._cube = GameObject.CreatePrimitive(type : PrimitiveType.Cube);
       this._cube.SetActive(false);
       //_cube.AddComponent<Obstruction>();
       this._cube.GetComponent<MeshRenderer>().material = this._material_cube;
-      this._sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+      this._sphere = GameObject.CreatePrimitive(type : PrimitiveType.Sphere);
       this._sphere.SetActive(false);
       //_sphere.AddComponent<Obstruction>();
       this._sphere.GetComponent<MeshRenderer>().material = this._material_sphere;
@@ -112,19 +112,19 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
       }
 
       if (this._random_obj_num) {
-        this.SpawnObstacles(Random.Range(1, this._number_of_cubes), Random.Range(1, this._number_of_spheres));
+        this.SpawnObstacles(cube_num : Random.Range(1, max : this._number_of_cubes), sphere_num : Random.Range(1, max : this._number_of_spheres));
       } else {
-        this.SpawnObstacles(this._number_of_cubes, this._number_of_spheres);
+        this.SpawnObstacles(cube_num : this._number_of_cubes, sphere_num : this._number_of_spheres);
       }
     }
 
     void Update() {
       if (this._visualize_grid) {
-        GraspingUtilities.DrawRect(this._x_size,
-                                   this._y_size,
-                                   this._z_size,
-                                   this.transform.position,
-                                   Color.red);
+        GraspingUtilities.DrawRect(x_size : this._x_size,
+                                   y_size : this._y_size,
+                                   z_size : this._z_size,
+                                   pos : this.transform.position,
+                                   color : Color.red);
       }
     }
 
@@ -133,22 +133,22 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
       var temp_list = new List<GameObject>();
       if (this._spawn_cubes) {
         for (var i = 0; i < cube_num; i++) {
-          var temp = Random.Range(-this._scaling_factor, this._scaling_factor);
+          var temp = Random.Range(min : -this._scaling_factor, max : this._scaling_factor);
           //spawn_pos = new Vector3(Random.Range(x_min, x_max), Random.Range(y_min, y_max), Random.Range(z_min, z_max));
-          var spawn_pos = new Vector3(Random.Range(-this._x_size / 2, this._x_size / 2),
-                                      Random.Range(-this._y_size / 2 + this._y_center_point,
-                                                   this._y_size / 2 + this._y_center_point),
-                                      Random.Range(-this._z_size / 2, this._z_size / 2));
-          var cube_clone = Instantiate(this._cube,
-                                       spawn_pos,
-                                       Quaternion.identity,
-                                       this.transform);
+          var spawn_pos = new Vector3(x : Random.Range(min : -this._x_size / 2, max : this._x_size / 2),
+                                      y : Random.Range(min : -this._y_size / 2 + this._y_center_point,
+                                                       max : this._y_size / 2 + this._y_center_point),
+                                      z : Random.Range(min : -this._z_size / 2, max : this._z_size / 2));
+          var cube_clone = Instantiate(original : this._cube,
+                                       position : spawn_pos,
+                                       rotation : Quaternion.identity,
+                                       parent : this.transform);
           cube_clone.transform.localScale =
-              new Vector3(this._sphere_size + temp, this._sphere_size + temp, this._sphere_size + temp);
+              new Vector3(x : this._sphere_size + temp, y : this._sphere_size + temp, z : this._sphere_size + temp);
           cube_clone.SetActive(true);
           cube_clone.tag = "Obstruction";
 
-          temp_list.Add(cube_clone);
+          temp_list.Add(item : cube_clone);
           /*if (Vector3.Distance(cube_clone.transform.position, GameObject.Find("EscapePos").transform.position) < 0.5f) {
                     Destroy(cube_clone);
                   }*/
@@ -157,34 +157,34 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
 
       if (this._spawn_spheres) {
         for (var i = 0; i < sphere_num; i++) {
-          var temp = Random.Range(-this._scaling_factor, this._scaling_factor);
+          var temp = Random.Range(min : -this._scaling_factor, max : this._scaling_factor);
           //spawn_pos = new Vector3(Random.Range(x_min, x_max), Random.Range(y_min, y_max), Random.Range(z_min, z_max));
-          var spawn_pos = new Vector3(Random.Range(-this._x_size / 2, this._x_size / 2),
-                                      Random.Range(-this._y_size / 2 + this._y_center_point,
-                                                   this._y_size / 2 + this._y_center_point),
-                                      Random.Range(-this._z_size / 2, this._z_size / 2));
-          var sphere_clone = Instantiate(this._sphere,
-                                         spawn_pos,
-                                         Quaternion.identity,
-                                         this.transform);
+          var spawn_pos = new Vector3(x : Random.Range(min : -this._x_size / 2, max : this._x_size / 2),
+                                      y : Random.Range(min : -this._y_size / 2 + this._y_center_point,
+                                                       max : this._y_size / 2 + this._y_center_point),
+                                      z : Random.Range(min : -this._z_size / 2, max : this._z_size / 2));
+          var sphere_clone = Instantiate(original : this._sphere,
+                                         position : spawn_pos,
+                                         rotation : Quaternion.identity,
+                                         parent : this.transform);
           sphere_clone.transform.localScale =
-              new Vector3(this._sphere_size + temp, this._sphere_size + temp, this._sphere_size + temp);
+              new Vector3(x : this._sphere_size + temp, y : this._sphere_size + temp, z : this._sphere_size + temp);
           sphere_clone.SetActive(true);
           sphere_clone.tag = "Obstruction";
 
-          temp_list.Add(sphere_clone);
+          temp_list.Add(item : sphere_clone);
           /*if (Vector3.Distance(sphere_clone.transform.position, GameObject.Find("EscapePos").transform.position) < 0.2f) {
                     Destroy(sphere_clone);
                   }*/
         }
       }
 
-      temp_list.CopyTo(this._obstacles);
+      temp_list.CopyTo(array : this._obstacles);
     }
 
     void RemoveObstacles() {
       foreach (var obstacle in this._obstacles) {
-        DestroyImmediate(obstacle);
+        DestroyImmediate(obj : obstacle);
       }
     }
 

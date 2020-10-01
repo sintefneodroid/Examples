@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace SceneAssets.Games.Creatures2 {
-  [RequireComponent(typeof(Rigidbody))]
+  [RequireComponent(requiredComponent : typeof(Rigidbody))]
   public class LaserBehaviour : MonoBehaviour {
     //public float fireSpeed = 2f;
 

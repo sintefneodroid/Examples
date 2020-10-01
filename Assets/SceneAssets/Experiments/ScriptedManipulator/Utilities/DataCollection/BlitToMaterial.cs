@@ -9,7 +9,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
     [SerializeField] Material _material = null;
 
     void OnRenderImage(RenderTexture source, RenderTexture destination) {
-      Graphics.Blit(source, destination, this._material);
+      Graphics.Blit(source : source, dest : destination, mat : this._material);
     }
   }
 }

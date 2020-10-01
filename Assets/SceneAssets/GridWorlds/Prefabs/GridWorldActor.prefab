@@ -18,8 +18,8 @@ GameObject:
   - component: {fileID: 3332865368860572671}
   - component: {fileID: 3332865368860572642}
   - component: {fileID: 3332865368860572669}
-  - component: {fileID: 3332865368860572646}
-  - component: {fileID: 3332865368860572647}
+  - component: {fileID: 1425927525}
+  - component: {fileID: 1425927526}
   m_Layer: 0
   m_Name: GridWorldActor
   m_TagString: Actor
@@ -76,6 +76,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -87,6 +88,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -111,29 +113,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c509fa22e5c324a9fb1ad13ec828ee1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Custom_Name: Vertical
-  _debugging: 0
-  _disables_children: 0
-  _editor_reregistering: 1
-  _unregister_at_disable: 0
+  <Debugging>k__BackingField: 0
+  <DisablesChildren>k__BackingField: 0
+  <UnregisterAtDisable>k__BackingField: 0
+  <CustomName>k__BackingField: 
   _environment: {fileID: 0}
+  random_sampling_mode: 2
   _relative_to_existing_value: 0
-  _sampleRandom: 0
-  on_tick: 0
   _axis_of_configuration: 0
-  _bounding_box: {fileID: 0}
-  _use_bounding_box_for_range: 0
   _observation_value: -2
   _use_environments_space: 1
   _single_value_space:
-    _Decimal_Granularity: 0
-    _Min_Value: -3
-    _Max_Value: 3
-    normalised: 0
+    _space:
+      _min_: -2
+      _max_: 2
+      _decimal_granularity: 0
+      normalised: 0
     _distribution_sampler:
       _Direction: 0
       _factor: 0
       _de: 0
+  normalised_overwrite_space_if_env_bounds: 0
 --- !u!114 &3332865368860572641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,29 +146,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c509fa22e5c324a9fb1ad13ec828ee1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Custom_Name: Horizontal
-  _debugging: 0
-  _disables_children: 0
-  _editor_reregistering: 1
-  _unregister_at_disable: 0
+  <Debugging>k__BackingField: 0
+  <DisablesChildren>k__BackingField: 0
+  <UnregisterAtDisable>k__BackingField: 0
+  <CustomName>k__BackingField: 
   _environment: {fileID: 0}
+  random_sampling_mode: 2
   _relative_to_existing_value: 0
-  _sampleRandom: 0
-  on_tick: 0
   _axis_of_configuration: 2
-  _bounding_box: {fileID: 0}
-  _use_bounding_box_for_range: 0
   _observation_value: 3
   _use_environments_space: 1
   _single_value_space:
-    _Decimal_Granularity: 0
-    _Min_Value: -4
-    _Max_Value: 4
-    normalised: 0
+    _space:
+      _min_: 2
+      _max_: 3
+      _decimal_granularity: 0
+      normalised: 0
     _distribution_sampler:
       _Direction: 0
       _factor: 0
       _de: 0
+  normalised_overwrite_space_if_env_bounds: 0
 --- !u!114 &3332865368860572668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,12 +179,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d3b6cae4b60481e968aeb19a325f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Custom_Name: 
-  _debugging: 0
-  _disables_children: 0
-  _editor_reregistering: 1
-  _unregister_at_disable: 0
-  _normalise_observation: 0
+  <Debugging>k__BackingField: 0
+  <DisablesChildren>k__BackingField: 0
+  <UnregisterAtDisable>k__BackingField: 0
+  <CustomName>k__BackingField: 
+  _environment: {fileID: 0}
   _is_2_d: 0
   _obs_array:
   - 1
@@ -198,14 +195,11 @@ MonoBehaviour:
   - 0.4
   - 0.4
   _space:
-    _Decimal_Granularity: 0
-    _Min_Value: 0
-    _Max_Value: 5
+    _min_: 0
+    _max_: 5
+    _decimal_granularity: 0
     normalised: 0
-    _distribution_sampler:
-      _Direction: 0
-      _factor: 0
-      _de: 0
+  ignore_rotation: 0
   _color: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &3332865368860572671
 MonoBehaviour:
@@ -219,23 +213,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea408ea788d454c34adb71695255cd91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Custom_Name: 
-  _debugging: 0
-  _disables_children: 0
-  _editor_reregistering: 1
-  _unregister_at_disable: 0
-  _normalise_observation: 0
+  <Debugging>k__BackingField: 0
+  <DisablesChildren>k__BackingField: 0
+  <UnregisterAtDisable>k__BackingField: 0
+  <CustomName>k__BackingField: 
+  _environment: {fileID: 0}
   _2_d_position: {x: 0.5, y: 1}
   _position: {x: 0.5, y: 0.5, z: 1}
   _position_space:
-    _distribution_sampler:
-      _Direction: 0
-      _factor: 0
-      _de: 0
+    _min_: {x: -1, y: -1, z: -1}
+    _max_: {x: 1, y: 1, z: 1}
     _decimal_granularity: 1
     normalised: 0
-    _Min_Values: {x: -1, y: -1, z: -1}
-    _Max_Values: {x: 1, y: 1, z: 1}
   _target: {fileID: 0}
 --- !u!114 &3332865368860572642
 MonoBehaviour:
@@ -249,22 +238,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 297be04faa2584af087d623be2f7d4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Custom_Name: 
-  _debugging: 0
-  _disables_children: 0
-  _editor_reregistering: 1
-  _unregister_at_disable: 0
-  _normalise_observation: 0
+  <Debugging>k__BackingField: 0
+  <DisablesChildren>k__BackingField: 0
+  <UnregisterAtDisable>k__BackingField: 0
+  <CustomName>k__BackingField: 
+  _environment: {fileID: 0}
   _obs_value: 0
   _observation_value_space:
-    _Decimal_Granularity: 0
-    _Min_Value: 0
-    _Max_Value: 0
+    _min_: 0
+    _max_: 1
+    _decimal_granularity: 2
     normalised: 0
-    _distribution_sampler:
-      _Direction: 0
-      _factor: 0
-      _de: 0
   _target: {fileID: 0}
 --- !u!114 &3332865368860572669
 MonoBehaviour:
@@ -278,25 +262,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2e8fd4372944fd697048cfacd33755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Custom_Name: Position
-  _debugging: 0
-  _disables_children: 0
-  _editor_reregistering: 1
-  _unregister_at_disable: 0
-  _normalise_observation: 0
-  _2_d_position: {x: 0.83, y: 0.88}
+  <Debugging>k__BackingField: 0
+  <DisablesChildren>k__BackingField: 0
+  <UnregisterAtDisable>k__BackingField: 0
+  <CustomName>k__BackingField: 
+  _environment: {fileID: 0}
+  _2_d_position: {x: 0.67, y: 0.88}
   _dim_combination: 1
   _position_space:
-    _Min_Values: {x: -3, y: -4}
-    _Max_Values: {x: 3, y: 4}
-    _decimal_granularity: 2
+    _min_: {x: -0, y: -0}
+    _max_: {x: 0, y: 0}
+    _decimal_granularity: 4
     normalised: 1
-    _distribution_sampler:
-      _Direction: 0
-      _factor: 0
-      _de: 0
   observation_space: 2
---- !u!114 &3332865368860572646
+  normalised_overwrite_space_if_env_bounds: 1
+--- !u!114 &1425927525
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -305,30 +285,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3332865368860572648}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80495a7725f549788944c6d480d8e9b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 186a402528ea02c5692d71c411291c58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Custom_Name: Horizontal
-  _debugging: 0
-  _disables_children: 0
-  _editor_reregistering: 1
-  _unregister_at_disable: 0
-  _motion_value_space:
-    _Decimal_Granularity: 0
-    _Min_Value: -1
-    _Max_Value: 1
-    normalised: 0
-    _distribution_sampler:
-      _Direction: 0
-      _factor: 0
-      _de: 0
-  _energy_spend_since_reset: 0
-  _energy_cost: 0
-  _Axis_Of_Motion: 0
+  translation_unit: 1
+  rotation_unit: 90
   _Layer_Mask: Obstructions
   _No_Collisions: 1
   _Relative_To: 1
---- !u!114 &3332865368860572647
+--- !u!114 &1425927526
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -337,26 +302,73 @@ MonoBehaviour:
   m_GameObject: {fileID: 3332865368860572648}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80495a7725f549788944c6d480d8e9b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 52319621d7344a488c923578af680fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Custom_Name: Vertical
-  _debugging: 0
-  _disables_children: 0
-  _editor_reregistering: 1
-  _unregister_at_disable: 0
+  <Debugging>k__BackingField: 0
+  <DisablesChildren>k__BackingField: 0
+  <UnregisterAtDisable>k__BackingField: 0
+  <CustomName>k__BackingField: 
   _motion_value_space:
-    _Decimal_Granularity: 0
-    _Min_Value: -1
-    _Max_Value: 1
-    normalised: 0
+    _space:
+      _min_: 0
+      _max_: 3
+      _decimal_granularity: 0
+      normalised: 0
     _distribution_sampler:
       _Direction: 0
       _factor: 0
       _de: 0
-  _energy_spend_since_reset: 0
-  _energy_cost: 0
-  _Axis_Of_Motion: 2
-  _Layer_Mask: Obstructions
-  _No_Collisions: 1
-  _Relative_To: 1
+  _events:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1425927525}
+        m_MethodName: TranslateUnitRight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1425927525}
+        m_MethodName: TranslateUnitLeft
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1425927525}
+        m_MethodName: TranslateUnitForward
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1425927525}
+        m_MethodName: TranslateUnitBackward
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
