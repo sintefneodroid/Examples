@@ -24,8 +24,8 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
     }
 
     public bool IsInMotion(float sensitivity) {
-      var distance_moved = Vector3.Distance(this.transform.position, this._last_recorded_move);
-      var angle_rotated = Quaternion.Angle(this.transform.rotation, this._last_recorded_rotation);
+      var distance_moved = Vector3.Distance(a : this.transform.position, b : this._last_recorded_move);
+      var angle_rotated = Quaternion.Angle(a : this.transform.rotation, b : this._last_recorded_rotation);
       if (distance_moved > sensitivity || angle_rotated > sensitivity) {
         this.UpdateLastRecordedTranform();
         return true;
@@ -59,13 +59,13 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
 
     void SetVisiblity(bool visible) {
       foreach (var grab in this.GetGrasps()) {
-        grab.gameObject.SetActive(visible);
+        grab.gameObject.SetActive(value : visible);
       }
     }
 
     void ChangeIndicatorColor(Grasp grasp, Color color) {
       foreach (var child in grasp.GetComponentsInChildren<MeshRenderer>()) {
-        child.material.SetColor("_Color1", color);
+        child.material.SetColor("_Color1", value : color);
       }
     }
 
@@ -77,17 +77,17 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
 
       foreach (var grasp in grasps) {
         if (!grasp.IsObstructed()) {
-          unobstructed_grasps.Add(grasp);
-          this.ChangeIndicatorColor(grasp, Color.yellow);
+          unobstructed_grasps.Add(item : grasp);
+          this.ChangeIndicatorColor(grasp : grasp, color : Color.yellow);
         } else {
-          this.ChangeIndicatorColor(grasp, Color.red);
+          this.ChangeIndicatorColor(grasp : grasp, color : Color.red);
         }
       }
 
       Grasp optimal_grasp = null;
       var shortest_distance = float.MaxValue;
       foreach (var grasp in unobstructed_grasps) {
-        var distance = Vector3.Distance(grasp.transform.position, grasping.transform.position);
+        var distance = Vector3.Distance(a : grasp.transform.position, b : grasping.transform.position);
         if (distance <= shortest_distance) {
           shortest_distance = distance;
           optimal_grasp = grasp;
@@ -95,8 +95,8 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
       }
 
       if (optimal_grasp != null) {
-        this.ChangeIndicatorColor(optimal_grasp, Color.green);
-        return new Tuple<Grasp, float>(optimal_grasp, shortest_distance);
+        this.ChangeIndicatorColor(grasp : optimal_grasp, color : Color.green);
+        return new Tuple<Grasp, float>(item1 : optimal_grasp, item2 : shortest_distance);
       }
 
       return null;
@@ -176,8 +176,8 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
     Dictionary<GameObject, float> DistanceToHandScore(GameObject hand,
                                                       Dictionary<GameObject, float> grab_dict) {
       foreach (var pair in grab_dict) {
-        var distance = Vector3.Distance(pair.Key.transform.position, hand.transform.position);
-        grab_dict[pair.Key] += distance;
+        var distance = Vector3.Distance(a : pair.Key.transform.position, b : hand.transform.position);
+        grab_dict[key : pair.Key] += distance;
       }
 
       return grab_dict;

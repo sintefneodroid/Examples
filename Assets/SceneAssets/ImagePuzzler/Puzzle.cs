@@ -22,7 +22,7 @@ namespace SceneAssets.ImagePuzzler {
     void Start() { this.CreatePuzzle(); }
 
     void Update() {
-      if (this._state == PuzzleState.Solved_ && Input.GetKeyDown(KeyCode.Space)) {
+      if (this._state == PuzzleState.Solved_ && Input.GetKeyDown(key : KeyCode.Space)) {
         this.StartShuffle();
       }
     }
@@ -32,22 +32,22 @@ namespace SceneAssets.ImagePuzzler {
       var image_slices = new Texture2D[this._horisontal_divisions, this._vertical_divisions];
       if (this._image) {
         image_slices =
-            ImageSlicer.GetSlices(this._image, this._horisontal_divisions, this._vertical_divisions);
+            ImageSlicer.GetSlices(image : this._image, horisontal_divisions : this._horisontal_divisions, vertical_divisions : this._vertical_divisions);
       }
 
-      var dominant_division = Mathf.Max(this._vertical_divisions, this._horisontal_divisions);
+      var dominant_division = Mathf.Max(a : this._vertical_divisions, b : this._horisontal_divisions);
       //var lesser_division = Mathf.Min (this._vertical_divisions, this._horisontal_divisions);
 
       for (var y = 0; y < this._vertical_divisions; y++) {
         for (var x = 0; x < this._horisontal_divisions; x++) {
-          var block_object = GameObject.CreatePrimitive(PrimitiveType.Quad);
-          block_object.transform.position = -Vector2.one * (dominant_division - 1) * .5f + new Vector2(x, y);
+          var block_object = GameObject.CreatePrimitive(type : PrimitiveType.Quad);
+          block_object.transform.position = -Vector2.one * (dominant_division - 1) * .5f + new Vector2(x : x, y : y);
           block_object.transform.parent = this.transform;
 
           var block = block_object.AddComponent<Block>();
           block.OnBlockPressed += this.PlayerMoveBlockInput;
           block.OnFinishedMoving += this.OnBlockFinishedMoving;
-          block.Init(new Vector2Int(x, y), image_slices[x, y]);
+          block.Init(starting_coord : new Vector2Int(x : x, y : y), image : image_slices[x, y]);
           this._blocks[x, y] = block;
 
           if (y == 0 && x == dominant_division - 1) {
@@ -62,14 +62,14 @@ namespace SceneAssets.ImagePuzzler {
 
     void PlayerMoveBlockInput(Block block_to_move) {
       if (this._state == PuzzleState.In_play_) {
-        this._inputs.Enqueue(block_to_move);
+        this._inputs.Enqueue(item : block_to_move);
         this.MakeNextPlayerMove();
       }
     }
 
     void MakeNextPlayerMove() {
       while (this._inputs.Count > 0 && !this._block_is_moving) {
-        this.MoveBlock(this._inputs.Dequeue(), this._default_move_duration);
+        this.MoveBlock(block_to_move : this._inputs.Dequeue(), duration : this._default_move_duration);
       }
     }
 
@@ -84,7 +84,7 @@ namespace SceneAssets.ImagePuzzler {
 
         var target_position = this._empty_block.transform.position;
         this._empty_block.transform.position = block_to_move.transform.position;
-        block_to_move.MoveToPosition(target_position, duration);
+        block_to_move.MoveToPosition(target : target_position, duration : duration);
         this._block_is_moving = true;
       }
     }
@@ -118,7 +118,7 @@ namespace SceneAssets.ImagePuzzler {
                                  new Vector2Int(0, 1),
                                  new Vector2Int(0, -1)
                              };
-      var random_index = Random.Range(0, offsets.Length);
+      var random_index = Random.Range(0, max : offsets.Length);
 
       for (var i = 0; i < offsets.Length; i++) {
         var offset = offsets[(random_index + i) % offsets.Length];
@@ -129,7 +129,7 @@ namespace SceneAssets.ImagePuzzler {
               && move_block_coord.x < this._horisontal_divisions
               && move_block_coord.y >= 0
               && move_block_coord.y < this._vertical_divisions) {
-            this.MoveBlock(this._blocks[move_block_coord.x, move_block_coord.y], this._shuffle_move_duration);
+            this.MoveBlock(block_to_move : this._blocks[move_block_coord.x, move_block_coord.y], duration : this._shuffle_move_duration);
             this._shuffle_moves_remaining--;
             this._prev_shuffle_offset = offset;
             break;

@@ -26,7 +26,7 @@ namespace SceneAssets.Catch {
 
     [SerializeField]
     SampleSpace3 _spawn_position_range =
-        new SampleSpace3() {Space = new Space3 {Max = new Vector3(5, 0), Min = new Vector3(-5, 0)}};
+        new SampleSpace3 {Space = new Space3 {Max = new Vector3(5, 0), Min = new Vector3(-5, 0)}};
 
     [SerializeField]
     SampleSpace4 _spawn_rotation_range =
@@ -42,17 +42,17 @@ namespace SceneAssets.Catch {
       if (this._spawn_objects.Count > 0) {
         if (this._next_spawn_time < Time.time) {
           if (this._spawned_objects.Count < this._max_num_concurrent_objects) {
-            var object_selection = Random.Range(0, this._spawn_objects.Count);
+            var object_selection = Random.Range(0, max : this._spawn_objects.Count);
             Pose pose;
             if (this._use_predefined_spawn_locations) {
-              var position_selection = Random.Range(0, this._spawn_poses.Count);
-              var trans = this._spawn_poses[position_selection];
-              pose = new Pose(trans.position, trans.rotation);
+              var position_selection = Random.Range(0, max : this._spawn_poses.Count);
+              var trans = this._spawn_poses[index : position_selection];
+              pose = new Pose(position : trans.position, rotation : trans.rotation);
             } else {
-              pose = new Pose(this._spawn_position_range.Sample(), this._spawn_rotation_range.Sample());
+              pose = new Pose(position : this._spawn_position_range.Sample(), rotation : this._spawn_rotation_range.Sample());
             }
 
-            Instantiate(this._spawn_objects[object_selection], pose.position, pose.rotation);
+            Instantiate(original : this._spawn_objects[index : object_selection], position : pose.position, rotation : pose.rotation);
             var delay = this._spawn_delay_range.Sample();
             this._next_spawn_time = Time.time + delay;
           }

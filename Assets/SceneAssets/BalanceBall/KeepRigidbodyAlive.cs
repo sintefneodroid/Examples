@@ -4,7 +4,7 @@ namespace SceneAssets.BalanceBall {
   /// <summary>
   ///
   /// </summary>
-  [RequireComponent(typeof(Rigidbody))]
+  [RequireComponent(requiredComponent : typeof(Rigidbody))]
   public class KeepRigidbodyAlive : MonoBehaviour {
     Rigidbody _rb;
     void Awake() { this._rb = this.GetComponent<Rigidbody>(); }

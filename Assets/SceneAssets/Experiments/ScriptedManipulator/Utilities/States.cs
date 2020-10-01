@@ -203,7 +203,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities {
     public MotionState GetMotionState<T>(T[] objects, MotionState previous_state, float sensitivity = 0.1f)
         where T : IMotionTracker {
       foreach (var o in objects) {
-        if (o.IsInMotion(sensitivity)) {
+        if (o.IsInMotion(sensitivity : sensitivity)) {
           return MotionState.Is_moving_;
         }
       }

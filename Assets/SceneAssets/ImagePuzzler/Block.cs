@@ -38,7 +38,7 @@ namespace SceneAssets.ImagePuzzler {
       this.GetComponent<MeshRenderer>().material.mainTexture = image;
     }
 
-    void OnMouseDown() { this.OnBlockPressed?.Invoke(this); }
+    void OnMouseDown() { this.OnBlockPressed?.Invoke(obj : this); }
 
     /// <summary>
     ///
@@ -46,7 +46,7 @@ namespace SceneAssets.ImagePuzzler {
     /// <param name="target"></param>
     /// <param name="duration"></param>
     public void MoveToPosition(Vector2 target, float duration) {
-      this.StartCoroutine(this.AnimateMove(target, duration));
+      this.StartCoroutine(routine : this.AnimateMove(target : target, duration : duration));
     }
 
     IEnumerator AnimateMove(Vector2 target, float duration) {
@@ -55,7 +55,7 @@ namespace SceneAssets.ImagePuzzler {
 
       while (percent < 1) {
         percent += Time.deltaTime / duration;
-        this.transform.position = Vector2.Lerp(initial_pos, target, percent);
+        this.transform.position = Vector2.Lerp(a : initial_pos, b : target, t : percent);
         yield return null;
       }
 
