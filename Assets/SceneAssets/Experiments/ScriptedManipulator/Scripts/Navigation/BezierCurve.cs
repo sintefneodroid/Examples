@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
   /// <inheritdoc />
   /// <summary>
@@ -11,16 +7,16 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
   ///   GetCubicPoint,
   ///   GetQuadraticPoint, and GetLinearPoint)
   /// </summary>
-  [ExecuteInEditMode]
-  [Serializable]
-  public class BezierCurve : MonoBehaviour {
+  [UnityEngine.ExecuteInEditMode]
+  [System.SerializableAttribute]
+  public class BezierCurve : UnityEngine.MonoBehaviour {
     #region PrivateVariables
 
     /// <summary>
     ///   - Array of point objects that make up this curve
     ///   - Populated through editor
     /// </summary>
-    [SerializeField]
+    [UnityEngine.SerializeField]
     BezierPoint[] _points = new BezierPoint[0];
 
     #endregion
@@ -32,7 +28,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     ///   - used for drawing the curve in the editor
     ///   - used for calculating the "length" variable
     /// </summary>
-    [SerializeField]
+    [UnityEngine.SerializeField]
     int _resolution = 30;
 
     /// <summary>
@@ -43,9 +39,9 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     /// </value>
     public bool Dirty { get; private set; }
 
-    [SerializeField] Color _draw_color = Color.white;
+    [UnityEngine.SerializeField] UnityEngine.Color _draw_color = UnityEngine.Color.white;
 
-    [SerializeField] bool _draw_curve = true;
+    [UnityEngine.SerializeField] bool _draw_curve = true;
 
     #endregion
 
@@ -58,7 +54,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     ///   "points" array
     ///   - setting this value will cause the curve to become dirty
     /// </summary>
-    [SerializeField]
+    [UnityEngine.SerializeField]
     bool _close;
 
     public bool Close {
@@ -104,7 +100,9 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
         if (this.Dirty) {
           this._length = 0;
           for (var i = 0; i < this._points.Length - 1; i++) {
-            this._length += ApproximateLength(p1 : this._points[i], p2 : this._points[i + 1], resolution : this._resolution);
+            this._length += ApproximateLength(p1 : this._points[i],
+                                              p2 : this._points[i + 1],
+                                              resolution : this._resolution);
           }
 
           if (this.Close) {
@@ -126,7 +124,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
 
     void OnDrawGizmos() {
       if (this.enabled) {
-        Gizmos.color = this._draw_color;
+        UnityEngine.Gizmos.color = this._draw_color;
         if (!this._draw_curve) {
           this._draw_color.a = 0;
         } else if (this._draw_curve) {
@@ -139,7 +137,9 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
           }
 
           if (this.Close) {
-            DrawCurve(p1 : this._points[this._points.Length - 1], p2 : this._points[0], resolution : this._resolution);
+            DrawCurve(p1 : this._points[this._points.Length - 1],
+                      p2 : this._points[0],
+                      resolution : this._resolution);
           }
         }
       }
@@ -158,7 +158,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     ///   - The point to add.
     /// </param>
     public void AddPoint(BezierPoint point) {
-      var temp_array = new List<BezierPoint>(collection : this._points) {point};
+      var temp_array = new System.Collections.Generic.List<BezierPoint>(collection : this._points) {point};
       this._points = temp_array.ToArray();
       this.Dirty = true;
     }
@@ -172,8 +172,8 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     /// <param name='position'>
     ///   - Where to add the point
     /// </param>
-    public BezierPoint AddPointAt(Vector3 position) {
-      var point_object = new GameObject(name : "Point " + this.PointCount);
+    public BezierPoint AddPointAt(UnityEngine.Vector3 position) {
+      var point_object = new UnityEngine.GameObject(name : "Point " + this.PointCount);
       point_object.transform.parent = this.transform;
       point_object.transform.position = position;
 
@@ -190,7 +190,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     ///   - The point to remove
     /// </param>
     public void RemovePoint(BezierPoint point) {
-      var temp_array = new List<BezierPoint>(collection : this._points);
+      var temp_array = new System.Collections.Generic.List<BezierPoint>(collection : this._points);
       temp_array.Remove(item : point);
       this._points = temp_array.ToArray();
       this.Dirty = false;
@@ -215,7 +215,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     /// <param name='t'>
     ///   - Value between 0 and 1 representing the percent along the curve (0 = 0%, 1 = 100%)
     /// </param>
-    public Vector3 GetPointAt(float t) {
+    public UnityEngine.Vector3 GetPointAt(float t) {
       if (t <= 0) {
         return this._points[0].Position;
       }
@@ -301,7 +301,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
 
       for (var i = 1; i < limit; i++) {
         var current_point = GetPoint(p1 : p1, p2 : p2, t : i / res);
-        Gizmos.DrawLine(@from : last_point, to : current_point);
+        UnityEngine.Gizmos.DrawLine(@from : last_point, to : current_point);
         last_point = current_point;
       }
     }
@@ -322,13 +322,13 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     /// <param name='t'>
     ///   - Value between 0 and 1 representing the percent along the curve (0 = 0%, 1 = 100%)
     /// </param>
-    public static Vector3 GetPoint(BezierPoint p1, BezierPoint p2, float t) {
+    public static UnityEngine.Vector3 GetPoint(BezierPoint p1, BezierPoint p2, float t) {
       if (p1 == null || p2 == null) {
-        return Vector3.back;
+        return UnityEngine.Vector3.back;
       }
 
-      if (p1.Handle2 != Vector3.zero) {
-        if (p2.Handle1 != Vector3.zero) {
+      if (p1.Handle2 != UnityEngine.Vector3.zero) {
+        if (p2.Handle1 != UnityEngine.Vector3.zero) {
           return GetCubicCurvePoint(p1 : p1.Position,
                                     p2 : p1.GlobalHandle2,
                                     p3 : p2.GlobalHandle1,
@@ -342,7 +342,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
                                       t : t);
       }
 
-      if (p2.Handle1 != Vector3.zero) {
+      if (p2.Handle1 != UnityEngine.Vector3.zero) {
         return GetQuadraticCurvePoint(p1 : p1.Position,
                                       p2 : p2.GlobalHandle1,
                                       p3 : p2.Position,
@@ -373,13 +373,17 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     /// <param name='t'>
     ///   - Value between 0 and 1 representing the percent along the curve (0 = 0%, 1 = 100%)
     /// </param>
-    public static Vector3 GetCubicCurvePoint(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, float t) {
-      t = Mathf.Clamp01(value : t);
+    public static UnityEngine.Vector3 GetCubicCurvePoint(UnityEngine.Vector3 p1,
+                                                         UnityEngine.Vector3 p2,
+                                                         UnityEngine.Vector3 p3,
+                                                         UnityEngine.Vector3 p4,
+                                                         float t) {
+      t = UnityEngine.Mathf.Clamp01(value : t);
 
-      var part1 = Mathf.Pow(f : 1 - t, p : 3) * p1;
-      var part2 = 3 * Mathf.Pow(f : 1 - t, p : 2) * t * p2;
-      var part3 = 3 * (1 - t) * Mathf.Pow(f : t, p : 2) * p3;
-      var part4 = Mathf.Pow(f : t, p : 3) * p4;
+      var part1 = UnityEngine.Mathf.Pow(f : 1 - t, p : 3) * p1;
+      var part2 = 3 * UnityEngine.Mathf.Pow(f : 1 - t, p : 2) * t * p2;
+      var part3 = 3 * (1 - t) * UnityEngine.Mathf.Pow(f : t, p : 2) * p3;
+      var part4 = UnityEngine.Mathf.Pow(f : t, p : 3) * p4;
 
       return part1 + part2 + part3 + part4;
     }
@@ -402,12 +406,15 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     /// <param name='t'>
     ///   - Value between 0 and 1 representing the percent along the curve (0 = 0%, 1 = 100%)
     /// </param>
-    public static Vector3 GetQuadraticCurvePoint(Vector3 p1, Vector3 p2, Vector3 p3, float t) {
-      t = Mathf.Clamp01(value : t);
+    public static UnityEngine.Vector3 GetQuadraticCurvePoint(UnityEngine.Vector3 p1,
+                                                             UnityEngine.Vector3 p2,
+                                                             UnityEngine.Vector3 p3,
+                                                             float t) {
+      t = UnityEngine.Mathf.Clamp01(value : t);
 
-      var part1 = Mathf.Pow(f : 1 - t, p : 2) * p1;
+      var part1 = UnityEngine.Mathf.Pow(f : 1 - t, p : 2) * p1;
       var part2 = 2 * (1 - t) * t * p2;
-      var part3 = Mathf.Pow(f : t, p : 2) * p3;
+      var part3 = UnityEngine.Mathf.Pow(f : t, p : 2) * p3;
 
       return part1 + part2 + part3;
     }
@@ -428,7 +435,10 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     /// <param name='t'>
     ///   - Value between 0 and 1 representing the percent along the line (0 = 0%, 1 = 100%)
     /// </param>
-    public static Vector3 GetLinearPoint(Vector3 p1, Vector3 p2, float t) { return p1 + (p2 - p1) * t; }
+    public static UnityEngine.Vector3
+        GetLinearPoint(UnityEngine.Vector3 p1, UnityEngine.Vector3 p2, float t) {
+      return p1 + (p2 - p1) * t;
+    }
 
     /// <summary>
     ///   - Gets point 't' percent along n-order curve
@@ -442,15 +452,17 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     /// <param name='points'>
     ///   - The points used to define the curve
     /// </param>
-    public static Vector3 GetPoint(float t, params Vector3[] points) {
-      t = Mathf.Clamp01(value : t);
+    public static UnityEngine.Vector3 GetPoint(float t, params UnityEngine.Vector3[] points) {
+      t = UnityEngine.Mathf.Clamp01(value : t);
 
       var order = points.Length - 1;
-      var point = Vector3.zero;
+      var point = UnityEngine.Vector3.zero;
 
       for (var i = 0; i < points.Length; i++) {
         var vector_to_add = points[points.Length - i - 1]
-                            * (BinomialCoefficient(i : i, n : order) * Mathf.Pow(f : t, p : order - i) * Mathf.Pow(f : 1 - t, p : i));
+                            * (BinomialCoefficient(i : i, n : order)
+                               * UnityEngine.Mathf.Pow(f : t, p : order - i)
+                               * UnityEngine.Mathf.Pow(f : 1 - t, p : i));
         point += vector_to_add;
       }
 
@@ -490,7 +502,9 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
 
     #region UtilityFunctions
 
-    static int BinomialCoefficient(int i, int n) { return Factoral(i : n) / (Factoral(i : i) * Factoral(i : n - i)); }
+    static int BinomialCoefficient(int i, int n) {
+      return Factoral(i : n) / (Factoral(i : i) * Factoral(i : n - i));
+    }
 
     static int Factoral(int i) {
       if (i == 0) {

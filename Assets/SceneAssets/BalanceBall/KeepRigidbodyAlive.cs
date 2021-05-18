@@ -1,13 +1,10 @@
-﻿using UnityEngine;
-
-namespace SceneAssets.BalanceBall {
+﻿namespace SceneAssets.BalanceBall {
   /// <summary>
-  ///
   /// </summary>
-  [RequireComponent(requiredComponent : typeof(Rigidbody))]
-  public class KeepRigidbodyAlive : MonoBehaviour {
-    Rigidbody _rb;
-    void Awake() { this._rb = this.GetComponent<Rigidbody>(); }
+  [UnityEngine.RequireComponent(requiredComponent : typeof(UnityEngine.Rigidbody))]
+  public class KeepRigidbodyAlive : UnityEngine.MonoBehaviour {
+    UnityEngine.Rigidbody _rb;
+    void Awake() { this._rb = this.GetComponent<UnityEngine.Rigidbody>(); }
 
     void FixedUpdate() {
       if (this._rb.IsSleeping()) {

@@ -1,17 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using droid.Runtime.Utilities.Orientation;
-using SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps;
-using UnityEngine;
-
-namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
-  public class GraspableObject : MonoBehaviour,
-                                 IMotionTracker {
+﻿namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
+  public class GraspableObject : UnityEngine.MonoBehaviour,
+                                 droid.Runtime.Utilities.Orientation.IMotionTracker {
     //[SerializeField] bool _draw_grasp = true;
-    [SerializeField] Vector3 _last_recorded_move;
-    [SerializeField] Quaternion _last_recorded_rotation;
-    [SerializeField] Vector3 _previous_position;
-    [SerializeField] Quaternion _previous_rotation;
+    [UnityEngine.SerializeField] UnityEngine.Vector3 _last_recorded_move;
+    [UnityEngine.SerializeField] UnityEngine.Quaternion _last_recorded_rotation;
+    [UnityEngine.SerializeField] UnityEngine.Vector3 _previous_position;
+    [UnityEngine.SerializeField] UnityEngine.Quaternion _previous_rotation;
+
+    void Start() {
+      this.UpdatePreviousTranform();
+      this.UpdateLastRecordedTranform();
+      //SetVisiblity(false);
+    }
+
+    void Update() { this.UpdatePreviousTranform(); }
 
     //[Space (height : 1)] [Header (header : "Scalars")]
     //[SerializeField]  int _floor_distance_scalar = 1;
@@ -24,8 +26,10 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
     }
 
     public bool IsInMotion(float sensitivity) {
-      var distance_moved = Vector3.Distance(a : this.transform.position, b : this._last_recorded_move);
-      var angle_rotated = Quaternion.Angle(a : this.transform.rotation, b : this._last_recorded_rotation);
+      var distance_moved =
+          UnityEngine.Vector3.Distance(a : this.transform.position, b : this._last_recorded_move);
+      var angle_rotated =
+          UnityEngine.Quaternion.Angle(a : this.transform.rotation, b : this._last_recorded_rotation);
       if (distance_moved > sensitivity || angle_rotated > sensitivity) {
         this.UpdateLastRecordedTranform();
         return true;
@@ -44,16 +48,10 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
       this._last_recorded_rotation = this.transform.rotation;
     }
 
-    void Start() {
-      this.UpdatePreviousTranform();
-      this.UpdateLastRecordedTranform();
-      //SetVisiblity(false);
-    }
-
-    void Update() { this.UpdatePreviousTranform(); }
-
-    Grasp[] GetGrasps() {
-      var grasps = this.gameObject.GetComponentsInChildren<Grasp>();
+    SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps.Grasp[] GetGrasps() {
+      var grasps = this.gameObject
+                       .GetComponentsInChildren<
+                           SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps.Grasp>();
       return grasps;
     }
 
@@ -63,31 +61,36 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
       }
     }
 
-    void ChangeIndicatorColor(Grasp grasp, Color color) {
-      foreach (var child in grasp.GetComponentsInChildren<MeshRenderer>()) {
+    void ChangeIndicatorColor(SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps.Grasp grasp,
+                              UnityEngine.Color color) {
+      foreach (var child in grasp.GetComponentsInChildren<UnityEngine.MeshRenderer>()) {
         child.material.SetColor("_Color1", value : color);
       }
     }
 
     //Main function
     //return grip vector/transform with highest score
-    public Tuple<Grasp, float> GetOptimalGrasp(ScriptedGrasping grasping) {
+    public System.Tuple<SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps.Grasp, float>
+        GetOptimalGrasp(ScriptedGrasping grasping) {
       var grasps = this.GetGrasps();
-      var unobstructed_grasps = new List<Grasp>();
+      var unobstructed_grasps =
+          new System.Collections.Generic.List<SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps.Grasp
+          >();
 
       foreach (var grasp in grasps) {
         if (!grasp.IsObstructed()) {
           unobstructed_grasps.Add(item : grasp);
-          this.ChangeIndicatorColor(grasp : grasp, color : Color.yellow);
+          this.ChangeIndicatorColor(grasp : grasp, color : UnityEngine.Color.yellow);
         } else {
-          this.ChangeIndicatorColor(grasp : grasp, color : Color.red);
+          this.ChangeIndicatorColor(grasp : grasp, color : UnityEngine.Color.red);
         }
       }
 
-      Grasp optimal_grasp = null;
+      SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps.Grasp optimal_grasp = null;
       var shortest_distance = float.MaxValue;
       foreach (var grasp in unobstructed_grasps) {
-        var distance = Vector3.Distance(a : grasp.transform.position, b : grasping.transform.position);
+        var distance =
+            UnityEngine.Vector3.Distance(a : grasp.transform.position, b : grasping.transform.position);
         if (distance <= shortest_distance) {
           shortest_distance = distance;
           optimal_grasp = grasp;
@@ -95,8 +98,10 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
       }
 
       if (optimal_grasp != null) {
-        this.ChangeIndicatorColor(grasp : optimal_grasp, color : Color.green);
-        return new Tuple<Grasp, float>(item1 : optimal_grasp, item2 : shortest_distance);
+        this.ChangeIndicatorColor(grasp : optimal_grasp, color : UnityEngine.Color.green);
+        return new
+            System.Tuple<SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps.Grasp, float
+            >(item1 : optimal_grasp, item2 : shortest_distance);
       }
 
       return null;
@@ -173,10 +178,12 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts {
   }
   */
     //Distance from hand - Score
-    Dictionary<GameObject, float> DistanceToHandScore(GameObject hand,
-                                                      Dictionary<GameObject, float> grab_dict) {
+    System.Collections.Generic.Dictionary<UnityEngine.GameObject, float> DistanceToHandScore(
+        UnityEngine.GameObject hand,
+        System.Collections.Generic.Dictionary<UnityEngine.GameObject, float> grab_dict) {
       foreach (var pair in grab_dict) {
-        var distance = Vector3.Distance(a : pair.Key.transform.position, b : hand.transform.position);
+        var distance =
+            UnityEngine.Vector3.Distance(a : pair.Key.transform.position, b : hand.transform.position);
         grab_dict[key : pair.Key] += distance;
       }
 

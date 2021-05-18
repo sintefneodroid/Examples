@@ -1,6 +1,3 @@
-using System;
-using UnityEngine;
-
 namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
   /// <inheritdoc />
   /// <summary>
@@ -9,8 +6,8 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
   ///   - Handles adding/removing self from curve point lists
   ///   - Calls SetDirty() on curve when edited
   /// </summary>
-  [Serializable]
-  public class BezierPoint : MonoBehaviour {
+  [System.SerializableAttribute]
+  public class BezierPoint : UnityEngine.MonoBehaviour {
     #region PublicEnumerations
 
     /// <summary>
@@ -32,7 +29,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     /// <summary>
     ///   - Used to determine if this point has moved since the last frame
     /// </summary>
-    Vector3 _last_position;
+    UnityEngine.Vector3 _last_position;
 
     #endregion
 
@@ -53,7 +50,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     ///   - Curve this point belongs to
     ///   - Changing this value will automatically remove this point from the current curve and add it to the new one
     /// </summary>
-    [SerializeField]
+    [UnityEngine.SerializeField]
     BezierCurve _curve;
 
     public BezierCurve Curve {
@@ -79,7 +76,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     /// <value>
     ///   - The point's world position
     /// </value>
-    public Vector3 Position {
+    public UnityEngine.Vector3 Position {
       get { return this.transform.position; }
       set { this.transform.position = value; }
     }
@@ -90,7 +87,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     /// <value>
     ///   - The point's local position.
     /// </value>
-    public Vector3 LocalPosition {
+    public UnityEngine.Vector3 LocalPosition {
       get { return this.transform.localPosition; }
       set { this.transform.localPosition = value; }
     }
@@ -100,10 +97,10 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     ///   - Setting this value will cause the curve to become dirty
     ///   - This handle effects the curve generated from this point and the point proceeding it in curve.points
     /// </summary>
-    [SerializeField]
-    Vector3 _handle1;
+    [UnityEngine.SerializeField]
+    UnityEngine.Vector3 _handle1;
 
-    public Vector3 Handle1 {
+    public UnityEngine.Vector3 Handle1 {
       get { return this._handle1; }
       set {
         if (this._handle1 == value) {
@@ -127,7 +124,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     ///   - Setting this value will cause the curve to become dirty
     ///   - This handle effects the curve generated from this point and the point proceeding it in curve.points
     /// </summary>
-    public Vector3 GlobalHandle1 {
+    public UnityEngine.Vector3 GlobalHandle1 {
       get { return this.transform.TransformPoint(position : this.Handle1); }
       set { this.Handle1 = this.transform.InverseTransformPoint(position : value); }
     }
@@ -137,10 +134,10 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     ///   - Setting this value will cause the curve to become dirty
     ///   - This handle effects the curve generated from this point and the point coming after it in curve.points
     /// </summary>
-    [SerializeField]
-    Vector3 _handle2;
+    [UnityEngine.SerializeField]
+    UnityEngine.Vector3 _handle2;
 
-    public Vector3 Handle2 {
+    public UnityEngine.Vector3 Handle2 {
       get { return this._handle2; }
       set {
         if (this._handle2 == value) {
@@ -164,7 +161,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Scripts.Navigation {
     ///   - Setting this value will cause the curve to become dirty
     ///   - This handle effects the curve generated from this point and the point coming after it in curve.points
     /// </summary>
-    public Vector3 GlobalHandle2 {
+    public UnityEngine.Vector3 GlobalHandle2 {
       get { return this.transform.TransformPoint(position : this.Handle2); }
       set { this.Handle2 = this.transform.InverseTransformPoint(position : value); }
     }

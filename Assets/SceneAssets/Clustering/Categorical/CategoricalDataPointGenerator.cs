@@ -1,38 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using droid.Runtime.Interfaces;
-using droid.Runtime.Messaging.Messages;
-using droid.Runtime.Prototyping.Configurables;
-
-using droid.Runtime.Structs.Space.Sample;
-
-using UnityEngine;
-
-namespace SceneAssets.Clustering.Categorical {
+﻿namespace SceneAssets.Clustering.Categorical {
   /// <inheritdoc />
-  ///  <summary>
-  ///  </summary>
-  public class CategoricalDataPointGenerator : Configurable {
-    [SerializeField] SampleSpace3[] distributions;
+  /// <summary>
+  /// </summary>
+  public class CategoricalDataPointGenerator : droid.Runtime.Prototyping.Configurables.Configurable {
+    [UnityEngine.SerializeField] droid.Runtime.Structs.Space.Sample.SampleSpace3[] distributions;
 
-    [SerializeField] int data_points_per_category = 2000;
+    [UnityEngine.SerializeField] int data_points_per_category = 2000;
 
-    [SerializeField] Dictionary<string, GameObject> categories = new Dictionary<string, GameObject>();
+    [UnityEngine.SerializeField]
+    System.Collections.Generic.Dictionary<string, UnityEngine.GameObject> categories =
+        new System.Collections.Generic.Dictionary<string, UnityEngine.GameObject>();
 
-    [SerializeField]
-    Dictionary<string, List<DataPoint>> data_points = new Dictionary<string, List<DataPoint>>();
+    [UnityEngine.SerializeField]
+    System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<DataPoint>> data_points =
+        new System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<DataPoint>>();
 
     /// <inheritdoc />
     /// <summary>
     /// </summary>
     /// <param name="configuration"></param>
-    public override void ApplyConfiguration(IConfigurableConfiguration configuration) { return; }
+    public override void
+        ApplyConfiguration(droid.Runtime.Interfaces.IConfigurableConfiguration configuration) { }
 
     /// <inheritdoc />
     /// <summary>
     /// </summary>
     /// <returns></returns>
-    public override Configuration[] SampleConfigurations() { return new Configuration[] { }; }
+    public override droid.Runtime.Messaging.Messages.Configuration[] SampleConfigurations() {
+      return new droid.Runtime.Messaging.Messages.Configuration[] { };
+    }
 
     /// <inheritdoc />
     /// <summary>
@@ -49,11 +45,12 @@ namespace SceneAssets.Clustering.Categorical {
 
     void ResampleDataPoints() {
       if (this.categories == null) {
-        this.categories = new Dictionary<string, GameObject>();
+        this.categories = new System.Collections.Generic.Dictionary<string, UnityEngine.GameObject>();
       }
 
       if (this.data_points == null) {
-        this.data_points = new Dictionary<string, List<DataPoint>>();
+        this.data_points =
+            new System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<DataPoint>>();
       }
 
       foreach (var data_point in this.data_points) {
@@ -72,13 +69,13 @@ namespace SceneAssets.Clustering.Categorical {
 
       for (var index = 0; index < this.distributions.Length; index++) {
         var cat_name = $"category{index}";
-        var cat_go = new GameObject(name : cat_name);
+        var cat_go = new UnityEngine.GameObject(name : cat_name);
         cat_go.transform.parent = this.transform;
         cat_go.transform.position = this.distributions[index].Space.Mean;
         var sample_space3 = this.distributions[index];
-        var list = new List<DataPoint>();
+        var list = new System.Collections.Generic.List<DataPoint>();
         for (var i = 0; i < this.data_points_per_category; i++) {
-          var go = new GameObject();
+          var go = new UnityEngine.GameObject();
           go.transform.parent = cat_go.transform;
           go.transform.position = sample_space3.Sample();
           var dp = go.AddComponent<CategoricalDataPoint>();

@@ -1,79 +1,78 @@
-﻿using System.Collections;
-using droid.Runtime.GameObjects.ChildSensors;
-using droid.Runtime.Utilities;
-using SceneAssets.Experiments.ScriptedManipulator.Scripts;
-using SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps;
-using Unity.Mathematics;
-using UnityEngine;
-using NeodroidUtilities = droid.Runtime.Utilities.Extensions.NeodroidUtilities;
-
-namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
+﻿namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
   /// <summary>
-  ///
   /// </summary>
-  public class GraspTimedRespawn : MonoBehaviour {
-    [SerializeField] bool _debugging = false;
-    [SerializeField] Grasp _grasp = null;
-    [SerializeField] GraspableObject _graspable_object = null;
-    [SerializeField] ScriptedGrasping _grasping = null;
-    [SerializeField] Vector3 _initial_position = Vector3.zero;
-    [SerializeField] Quaternion _initial_rotation = quaternion.identity;
-    [SerializeField] Rigidbody[] _rigid_bodies = null;
-    [SerializeField] Rigidbody _rigid_body = null;
-    WaitForSeconds _wait_for_seconds = new WaitForSeconds(.5f);
+  public class GraspTimedRespawn : UnityEngine.MonoBehaviour {
+    [UnityEngine.SerializeField] bool _debugging = false;
+
+    [UnityEngine.SerializeField]
+    SceneAssets.Experiments.ScriptedManipulator.Scripts.Grasps.Grasp _grasp = null;
+
+    [UnityEngine.SerializeField]
+    SceneAssets.Experiments.ScriptedManipulator.Scripts.GraspableObject _graspable_object = null;
+
+    [UnityEngine.SerializeField]
+    SceneAssets.Experiments.ScriptedManipulator.Scripts.ScriptedGrasping _grasping = null;
+
+    [UnityEngine.SerializeField] UnityEngine.Vector3 _initial_position = UnityEngine.Vector3.zero;
+
+    [UnityEngine.SerializeField]
+    UnityEngine.Quaternion _initial_rotation = Unity.Mathematics.quaternion.identity;
+
+    [UnityEngine.SerializeField] UnityEngine.Rigidbody[] _rigid_bodies = null;
+    [UnityEngine.SerializeField] UnityEngine.Rigidbody _rigid_body = null;
+    UnityEngine.WaitForSeconds _wait_for_seconds = new UnityEngine.WaitForSeconds(.5f);
 
     // Use this for initialization
     void Start() {
       if (!this._graspable_object) {
-        this._graspable_object = this.GetComponent<GraspableObject>();
+        this._graspable_object =
+            this.GetComponent<SceneAssets.Experiments.ScriptedManipulator.Scripts.GraspableObject>();
       }
 
       if (!this._grasping) {
-        this._grasping = FindObjectOfType<ScriptedGrasping>();
+        this._grasping =
+            FindObjectOfType<SceneAssets.Experiments.ScriptedManipulator.Scripts.ScriptedGrasping>();
       }
 
       this._grasp = this._graspable_object.GetOptimalGrasp(grasping : this._grasping).Item1;
-      this._rigid_body = this._grasp.GetComponentInParent<Rigidbody>();
-      this._rigid_bodies = this._graspable_object.GetComponentsInChildren<Rigidbody>();
+      this._rigid_body = this._grasp.GetComponentInParent<UnityEngine.Rigidbody>();
+      this._rigid_bodies = this._graspable_object.GetComponentsInChildren<UnityEngine.Rigidbody>();
       var transform1 = this._rigid_body.transform;
       this._initial_position = transform1.position;
       this._initial_rotation = transform1.rotation;
 
-      NeodroidRegistrationUtilities
-          .RegisterCollisionTriggerCallbacksOnChildren<ChildCollider3DSensor, Collider, Collision>(caller : this,
-                                                                                                   parent : this
-                                                                                                       .transform,
-                                                                                                   on_collision_enter_child : this
-                                                                                                       .OnCollisionEnterChild,
-                                                                                                   on_trigger_enter_child : this
-                                                                                                       .OnTriggerEnterChild,
-                                                                                                   on_collision_exit_child : this
-                                                                                                       .OnCollisionExitChild,
-                                                                                                   on_trigger_exit_child : this
-                                                                                                       .OnTriggerExitChild,
-                                                                                                   on_collision_stay_child : this
-                                                                                                       .OnCollisionStayChild,
-                                                                                                   on_trigger_stay_child : this
-                                                                                                       .OnTriggerStayChild,
-                                                                                                   debug : this
-                                                                                                       ._debugging);
+      droid.Runtime.Utilities.NeodroidRegistrationUtilities
+           .RegisterCollisionTriggerCallbacksOnChildren<
+               droid.Runtime.GameObjects.ChildSensors.ChildCollider3DSensor, UnityEngine.Collider,
+               UnityEngine.Collision>(caller : this,
+                                      parent : this.transform,
+                                      on_collision_enter_child : this.OnCollisionEnterChild,
+                                      on_trigger_enter_child : this.OnTriggerEnterChild,
+                                      on_collision_exit_child : this.OnCollisionExitChild,
+                                      on_trigger_exit_child : this.OnTriggerExitChild,
+                                      on_collision_stay_child : this.OnCollisionStayChild,
+                                      on_trigger_stay_child : this.OnTriggerStayChild,
+                                      debug : this._debugging);
     }
 
-    void OnTriggerStayChild(GameObject child_game_object, Collider col) { }
+    // Update is called once per frame
+    void Update() { }
 
-    void OnCollisionStayChild(GameObject child_game_object, Collision collision) { }
+    void OnTriggerStayChild(UnityEngine.GameObject child_game_object, UnityEngine.Collider col) { }
 
-    void OnCollisionEnterChild(GameObject child_game_object, Collision collision) {
+    void OnCollisionStayChild(UnityEngine.GameObject child_game_object, UnityEngine.Collision collision) { }
+
+    void OnCollisionEnterChild(UnityEngine.GameObject child_game_object, UnityEngine.Collision collision) {
       if (collision.gameObject.CompareTag("Floor")) {
         this.StopCoroutine(methodName : nameof(this.RespawnObject));
         this.StartCoroutine(methodName : nameof(this.RespawnObject));
       }
     }
 
-    IEnumerator RespawnObject() {
+    System.Collections.IEnumerator RespawnObject() {
       yield return this._wait_for_seconds;
       this.StopCoroutine(methodName : nameof(this.MakeObjectVisible));
-      this._graspable_object.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
+      this._graspable_object.GetComponentInChildren<UnityEngine.SkinnedMeshRenderer>().enabled = false;
       var transform1 = this._rigid_body.transform;
       transform1.position = this._initial_position;
       transform1.rotation = this._initial_rotation;
@@ -105,26 +104,23 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
       //_rigid_body.WakeUp ();
     }
 
-    IEnumerator MakeObjectVisible() {
+    System.Collections.IEnumerator MakeObjectVisible() {
       yield return this._wait_for_seconds;
       var transform1 = this._rigid_body.transform;
       transform1.position = this._initial_position;
       transform1.rotation = this._initial_rotation;
       this.WakeUpRigidBodies();
-      this._graspable_object.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
+      this._graspable_object.GetComponentInChildren<UnityEngine.SkinnedMeshRenderer>().enabled = true;
     }
 
-    void OnTriggerEnterChild(GameObject child_game_object, Collider col) { }
+    void OnTriggerEnterChild(UnityEngine.GameObject child_game_object, UnityEngine.Collider col) { }
 
-    void OnCollisionExitChild(GameObject child_game_object, Collision collision) {
+    void OnCollisionExitChild(UnityEngine.GameObject child_game_object, UnityEngine.Collision collision) {
       if (collision.gameObject.CompareTag("Floor")) {
         this.StopCoroutine(methodName : nameof(this.RespawnObject));
       }
     }
 
-    void OnTriggerExitChild(GameObject child_game_object, Collider col) { }
-
-    // Update is called once per frame
-    void Update() { }
+    void OnTriggerExitChild(UnityEngine.GameObject child_game_object, UnityEngine.Collider col) { }
   }
 }

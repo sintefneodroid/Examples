@@ -1,19 +1,19 @@
-﻿using UnityEngine;
-using UnityEngine.Rendering;
-
-namespace SceneAssets.Experiments.Walker2d {
+﻿namespace SceneAssets.Experiments.Walker2d {
   /// <inheritdoc />
   /// <summary>
   /// </summary>
-  [RequireComponent(requiredComponent : typeof(SpriteRenderer)), ExecuteAlways]
-  public class SpriteShadow : MonoBehaviour {
-    [SerializeField] bool receive_shadows = true;
-    [SerializeField] ShadowCastingMode cast_shadows = ShadowCastingMode.On;
+  [UnityEngine.RequireComponent(requiredComponent : typeof(UnityEngine.SpriteRenderer))]
+  [UnityEngine.ExecuteAlways]
+  public class SpriteShadow : UnityEngine.MonoBehaviour {
+    [UnityEngine.SerializeField] bool receive_shadows = true;
 
-    SpriteRenderer _renderer;
+    [UnityEngine.SerializeField]
+    UnityEngine.Rendering.ShadowCastingMode cast_shadows = UnityEngine.Rendering.ShadowCastingMode.On;
+
+    UnityEngine.SpriteRenderer _renderer;
 
     void Awake() {
-      this._renderer = this.GetComponent<SpriteRenderer>();
+      this._renderer = this.GetComponent<UnityEngine.SpriteRenderer>();
 
       this._renderer.shadowCastingMode = this.cast_shadows;
 

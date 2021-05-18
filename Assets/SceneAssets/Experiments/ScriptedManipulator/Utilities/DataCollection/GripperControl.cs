@@ -1,43 +1,40 @@
-﻿using System.Globalization;
-using SceneAssets.Experiments.ScriptedManipulator.Scripts;
-using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
-
-namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
+﻿namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
   /// <inheritdoc />
   /// <summary>
   /// </summary>
-  public class GripperControl : MonoBehaviour {
-    [SerializeField] Text _claw1_state = null;
-    [SerializeField] Text _claw2_state = null;
-    [SerializeField] Text _env_state = null;
+  public class GripperControl : UnityEngine.MonoBehaviour {
+    [UnityEngine.SerializeField] UnityEngine.UI.Text _claw1_state = null;
+    [UnityEngine.SerializeField] UnityEngine.UI.Text _claw2_state = null;
+    [UnityEngine.SerializeField] UnityEngine.UI.Text _env_state = null;
 
-    [Space]
-    [Header("State Panel")]
-    [SerializeField]
-    Text _gripper_state = null;
+    [UnityEngine.SpaceAttribute]
+    [UnityEngine.HeaderAttribute("State Panel")]
+    [UnityEngine.SerializeField]
+    UnityEngine.UI.Text _gripper_state = null;
 
     //float gripper_target_distance;
     //int iterations;
     //int obstacle_num;
-    [SerializeField] ScriptedGrasping _pf = null;
-    [SerializeField] Text _pf_state = null;
+    [UnityEngine.SerializeField]
+    SceneAssets.Experiments.ScriptedManipulator.Scripts.ScriptedGrasping _pf = null;
 
-    [SerializeField] Slider _s_distance = null;
-    [SerializeField] Slider _s_obstacle = null;
+    [UnityEngine.SerializeField] UnityEngine.UI.Text _pf_state = null;
 
-    [SerializeField] Text _t_gripper_target_distance = null;
-    [SerializeField] Text _t_obstacle_num = null;
-    [SerializeField] Text _t_waiting = null;
+    [UnityEngine.SerializeField] UnityEngine.UI.Slider _s_distance = null;
+    [UnityEngine.SerializeField] UnityEngine.UI.Slider _s_obstacle = null;
 
-    [SerializeField] Targets _target;
-    [SerializeField] Text _target_state = null;
+    [UnityEngine.SerializeField] UnityEngine.UI.Text _t_gripper_target_distance = null;
+    [UnityEngine.SerializeField] UnityEngine.UI.Text _t_obstacle_num = null;
+    [UnityEngine.SerializeField] UnityEngine.UI.Text _t_waiting = null;
+
+    [UnityEngine.SerializeField] Targets _target;
+    [UnityEngine.SerializeField] UnityEngine.UI.Text _target_state = null;
 
     void Start() {
-      this._pf = FindObjectOfType<ScriptedGrasping>();
+      this._pf = FindObjectOfType<SceneAssets.Experiments.ScriptedManipulator.Scripts.ScriptedGrasping>();
       this._t_gripper_target_distance.text = this._s_distance.value.ToString("0.00");
-      this._t_obstacle_num.text = this._s_obstacle.value.ToString(provider : CultureInfo.InvariantCulture);
+      this._t_obstacle_num.text =
+          this._s_obstacle.value.ToString(provider : System.Globalization.CultureInfo.InvariantCulture);
       this._t_waiting.text = "";
     }
 
@@ -49,7 +46,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
       this._claw1_state.text = this._pf.State.Claw1State.ToString();
       this._claw2_state.text = this._pf.State.Claw2State.ToString();
       this._t_waiting.text = this._pf.State.PathFindingState == PathFindingState.Waiting_for_target_
-                                 ? $"Detecting movement\nWaiting..."
+                                 ? "Detecting movement\nWaiting..."
                                  : "";
     }
 
@@ -58,11 +55,12 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
     }
 
     public void ObstacleSlider() {
-      this._t_obstacle_num.text = this._s_obstacle.value.ToString(provider : CultureInfo.InvariantCulture);
+      this._t_obstacle_num.text =
+          this._s_obstacle.value.ToString(provider : System.Globalization.CultureInfo.InvariantCulture);
     }
 
     public void ChooseTarget() {
-      switch (EventSystem.current.currentSelectedGameObject.name) {
+      switch (UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name) {
         case "Sill":
           this._target = Targets.Sill_;
           break;
@@ -76,7 +74,7 @@ namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
           break;
       }
 
-      Debug.Log(message : "Target = " + this._target);
+      UnityEngine.Debug.Log(message : "Target = " + this._target);
     }
 
     enum Targets {

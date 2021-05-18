@@ -1,9 +1,11 @@
-using UnityEngine;
-using UnityEngine.Serialization;
-
 namespace SceneAssets.Games.Creatures2 {
-  [RequireComponent(requiredComponent : typeof(Rigidbody))]
-  public class LaserBehaviour : MonoBehaviour {
+  [UnityEngine.RequireComponent(requiredComponent : typeof(UnityEngine.Rigidbody))]
+  public class LaserBehaviour : UnityEngine.MonoBehaviour {
+    // we want to store the laser's velocity every frame
+    // so we can use this data during collisions to reflect
+    public UnityEngine.Vector3 _OldVelocity;
+
+    UnityEngine.Rigidbody _rb;
     //public float fireSpeed = 2f;
 
     void Start() {
@@ -12,14 +14,8 @@ namespace SceneAssets.Games.Creatures2 {
 
       // freeze the rotation so it doesnt go spinning after a collision
       //rigidbody.freezeRotation = true;
-      this._rb = this.GetComponent<Rigidbody>();
+      this._rb = this.GetComponent<UnityEngine.Rigidbody>();
     }
-
-    // we want to store the laser's velocity every frame
-    // so we can use this data during collisions to reflect
-    public Vector3 _OldVelocity;
-
-    Rigidbody _rb;
 
     void FixedUpdate() {
       // because we want the velocity after physics, we put this in fixed update
@@ -27,7 +23,7 @@ namespace SceneAssets.Games.Creatures2 {
     }
 
     // when a collision happens
-    void OnCollisionEnter(Collision collision) {
+    void OnCollisionEnter(UnityEngine.Collision collision) {
       // get the point of contact
       //ContactPoint contact = collision.contacts[0];
 
@@ -36,7 +32,7 @@ namespace SceneAssets.Games.Creatures2 {
 
       // assign the reflected velocity back to the rigidbody
       //rigidbody.velocity = reflectedVelocity;
-      // rotate the object by the same ammount we changed its velocity
+      // rotate the object by the same amount we changed its velocity
       //Quaternion rotation = Quaternion.FromToRotation(oldVelocity, reflectedVelocity);
       //transform.rotation = rotation * transform.rotation;
     }

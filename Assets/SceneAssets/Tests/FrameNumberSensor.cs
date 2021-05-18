@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using droid.Runtime.Prototyping.Sensors.Experimental;
+﻿namespace SceneAssets.Tests {
+  public class FrameNumberSensor : droid.Runtime.Prototyping.Sensors.Experimental.SingleValueSensor {
+    public override System.Collections.Generic.IEnumerable<float> FloatEnumerable {
+      get { yield return this.ParentEnvironment.StepI; }
+    }
 
-namespace SceneAssets.Tests {
-  public class FrameNumberSensor : SingleValueSensor {
-    public override IEnumerable<float> FloatEnumerable { get { yield return this.ParentEnvironment.StepI; } }
     public override void UpdateObservation() { }
   }
 }
