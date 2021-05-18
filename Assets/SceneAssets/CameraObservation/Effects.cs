@@ -1,35 +1,26 @@
-﻿using UnityEngine
-using System.Collections
+﻿public class DollyZoom : UnityEngine.MonoBehaviour {
+  public UnityEngine.Transform target;
 
-public class DollyZoom : MonoBehaviour
-{
+  UnityEngine.Camera cam;
+  float distance = 0f;
+  float fov = 60;
 
-    public Transform target;
+  float viewWidth = 10f;
 
-    Camera cam;
-    float distance = 0f;
-    float fov = 60;
+  void Start() { this.cam = UnityEngine.Camera.main; }
 
-    float viewWidth = 10f;
+  void Update() {
+    var pos = this.target.transform.position;
 
-    void Start()
-    {
-        cam = Camera.main;
-    }
+    this.fov = this.cam.fieldOfView;
+    this.distance = this.viewWidth
+                    / (2f * UnityEngine.Mathf.Tan(f : 0.5f * this.fov * UnityEngine.Mathf.Deg2Rad));
 
-    void Update()
-    {
-        Vector3 pos = target.transform.position;
+    pos.z = -UnityEngine.Mathf.Abs(f : this.distance);
+    this.cam.transform.position = pos;
 
-        fov = cam.fieldOfView;
-        distance = viewWidth / (2f * Mathf.Tan(0.5f * fov * Mathf.Deg2Rad));
-
-        pos.z = -Mathf.Abs(distance);
-        cam.transform.position = pos;
-
-
-        Debug.Log(distance);
-    }
+    UnityEngine.Debug.Log(message : this.distance);
+  }
 }
 
 /*

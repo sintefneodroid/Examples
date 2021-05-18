@@ -1,6 +1,16 @@
 ###
 # Unity folders and files
 ###
+
+# Ignore all, root binaries without extensions
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+
 [Aa]ssets/AssetStoreTools*
 [Bb]uild/
 [Ll]ibrary/
@@ -29,7 +39,7 @@ sysinfo.txt
 ###
 [Ee]xportedObj/
 *.booproj
-#*.csproj
+*.csproj
 *.sln
 *.suo
 *.svd
@@ -56,3 +66,8 @@ Environments/Builds/
 *.unitypackage
 
 Assets/ScenePreviews/*.png*
+
+Logs/
+
+UserSettings/
+

@@ -1,53 +1,54 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿namespace SceneAssets.ImagePuzzler {
+  public class Puzzle : UnityEngine.MonoBehaviour {
+    [UnityEngine.SerializeField] float _default_move_duration = .2f;
+    [UnityEngine.SerializeField] Block _empty_block;
+    [UnityEngine.SerializeField] int _horisontal_divisions = 6;
 
-namespace SceneAssets.ImagePuzzler {
-  public class Puzzle : MonoBehaviour {
+    [UnityEngine.SerializeField] UnityEngine.Texture2D _image = null;
+    [UnityEngine.SerializeField] int _shuffle_length = 20;
+    [UnityEngine.SerializeField] float _shuffle_move_duration = .1f;
+    [UnityEngine.SerializeField] int _vertical_divisions = 6;
     bool _block_is_moving = false;
     Block[,] _blocks;
-    [SerializeField] float _default_move_duration = .2f;
-    [SerializeField] Block _empty_block;
-    [SerializeField] int _horisontal_divisions = 6;
-
-    [SerializeField] Texture2D _image = null;
-    Queue<Block> _inputs;
-    Vector2Int _prev_shuffle_offset;
-    [SerializeField] int _shuffle_length = 20;
-    [SerializeField] float _shuffle_move_duration = .1f;
+    System.Collections.Generic.Queue<Block> _inputs;
+    UnityEngine.Vector2Int _prev_shuffle_offset;
     int _shuffle_moves_remaining;
 
     PuzzleState _state;
-    [SerializeField] int _vertical_divisions = 6;
 
     void Start() { this.CreatePuzzle(); }
 
     void Update() {
-      if (this._state == PuzzleState.Solved_ && Input.GetKeyDown(key : KeyCode.Space)) {
+      if (this._state == PuzzleState.Solved_
+          && UnityEngine.Input.GetKeyDown(key : UnityEngine.KeyCode.Space)) {
         this.StartShuffle();
       }
     }
 
     void CreatePuzzle() {
       this._blocks = new Block[this._horisontal_divisions, this._vertical_divisions];
-      var image_slices = new Texture2D[this._horisontal_divisions, this._vertical_divisions];
+      var image_slices = new UnityEngine.Texture2D[this._horisontal_divisions, this._vertical_divisions];
       if (this._image) {
-        image_slices =
-            ImageSlicer.GetSlices(image : this._image, horisontal_divisions : this._horisontal_divisions, vertical_divisions : this._vertical_divisions);
+        image_slices = ImageSlicer.GetSlices(image : this._image,
+                                             horisontal_divisions : this._horisontal_divisions,
+                                             vertical_divisions : this._vertical_divisions);
       }
 
-      var dominant_division = Mathf.Max(a : this._vertical_divisions, b : this._horisontal_divisions);
+      var dominant_division =
+          UnityEngine.Mathf.Max(a : this._vertical_divisions, b : this._horisontal_divisions);
       //var lesser_division = Mathf.Min (this._vertical_divisions, this._horisontal_divisions);
 
       for (var y = 0; y < this._vertical_divisions; y++) {
         for (var x = 0; x < this._horisontal_divisions; x++) {
-          var block_object = GameObject.CreatePrimitive(type : PrimitiveType.Quad);
-          block_object.transform.position = -Vector2.one * (dominant_division - 1) * .5f + new Vector2(x : x, y : y);
+          var block_object = UnityEngine.GameObject.CreatePrimitive(type : UnityEngine.PrimitiveType.Quad);
+          block_object.transform.position = -UnityEngine.Vector2.one * (dominant_division - 1) * .5f
+                                            + new UnityEngine.Vector2(x : x, y : y);
           block_object.transform.parent = this.transform;
 
           var block = block_object.AddComponent<Block>();
           block.OnBlockPressed += this.PlayerMoveBlockInput;
           block.OnFinishedMoving += this.OnBlockFinishedMoving;
-          block.Init(starting_coord : new Vector2Int(x : x, y : y), image : image_slices[x, y]);
+          block.Init(starting_coord : new UnityEngine.Vector2Int(x : x, y : y), image : image_slices[x, y]);
           this._blocks[x, y] = block;
 
           if (y == 0 && x == dominant_division - 1) {
@@ -56,8 +57,8 @@ namespace SceneAssets.ImagePuzzler {
         }
       }
 
-      Camera.main.orthographicSize = dominant_division * .55f;
-      this._inputs = new Queue<Block>();
+      UnityEngine.Camera.main.orthographicSize = dominant_division * .55f;
+      this._inputs = new System.Collections.Generic.Queue<Block>();
     }
 
     void PlayerMoveBlockInput(Block block_to_move) {
@@ -112,13 +113,13 @@ namespace SceneAssets.ImagePuzzler {
     }
 
     void MakeNextShuffleMove() {
-      Vector2Int[] offsets = {
-                                 new Vector2Int(1, 0),
-                                 new Vector2Int(-1, 0),
-                                 new Vector2Int(0, 1),
-                                 new Vector2Int(0, -1)
-                             };
-      var random_index = Random.Range(0, max : offsets.Length);
+      UnityEngine.Vector2Int[] offsets = {
+                                             new UnityEngine.Vector2Int(1, 0),
+                                             new UnityEngine.Vector2Int(-1, 0),
+                                             new UnityEngine.Vector2Int(0, 1),
+                                             new UnityEngine.Vector2Int(0, -1)
+                                         };
+      var random_index = UnityEngine.Random.Range(0, maxExclusive : offsets.Length);
 
       for (var i = 0; i < offsets.Length; i++) {
         var offset = offsets[(random_index + i) % offsets.Length];
@@ -129,7 +130,8 @@ namespace SceneAssets.ImagePuzzler {
               && move_block_coord.x < this._horisontal_divisions
               && move_block_coord.y >= 0
               && move_block_coord.y < this._vertical_divisions) {
-            this.MoveBlock(block_to_move : this._blocks[move_block_coord.x, move_block_coord.y], duration : this._shuffle_move_duration);
+            this.MoveBlock(block_to_move : this._blocks[move_block_coord.x, move_block_coord.y],
+                           duration : this._shuffle_move_duration);
             this._shuffle_moves_remaining--;
             this._prev_shuffle_offset = offset;
             break;

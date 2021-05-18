@@ -6,7 +6,7 @@ using droid.Runtime.Prototyping.Configurables;
 using UnityEngine;
 using droid.Runtime.Structs.Space;
 using droid.Runtime.Structs.Space.Sample;
-using Exclude.BioIK;
+using BioIK;
 using Object = System.Object;
 
 namespace SceneAssets.Manipulator.Scripts {
@@ -16,7 +16,7 @@ namespace SceneAssets.Manipulator.Scripts {
   public class IkSolverEnablerConfigurable : Configurable {
     /// <summary>
     /// </summary>
-    public BioIK _Enablee;
+    public BioIK.BioIK _Enablee;
 
     /// <summary>
     ///
@@ -38,7 +38,7 @@ namespace SceneAssets.Manipulator.Scripts {
     public override void PreSetup() {
       base.PreSetup();
       if (!this._Enablee) {
-        this._Enablee = this.GetComponent<BioIK>();
+        this._Enablee = this.GetComponent<BioIK.BioIK>();
       }
 
       if (this._disabled_by_default) {

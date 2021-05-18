@@ -2,7 +2,7 @@
 using System;
 using UnityEditor;
 using UnityEngine;
-using Exclude.BioIK;
+using BioIK;
 
 namespace SceneAssets.Manipulator.Scripts {
   /// <inheritdoc />
@@ -41,7 +41,7 @@ namespace SceneAssets.Manipulator.Scripts {
 
       EditorGUI.BeginChangeCheck();
       {
-        EditorGUILayout.ObjectField(property : this._enablee, objType : typeof(BioIK), label : new GUIContent("Enablee"));
+        EditorGUILayout.ObjectField(property : this._enablee, objType : typeof(BioIK.BioIK), label : new GUIContent("Enablee"));
         /* var e = this._enablee.objectReferenceValue as MonoBehaviour;
          if (e != null) {
            
@@ -92,7 +92,7 @@ namespace SceneAssets.Manipulator.Scripts {
 
       foreach (var o in this.targets) {
         var s = (IkSolverEnablerConfigurable)o;
-        s._Enablee = (BioIK)this._enablee.objectReferenceValue;
+        s._Enablee = (BioIK.BioIK)this._enablee.objectReferenceValue;
       }
     }
   }

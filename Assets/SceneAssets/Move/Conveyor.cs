@@ -1,33 +1,30 @@
-using UnityEngine;
-
 namespace SceneAssets.Move {
   /// <inheritdoc />
   /// <summary>
   /// </summary>
-  [RequireComponent(requiredComponent : typeof(Renderer))]
-  public class Conveyor : MonoBehaviour {
+  [UnityEngine.RequireComponent(requiredComponent : typeof(UnityEngine.Renderer))]
+  public class Conveyor : UnityEngine.MonoBehaviour {
+    static readonly int _bump_map = UnityEngine.Shader.PropertyToID("_BumpMap");
+
     /// <summary>
-    ///
     /// </summary>
-    [SerializeField]
+    [UnityEngine.SerializeField]
     float actualVelocity = 1f;
 
     /// <summary>
-    ///
     /// </summary>
-    [SerializeField]
+    [UnityEngine.SerializeField]
     float visualVelocity = 1f;
 
-    [SerializeField] Vector3 _direction = Vector3.zero;
-    [SerializeField] float _dampening = 0.2f;
+    [UnityEngine.SerializeField] UnityEngine.Vector3 _direction = UnityEngine.Vector3.zero;
+    [UnityEngine.SerializeField] float _dampening = 0.2f;
+    [UnityEngine.SerializeField] bool use_shared = true;
     float _current_scroll = 0f;
-    Renderer _renderer = null;
-    Material _material = null;
-    static readonly int _bump_map = Shader.PropertyToID("_BumpMap");
-    [SerializeField] bool use_shared = true;
+    UnityEngine.Material _material = null;
+    UnityEngine.Renderer _renderer = null;
 
     void Start() {
-      this._renderer = this.GetComponent<Renderer>();
+      this._renderer = this.GetComponent<UnityEngine.Renderer>();
       if (this.use_shared) {
         this._material = this._renderer.sharedMaterial;
       } else {
@@ -38,8 +35,8 @@ namespace SceneAssets.Move {
     void Update() {
       // Scroll texture to fake it moving
       this._current_scroll = this._current_scroll
-                             + Time.deltaTime * this.actualVelocity * this.visualVelocity % 1.0f;
-      var offset = new Vector2(0, y : this._current_scroll);
+                             + UnityEngine.Time.deltaTime * this.actualVelocity * this.visualVelocity % 1.0f;
+      var offset = new UnityEngine.Vector2(0, y : this._current_scroll);
 
       this._material.mainTextureOffset = offset;
       this._material.SetTextureOffset(nameID : _bump_map, value : offset);
@@ -47,7 +44,7 @@ namespace SceneAssets.Move {
 
 // Anything that is touching will move
 // This function repeats as long as the object is touching
-    void OnCollisionStay(Collision other_thing) {
+    void OnCollisionStay(UnityEngine.Collision other_thing) {
       // Get the direction of the conveyor belt
       // (transform.forward is a built in Vector3
       // which is used to get the forward facing direction)

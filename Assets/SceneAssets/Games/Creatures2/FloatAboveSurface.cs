@@ -1,40 +1,22 @@
-﻿using UnityEngine;
-using UnityEngine.Serialization;
-
-namespace SceneAssets.Games.Creatures2 {
+﻿namespace SceneAssets.Games.Creatures2 {
   /// <summary>
-  ///
   /// </summary>
-  public class FloatAboveSurface : MonoBehaviour {
+  public class FloatAboveSurface : UnityEngine.MonoBehaviour {
     /// <summary>
-    ///
     /// </summary>
     public float _MinDistance = 1.1f;
 
     /// <summary>
-    ///
     /// </summary>
     public float _MaxDistance = 1.2f;
 
     /// <summary>
-    ///
     /// </summary>
     public float _MaxForce = 32.0f;
 
-    Rigidbody _rb;
+    UnityEngine.Rigidbody _rb;
 
-    void Start() { this._rb = this.GetComponent<Rigidbody>(); }
-
-    float RaycastDownwards() {
-      if (Physics.Raycast(origin : this.transform.position,
-                          direction : -this.transform.up,
-                          hitInfo : out var rch,
-                          maxDistance : this._MaxDistance)) {
-        return rch.distance;
-      }
-
-      return 100;
-    }
+    void Start() { this._rb = this.GetComponent<UnityEngine.Rigidbody>(); }
 
     void FixedUpdate() {
       var distance = this.RaycastDownwards();
@@ -50,7 +32,18 @@ namespace SceneAssets.Games.Creatures2 {
 
       var force = fractional_position * this._MaxForce;
 
-      this._rb.AddForceAtPosition(force : Vector3.up * force, position : this.transform.position);
+      this._rb.AddForceAtPosition(force : UnityEngine.Vector3.up * force, position : this.transform.position);
+    }
+
+    float RaycastDownwards() {
+      if (UnityEngine.Physics.Raycast(origin : this.transform.position,
+                                      direction : -this.transform.up,
+                                      hitInfo : out var rch,
+                                      maxDistance : this._MaxDistance)) {
+        return rch.distance;
+      }
+
+      return 100;
     }
   }
 }

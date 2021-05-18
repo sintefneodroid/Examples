@@ -1,14 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using droid.Runtime.Environments;
-using droid.Runtime.Environments.Prototyping;
-using droid.Runtime.Prototyping.ObjectiveFunctions.Spatial;
-using droid.Runtime.Prototyping.Sensors.Spatial.Grid;
-using droid.Runtime.Structs.Vectors;
-using droid.Runtime.Utilities.Grid;
-using UnityEngine;
+﻿namespace SceneAssets.GridWorlds.Scripts {
+  using Enumerable = System.Linq.Enumerable;
 
-namespace SceneAssets.GridWorlds.Scripts {
   /// <summary>
   /// </summary>
   public enum MazeDirection {
@@ -46,50 +38,70 @@ namespace SceneAssets.GridWorlds.Scripts {
 
     /// <summary>
     /// </summary>
-    static IntVector3[] _vectors = {
-                                       new IntVector3(0, 0, 1),
-                                       new IntVector3(1, 0, 0),
-                                       new IntVector3(0, 0, -1),
-                                       new IntVector3(-1, 0, 0),
-                                       new IntVector3(0, 1, 0),
-                                       new IntVector3(0, -1, 0)
-                                   };
+    static droid.Runtime.Structs.Vectors.IntVector3[] _vectors = {
+                                                                     new droid.Runtime.Structs.Vectors.
+                                                                         IntVector3(0, 0, 1),
+                                                                     new droid.Runtime.Structs.Vectors.
+                                                                         IntVector3(1, 0, 0),
+                                                                     new droid.Runtime.Structs.Vectors.
+                                                                         IntVector3(0, 0, -1),
+                                                                     new droid.Runtime.Structs.Vectors.
+                                                                         IntVector3(-1, 0, 0),
+                                                                     new droid.Runtime.Structs.Vectors.
+                                                                         IntVector3(0, 1, 0),
+                                                                     new droid.Runtime.Structs.Vectors.
+                                                                         IntVector3(0, -1, 0)
+                                                                 };
 
     /// <summary>
     /// </summary>
 
-    public static MazeDirection RandomValue { get { return (MazeDirection)Random.Range(0, max : _Count); } }
+    public static MazeDirection RandomValue {
+      get { return (MazeDirection)UnityEngine.Random.Range(0, maxExclusive : _Count); }
+    }
 
     /// <summary>
     /// </summary>
     /// <param name="direction"></param>
     /// <returns></returns>
-    public static IntVector3 ToIntVector3(this MazeDirection direction) { return _vectors[(int)direction]; }
+    public static droid.Runtime.Structs.Vectors.IntVector3 ToIntVector3(this MazeDirection direction) {
+      return _vectors[(int)direction];
+    }
   }
 
   /// <inheritdoc />
   /// <summary>
   /// </summary>
-  [RequireComponent(requiredComponent : typeof(GoalCellSensor))]
-  public class GridWorldEnvironment : ActorisedPrototypingEnvironment {
-    [SerializeField] Camera _camera = null;
-    [SerializeField] Material _empty_cell_material = null;
-    [SerializeField] Material _filled_cell_material = null;
+  [UnityEngine.RequireComponent(requiredComponent : typeof(droid.Runtime.Prototyping.Sensors.Spatial.Grid.GoalCellSensor))]
+  public class GridWorldEnvironment : droid.Runtime.Environments.Prototyping.ActorisedPrototypingEnvironment {
+    [UnityEngine.SerializeField] UnityEngine.Camera _camera = null;
+    [UnityEngine.SerializeField] UnityEngine.Material _empty_cell_material = null;
+    [UnityEngine.SerializeField] UnityEngine.Material _filled_cell_material = null;
 
-    [SerializeField] Material _goal_cell_material = null;
+    [UnityEngine.SerializeField] UnityEngine.Material _goal_cell_material = null;
 
-    [SerializeField] GoalCellSensor _goal_cell_observer = null;
-    [SerializeField] GridCell[,,] _grid = null;
-    [SerializeField] IntVector3 _grid_size = new IntVector3(vec3 : Vector3.one * 20);
-    [Range(0.0f, 0.999f)] [SerializeField] float _min_empty_cells_percentage = 0.5f;
+    [UnityEngine.SerializeField]
+    droid.Runtime.Prototyping.Sensors.Spatial.Grid.GoalCellSensor _goal_cell_observer = null;
+
+    [UnityEngine.SerializeField]
+    droid.Runtime.Structs.Vectors.IntVector3 _grid_size =
+        new droid.Runtime.Structs.Vectors.IntVector3(vec3 : UnityEngine.Vector3.one * 20);
+
+    [UnityEngine.RangeAttribute(0.0f, 0.999f)]
+    [UnityEngine.SerializeField]
+    float _min_empty_cells_percentage = 0.5f;
+
+    [UnityEngine.SerializeField] droid.Runtime.Utilities.Grid.GridCell[,,] _grid = null;
 
     /// <summary>
     /// </summary>
-    IntVector3 RandomCoordinates {
+    droid.Runtime.Structs.Vectors.IntVector3 RandomCoordinates {
       get {
-        return new IntVector3(x : Random.Range(0, max : this._grid_size.X),
-                              y : Random.Range(0, max : this._grid_size.Y),
-                              z : Random.Range(0, max : this._grid_size.Z));
+        return new
+            droid.Runtime.Structs.Vectors.IntVector3(x : UnityEngine.Random.Range(0, maxExclusive : this._grid_size.X),
+                                                     y : UnityEngine.Random.Range(0, maxExclusive : this._grid_size.Y),
+                                                     z : UnityEngine.Random.Range(0,
+                                                                                  maxExclusive : this._grid_size.Z));
       }
     }
 
@@ -99,8 +111,8 @@ namespace SceneAssets.GridWorlds.Scripts {
     /// <param name="ys"></param>
     /// <param name="zs"></param>
     /// <returns></returns>
-    GridCell[,,] GenerateFullGrid(int xs, int ys, int zs) {
-      var new_grid = new GridCell[xs, ys, zs];
+    droid.Runtime.Utilities.Grid.GridCell[,,] GenerateFullGrid(int xs, int ys, int zs) {
+      var new_grid = new droid.Runtime.Utilities.Grid.GridCell[xs, ys, zs];
       for (var i = 0; i < xs; i++) {
         for (var j = 0; j < ys; j++) {
           for (var k = 0; k < zs; k++) {
@@ -124,14 +136,17 @@ namespace SceneAssets.GridWorlds.Scripts {
     /// <param name="zs"></param>
     /// <param name="min_empty_cells_percentage"></param>
     /// <returns></returns>
-    GridCell[,,] GenerateRandomGrid(int xs, int ys, int zs, float min_empty_cells_percentage = 0.4f) {
+    droid.Runtime.Utilities.Grid.GridCell[,,] GenerateRandomGrid(int xs,
+                                                                 int ys,
+                                                                 int zs,
+                                                                 float min_empty_cells_percentage = 0.4f) {
       var empty_cells_num = 0;
-      var new_grid = new GridCell[xs, ys, zs];
+      var new_grid = new droid.Runtime.Utilities.Grid.GridCell[xs, ys, zs];
       var total_cells = (float)(xs * ys * zs);
       var percentage_empty_cells = 0f;
       while (percentage_empty_cells <= min_empty_cells_percentage) {
         var c = this.RandomCoordinates;
-        var active_cells = new List<GridCell>();
+        var active_cells = new System.Collections.Generic.List<droid.Runtime.Utilities.Grid.GridCell>();
         this.DoFirstGenerationStep(empty_cells_num : ref empty_cells_num,
                                    grid : ref new_grid,
                                    active_cells : ref active_cells,
@@ -180,9 +195,10 @@ namespace SceneAssets.GridWorlds.Scripts {
     /// <param name="ys"></param>
     /// <param name="zs"></param>
     void DoFirstGenerationStep(ref int empty_cells_num,
-                               ref GridCell[,,] grid,
-                               ref List<GridCell> active_cells,
-                               IntVector3 c,
+                               ref droid.Runtime.Utilities.Grid.GridCell[,,] grid,
+                               ref System.Collections.Generic.List<droid.Runtime.Utilities.Grid.GridCell>
+                                   active_cells,
+                               droid.Runtime.Structs.Vectors.IntVector3 c,
                                int xs,
                                int ys,
                                int zs) {
@@ -198,8 +214,9 @@ namespace SceneAssets.GridWorlds.Scripts {
     }
 
     void DoNextGenerationStep(ref int empty_cells_num,
-                              ref GridCell[,,] grid,
-                              ref List<GridCell> active_cells,
+                              ref droid.Runtime.Utilities.Grid.GridCell[,,] grid,
+                              ref System.Collections.Generic.List<droid.Runtime.Utilities.Grid.GridCell>
+                                  active_cells,
                               int xs,
                               int ys,
                               int zs) {
@@ -220,7 +237,7 @@ namespace SceneAssets.GridWorlds.Scripts {
       }
     }
 
-    bool ContainsCoordinates(IntVector3 coordinate) {
+    bool ContainsCoordinates(droid.Runtime.Structs.Vectors.IntVector3 coordinate) {
       return coordinate.X >= 0
              && coordinate.X < this._grid_size.X
              && coordinate.Y >= 0
@@ -229,7 +246,8 @@ namespace SceneAssets.GridWorlds.Scripts {
              && coordinate.Z < this._grid_size.Z;
     }
 
-    GridCell CreateEmptyCell(IntVector3 c, IntVector3 size) {
+    droid.Runtime.Utilities.Grid.GridCell CreateEmptyCell(droid.Runtime.Structs.Vectors.IntVector3 c,
+                                                          droid.Runtime.Structs.Vectors.IntVector3 size) {
       return this.CreateEmptyCell(x : c.X,
                                   y : c.Y,
                                   z : c.Z,
@@ -238,7 +256,10 @@ namespace SceneAssets.GridWorlds.Scripts {
                                   zs : size.Z);
     }
 
-    GridCell CreateEmptyCell(IntVector3 c, int xs, int ys, int zs) {
+    droid.Runtime.Utilities.Grid.GridCell CreateEmptyCell(droid.Runtime.Structs.Vectors.IntVector3 c,
+                                                          int xs,
+                                                          int ys,
+                                                          int zs) {
       return this.CreateEmptyCell(x : c.X,
                                   y : c.Y,
                                   z : c.Z,
@@ -247,33 +268,36 @@ namespace SceneAssets.GridWorlds.Scripts {
                                   zs : zs);
     }
 
-    GridCell CreateEmptyCell(int x, int y, int z, int xs, int ys, int zs) {
-      var cube = GameObject.CreatePrimitive(type : PrimitiveType.Cube);
+    droid.Runtime.Utilities.Grid.GridCell CreateEmptyCell(int x, int y, int z, int xs, int ys, int zs) {
+      var cube = UnityEngine.GameObject.CreatePrimitive(type : UnityEngine.PrimitiveType.Cube);
       cube.transform.parent = this.transform;
       cube.transform.localPosition =
-          new Vector3(x : x - xs * 0.5f + 0.5f, y : y - ys * 0.5f + 0.5f, z : z - zs * 0.5f + 0.5f);
-      var new_cell = cube.AddComponent<EmptyCell>();
+          new UnityEngine.Vector3(x : x - xs * 0.5f + 0.5f,
+                                  y : y - ys * 0.5f + 0.5f,
+                                  z : z - zs * 0.5f + 0.5f);
+      var new_cell = cube.AddComponent<droid.Runtime.Utilities.Grid.EmptyCell>();
       var n = $"EmptyCell{x}{y}{z}";
       new_cell.Setup(n : n, mat : this._empty_cell_material);
-      new_cell.GridCoordinates = new IntVector3(x : x, y : y, z : z);
+      new_cell.GridCoordinates = new droid.Runtime.Structs.Vectors.IntVector3(x : x, y : y, z : z);
       return new_cell;
     }
 
-    GridCell CreateFilledCell(int x, int y, int z, int xs, int ys, int zs) {
-      var cube = GameObject.CreatePrimitive(type : PrimitiveType.Cube);
+    droid.Runtime.Utilities.Grid.GridCell CreateFilledCell(int x, int y, int z, int xs, int ys, int zs) {
+      var cube = UnityEngine.GameObject.CreatePrimitive(type : UnityEngine.PrimitiveType.Cube);
 
       cube.transform.parent = this.transform;
       cube.transform.localPosition =
-          new Vector3(x : x - xs * 0.5f + 0.5f, y : y - ys * 0.5f + 0.5f, z : z - zs * 0.5f + 0.5f);
-      var new_cell = cube.AddComponent<FilledCell>();
+          new UnityEngine.Vector3(x : x - xs * 0.5f + 0.5f,
+                                  y : y - ys * 0.5f + 0.5f,
+                                  z : z - zs * 0.5f + 0.5f);
+      var new_cell = cube.AddComponent<droid.Runtime.Utilities.Grid.FilledCell>();
       var n = $"FilledCell{x}{y}{z}";
       new_cell.Setup(n : n, mat : this._filled_cell_material);
-      new_cell.GridCoordinates = new IntVector3(x : x, y : y, z : z);
+      new_cell.GridCoordinates = new droid.Runtime.Structs.Vectors.IntVector3(x : x, y : y, z : z);
       return new_cell;
     }
 
     /// <summary>
-    ///
     /// </summary>
     public override void PreSetup() {
       var xs = this._grid_size.X;
@@ -284,13 +308,15 @@ namespace SceneAssets.GridWorlds.Scripts {
                                            zs : zs,
                                            min_empty_cells_percentage : this._min_empty_cells_percentage);
 
-      this._goal_cell_observer = this.gameObject.GetComponent<GoalCellSensor>();
+      this._goal_cell_observer = this.gameObject
+                                     .GetComponent<droid.Runtime.Prototyping.Sensors.Spatial.Grid.
+                                         GoalCellSensor>();
 
       //this.Setup();
 
-      var dominant_dimension = Mathf.Max(xs, ys, zs);
+      var dominant_dimension = UnityEngine.Mathf.Max(xs, ys, zs);
       this._camera.orthographicSize = dominant_dimension / 2f + 1f;
-      this._camera.transform.position = new Vector3(0, y : ys / 2f + 1f, z : 0);
+      this._camera.transform.position = new UnityEngine.Vector3(0, y : ys / 2f + 1f, z : 0);
     }
 
     void NewGridWorld() {
@@ -315,23 +341,23 @@ namespace SceneAssets.GridWorlds.Scripts {
     }
 
     /// <summary>
-    ///
     /// </summary>
     public override void Setup() {
-      var empty_cells = FindObjectsOfType<EmptyCell>().ToList();
+      var empty_cells = Enumerable.ToList(source : FindObjectsOfType<droid.Runtime.Utilities.Grid.EmptyCell>());
 
-      var objective_function = this.ObjectiveFunction as ReachGoalObjective;
+      var objective_function =
+          this.ObjectiveFunction as droid.Runtime.Prototyping.ObjectiveFunctions.Spatial.ReachGoalObjective;
 
       if (empty_cells != null && empty_cells.Count > 0) {
         foreach (var a in this.Actors) {
-          var idx = Random.Range(0, max : empty_cells.Count);
+          var idx = UnityEngine.Random.Range(0, maxExclusive : empty_cells.Count);
           var empty_cell = empty_cells[index : idx];
           a.Value.CachedTransform.position = empty_cell.transform.position;
           empty_cells.RemoveAt(index : idx);
         }
 
         if (objective_function != null) {
-          var idx = Random.Range(0, max : empty_cells.Count);
+          var idx = UnityEngine.Random.Range(0, maxExclusive : empty_cells.Count);
           var empty_cell = empty_cells[index : idx];
           empty_cell.SetAsGoal("Goal", mat : this._goal_cell_material);
           this._goal_cell_observer.CurrentGoal = empty_cell;
@@ -341,7 +367,6 @@ namespace SceneAssets.GridWorlds.Scripts {
     }
 
     /// <summary>
-    ///
     /// </summary>
     public override void PostStep() {
       if (this.Terminated) {

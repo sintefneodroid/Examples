@@ -1,15 +1,13 @@
-﻿using UnityEngine;
-
-namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
+﻿namespace SceneAssets.Experiments.ScriptedManipulator.Utilities.DataCollection {
   /// <inheritdoc />
   /// <summary>
   /// </summary>
-  [ExecuteInEditMode]
-  public class BlitToMaterial : MonoBehaviour {
-    [SerializeField] Material _material = null;
+  [UnityEngine.ExecuteInEditMode]
+  public class BlitToMaterial : UnityEngine.MonoBehaviour {
+    [UnityEngine.SerializeField] UnityEngine.Material _material = null;
 
-    void OnRenderImage(RenderTexture source, RenderTexture destination) {
-      Graphics.Blit(source : source, dest : destination, mat : this._material);
+    void OnRenderImage(UnityEngine.RenderTexture source, UnityEngine.RenderTexture destination) {
+      UnityEngine.Graphics.Blit(source : source, dest : destination, mat : this._material);
     }
   }
 }

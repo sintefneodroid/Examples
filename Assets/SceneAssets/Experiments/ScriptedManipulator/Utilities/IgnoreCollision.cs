@@ -1,27 +1,27 @@
-﻿using UnityEngine;
-
-namespace SceneAssets.Experiments.ScriptedManipulator.Utilities {
+﻿namespace SceneAssets.Experiments.ScriptedManipulator.Utilities {
   /// <summary>
-  ///
   /// </summary>
-  public class IgnoreCollision : MonoBehaviour {
+  public class IgnoreCollision : UnityEngine.MonoBehaviour {
     string _a_tag = "ignored_by_sub_collider_fish";
 
-    void OnCollisionEnter(Collision collision) {
+    void OnCollisionEnter(UnityEngine.Collision collision) {
       if (collision.gameObject.CompareTag(tag : this._a_tag)) {
-        Physics.IgnoreCollision(collider1 : this.GetComponent<Collider>(), collider2 : collision.collider);
+        UnityEngine.Physics.IgnoreCollision(collider1 : this.GetComponent<UnityEngine.Collider>(),
+                                            collider2 : collision.collider);
       }
     }
 
-    void OnCollisionExit(Collision collision) {
+    void OnCollisionExit(UnityEngine.Collision collision) {
       if (collision.gameObject.CompareTag(tag : this._a_tag)) {
-        Physics.IgnoreCollision(collider1 : this.GetComponent<Collider>(), collider2 : collision.collider);
+        UnityEngine.Physics.IgnoreCollision(collider1 : this.GetComponent<UnityEngine.Collider>(),
+                                            collider2 : collision.collider);
       }
     }
 
-    void OnCollisionStay(Collision collision) {
+    void OnCollisionStay(UnityEngine.Collision collision) {
       if (collision.gameObject.CompareTag(tag : this._a_tag)) {
-        Physics.IgnoreCollision(collider1 : this.GetComponent<Collider>(), collider2 : collision.collider);
+        UnityEngine.Physics.IgnoreCollision(collider1 : this.GetComponent<UnityEngine.Collider>(),
+                                            collider2 : collision.collider);
       }
     }
   }

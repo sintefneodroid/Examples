@@ -1,19 +1,19 @@
-﻿using UnityEngine;
-
-namespace SceneAssets.Manipulator.Scripts {
+﻿namespace SceneAssets.Manipulator.Scripts {
   /// <inheritdoc />
   /// <summary>
   /// </summary>
-  public class InjectRandomRigidbodyNoise : MonoBehaviour {
-    [SerializeField] float _magnitude = 0.1f;
-    [SerializeField] ForceMode _forceMode = ForceMode.Impulse;
-    Rigidbody _rigidbody;
+  public class InjectRandomRigidbodyNoise : UnityEngine.MonoBehaviour {
+    [UnityEngine.SerializeField] float _magnitude = 0.1f;
+    [UnityEngine.SerializeField] UnityEngine.ForceMode _forceMode = UnityEngine.ForceMode.Impulse;
+    UnityEngine.Rigidbody _rigidbody;
 
-    void Start() { this._rigidbody = this.GetComponent<Rigidbody>(); }
+    void Start() { this._rigidbody = this.GetComponent<UnityEngine.Rigidbody>(); }
 
     void Update() {
-      this._rigidbody.AddForce(force : Random.insideUnitSphere * this._magnitude, mode : this._forceMode);
-      this._rigidbody.AddTorque(torque : Random.insideUnitSphere * this._magnitude, mode : this._forceMode);
+      this._rigidbody.AddForce(force : UnityEngine.Random.insideUnitSphere * this._magnitude,
+                               mode : this._forceMode);
+      this._rigidbody.AddTorque(torque : UnityEngine.Random.insideUnitSphere * this._magnitude,
+                                mode : this._forceMode);
     }
   }
 }
